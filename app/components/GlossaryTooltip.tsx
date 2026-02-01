@@ -25,6 +25,7 @@ export default function GlossaryTooltip({ href, children, glossaryData, glossary
   const [isVisible, setIsVisible] = useState(false)
   const [position, setPosition] = useState<'top' | 'bottom'>('top')
   const [tooltipCoords, setTooltipCoords] = useState<TooltipCoords | null>(null)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const linkRef = useRef<HTMLAnchorElement>(null)
   const tooltipRef = useRef<HTMLSpanElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -32,6 +33,32 @@ export default function GlossaryTooltip({ href, children, glossaryData, glossary
   // Extract the term slug from the href (e.g., /docs/glossary#transaction -> transaction)
   const slug = href.split('#')[1] || ''
   const entry = glossaryData[slug]
+
+  // Detect touch/coarse pointer (mobile) so we show tooltip on click instead of navigating
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: none)')
+    const setTouch = () => setIsTouchDevice(mq.matches)
+    setTouch()
+    mq.addEventListener('change', setTouch)
+    return () => mq.removeEventListener('change', setTouch)
+  }, [])
+
+  // On mobile: close tooltip when clicking outside
+  useEffect(() => {
+    if (!isTouchDevice || !isVisible) return
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node
+      if (
+        linkRef.current?.contains(target) ||
+        tooltipRef.current?.contains(target)
+      ) {
+        return
+      }
+      setIsVisible(false)
+    }
+    document.addEventListener('click', handleClickOutside, true)
+    return () => document.removeEventListener('click', handleClickOutside, true)
+  }, [isTouchDevice, isVisible])
 
   // Measure link position and decide top/bottom when tooltip becomes visible (no refs during render)
   useLayoutEffect(() => {
@@ -72,6 +99,12 @@ export default function GlossaryTooltip({ href, children, glossaryData, glossary
     }, 100)
   }
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (!shouldShowTooltip || !isTouchDevice) return
+    e.preventDefault()
+    setIsVisible((v) => !v)
+  }
+
   // Clean up timeout on unmount
   useEffect(() => {
     return () => {
@@ -89,10 +122,11 @@ export default function GlossaryTooltip({ href, children, glossaryData, glossary
         ref={linkRef}
         href={href}
         className="glossary-link"
-        onMouseEnter={shouldShowTooltip ? handleMouseEnter : undefined}
-        onMouseLeave={shouldShowTooltip ? handleMouseLeave : undefined}
-        onFocus={shouldShowTooltip ? handleMouseEnter : undefined}
-        onBlur={shouldShowTooltip ? handleMouseLeave : undefined}
+        onMouseEnter={shouldShowTooltip && !isTouchDevice ? handleMouseEnter : undefined}
+        onMouseLeave={shouldShowTooltip && !isTouchDevice ? handleMouseLeave : undefined}
+        onFocus={shouldShowTooltip && !isTouchDevice ? handleMouseEnter : undefined}
+        onBlur={shouldShowTooltip && !isTouchDevice ? handleMouseLeave : undefined}
+        onClick={handleClick}
         aria-describedby={shouldShowTooltip && isVisible ? `glossary-tooltip-${slug}` : undefined}
       >
         {children}

@@ -13,7 +13,7 @@ export type SearchResult = {
   snippet: string
 }
 
-export const SNIPPET_LEN = 120
+export const SNIPPET_LEN = 80
 export const MAX_RESULTS = 20
 export const DEBOUNCE_MS = 180
 export const MIN_QUERY_LEN = 2

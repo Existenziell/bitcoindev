@@ -82,9 +82,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             aria-label="Go to documentation overview"
             title="Documentation overview"
           >
-            <BookOpenIcon className="w-5 h-5" />
+            <SearchIcon className="flex-shrink-0 w-6 h-6 text-gray-500 dark:text-gray-400" />
           </Link>
-          <SearchIcon className="flex-shrink-0 w-6 h-6 text-gray-500 dark:text-gray-400" />
           <input
             ref={inputRef}
             type="search"
@@ -108,7 +107,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             <XIcon className="w-6 h-6" />
           </button>
         </div>
-        <div className="max-h-[min(60vh,400px)] overflow-y-auto">
+        <div className="max-h-[min(60vh,400px)] overflow-y-auto overflow-x-hidden">
           {loading ||
           (query.length > 0 && query.length < MIN_QUERY_LEN) ||
           (query.length >= MIN_QUERY_LEN && results.length === 0) ? (
@@ -120,7 +119,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               className="py-8 text-center text-secondary text-sm"
             />
           ) : results.length > 0 ? (
-            <ul className="py-2" role="listbox">
+            <ul className="py-2 min-w-0" role="listbox">
               {results.map((r, i) => (
                 <SearchResultItem
                   key={r.path + r.title}
@@ -130,14 +129,14 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   onMouseEnter={() => setSelectedIndex(i)}
                   onClick={onClose}
                   refTarget="li"
-                  linkClassName={`flex gap-3 px-4 py-2.5 text-left transition-colors no-underline hover:no-underline ${
+                  linkClassName={`flex gap-3 px-4 py-2.5 text-left transition-colors no-underline hover:no-underline block w-full min-w-0 ${
                     i === selectedIndex
                       ? 'bg-btc/20 dark:bg-btc/25 text-gray-900 dark:text-gray-200'
                       : 'text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
-                  iconClassName="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  iconClassName="w-5 h-5 mt-0.5 text-gray-500 dark:text-gray-400"
                   sectionLabel={getSearchResultSectionLabel(r.path, r.section, sectionTitle)}
-                  snippetClassName="truncate"
+                  snippetClassName="line-clamp-2 md:line-clamp-none md:truncate"
                 />
               ))}
             </ul>
