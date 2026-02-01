@@ -1,5 +1,6 @@
 /**
- * Generate URL-safe slug from text. Shared by generate-glossary-data and generate-search-index.
+ * Generate URL-safe slug from text.
+ * Used by: generate-glossary-data, generate-search-index, MarkdownRenderer, GlossaryRenderer.
  */
 function generateSlug(text) {
   return text

@@ -19,6 +19,7 @@ const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), 
 })
 import { ChevronDown, ExternalLinkIcon } from '@/app/components/Icons'
 import { useGlossary } from '@/app/contexts/GlossaryContext'
+import { generateSlug } from '@/scripts/lib/slug'
 
 interface MarkdownRendererProps {
   content: string
@@ -116,16 +117,6 @@ function parseCodeGroups(content: string): { processedContent: string; codeGroup
 
 function parseDenominationCalculator(content: string): string {
   return content.replace(/:::denomination-calculator\s*\n([\s\S]*?)\n:::/g, '<div data-denomination-calculator="true"></div>')
-}
-
-// Generate slug from text (same as GitHub markdown)
-function generateSlug(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/[\s_-]+/g, '-') // Replace spaces, underscores, and multiple hyphens with single hyphen
-    .replace(/^-+|-+$/g, '') // Remove leading/trailing hyphens
 }
 
 function extractText(children: React.ReactNode): string {

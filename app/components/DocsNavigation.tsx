@@ -3,10 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { navItems, docsNavLinksTop, docsNavLinksBottom, type HeadingsByPath } from '@/app/utils/navigation'
-import headingsByPathData from '@/public/data/headings.json'
-
-const headingsByPath = headingsByPathData as HeadingsByPath
+import { navItems, docsNavLinksTop, docsNavLinksBottom } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronRight, PanelCollapseIcon, PanelExpandIcon } from '@/app/components/Icons'
 
@@ -195,13 +192,7 @@ export default function DocsNavigation({
                   </div>
                   {hasChildren && expanded && (
                     <ul className="ml-7 mt-1 space-y-0">
-                      {item.children!.map((child) => {
-                        const subsections =
-                          child.href === pathname && headingsByPath[pathname]
-                            ? headingsByPath[pathname]
-                            : []
-                        const filteredSubsections = subsections.filter((h) => !['Related Topics', 'References'].includes(h.title))
-                        return (
+                      {item.children!.map((child) => (
                           <li key={child.href}>
                             <Link
                               href={child.href}
@@ -210,24 +201,8 @@ export default function DocsNavigation({
                             >
                               {child.title}
                             </Link>
-                            {filteredSubsections.length > 0 && (
-                              <ul className="ml-5 mt-1 space-y-0" aria-label="On this page">
-                                {filteredSubsections.map((h) => (
-                                  <li key={h.slug}>
-                                    <Link
-                                      href={`${pathname}#${h.slug}`}
-                                      className={getLinkClassName(false, 'sm')}
-                                      onClick={onLinkClick}
-                                    >
-                                      {h.title}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
                           </li>
-                        )
-                      })}
+                      ))}
                     </ul>
                   )}
                 </li>

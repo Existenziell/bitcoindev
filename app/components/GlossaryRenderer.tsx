@@ -7,6 +7,7 @@ import rehypeRaw from 'rehype-raw'
 import Link from 'next/link'
 import { ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
 import relatedArticles from '@/app/docs/glossary/related-articles.json'
+import { generateSlug } from '@/scripts/lib/slug'
 
 interface GlossaryRendererProps {
   content: string
@@ -22,15 +23,6 @@ interface GlossarySection {
   letter: string
   slug: string
   entries: GlossaryEntry[]
-}
-
-function generateSlug(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 function parseGlossaryContent(content: string): GlossarySection[] {
