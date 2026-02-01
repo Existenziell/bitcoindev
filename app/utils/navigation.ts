@@ -28,7 +28,6 @@ export interface NavSection {
 
 export const docPages: DocPage[] = [
   { path: '/docs/fundamentals', mdFile: 'app/docs/fundamentals/overview.md', title: 'Bitcoin Fundamentals', section: 'fundamentals' },
-  { path: '/docs/fundamentals/faq', mdFile: 'app/docs/fundamentals/faq/faq.md', title: 'Beginner Questions', section: 'fundamentals' },
   { path: '/docs/fundamentals/problems', mdFile: 'app/docs/fundamentals/problems/problems.md', title: 'Problems Bitcoin Solved', section: 'fundamentals' },
   { path: '/docs/fundamentals/cypherpunk-philosophy', mdFile: 'app/docs/fundamentals/cypherpunk-philosophy/cypherpunk-philosophy.md', title: 'Cypherpunk Philosophy', section: 'fundamentals' },
   { path: '/docs/fundamentals/blockchain', mdFile: 'app/docs/fundamentals/blockchain/blockchain.md', title: 'The Blockchain', section: 'fundamentals' },
