@@ -395,24 +395,6 @@ Fees fluctuate based on:
 
 ---
 
-## Best Practices
-
-### For Users
-
-1. **Use fee estimation**: Don't guess fees
-2. **Choose appropriate priority**: Don't overpay for non-urgent transactions
-3. **Use SegWit/Taproot**: Lower fees for same functionality
-4. **Monitor mempool**: Check current conditions before sending
-
-### For Developers
-
-1. **Implement fee estimation**: Use APIs or RPC
-2. **Support RBF**: Allow fee bumping
-3. **Handle fee errors**: Gracefully handle insufficient fees
-4. **Test fee logic**: Verify calculations are correct
-
----
-
 ## Related Topics
 
 - [Mempool](/docs/mining/mempool) - Where transactions wait

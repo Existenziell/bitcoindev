@@ -567,25 +567,12 @@ Always validate checksums before using an address - all libraries provide valida
 
 ## Best Practices
 
-### Address Generation
-
-1. **Use Established Libraries**: Don't implement encoding yourself
-2. **Validate After Generation**: Always verify the generated address
-3. **Use Appropriate Types**: Prefer SegWit/Taproot for lower fees
-4. **Test on Testnet**: Verify address generation works correctly
-
 ### Address Handling
 
 1. **Case Sensitivity**: Bech32 is case-insensitive, Base58 is case-sensitive
 2. **Display Formatting**: Consider QR codes for long addresses
 3. **Copy Protection**: Use checksums to detect copy errors
 4. **Network Verification**: Always verify mainnet vs testnet
-
-### Security
-
-1. **Never Reuse Addresses**: Generate new addresses for each transaction
-2. **Verify Derivation Paths**: Ensure consistent paths across wallet imports
-3. **Backup Seeds**: Addresses can be regenerated from seeds
 
 ---
 

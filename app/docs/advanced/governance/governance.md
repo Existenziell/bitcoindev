@@ -135,24 +135,6 @@ Process:
 
 ---
 
-## Best Practices
-
-### For Proposers
-
-1. **Write clear BIPs**: Document thoroughly
-2. **Get feedback**: Engage with community
-3. **Test thoroughly**: Extensive testing before activation
-4. **Be patient**: Changes take time
-
-### For Community
-
-1. **Participate**: Review proposals, provide feedback
-2. **Run nodes**: Your node validates rules
-3. **Stay informed**: Follow development discussions
-4. **Be respectful**: Constructive debate
-
----
-
 ## Related Topics
 
 - [BIPs](/docs/history/bips) - Bitcoin Improvement Proposals

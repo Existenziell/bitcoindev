@@ -31,88 +31,15 @@ flowchart LR
   Created --> Signed --> Broadcast --> Mempool --> Pending --> Confirmed --> Deep
 ```
 
-### 1. Created
-
-Transaction is constructed but not signed:
-
-```text
-Status: Created
-- Inputs selected
-- Outputs defined
-- Fees calculated
-- Not yet signed
-```
-
-### 2. Signed
-
-Private keys sign the transaction:
-
-```text
-Status: Signed
-- All inputs signed
-- Transaction valid
-- Ready to broadcast
-- Still local only
-```
-
-### 3. Broadcast
-
-Transaction sent to network:
-
-```text
-Status: Broadcast
-- Sent to peer nodes
-- Propagating across network
-- Not yet in mempool
-- May be rejected
-```
-
-### 4. Mempool
-
-Transaction accepted by nodes:
-
-```text
-Status: In Mempool
-- Validated by nodes
-- Waiting for miner selection
-- Can be replaced (RBF)
-- Can be dropped (low fee)
-```
-
-### 5. Pending
-
-Transaction included in block:
-
-```text
-Status: Pending (0 confirmations)
-- Included in block
-- Block not yet confirmed
-- Can be reversed (reorg)
-- Not yet final
-```
-
-### 6. Confirmed
-
-Block with transaction confirmed:
-
-```text
-Status: Confirmed (1+ confirmations)
-- Block added to chain
-- Increasingly secure
-- Reversal very expensive
-- Generally considered final
-```
-
-### 7. Deeply Confirmed
-
-Many confirmations:
-
-```text
-Status: Deeply Confirmed (6+ confirmations)
-- Extremely secure
-- Reversal practically impossible
-- Standard for high-value transactions
-```
+| State | Description |
+|-------|--------------|
+| **1. Created** | Inputs selected, outputs defined, fees set—not yet signed. |
+| **2. Signed** | All inputs signed; valid and ready to broadcast, still local only. |
+| **3. Broadcast** | Sent to peers, propagating; not in mempool yet, may be rejected. |
+| **4. Mempool** | Validated by nodes, waiting for inclusion; replaceable (RBF) or droppable (low fee). |
+| **5. Pending** | In a block with 0 confirmations; reversible by reorg, not final. |
+| **6. Confirmed** | 1+ confirmations; on chain, increasingly secure, generally final. |
+| **7. Deeply Confirmed** | 6+ confirmations; extremely secure, reversal practically impossible; standard for high value. |
 
 ---
 

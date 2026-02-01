@@ -167,13 +167,6 @@ broadcast(final_tx)
 
 ## Best Practices
 
-### Security
-
-- **Never hardcode keys**: Use secure storage and environment variables
-- **Validate all inputs**: Especially addresses and amounts
-- **Use established libraries**: Don't roll your own cryptographic code
-- **Test thoroughly**: Always test on testnet/signet before mainnet
-
 ### Transaction Construction
 
 - **Calculate fees properly**: Too low = stuck, too high = waste

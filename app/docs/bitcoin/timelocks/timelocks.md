@@ -318,23 +318,6 @@ Force Close:
 
 ---
 
-## Best Practices
-
-### For Developers
-
-1. **Use appropriate timelocks**: Don't lock funds too long
-2. **Test timelock logic**: Verify conditions work correctly
-3. **Handle timelock expiry**: Plan for what happens after unlock
-4. **Consider median time**: CSV uses median time, not block time
-
-### For Users
-
-1. **Understand lock duration**: Know when funds become available
-2. **Plan ahead**: Don't lock funds you need immediately
-3. **Verify timelocks**: Check that conditions are correct
-
----
-
 ## Related Topics
 
 - [Bitcoin Script](/docs/bitcoin/script) - Script system overview
