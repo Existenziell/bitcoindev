@@ -34,7 +34,6 @@ export function isTool(path: string): boolean {
 }
 
 export function getSearchResultIcon(path: string): React.ComponentType<IconComponentProps> {
-  if (path.startsWith('/docs/glossary#')) return BookOpenIcon
   if (path.startsWith('/docs/history/people#')) return UserIcon
   const toolIcon = TOOL_ICON_BY_PATH[path]
   if (toolIcon) return toolIcon
@@ -56,11 +55,10 @@ interface SearchResultIconProps extends IconComponentProps {
 }
 
 /**
- * Renders the appropriate icon for a search result (glossary, people, tool, or document).
+ * Renders the appropriate icon for a search result (people, tool, or document).
  * Use in SearchModal and DocsSearch for consistent result icons.
  */
 export function SearchResultIcon({ path, className, ...props }: SearchResultIconProps) {
-  if (path.startsWith('/docs/glossary#')) return <BookOpenIcon className={className} {...props} />
   if (path.startsWith('/docs/history/people#')) return <UserIcon className={className} {...props} />
   if (path === '/terminal') return <TerminalIcon className={className} {...props} />
   if (path === '/stack-lab') return <StackLabIcon className={className} {...props} />

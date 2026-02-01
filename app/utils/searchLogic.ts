@@ -132,10 +132,7 @@ type Row = SearchResult & { rank: number }
 function deduplicateResults(rows: Row[]): Row[] {
   const _resultPaths = new Set(rows.map(r => r.path))
   const filtered: Row[] = []
-  const overviewPagesToCheck = [
-    '/docs/history/people',
-    '/docs/glossary',
-  ]
+  const overviewPagesToCheck = ['/docs/history/people']
 
   for (const row of rows) {
     // Check if this is an overview page that should be excluded
@@ -144,20 +141,10 @@ function deduplicateResults(rows: Row[]): Row[] {
       if (row.path === overviewPath) {
         // Check if we have specific child results
         if (overviewPath === '/docs/history/people') {
-          // Check if any people# results exist
-          const hasSpecificPeople = rows.some(r => 
+          const hasSpecificPeople = rows.some(r =>
             r.path.startsWith('/docs/history/people#') && r.path !== overviewPath
           )
           if (hasSpecificPeople) {
-            shouldExclude = true
-            break
-          }
-        } else if (overviewPath === '/docs/glossary') {
-          // Check if any glossary# results exist
-          const hasSpecificGlossary = rows.some(r => 
-            r.path.startsWith('/docs/glossary#') && r.path !== overviewPath
-          )
-          if (hasSpecificGlossary) {
             shouldExclude = true
             break
           }
@@ -231,7 +218,6 @@ export function search(
 
   const pageRows: Row[] = []
   const peopleRows: Row[] = []
-  const glossaryRows: Row[] = []
 
   // Track high-ranking results for early termination
   let highRankCount = 0
@@ -262,9 +248,7 @@ export function search(
       if (row.rank >= HIGH_RANK_THRESHOLD) {
         highRankCount++
       }
-      if (rec.path.startsWith('/docs/glossary#')) {
-        glossaryRows.push(row)
-      } else if (rec.path.startsWith('/docs/history/people#')) {
+      if (rec.path.startsWith('/docs/history/people#')) {
         peopleRows.push(row)
       } else {
         pageRows.push(row)
@@ -273,7 +257,7 @@ export function search(
 
     // Early termination: if we have enough high-ranking results and processed enough entries
     // This is a heuristic - we still want to check a reasonable number of entries
-    if (highRankCount >= MAX_RESULTS && (pageRows.length + peopleRows.length + glossaryRows.length) >= EARLY_TERMINATION_THRESHOLD) {
+    if (highRankCount >= MAX_RESULTS && (pageRows.length + peopleRows.length) >= EARLY_TERMINATION_THRESHOLD) {
       break
     }
   }
@@ -281,10 +265,9 @@ export function search(
   // Sort by rank (highest first)
   pageRows.sort((a, b) => b.rank - a.rank)
   peopleRows.sort((a, b) => b.rank - a.rank)
-  glossaryRows.sort((a, b) => b.rank - a.rank)
 
-  // Combine results: pages first, then people, then glossary
-  const allResults = [...pageRows, ...peopleRows, ...glossaryRows]
+  // Combine results: pages first, then people
+  const allResults = [...pageRows, ...peopleRows]
 
   // Deduplicate overview pages
   const deduplicated = deduplicateResults(allResults)

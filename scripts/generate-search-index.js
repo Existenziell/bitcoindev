@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Build script to generate a search index from md-content, glossary, and docPages.
- * Run after generate-md-content and generate-glossary-data in prebuild.
+ * Build script to generate a search index from md-content and docPages.
+ * Run after generate-md-content in prebuild.
  *
  * Run with: ./scripts/generate-search-index.js or node scripts/generate-search-index.js
  */
@@ -12,12 +12,10 @@ const { parseDocPages } = require('./lib/parse-doc-pages')
 const { excerpt, parsePeopleSections, stripMarkdown } = require('./lib/search-index-helpers')
 
 const mdPath = path.join(__dirname, '../public/data/md-content.json')
-const glossaryPath = path.join(__dirname, '../public/data/glossary.json')
 const navPath = path.join(__dirname, '../app/utils/navigation.ts')
 const outPath = path.join(__dirname, '../public/data/search-index.json')
 
 const mdContent = JSON.parse(fs.readFileSync(mdPath, 'utf-8'))
-const glossary = JSON.parse(fs.readFileSync(glossaryPath, 'utf-8'))
 const navContent = fs.readFileSync(navPath, 'utf-8')
 const docPages = parseDocPages(navContent) // [{ path, mdFile, title, section }]
 
@@ -111,34 +109,6 @@ const pathKeywords = {
   '/docs/fundamentals/denominations': ['calculator', 'denomination calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations'],
 }
 
-// Optional keywords per glossary term: alternative spellings and synonyms
-const slugKeywords = {
-  'sha-256': ['sha256', 'sha 256', 'sha_256'],
-  'ripemd-160': ['ripemd160', 'ripemd 160', 'ripemd_160'],
-  'p2pkh-pay-to-pubkey-hash': ['p2pkh', 'pay-to-pubkey-hash', 'pay to pubkey hash'],
-  'p2sh-pay-to-script-hash': ['p2sh', 'pay-to-script-hash', 'pay to script hash'],
-  'p2wpkh-pay-to-witness-pubkey-hash': ['p2wpkh', 'pay-to-witness-pubkey-hash', 'pay to witness pubkey hash'],
-  'p2wsh-pay-to-witness-script-hash': ['p2wsh', 'pay-to-witness-script-hash', 'pay to witness script hash'],
-  'p2tr-pay-to-taproot': ['p2tr', 'pay-to-taproot', 'pay to taproot'],
-  'ecdsa-elliptic-curve-digital-signature-algorithm': ['ecdsa', 'elliptic curve digital signature algorithm'],
-  'bip-bitcoin-improvement-proposal': ['bip', 'bips', 'bitcoin improvement proposal', 'bitcoin improvement proposals'],
-  'htlc-hash-time-locked-contract': ['htlc', 'hash time locked contract', 'hash-time-locked-contract'],
-  'lightning-network': ['lightning network', 'ln', 'lightning'],
-  'bolt-basis-of-lightning-technology': ['bolt', 'basis of lightning technology'],
-  'spv': ['spv', 'simplified payment verification'],
-  'hd-wallet-hierarchical-deterministic-wallet': ['hd wallet', 'hierarchical deterministic wallet', 'hd wallets'],
-  'rpc-remote-procedure-call': ['rpc', 'remote procedure call'],
-  'psbt-partially-signed-bitcoin-transaction': ['psbt', 'partially signed bitcoin transaction', 'partially signed bitcoin transactions'],
-  'mast-merkle-abstract-syntax-tree': ['mast', 'merkle abstract syntax tree', 'merkle abstract syntax trees'],
-  'musig': ['musig', 'multisig schnorr', 'multisignature schnorr'],
-  'bech32': ['bech32', 'bech32m'],
-  'base58': ['base58', 'base58check'],
-  'opcode': ['opcode', 'op code', 'op codes', 'opcodes'],
-  'mempool': ['mempool', 'memory pool', 'transaction pool'],
-  'mainnet': ['mainnet', 'main net'],
-  'testnet': ['testnet', 'test net'],
-}
-
 function addEntry(entry) {
   const out = { path: entry.path, title: entry.title, section: entry.section, body: entry.body }
   if (entry.keywords?.length) out.keywords = entry.keywords
@@ -225,18 +195,6 @@ for (const page of docPages) {
       section: page.section,
       body: body || page.title,
       keywords: pathKeywords[page.path],
-    })
-  )
-}
-
-for (const [slug, { term, definition }] of Object.entries(glossary)) {
-  index.push(
-    addEntry({
-      path: `/docs/glossary#${slug}`,
-      title: term,
-      section: 'glossary',
-      body: definition || term,
-      keywords: slugKeywords[slug],
     })
   )
 }

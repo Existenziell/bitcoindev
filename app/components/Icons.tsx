@@ -287,7 +287,7 @@ export function DocumentIcon({ className, ...props }: IconProps) {
   )
 }
 
-/** Open book. Use for search result type: glossary. */
+/** Open book. Used for document search results. */
 export function BookOpenIcon({ className, ...props }: IconProps) {
   return (
     <svg
