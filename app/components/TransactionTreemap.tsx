@@ -453,7 +453,7 @@ export default function TransactionTreemap({
           const k = 1.8
           const staggerMs =
             n <= 1 ? 0 : totalStaggerMs * (1 - ((n - 1 - animIndex) / (n - 1)) ** k)
-          const durationMs = 1000
+          const durationMs = 500
 
           return (
             <g
