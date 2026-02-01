@@ -24,30 +24,6 @@ A transaction with 6 confirmations is generally considered irreversible.
 
 ![Raw Bitcoin Transaction Bytes](/images/docs/raw-bitcoin-transacation-byte.jpg)
 
-### Components
-
-```mermaid
-flowchart TD
-  Tx[Transaction]
-  Tx --> V["Version (4 bytes)"]
-  Tx --> MF["Marker & Flag (SegWit only, 2 bytes)"]
-  Tx --> IC[Input Count varint]
-  Tx --> Inputs[Inputs]
-  Tx --> OC[Output Count varint]
-  Tx --> Outputs[Outputs]
-  Tx --> Wit[Witness SegWit only]
-  Tx --> Lock[Locktime 4 bytes]
-  Inputs --> PrevTXID["Previous TXID (32 bytes)"]
-  Inputs --> OutIdx["Output Index (4 bytes)"]
-  Inputs --> ScriptLen["Script Length (varint)"]
-  Inputs --> ScriptSig["ScriptSig (variable)"]
-  Inputs --> Seq["Sequence (4 bytes)"]
-  Outputs --> Val["Value (8 bytes)"]
-  Outputs --> OutScriptLen["Script Length (varint)"]
-  Outputs --> ScriptPubKey["ScriptPubKey (variable)"]
-  Wit --> WitData[Witness data per input]
-```
-
 **Byte Order:** Most numeric fields (version, value, locktime, sequence, output index) are encoded in [little endian](/docs/glossary#little-endian). However, transaction IDs (TXIDs) and block hashes are typically *displayed* in big endian (reversed) for readability, even though they're stored internally in little endian. When working with raw transaction data, the `[::-1]` reversal in Python (or equivalent) converts between these formats.
 
 ### Size Calculations

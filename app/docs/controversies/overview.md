@@ -14,16 +14,17 @@ Every major Bitcoin controversy teaches us something about decentralized governa
 
 Understanding these battles is essential for anyone who wants to understand Bitcoin's culture and design philosophy.
 
-| Topic | Description | Link |
-|-------|--------------|------|
-| Blocksize Wars | Scaling debate; SegWit vs larger blocks; Bitcoin Cash fork | [Blocksize Wars](/docs/controversies/blocksize-wars) |
-| OP_RETURN | Data on Bitcoin; blockspace purpose | [OP_RETURN Debate](/docs/controversies/op-return) |
-| Ordinals | Inscriptions and BRC-20; fees and permissionlessness | [Ordinals](/docs/controversies/ordinals) |
-| Energy consumption | Proof-of-work and environmental criticism | [Energy](/docs/controversies/energy-consumption) |
-| Criminal use | Bitcoin and illicit activity | [Criminal Use](/docs/controversies/criminal-use) |
-| ETF rejections | SEC rejections (2017-2023) and 2024 approvals | [ETF Rejections](/docs/controversies/etf-rejections) |
-| Mt. Gox | Exchange collapse; "not your keys, not your coins" | [Mt. Gox](/docs/controversies/mt-gox) |
-| Craig Wright | "Faketoshi" claims; UK court ruling | [Craig Wright](/docs/controversies/craig-wright) |
+---
+
+## Antifragile by Design
+
+Bitcoin is **antifragile**: a term coined by Nassim Taleb for systems that don't just survive stress, but grow stronger from it.
+
+Every attack has hardened Bitcoin's defenses. Every scam has educated its users. Every internal conflict has clarified its values. The Blocksize Wars didn't weaken Bitcoin; they proved that no corporation or mining cartel could capture it. Mt. Gox didn't kill Bitcoin; it taught a generation to hold their own keys.
+
+This is not an accident. Bitcoin's decentralized design means there's no single point of failure to attack, no CEO to arrest, no server to shut down. Attackers face a system that learns from every assault and emerges more resilient.
+
+The controversies documented here are not signs of weakness. They are evidence of antifragility in action.
 
 ---
 
@@ -82,15 +83,3 @@ These debates aren't just historical curiosities. They reveal:
 - **What Bitcoiners value**: decentralization, self-sovereignty, censorship resistance
 - **How Bitcoin evolves**: slowly, carefully, with broad consensus
 - **Why Bitcoin is resilient**: it survives attacks, scams, and internal conflicts
-
----
-
-## Antifragile by Design
-
-Bitcoin is **antifragile**: a term coined by Nassim Taleb for systems that don't just survive stress, but grow stronger from it.
-
-Every attack has hardened Bitcoin's defenses. Every scam has educated its users. Every internal conflict has clarified its values. The Blocksize Wars didn't weaken Bitcoin; they proved that no corporation or mining cartel could capture it. Mt. Gox didn't kill Bitcoin; it taught a generation to hold their own keys.
-
-This is not an accident. Bitcoin's decentralized design means there's no single point of failure to attack, no CEO to arrest, no server to shut down. Attackers face a system that learns from every assault and emerges more resilient.
-
-The controversies documented here are not signs of weakness. They are evidence of antifragility in action.

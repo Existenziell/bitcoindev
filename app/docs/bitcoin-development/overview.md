@@ -2,29 +2,6 @@
 
 This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In [Bitcoin Fundamentals](/docs/fundamentals) you learned how Bitcoin works conceptually: the [UTXO model](/docs/fundamentals/utxos), the [blockchain](/docs/fundamentals/blockchain), the [trust model](/docs/fundamentals/trust-model), and [incentives](/docs/fundamentals/incentives). Here we turn those ideas into implementation. Keys prove ownership; addresses encode spending conditions; transactions move UTXOs; and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the chain. These guides focus on hands-on implementation: constructing transactions, managing keys, generating addresses, working with PSBTs, monitoring the blockchain, and more.
 
-| Task | Page |
-|------|------|
-| Key management | [Keys](/docs/bitcoin-development/keys) |
-| Address generation | [Addresses](/docs/bitcoin-development/addresses) |
-| Transaction construction | [Transactions](/docs/bitcoin-development/transactions) |
-| PSBT (multi-party signing) | [PSBT](/docs/bitcoin-development/psbt) |
-| Blockchain monitoring | [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) |
-| Price tracking | [Price Tracking](/docs/bitcoin-development/price-tracking) |
-| Pool mining | [Pool Mining](/docs/bitcoin-development/pool-mining) |
-| Script patterns | [Script Patterns](/docs/bitcoin-development/script-patterns) |
-| Miniscript | [Miniscript](/docs/bitcoin-development/miniscript) |
-
-```mermaid
-flowchart LR
-  Keys[Keys]
-  Addr[Addresses]
-  Build[Build Tx]
-  PSBT[PSBT / Sign]
-  Broadcast[Broadcast]
-  Monitor[Monitor]
-  Keys --> Addr --> Build --> PSBT --> Broadcast --> Monitor
-```
-
 ---
 
 ## Core Development Tasks

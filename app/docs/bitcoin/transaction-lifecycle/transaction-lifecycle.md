@@ -4,10 +4,6 @@ Understanding the complete lifecycle of a Bitcoin transaction helps developers b
 
 ## Transaction Structure
 
-![Raw Bitcoin Transaction Bytes](/images/docs/raw-bitcoin-transacation-byte.jpg)
-
-![Transaction Binary Map](/images/docs/tx-binary-map.png)
-
 A Bitcoin transaction consists of:
 - **Version**: Identifies consensus rules
 - **Inputs**: References to previous transaction outputs (UTXOs)
@@ -34,10 +30,6 @@ flowchart LR
   Deep[Deeply Confirmed]
   Created --> Signed --> Broadcast --> Mempool --> Pending --> Confirmed --> Deep
 ```
-
----
-
-## State Transitions
 
 ### 1. Created
 
@@ -315,21 +307,12 @@ Orphan Transaction:
 
 ---
 
-## Best Practices
-
-### For Developers
+## Best Practices for Developers
 
 1. **Wait for confirmations**: Don't trust 0-conf for high value
 2. **Handle reorgs**: Transactions can be unconfirmed again
 3. **Monitor status**: Track transaction through lifecycle
 4. **Use RBF**: Allow fee bumping for stuck transactions
-
-### For Users
-
-1. **Be patient**: Confirmations take time
-2. **Check fees**: Low fees = slow confirmation
-3. **Verify addresses**: Double-check before sending
-4. **Use appropriate confirmations**: 6+ for large amounts
 
 ---
 

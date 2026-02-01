@@ -4,7 +4,8 @@ Bitcoin mining has a unique property: it can monetize energy that would otherwis
 
 ---
 
-![Bitcoin mine in remote Zambia](/images/docs/bitcoin-africa.webp)
+
+<img src="/images/docs/bitcoin-africa.webp" alt="Bitcoin mine in remote Zambia" width="300" 
 
 *Bitcoin mine in remote Zambia*
 

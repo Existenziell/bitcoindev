@@ -770,7 +770,7 @@
     "path": "/docs/development",
     "title": "Setup & Infrastructure",
     "section": "development",
-    "body": "Setup & Infrastructure This section covers the setup and infrastructure needed for Bitcoin development: installing Bitcoin Core, testing and debugging, working with test networks, choosing libraries, understanding node architecture, and exploring Bitcoin Core internals. Hands-on learning: Try Bitcoin RPC commands directly in the Bitcoin CLI Terminal. No node setup required. | Topic | Page | |-------|------| | Installing Bitcoin | Install Bitcoin | | Testing & debugging | Testing | | Test "
+    "body": "Setup & Infrastructure This section covers the setup and infrastructure needed for Bitcoin development: installing Bitcoin Core, testing and debugging, working with test networks, choosing libraries, understanding node architecture, and exploring Bitcoin Core internals. Hands-on learning: Try Bitcoin RPC commands directly in the Bitcoin CLI Terminal. No node setup required. Programming Languages in Bitcoin C++ (Bitcoin Core) The reference implementation of Bitcoin is written in C++. Used for: "
   },
   {
     "path": "/docs/development/install-bitcoin",
@@ -1058,7 +1058,7 @@
     "path": "/docs/adoption/stranded-energy",
     "title": "Stranded Energy and Flared Gas",
     "section": "adoption",
-    "body": "Stranded Energy and Flared Gas Bitcoin mining has a unique property: it can monetize energy that would otherwise be wasted. This creates economic value from stranded energy sources like flared natural gas, excess hydroelectric capacity, and curtailed renewable generation. Bitcoin mine in remote Zambia What is Stranded Energy? Stranded energy is energy that is produced but cannot be economically used, stored, or transmitted. Common sources include: Flared natural gas: Gas produced at oil wells "
+    "body": "Stranded Energy and Flared Gas Bitcoin mining has a unique property: it can monetize energy that would otherwise be wasted. This creates economic value from stranded energy sources like flared natural gas, excess hydroelectric capacity, and curtailed renewable generation. <img src=\"/images/docs/bitcoin-africa.webp\" alt=\"Bitcoin mine in remote Zambia\" width=\"300\" Bitcoin mine in remote Zambia What is Stranded Energy? Stranded energy is energy that is produced but cannot be economically used, "
   },
   {
     "path": "/docs/adoption/rural-communities",

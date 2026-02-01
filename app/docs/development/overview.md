@@ -4,24 +4,6 @@ This section covers the setup and infrastructure needed for Bitcoin development:
 
 > **Hands-on learning:** Try Bitcoin RPC commands directly in the [Bitcoin CLI Terminal](/terminal). No node setup required.
 
-| Topic | Page |
-|-------|------|
-| Installing Bitcoin | [Install Bitcoin](/docs/development/install-bitcoin) |
-| Testing & debugging | [Testing](/docs/development/testing) |
-| Test networks (testnet, signet, regtest) | [Test Networks](/docs/development/testnets) |
-| Libraries & SDKs | [Libraries](/docs/development/libraries) |
-| Node types & architecture | [Node Types](/docs/development/node-types) |
-| Bitcoin Core internals | [Bitcoin Core Internals](/docs/development/bitcoin-core-internals) |
-
-```mermaid
-flowchart LR
-  Install[Install Bitcoin]
-  Config[Config]
-  Testnet[Testnet]
-  Libs[Libraries / Node types]
-  Install --> Config --> Testnet --> Libs
-```
-
 ## Programming Languages in Bitcoin
 
 ### C++ (Bitcoin Core)
