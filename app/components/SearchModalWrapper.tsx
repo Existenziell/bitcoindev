@@ -1,6 +1,6 @@
 'use client'
 
-import { useSearchModal } from '@/app/contexts/SearchModalContext'
+import { useSearch } from '@/app/contexts/SearchContext'
 import SearchModal from '@/app/components/SearchModal'
 
 /**
@@ -8,6 +8,6 @@ import SearchModal from '@/app/components/SearchModal'
  * This ensures only one modal instance exists.
  */
 export default function SearchModalWrapper() {
-  const { isOpen, closeSearch } = useSearchModal()
+  const { isOpen, closeSearch } = useSearch()
   return <SearchModal isOpen={isOpen} onClose={closeSearch} />
 }

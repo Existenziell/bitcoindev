@@ -4,16 +4,16 @@ import { createContext, useContext, useState, useCallback, ReactNode } from 'rea
 import { useSearchKeyboard } from '@/app/hooks/useSearchKeyboard'
 import { loadSearchIndex } from '@/app/utils/searchIndexCache'
 
-interface SearchModalContextType {
+interface SearchContextType {
   isOpen: boolean
   openSearch: () => void
   closeSearch: () => void
   toggleSearch: () => void
 }
 
-const SearchModalContext = createContext<SearchModalContextType | undefined>(undefined)
+const SearchContext = createContext<SearchContextType | undefined>(undefined)
 
-export function SearchModalProvider({ children }: { children: ReactNode }) {
+export function SearchProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const openSearch = useCallback(() => {
@@ -45,16 +45,16 @@ export function SearchModalProvider({ children }: { children: ReactNode }) {
   useSearchKeyboard(toggleSearch)
 
   return (
-    <SearchModalContext.Provider value={{ isOpen, openSearch, closeSearch, toggleSearch }}>
+    <SearchContext.Provider value={{ isOpen, openSearch, closeSearch, toggleSearch }}>
       {children}
-    </SearchModalContext.Provider>
+    </SearchContext.Provider>
   )
 }
 
-export function useSearchModal() {
-  const context = useContext(SearchModalContext)
+export function useSearch() {
+  const context = useContext(SearchContext)
   if (context === undefined) {
-    throw new Error('useSearchModal must be used within a SearchModalProvider')
+    throw new Error('useSearch must be used within a SearchProvider')
   }
   return context
 }

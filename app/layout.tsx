@@ -12,7 +12,7 @@ import StickyBar from '@/app/components/StickyBar'
 import Notification from '@/app/components/Notification'
 import { GlossaryProvider } from '@/app/contexts/GlossaryContext'
 import { StickyScrollProvider } from '@/app/contexts/StickyScrollContext'
-import { SearchModalProvider } from '@/app/contexts/SearchModalContext'
+import { SearchProvider } from '@/app/contexts/SearchContext'
 import SearchModalWrapper from '@/app/components/SearchModalWrapper'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './utils/constants'
 
@@ -98,7 +98,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <GlossaryProvider>
             <StickyScrollProvider>
-              <SearchModalProvider>
+              <SearchProvider>
                 <Notification />
                 <div className="flex-shrink-0">
                   <Header />
@@ -110,7 +110,7 @@ export default function RootLayout({
                 <SearchModalWrapper />
                 <Analytics />
                 <SpeedInsights />
-              </SearchModalProvider>
+              </SearchProvider>
             </StickyScrollProvider>
           </GlossaryProvider>
         </ThemeProvider>

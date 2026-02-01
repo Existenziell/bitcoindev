@@ -5,12 +5,12 @@ import Breadcrumbs from '@/app/components/Breadcrumbs'
 import ThemeToggle from '@/app/components/ThemeToggle'
 import { SearchIcon } from '@/app/components/Icons'
 import { useStickyScroll } from '@/app/contexts/StickyScrollContext'
-import { useSearchModal } from '@/app/contexts/SearchModalContext'
+import { useSearch } from '@/app/contexts/SearchContext'
 
 export default function StickyBar() {
   const pathname = usePathname()
   const { isSticky, scrollDirection: _scrollDirection } = useStickyScroll()
-  const { openSearch } = useSearchModal()
+  const { openSearch } = useSearch()
   const showBreadcrumbs = Boolean(pathname && pathname !== '/')
   
   // Show search in sticky when sticky is active

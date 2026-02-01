@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import ThemeToggle from '@/app/components/ThemeToggle'
 import { SearchIcon } from '@/app/components/Icons'
 import { useStickyScroll } from '@/app/contexts/StickyScrollContext'
-import { useSearchModal } from '@/app/contexts/SearchModalContext'
+import { useSearch } from '@/app/contexts/SearchContext'
 
 const siteTitleClassName =
   'font-extrabold embossed text-6xl pl-6 hidden lg:block'
@@ -14,7 +14,7 @@ const siteTitleClassName =
 export default function Header() {
   const pathname = usePathname()
   const { isSticky, headerRef } = useStickyScroll()
-  const { openSearch } = useSearchModal()
+  const { openSearch } = useSearch()
   const showSearchInHeader = !isSticky
   const isHomePage = pathname === '/'
 
