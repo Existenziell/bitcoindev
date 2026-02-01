@@ -1,6 +1,10 @@
 # Beginner Questions
 
 The questions we all had at the start... A portal down the Bitcoin rabbit hole. We've all been there.
+If you already know the basics, feel free to proceed directly to:
+- [Problems Bitcoin Solved](/docs/fundamentals/problems)
+- [Bitcoin Protocol](/docs/bitcoin)
+- [Bitcoin Development](/docs/bitcoin-development)
 
 ---
 

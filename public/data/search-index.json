@@ -246,7 +246,7 @@
     "path": "/docs/fundamentals/faq",
     "title": "Beginner Questions",
     "section": "fundamentals",
-    "body": "Beginner Questions The questions we all had at the start... A portal down the Bitcoin rabbit hole. We've all been there. What is Bitcoin? Bitcoin is a decentralized digital currency and payment system that operates without a central authority. For a fuller introduction, see Bitcoin Fundamentals. Who created Bitcoin and why? Bitcoin was created by a person or group using the pseudonym Satoshi Nakamoto, who published the whitepaper in 2008 and launched the network in 2009. The \"why\" is rooted in "
+    "body": "Beginner Questions The questions we all had at the start... A portal down the Bitcoin rabbit hole. We've all been there. If you already know the basics, feel free to proceed directly to: Problems Bitcoin Solved Bitcoin Protocol Bitcoin Development What is Bitcoin? Bitcoin is a decentralized digital currency and payment system that operates without a central authority. For a fuller introduction, see Bitcoin Fundamentals. Who created Bitcoin and why? Bitcoin was created by a person or group using "
   },
   {
     "path": "/docs/fundamentals/problems",
