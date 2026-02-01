@@ -744,18 +744,7 @@ Stratum v1’s design (pool sends template, miner returns shares) is simple and 
 
 ### The Problem
 
-```
-Top pools control majority of hashrate:
-┌──────────────────────────────────────────┐
-│ Foundry USA     ████████████████ 31.94%  │
-│ AntPool         ███████ 14.98%           │
-│ F2Pool          ██████ 12.90%            │
-│ ViaBTC          █████ 10.32%             │
-│ SpiderPool      ███ 7.14%                │
-│ MARA Pool       ██ 5.75%                 │
-│ Others          ████████ 16.97%          │
-└──────────────────────────────────────────┘
-```
+:::pool-distribution:::
 
 **Risks**:
 - Pool operator could censor transactions

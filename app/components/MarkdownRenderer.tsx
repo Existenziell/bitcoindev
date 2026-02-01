@@ -11,6 +11,7 @@ import { visit } from 'unist-util-visit'
 import Link from 'next/link'
 import CodeBlock, { MultiLanguageCodeBlock } from '@/app/components/CodeBlock'
 import DenominationCalculator from '@/app/components/DenominationCalculator'
+import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 import GlossaryTooltip from '@/app/components/GlossaryTooltip'
 
 const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), {
@@ -117,6 +118,10 @@ function parseCodeGroups(content: string): { processedContent: string; codeGroup
 
 function parseDenominationCalculator(content: string): string {
   return content.replace(/:::denomination-calculator\s*\n([\s\S]*?)\n:::/g, '<div data-denomination-calculator="true"></div>')
+}
+
+function parsePoolDistribution(content: string): string {
+  return content.replace(/:::pool-distribution\s*:::/g, '<div data-pool-distribution="true"></div>')
 }
 
 function extractText(children: React.ReactNode): string {
@@ -252,7 +257,8 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     const { processedContent: afterMermaid, mermaidDiagrams } = parseMermaidDiagrams(content)
     const { processedContent: afterCode, codeGroups } = parseCodeGroups(afterMermaid)
     const { processedContent: afterVideo, videoGroups } = parseVideoGroups(afterCode)
-    const finalContent = parseDenominationCalculator(afterVideo)
+    const afterDenomination = parseDenominationCalculator(afterVideo)
+    const finalContent = parsePoolDistribution(afterDenomination)
     const codeGroupMap = new Map(codeGroups.map(g => [g.id, g]))
     const videoGroupMap = new Map(videoGroups.map(g => [g.id, g]))
     const mermaidDiagramMap = new Map(mermaidDiagrams.map(d => [d.id, d.source]))
@@ -292,6 +298,9 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       }
       if ('data-denomination-calculator' in props || props['data-denomination-calculator']) {
         return <DenominationCalculator />
+      }
+      if ('data-pool-distribution' in props || props['data-pool-distribution']) {
+        return <PoolDistributionChart />
       }
       return <div {...props}>{children}</div>
     },

@@ -5,6 +5,9 @@ import { processBlockData, buildBlockSnapshot, type BlockSnapshot } from '@/app/
 import { DEFAULT_LIMIT, MAX_LIMIT } from '@/app/utils/constants'
 
 const BLOCK_HISTORY_BLOB_PATH = 'block-history.json'
+const POOL_DISTRIBUTION_BLOB_PATH = 'pool-distribution.json'
+/** Number of blocks used to compute pool distribution (~2 weeks). */
+const POOL_DISTRIBUTION_WINDOW = 2016
 /** Optional public URL to read block-history from (e.g. when Vercel list() is empty in dev). */
 const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || ''
 /** Only used when blob is empty and we seed from RPC (avoid fetching entire chain). */
@@ -88,6 +91,32 @@ async function writeBlockHistoryToBlob(blocks: BlockSnapshot[]): Promise<void> {
   })
 }
 
+/** Compute pool distribution from last POOL_DISTRIBUTION_WINDOW blocks. Returns identifier -> percentage (one decimal). */
+function computePoolDistribution(blocks: BlockSnapshot[]): Record<string, number> {
+  const window = blocks.slice(0, POOL_DISTRIBUTION_WINDOW)
+  if (window.length === 0) return {}
+  const counts: Record<string, number> = {}
+  for (const b of window) {
+    const key = b.miner?.trim() || 'others'
+    counts[key] = (counts[key] ?? 0) + 1
+  }
+  const total = window.length
+  const distribution: Record<string, number> = {}
+  for (const [id, count] of Object.entries(counts)) {
+    distribution[id] = Math.round((count / total) * 1000) / 10
+  }
+  return distribution
+}
+
+/** Write pool distribution JSON to Blob. */
+async function writePoolDistributionToBlob(distribution: Record<string, number>): Promise<void> {
+  console.log('[block-history] Writing pool distribution to Blob')
+  await put(POOL_DISTRIBUTION_BLOB_PATH, JSON.stringify(distribution), {
+    access: 'public',
+    addRandomSuffix: false,
+  })
+}
+
 /** Seed Blob with last INITIAL_SEED_LIMIT blocks from RPC when blob is empty. Returns the list. */
 async function seedBlockHistoryFromRpc(): Promise<BlockSnapshot[]> {
   console.log('[block-history] Seeding from RPC...')
@@ -112,6 +141,8 @@ async function seedBlockHistoryFromRpc(): Promise<BlockSnapshot[]> {
     .filter((s): s is BlockSnapshot => Boolean(s))
 
   await writeBlockHistoryToBlob(blocks)
+  const distribution = computePoolDistribution(blocks)
+  await writePoolDistributionToBlob(distribution)
   console.log('[block-history] Seed complete:', blocks.length, 'blocks')
   return blocks
 }
@@ -218,12 +249,14 @@ export async function POST(request: NextRequest) {
       }
       const updated = [newBlock, ...missing, ...list]
       await writeBlockHistoryToBlob(updated)
+      await writePoolDistributionToBlob(computePoolDistribution(updated))
       console.log('[block-history] POST: filled gap, prepended', 1 + missing.length, 'blocks, list length', updated.length)
       return NextResponse.json({ blocks: updated })
     }
 
     const updated = [newBlock, ...list]
     await writeBlockHistoryToBlob(updated)
+    await writePoolDistributionToBlob(computePoolDistribution(updated))
     console.log('[block-history] POST: prepended block', newBlock.height, ', list length', updated.length)
 
     return NextResponse.json({ blocks: updated })
