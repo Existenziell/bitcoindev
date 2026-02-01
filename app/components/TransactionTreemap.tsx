@@ -47,6 +47,10 @@ interface TransactionTreemapProps {
   animationTrigger?: number
   /** Use equal width and height (square) from container. */
   square?: boolean
+  /** Show legend under the treemap (Color/Size = ..., Low → High). Default true. */
+  showLegend?: boolean
+  /** When true, hide the legend during fly-in / redraw so it appears only after animation. */
+  hideLegendDuringFlyIn?: boolean
 }
 
 interface TreemapNode {
@@ -66,6 +70,8 @@ export default function TransactionTreemap({
   showMetricSelector = true,
   animationTrigger,
   square = false,
+  showLegend = true,
+  hideLegendDuringFlyIn = false,
 }: TransactionTreemapProps) {
   const router = useRouter()
   const [hoveredTx, setHoveredTx] = useState<ProcessedTransaction | null>(null)
@@ -396,7 +402,7 @@ export default function TransactionTreemap({
   if (transactions.length === 0) {
     return (
       <div className="w-full h-[600px] flex items-center justify-center bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-        <p className="text-secondary">No transactions to display</p>
+        <p className="text-secondary">Loading transactions…</p>
       </div>
     )
   }
@@ -528,28 +534,29 @@ export default function TransactionTreemap({
         </div>
       )}
 
-      {/* Legend */}
-      <div className="mt-4 flex items-center justify-between text-sm flex-wrap gap-4">
-        <div className="flex items-center gap-4 flex-wrap">
-          <div className="flex items-center gap-2">
-            {sizeMetric === 'vbytes' && (
-              <div className="w-4 h-4 rounded bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-600"></div>
-            )}
-            {sizeMetric === 'fee' && (
-              <div className="w-4 h-4 rounded bg-gradient-to-r from-purple-100 via-purple-300 to-purple-600"></div>
-            )}
-            <span className="text-secondary">Color / Size = {getColorLabel()}</span>
-          </div>
-          <div className="text-secondary">
-            {sizeMetric === 'vbytes' && (
-              <>Low: {formatNumber(metricRange[0])} vB → High: {formatNumber(metricRange[1])} vB</>
-            )}
-            {sizeMetric === 'fee' && (
-              <>Low: {metricRange[0].toFixed(8)} BTC → High: {metricRange[1].toFixed(8)} BTC</>
-            )}
+      {showLegend && (!hideLegendDuringFlyIn || !shouldHideForFlyIn) && (
+        <div className="mt-4 flex items-center justify-between text-sm flex-wrap gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2">
+              {sizeMetric === 'vbytes' && (
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-600"></div>
+              )}
+              {sizeMetric === 'fee' && (
+                <div className="w-4 h-4 rounded bg-gradient-to-r from-purple-100 via-purple-300 to-purple-600"></div>
+              )}
+              <span className="text-secondary">Color / Size = {getColorLabel()}</span>
+            </div>
+            <div className="text-secondary">
+              {sizeMetric === 'vbytes' && (
+                <>Low: {formatNumber(metricRange[0])} vB → High: {formatNumber(metricRange[1])} vB</>
+              )}
+              {sizeMetric === 'fee' && (
+                <>Low: {metricRange[0].toFixed(8)} BTC → High: {metricRange[1].toFixed(8)} BTC</>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

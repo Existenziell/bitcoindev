@@ -23,6 +23,20 @@ import { BLOCKS_PAGE_SIZE } from '@/app/utils/constants'
 
 type SizeMetric = 'vbytes' | 'fee'
 
+/** Default empty block template so the page renders immediately without waiting for RPC. */
+const DEFAULT_BLOCK_TEMPLATE: ProcessedBlock = {
+  height: 0,
+  hash: 'pending',
+  timestamp: 0,
+  size: 0,
+  weight: 0,
+  txCount: 0,
+  transactions: [],
+}
+
+/** Module-level cache so we can show the last template immediately on remount. */
+let cachedTemplate: ProcessedBlock | null = null
+
 /** Build identifier -> icon filename map from pools.json (single source of truth). */
 const POOL_ICON_MAP: Record<string, string> = (() => {
   const pools = (poolsData as { pools: Array<{ identifier: string; icon?: string }> }).pools
@@ -52,13 +66,12 @@ function getRelativeTime(timestamp: number): string {
 }
 
 export default function BlockVisualizer() {
-  const [blockData, setBlockData] = useState<ProcessedBlock | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [blockData, setBlockData] = useState<ProcessedBlock>(() => cachedTemplate ?? DEFAULT_BLOCK_TEMPLATE)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [_isRefreshing, setIsRefreshing] = useState(false)
   const [previousBlocks, setPreviousBlocks] = useState<BlockSnapshot[]>([])
   const [isLoadingBlockHistory, setIsLoadingBlockHistory] = useState(false)
-  const [blockHistorySettled, setBlockHistorySettled] = useState(false)
   const [blockHistoryError, setBlockHistoryError] = useState<string | null>(null)
   const [sizeMetric, setSizeMetric] = useState<SizeMetric>('vbytes')
   const [showNewBlockNotification, setShowNewBlockNotification] = useState(false)
@@ -118,7 +131,6 @@ export default function BlockVisualizer() {
       if (!append) setPreviousBlocks([])
     } finally {
       setIsLoadingBlockHistory(false)
-      if (!append) setBlockHistorySettled(true)
     }
   }, [])
 
@@ -204,6 +216,7 @@ export default function BlockVisualizer() {
         { vsize: number; weight?: number; fee?: number; fees?: { base: number }; time?: number }
       >
       const template = processMempoolBlockData(verboseMempool, { tipHeight })
+      cachedTemplate = template
 
       setBlockData(template)
       setTreemapAnimationTrigger((t) => t + 1)
@@ -216,19 +229,18 @@ export default function BlockVisualizer() {
     }
   }, [previousBlocks])
 
-  // Load previous blocks first so layout is stable before current block (avoids treemap measuring 0 width)
+  // Load previous blocks and current block template in parallel on mount (no gate)
   useEffect(() => {
     if (typeof window === 'undefined') return
     fetchBlockHistory(null)
   }, [fetchBlockHistory])
 
-  // Initial current-block load only after previous blocks have settled (success or error)
   useEffect(() => {
-    if (!blockHistorySettled || initialCurrentBlockFetchedRef.current) return
+    if (typeof window === 'undefined' || initialCurrentBlockFetchedRef.current) return
     initialCurrentBlockFetchedRef.current = true
     fetchMempoolTemplate()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blockHistorySettled])
+  }, [])
 
   // Fetch BTC price for USD conversion in previous blocks
   useEffect(() => {
@@ -468,7 +480,12 @@ export default function BlockVisualizer() {
           </div>
         ) : null}
       </div>
-      <h2 className="heading-section-muted mt-4 mb-2">Current Block</h2>
+      <div className="flex items-center gap-2 mt-4 mb-2">
+        <h2 className="heading-section-muted">Current Block</h2>
+        {_isRefreshing && (
+          <span className="text-secondary text-sm">Updating…</span>
+        )}
+      </div>
       <div
         key={`current-block-${blockData.height}-${currentBlockDrawKey}`}
         className="flex flex-col lg:flex-row gap-4 items-stretch transition-opacity duration-300 mt-0"
@@ -504,6 +521,7 @@ export default function BlockVisualizer() {
             sizeMetric={sizeMetric}
             onSizeMetricChange={setSizeMetric}
             showMetricSelector={false}
+            hideLegendDuringFlyIn
             animationTrigger={treemapAnimationTrigger}
             square
           />

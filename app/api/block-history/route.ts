@@ -5,6 +5,8 @@ import { processBlockData, buildBlockSnapshot, type BlockSnapshot } from '@/app/
 import { DEFAULT_LIMIT, MAX_LIMIT } from '@/app/utils/constants'
 
 const BLOCK_HISTORY_BLOB_PATH = 'block-history.json'
+/** Optional public URL to read block-history from (e.g. when Vercel list() is empty in dev). */
+const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || ''
 /** Only used when blob is empty and we seed from RPC (avoid fetching entire chain). */
 const INITIAL_SEED_LIMIT = 100
 
@@ -26,8 +28,29 @@ type RawBlock = {
   }>
 }
 
-/** Read block history from Blob. Returns null if blob does not exist or parse fails. */
+/** Read block history from optional public URL. Returns null if not set or fetch fails. */
+async function readBlockHistoryFromPublicUrl(): Promise<BlockSnapshot[] | null> {
+  if (!BLOCK_HISTORY_PUBLIC_URL) return null
+  try {
+    const res = await fetch(BLOCK_HISTORY_PUBLIC_URL, { cache: 'no-store' })
+    if (!res.ok) return null
+    const data = await res.json()
+    const parsed = Array.isArray(data) ? data : Array.isArray(data?.blocks) ? data.blocks : null
+    if (!parsed || parsed.length === 0) return null
+    console.log('[block-history] Read from public URL:', parsed.length, 'blocks')
+    return parsed as BlockSnapshot[]
+  } catch (err) {
+    console.log('[block-history] readBlockHistoryFromPublicUrl error:', err)
+    return null
+  }
+}
+
+/** Read block history from Blob (or public URL when set). Returns null if not found or parse fails. */
 async function readBlockHistoryFromBlob(): Promise<BlockSnapshot[] | null> {
+  if (BLOCK_HISTORY_PUBLIC_URL) {
+    const fromUrl = await readBlockHistoryFromPublicUrl()
+    if (fromUrl !== null) return fromUrl
+  }
   try {
     const { blobs } = await list({ prefix: BLOCK_HISTORY_BLOB_PATH })
     const blob = blobs.find((b) => b.pathname === BLOCK_HISTORY_BLOB_PATH) ?? blobs[0]
@@ -107,6 +130,36 @@ function paginate(list: BlockSnapshot[], limit: number, beforeHeight: number | n
   return list.slice(0, limit)
 }
 
+/** Fetch missing blocks from RPC and write updated list to blob. Run fire-and-forget (do not await). */
+function fillGapAndWriteBlob(list: BlockSnapshot[], tipHeight: number, topHeight: number): void {
+  const missingHeights = Array.from(
+    { length: tipHeight - topHeight },
+    (_, i) => tipHeight - i
+  )
+  Promise.all(
+    missingHeights.map(async (h) => {
+      try {
+        return await fetchBlockSnapshotAtHeight(h)
+      } catch (e) {
+        console.error('[block-history] gap-fill: fetch block', h, 'failed', e)
+        return null
+      }
+    })
+  ).then((results) => {
+    const valid = results.filter((s): s is BlockSnapshot => s !== null)
+    if (valid.length !== missingHeights.length) {
+      console.error('[block-history] gap-fill: partial (got', valid.length, 'of', missingHeights.length, ')')
+      return
+    }
+    const updated = [...valid, ...list]
+    writeBlockHistoryToBlob(updated).then(() => {
+      console.log('[block-history] gap-fill: wrote', updated.length, 'blocks')
+    }).catch((err) => {
+      console.error('[block-history] gap-fill: write failed', err)
+    })
+  })
+}
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -121,32 +174,12 @@ export async function GET(request: NextRequest) {
     if (list === null) {
       list = await seedBlockHistoryFromRpc()
     } else if (list.length > 0) {
-      // If chain tip is ahead of our top block, fetch missing blocks and write to blob
       const chainInfo = await bitcoinRpcServer('getblockchaininfo')
       const tipHeight = (chainInfo as { blocks: number }).blocks
       const topHeight = list[0].height
       if (tipHeight > topHeight) {
-        console.log('[block-history] GET: gap (tip', tipHeight, ', top', topHeight, '), filling from RPC')
-        const missingHeights = Array.from(
-          { length: tipHeight - topHeight },
-          (_, i) => tipHeight - i
-        )
-        const missing: BlockSnapshot[] = []
-        for (const h of missingHeights) {
-          try {
-            missing.push(await fetchBlockSnapshotAtHeight(h))
-          } catch (e) {
-            console.error('[block-history] GET: fetch block', h, 'failed', e)
-            break
-          }
-        }
-        if (missing.length === missingHeights.length) {
-          list = [...missing, ...list]
-          await writeBlockHistoryToBlob(list)
-          console.log('[block-history] GET: filled gap, prepended', missing.length, 'blocks, list length', list.length)
-        } else {
-          console.error('[block-history] GET: gap-fill partial (got', missing.length, 'of', missingHeights.length, ')')
-        }
+        console.log('[block-history] GET: gap (tip', tipHeight, ', top', topHeight, '), filling in background')
+        fillGapAndWriteBlob(list, tipHeight, topHeight)
       }
     }
 
