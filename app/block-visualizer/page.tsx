@@ -22,8 +22,7 @@ export default function MempoolPage() {
         <p className="text-secondary text-center mb-2 max-w-2xl mx-auto">
           Explore the latest Bitcoin blocks and their transactions.
           Each rectangle represents a transaction, sized by vBytes or fee.
-          Hover over transactions to see detailed information. Click on any transaction
-          to view its inputs and outputs.
+          Click on any transaction to view its inputs and outputs.
         </p>
         <p className="text-secondary text-sm text-center max-w-2xl mx-auto">
           Observing <span className="font-semibold">Bitcoin mainnet</span> via PublicNode.
