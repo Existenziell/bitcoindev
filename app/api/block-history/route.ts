@@ -9,6 +9,8 @@ const BLOCK_HISTORY_BLOB_PATH = 'block-history.json'
 const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || ''
 /** Only used when blob is empty and we seed from RPC (avoid fetching entire chain). */
 const INITIAL_SEED_LIMIT = 100
+/** Number of blocks to fetch in parallel when filling gaps (reduces total time for large gaps). */
+const GAP_FILL_BATCH_SIZE = 15
 
 /** Revalidate cached response every 10 minutes. */
 export const revalidate = 600
@@ -184,31 +186,39 @@ export async function POST(request: NextRequest) {
     }
 
     if (list.length > 0 && newBlock.height > topHeight + 1) {
-      // Fill the entire gap so the stored list remains contiguous (no gaps).
-      console.log('[block-history] POST: gap (new', newBlock.height, ', top', topHeight, '), filling from RPC')
-      const missingHeights = Array.from(
-        { length: newBlock.height - topHeight },
-        (_, i) => newBlock.height - i
-      )
+      // Fill the entire gap so the stored list remains contiguous (no gaps). Fetch in parallel batches.
+      const gapSize = newBlock.height - topHeight - 1 // exclude tip (we already have newBlock)
+      console.log('[block-history] POST: gap (new', newBlock.height, ', top', topHeight, '), filling', gapSize, 'blocks from RPC')
+      const missingHeights: number[] = []
+      for (let h = newBlock.height - 1; h >= topHeight + 1; h--) {
+        missingHeights.push(h)
+      }
       const missing: BlockSnapshot[] = []
-      for (const h of missingHeights) {
-        try {
-          missing.push(await fetchBlockSnapshotAtHeight(h))
-        } catch (e) {
-          console.error('[block-history] POST: fetch block', h, 'failed', e)
-          break
-        }
-      }
-      if (missing.length !== missingHeights.length) {
-        console.error('[block-history] POST: gap-fill partial (got', missing.length, 'of', missingHeights.length, '), not writing')
-        return NextResponse.json(
-          { error: 'Failed to fetch all missing blocks; retry later' },
-          { status: 503 }
+      for (let i = 0; i < missingHeights.length; i += GAP_FILL_BATCH_SIZE) {
+        const batch = missingHeights.slice(i, i + GAP_FILL_BATCH_SIZE)
+        const results = await Promise.all(
+          batch.map(async (h) => {
+            try {
+              return await fetchBlockSnapshotAtHeight(h)
+            } catch (e) {
+              console.error('[block-history] POST: fetch block', h, 'failed', e)
+              return null
+            }
+          })
         )
+        const valid = results.filter((s): s is BlockSnapshot => s !== null)
+        if (valid.length !== batch.length) {
+          console.error('[block-history] POST: gap-fill partial (got', missing.length + valid.length, 'of', missingHeights.length, '), not writing')
+          return NextResponse.json(
+            { error: 'Failed to fetch all missing blocks; retry later' },
+            { status: 503 }
+          )
+        }
+        missing.push(...valid)
       }
-      const updated = [...missing, ...list]
+      const updated = [newBlock, ...missing, ...list]
       await writeBlockHistoryToBlob(updated)
-      console.log('[block-history] POST: filled gap, prepended', missing.length, 'blocks, list length', updated.length)
+      console.log('[block-history] POST: filled gap, prepended', 1 + missing.length, 'blocks, list length', updated.length)
       return NextResponse.json({ blocks: updated })
     }
 
