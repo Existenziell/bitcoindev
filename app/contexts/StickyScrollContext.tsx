@@ -18,6 +18,10 @@ export function StickyScrollProvider({ children }: { children: ReactNode }) {
   const headerHeight = useRef(0)
   const rafId = useRef<number | null>(null)
 
+  // Refs to avoid setState when values haven't changed (reduces re-renders and improves INP)
+  const prevStickyRef = useRef(false)
+  const prevDirectionRef = useRef<'up' | 'down'>('down')
+
   useEffect(() => {
     // Cache header height and update on resize
     const updateHeaderHeight = () => {
@@ -32,23 +36,28 @@ export function StickyScrollProvider({ children }: { children: ReactNode }) {
 
       rafId.current = requestAnimationFrame(() => {
         const currentScrollY = window.scrollY
-        
+
         // Determine if sticky should be active (scrolled past header)
         const shouldBeSticky = currentScrollY > headerHeight.current
-        setIsSticky(shouldBeSticky)
-        
+        if (prevStickyRef.current !== shouldBeSticky) {
+          prevStickyRef.current = shouldBeSticky
+          setIsSticky(shouldBeSticky)
+        }
+
         // Determine scroll direction with minimal threshold to avoid flickering
-        // Reduced threshold for more immediate response
         const scrollThreshold = 1
         const scrollDelta = currentScrollY - lastScrollY.current
-        
+        let newDirection: 'up' | 'down' = prevDirectionRef.current
         if (scrollDelta > scrollThreshold) {
-          setScrollDirection('down')
+          newDirection = 'down'
         } else if (scrollDelta < -scrollThreshold) {
-          setScrollDirection('up')
+          newDirection = 'up'
         }
-        // If scrollDelta is 0 or within threshold, keep previous direction
-        
+        if (prevDirectionRef.current !== newDirection) {
+          prevDirectionRef.current = newDirection
+          setScrollDirection(newDirection)
+        }
+
         lastScrollY.current = currentScrollY
       })
     }

@@ -167,9 +167,10 @@ export default function TransactionTreemap({
     return () => cancelAnimationFrame(id)
   }, [flyInActive])
 
-  // Calculate responsive width and height. Never use 0 so treemap always has valid dimensions
-  // (on client-side nav the container can be 0 until layout settles).
+  // Calculate responsive width and height. Throttle resize to avoid main-thread work and improve INP.
   useEffect(() => {
+    let rafId: number | null = null
+    let idleId: number | null = null
     const updateSize = () => {
       if (!containerRef.current) return
       const w = containerRef.current.clientWidth
@@ -178,17 +179,37 @@ export default function TransactionTreemap({
       if (h > 0) setContainerHeight(h)
     }
 
-    updateSize()
+    const scheduleUpdate = () => {
+      if (rafId !== null) return
+      rafId = requestAnimationFrame(() => {
+        rafId = null
+        updateSize()
+      })
+    }
+
     const el = containerRef.current
+    if (el) {
+      const w = el.clientWidth
+      const h = el.clientHeight
+      if (w > 0) setContainerWidth(w)
+      if (h > 0) setContainerHeight(h)
+    }
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(updateSize, { timeout: 300 })
+    }
     let ro: ResizeObserver | null = null
     if (el) {
-      ro = new ResizeObserver(updateSize)
+      ro = new ResizeObserver(scheduleUpdate)
       ro.observe(el)
     }
-    window.addEventListener('resize', updateSize)
+    window.addEventListener('resize', scheduleUpdate)
     return () => {
-      window.removeEventListener('resize', updateSize)
+      window.removeEventListener('resize', scheduleUpdate)
       ro?.disconnect()
+      if (rafId !== null) cancelAnimationFrame(rafId)
+      if (idleId !== null && typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
+        ;(window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
     }
   }, [])
 

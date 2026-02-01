@@ -95,34 +95,45 @@ export default function TerminalPage() {
   const outputRef = useRef<HTMLDivElement>(null)
   const lastTabPressRef = useRef<number>(0)
 
+  // Stream startup logs one-by-one for effect; defer start with requestIdleCallback so first
+  // paint and first tap aren't competing (INP). One line per rAF yields to the main thread each frame.
   useEffect(() => {
-    setOutput([
-      {
-        type: 'logo',
-        content: BITCOIN_LOGO,
-        timestamp: new Date(),
-      },
-    ])
+    const now = new Date()
+    setOutput([{ type: 'logo', content: BITCOIN_LOGO, timestamp: now }])
 
-    let currentIndex = 0
-    const interval = setInterval(() => {
-      if (currentIndex < STARTUP_LOGS.length) {
-        const log = STARTUP_LOGS[currentIndex]
-        setOutput(prev => [
+    let cancelled = false
+    let rafId: number | null = null
+
+    const startStreaming = () => {
+      let index = 0
+      const tick = () => {
+        if (cancelled || index >= STARTUP_LOGS.length) return
+        setOutput((prev) => [
           ...prev,
-          {
-            type: 'log',
-            content: log,
-            timestamp: new Date(),
-          },
+          { type: 'log', content: STARTUP_LOGS[index], timestamp: new Date() },
         ])
-        currentIndex++
-      } else {
-        clearInterval(interval)
+        index += 1
+        if (index < STARTUP_LOGS.length) {
+          rafId = requestAnimationFrame(tick)
+        }
       }
-    }, 50)
+      rafId = requestAnimationFrame(tick)
+    }
 
-    return () => clearInterval(interval)
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const idleId = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(startStreaming, { timeout: 600 })
+      return () => {
+        cancelled = true
+        if (rafId !== null) cancelAnimationFrame(rafId)
+        ;(window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
+    }
+    const timeoutId = setTimeout(startStreaming, 100)
+    return () => {
+      cancelled = true
+      clearTimeout(timeoutId)
+      if (rafId !== null) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   useEffect(() => {

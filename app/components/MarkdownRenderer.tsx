@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useMemo } from 'react'
+import dynamic from 'next/dynamic'
 import ReactMarkdown from 'react-markdown'
 import type { Components } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -9,9 +10,13 @@ import rehypeRaw from 'rehype-raw'
 import { visit } from 'unist-util-visit'
 import Link from 'next/link'
 import CodeBlock, { MultiLanguageCodeBlock } from '@/app/components/CodeBlock'
-import MermaidDiagram from '@/app/components/MermaidDiagram'
 import DenominationCalculator from '@/app/components/DenominationCalculator'
 import GlossaryTooltip from '@/app/components/GlossaryTooltip'
+
+const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), {
+  ssr: false,
+  loading: () => <div className="mermaid-diagram my-4 min-h-[120px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 animate-pulse" aria-hidden />,
+})
 import { ChevronDown, ExternalLinkIcon } from '@/app/components/Icons'
 import { useGlossary } from '@/app/contexts/GlossaryContext'
 

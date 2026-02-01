@@ -253,16 +253,26 @@ export default function BlockVisualizer() {
     return () => clearInterval(interval)
   }, [fetchMempoolTemplate])
 
-  // Update scroll indicators when previous blocks change or container resizes
+  // Update scroll indicators when previous blocks change or container resizes. Throttle to improve INP.
   useEffect(() => {
     if (previousBlocks.length === 0) return
     const el = previousBlocksScrollRef.current
     if (!el) return
-    const run = () => requestAnimationFrame(updateScrollIndicators)
+    let rafId: number | null = null
+    const run = () => {
+      if (rafId !== null) return
+      rafId = requestAnimationFrame(() => {
+        rafId = null
+        updateScrollIndicators()
+      })
+    }
     run()
     const ro = new ResizeObserver(run)
     ro.observe(el)
-    return () => ro.disconnect()
+    return () => {
+      ro.disconnect()
+      if (rafId !== null) cancelAnimationFrame(rafId)
+    }
   }, [previousBlocks, updateScrollIndicators])
 
   if (!blockData && !loading && !error) return null

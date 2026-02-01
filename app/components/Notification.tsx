@@ -93,6 +93,9 @@ export default function Notification() {
 
   const isError = state.isError
 
+  // Support multi-line messages: normalize literal \n then split for rendering
+  const lines = message.replace(/\\n/g, '\n').split('\n')
+
   return (
     <div
       role="status"
@@ -110,7 +113,11 @@ export default function Notification() {
       `}
     >
       {isError ? <XIcon /> : <CheckIcon />}
-      <span className={state.raw ? 'whitespace-pre-line' : undefined}>{message}</span>
+      <span className="flex flex-col items-center text-center">
+        {lines.map((line, i) => (
+          <span key={i}>{line}</span>
+        ))}
+      </span>
     </div>
   )
 }

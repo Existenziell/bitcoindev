@@ -69,22 +69,33 @@ export function GlossaryProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let cancelled = false
 
-    queueMicrotask(() => setIsLoading(true))
-    loadGlossaryData()
-      .then((data) => {
-        if (cancelled) return
-        setGlossaryData(data)
-        setIsLoading(false)
-      })
-      .catch(() => {
-        // Silently fail: glossary tooltips will just render as normal links.
-        if (cancelled) return
-        setGlossaryData({})
-        setIsLoading(false)
-      })
+    const runLoad = () => {
+      if (cancelled) return
+      loadGlossaryData()
+        .then((data) => {
+          if (cancelled) return
+          setGlossaryData(data)
+          setIsLoading(false)
+        })
+        .catch(() => {
+          if (cancelled) return
+          setGlossaryData({})
+          setIsLoading(false)
+        })
+    }
 
+    // Defer glossary load to avoid blocking first paint and hurting INP
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const idleId = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(runLoad, { timeout: 2000 })
+      return () => {
+        cancelled = true
+        ;(window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
+    }
+    const timeoutId = setTimeout(runLoad, 0)
     return () => {
       cancelled = true
+      clearTimeout(timeoutId)
     }
   }, [])
 

@@ -72,7 +72,13 @@ export default function LiveStats() {
       }
     }
 
-    fetchData()
+    // Defer fetch so first paint and first tap aren't competing with heavy effects (INP)
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const id = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(fetchData, { timeout: 2000 })
+      return () => (window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(id)
+    }
+    const id = setTimeout(fetchData, 0)
+    return () => clearTimeout(id)
   }, [])
 
   const stats: StatItem[] = [

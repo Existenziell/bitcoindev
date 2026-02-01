@@ -20,7 +20,8 @@ test.describe('Terminal', () => {
     await page.goto('/terminal')
     await page.getByPlaceholder(/enter command/i).fill('help')
     await page.getByRole('button', { name: 'Run' }).click()
-    await expect(page.getByText('Available commands')).toBeVisible({ timeout: 10000 })
+    // "Available commands:" (with colon) is only in help output; startup log has "Type 'help' for available commands."
+    await expect(page.getByText('Available commands:')).toBeVisible({ timeout: 10000 })
   })
 
   test('help getblockchaininfo shows Command and Description', async ({ page }) => {
@@ -35,12 +36,12 @@ test.describe('Terminal', () => {
     await page.goto('/terminal')
     await page.getByPlaceholder(/enter command/i).fill('help')
     await page.getByRole('button', { name: 'Run' }).click()
-    await expect(page.getByText('Available commands')).toBeVisible({ timeout: 10000 })
+    await expect(page.getByText('Available commands:')).toBeVisible({ timeout: 10000 })
 
     await page.getByPlaceholder(/enter command/i).fill('clear')
     await page.getByRole('button', { name: 'Run' }).click()
 
-    await expect(page.getByText('Available commands')).not.toBeVisible()
+    await expect(page.getByText('Available commands:')).not.toBeVisible()
   })
 
   test('unknown command shows error', async ({ page }) => {
@@ -48,7 +49,8 @@ test.describe('Terminal', () => {
     await page.getByPlaceholder(/enter command/i).fill('foo')
     await page.getByRole('button', { name: 'Run' }).click()
     await expect(page.getByText(/unknown command/i)).toBeVisible({ timeout: 10000 })
-    await expect(page.getByText(/help/i)).toBeVisible()
+    // Error message suggests "Type 'help' for available commands." - use last() since startup log also contains "help"
+    await expect(page.getByText(/help/i).last()).toBeVisible()
   })
 
   test('getblockcount returns JSON number', async ({ page }) => {

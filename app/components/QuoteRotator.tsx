@@ -68,14 +68,22 @@ function QuoteRotator() {
       setIsVisible(true)
     })
 
-    const interval = setInterval(() => {
-      setIsVisible(false)
-      setTimeout(() => {
-        setQuote(getNextQuote())
-        setIsVisible(true)
-      }, 500)
-    }, 8000)
-    return () => clearInterval(interval)
+    // Start quote rotation after a short delay so first paint and first tap aren't competing (INP)
+    const delayMs = 1500
+    let intervalId: ReturnType<typeof setInterval> | null = null
+    const timeoutId = setTimeout(() => {
+      intervalId = setInterval(() => {
+        setIsVisible(false)
+        setTimeout(() => {
+          setQuote(getNextQuote())
+          setIsVisible(true)
+        }, 500)
+      }, 8000)
+    }, delayMs)
+    return () => {
+      clearTimeout(timeoutId)
+      if (intervalId !== null) clearInterval(intervalId)
+    }
   }, [])
 
   // Mount + fixed height to avoid hydration and layout jump
