@@ -252,11 +252,11 @@ export const docsNavLinksTop: { href: string; title: string }[] = [
   { href: '/terminal', title: 'CLI Terminal' },
   { href: '/stack-lab', title: 'Stack Lab' },
   { href: '/block-visualizer', title: 'Block Visualizer' },
-  { href: '/tools', title: 'Tools' },
 ]
 
 // Docs sidebar - bottom section (site utilities)
 export const docsNavLinksBottom: { href: string; title: string }[] = [
+  { href: '/tools', title: 'Tools' },
   { href: '/docs/glossary', title: 'Glossary' },
   { href: '/author', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
@@ -264,9 +264,9 @@ export const docsNavLinksBottom: { href: string; title: string }[] = [
 
 // Horizontal nav - quick links at bottom
 export const horizontalNavLinksBottom: { href: string; title: string }[] = [
-  { href: '/tools', title: 'Tools' },
-  { href: '/block-visualizer', title: 'Block Visualizer' },
   { href: '/whitepaper', title: 'Whitepaper' },
+  { href: '/block-visualizer', title: 'Block Visualizer' },
+  { href: '/tools', title: 'Tools' },
   { href: '/author', title: 'About' },
 ]
 
