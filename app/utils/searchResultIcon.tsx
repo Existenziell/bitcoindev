@@ -67,5 +67,5 @@ export function SearchResultIcon({ path, className, ...props }: SearchResultIcon
   if (path === '/block-visualizer') return <BlockVisualizerIcon className={className} {...props} />
   if (path === '/tools/hash') return <HashIcon className={className} {...props} />
   if (path === '/docs/fundamentals/denominations') return <CalculatorIcon className={className} {...props} />
-  return <DocumentIcon className={className} {...props} />
+  return <BookOpenIcon className={className} {...props} />
 }
