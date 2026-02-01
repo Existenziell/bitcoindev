@@ -127,7 +127,7 @@ export default function LiveStats() {
   const StatCard = memo(({ stat }: { stat: StatItem }) => {
     const content = (
       <>
-        <span className="block text-lg md:text-xl font-bold text-btc min-h-[2rem] flex items-center justify-center" aria-live="polite" aria-atomic="true">
+        <span className="text-lg md:text-xl font-bold text-btc min-h-[2rem] flex items-center justify-center" aria-live="polite" aria-atomic="true">
           {loading && !stat.value ? (
             <span className="animate-pulse text-gray-400">...</span>
           ) : stat.value ? (
