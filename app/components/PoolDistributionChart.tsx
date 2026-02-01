@@ -9,6 +9,9 @@ const DISPLAY_NAME_MAP: Record<string, string> = {}
 })
 DISPLAY_NAME_MAP['others'] = 'Others'
 
+/** Pools below this share are aggregated into a single "Others" row. */
+const AGGREGATE_BELOW_PCT = 3
+
 function getDisplayName(identifier: string): string {
   return DISPLAY_NAME_MAP[identifier] ?? identifier
 }
@@ -57,18 +60,27 @@ export default function PoolDistributionChart() {
     )
   }
 
-  const entries = Object.entries(distribution)
+  const sorted = Object.entries(distribution)
     .map(([id, pct]) => ({ id, name: getDisplayName(id), pct }))
     .sort((a, b) => b.pct - a.pct)
-  const maxPct = Math.max(...entries.map((e) => e.pct), 1)
+
+  const aboveThreshold = sorted.filter((e) => e.pct >= AGGREGATE_BELOW_PCT)
+  const belowThreshold = sorted.filter((e) => e.pct < AGGREGATE_BELOW_PCT)
+  const othersPct =
+    belowThreshold.length > 0
+      ? Math.round(belowThreshold.reduce((sum, e) => sum + e.pct, 0) * 10) / 10
+      : 0
+  const displayEntries =
+    othersPct > 0 ? [...aboveThreshold, { id: 'others-aggregate', name: `Others (< ${AGGREGATE_BELOW_PCT}%)`, pct: othersPct }] : aboveThreshold
+  const maxPct = Math.max(...displayEntries.map((e) => e.pct), 1)
 
   return (
     <div className="my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-        Top pools control majority of hashrate:
+        Data from the last 2016 blocks
       </p>
       <div className="space-y-2" role="list" aria-label="Pool hashrate distribution">
-        {entries.map(({ id, name, pct }) => (
+        {displayEntries.map(({ id, name, pct }) => (
           <div key={id} className="flex items-center gap-3 text-sm" role="listitem">
             <span className="w-32 shrink-0 text-gray-700 dark:text-gray-300">{name}</span>
             <div className="flex-1 min-w-0 h-4 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden">
