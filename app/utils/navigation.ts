@@ -117,7 +117,6 @@ export const docPages: DocPage[] = [
   { path: '/docs/bitcoin-development/transactions', mdFile: 'app/docs/bitcoin-development/transactions/transactions.md', title: 'Transaction Construction', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/psbt', mdFile: 'app/docs/bitcoin-development/psbt/psbt.md', title: 'PSBT', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/blockchain-monitoring', mdFile: 'app/docs/bitcoin-development/blockchain-monitoring/blockchain-monitoring.md', title: 'Blockchain Monitoring', section: 'bitcoin-development' },
-  { path: '/docs/bitcoin-development/pool-mining', mdFile: 'app/docs/bitcoin-development/pool-mining/pool-mining.md', title: 'Pool Mining', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/price-tracking', mdFile: 'app/docs/bitcoin-development/price-tracking/price-tracking.md', title: 'Price Tracking', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/script-patterns', mdFile: 'app/docs/bitcoin-development/script-patterns/script-patterns.md', title: 'Bitcoin Script Patterns', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/miniscript', mdFile: 'app/docs/bitcoin-development/miniscript/miniscript.md', title: 'Miniscript', section: 'bitcoin-development' },

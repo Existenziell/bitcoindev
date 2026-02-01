@@ -16,6 +16,8 @@ Consider a solo miner with 0.001% of total network hashrate:
 
 This variance is unacceptable for anyone running mining as a business.
 
+[Incentives](/docs/fundamentals/incentives) and [proof-of-work](/docs/glossary#proof-of-work-pow) make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine [hash rate](/docs/glossary#hash-rate) and share rewards proportionally. 
+
 ### Pool Solution
 
 By combining hashpower:
@@ -696,6 +698,7 @@ Pool → Miner: Share accepted, new work
 - Miners can't choose transactions
 - Pool has complete control over block content
 - Potential for censorship
+- **Centralization**: This design concentrates power at the pool operator; see [Centralization Concerns](#centralization-concerns) below
 
 ### Stratum V2
 
@@ -728,7 +731,16 @@ Matt Corallo's proposal that influenced Stratum V2:
 
 ## Centralization Concerns
 
-Mining pools create centralization pressure:
+**Pool centralization** means that a small number of pool operators control a large share of network hashrate. Although miners own the hardware, the pool decides *what* gets mined: the block template. That creates a single point of control and failure: the operator can censor transactions, follow government orders, or collude with other pools. The dominant protocol, **Stratum (v1)**, reinforces this: the pool sends a ready-made block template and miners simply hash it, so miners have no say over block content. Alternatives like **Stratum V2** (job negotiation) and pools such as **Ocean** (using the DATUM protocol) aim to put template construction back in miners’ hands and reduce reliance on a central operator.
+
+### Why Pool Centralization Matters
+
+- **Censorship**: A pool can omit or reorder transactions (e.g. to comply with sanctions or blacklists).
+- **Sovereignty**: Miners follow the pool’s template instead of their own node and policy.
+- **Attack surface**: A compromised or coerced pool could attempt [double-spend](/docs/glossary#double-spend) attacks or reorgs.
+- **Single point of failure**: Regulation or technical failure at a few large pools affects a big share of hashrate.
+
+Stratum v1’s design (pool sends template, miner returns shares) is simple and scalable but centralizes power at the pool. Stratum V2 and protocols like Ocean’s DATUM (Decentralized Alternative Templates for Universal Mining) let miners propose or build their own block templates while still pooling rewards, shifting control back toward miners and reducing pool centralization.
 
 ### The Problem
 
@@ -772,6 +784,11 @@ Attempts to remove pool operators:
 - Modern attempt at decentralized pooling
 - Uses DAG structure for share tracking
 - Still experimental
+
+**Ocean** (launched 2023):
+- Non-custodial pool focused on reducing operator control
+- Uses **DATUM** (Decentralized Alternative Templates for Universal Mining): miners build block templates on their own nodes
+- Aims to address pool centralization by giving miners template sovereignty while still sharing rewards
 
 ---
 
@@ -849,9 +866,11 @@ Profit: ~$6/day
 
 ## Setting Up Pool Mining
 
+This section covers connecting to a pool (e.g. Stratum), configuring payouts, and monitoring your contribution.
+
 ### Requirements
 
-1. **Mining hardware**: [ASICs](/docs/glossary#asic-application-specific-integrated-circuit) for Bitcoin
+1. **Mining hardware**: [ASICs](/docs/glossary#asic-application-specific-integrated-circuit) for Bitcoin (or CPU/GPU for testing)
 2. **Pool account**: Register with chosen pool
 3. **Mining software**: CGMiner, BFGMiner, or manufacturer software
 4. **Wallet**: For receiving payouts
@@ -863,6 +882,30 @@ Pool URL: stratum+tcp://pool.example.com:3333
 Username: your_wallet_address.worker_name
 Password: x (often ignored)
 ```
+
+**Configuration parameters:**
+- **Algorithm**: `sha256d` (Bitcoin)
+- **Pool URL**: Your pool's Stratum URL
+- **Username**: Your Bitcoin address + worker name
+- **Password**: Pool password (often `x` for default)
+- **Threads**: Number of CPU threads (if using CPU miner)
+
+### Monitoring Hash Rate
+
+Mining software reports accepted shares and hashrate in real time:
+
+```
+[2024-01-15 10:30:45] accepted: 1/1 (100.00%), 85.23 kH/s
+[2024-01-15 10:30:50] accepted: 2/2 (100.00%), 85.45 kH/s
+```
+
+**Key metrics:**
+- **Hash rate**: Hashes per second (H/s, kH/s, MH/s, TH/s)
+- **Accepted shares**: Shares accepted by the pool
+- **Rejected shares**: Stale or invalid (no reward)
+- **Efficiency**: Accepted / total shares
+
+Hash rate is total hashes divided by time (e.g. 85,230 hashes in 1 second = 85.23 kH/s).
 
 ### Multiple Pools (Failover)
 
@@ -890,8 +933,8 @@ Trade-offs:
 - **Control**: Traditional pools control block construction
 
 The future is moving toward:
-- **Stratum V2**: More miner control
-- **Decentralized pools**: No central operator
+- **Stratum V2**: More miner control over block templates
+- **Decentralized pools**: P2Pool, Braidpool, Ocean (DATUM), reducing operator control
 - **Transaction selection**: Miners choosing what to include
 
 ---
@@ -908,5 +951,6 @@ The future is moving toward:
 ## Resources
 
 - [Stratum V2](https://stratumprotocol.org/) - Next-generation mining protocol
+- [Ocean](https://ocean.xyz/) - Non-custodial pool with DATUM (miner-built templates)
 - [Braidpool](https://github.com/braidpool/braidpool) - Decentralized pool project
 - [Mining Pool Stats](https://miningpoolstats.stream/bitcoin) - Pool hashrate distribution

@@ -863,12 +863,6 @@
     "body": "Blockchain Monitoring The blockchain is an ordered chain of blocks; the timechain view emphasizes that ordering as a source of time and finality. Monitoring it lets your application react to new blocks, track confirmations, and handle reorgs. Whether you're waiting for payment confirmations, updating balances, or logging chain tip and mempool activity, you need a reliable way to subscribe to block and transaction events. Real-time monitoring allows you to detect new blocks instantly, track "
   },
   {
-    "path": "/docs/bitcoin-development/pool-mining",
-    "title": "Pool Mining",
-    "section": "bitcoin-development",
-    "body": "Pool Mining Setup and Monitoring Incentives and proof-of-work make mining secure but also very competitive; difficulty is so high that solo mining is rarely profitable. Mining pools let participants combine hash rate and share rewards proportionally, aligning with the same incentive structure. This guide covers how to connect your mining software to a pool (e.g. Stratum), configure payouts, and monitor your contribution. Mining Architecture Components Bitcoin Node: Provides blockchain data via "
-  },
-  {
     "path": "/docs/bitcoin-development/price-tracking",
     "title": "Price Tracking",
     "section": "bitcoin-development",

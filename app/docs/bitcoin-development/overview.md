@@ -74,15 +74,9 @@ Integrate Bitcoin price data into your applications using various APIs and servi
 
 ## Advanced Topics
 
-### [Pool Mining](/docs/bitcoin-development/pool-mining)
+### [Mining Pools](/docs/mining/pools)
 
-Develop mining pool software, understand pool protocols, and build mining-related applications.
-
-**Key topics:**
-- Mining pool protocols
-- Stratum protocol
-- Share validation
-- Pool architecture
+Pool setup, monitoring, Stratum protocol, share validation, and pool architecture are covered in the Mining section.
 
 ### [Bitcoin Script Patterns](/docs/bitcoin-development/script-patterns)
 
