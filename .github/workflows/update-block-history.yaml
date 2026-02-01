@@ -1,0 +1,26 @@
+# Append latest block(s) to block-history blob every 5 minutes.
+
+name: Update block history
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Append latest block to block-history
+        env:
+          APP_URL: ${{ vars.BLOCK_HISTORY_APP_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          URL="${APP_URL:-https://bitcoindev.info}"
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET is not set. Add it in repo Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          curl -sSf -X POST \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "$URL/api/block-history"

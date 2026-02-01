@@ -130,36 +130,6 @@ function paginate(list: BlockSnapshot[], limit: number, beforeHeight: number | n
   return list.slice(0, limit)
 }
 
-/** Fetch missing blocks from RPC and write updated list to blob. Run fire-and-forget (do not await). */
-function fillGapAndWriteBlob(list: BlockSnapshot[], tipHeight: number, topHeight: number): void {
-  const missingHeights = Array.from(
-    { length: tipHeight - topHeight },
-    (_, i) => tipHeight - i
-  )
-  Promise.all(
-    missingHeights.map(async (h) => {
-      try {
-        return await fetchBlockSnapshotAtHeight(h)
-      } catch (e) {
-        console.error('[block-history] gap-fill: fetch block', h, 'failed', e)
-        return null
-      }
-    })
-  ).then((results) => {
-    const valid = results.filter((s): s is BlockSnapshot => s !== null)
-    if (valid.length !== missingHeights.length) {
-      console.error('[block-history] gap-fill: partial (got', valid.length, 'of', missingHeights.length, ')')
-      return
-    }
-    const updated = [...valid, ...list]
-    writeBlockHistoryToBlob(updated).then(() => {
-      console.log('[block-history] gap-fill: wrote', updated.length, 'blocks')
-    }).catch((err) => {
-      console.error('[block-history] gap-fill: write failed', err)
-    })
-  })
-}
-
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -173,14 +143,6 @@ export async function GET(request: NextRequest) {
     let list = await readBlockHistoryFromBlob()
     if (list === null) {
       list = await seedBlockHistoryFromRpc()
-    } else if (list.length > 0) {
-      const chainInfo = await bitcoinRpcServer('getblockchaininfo')
-      const tipHeight = (chainInfo as { blocks: number }).blocks
-      const topHeight = list[0].height
-      if (tipHeight > topHeight) {
-        console.log('[block-history] GET: gap (tip', tipHeight, ', top', topHeight, '), filling in background')
-        fillGapAndWriteBlob(list, tipHeight, topHeight)
-      }
     }
 
     const blocks = paginate(list, limit, beforeHeight)
@@ -195,7 +157,16 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function POST() {
+export async function POST(request: NextRequest) {
+  const cronSecret = process.env.CRON_SECRET?.trim()
+  if (cronSecret) {
+    const auth = request.headers.get('authorization')
+    const token = auth?.startsWith('Bearer ') ? auth.slice(7) : null
+    if (token !== cronSecret) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+  }
+
   try {
     const chainInfo = await bitcoinRpcServer('getblockchaininfo')
     const tipHeight = (chainInfo as { blocks: number }).blocks

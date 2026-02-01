@@ -171,38 +171,6 @@ export default function BlockVisualizer() {
         setShowNewBlockNotification(true)
         setCurrentBlockDrawKey((k) => k + 1)
         setTimeout(() => setShowNewBlockNotification(false), 3000)
-        fetch('/api/block-history', { method: 'POST', cache: 'no-store' })
-          .then((res) => {
-            if (!res.ok) {
-              console.log('[BlockVisualizer] POST block-history failed:', res.status)
-              return null
-            }
-            return res.json()
-          })
-          .then((data) => {
-            if (data?.blocks && Array.isArray(data.blocks)) {
-              console.log('[BlockVisualizer] POST block-history success, blocks:', data.blocks.length)
-              setPreviousBlocks(data.blocks)
-            }
-          })
-          .catch((err) => {
-            console.log('[BlockVisualizer] POST block-history error:', err)
-          })
-      } else if (previousBlocks.length > 0) {
-        const maxPrevHeight = Math.max(...previousBlocks.map((b) => b.height))
-        if (tipHeight > maxPrevHeight + 1) {
-          fetch('/api/block-history', { method: 'POST', cache: 'no-store' })
-            .then((res) => {
-              if (!res.ok) return null
-              return res.json()
-            })
-            .then((data) => {
-              if (data?.blocks && Array.isArray(data.blocks)) {
-                setPreviousBlocks(data.blocks)
-              }
-            })
-            .catch(() => {})
-        }
       }
       lastKnownBlockHashRef.current = bestBlockHash
 
@@ -227,7 +195,7 @@ export default function BlockVisualizer() {
       setLoading(false)
       setIsRefreshing(false)
     }
-  }, [previousBlocks])
+  }, [])
 
   // Load previous blocks and current block template in parallel on mount (no gate)
   useEffect(() => {
@@ -260,7 +228,7 @@ export default function BlockVisualizer() {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchMempoolTemplate()
-    }, 20000) // Poll every 20 seconds
+    }, 30000) // Poll every 30 seconds
 
     return () => clearInterval(interval)
   }, [fetchMempoolTemplate])
