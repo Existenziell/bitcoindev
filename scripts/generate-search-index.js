@@ -164,7 +164,7 @@ const staticPages = [
     title: 'About BitcoinDev',
     section: 'about',
     body:
-      'About BitcoinDev. Existenziell. Developer and Bitcoin Enthusiast. Why BitcoinDev. Bitcoin education. Open source. Free. No ads. No paywalls. Support. Donate. Bitcoin address. Nostr.',
+      'About BitcoinDev. Existenziell. Developer and Bitcoin Enthusiast. Why BitcoinDev. Bitcoin education. Open source. Free. No ads. No paywalls. Support. Donate. Nostr.',
     keywords: ['about', 'existenziell', 'author', 'support', 'donate'],
   },
   {

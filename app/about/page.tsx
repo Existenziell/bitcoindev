@@ -3,7 +3,6 @@ import Link from 'next/link'
 import CopyAddressButton from '@/app/about/CopyAddressButton'
 
 const NPUB_ADDRESS = 'npub1v7vslj3ewmdlqpzh3ta3glut80xg4vendfyvkypulydsqfmgc6kq90w3he'
-const BITCOIN_ADDRESS = 'bc1qtu2z558uwvutm6xqjdvv7jrjcg9020hc0964wl'
 
 export default function AboutPage() {
   return (
@@ -81,24 +80,6 @@ export default function AboutPage() {
             <br />
             Thank you for your support! 🧡
           </p>
-          {/* Bitcoin On-Chain */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-200">
-              Bitcoin (On-Chain)
-            </h3>
-            <div className="about-address-box">
-              <code className="about-address-code">
-                {BITCOIN_ADDRESS}
-              </code>
-              <CopyAddressButton
-                text={BITCOIN_ADDRESS}
-                label="Bitcoin address"
-                customSuccessMessage="You are amazing <3\nBitcoin address copied to clipboard"
-                ariaLabel="Copy Bitcoin address to clipboard"
-              />
-            </div>
-          </div>
-
           {/* Lightning Network via Nostr */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-200">
