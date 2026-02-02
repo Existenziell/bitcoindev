@@ -583,7 +583,7 @@ The `9` field encodes supported features:
 - **Payee offline at creation**: The offer can be published (e.g., on a website); the payee only needs to be online when the payer sends an **invoice request** and the payee returns an [invoice](/docs/lightning/invoices).
 - **Keysend-style flows**: Structured alternative to [keysend](/docs/glossary#keysend) where the payee still controls the [payment hash](/docs/lightning/routing/htlc) and amount via the invoice they generate.
 
-Support varies: [Core Lightning](https://github.com/ElementsProject/lightning) and [LDK](https://github.com/lightningdevkit/rust-lightning) have BOLT12 support; [LND](https://github.com/lightningnetwork/lnd) and others are adding it. See [BOLT12 & Offers](/docs/lightning/bolt12-offers) for details.
+Support varies: [Core Lightning](https://github.com/ElementsProject/lightning) and [LDK](https://github.com/lightningdevkit/rust-lightning) have BOLT12 support; [LND](https://github.com/lightningnetwork/lnd) and others are adding it. See [Offers (BOLT12)](/docs/lightning/bolt12-offers) for details.
 
 ---
 
@@ -595,7 +595,7 @@ Standard BOLT11 [invoices](/docs/lightning/invoices) should only be paid once. F
 
 - Use [Keysend](/docs/glossary#keysend) (no [invoice](/docs/lightning/invoices) needed)
 - Use LNURL-pay (dynamic [invoice](/docs/lightning/invoices) generation)
-- Use [BOLT12 & Offers](/docs/lightning/bolt12-offers) (when supported by your node and payees)
+- Use [Offers (BOLT12)](/docs/lightning/bolt12-offers) (when supported by your node and payees)
 
 ### Fallback Addresses
 
@@ -635,7 +635,7 @@ BOLT11 invoices provide:
 
 ## Related Topics
 
-- [BOLT12 & Offers](/docs/lightning/bolt12-offers) - Offers, invoice requests, and reusable payment flows
+- [Offers (BOLT12)](/docs/lightning/bolt12-offers) - Offers, invoice requests, and reusable payment flows
 - [Multi-Part Payments](/docs/lightning/routing/mpp) - Splitting large payments
 - [Channels](/docs/lightning/channels) - Where payments flow
 - [HTLCs](/docs/lightning/routing/htlc) - Payment mechanism

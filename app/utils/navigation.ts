@@ -95,7 +95,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/lightning/routing', mdFile: 'app/docs/lightning/routing/fees.md', title: 'Routing Fees', section: 'lightning' },
   { path: '/docs/lightning/routing/mpp', mdFile: 'app/docs/lightning/routing/mpp.md', title: 'Multi-Part Payments', section: 'lightning' },
   { path: '/docs/lightning/invoices', mdFile: 'app/docs/lightning/invoices/invoices.md', title: 'Invoices (BOLT11)', section: 'lightning' },
-  { path: '/docs/lightning/bolt12-offers', mdFile: 'app/docs/lightning/bolt12-offers/bolt12-offers.md', title: 'BOLT12 & Offers', section: 'lightning' },
+  { path: '/docs/lightning/bolt12-offers', mdFile: 'app/docs/lightning/bolt12-offers/bolt12-offers.md', title: 'Offers (BOLT12)', section: 'lightning' },
   { path: '/docs/lightning/onion', mdFile: 'app/docs/lightning/onion/onion.md', title: 'Onion Routing', section: 'lightning' },
   { path: '/docs/lightning/watchtowers', mdFile: 'app/docs/lightning/watchtowers/watchtowers.md', title: 'Watchtowers', section: 'lightning' },
   { path: '/docs/lightning/anchor-outputs', mdFile: 'app/docs/lightning/anchor-outputs/anchor-outputs.md', title: 'Anchor Outputs', section: 'lightning' },

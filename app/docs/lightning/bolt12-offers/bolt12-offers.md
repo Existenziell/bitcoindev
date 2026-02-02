@@ -1,4 +1,4 @@
-# BOLT12 & Lightning Offers
+# Lightning Offers (BOLT12)
 
 **BOLT12** is a Lightning protocol extension that introduces **offers** (and related structures such as **invoice requests** and **refunds**) as a more flexible alternative to [BOLT11](/docs/lightning/invoices) invoices. Offers allow payers to request an [invoice](/docs/lightning/invoices) from a payee without the payee having to be online first, support **reusable** payment identifiers, and enable use cases like recurring payments and better [keysend](/docs/glossary#keysend)-style flows.
 
