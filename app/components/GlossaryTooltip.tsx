@@ -67,16 +67,46 @@ export default function GlossaryTooltip({ href, children, glossaryData, glossary
       return
     }
     const rect = linkRef.current.getBoundingClientRect()
+    const tooltipEl = tooltipRef.current
+    const tooltipWidth = tooltipEl ? tooltipEl.getBoundingClientRect().width : 256
+    const tooltipHeight = tooltipEl ? tooltipEl.getBoundingClientRect().height : 150
+    const padding = 8
+    const viewportW = window.innerWidth
+    const viewportH = window.innerHeight
+
+    // Horizontal: center on link but clamp so tooltip stays inside viewport
+    let left = rect.left + rect.width / 2
+    const halfW = tooltipWidth / 2
+    left = Math.max(halfW, Math.min(viewportW - halfW, left))
+
+    // Vertical: prefer above link, otherwise below; clamp so tooltip stays inside viewport
     const spaceAbove = rect.top
-    const tooltipHeight = 150 // Approximate max tooltip height
     const placeBottom = spaceAbove < tooltipHeight + 20
+    let top: number | undefined
+    let bottom: number | undefined
+    if (placeBottom) {
+      top = rect.bottom + padding
+      // If tooltip would overflow bottom, align to bottom of viewport
+      if (top + tooltipHeight > viewportH - padding) {
+        top = viewportH - tooltipHeight - padding
+      }
+      bottom = undefined
+    } else {
+      bottom = viewportH - rect.top + padding
+      top = undefined
+      // If tooltip would overflow top, align to top of viewport
+      const impliedTop = rect.top - padding - tooltipHeight
+      if (impliedTop < padding) {
+        top = padding
+        bottom = undefined
+      }
+    }
+
     queueMicrotask(() => {
       setPosition(placeBottom ? 'bottom' : 'top')
       setTooltipCoords({
-        left: rect.left + rect.width / 2,
-        ...(placeBottom
-          ? { top: rect.bottom + 8 }
-          : { bottom: window.innerHeight - rect.top + 8 }),
+        left,
+        ...(bottom !== undefined ? { bottom } : { top }),
       })
     })
   }, [isVisible])
