@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { generatePageMetadata } from '@/app/utils/metadata'
 import DocsSearch from '@/app/components/DocsSearch'
+import { SearchShortcutKey } from '@/app/components/SearchShortcutKey'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Documentation',
@@ -16,9 +17,7 @@ export default function DocsOverviewPage() {
         <p className="text-secondary text-lg max-w-3xl">
           Welcome to the BitcoinDev documentation search. 
           <span className="hidden md:inline">{` `}You can also use{` `}
-            <code className="code-inline">
-              <span className="text-lg inline-block align-middle">⌘</span> + K
-            </code>
+            <SearchShortcutKey />
             {` `}to open the search modal from anywhere.
           </span>
         </p>

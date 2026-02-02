@@ -3,8 +3,9 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import { SearchIcon, XIcon, BookOpenIcon } from '@/app/components/Icons'
+import { SearchIcon, XIcon } from '@/app/components/Icons'
 import { SearchResultItem } from '@/app/components/SearchResultItem'
+import { SearchShortcutKey } from '@/app/components/SearchShortcutKey'
 import { SearchResultsStatus } from '@/app/components/SearchResultsStatus'
 import { sections } from '@/app/utils/navigation'
 import { getSearchResultSectionLabel } from '@/app/utils/searchResultIcon'
@@ -95,9 +96,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             autoCorrect="off"
             aria-label="Search"
           />
-          <code className="code-inline py-0 hidden md:inline">
-            <span className="text-lg inline-block align-middle">⌘</span> + K
-          </code>
+          <SearchShortcutKey className="hidden md:inline" />
           <button
             type="button"
             onClick={onClose}
