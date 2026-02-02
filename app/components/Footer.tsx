@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Bottom bar: credit + copyright + tagline */}
         <div className='footer-bar'>
           <Link
-            href='/author'
+            href='/about'
             className='hover:text-btc transition-colors no-underline hover:underline'
           >
             Made with <span className='text-btc' aria-hidden='true'>&#9829;</span> by Chris

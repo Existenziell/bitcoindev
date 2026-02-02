@@ -104,7 +104,7 @@ export default function Notification() {
       className={`
         notification-toast fixed left-1/2 bottom-6 z-50 -translate-x-1/2
         flex items-center justify-center gap-3 px-5 py-4 rounded-lg text-base font-medium
-        shadow-lg ring-1 max-w-[calc(100vw-2rem)]
+        shadow-lg ring-1 w-full md:w-max max-w-[calc(100vw-2rem)]
         ${state.exiting ? 'animate-toast-out' : 'animate-toast-in'}
         ${isError
           ? 'bg-red-50 dark:bg-red-950/90 text-red-700 dark:text-red-300 ring-red-200 dark:ring-red-800'

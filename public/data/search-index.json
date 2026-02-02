@@ -85,9 +85,9 @@
     ]
   },
   {
-    "path": "/author",
+    "path": "/about",
     "title": "About BitcoinDev",
-    "section": "author",
+    "section": "about",
     "body": "About BitcoinDev. Existenziell. Developer and Bitcoin Enthusiast. Why BitcoinDev. Bitcoin education. Open source. Free. No ads. No paywalls. Support. Donate. Bitcoin address. Nostr.",
     "keywords": [
       "about",

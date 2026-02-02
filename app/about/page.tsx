@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import CopyAddressButton from '@/app/author/CopyAddressButton'
+import CopyAddressButton from '@/app/about/CopyAddressButton'
 
 const NPUB_ADDRESS = 'npub1v7vslj3ewmdlqpzh3ta3glut80xg4vendfyvkypulydsqfmgc6kq90w3he'
 const BITCOIN_ADDRESS = 'bc1qtu2z558uwvutm6xqjdvv7jrjcg9020hc0964wl'
 
-export default function AuthorPage() {
+export default function AboutPage() {
   return (
     <div className="max-w-2xl mx-auto">
       {/* Hero Section */}
@@ -86,8 +86,8 @@ export default function AuthorPage() {
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-200">
               Bitcoin (On-Chain)
             </h3>
-            <div className="author-address-box">
-              <code className="author-address-code">
+            <div className="about-address-box">
+              <code className="about-address-code">
                 {BITCOIN_ADDRESS}
               </code>
               <CopyAddressButton
@@ -102,11 +102,11 @@ export default function AuthorPage() {
           {/* Lightning Network via Nostr */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-200">
-              Lightning Network
+              Lightning (Zap me on Nostr ⚡)
             </h3>
-            <div className="author-address-box">
-              <code className="author-address-code">
-                Zap me on Nostr ⚡
+            <div className="about-address-box">
+              <code className="about-address-code">
+                {NPUB_ADDRESS}
               </code>
               <CopyAddressButton
                 text={NPUB_ADDRESS}

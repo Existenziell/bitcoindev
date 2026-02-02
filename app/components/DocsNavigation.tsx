@@ -85,7 +85,7 @@ export default function DocsNavigation({
       <nav className="w-full flex-shrink-0 sticky top-0">
         <button
           onClick={onToggleSidebar}
-          className="flex items-center justify-start w-full pt-2 text-gray-500 dark:text-gray-400 hover:text-btc transition-colors"
+          className="btn-icon btn-icon-accent"
           aria-label="Expand navigation"
           title="Expand sidebar"
         >
@@ -102,7 +102,7 @@ export default function DocsNavigation({
         {onToggleSidebar && (
           <button
             onClick={onToggleSidebar}
-            className="flex items-center justify-start w-full pt-2 mb-2 text-gray-500 dark:text-gray-400 hover:text-btc transition-colors"
+            className="btn-icon btn-icon-accent"
             aria-label="Collapse sidebar"
             title="Collapse sidebar"
           >

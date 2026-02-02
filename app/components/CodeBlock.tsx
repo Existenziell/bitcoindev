@@ -80,7 +80,7 @@ function CodeBlock({ language, children, className, rawCode, ...props }: CodeBlo
           <button
             type="button"
             onClick={() => copyToClipboard(rawCode, 'Code')}
-            className="p-1.5 rounded border border-transparent text-secondary hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 transition-colors cursor-pointer"
+            className="hidden md:inline-flex btn-icon "
             aria-label="Copy code"
             title="Copy code"
           >
@@ -188,7 +188,7 @@ export function MultiLanguageCodeBlock({ languages }: MultiLanguageCodeBlockProp
             const label = `${languageNames[selectedLang] || selectedLang} code`
             copyToClipboard(code, label)
           }}
-          className="p-1.5 rounded border border-transparent text-secondary hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 transition-colors cursor-pointer"
+          className="btn-icon btn-icon-sm btn-icon-bordered hidden md:inline-flex"
           aria-label="Copy code"
           title="Copy code"
         >

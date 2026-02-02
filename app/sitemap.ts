@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terminal',
     '/stack-lab',
     '/block-visualizer',
-    '/author',
+    '/about',
     '/feedback',
   ]
 

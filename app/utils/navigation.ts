@@ -230,7 +230,7 @@ export const sections: Record<string, { title: string; description: string }> = 
     title: 'Stack Lab',
     description: 'Interactive Bitcoin Script playground.',
   },
-  author: {
+  about: {
     title: 'About BitcoinDev',
     description: 'About the BitcoinDev project and its creator.',
   },
@@ -259,7 +259,7 @@ export const docsNavLinksTop: { href: string; title: string }[] = [
 export const docsNavLinksBottom: { href: string; title: string }[] = [
   { href: '/tools', title: 'Tools' },
   { href: '/docs/glossary', title: 'Glossary' },
-  { href: '/author', title: 'About' },
+  { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
 ]
 
@@ -268,7 +268,7 @@ export const horizontalNavLinksBottom: { href: string; title: string }[] = [
   { href: '/whitepaper', title: 'Whitepaper' },
   { href: '/block-visualizer', title: 'Block Visualizer' },
   { href: '/tools', title: 'Tools' },
-  { href: '/author', title: 'About' },
+  { href: '/about', title: 'About' },
 ]
 
 // Footer - External resources (left side)
@@ -293,7 +293,7 @@ export const footerLinksExplore: { href: string; title: string }[] = [
   { href: '/stack-lab', title: 'Stack Lab' },
   { href: '/block-visualizer', title: 'Block Visualizer' },
   { href: '/docs/glossary', title: 'Glossary' },
-  { href: '/author', title: 'About' },
+  { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
 ]
 
@@ -376,7 +376,7 @@ export const routeLabels: Record<string, string> = {
   'stack-lab': 'Stack Lab',
   'block-visualizer': 'Block Visualizer',
   whitepaper: 'Whitepaper',
-  author: 'About BitcoinDev',
+  about: 'About BitcoinDev',
   feedback: 'Feedback',
   docs: 'Documentation',
   ...docRouteLabels,

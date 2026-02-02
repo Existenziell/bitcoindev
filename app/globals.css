@@ -146,9 +146,26 @@ body {
     @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-btc focus:border-transparent;
   }
 
-  /* Icon button - header/nav actions */
+  /* Icon button - header/nav, copy, download; shared hover/focus */
   .btn-icon {
-    @apply p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200/50 dark:hover:bg-gray-700/50 transition-colors;
+    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800;
+  }
+
+  .btn-icon-sm {
+    @apply p-1.5 text-xs;
+  }
+
+  .btn-icon-bordered {
+    @apply border border-transparent hover:border-gray-300 dark:hover:border-gray-600;
+  }
+
+  .btn-icon-accent {
+    @apply hover:text-btc dark:hover:text-btc;
+  }
+
+  /* Tab (unselected) - transparent border, muted text, border + text on hover */
+  .btn-tab {
+    @apply border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600 transition-colors;
   }
 
   /* Gray panel - no focus (add px/py/size as needed) */
@@ -707,12 +724,12 @@ main > div > div > h1:first-child {
 }
 
 /*
-* Author Page Styles
+* About Page Styles
 */
-.author-address-box {
+.about-address-box {
   @apply flex flex-col sm:flex-row items-start sm:items-center gap-3 px-4 py-2 bg-gray-200 dark:bg-gray-900 rounded border border-gray-300 dark:border-gray-700;
 }
 
-.author-address-code {
+.about-address-code {
   @apply text-sm font-mono text-gray-700 dark:text-gray-300 flex-1 break-all;
 }

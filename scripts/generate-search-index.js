@@ -160,9 +160,9 @@ const staticPages = [
     keywords: ['hash', 'sha256', 'sha-256', 'hash256', 'hash160', 'ripemd160', 'double sha256', 'txid', 'address', 'calculator', 'hash calculator', 'sha256 calculator', 'hash256 calculator', 'hash160 calculator'],
   },
   {
-    path: '/author',
+    path: '/about',
     title: 'About BitcoinDev',
-    section: 'author',
+    section: 'about',
     body:
       'About BitcoinDev. Existenziell. Developer and Bitcoin Enthusiast. Why BitcoinDev. Bitcoin education. Open source. Free. No ads. No paywalls. Support. Donate. Bitcoin address. Nostr.',
     keywords: ['about', 'existenziell', 'author', 'support', 'donate'],

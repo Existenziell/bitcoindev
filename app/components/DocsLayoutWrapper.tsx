@@ -12,12 +12,12 @@ import FeedbackLink from '@/app/components/FeedbackLink'
 interface DocsLayoutWrapperProps {
   children: ReactNode
   showPageNavigation?: boolean
-  /** Sidebar starts collapsed on Terminal, Stack Lab, Whitepaper, Author. Default false (expanded). */
+  /** Sidebar starts collapsed on Terminal, Stack Lab, Whitepaper, About. Default false (expanded). */
   defaultSidebarCollapsed?: boolean
 }
 
 /**
- * Layout wrapper for /docs, /whitepaper, /terminal, /author, /stack-lab.
+ * Layout wrapper for /docs, /whitepaper, /terminal, /about, /stack-lab.
  * Header is in the root layout so it stays mounted across navigations (no logo flicker).
  */
 export default function DocsLayoutWrapper({

@@ -378,10 +378,10 @@ export default function StackLabChallenges() {
           key={d}
           type="button"
           onClick={() => handleDifficultyChange(d)}
-          className={`px-5 py-2.5 text-sm font-medium border-b-2 -mb-px transition-colors capitalize ${
+          className={`px-5 py-2.5 text-sm font-medium border-b-2 -mb-px capitalize ${
             selectedDifficulty === d
               ? 'border-btc text-gray-900 dark:text-gray-100'
-              : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-400 dark:hover:border-gray-600'
+              : 'btn-tab'
           }`}
         >
           {d}

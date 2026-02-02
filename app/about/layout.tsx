@@ -7,10 +7,10 @@ export const metadata: Metadata = generatePageMetadata({
   title: 'About BitcoinDev',
   description:
     'Giving back to the Bitcoin community 💛',
-  path: '/author',
+  path: '/about',
 })
 
-export default function AuthorLayout({
+export default function AboutLayout({
   children,
 }: {
   children: ReactNode
