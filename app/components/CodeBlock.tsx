@@ -4,6 +4,8 @@ import { useState, useEffect, memo } from 'react'
 import type { ReactNode } from 'react'
 import { languageNames } from '@/app/utils/languageNames'
 import type { HLJSApi } from 'highlight.js'
+import copyToClipboard from '@/app/utils/copyToClipboard'
+import { CopyIcon } from '@/app/components/Icons'
 
 // Escape HTML for fallback rendering
 const escapeHtml = (code: string) =>
@@ -59,10 +61,11 @@ interface CodeBlockProps {
   language: string
   children: ReactNode
   className?: string
+  rawCode?: string
   [key: string]: any
 }
 
-function CodeBlock({ language, children, className, ...props }: CodeBlockProps) {
+function CodeBlock({ language, children, className, rawCode, ...props }: CodeBlockProps) {
   const displayName = languageNames[language] || (language.charAt(0).toUpperCase() + language.slice(1).toLowerCase())
 
   // Syntax highlighting is done at BUILD TIME via rehype-highlight
@@ -73,6 +76,17 @@ function CodeBlock({ language, children, className, ...props }: CodeBlockProps) 
         <span className="text-xs font-mono text-secondary tracking-wider">
           {displayName}
         </span>
+        {rawCode != null && (
+          <button
+            type="button"
+            onClick={() => copyToClipboard(rawCode, 'Code')}
+            className="p-1.5 rounded text-secondary hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Copy code"
+            title="Copy code"
+          >
+            <CopyIcon className="w-4 h-4" />
+          </button>
+        )}
       </div>
       <pre className="hljs bg-gray-100 dark:bg-gray-900 rounded-b-lg p-4 overflow-x-auto border border-gray-300 dark:border-gray-700 border-t-0" role="code" aria-label={`${displayName} code`}>
         <code className={className} {...props}>
@@ -167,6 +181,19 @@ export function MultiLanguageCodeBlock({ languages }: MultiLanguageCodeBlockProp
             </button>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={() => {
+            const code = languages.find(l => l.lang === selectedLang)?.code ?? ''
+            const label = `${languageNames[selectedLang] || selectedLang} code`
+            copyToClipboard(code, label)
+          }}
+          className="p-1.5 rounded text-secondary hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Copy code"
+          title="Copy code"
+        >
+          <CopyIcon className="w-4 h-4" />
+        </button>
       </div>
       <pre
         className="hljs bg-gray-100 dark:bg-gray-900 rounded-b-lg p-4 overflow-x-auto border border-gray-300 dark:border-gray-700 border-t-0"

@@ -458,7 +458,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
 
         // CodeBlock to avoid pre-in-p
         return (
-          <CodeBlock language={language} className={className} {...props}>
+          <CodeBlock language={language} className={className} rawCode={source} {...props}>
             {codeChildren}
           </CodeBlock>
         )
