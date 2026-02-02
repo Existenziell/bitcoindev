@@ -392,9 +392,38 @@ main > div > div > h1:first-child {
   height: auto;
   font-size: 16px !important;
 }
-/* foreignObject: full height + flexbox so label text is vertically centered */
+/* Single source of truth: fixed font size (not relative to box) for all Mermaid text. */
+.markdown-content .mermaid-diagram .nodeLabel,
+.markdown-content .mermaid-diagram .edgeLabel,
+.markdown-content .mermaid-diagram .cluster-label,
+.markdown-content .mermaid-diagram .cluster-label span,
+.markdown-content .mermaid-diagram .label,
+.markdown-content .mermaid-diagram .label span,
+.markdown-content .mermaid-diagram .label *,
+.markdown-content .mermaid-diagram foreignObject,
+.markdown-content .mermaid-diagram foreignObject span,
+.markdown-content .mermaid-diagram foreignObject *,
+.markdown-content .mermaid-diagram .actor,
+.markdown-content .mermaid-diagram .messageText,
+.markdown-content .mermaid-diagram .labelText,
+.markdown-content .mermaid-diagram .loopText,
+.markdown-content .mermaid-diagram .noteText,
+.markdown-content .mermaid-diagram .section0,
+.markdown-content .mermaid-diagram .section1,
+.markdown-content .mermaid-diagram .section2,
+.markdown-content .mermaid-diagram .pieCircle,
+.markdown-content .mermaid-diagram .state-title,
+.markdown-content .mermaid-diagram .title-row,
+.markdown-content .mermaid-diagram .row,
+.markdown-content .mermaid-diagram .markdown-node-label,
+.markdown-content .mermaid-diagram text {
+  font-size: 16px !important;
+  font-family: "Ubuntu", sans-serif !important;
+  line-height: 1.15 !important;
+}
+/* Prevent label text clipping: foreignObject must allow overflow and center content. */
 .markdown-content .mermaid-diagram foreignObject {
-  overflow: visible;
+  overflow: visible !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -402,7 +431,7 @@ main > div > div > h1:first-child {
   padding: 0 !important;
 }
 .markdown-content .mermaid-diagram foreignObject body {
-  overflow: visible;
+  overflow: visible !important;
   margin: 0 !important;
   display: flex !important;
   align-items: center !important;
@@ -429,15 +458,18 @@ main > div > div > h1:first-child {
   min-height: 100% !important;
   height: 100% !important;
 }
-/* Vertically center label via flex on foreignObject and .nodeLabel; no negative margin. */
 .markdown-content .mermaid-diagram .nodeLabel {
-  line-height: 1.15;
-  padding: 0 !important;
+  padding: 6px 10px !important;
   margin: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  vertical-align: middle;
+  line-height: 1.15;
+  box-sizing: border-box;
+}
+.markdown-content .mermaid-diagram .cluster-label,
+.markdown-content .mermaid-diagram .cluster-label span {
+  padding: 6px 10px !important;
   box-sizing: border-box;
 }
 

@@ -46,6 +46,7 @@ export default function MermaidDiagram({ source }: MermaidDiagramProps) {
         theme: 'base',
         flowchart: {
           padding: 24,
+          diagramPadding: 16,
         },
         themeVariables: {
           background: theme.background,
@@ -72,56 +73,23 @@ export default function MermaidDiagram({ source }: MermaidDiagramProps) {
         containerRef.current.innerHTML = svg
         const svgEl = containerRef.current.querySelector('svg')
         if (svgEl && bindFunctions) bindFunctions(containerRef.current)
-        // Force single font size/family in every diagram (Mermaid uses diagram-type-specific sizes)
+        /* Force fixed font size: strip inline/attr font-size so it never scales with box; CSS sets 16px. */
         const root = containerRef.current
-        if (svgEl) {
-          const style = document.createElementNS('http://www.w3.org/2000/svg', 'style')
-          style.textContent = `svg * { font-size: ${theme.fontSize} !important; font-family: ${theme.fontFamily} !important; }`
-          svgEl.insertBefore(style, svgEl.firstChild)
-        }
-        const stripFontFromStyle = (el: Element) => {
+        const stripFontSize = (el: Element) => {
           const html = el as HTMLElement
-          if (html.style?.cssText) {
-            const filtered = html.style.cssText
-              .split(';')
-              .map((s) => s.trim())
-              .filter((decl) => {
-                const prop = decl.split(':')[0]?.trim().toLowerCase()
-                return prop !== 'font-size' && prop !== 'font-family'
-              })
-              .join('; ')
-            html.style.cssText = filtered ? `${filtered}; ` : ''
-          }
+          if (html.style?.fontSize) html.style.removeProperty('font-size')
           const attr = el.getAttribute('style')
-          if (attr) {
+          if (attr?.includes('font-size')) {
             const filtered = attr
               .split(';')
               .map((s) => s.trim())
-              .filter((decl) => {
-                const prop = decl.split(':')[0]?.trim().toLowerCase()
-                return prop !== 'font-size' && prop !== 'font-family'
-              })
+              .filter((decl) => !decl.toLowerCase().startsWith('font-size'))
               .join('; ')
-            el.setAttribute('style', filtered || '')
+            el.setAttribute('style', filtered ? `${filtered}; ` : '')
           }
+          if (el.hasAttribute('font-size')) el.removeAttribute('font-size')
         }
-        const setFont = (el: Element) => {
-          stripFontFromStyle(el)
-          const html = el as HTMLElement
-          if (html.style) {
-            html.style.setProperty('font-size', '16px', 'important')
-            html.style.setProperty('font-family', '"Ubuntu", "sans-serif"', 'important')
-          }
-          if (el instanceof SVGElement) {
-            el.setAttribute('font-size', '16')
-            el.setAttribute('font-family', '"Ubuntu", "sans-serif"')
-          }
-        }
-        root.querySelectorAll('.nodeLabel, .edgeLabel, .cluster-label, .label, [class*="label"], [class*="Label"]').forEach(setFont)
-        root.querySelectorAll('.actor, .messageText, .labelText, .loopText, .noteText, .section0, .section1, .section2, .pieCircle, .state-title, [class*="section"]').forEach(setFont)
-        root.querySelectorAll('foreignObject *').forEach(setFont)
-        root.querySelectorAll('text').forEach(setFont)
-        if (svgEl) setFont(svgEl)
+        root.querySelectorAll('.nodeLabel, .edgeLabel, .label, .cluster-label, [class*="label"], foreignObject *, text').forEach(stripFontSize)
       } catch (err) {
         if (!cancelled) setError(err instanceof Error ? err.message : String(err))
       }
