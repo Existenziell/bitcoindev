@@ -29,9 +29,9 @@ You trust **mathematics and code** rather than **people and institutions**. This
 ### What You Must Trust
 
 - **Protocol correctness:** Bitcoin works as designed
-- **Cryptography:** [SHA-256](/docs/glossary#sha-256), [ECDSA](/docs/glossary#ecdsa) remain secure
-- **Network honesty:** Majority of [hash rate](/docs/glossary#hash-rate) follows the rules
-- **Your own security:** You protect your [private keys](/docs/glossary#private-key)
+- **Cryptography:** SHA-256, ECDSA remain secure
+- **Network honesty:** Majority of hash rate follows the rules
+- **Your own security:** You protect your private keys
 
 ### What You Don't Need to Trust
 
@@ -43,7 +43,7 @@ Bitcoin's creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), re
 
 **Why anonymity strengthens Bitcoin:**
 
-- **No founder worship:** There's no charismatic leader to follow blindly or whose opinions carry undue weight. Decisions are made through [consensus](/docs/glossary#consensus) and code, not authority.
+- **No founder worship:** There's no charismatic leader to follow blindly or whose opinions carry undue weight. Decisions are made through consensus and code, not authority.
 - **No single point of attack:** Governments or adversaries can't target, coerce, or influence the creator to change Bitcoin's rules or shut it down.
 - **No special privileges:** Satoshi cannot return to claim special rights, reverse transactions, or modify the protocol. The code speaks for itself.
 - **True decentralization:** With no known founder, Bitcoin truly belongs to no one and everyone. The protocol stands on its own merits, not the reputation of its creator.
@@ -55,11 +55,11 @@ Satoshi's disappearance was the ultimate act of decentralization: they created t
 
 ## Trust Minimization Techniques
 
-**Run a [full node](/docs/glossary#full-node):** Verify all transactions yourself instead of trusting others.
+**Run a full node:** Verify all transactions yourself instead of trusting others.
 
 **Use open-source software:** Code is publicly auditable with no hidden functionality.
 
-**Self-custody:** Control your own private keys; no third-party can freeze or seize your funds. "Not your keys, not your coins" means that when an [exchange](/docs/glossary#exchange) or custodian holds your keys, they control your bitcoin. Self-custody shifts responsibility (and risk) to you. See [wallets](/docs/glossary#wallet) for more.
+**Self-custody:** Control your own private keys; no third-party can freeze or seize your funds. "Not your keys, not your coins" means that when an exchange or custodian holds your keys, they control your bitcoin. Self-custody shifts responsibility (and risk) to you. See wallets for more.
 
 ---
 

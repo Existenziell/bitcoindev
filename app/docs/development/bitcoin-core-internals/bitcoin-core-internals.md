@@ -128,7 +128,7 @@ Understanding these threads helps when debugging, profiling, or contributing to 
 
 Used for:
 
-- **Chainstate** (`chainstate/`): [UTXO set](/docs/glossary#utxo-set) and related metadata.
+- **Chainstate** (`chainstate/`): UTXO set and related metadata.
 - **Block index** (`blocks/index/`): Block metadata and header tree (most-work chain, orphans). Not affected by `-blocksdir`.
 - **Wallets** (`wallets/`): Each wallet is a SQLite DB; the chainstate is in LevelDB, wallet logic uses both.
 - **Optional indexes** (in `indexes/`, created only if enabled):

@@ -1,12 +1,12 @@
 # Mining Attacks
 
-Bitcoin's [proof-of-work](/docs/glossary#pow) security model is designed to make attacks economically irrational. However, understanding potential attacks is crucial for appreciating Bitcoin's security properties and the incentives that protect the network.
+Bitcoin's proof-of-work security model is designed to make attacks economically irrational. However, understanding potential attacks is crucial for appreciating Bitcoin's security properties and the incentives that protect the network.
 
 This section covers theoretical attacks on Bitcoin mining, their costs, and why they generally don't happen.
 
 ## The 51% Attack
 
-The most discussed attack on Bitcoin: what if someone controls more than half the network's [hashrate](/docs/glossary#hash-rate)?
+The most discussed attack on Bitcoin: what if someone controls more than half the network's hashrate?
 
 ### What It Enables
 
@@ -43,7 +43,7 @@ The honest chain is orphaned. Double-spend succeeds.
 
 ### Attack Success Probability
 
-The probability of a successful double-spend attack depends on the attacker's hashrate and the number of [confirmations](/docs/glossary#confirmation) the victim waits for:
+The probability of a successful double-spend attack depends on the attacker's hashrate and the number of confirmations the victim waits for:
 
 :::code-group
 ```rust
@@ -563,7 +563,7 @@ Why attack when honest mining is this lucrative?
 
 ### Historical Non-Attacks
 
-No successful [51% attack](/docs/glossary#51-attack) on Bitcoin [mainnet](/docs/glossary#mainnet) has ever occurred. The economics don't work:
+No successful 51% attack on Bitcoin mainnet has ever occurred. The economics don't work:
 
 - Cost exceeds potential gain
 - Attack destroys value of the asset you're attacking
@@ -629,7 +629,7 @@ Below this threshold, the strategy loses money compared to honest mining.
 ### Why It Rarely Happens
 
 1. **Threshold is high**: Need significant hashrate
-2. **Detection risk**: Unusual [block time](/docs/glossary#block-time) patterns
+2. **Detection risk**: Unusual block time patterns
 3. **Pool transparency**: Large [pools](/docs/mining/pools) are monitored
 4. **Reputation damage**: Discovered selfish mining destroys trust
 5. **Coordination**: Requires all pool miners to participate
@@ -649,7 +649,7 @@ An attack by pool miners against their own pool.
 ### How It Works
 
 1. Miner joins a pool
-2. Submits partial [shares](/docs/glossary#share) (proving work)
+2. Submits partial shares (proving work)
 3. When finding a valid block, **doesn't submit it**
 4. Pool pays miner for shares but gets no blocks
 
@@ -698,13 +698,13 @@ Attacker mines competing Block N' including the high-fee tx.
 ### Why It's Rare
 
 - Need to out-mine honest miners extending Block N
-- Costs the [block reward](/docs/glossary#block-reward) if you lose
+- Costs the block reward if you lose
 - Not worth it for normal fees
 
 ### Prevention
 
 - **nLockTime**: Transactions can specify earliest block
-- **[CLTV](/docs/glossary#cltv)**: Similar lock-time mechanism
+- **CLTV**: Similar lock-time mechanism
 - **Low fees**: Don't create tempting targets
 
 ---
@@ -716,16 +716,16 @@ An attack relevant to Layer 2 protocols like [Lightning](/docs/lightning).
 ### How It Works
 
 1. Attacker creates a low-fee transaction spending the same output
-2. Transaction is large, making [CPFP](/docs/glossary#cpfp) expensive
+2. Transaction is large, making CPFP expensive
 3. Victim's transaction can't confirm
 4. Time-sensitive protocols (Lightning) may fail
 
 ### Impact on Lightning
 
-Lightning [channels](/docs/glossary#channel) have time-locked transactions. If these can't confirm:
+Lightning channels have time-locked transactions. If these can't confirm:
 
 - Attacker might steal funds
-- [Force-close](/docs/glossary#force-close) may fail
+- Force-close may fail
 - Victim loses money
 
 ### Defenses
@@ -738,7 +738,7 @@ Lightning [channels](/docs/glossary#channel) have time-locked transactions. If t
 
 ## Time-Warp Attack
 
-Exploiting timestamp manipulation over [difficulty](/docs/glossary#difficulty) adjustment periods.
+Exploiting timestamp manipulation over difficulty adjustment periods.
 
 ### How It Works
 
@@ -766,7 +766,7 @@ Attack:
 - Requires 51% hashrate (major attack already)
 - Slow payoff (months to exploit)
 - Easily detected
-- Could be fixed with [soft fork](/docs/glossary#soft-fork)
+- Could be fixed with soft fork
 
 ---
 
@@ -789,7 +789,7 @@ Isolating a node from the real network.
 
 ### Defenses
 
-- **More connections**: Connect to many diverse [peers](/docs/glossary#peer)
+- **More connections**: Connect to many diverse peers
 - **DNS seeds**: Use multiple bootstrap sources
 - **Manual peering**: Add known-good peers
 - **Outbound connections**: Prioritize connections you initiate

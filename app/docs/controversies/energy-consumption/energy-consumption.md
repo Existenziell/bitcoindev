@@ -50,9 +50,9 @@ This is why the energy debate is ultimately unproductive. It disguises a subject
 
 ## Energy Use as a Security Feature
 
-Bitcoin's [proof-of-work](/docs/glossary#pow) mechanism requires significant computational resources, which translates to energy consumption. This is by design:
+Bitcoin's proof-of-work mechanism requires significant computational resources, which translates to energy consumption. This is by design:
 
-- **Attack Cost**: To attack Bitcoin, an attacker would need to control more than 50% of the network's [hash rate](/docs/glossary#hash-rate), requiring enormous energy investment (see [51% attack](/docs/glossary#51-attack))
+- **Attack Cost**: To attack Bitcoin, an attacker would need to control more than 50% of the network's hash rate, requiring enormous energy investment (see 51% attack)
 - **Economic Security**: The cost of energy creates a real economic barrier to attacks
 - **Decentralization**: High energy costs prevent any single entity from controlling the network
 
@@ -118,10 +118,10 @@ To understand Bitcoin's energy consumption, it's helpful to compare it with othe
 
 Bitcoin mining has become more energy-efficient over time:
 
-- **Hardware Improvements**: [ASIC](/docs/glossary#asic) miners have become more efficient
+- **Hardware Improvements**: ASIC miners have become more efficient
 - **Renewable Energy Adoption**: Increasing use of renewable energy sources
 - **Hash Rate Efficiency**: More hash power per unit of energy consumed
-- **[Mining Pool](/docs/glossary#mining-pool) Optimization**: Better coordination reduces wasted computation
+- **Mining Pool Optimization**: Better coordination reduces wasted computation
 
 ---
 
@@ -129,7 +129,7 @@ Bitcoin mining has become more energy-efficient over time:
 
 Supporters argue that Bitcoin's energy consumption is justified by the value it provides:
 
-- **Financial Sovereignty**: Enables [censorship-resistant](/docs/glossary#censorship-resistance), borderless transactions
+- **Financial Sovereignty**: Enables censorship-resistant, borderless transactions
 - **Store of Value**: Provides a decentralized alternative to traditional monetary systems
 - **Network Security**: Energy consumption directly translates to network security
 - **Global Access**: Provides financial services to unbanked populations

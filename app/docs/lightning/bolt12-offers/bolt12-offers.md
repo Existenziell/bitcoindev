@@ -1,6 +1,6 @@
 # Lightning Offers (BOLT12)
 
-**BOLT12** is a Lightning protocol extension that introduces **offers** (and related structures such as **invoice requests** and **refunds**) as a more flexible alternative to [BOLT11](/docs/lightning/invoices) invoices. Offers allow payers to request an [invoice](/docs/lightning/invoices) from a payee without the payee having to be online first, support **reusable** payment identifiers, and enable use cases like recurring payments and better [keysend](/docs/glossary#keysend)-style flows.
+**BOLT12** is a Lightning protocol extension that introduces **offers** (and related structures such as **invoice requests** and **refunds**) as a more flexible alternative to [BOLT11](/docs/lightning/invoices) invoices. Offers allow payers to request an [invoice](/docs/lightning/invoices) from a payee without the payee having to be online first, support **reusable** payment identifiers, and enable use cases like recurring payments and better keysend-style flows.
 
 ## BOLT11 vs BOLT12
 
@@ -22,7 +22,7 @@ An **offer** is a signed, self-describing payment request that:
 
 - Identifies the **payee** (node [public key](/docs/bitcoin/cryptography))
 - May fix an **amount** or allow **any amount**
-- Can specify **metadata** (description, [chain](/docs/glossary#mainnet), etc.)
+- Can specify **metadata** (description, chain, etc.)
 - Can require **features** the payer must support
 - Does **not** include a [payment hash](/docs/lightning/routing/htlc) or [invoice](/docs/lightning/invoices); those are created only when the payee generates an invoice in response to an **invoice request**
 
@@ -74,7 +74,7 @@ BOLT12 defines **refund** flow: the payee can issue a **refund** (a kind of offe
 
 ## Blinded Paths and Privacy
 
-To request an [invoice](/docs/lightning/invoices) from an offer, the payer must reach the payee. BOLT12 can use **blinded paths** (onion-routed, [blinded](/docs/lightning/onion) identifiers) so that the payer does not need to know the payee’s direct node id or [IP](/docs/glossary#peer). The offer can contain a blinded path to the payee, improving [privacy](/docs/wallets/privacy).
+To request an [invoice](/docs/lightning/invoices) from an offer, the payer must reach the payee. BOLT12 can use **blinded paths** (onion-routed, [blinded](/docs/lightning/onion) identifiers) so that the payer does not need to know the payee’s direct node id or IP. The offer can contain a blinded path to the payee, improving [privacy](/docs/wallets/privacy).
 
 ---
 

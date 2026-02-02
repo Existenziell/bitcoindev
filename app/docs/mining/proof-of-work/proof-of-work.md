@@ -4,11 +4,11 @@ Bitcoin uses a **proof-of-work** consensus mechanism where miners compete to sol
 
 ## How It Works
 
-1. **Block Construction**: Miners collect transactions from the [mempool](/docs/glossary#mempool) and create a candidate block
-2. **Nonce Search**: Miners repeatedly hash the [block header](/docs/glossary#block-header) with different [nonce](/docs/glossary#nonce) values
-3. **Difficulty Target**: The hash must be below a certain target (set by network [difficulty](/docs/glossary#difficulty))
+1. **Block Construction**: Miners collect transactions from the mempool and create a candidate block
+2. **Nonce Search**: Miners repeatedly hash the block header with different nonce values
+3. **Difficulty Target**: The hash must be below a certain target (set by network difficulty)
 4. **Success**: When a miner finds a valid hash, they broadcast the block to the network
-5. **Reward**: The miner receives the [block reward](/docs/glossary#block-reward) (currently 3.125 BTC) plus [transaction fees](/docs/glossary#transaction-fee)
+5. **Reward**: The miner receives the block reward (currently 3.125 BTC) plus transaction fees
 
 ```mermaid
 flowchart TD
@@ -26,8 +26,8 @@ flowchart TD
 
 ## Mining Difficulty
 
-- **Adjustment**: Every 2016 blocks (~2 weeks), the difficulty adjusts based on network [hash rate](/docs/glossary#hash-rate)
-- **Target**: Maintains ~10 minute average [block time](/docs/glossary#block-time)
+- **Adjustment**: Every 2016 blocks (~2 weeks), the difficulty adjusts based on network hash rate
+- **Target**: Maintains ~10 minute average block time
 - **Current Network Hash Rate**: ~700 EH/s (exahashes per second)
 - **See Also**: [Difficulty Adjustment](/docs/mining/difficulty) for detailed explanation
 
@@ -37,12 +37,12 @@ flowchart TD
 
 ### Block Headers
 - **Size**: 80 bytes of block metadata
-- **Components**: Version, previous block hash, [merkle root](/docs/glossary#merkle-root), timestamp, [difficulty target](/docs/glossary#difficulty-target), nonce
-- **Hash Function**: [SHA256D](/docs/glossary#sha256d) (double SHA-256)
+- **Components**: Version, previous block hash, merkle root, timestamp, difficulty target, nonce
+- **Hash Function**: SHA256D (double SHA-256)
 
 ### Nonce Space
 - **Range**: 0 to 4,294,967,295 (2^32 - 1)
-- **Exhaustion**: If all nonces fail, miners change the [coinbase transaction](/docs/glossary#coinbase-transaction) or timestamp
+- **Exhaustion**: If all nonces fail, miners change the coinbase transaction or timestamp
 - **Search Space**: Effectively unlimited through coinbase modifications
 
 ### Target Difficulty

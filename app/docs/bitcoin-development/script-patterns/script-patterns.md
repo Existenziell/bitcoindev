@@ -242,13 +242,13 @@ function createHashLockScript(hash) {
 ### Policy vs. Script
 
 - **Policy**: High-level conditions (e.g., `2 of [pk(A), pk(B), pk(C)]` or `and(pk(A), after(100))`).
-- **Script**: The actual bytecode that [nodes](/docs/glossary#full-node) execute; Miniscript compiles policy → Script.
+- **Script**: The actual bytecode that nodes execute; Miniscript compiles policy → Script.
 
 ### Fragments and Composition
 
 Miniscript uses composable **fragments** (`pk`, `thresh`, `and`, `or`, `after`, `older`, `hash`, `multi`, etc.) that map to Script. This makes it easier to:
 
-- Combine conditions (AND, OR, m-of-n) without hand-rolled [scriptSig](/docs/glossary#scriptsig)/witness.
+- Combine conditions (AND, OR, m-of-n) without hand-rolled scriptSig/witness.
 - Analyze **correctness** and **safety** (no unintended spends, no dust).
 - Estimate **satisfaction size** (witness size, number of [signatures](/docs/bitcoin/cryptography)).
 
@@ -258,7 +258,7 @@ Miniscript uses composable **fragments** (`pk`, `thresh`, `and`, `or`, `after`, 
 - **Contracts**: [Vaults](/docs/wallets/smart-contracts), [Atomic Swaps](/docs/advanced/atomic-swaps)-style hashlocks, and [Taproot](/docs/bitcoin/taproot) script trees.
 - **Protocols**: [Lightning](/docs/lightning), [DLCs](/docs/advanced/dlcs), and other [smart contract](/docs/wallets/smart-contracts) templates.
 
-See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification, fragment set, and [Tapscript](/docs/glossary#tapscript) support.
+See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification, fragment set, and Tapscript support.
 
 ---
 

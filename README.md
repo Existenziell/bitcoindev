@@ -29,7 +29,7 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
 - **Stack Lab**: Interactive Bitcoin Script playground. Build and run locking/unlocking scripts in the browser; same model as on-chain validation. `/stack-lab`
 - **Block Visualizer**: Interactive block visualization with transaction treemap. Explore the latest Bitcoin block, click transactions to see inputs/outputs. `/block-visualizer`
 - **Denominations Calculator**: Convert between satoshis, bits, mBTC, BTC, and other units. `/docs/fundamentals/denominations`
-- **Glossary**: Browse 200+ Bitcoin terms A–Z at `/docs/glossary`. Linked terms in the docs show a hover tooltip with the definition.
+- **Glossary**: Browse 200+ Bitcoin terms A–Z at `/docs/glossary`.
 
 ---
 

@@ -819,7 +819,7 @@
     "path": "/docs/bitcoin-development",
     "title": "Bitcoin Development",
     "section": "bitcoin-development",
-    "body": "Bitcoin Development This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In Bitcoin Fundamentals you learned how Bitcoin works conceptually: the UTXO model, the blockchain, the trust model, and incentives. Here we turn those ideas into implementation. Keys prove ownership; addresses encode spending conditions; transactions move UTXOs; and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the "
+    "body": "Bitcoin Development This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In Bitcoin Fundamentals you learned how Bitcoin works conceptually: the UTXO model, the blockchain, the trust model, and incentives. Here we turn those ideas into implementation. Keys prove ownership, addresses encode spending conditions, transactions move UTXOs, and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the "
   },
   {
     "path": "/docs/bitcoin-development/keys",
@@ -1059,11 +1059,5 @@
     "title": "Bitcoin Use Cases",
     "section": "adoption",
     "body": "Bitcoin Use Cases Bitcoin adoption spans individuals, businesses, and nations. From remittances to corporate treasuries to national adoption, Bitcoin is being used in diverse and innovative ways. Remittances The Global Remittance Market Remittances (money sent by migrant workers to their families) total over $800 billion annually. Traditional remittances face: High fees: Average 6-10%, often much higher for small amounts Slow transfers: Can take days or weeks Limited access: Recipients may need "
-  },
-  {
-    "path": "/docs/glossary",
-    "title": "Glossary",
-    "section": "glossary",
-    "body": "0-9 51% Attack A theoretical attack where an entity controlling more than 50% of the network's hash rate could potentially double-spend transactions or prevent confirmations by mining an alternative chain faster than the honest network. The attack becomes exponentially more expensive as the network grows, and even with majority hash power, an attacker cannot steal coins or change consensus rules. 2-of-3 Multisig A common multisignature configuration requiring 2 signatures from 3 possible "
   }
 ]

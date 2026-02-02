@@ -16,7 +16,7 @@ Consider a solo miner with 0.001% of total network hashrate:
 
 This variance is unacceptable for anyone running mining as a business.
 
-[Incentives](/docs/fundamentals/incentives) and [proof-of-work](/docs/glossary#pow) make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine [hash rate](/docs/glossary#hash-rate) and share rewards proportionally. 
+[Incentives](/docs/fundamentals/incentives) and proof-of-work make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine hash rate and share rewards proportionally. 
 
 ### Pool Solution
 
@@ -46,7 +46,7 @@ By combining hashpower:
 
 **Shares** are proof that a miner is working:
 
-- A share is a hash that meets a lower [difficulty](/docs/glossary#difficulty) than the network target
+- A share is a hash that meets a lower difficulty than the network target
 - Easy to find (every few seconds)
 - Proves miner is honestly hashing
 - Pool uses shares to measure contribution
@@ -645,7 +645,7 @@ Pool takes the gamble
 
 ### Full Pay Per Share (FPPS)
 
-- **Like PPS, but**: Also includes estimated [transaction fees](/docs/glossary#transaction-fee)
+- **Like PPS, but**: Also includes estimated transaction fees
 - **Benefit**: Miners get share of fees, not just block reward
 - **Popular because**: Transaction fees are increasingly important
 
@@ -679,7 +679,7 @@ Your 50,000 shares = 5% of reward
 
 ## Pool Protocols
 
-### [Stratum](/docs/glossary#stratum) (v1)
+### Stratum (v1)
 
 The dominant mining protocol since 2012:
 
@@ -691,7 +691,7 @@ Pool → Miner: Share accepted, new work
 
 **Characteristics**:
 - Simple and widely supported
-- Pool controls [block template](/docs/glossary#block-template) completely
+- Pool controls block template completely
 - Miner just hashes what they're told
 
 **Downsides**:
@@ -737,7 +737,7 @@ Matt Corallo's proposal that influenced Stratum V2:
 
 - **Censorship**: A pool can omit or reorder transactions (e.g. to comply with sanctions or blacklists).
 - **Sovereignty**: Miners follow the pool’s template instead of their own node and policy.
-- **Attack surface**: A compromised or coerced pool could attempt [double-spend](/docs/glossary#double-spend) attacks or reorgs.
+- **Attack surface**: A compromised or coerced pool could attempt double-spend attacks or reorgs.
 - **Single point of failure**: Regulation or technical failure at a few large pools affects a big share of hashrate.
 
 Stratum v1’s design (pool sends template, miner returns shares) is simple and scalable but centralizes power at the pool. Stratum V2 and protocols like Ocean’s DATUM (Decentralized Alternative Templates for Universal Mining) let miners propose or build their own block templates while still pooling rewards, shifting control back toward miners and reducing pool centralization.
@@ -748,7 +748,7 @@ Stratum v1’s design (pool sends template, miner returns shares) is simple and 
 
 **Risks**:
 - Pool operator could censor transactions
-- Pool could attempt [double-spend](/docs/glossary#double-spend) attacks
+- Pool could attempt double-spend attacks
 - Government could pressure large pools
 - Collusion between pools
 
@@ -859,7 +859,7 @@ This section covers connecting to a pool (e.g. Stratum), configuring payouts, an
 
 ### Requirements
 
-1. **Mining hardware**: [ASICs](/docs/glossary#asic) for Bitcoin (or CPU/GPU for testing)
+1. **Mining hardware**: ASICs for Bitcoin (or CPU/GPU for testing)
 2. **Pool account**: Register with chosen pool
 3. **Mining software**: CGMiner, BFGMiner, or manufacturer software
 4. **Wallet**: For receiving payouts

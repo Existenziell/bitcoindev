@@ -8,7 +8,7 @@ Every major Bitcoin controversy teaches us something about decentralized governa
 
 - **The Blocksize Wars** showed that users, not miners or corporations, ultimately control Bitcoin
 - **Mt. Gox** taught us "not your keys, not your coins"
-- **Energy debates** force us to articulate why [proof-of-work](/docs/glossary#pow) matters
+- **Energy debates** force us to articulate why proof-of-work matters
 - **Criminal-use accusations** remind us that money is a neutral tool and that illicit activity overwhelmingly occurs in traditional currencies
 - **Faketoshi claims** demonstrate the importance of cryptographic proof over authority
 
@@ -47,7 +47,7 @@ These debates are often heated because the stakes are high. Bitcoin is real mone
 ### Protocol Debates
 
 [**The Blocksize Wars (2015-2017)**](/docs/controversies/blocksize-wars)
-The defining battle over Bitcoin's scaling approach. Big blockers wanted larger blocks for more transactions; small blockers prioritized [decentralization](/docs/glossary#decentralization) and layer-2 solutions. The outcome: Bitcoin kept small blocks, [SegWit](/docs/glossary#segwit) activated, and Bitcoin Cash [forked](/docs/glossary#hard-fork) off.
+The defining battle over Bitcoin's scaling approach. Big blockers wanted larger blocks for more transactions; small blockers prioritized decentralization and layer-2 solutions. The outcome: Bitcoin kept small blocks, SegWit activated, and Bitcoin Cash forked off.
 
 [**The OP_RETURN Debate**](/docs/controversies/op-return)
 An ongoing controversy about data storage on Bitcoin. Should Bitcoin allow arbitrary data in transactions? The 2024 Bitcoin Core v30 changes reignited debates about Bitcoin's purpose: is it purely money, or a platform for broader applications?

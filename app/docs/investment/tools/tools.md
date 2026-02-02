@@ -10,7 +10,7 @@ Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understandin
 
 ### Centralized Exchanges (CEX)
 
-**What they are:** Traditional [exchanges](/docs/glossary#exchange) that act as intermediaries, holding your funds and matching buy/sell orders.
+**What they are:** Traditional exchanges that act as intermediaries, holding your funds and matching buy/sell orders.
 
 **Characteristics:**
 - Custodial (they hold your Bitcoin)
@@ -69,7 +69,7 @@ Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understandin
 
 ### Decentralized Exchanges (DEX)
 
-**What DEXs are:** [Decentralized exchanges (DEXs)](/docs/glossary#dex) that operate without a central authority, using smart contracts or peer-to-peer protocols.
+**What DEXs are:** Decentralized exchanges (DEXs) that operate without a central authority, using smart contracts or peer-to-peer protocols.
 
 | Aspect | DEX/P2P | CEX |
 |--------|---------|-----|

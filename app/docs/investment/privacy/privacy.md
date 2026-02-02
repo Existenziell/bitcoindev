@@ -104,16 +104,16 @@ If you want to minimize KYC exposure:
 
 ## Mixing UTXOs (CoinJoin)
 
-**UTXO mixing** (also called **[CoinJoin](/docs/glossary#coinjoin)**) is a privacy technique that combines multiple users' transactions into a single transaction, making it difficult to determine which inputs belong to which outputs.
+**UTXO mixing** (also called **CoinJoin**) is a privacy technique that combines multiple users' transactions into a single transaction, making it difficult to determine which inputs belong to which outputs.
 
 ### Why It Matters
 
 When you spend Bitcoin, blockchain analysts can use sophisticated techniques to link your transactions:
 
 - **Common-Input-Ownership Heuristic:** If multiple inputs are spent together, they're likely owned by the same person
-- **Change Output Analysis:** [Change outputs](/docs/glossary#change-output) often go back to the sender
+- **Change Output Analysis:** Change outputs often go back to the sender
 - **Timing Analysis:** Transactions made close together may be linked
-- **Address Clustering:** [Reusing addresses](/docs/glossary#address-reuse) links all transactions to that address
+- **Address Clustering:** Reusing addresses links all transactions to that address
 
 Mixing breaks these links by combining your UTXOs with others, making it much harder to trace your Bitcoin.
 
@@ -401,7 +401,7 @@ Privacy is especially important when:
 
 - [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
 - [Privacy Techniques](/docs/wallets/privacy) - Technical privacy techniques (for developers)
-- [UTXO Model](/docs/fundamentals/utxos) - Understanding how [UTXOs](/docs/glossary#utxo) work
+- [UTXO Model](/docs/fundamentals/utxos) - Understanding how UTXOs work
 - [Coin Selection](/docs/wallets/coin-selection) - Privacy-aware coin selection strategies
 - [Lightning Network](/docs/lightning) - Off-chain privacy benefits
 - [Tools for Investors](/docs/investment/tools) - Privacy-aware tools and resources

@@ -10,7 +10,7 @@ The analogy runs deeper:
 
 | Gold Mining | Bitcoin Mining |
 |-------------|----------------|
-| Requires work to extract value | Requires computational work ([proof-of-work](/docs/glossary#pow)) |
+| Requires work to extract value | Requires computational work (proof-of-work) |
 | Gold supply is finite | Bitcoin supply is capped at 21 million |
 | Gets harder to mine over time (deeper deposits) | Gets harder over time ([difficulty adjustment](/docs/mining/difficulty)) |
 | New gold enters circulation through mining | New bitcoin enters circulation through mining |
@@ -32,17 +32,17 @@ Mining serves two critical functions:
 
 ### Block Creation Process
 
-1. **Transaction Collection**: Miners collect pending transactions from the [mempool](/docs/glossary#mempool)
+1. **Transaction Collection**: Miners collect pending transactions from the mempool
 2. **Block Construction**: Miners assemble transactions into a candidate block
-3. **Proof-of-Work**: Miners repeatedly hash the [block header](/docs/glossary#block-header) with different [nonce](/docs/glossary#nonce) values
-4. **Difficulty Target**: The hash must be below a certain target (determined by network [difficulty](/docs/glossary#difficulty))
+3. **Proof-of-Work**: Miners repeatedly hash the block header with different nonce values
+4. **Difficulty Target**: The hash must be below a certain target (determined by network difficulty)
 5. **Block Discovery**: When a miner finds a valid hash, they broadcast the block to the network
 6. **Block Validation**: Other nodes verify the block and add it to their blockchain
-7. **Reward**: The successful miner receives the [block reward](/docs/glossary#block-reward) plus [transaction fees](/docs/glossary#transaction-fee)
+7. **Reward**: The successful miner receives the block reward plus transaction fees
 
 ### The Mining Algorithm
 
-The core of Bitcoin mining is finding a nonce that, when combined with the block header data and hashed twice with [SHA-256](/docs/glossary#sha-256), produces a value below the current difficulty target.
+The core of Bitcoin mining is finding a nonce that, when combined with the block header data and hashed twice with SHA-256, produces a value below the current difficulty target.
 
 :::code-group
 ```rust
@@ -299,7 +299,7 @@ if (nonce !== null) {
 
 ### Mining Hardware
 
-- **[ASIC](/docs/glossary#asic) Miners**: Application-Specific Integrated Circuits designed specifically for Bitcoin mining (most efficient)
+- **ASIC Miners**: Application-Specific Integrated Circuits designed specifically for Bitcoin mining (most efficient)
 - **GPU Mining**: Graphics Processing Units (less efficient than ASICs, rarely profitable)
 - **CPU Mining**: Central Processing Units (least efficient, primarily educational)
 
@@ -307,11 +307,11 @@ See [Hardware Evolution](/docs/mining/hardware) for the complete history of mini
 
 ### Mining Pools
 
-Most miners join [mining pools](/docs/glossary#mining-pool) to:
+Most miners join mining pools to:
 - **Reduce Variance**: Share rewards with other miners
 - **Consistent Payouts**: Receive smaller but regular payments
 - **Lower Barrier**: Don't need to find a full block individually
-- **Combine Hash Power**: Pool [hash rate](/docs/glossary#hash-rate) increases chances of finding blocks
+- **Combine Hash Power**: Pool hash rate increases chances of finding blocks
 
 See [Mining Pools](/docs/mining/pools) for detailed information on pool operations and payout schemes.
 
@@ -322,10 +322,10 @@ See [Mining Pools](/docs/mining/pools) for detailed information on pool operatio
 | Concept | Description |
 |---------|-------------|
 | **Proof-of-Work** | Cryptographic puzzle that miners solve to validate blocks |
-| **Block Reward** | Currently 3.125 BTC per block (after 2024 [halving](/docs/glossary#halving)) |
+| **Block Reward** | Currently 3.125 BTC per block (after 2024 halving) |
 | **Difficulty** | Adjusts every 2016 blocks to maintain ~10 minute block times |
 | **Hash Rate** | Measure of mining power (network: ~700 EH/s) |
-| **[Coinbase Transaction](/docs/glossary#coinbase-transaction)** | Special transaction that creates new bitcoin as block reward |
+| **Coinbase Transaction** | Special transaction that creates new bitcoin as block reward |
 
 ---
 

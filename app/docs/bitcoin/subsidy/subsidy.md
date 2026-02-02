@@ -1,10 +1,10 @@
 # Block Subsidy
 
-The Bitcoin block subsidy is the amount of new Bitcoin created with each block. It follows a predictable mathematical formula that [halves](/docs/glossary#halving) every 210,000 blocks, creating Bitcoin's fixed supply schedule.
+The Bitcoin block subsidy is the amount of new Bitcoin created with each block. It follows a predictable mathematical formula that halves every 210,000 blocks, creating Bitcoin's fixed supply schedule.
 
 ## Block Reward
 
-The [block reward](/docs/glossary#block-reward) is what the miner receives for mining a valid block: the **block subsidy** (new bitcoin created) plus the **transaction fees** from all transactions included in the block. Over time, the subsidy shrinks (halving every 210,000 blocks) and fees will make up a larger share of miner revenue.
+The block reward is what the miner receives for mining a valid block: the **block subsidy** (new bitcoin created) plus the **transaction fees** from all transactions included in the block. Over time, the subsidy shrinks (halving every 210,000 blocks) and fees will make up a larger share of miner revenue.
 
 ## The Equation
 
@@ -246,7 +246,7 @@ The limit arises from:
 - Halving interval: 210,000 blocks
 - Geometric series sum: 50 × 210,000 × 2 = 21,000,000
 
-After approximately 64 halvings (around year 2140), the subsidy drops below 1 [satoshi](/docs/glossary#sat) and becomes zero.
+After approximately 64 halvings (around year 2140), the subsidy drops below 1 satoshi and becomes zero.
 
 ---
 
@@ -467,7 +467,7 @@ Total Block Reward = Block Subsidy + Transaction Fees
 | 2020-2024 | 6.25 BTC | 0.5-5 BTC | 8-80% |
 | 2024-2028 | 3.125 BTC | Variable | Growing |
 
-As the subsidy decreases, transaction fees become increasingly important for [mining](/docs/glossary#mining-pool) economics and network security.
+As the subsidy decreases, transaction fees become increasingly important for mining economics and network security.
 
 ---
 
@@ -501,7 +501,7 @@ Example (2024):
 ### Predictability
 - Anyone can calculate the exact supply at any block height
 - No central authority can change the schedule
-- Requires network [consensus](/docs/glossary#consensus) to modify
+- Requires network consensus to modify
 
 ### Scarcity
 - Fixed maximum of 21 million BTC
@@ -511,7 +511,7 @@ Example (2024):
 ### Security Transition
 - Early: Security funded primarily by subsidy
 - Current: Mix of subsidy and fees
-- Future: Security must come from [fee market](/docs/glossary#transaction-fee)
+- Future: Security must come from fee market
 
 ---
 

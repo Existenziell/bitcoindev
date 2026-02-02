@@ -1,6 +1,6 @@
 # The Blocksize Wars
 
-The Blocksize Wars (2015-2017) were a period of intense debate and conflict within the Bitcoin community over whether to increase Bitcoin's [block size](/docs/glossary#block-size) limit. This controversy ultimately led to the [hard fork](/docs/glossary#hard-fork) that created Bitcoin Cash and fundamentally shaped Bitcoin's development philosophy.
+The Blocksize Wars (2015-2017) were a period of intense debate and conflict within the Bitcoin community over whether to increase Bitcoin's block size limit. This controversy ultimately led to the hard fork that created Bitcoin Cash and fundamentally shaped Bitcoin's development philosophy.
 
 ## The Core Issue
 
@@ -8,8 +8,8 @@ The Blocksize Wars (2015-2017) were a period of intense debate and conflict with
 
 Bitcoin's block size was limited to **1 MB** (set by Satoshi Nakamoto in 2010). As Bitcoin adoption grew, this limit became a bottleneck:
 
-- **Transaction Backlog**: Transactions waiting hours or days for [confirmation](/docs/glossary#confirmation)
-- **Rising Fees**: [Fees](/docs/glossary#transaction-fee) increased as users competed for limited block space
+- **Transaction Backlog**: Transactions waiting hours or days for confirmation
+- **Rising Fees**: Fees increased as users competed for limited block space
 - **Scalability Concerns**: Could Bitcoin handle global adoption with 1 MB blocks?
 
 ### The Question
@@ -51,14 +51,14 @@ This seemingly simple question divided the community into two camps with fundame
 
 **Proposed Solutions:**
 - Keep 1 MB limit
-- Implement [Segregated Witness (SegWit)](/docs/glossary#segwit)
-- Build [Lightning Network](/docs/glossary#lightning-network) for scaling
+- Implement Segregated Witness (SegWit)
+- Build Lightning Network for scaling
 - Optimize transaction efficiency
 
 **Key Advocates:**
 - Bitcoin Core developers
 - Most node operators
-- [Decentralization](/docs/glossary#decentralization)-focused community
+- Decentralization-focused community
 
 ---
 
@@ -96,9 +96,9 @@ This seemingly simple question divided the community into two camps with fundame
 ### 2017: The Resolution
 
 **SegWit Activation (August 2017)**
-- Segregated Witness [soft fork](/docs/glossary#soft-fork) activated
+- Segregated Witness soft fork activated
 - Increased effective block capacity to ~2 MB
-- Fixed [transaction malleability](/docs/glossary#transaction-malleability)
+- Fixed transaction malleability
 - Enabled Lightning Network
 
 **Bitcoin Cash Hard Fork (August 1, 2017)**
@@ -137,7 +137,7 @@ This seemingly simple question divided the community into two camps with fundame
 
 1. **Decentralization**
    - Larger blocks = higher node operation costs
-   - Fewer people can run [full nodes](/docs/glossary#full-node)
+   - Fewer people can run full nodes
    - Centralization risk
 
 2. **Network Security**
@@ -152,7 +152,7 @@ This seemingly simple question divided the community into two camps with fundame
 
 4. **Economic Security**
    - Higher fees = better security
-   - Miners need fees after [halvings](/docs/glossary#halving)
+   - Miners need fees after halvings
    - Fee market is important
 
 ---
@@ -164,7 +164,7 @@ This seemingly simple question divided the community into two camps with fundame
 **Bitcoin (BTC):**
 - Base block size: 1 MB
 - With SegWit: ~2-4 MB effective capacity
-- Weight limit: 4,000,000 [weight units](/docs/glossary#weight-units)
+- Weight limit: 4,000,000 weight units
 
 **Bitcoin Cash (BCH):**
 - Started: 8 MB

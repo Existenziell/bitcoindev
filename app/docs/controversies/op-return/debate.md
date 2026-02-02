@@ -1,6 +1,6 @@
 # The OP_RETURN Debate: Bitcoin as Database vs. Financial Network
 
-An analysis of the ongoing debate about OP_RETURN, carrier size limits, and Bitcoin's fundamental purpose. `OP_RETURN` is a Bitcoin [Script](/docs/glossary#script) [opcode](/docs/glossary#opcode) that creates **provably unspendable outputs**. When executed, it immediately terminates script execution and marks the transaction as invalid.
+An analysis of the ongoing debate about OP_RETURN, carrier size limits, and Bitcoin's fundamental purpose. `OP_RETURN` is a Bitcoin Script opcode that creates **provably unspendable outputs**. When executed, it immediately terminates script execution and marks the transaction as invalid.
 
 **Script Pattern:**
 ```
@@ -8,12 +8,12 @@ OP_RETURN <data>
 ```
 
 **Key Characteristics:**
-- [Outputs](/docs/glossary#output) are **unspendable**: they cannot be used as [inputs](/docs/glossary#input) in future transactions
+- Outputs are **unspendable**: they cannot be used as inputs in future transactions
 - Data is **permanently stored** on the blockchain (immutable)
-- Data does **not contribute to [UTXO set](/docs/glossary#utxo-set)**: can be pruned by nodes
+- Data does **not contribute to UTXO set**: can be pruned by nodes
 - Originally limited to **80 bytes** of data per output
 
-**How it works:** (1) **Script execution:** when `OP_RETURN` is encountered, script execution immediately fails; the transaction is marked as invalid (cannot be spent) but the transaction itself is still valid and included in blocks. (2) **Data storage:** data follows `OP_RETURN` in the script, stored in the transaction output's `[scriptPubKey](/docs/glossary#scriptpubkey)`, permanently recorded in blockchain history. (3) **UTXO set impact:** since outputs are unspendable, they don't add to UTXO set; nodes can prune OP_RETURN data after validation, reducing long-term storage burden compared to regular outputs.
+**How it works:** (1) **Script execution:** when `OP_RETURN` is encountered, script execution immediately fails; the transaction is marked as invalid (cannot be spent) but the transaction itself is still valid and included in blocks. (2) **Data storage:** data follows `OP_RETURN` in the script, stored in the transaction output's `scriptPubKey`, permanently recorded in blockchain history. (3) **UTXO set impact:** since outputs are unspendable, they don't add to UTXO set; nodes can prune OP_RETURN data after validation, reducing long-term storage burden compared to regular outputs.
 
 **Example:**
 ```
@@ -41,7 +41,7 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
 
 #### Key Technical Points
 
-1. **Policy, Not [Consensus](/docs/glossary#consensus):** OP_RETURN limits are **relay policy**, not [consensus rules](/docs/glossary#consensus-rules)
+1. **Policy, Not Consensus:** OP_RETURN limits are **relay policy**, not consensus rules
    - Nodes can reject transactions as "non-standard"
    - But if included in a block, they're still valid
    - Miners can include non-standard transactions if they choose
@@ -73,7 +73,7 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
 ### 2009-2013: Early Days
 
 - **No OP_RETURN:** Initially, people used other methods to store data
-  - Encoding data in addresses ([P2PKH](/docs/glossary#p2pkh) outputs)
+  - Encoding data in addresses (P2PKH outputs)
   - Using fake addresses with embedded data
   - These methods bloated the UTXO set
 
@@ -383,7 +383,7 @@ This is the core question that divides the community:
 - Examples: Liquid, Rootstock
 
 **2. Layer 2 Solutions:**
-- [Lightning Network](/docs/glossary#lightning-network) (for payments)
+- Lightning Network (for payments)
 - Other L2s for data storage
 
 **3. Separate Protocols:**

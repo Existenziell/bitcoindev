@@ -78,7 +78,7 @@ A **cryptographic hash function** takes any input data and produces a fixed-size
 
 ### SHA-256
 
-Bitcoin's primary hash function is **[SHA-256](/docs/glossary#sha-256)** (Secure Hash Algorithm, 256-bit).
+Bitcoin's primary hash function is **SHA-256** (Secure Hash Algorithm, 256-bit).
 
 **Characteristics:**
 - Output: 256 bits (32 bytes, 64 hex characters)
@@ -96,15 +96,15 @@ SHA-256: 334d016f755cd6dc58c53a86e183882f8ec14f52fb05345887c8a5edd42c87b7
 
 Notice how adding a single character completely changes the output (avalanche effect).
 
-### Double SHA-256 ([SHA256D](/docs/glossary#sha256d))
+### Double SHA-256 (SHA256D)
 
 Bitcoin often uses **double SHA-256**: `SHA256(SHA256(data))`
 
 **Used for:**
 - Block hashes
-- [Transaction IDs](/docs/glossary#txid) (TXIDs)
-- [Merkle tree](/docs/glossary#merkle-tree) nodes
-- [Proof-of-work](/docs/glossary#pow)
+- Transaction IDs (TXIDs)
+- Merkle tree nodes
+- Proof-of-work
 
 **Why double hashing?**
 - Defense against length-extension attacks
@@ -228,14 +228,14 @@ console.log(`Double SHA-256: ${doubleSha256(message).toString('hex')}`);
 ```
 :::
 
-### [RIPEMD-160](/docs/glossary#ripemd-160) and Hash160
+### RIPEMD-160 and Hash160
 
 **RIPEMD-160** produces a 160-bit (20-byte) hash, used in combination with SHA-256.
 
 **Hash160 = RIPEMD160(SHA256(data))**
 
 **Used for:**
-- Bitcoin [addresses](/docs/glossary#address) ([P2PKH](/docs/glossary#p2pkh), [P2SH](/docs/glossary#p2sh))
+- Bitcoin addresses (P2PKH, P2SH)
 - Shorter than SHA-256, reducing address length
 - Still cryptographically secure
 
@@ -352,13 +352,13 @@ A **Merkle tree** (or hash tree) is a data structure that efficiently summarizes
 ### How Bitcoin Uses Merkle Trees
 
 **Block Structure:**
-- Each block contains a **[Merkle root](/docs/glossary#merkle-root)** in its header
+- Each block contains a **Merkle root** in its header
 - Merkle root summarizes all transactions in the block
 - Changing any transaction changes the Merkle root
 
 **Benefits:**
 1. **Efficient verification**: Prove transaction inclusion with O(log n) hashes
-2. **Compact proofs**: [SPV](/docs/glossary#spv) nodes don't need full blockchain
+2. **Compact proofs**: SPV nodes don't need full blockchain
 3. **Data integrity**: Any tampering is immediately detectable
 
 ### Merkle Proofs (SPV)
@@ -845,16 +845,16 @@ A **digital signature** proves:
 
 **Signature types in Bitcoin:**
 - **[ECDSA](#ecdsa)**: Used for legacy outputs (P2PKH, P2SH, pre-Taproot SegWit).
-- **[Schnorr](#schnorr-signatures)** (BIP 340): Used for [Taproot](/docs/glossary#taproot) (P2TR) outputs; enables smaller signatures and aggregation.
+- **[Schnorr](#schnorr-signatures)** (BIP 340): Used for Taproot (P2TR) outputs; enables smaller signatures and aggregation.
 
 ### Signing a Bitcoin Transaction
 
 When you spend bitcoin:
 
-1. **Construct transaction** with [inputs](/docs/glossary#input) and [outputs](/docs/glossary#output)
+1. **Construct transaction** with inputs and outputs
 2. **Create signature hash** (sighash) of transaction data
 3. **Sign** the sighash with your private key
-4. **Include signature** in transaction's [witness](/docs/glossary#witness)/[scriptSig](/docs/glossary#scriptsig)
+4. **Include signature** in transaction's witness/scriptSig
 5. **Broadcast** transaction to network
 6. **Nodes verify** signature matches public key and transaction
 
@@ -862,7 +862,7 @@ When you spend bitcoin:
 
 ## ECDSA
 
-**ECDSA** (Elliptic Curve Digital Signature Algorithm) was Bitcoin's original signature scheme. Bitcoin used it for all signatures until [Taproot](/docs/glossary#taproot) introduced [Schnorr](#schnorr-signatures).
+**ECDSA** (Elliptic Curve Digital Signature Algorithm) was Bitcoin's original signature scheme. Bitcoin used it for all signatures until Taproot introduced [Schnorr](#schnorr-signatures).
 
 **Signing Process:**
 1. Hash the message: `z = SHA256(message)`
@@ -1043,7 +1043,7 @@ console.log(`Signature valid: ${isValid}`);
 
 ## Schnorr Signatures
 
-**Schnorr signatures** (BIP 340) are Bitcoin's signature scheme for [Taproot](/docs/glossary#taproot) (P2TR) outputs, activated in November 2021 (block 709,632). [Pieter Wuille](/docs/history/people#pieter-wuille) was a key designer of BIP 340.
+**Schnorr signatures** (BIP 340) are Bitcoin's signature scheme for Taproot (P2TR) outputs, activated in November 2021 (block 709,632). [Pieter Wuille](/docs/history/people#pieter-wuille) was a key designer of BIP 340.
 
 ### Why Schnorr in Bitcoin?
 
@@ -1056,7 +1056,7 @@ Schnorr offers simpler mathematics, stronger security proofs under standard assu
 | **Signature size** | 70–72 bytes (DER) | 64 bytes (fixed) |
 | **Encoding** | Variable (DER) | Fixed `r\|\|s` |
 | **Nonce** | Must be secret, unique; reuse leaks key | Derived (e.g. BIP 340 nonce); safer |
-| **Aggregation** | No | Yes (e.g. [MuSig](/docs/glossary#musig)) |
+| **Aggregation** | No | Yes (e.g. MuSig) |
 | **Batch verification** | Per-signature | Faster batch mode |
 | **Security proofs** | More complex | Simpler, well-understood |
 
@@ -1216,7 +1216,7 @@ console.log(`Challenge hash: ${challenge.toString('hex')}`);
 
 ### Signature Aggregation
 
-Schnorr's linearity allows multiple signatures to be combined into one. **[MuSig](/docs/glossary#musig)** and **MuSig2** (BIP 327) let multiple signers produce a single Schnorr signature for a combined public key. Benefits:
+Schnorr's linearity allows multiple signatures to be combined into one. **MuSig** and **MuSig2** (BIP 327) let multiple signers produce a single Schnorr signature for a combined public key. Benefits:
 
 - **Privacy**: Multi-party spends look like single-signature spends on-chain.
 - **Efficiency**: One 64-byte signature instead of many; lower fees.
@@ -1226,7 +1226,7 @@ For how Taproot uses Schnorr and MuSig in practice, see [Taproot](/docs/bitcoin/
 
 ### Relation to Taproot
 
-Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends need only one Schnorr signature; script-path spends reveal one branch of a Merkle tree and still use Schnorr in [Tapscript](/docs/glossary#tapscript). That way, complex contracts can look identical to simple single-sig payments. For MAST, script paths, and address format, see [Taproot](/docs/bitcoin/taproot).
+Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends need only one Schnorr signature; script-path spends reveal one branch of a Merkle tree and still use Schnorr in Tapscript. That way, complex contracts can look identical to simple single-sig payments. For MAST, script paths, and address format, see [Taproot](/docs/bitcoin/taproot).
 
 ### Resources
 
@@ -1237,7 +1237,7 @@ Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends ne
 
 ## Address Encoding
 
-### [Base58](/docs/glossary#base58)Check
+### Base58Check
 
 **Base58** encoding uses 58 characters (excluding 0, O, I, l to avoid confusion):
 
@@ -1253,9 +1253,9 @@ Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends ne
 
 **Used for:** Legacy addresses (1..., 3...)
 
-### [Bech32](/docs/glossary#bech32) and Bech32m
+### Bech32 and Bech32m
 
-**Bech32** encoding (BIP-173) is used for [SegWit](/docs/glossary#segwit) addresses:
+**Bech32** encoding (BIP-173) is used for SegWit addresses:
 
 **Characteristics:**
 - Case-insensitive
@@ -1264,8 +1264,8 @@ Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends ne
 - Prefix: `bc1` for mainnet, `tb1` for testnet
 
 **Address Types:**
-- `bc1q...`: Native SegWit ([P2WPKH](/docs/glossary#p2wpkh), [P2WSH](/docs/glossary#p2wsh)) - Bech32
-- `bc1p...`: Taproot ([P2TR](/docs/glossary#p2tr)) - Bech32m
+- `bc1q...`: Native SegWit (P2WPKH, P2WSH) - Bech32
+- `bc1p...`: Taproot (P2TR) - Bech32m
 
 **Bech32m** (BIP-350) is a modified version for Taproot addresses with improved error detection.
 

@@ -1,6 +1,6 @@
 # OP Codes
 
-The instruction set for Bitcoin. Bitcoin [Script](/docs/glossary#script) uses a stack-based programming language with various opcodes (operation codes) that perform different functions. This document provides a complete reference of Bitcoin OP codes with explanations and code examples. Try these opcodes in [Stack Lab](/stack-lab).
+The instruction set for Bitcoin. Bitcoin Script uses a stack-based programming language with various opcodes (operation codes) that perform different functions. This document provides a complete reference of Bitcoin OP codes with explanations and code examples. Try these opcodes in [Stack Lab](/stack-lab).
 
 ## OP Code Categories
 
@@ -511,14 +511,14 @@ OP_ROT:
 
 | OP Code | Hex | Function |
 |---------|-----|----------|
-| OP_RIPEMD160 | 0xa6 | [RIPEMD-160](/docs/glossary#ripemd-160) hash |
+| OP_RIPEMD160 | 0xa6 | RIPEMD-160 hash |
 | OP_SHA1 | 0xa7 | SHA-1 hash |
-| OP_SHA256 | 0xa8 | [SHA-256](/docs/glossary#sha-256) hash |
+| OP_SHA256 | 0xa8 | SHA-256 hash |
 | OP_HASH160 | 0xa9 | SHA256 + RIPEMD160 |
 | OP_HASH256 | 0xaa | Double SHA-256 |
-| OP_CHECKSIG | 0xac | Verify [ECDSA](/docs/glossary#ecdsa) signature |
+| OP_CHECKSIG | 0xac | Verify ECDSA signature |
 | OP_CHECKSIGVERIFY | 0xad | OP_CHECKSIG + OP_VERIFY |
-| OP_CHECKMULTISIG | 0xae | Verify [multisig](/docs/glossary#multisig) |
+| OP_CHECKMULTISIG | 0xae | Verify multisig |
 | OP_CHECKMULTISIGVERIFY | 0xaf | OP_CHECKMULTISIG + OP_VERIFY |
 
 ---
@@ -562,7 +562,7 @@ OP_ENDIF
 
 ## Time Lock Operations
 
-### [OP_CHECKLOCKTIMEVERIFY](/docs/glossary#cltv) (CLTV)
+### OP_CHECKLOCKTIMEVERIFY (CLTV)
 
 **Code**: `0xb1`
 
@@ -577,7 +577,7 @@ Use cases:
 - Time-locked savings
 - Inheritance planning
 
-### [OP_CHECKSEQUENCEVERIFY](/docs/glossary#csv) (CSV)
+### OP_CHECKSEQUENCEVERIFY (CSV)
 
 **Code**: `0xb2`
 
@@ -588,7 +588,7 @@ Verifies the input's sequence number enforces a relative time lock.
 ```
 
 Use cases:
-- [Lightning Network](/docs/glossary#lightning-network) [HTLCs](/docs/glossary#htlc)
+- Lightning Network HTLCs
 - Escrow with timeout
 - Revocable transactions
 
@@ -616,7 +616,7 @@ Taproot introduced new opcodes for Tapscript:
 
 **Code**: `0xba`
 
-Enables efficient [Schnorr](/docs/glossary#schnorr-signature) signature aggregation for multisig.
+Enables efficient Schnorr signature aggregation for multisig.
 
 ```
 <pubkey1> OP_CHECKSIG
@@ -666,7 +666,7 @@ These opcodes were disabled for security reasons:
 
 ## Common Script Patterns
 
-### [P2PKH](/docs/glossary#p2pkh) (Pay-to-Pubkey-Hash)
+### P2PKH (Pay-to-Pubkey-Hash)
 
 ```
 Locking Script (scriptPubKey):
@@ -676,7 +676,7 @@ Unlocking Script (scriptSig):
 <signature> <publickey>
 ```
 
-### [P2SH](/docs/glossary#p2sh) (Pay-to-Script-Hash)
+### P2SH (Pay-to-Script-Hash)
 
 ```
 Locking Script:
@@ -686,7 +686,7 @@ Unlocking Script:
 <data> ... <redeemscript>
 ```
 
-### [Multisig](/docs/glossary#multisig) (2-of-3)
+### Multisig (2-of-3)
 
 ```
 Locking Script:
@@ -777,7 +777,7 @@ OP_ENDIF
 
 - [Script System](/docs/bitcoin/script): How Bitcoin Script works
 - [OP_RETURN Debate](/docs/controversies/op-return): Controversy about data storage
-- [Taproot](/docs/glossary#taproot) - Schnorr signatures and Tapscript
+- Taproot - Schnorr signatures and Tapscript
 
 ---
 

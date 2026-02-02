@@ -68,7 +68,7 @@ John Gilmore is a computer scientist, entrepreneur, and civil-liberties advocate
 
 <img src="/images/people/Adam_Back.jpg" alt="Adam Back" class="doc-img-people" />
 
-**Contribution:** Hashcash (1997) - [Proof-of-Work](/docs/glossary#pow) for spam prevention
+**Contribution:** Hashcash (1997) - Proof-of-Work for spam prevention
 
 Adam Back is a British cryptographer who invented Hashcash in 1997, a proof-of-work system designed to limit email spam and denial-of-service attacks. The core idea was elegant: require senders to perform computational work before sending an email, making mass spam economically infeasible.
 
@@ -86,7 +86,7 @@ Back is currently CEO of Blockstream, a Bitcoin infrastructure company he co-fou
 
 **Contribution:** Bit Gold (1998) - Decentralized digital currency concept
 
-Nick Szabo is a computer scientist, legal scholar, and cryptographer who designed Bit Gold in 1998, often called the direct precursor to Bitcoin. Bit Gold proposed a [decentralized](/docs/glossary#decentralization) digital currency where participants would use computational power to solve cryptographic puzzles, with solutions timestamped and published to a distributed registry.
+Nick Szabo is a computer scientist, legal scholar, and cryptographer who designed Bit Gold in 1998, often called the direct precursor to Bitcoin. Bit Gold proposed a decentralized digital currency where participants would use computational power to solve cryptographic puzzles, with solutions timestamped and published to a distributed registry.
 
 Szabo also coined the term "smart contracts" in 1994, describing self-executing contracts with terms written directly into code, a concept that would later become central to Ethereum and other blockchain platforms.
 
@@ -124,9 +124,9 @@ The smallest subunit of Ether (Ethereum's currency) is called a "wei" in his hon
 
 **Contribution:** Merkle trees (1979) - Efficient verification of block contents
 
-Ralph Merkle is a computer scientist who invented Merkle trees (also called hash trees) in 1979. In this structure, leaf nodes contain hashes of data, and each parent node is the hash of its children, building up to a single root hash. The Bitcoin whitepaper uses this construction to enable compact proofs: [SPV](/docs/glossary#spv) clients can verify that a transaction is in a block by checking a path from the transaction to the [Merkle root](/docs/glossary#merkle-root) in the block header, without downloading the full block.
+Ralph Merkle is a computer scientist who invented Merkle trees (also called hash trees) in 1979. In this structure, leaf nodes contain hashes of data, and each parent node is the hash of its children, building up to a single root hash. The Bitcoin whitepaper uses this construction to enable compact proofs: SPV clients can verify that a transaction is in a block by checking a path from the transaction to the Merkle root in the block header, without downloading the full block.
 
-Merkle trees are fundamental to Bitcoin's [block](/docs/glossary#block) structure. Every block header includes a Merkle root that commits to all transactions in the block; tampering with any transaction changes the root and breaks the chain. Merkle also contributed to public-key cryptography (Merkle's puzzles) and later to nanotechnology. His 1979 paper "Protocols for Public Key Cryptosystems" and the Merkle tree concept are among the cryptographic foundations Satoshi drew on.
+Merkle trees are fundamental to Bitcoin's block structure. Every block header includes a Merkle root that commits to all transactions in the block; tampering with any transaction changes the root and breaks the chain. Merkle also contributed to public-key cryptography (Merkle's puzzles) and later to nanotechnology. His 1979 paper "Protocols for Public Key Cryptosystems" and the Merkle tree concept are among the cryptographic foundations Satoshi drew on.
 
 [More](https://en.wikipedia.org/wiki/Ralph_Merkle)
 
@@ -140,7 +140,7 @@ Merkle trees are fundamental to Bitcoin's [block](/docs/glossary#block) structur
 
 Stuart Haber and W. Scott Stornetta are cryptographers who, in a 1991 paper, solved the problem of timestamping digital documents so that they cannot be backdated or tampered with. Their scheme linked each new timestamp to the previous one in a chain, creating a cryptographically secured sequence that could prove the order and existence of records. Satoshi Nakamoto cited their work in the Bitcoin whitepaper as a direct precursor to the blockchain's design.
 
-Their approach used hash pointers to create an append-only, tamper-evident log. This "chain of timestamps" is the conceptual ancestor of Bitcoin's [blockchain](/docs/glossary#blockchain): each block references the previous block's hash, and changing history would require redoing an exponentially growing amount of work. Haber and Stornetta's 1990 paper "How to Time-Stamp a Digital Document" and its 1991 follow-up established the core idea that Bitcoin would combine with proof-of-work and digital cash.
+Their approach used hash pointers to create an append-only, tamper-evident log. This "chain of timestamps" is the conceptual ancestor of Bitcoin's blockchain: each block references the previous block's hash, and changing history would require redoing an exponentially growing amount of work. Haber and Stornetta's 1990 paper "How to Time-Stamp a Digital Document" and its 1991 follow-up established the core idea that Bitcoin would combine with proof-of-work and digital cash.
 
 [More](https://en.wikipedia.org/wiki/Stuart_Haber)
 
@@ -152,7 +152,7 @@ Their approach used hash pointers to create an append-only, tamper-evident log. 
 
 **Contribution:** Bitcoin (2008-2010) - Creator of Bitcoin
 
-Satoshi Nakamoto is the pseudonymous person or group who created Bitcoin. On October 31, 2008, Nakamoto published the [Bitcoin whitepaper](/whitepaper), "Bitcoin: A Peer-to-Peer Electronic Cash System." On January 3, 2009, they mined the [Genesis Block](/docs/glossary#genesis-block), embedding the message: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
+Satoshi Nakamoto is the pseudonymous person or group who created Bitcoin. On October 31, 2008, Nakamoto published the [Bitcoin whitepaper](/whitepaper), "Bitcoin: A Peer-to-Peer Electronic Cash System." On January 3, 2009, they mined the Genesis Block, embedding the message: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks."
 
 Satoshi was active in developing Bitcoin and communicating on forums until December 2010, when they handed over control to Gavin Andresen and disappeared. Their last known communication was an email in April 2011.
 
@@ -182,7 +182,7 @@ Interestingly, Finney lived just a few blocks from Dorian Satoshi Nakamoto in Te
 
 Finney was diagnosed with ALS (Lou Gehrig's disease) in 2009 and continued contributing to Bitcoin until his physical limitations made it impossible. He passed away on August 28, 2014, and was cryopreserved by the Alcor Life Extension Foundation.
 
-The "Finney attack" in Bitcoin is named after him: a type of [double-spend](/docs/glossary#double-spend) attack he described where a miner pre-mines a transaction and quickly broadcasts a conflicting one.
+The "Finney attack" in Bitcoin is named after him: a type of double-spend attack he described where a miner pre-mines a transaction and quickly broadcasts a conflicting one.
 
 [More](https://en.wikipedia.org/wiki/Hal_Finney_(computer_scientist))
 
@@ -248,7 +248,7 @@ His role diminished after 2014, particularly following the blocksize debate and 
 
 Laszlo Hanyecz is a programmer who, on May 22, 2010, completed the first known commercial transaction using Bitcoin: he paid 10,000 BTC for two pizzas delivered to his home in Florida. The deal was arranged on the Bitcointalk forum, where Hanyecz had offered to pay BTC for pizza delivery. A participant in the UK ordered the pizzas; Hanyecz sent the bitcoin. The exchange proved that Bitcoin could be used as a medium of exchange for real goods and services.
 
-The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 is sometimes observed as Bitcoin Pizza Day) and a reminder of Bitcoin's early, experimental use. At later prices, those 10,000 BTC would be worth hundreds of millions of dollars; at the time, they were a fair price for two pizzas and a historic proof of concept. Hanyecz continued contributing to Bitcoin, including work on the GPU mining software that would precede [ASIC](/docs/glossary#asic) miners.
+The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 is sometimes observed as Bitcoin Pizza Day) and a reminder of Bitcoin's early, experimental use. At later prices, those 10,000 BTC would be worth hundreds of millions of dollars; at the time, they were a fair price for two pizzas and a historic proof of concept. Hanyecz continued contributing to Bitcoin, including work on the GPU mining software that would precede ASIC miners.
 
 [More](https://en.wikipedia.org/wiki/Laszlo_Hanyecz)
 
@@ -260,7 +260,7 @@ The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 
 
 **Contribution:** Bitcoin Core lead maintainer (2014-2021)
 
-Wladimir van der Laan is a software developer who served as the lead maintainer of [Bitcoin Core](/docs/glossary#bitcoin-core) from 2014 to 2021. He took over the role from Gavin Andresen during a turbulent period that included the [blocksize wars](/docs/controversies/blocksize-wars), the intense debate over whether to increase Bitcoin's block size limit. Van der Laan maintained the Bitcoin Core repository, integrated contributions from a growing developer community, and shepherded the project through the activation of [SegWit](/docs/bitcoin/segwit) in 2017.
+Wladimir van der Laan is a software developer who served as the lead maintainer of Bitcoin Core from 2014 to 2021. He took over the role from Gavin Andresen during a turbulent period that included the [blocksize wars](/docs/controversies/blocksize-wars), the intense debate over whether to increase Bitcoin's block size limit. Van der Laan maintained the Bitcoin Core repository, integrated contributions from a growing developer community, and shepherded the project through the activation of [SegWit](/docs/bitcoin/segwit) in 2017.
 
 His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-source project with many regular contributors. Van der Laan emphasized process, review, and conservative change, values that have come to define Bitcoin's development culture. He stepped down as lead maintainer in 2021; the role has since been shared among several maintainers in a further decentralization of project stewardship.
 
@@ -275,7 +275,7 @@ His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-
 
 **Contribution:** SegWit (BIP 141), Taproot (BIP 340-342), libsecp256k1
 
-Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of [SegWit](/docs/bitcoin/segwit) (BIP 141), activated in 2017, which separated signature data from transaction data in the [block](/docs/glossary#block) structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, [MAST](/docs/glossary#mast), and improved privacy and flexibility for smart contracts.
+Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of [SegWit](/docs/bitcoin/segwit) (BIP 141), activated in 2017, which separated signature data from transaction data in the block structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, MAST, and improved privacy and flexibility for smart contracts.
 
 Wuille created and maintains libsecp256k1, the cryptographic library used by Bitcoin Core for [elliptic curve](/docs/bitcoin/cryptography) operations, faster and more secure than generic crypto libraries. His work has shaped the security, scalability, and expressiveness of the Bitcoin protocol. He is a co-founder of Blockstream and remains an active Bitcoin Core contributor.
 
@@ -287,9 +287,9 @@ Wuille created and maintains libsecp256k1, the cryptographic library used by Bit
 
 <img src="/images/people/Gregory_Maxwell.jpg" alt="Gregory Maxwell" class="doc-img-people" />
 
-**Contribution:** Bitcoin Core developer, Blockstream co-founder, [CoinJoin](/docs/glossary#coinjoin), Confidential Transactions, [Sidechains](/docs/glossary#sidechain)
+**Contribution:** Bitcoin Core developer, Blockstream co-founder, CoinJoin, Confidential Transactions, Sidechains
 
-Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on [CoinJoin](/docs/glossary#coinjoin) (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the [blocksize wars](/docs/controversies/blocksize-wars), arguing for [Layer 2](/docs/glossary#layer-2) scaling and against raising the block size limit. His advocacy for [SegWit](/docs/glossary#segwit) and for a conservative, [decentralization](/docs/glossary#decentralization)-focused approach to scaling helped shape Bitcoin's current direction.
+Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on CoinJoin (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the [blocksize wars](/docs/controversies/blocksize-wars), arguing for Layer 2 scaling and against raising the block size limit. His advocacy for SegWit and for a conservative, decentralization-focused approach to scaling helped shape Bitcoin's current direction.
 
 [More](https://en.wikipedia.org/wiki/Gregory_Maxwell)
 
@@ -299,9 +299,9 @@ Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influenti
 
 <img src="/images/people/Poon_Dryja.jpg" alt="Joseph Poon and Thaddeus Dryja" class="doc-img-people" />
 
-**Contribution:** [Lightning Network](/docs/glossary#lightning-network) whitepaper (2015)
+**Contribution:** Lightning Network whitepaper (2015)
 
-Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the [blockchain](/docs/glossary#blockchain). The design built on [HTLCs](/docs/glossary#htlc), [time locks](/docs/glossary#time-lock), and [SegWit](/docs/glossary#segwit) (which was still under debate) to fix [transaction malleability](/docs/glossary#transaction-malleability) and enable bi-directional channels. The Lightning Network, as specified in the [BOLT](/docs/glossary#bolt) documents and implemented by LND, Core Lightning, Eclair, and others, is the main [Layer 2](/docs/glossary#layer-2) for Bitcoin and is directly rooted in their whitepaper.
+Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the blockchain. The design built on HTLCs, time locks, and SegWit (which was still under debate) to fix transaction malleability and enable bi-directional channels. The Lightning Network, as specified in the BOLT documents and implemented by LND, Core Lightning, Eclair, and others, is the main Layer 2 for Bitcoin and is directly rooted in their whitepaper.
 
 [More](https://lightning.network/lightning-network-paper.pdf) (whitepaper)
 
@@ -334,7 +334,7 @@ In 2017, after it was revealed he had not held significant Bitcoin despite years
 
 **Contribution:** Early investor, "Bitcoin Jesus," Bitcoin Cash advocate
 
-Roger Ver is an early Bitcoin investor and promoter who became known as "Bitcoin Jesus" for his advocacy and funding of Bitcoin-related projects and businesses. He was an outspoken supporter of increasing Bitcoin's block size and, during the [blocksize wars](/docs/controversies/blocksize-wars), backed alternative implementations and the hard fork that created Bitcoin Cash (BCH) in August 2017. His shift from promoting Bitcoin (BTC) to Bitcoin Cash made him a polarizing figure. Understanding his role is part of understanding the scaling debate, the philosophy of on-chain vs. [Layer 2](/docs/glossary#layer-2) scaling, and the fact that Bitcoin has no single leader: divergent views can lead to [forks](/docs/glossary#fork) rather than forced changes to the main chain.
+Roger Ver is an early Bitcoin investor and promoter who became known as "Bitcoin Jesus" for his advocacy and funding of Bitcoin-related projects and businesses. He was an outspoken supporter of increasing Bitcoin's block size and, during the [blocksize wars](/docs/controversies/blocksize-wars), backed alternative implementations and the hard fork that created Bitcoin Cash (BCH) in August 2017. His shift from promoting Bitcoin (BTC) to Bitcoin Cash made him a polarizing figure. Understanding his role is part of understanding the scaling debate, the philosophy of on-chain vs. Layer 2 scaling, and the fact that Bitcoin has no single leader: divergent views can lead to forks rather than forced changes to the main chain.
 
 [More](https://en.wikipedia.org/wiki/Roger_Ver)
 

@@ -9,7 +9,7 @@ Understanding the complete lifecycle of a transaction helps contextualize the co
 1. **Creation**: User constructs a transaction specifying inputs ([UTXOs](/docs/fundamentals/utxos) to spend) and outputs (recipient addresses and amounts)
 2. **Signing**: User signs the transaction with their private key, proving ownership of the inputs
 3. **Broadcasting**: Signed transaction is sent to the network
-4. **Mempool**: Transaction waits in the [mempool](/docs/glossary#mempool) (memory pool) of unconfirmed transactions
+4. **Mempool**: Transaction waits in the mempool (memory pool) of unconfirmed transactions
 5. **Selection**: A miner selects the transaction (typically prioritizing higher fees)
 6. **Inclusion**: Transaction is included in a candidate block
 7. **Mining**: Miner finds valid proof-of-work for the block
@@ -25,7 +25,7 @@ A transaction with 6 confirmations is generally considered irreversible.
 <img src="/images/docs/raw-bitcoin-transacation-byte.jpg" alt="Raw Bitcoin Transaction Bytes" class="doc-img-big" />
 <p class="doc-img-legend">Raw Bitcoin Transaction Bytes</p>
 
-**Byte Order:** Most numeric fields (version, value, locktime, sequence, output index) are encoded in [little endian](/docs/glossary#little-endian). However, transaction IDs (TXIDs) and block hashes are typically *displayed* in big endian (reversed) for readability, even though they're stored internally in little endian. When working with raw transaction data, the `[::-1]` reversal in Python (or equivalent) converts between these formats.
+**Byte Order:** Most numeric fields (version, value, locktime, sequence, output index) are encoded in little endian. However, transaction IDs (TXIDs) and block hashes are typically *displayed* in big endian (reversed) for readability, even though they're stored internally in little endian. When working with raw transaction data, the `[::-1]` reversal in Python (or equivalent) converts between these formats.
 
 ### Size Calculations
 

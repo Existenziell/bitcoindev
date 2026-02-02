@@ -12,14 +12,12 @@ import Link from 'next/link'
 import CodeBlock, { MultiLanguageCodeBlock } from '@/app/components/CodeBlock'
 import DenominationCalculator from '@/app/components/DenominationCalculator'
 import PoolDistributionChart from '@/app/components/PoolDistributionChart'
-import GlossaryTooltip from '@/app/components/GlossaryTooltip'
 
 const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), {
   ssr: false,
   loading: () => <div className="mermaid-diagram my-4 min-h-[120px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 animate-pulse" aria-hidden />,
 })
 import { ChevronDown, ExternalLinkIcon } from '@/app/components/Icons'
-import { useGlossary } from '@/app/contexts/GlossaryContext'
 import { generateSlug } from '@/scripts/lib/slug'
 
 interface MarkdownRendererProps {
@@ -250,8 +248,6 @@ const createHeading = (level: number) => {
 }
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  const { glossaryData, isLoading: glossaryLoading } = useGlossary()
-
   // Memoize mermaid/code/video group and denomination calculator parsing (expensive)
   const { processedContent, codeGroupMap, videoGroupMap, mermaidDiagramMap } = useMemo(() => {
     const { processedContent: afterMermaid, mermaidDiagrams } = parseMermaidDiagrams(content)
@@ -388,13 +384,6 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
           )
         }
       }
-      if (href?.startsWith('/docs/glossary#')) {
-        return (
-          <GlossaryTooltip href={href} glossaryData={glossaryData} glossaryLoading={glossaryLoading}>
-            {children}
-          </GlossaryTooltip>
-        )
-      }
       if (href?.startsWith('/')) {
         return (
           <Link href={href} {...props}>
@@ -475,7 +464,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       // eslint-disable-next-line @next/next/no-img-element -- dynamic markdown content
       <img src={src} alt={alt} className="max-w-full h-auto my-4" {...props} />
     ),
-  }), [codeGroupMap, videoGroupMap, mermaidDiagramMap, glossaryData, glossaryLoading])
+  }), [codeGroupMap, videoGroupMap, mermaidDiagramMap])
 
   return (
     <div className="markdown-content prose dark:prose-invert max-w-none">

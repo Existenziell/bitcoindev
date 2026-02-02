@@ -5,6 +5,7 @@ A theoretical attack where an entity controlling more than 50% of the network's 
 
 ### 2-of-3 Multisig
 A common multisignature configuration requiring 2 signatures from 3 possible signers to spend funds. This setup provides a balance between security and convenience: if one key is lost or compromised, funds remain accessible and secure.
+<!-- related: /docs/wallets/multisig -->
 
 ### 21 Million
 The maximum supply of Bitcoin that will ever exist, enforced by the protocol's consensus rules and achieved through the halving schedule, with the last satoshi expected to be mined around the year 2140. The fixed supply creates a deflationary monetary policy that contrasts with traditional fiat currencies.
@@ -15,24 +16,31 @@ The maximum supply of Bitcoin that will ever exist, enforced by the protocol's c
 
 ### Air-Gapped
 A computer or device that has never been connected to the internet, providing the highest level of security for Bitcoin wallets. Air-gapped systems cannot be attacked remotely, making them ideal for generating private keys, creating transactions, and signing them offline. The transaction is then transferred to an internet-connected device for broadcasting. This approach eliminates the risk of malware, network attacks, and key theft through online means.
+<!-- related: /docs/investment/wallet-security -->
 
 ### Absolute Time Lock
 A time lock that prevents a transaction from being spent until a specific block height or Unix timestamp is reached, implemented using the OP_CHECKLOCKTIMEVERIFY (CLTV) opcode. Unlike relative time locks, absolute locks reference a fixed point in time rather than being relative to when the UTXO was created.
+<!-- related: /docs/bitcoin/timelocks -->
 
 ### Address
 A public identifier where Bitcoin can be received, generated from a public key through hash functions. Different address types exist (P2PKH, P2SH, P2WPKH/P2WSH, P2TR) reflecting Bitcoin's evolution, with newer types offering lower fees and better privacy.
+<!-- related: /docs/wallets/address-types -->
 
 ### Address Reuse
 Using the same Bitcoin address for multiple transactions, which is generally discouraged for both privacy and security reasons. Reusing addresses links transactions together on the public blockchain, making it easier to trace financial activity. Best practice is to generate a fresh address for each transaction, which HD wallets handle automatically.
+<!-- related: /docs/wallets/privacy -->
 
 ### Anchor Outputs
 A mechanism in Lightning Network that allows payment channels to be closed reliably even when on-chain fee rates have increased significantly since the channel was opened. Each commitment transaction includes small "anchor" outputs that either party can use to attach a child transaction with higher fees via CPFP (Child Pays for Parent), ensuring channels can always be closed in a timely manner.
+<!-- related: /docs/lightning/anchor-outputs -->
 
 ### ASIC
 Application-Specific Integrated Circuit (ASIC): specialized hardware designed and manufactured specifically for Bitcoin mining, optimized to perform SHA-256 hash calculations as efficiently as possible. ASICs are orders of magnitude more efficient than general-purpose CPUs or GPUs, making other hardware economically unviable for mining.
 
 ### Atomic Swap
-A peer-to-peer exchange of cryptocurrencies between two parties without the need for a trusted third party or centralized exchange. Atomic swaps use hash time-locked contracts (HTLCs) to ensure that either both parties receive their funds or neither does, enabling trustless trading across different blockchains.
+A peer-to-peer exchange of cryptocurrencies between two parties without the need for a trusted third party or centralized exchange.
+<!-- related: /docs/advanced/atomic-swaps -->
+Atomic swaps use hash time-locked contracts (HTLCs) to ensure that either both parties receive their funds or neither does, enabling trustless trading across different blockchains.
 
 ### API
 Application Programming Interface (API): a set of protocols and tools that allow applications to communicate with Bitcoin nodes, typically via JSON-RPC. The Bitcoin Core RPC API provides methods to query blockchain data, create and broadcast transactions, manage wallets, and monitor network status.
@@ -58,42 +66,56 @@ A prolonged period of rising prices and optimism. In a bull market, Bitcoin’s 
 
 ### Batching
 Combining multiple payments into a single transaction to reduce fees by sharing the fixed overhead costs across many recipients. Multiple outputs are included in one transaction, significantly reducing the total bytes and thus fees paid. Exchanges and payment processors commonly use batching to process withdrawals efficiently.
+<!-- related: /docs/wallets/transactions -->
 
 ### Base58
 An encoding scheme used in legacy Bitcoin addresses that provides a human-readable format while minimizing transcription errors. It's similar to Base64 but excludes visually ambiguous characters (0, O, I, l). Base58Check extends this with a 4-byte checksum appended to detect typos before funds are sent to an invalid address.
+<!-- related: /docs/bitcoin/data-encoding -->
 
 ### Bech32
 A checksummed base32 encoding format introduced with SegWit (BIP 173) that provides better error detection than Base58Check. Addresses start with `bc1` for mainnet or `tb1` for testnet, and use only lowercase letters and numbers. An updated version called Bech32m (BIP 350) is used for Taproot addresses.
+<!-- related: /docs/bitcoin/data-encoding -->
 
 ### Block
 A collection of transactions grouped together and permanently added to the blockchain approximately every 10 minutes. Each block contains a header with proof-of-work, a coinbase transaction that creates new Bitcoin, and typically thousands of user transactions. Blocks are limited in size, creating competition for space that drives the fee market.
+<!-- related: /docs/bitcoin/blocks -->
 
 ### Blockchain
-A distributed, append-only ledger of all Bitcoin transactions maintained by thousands of independent nodes worldwide. Blocks are cryptographically linked in chronological order, making historical data tamper-evident and immutable. Altering any past transaction would require re-mining all subsequent blocks, which becomes computationally infeasible as more blocks are added.
+A distributed, append-only ledger of all Bitcoin transactions maintained by thousands of independent nodes worldwide.
+<!-- related: /docs/fundamentals/blockchain -->
+Blocks are cryptographically linked in chronological order, making historical data tamper-evident and immutable. Altering any past transaction would require re-mining all subsequent blocks, which becomes computationally infeasible as more blocks are added.
 
 ### Block Header
 The 80-byte metadata at the start of each block that miners hash repeatedly during proof-of-work. It contains six fields: version number, previous block hash, merkle root, timestamp, difficulty target, and nonce. Because the header is only 80 bytes, SPV clients can verify the chain's proof-of-work without downloading full blocks.
+<!-- related: /docs/bitcoin/blocks -->
 
 ### Block Height
 The number of blocks in the chain before a given block, serving as a sequential identifier for blocks. The genesis block has height 0, and each subsequent block increments the height by one. Block height is used to reference specific points in Bitcoin's history and trigger protocol changes like halvings.
+<!-- related: /docs/bitcoin/blocks -->
 
 ### Block Reward
 The amount of new Bitcoin created and awarded to miners for successfully mining a block, also called the block subsidy. Currently 3.125 BTC after the 2024 halving, this reward halves approximately every four years (210,000 blocks) until all 21 million Bitcoin are mined around 2140. The block reward, combined with transaction fees, provides the economic incentive for miners to secure the network.
+<!-- related: /docs/bitcoin/subsidy -->
 
 ### Block Size
 The size of a block measured in bytes or weight units, which is limited by consensus rules to prevent blockchain bloat. Bitcoin has a 1 MB base block size limit, but the SegWit upgrade introduced weight units that allow blocks to effectively reach ~4 MB when containing mostly SegWit transactions. This limit creates scarcity of block space, driving fee competition during high-demand periods.
+<!-- related: /docs/bitcoin/blocks -->
 
 ### Block Time
 The average time between consecutive blocks, which Bitcoin targets at 10 minutes through automatic difficulty adjustment. This target represents a tradeoff between confirmation speed and security. The actual time between blocks varies due to the random nature of mining, and the 10-minute average is maintained by adjusting difficulty every 2016 blocks.
+<!-- related: /docs/mining/difficulty -->
 
 ### Block Template
 A data structure containing selected transactions and partially-filled block header fields that miners use to construct candidate blocks. Mining pools generate block templates by selecting transactions from the mempool (typically prioritizing by fee rate), computing the merkle root, and providing all header fields except the nonce. Miners then repeatedly hash variations of this template until finding a valid block.
+<!-- related: /docs/mining/block-construction -->
 
 ### BOLT
 Basis of Lightning Technology (BOLT): the technical specifications that define the Lightning Network protocol, similar to how RFCs define internet protocols. BOLT documents specify everything from the peer-to-peer message format to channel construction, payment routing, and invoice encoding. Multiple independent implementations (LND, c-lightning, Eclair, LDK) follow these specs to ensure interoperability.
+<!-- related: /docs/lightning/overview -->
 
 ### BIP
 Bitcoin Improvement Proposal (BIP): a design document that proposes changes, additions, or informational content for the Bitcoin ecosystem, following a structured process for community review. BIPs are categorized as Standards Track (protocol changes), Informational, or Process documents. Notable examples include BIP 16 (P2SH), BIP 32 (HD wallets), BIP 39 (mnemonic seeds), BIP 141 (SegWit), and BIP 341 (Taproot).
+<!-- related: /docs/history/bips -->
 
 ### Bitcoin Client
 Software that enables users to send and receive bitcoin. Bitcoin Core is the most widely used and trusted client, though others exist with varying features.
@@ -112,6 +134,7 @@ Companies that place bitcoin at the center of their balance sheet strategy, unlo
 
 ### Block Subsidy
 The new bitcoin that miners receive as part of the block reward for successfully mining a new block. It decreases over time through halvings and is the primary way new bitcoin enters circulation.
+<!-- related: /docs/bitcoin/subsidy -->
 
 ### BRC-20 Tokens
 Experimental, fungible tokens on Bitcoin created using ordinal inscriptions, similar to Ethereum's ERC-20 tokens. They are an inefficient use of Bitcoin's block space, often leading to higher transaction fees and network congestion.
@@ -127,10 +150,14 @@ The ticker symbol for bitcoin, representing the asset in trading pairs. It's als
 CheckLockTimeVerify (CLTV): an opcode (OP_CHECKLOCKTIMEVERIFY) that enforces absolute time locks by making a transaction invalid if spent before a specified block height or Unix timestamp. Introduced in BIP 65, CLTV enables time-locked contracts where funds cannot be moved until a future date regardless of who holds the keys. This is essential for Lightning Network HTLCs, which require time-locked refund paths.
 
 ### Coinbase Transaction
-The first transaction in every block, which has no inputs and creates new Bitcoin as the block reward plus collected transaction fees. Miners construct the coinbase transaction to pay themselves, and it's the only transaction type that can create new coins. The coinbase includes an arbitrary data field (up to 100 bytes) where miners often include pool identifiers or other data. Coinbase outputs cannot be spent until 100 blocks have passed, preventing issues if the block is orphaned.
+The first transaction in every block, which has no inputs and creates new Bitcoin as the block reward plus collected transaction fees.
+<!-- related: /docs/bitcoin/coinbase-transaction -->
+Miners construct the coinbase transaction to pay themselves, and it's the only transaction type that can create new coins. The coinbase includes an arbitrary data field (up to 100 bytes) where miners often include pool identifiers or other data. Coinbase outputs cannot be spent until 100 blocks have passed, preventing issues if the block is orphaned.
 
 ### Coin Selection
-The process of choosing which UTXOs to spend when creating a transaction, which significantly impacts fees, privacy, and future UTXO management. Various algorithms exist: largest-first minimizes input count but creates large change outputs; smallest-first consolidates dust but increases fees; branch-and-bound tries to find exact matches avoiding change entirely. Wallet software typically handles this automatically.
+The process of choosing which UTXOs to spend when creating a transaction, which significantly impacts fees, privacy, and future UTXO management.
+<!-- related: /docs/wallets/coin-selection -->
+Various algorithms exist: largest-first minimizes input count but creates large change outputs; smallest-first consolidates dust but increases fees; branch-and-bound tries to find exact matches avoiding change entirely. Wallet software typically handles this automatically.
 
 ### CoinJoin
 A privacy technique where multiple users combine their transactions into a single transaction, making it difficult for blockchain analysts to determine which inputs correspond to which outputs. Each participant signs only their own inputs, so no one can steal funds. CoinJoin breaks the common-input-ownership heuristic that chain analysis relies on, significantly improving transaction privacy when done correctly.
@@ -140,9 +167,12 @@ In Lightning Network, a pre-signed transaction that represents the current state
 
 ### Confirmation
 When a transaction is included in a block that is added to the blockchain, it receives its first confirmation; each subsequent block adds another confirmation. More confirmations increase certainty that the transaction is final because reversing it would require re-mining all those blocks. For small amounts, 1-3 confirmations are typically sufficient, while 6 confirmations (about 1 hour) is widely considered secure for large amounts.
+<!-- related: /docs/bitcoin/transaction-lifecycle -->
 
 ### Consensus
-Agreement among network participants about the current state of the blockchain, including which transactions are valid and which chain of blocks is authoritative. Bitcoin achieves consensus through proof-of-work and the longest chain rule: nodes accept the valid chain with the most accumulated work. This allows thousands of independent nodes to agree on a single transaction history without any central coordinator.
+Agreement among network participants about the current state of the blockchain, including which transactions are valid and which chain of blocks is authoritative.
+<!-- related: /docs/bitcoin/consensus -->
+Bitcoin achieves consensus through proof-of-work and the longest chain rule: nodes accept the valid chain with the most accumulated work. This allows thousands of independent nodes to agree on a single transaction history without any central coordinator.
 
 ### Consensus Rules
 The set of rules that all Bitcoin nodes must follow to validate transactions and blocks, forming the foundation of network agreement. These include rules about block structure, transaction format, signature validity, coin supply, and timing. Any transaction or block that violates consensus rules is rejected by honest nodes, regardless of how much hash power supports it.
@@ -158,12 +188,14 @@ A transaction output that sends excess funds back to the sender, created because
 
 ### CPFP
 Child Pays For Parent (CPFP): a fee bumping technique where a new transaction (the child) spends an unconfirmed output from a stuck transaction (the parent) with a high enough fee to make mining both transactions profitable. Miners evaluate transaction packages together, so a high-fee child incentivizes them to include the low-fee parent to collect both fees. This is useful when you're the recipient of a stuck transaction and can't use RBF because you didn't create the original.
+<!-- related: /docs/bitcoin/transaction-fees -->
 
 ### CSV
 CheckSequenceVerify (CSV): an opcode (OP_CHECKSEQUENCEVERIFY) that enforces relative time locks, preventing a UTXO from being spent until a specified number of blocks or time has passed since it was confirmed. Unlike CLTV's absolute locks, CSV's relative locks start counting from when the UTXO was created, making them ideal for protocols that need "wait N blocks after X happens" logic. Essential for Lightning Network, where CSV ensures that a party has time to respond to a fraudulent channel close.
+<!-- related: /docs/bitcoin/timelocks -->
 
 ### Candidate Block
-The block a miner is currently hashing, built from a [block template](/docs/glossary#block-template). The miner fills in the header (version, previous block hash, merkle root, timestamp, [difficulty target](/docs/glossary#difficulty-target), [nonce](/docs/glossary#nonce)), includes the [coinbase transaction](/docs/glossary#coinbase-transaction) and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first that meets the [proof-of-work](/docs/glossary#pow) requirement is broadcast as the new block.
+The block a miner is currently hashing, built from a block template. The miner fills in the header (version, previous block hash, merkle root, timestamp, difficulty target, nonce), includes the coinbase transaction and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first that meets the proof-of-work requirement is broadcast as the new block.
 
 ### Chain Reorganization
 A process where a Bitcoin client discovers a longer chain of blocks, replacing the previously recognized chain. Blocks excluded during this process become "orphaned blocks."
@@ -173,15 +205,18 @@ CheckTemplateVerify (CTV): a proposed Bitcoin opcode enabling basic covenants by
 
 ### Compact Block
 A block relay protocol (BIP 152) that dramatically reduces bandwidth by sending only block headers and short transaction IDs instead of full transaction data. Since most transactions in a new block are already in a node's mempool, the node can reconstruct the full block locally using these short IDs. This optimization reduces block propagation time and bandwidth by roughly 90%.
+<!-- related: /docs/bitcoin/p2p-protocol -->
 
 ### Compact Size
 A variable-length encoding (VarInt) used in Bitcoin serialization for lengths and counts, such as the number of inputs or outputs in a transaction, or the length of a script. The first byte determines how many bytes follow: 0–252 means the value is that single byte; 253 means the next 2 bytes (little-endian) are a 16-bit value; 254 means the next 4 bytes are a 32-bit value; 255 means the next 8 bytes are a 64-bit value. This keeps small values to one byte while allowing larger values when needed.
 
 ### Cold Storage Wallet
 An offline Bitcoin wallet that isn't connected to the internet, providing enhanced security against hacking and theft. Typically used for long-term storage, it keeps private keys isolated from potential online threats. Hardware wallets and paper wallets are common forms of cold storage.
+<!-- related: /docs/investment/wallet-security -->
 
 ### Covenants
 A proposed type of smart contract that allows users to set conditions or restrictions on how their bitcoin can be spent after the initial transaction. By embedding specific rules, covenants can add layers of control over future transactions, useful for applications like vaults or multi-stage payments.
+<!-- related: /docs/advanced/covenants -->
 
 ### CISA
 Cross-Input Signature Aggregation (CISA): a proposed Bitcoin upgrade to reduce transaction size by combining multiple input signatures into a single signature. For example, if Alice spends two Taproot UTXOs, instead of providing separate signatures for each, CISA would aggregate them into one 16-vbyte MuSig-style signature, lowering fees for multi-input transactions.
@@ -191,12 +226,16 @@ A broad category of digital or virtual currencies that rely on cryptography to s
 
 ### Cryptography
 The use of complex mathematics to secure data. Bitcoin relies on cryptographic techniques to protect funds, verify ownership, and ensure the integrity of the blockchain.
+<!-- related: /docs/bitcoin/cryptography -->
 
 ### Cypherpunks
 Activists who advocate for using cryptography to protect privacy and personal freedom. They were members of the now-defunct Cypherpunk mailing list, active in the 1990s. Their work laid the foundation for privacy-preserving technologies like Bitcoin.
+<!-- related: /docs/fundamentals/cypherpunk-philosophy -->
 
 ### Channel
-A payment channel between two Lightning Network nodes that enables instant, low-cost payments without broadcasting each transaction to the blockchain. Channels are created by locking Bitcoin in a 2-of-2 multisig address on-chain, then updating balance distributions off-chain through signed commitment transactions. Payments can flow in either direction up to the channel's capacity, and channels can remain open indefinitely.
+A payment channel between two Lightning Network nodes that enables instant, low-cost payments without broadcasting each transaction to the blockchain.
+<!-- related: /docs/lightning/channels -->
+Channels are created by locking Bitcoin in a 2-of-2 multisig address on-chain, then updating balance distributions off-chain through signed commitment transactions. Payments can flow in either direction up to the channel's capacity, and channels can remain open indefinitely.
 
 ### Channel Capacity
 The total amount of Bitcoin locked in a Lightning payment channel, representing the maximum value that can flow through it at any moment. Capacity is set when the channel is opened and equals the sum of both parties' contributions (though single-funded channels are common). Importantly, capacity doesn't mean both parties can send that amount; each can only send up to their current balance in the channel.
@@ -222,12 +261,15 @@ Decentralized Autonomous Organization (DAO): governed by rules encoded in smart 
 
 ### DCA
 Dollar-Cost Averaging (DCA): a strategy where a fixed amount of money is used to buy bitcoin at regular intervals, smoothing out volatility by ignoring short-term price movements.
+<!-- related: /docs/investment/dollar-cost-averaging -->
 
 ### DEX
 Decentralized Exchange (DEX): a decentralized exchange that allows users to trade cryptocurrencies without relying on a centralized entity. In Bitcoin, DEXs ensure users maintain control over their private keys during trades.
 
 ### Decentralization
-The distribution of control, decision-making, and infrastructure across many independent participants rather than a single central authority. Bitcoin achieves this through open-source code that anyone can audit, distributed mining across thousands of operations worldwide, and permissionless node operation that lets anyone verify the blockchain. This architecture means no government, company, or individual can unilaterally change the rules, censor transactions, or shut down the network.
+The distribution of control, decision-making, and infrastructure across many independent participants rather than a single central authority.
+<!-- related: /docs/fundamentals/decentralization -->
+Bitcoin achieves this through open-source code that anyone can audit, distributed mining across thousands of operations worldwide, and permissionless node operation that lets anyone verify the blockchain. This architecture means no government, company, or individual can unilaterally change the rules, censor transactions, or shut down the network.
 
 ### Derivation Path
 A sequence of indices that specifies how to derive a specific key from a master seed in an HD (hierarchical deterministic) wallet, enabling organized key management. The format `m/purpose'/coin'/account'/change/index` creates a tree structure where the apostrophe indicates hardened derivation. Common paths include m/44'/0'/0' for legacy addresses, m/84'/0'/0' for native SegWit, and m/86'/0'/0' for Taproot.
@@ -239,7 +281,9 @@ A standardized format (BIP 380-386) for describing how to derive addresses and s
 A decentralized mining protocol that allows individual miners to construct their own block templates rather than accepting whatever the pool provides. This gives miners control over which transactions to include, addressing concerns about pool-level transaction censorship and centralization of block construction. DATUM represents a shift toward "solo mining with pool payout variance smoothing," where miners maintain sovereignty over block content while still benefiting from pooled rewards.
 
 ### Difficulty
-A measure of how computationally hard it is to find a valid block hash, automatically adjusted every 2016 blocks (roughly two weeks) to maintain approximately 10-minute block intervals. When blocks are found faster than target, difficulty increases; when slower, it decreases. This self-adjusting mechanism ensures consistent block times regardless of how much hash power joins or leaves the network.
+A measure of how computationally hard it is to find a valid block hash, automatically adjusted every 2016 blocks (roughly two weeks) to maintain approximately 10-minute block intervals.
+<!-- related: /docs/mining/difficulty -->
+When blocks are found faster than target, difficulty increases; when slower, it decreases. This self-adjusting mechanism ensures consistent block times regardless of how much hash power joins or leaves the network.
 
 ### Difficulty Target
 The maximum hash value that is considered valid for a block, expressed as a 256-bit number that miners must beat. Miners repeatedly hash block headers with different nonces until finding a hash numerically below this target. Lower targets are harder to hit and represent higher difficulty. The target is stored compactly in each block header as "nBits" and decoded into the full 256-bit threshold for validation.
@@ -313,7 +357,7 @@ Unilaterally closing a Lightning payment channel by broadcasting your latest com
 Government-issued money that holds value because governments mandate its use for taxes and as legal tender. Stronger fiat currencies like the U.S. dollar or euro hold value relative to other fiat currencies but are rapidly losing value against hard assets like Bitcoin due to inflation.
 
 ### FOMO
-Fear Of Missing Out (FOMO): the anxiety that prices will rise and one will miss gains by not buying. FOMO often peaks during bull markets and can lead to buying at high prices. In Bitcoin, it is commonly discussed alongside [DYOR](/docs/glossary#dyor) and disciplined accumulation.
+Fear Of Missing Out (FOMO): the anxiety that prices will rise and one will miss gains by not buying. FOMO often peaks during bull markets and can lead to buying at high prices. In Bitcoin, it is commonly discussed alongside DYOR and disciplined accumulation.
 
 ### FUD
 Fear, Uncertainty, and Doubt (FUD): negative or misleading information spread to create fear, uncertainty, or doubt about an asset or project. In Bitcoin, "FUD" is often used to describe exaggerated criticism, regulatory scaremongering, or claims that Bitcoin has failed or will fail. The term is broader than Bitcoin but widely used in the community.
@@ -326,6 +370,7 @@ A divergence in the blockchain where two or more competing chains temporarily or
 
 ### Full Node
 A Bitcoin node that independently validates every transaction and block against consensus rules, maintaining a complete copy of the blockchain without trusting any external source. Full nodes download and verify ~600GB+ of historical data during initial sync, then validate new blocks as they arrive. Running a full node provides the highest level of security and privacy, as you verify your own transactions rather than trusting third parties.
+<!-- related: /docs/development/node-types -->
 
 ### Fungibility
 The property that individual units of a currency or asset are interchangeable, one unit is equivalent to another. Bitcoin is fungible when one satoshi is treated the same as any other regardless of transaction history. Chain analysis can reduce fungibility by labeling or discriminating against certain coins based on their provenance.
@@ -336,6 +381,7 @@ The property that individual units of a currency or asset are interchangeable, o
 
 ### Genesis Block
 The first block in the Bitcoin blockchain (block height 0), created by Satoshi Nakamoto on January 3, 2009. The coinbase transaction famously includes the text "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks," both proving the block wasn't pre-mined before that date and commenting on the financial system Bitcoin aimed to provide an alternative to. The genesis block is hardcoded into Bitcoin software as the starting point of the chain, and its 50 BTC reward is unspendable due to a quirk in the original code.
+<!-- related: /docs/bitcoin/blocks -->
 
 ### Gossip Protocol
 The peer-to-peer mechanism by which Bitcoin nodes share information about new blocks, transactions, and network addresses with their connected peers. When a node receives valid new data, it announces it to peers who haven't seen it yet, creating a flooding pattern where information propagates across the network in seconds without any central coordinator. The gossip protocol includes mechanisms to prevent spam and denial-of-service attacks.
@@ -348,7 +394,9 @@ Graphics Processing Unit (GPU): specialized hardware originally used for video r
 ## H
 
 ### Halving
-An event that occurs every 210,000 blocks (approximately every four years) where the block reward paid to miners is cut in half, reducing Bitcoin's inflation rate. This mechanism is central to Bitcoin's monetary policy, creating a predictable and diminishing supply schedule that asymptotically approaches the 21 million cap. The most recent halving in April 2024 reduced the block reward from 6.25 to 3.125 BTC.
+An event that occurs every 210,000 blocks (approximately every four years) where the block reward paid to miners is cut in half, reducing Bitcoin's inflation rate.
+<!-- related: /docs/history/halvings -->
+This mechanism is central to Bitcoin's monetary policy, creating a predictable and diminishing supply schedule that asymptotically approaches the 21 million cap. The most recent halving in April 2024 reduced the block reward from 6.25 to 3.125 BTC.
 
 ### Hash
 A cryptographic function that takes any input and produces a fixed-size output (digest) that appears random but is deterministic: the same input always produces the same output. Hashing is the process of applying a hash function to data. Bitcoin uses SHA-256 for proof-of-work and transaction IDs, and RIPEMD-160 combined with SHA-256 for address generation. Hash functions are one-way, collision-resistant, and avalanche-sensitive (small input changes completely change the output).
@@ -358,21 +406,27 @@ The total computational power dedicated to Bitcoin mining, measured in hashes pe
 
 ### Hard Fork
 A protocol change that loosens consensus rules, making previously invalid blocks or transactions valid, which is not backward-compatible. Nodes that don't upgrade will reject new blocks as invalid, potentially creating a permanent chain split where two incompatible networks exist. Hard forks are controversial in Bitcoin because they risk splitting the network and are generally avoided in favor of soft forks, which maintain backward compatibility.
+<!-- related: /docs/history/forks -->
 
 ### HD Wallet
-Hierarchical Deterministic Wallet (HD wallet): a wallet architecture (BIP 32) that generates all keys from a single master seed, typically represented as a 12-24 word mnemonic phrase for backup. The hierarchical structure allows deriving billions of addresses in an organized tree, with branches for different accounts, purposes (receiving vs. change), and address types. HD wallets revolutionized Bitcoin usability by making backups simple (one seed phrase backs up all past and future addresses) while also improving privacy by making fresh address generation trivial.
+Hierarchical Deterministic Wallet (HD wallet): a wallet architecture (BIP 32) that generates all keys from a single master seed, typically represented as a 12-24 word mnemonic phrase for backup.
+<!-- related: /docs/wallets/hd-wallets -->
+The hierarchical structure allows deriving billions of addresses in an organized tree, with branches for different accounts, purposes (receiving vs. change), and address types. HD wallets revolutionized Bitcoin usability by making backups simple (one seed phrase backs up all past and future addresses) while also improving privacy by making fresh address generation trivial.
 
 ### Hardware Wallet
-A physical device used to store private keys securely offline, providing protection from online hacks or malware. Hardware wallets are a form of [cold storage](/docs/glossary#cold-storage-wallet) and are widely used by Bitcoin holders for long-term storage, ensuring that their private keys remain safe from unauthorized access. Private keys never leave the device, and transactions are signed on the device itself, making them secure even when connected to compromised computers.
+A physical device used to store private keys securely offline, providing protection from online hacks or malware. Hardware wallets are a form of cold storage and are widely used by Bitcoin holders for long-term storage, ensuring that their private keys remain safe from unauthorized access. Private keys never leave the device, and transactions are signed on the device itself, making them secure even when connected to compromised computers.
+<!-- related: /docs/investment/wallet-security -->
 
 ### Hot Wallet
-A Bitcoin wallet that is connected to the internet, such as mobile apps, desktop software, or web wallets. Hot wallets are convenient for frequent transactions and daily use but are more vulnerable to hacking, malware, and online attacks since private keys are stored on internet-connected devices. Best practice is to use hot wallets only for small amounts and keep significant holdings in [cold storage wallets](/docs/glossary#cold-storage-wallet) or [hardware wallets](/docs/glossary#hardware-wallet).
+A Bitcoin wallet that is connected to the internet, such as mobile apps, desktop software, or web wallets. Hot wallets are convenient for frequent transactions and daily use but are more vulnerable to hacking, malware, and online attacks since private keys are stored on internet-connected devices. Best practice is to use hot wallets only for small amounts and keep significant holdings in cold storage wallets or hardware wallets.
+<!-- related: /docs/investment/wallet-security -->
 
 ### HODL
 A Bitcoin culture term meaning to hold bitcoin through volatility instead of selling. It originated from a 2013 Bitcointalk post titled "I AM HODLING" (a typo for "holding") during a sharp price drop. "HODL" is often used as a verb and has come to symbolize long-term conviction and resistance to panic selling.
 
 ### HTLC
 Hash Time-Locked Contract (HTLC): a conditional payment contract that forms the foundation of Lightning Network and atomic swaps, combining a hash lock with a time lock. The payment can only be claimed by revealing a secret (preimage) that hashes to a known value, and it automatically refunds to the sender if not claimed before the timeout expires. In Lightning, HTLCs chain across multiple channels to enable multi-hop payments, creating trustless routing where either the entire payment succeeds or it fails and refunds atomically.
+<!-- related: /docs/lightning/routing/htlc -->
 
 ---
 
@@ -388,7 +442,9 @@ A reference to a previous transaction output (UTXO) that is being consumed in a 
 Unchangeable. In Bitcoin, once a transaction is confirmed and added to the blockchain, it cannot be altered or removed, ensuring the integrity of the timechain.
 
 ### Inscriptions
-Data embedded in individual satoshis using the Ordinals protocol, allowing users to attach arbitrary content, such as text, images, or other files, directly onto Bitcoin's blockchain. This functionality has sparked interest in NFTs on Bitcoin, but critics argue that it leads to inefficient use of block space and higher transaction fees.
+Data embedded in individual satoshis using the Ordinals protocol, allowing users to attach arbitrary content, such as text, images, or other files, directly onto Bitcoin's blockchain.
+<!-- related: /docs/advanced/ordinals-inscriptions -->
+This functionality has sparked interest in NFTs on Bitcoin, but critics argue that it leads to inefficient use of block space and higher transaction fees.
 
 ### Inflation
 The general rise in prices, which is typically caused by an increase in the money supply. Bitcoin's fixed supply makes it resistant to inflation, unlike fiat currencies that are regularly inflated.
@@ -397,7 +453,9 @@ The general rise in prices, which is typically caused by an increase in the mone
 Traditionally refers to the non-monetary use of an asset, like gold's value stemming from its physical properties, rarity, and the effort required to extract it. In contrast, Bitcoin's value doesn't come from physical use but from its mathematical scarcity, robust security protocols, and decentralized nature.
 
 ### Invoice
-A payment request in Lightning Network encoded as a BOLT11 string that contains all information needed to make a payment. Invoices typically start with `lnbc` for mainnet (or `lntb` for testnet), followed by an amount, and include the payment hash, recipient's node public key, expiry time, routing hints, and a signature. They're usually displayed as QR codes for easy mobile scanning.
+A payment request in Lightning Network encoded as a BOLT11 string that contains all information needed to make a payment.
+<!-- related: /docs/lightning/invoices -->
+Invoices typically start with `lnbc` for mainnet (or `lntb` for testnet), followed by an amount, and include the payment hash, recipient's node public key, expiry time, routing hints, and a signature. They're usually displayed as QR codes for easy mobile scanning.
 
 ---
 
@@ -436,6 +494,7 @@ A Bitcoin application that interacts with the Bitcoin network by querying nodes 
 
 ### Lightning Network
 A second-layer payment protocol built on top of Bitcoin that enables instant, high-volume, low-cost transactions through a network of payment channels. Instead of recording every payment on the blockchain, Lightning users open channels by locking Bitcoin in 2-of-2 multisig addresses, then exchange signed transactions off-chain to update balances. Payments can route through multiple channels, enabling payments to anyone on the network without direct channel connections.
+<!-- related: /docs/lightning/overview -->
 
 ### Liquid
 A federated sidechain pegged to Bitcoin that offers faster block times (about 1 minute), confidential transactions, and asset issuance. Liquid is used for exchange settlements, faster transfers between participating entities, and tokenized assets. Unlike trustless Layer 2 solutions like the Lightning Network, Liquid relies on a federation of functionaries to operate the peg.
@@ -454,7 +513,9 @@ The production Bitcoin network where real Bitcoin with actual monetary value is 
 The fixed 4-byte value at the start of each P2P message on the Bitcoin wire protocol, used to identify the network (mainnet, testnet, signet, regtest) and help nodes detect message boundaries. Mainnet magic is 0xF9BEB4D9 (little-endian). The message format is: magic (4 bytes) + command string (12 bytes) + payload length (4 bytes) + checksum (4 bytes) + payload.
 
 ### Mempool
-The collection of valid, unconfirmed transactions that a node has received and is holding in memory, waiting to be included in a block. Each node maintains its own mempool, and they may differ slightly based on when transactions were received and node-specific policies. Miners select transactions from their mempool when constructing blocks, typically prioritizing by fee rate. Mempool size fluctuates with network demand.
+The collection of valid, unconfirmed transactions that a node has received and is holding in memory, waiting to be included in a block.
+<!-- related: /docs/mining/mempool -->
+Each node maintains its own mempool, and they may differ slightly based on when transactions were received and node-specific policies. Miners select transactions from their mempool when constructing blocks, typically prioritizing by fee rate. Mempool size fluctuates with network demand.
 
 ### Medium Of Exchange
 One of the three primary functions of money, and arguably the most closely aligned with the definition of money. It refers to an asset or currency used to facilitate trade between parties without the need for bartering. Bitcoin, with its decentralized nature, is increasingly seen as a medium of exchange.
@@ -463,10 +524,14 @@ One of the three primary functions of money, and arguably the most closely align
 The use of durable, fireproof, and waterproof metal sheets or plates to store recovery seed phrases or private keys. Unlike paper backups, metal backups offer long-term resilience against physical damage, providing extra security for Bitcoin holders who need to protect their keys from destruction or loss.
 
 ### Merkle Root
-A single hash that cryptographically summarizes all transactions in a block, created by repeatedly hashing pairs of transaction hashes in a tree structure until one root remains. The merkle root is included in the 80-byte block header, allowing the entire block's transactions to be verified from this single value. This enables Simplified Payment Verification (SPV), where light clients can verify transaction inclusion using only the merkle root and a small proof path, without downloading the full block.
+A single hash that cryptographically summarizes all transactions in a block, created by repeatedly hashing pairs of transaction hashes in a tree structure until one root remains.
+<!-- related: /docs/bitcoin/merkle-trees -->
+The merkle root is included in the 80-byte block header, allowing the entire block's transactions to be verified from this single value. This enables Simplified Payment Verification (SPV), where light clients can verify transaction inclusion using only the merkle root and a small proof path, without downloading the full block.
 
 ### Merkle Tree
-A binary tree structure where each leaf node is a hash of a transaction, and each parent node is the hash of its two children combined, ultimately producing a single root hash. This structure enables efficient proofs of inclusion: proving a transaction is in a block only requires log₂(n) hashes rather than all n transactions. Bitcoin uses Merkle trees for transaction summarization in block headers, and Taproot uses them for organizing spending conditions (MAST).
+A binary tree structure where each leaf node is a hash of a transaction, and each parent node is the hash of its two children combined, ultimately producing a single root hash.
+<!-- related: /docs/bitcoin/merkle-trees -->
+This structure enables efficient proofs of inclusion: proving a transaction is in a block only requires log₂(n) hashes rather than all n transactions. Bitcoin uses Merkle trees for transaction summarization in block headers, and Taproot uses them for organizing spending conditions (MAST).
 
 ### MAST
 Merkle Abstract Syntax Tree (MAST): a technique implemented in Taproot that represents multiple spending conditions as leaves in a Merkle tree, with only the executed path revealed when spending. This dramatically improves privacy because unused conditions remain hidden. A complex contract with many possible outcomes looks identical to a simple payment when only one path is used. MAST also reduces transaction size and fees by only requiring proof of the executed branch.
@@ -476,24 +541,31 @@ A multi-signature scheme using Schnorr signatures that allows multiple parties t
 
 ### MPP
 Multi-Part Payment (MPP): a Lightning Network feature that allows splitting a large payment into multiple smaller parts that route independently through different paths, then recombine at the destination. This improves payment success rates by utilizing multiple channels' liquidity simultaneously and enables payments larger than any single channel's capacity. The receiver waits until all parts arrive before revealing the preimage, ensuring atomicity: either the entire payment completes or none of it does.
+<!-- related: /docs/lightning/routing/mpp -->
 
 ### Magic Internet Money
 A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as self-deprecating humor) and critics (as dismissal). The phrase acknowledges Bitcoin's seemingly impossible nature (digital scarcity without a central issuer, global transfers without intermediaries) while hinting at its power. Despite the humorous framing, Bitcoin represents serious technology: cryptography, proof-of-work, and game-theoretic security. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how memes function in Bitcoin culture.
+<!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### Meme
 In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, "don't trust, verify"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how Bitcoin functions as a meme and the cultural expressions that have emerged.
+<!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### Miniscript
 A structured language for writing Bitcoin Scripts that is easier to analyze, compose, and reason about than raw Script. Miniscript maps to a subset of valid Bitcoin Script but provides guarantees about spending conditions, costs, and required signatures that would be difficult to determine from raw opcodes. Wallets can automatically analyze Miniscript policies to determine all possible spending paths and compute worst-case transaction sizes for fee estimation.
+<!-- related: /docs/bitcoin-development/miniscript -->
 
 ### Miner
 An individual or entity that participates in Bitcoin mining by dedicating computational power to solve proof-of-work puzzles. Miners collect transactions from the mempool, construct candidate blocks, and repeatedly hash block headers searching for a valid hash below the difficulty target. When successful, they broadcast the block to the network and receive the block reward plus transaction fees.
 
 ### Mining
-The process of adding new blocks to the Bitcoin blockchain through proof-of-work computation. Mining serves two critical functions: processing and validating transactions, and issuing new bitcoin according to the predetermined supply schedule. Miners compete to find a valid block hash, with the winner receiving the block subsidy plus all transaction fees from included transactions.
+The process of adding new blocks to the Bitcoin blockchain through proof-of-work computation.
+<!-- related: /docs/mining/proof-of-work -->
+Mining serves two critical functions: processing and validating transactions, and issuing new bitcoin according to the predetermined supply schedule. Miners compete to find a valid block hash, with the winner receiving the block subsidy plus all transaction fees from included transactions.
 
 ### Mining Pool
 A collective of miners who combine their computational power and share block rewards proportionally to each member's contributed work. Pools reduce payout variance: instead of rarely winning large rewards, miners receive frequent smaller payments based on submitted shares. The pool operator constructs blocks and distributes work to members, paying out when blocks are found.
+<!-- related: /docs/mining/pools -->
 
 ### Mixer
 A service that obfuscates transaction data by blending bitcoin from different users, making it difficult to trace the movement of specific coins on the blockchain. While they enhance privacy, mixers are frequently targeted by governments and the surveillance state, which seek to undermine financial anonymity.
@@ -505,7 +577,9 @@ A means to transact and purchase goods and services, functioning as a medium of 
 Bitcoin's first major exchange and a pivotal platform in its early years. Originally a marketplace for Magic: The Gathering cards, it became notorious after a massive security breach led to the loss of 850,000 bitcoin. Mt. Gox's collapse highlighted the importance of secure, self-custodied bitcoin.
 
 ### Multisig
-Multi-Signature (multisig): a Bitcoin script pattern requiring multiple cryptographic signatures to authorize spending, providing enhanced security and enabling shared custody arrangements. Common configurations include 2-of-3 (any two of three keyholders can spend), 3-of-5 (majority required), or 2-of-2 (both parties must agree, as used in Lightning channels). Multisig protects against single points of failure: losing one key doesn't lose funds, and compromising one key doesn't enable theft.
+Multi-Signature (multisig): a Bitcoin script pattern requiring multiple cryptographic signatures to authorize spending, providing enhanced security and enabling shared custody arrangements.
+<!-- related: /docs/wallets/multisig -->
+Common configurations include 2-of-3 (any two of three keyholders can spend), 3-of-5 (majority required), or 2-of-2 (both parties must agree, as used in Lightning channels). Multisig protects against single points of failure: losing one key doesn't lose funds, and compromising one key doesn't enable theft.
 
 ---
 
@@ -513,6 +587,7 @@ Multi-Signature (multisig): a Bitcoin script pattern requiring multiple cryptogr
 
 ### Node
 A computer running Bitcoin software that participates in the network by validating transactions and blocks, relaying data to peers, and maintaining its own view of the blockchain. Full nodes verify everything independently against consensus rules, while lightweight (SPV) nodes trust others for some validation. Running a node provides trustless verification of your own transactions and contributes to network decentralization.
+<!-- related: /docs/development/node-types -->
 
 ### Nakamoto Consensus
 Bitcoin's decentralized protocol for achieving agreement on its blockchain state. It combines proof-of-work (PoW) mining and the longest-chain rule to secure the network and prevent double-spending. In this system, miners compete to add new blocks by expending computational power to find a valid hash below a specified target.
@@ -538,12 +613,16 @@ A well-known phrase in Bitcoin, stressing that if you don't control your private
 
 ### OP_RETURN
 An opcode that marks a transaction output as provably unspendable, allowing data to be embedded in transactions without bloating the UTXO set. Since OP_RETURN outputs can never be spent, nodes can safely discard them rather than tracking them forever. This provides a way to store small amounts of data (up to 80 bytes per output) on the blockchain for timestamping, asset protocols, or other applications.
+<!-- related: /docs/controversies/op-return -->
 
 ### Orange Pill
 A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The "orange pill" refers to the process of someone "waking up" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the "awakening" process. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how the orange pill process drives adoption and education.
+<!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### OPCODE
-A single operation in Bitcoin's stack-based scripting language, used to define spending conditions for transaction outputs. Each opcode performs a specific function: OP_DUP duplicates the top stack item, OP_HASH160 hashes it, OP_CHECKSIG verifies a signature, OP_IF enables conditional execution, and so on. Standard transactions use well-known opcode patterns (like P2PKH or P2WPKH), while more complex contracts combine opcodes to create multisig, time locks, or hash locks.
+A single operation in Bitcoin's stack-based scripting language, used to define spending conditions for transaction outputs.
+<!-- related: /docs/bitcoin/op-codes -->
+Each opcode performs a specific function: OP_DUP duplicates the top stack item, OP_HASH160 hashes it, OP_CHECKSIG verifies a signature, OP_IF enables conditional execution, and so on. Standard transactions use well-known opcode patterns (like P2PKH or P2WPKH), while more complex contracts combine opcodes to create multisig, time locks, or hash locks.
 
 ### Onion Routing
 A privacy technique used in Lightning Network (via the Sphinx protocol) where payment information is encrypted in multiple layers, like an onion, with each routing node only able to decrypt its layer. Each node learns only the previous hop (where the payment came from) and the next hop (where to forward it), never the full payment path or final amount. This provides strong privacy for payment routing.
@@ -559,6 +638,7 @@ Operations Security (OPSEC): in Bitcoin, the practice of safeguarding personal d
 
 ### Ordinals
 A method for assigning unique identifiers to individual satoshis, the smallest units of bitcoin, using the Ordinals protocol. This allows users to inscribe or attach arbitrary data, such as text, images, or other digital assets, directly onto a specific satoshi.
+<!-- related: /docs/advanced/ordinals-inscriptions -->
 
 ### Orphan Block
 A valid block that was mined but is not part of the main chain because another block at the same height was adopted by the network instead. Also called a stale block. Orphans occur naturally when two miners find blocks nearly simultaneously; the network temporarily has two competing chain tips until one gets extended and becomes the longest chain. The "losing" block becomes orphaned (disconnected from the timechain), and its transactions return to the mempool to be included in future blocks.
@@ -575,6 +655,7 @@ A reference that uniquely identifies a UTXO: the transaction ID (txid) of the tr
 
 ### Paper Wallet
 A physical document that contains a Bitcoin private key and its corresponding public address, usually in the form of a QR code. It allows users to store bitcoin offline, providing cold storage. While paper wallets offer strong protection against online hacks, they are vulnerable to physical damage or loss, and improper handling can expose the private key, compromising the funds.
+<!-- related: /docs/investment/wallet-security -->
 
 ### Payjoin
 A privacy technique where both the sender and receiver contribute inputs to a transaction, breaking the common-input-ownership heuristic that blockchain analysis relies on. Normally, analysts assume all inputs to a transaction belong to the same entity. Payjoin defeats this by mixing ownership. The transaction looks like a normal payment on-chain, but the true amounts are obscured because inputs from both parties are combined.
@@ -584,24 +665,31 @@ Another Bitcoin node that your node maintains a direct TCP connection with for e
 
 ### P2P
 Peer-To-Peer (P2P): direct interactions between participants without intermediaries or central authorities. In Bitcoin, this means transactions happen directly between users, with the network enforcing the rules rather than relying on a third party.
+<!-- related: /docs/bitcoin/p2p-protocol -->
 
 ### P2PKH
 Pay-to-Pubkey-Hash (P2PKH): the original and most common legacy Bitcoin script pattern, where funds are locked to the hash of a public key. Addresses start with "1" and spending requires providing the full public key and a valid signature. The hash provides an extra layer of protection: until funds are spent, only the hash is public. P2PKH was the dominant address type for Bitcoin's first years but is being superseded by more efficient SegWit formats.
+<!-- related: /docs/wallets/address-types -->
 
 ### P2SH
 Pay-to-Script-Hash (P2SH): a script pattern (BIP 16) that locks funds to the hash of an arbitrary script, with the actual script only revealed when spending. Addresses start with "3" and can encapsulate any valid script, most commonly multisig arrangements or wrapped SegWit. The sender only needs to know the script hash (address); the complexity of the actual spending conditions is hidden until redemption.
+<!-- related: /docs/wallets/address-types -->
 
 ### P2TR
 Pay-to-Taproot (P2TR): the modern Bitcoin address type introduced with the Taproot upgrade (BIP 341), providing the best combination of privacy, efficiency, and flexibility. Addresses start with "bc1p" and can be spent either with a simple key signature (key path) or by revealing one of potentially many script conditions (script path via MAST). Crucially, key path spends look identical regardless of whether the underlying setup was single-sig or complex multisig, dramatically improving privacy.
+<!-- related: /docs/wallets/address-types -->
 
 ### P2WPKH
 Pay-to-Witness-Pubkey-Hash (P2WPKH): a native SegWit address type (BIP 141/173) that provides the same security as P2PKH but with lower fees by moving signature data to the witness section. Addresses start with "bc1q" followed by 42 characters and use Bech32 encoding for better error detection. P2WPKH transactions are approximately 38% cheaper than equivalent P2PKH transactions because witness data is discounted in the weight calculation.
+<!-- related: /docs/wallets/address-types -->
 
 ### P2WSH
 Pay-to-Witness-Script-Hash (P2WSH): a native SegWit address type for complex scripts (like multisig), providing the same capabilities as P2SH but with SegWit's fee discount on witness data. Addresses start with "bc1q" but are longer than P2WPKH (62 characters) due to the larger script hash. Like P2SH, the actual script is only revealed when spending, but the witness discount makes complex redemptions significantly cheaper.
+<!-- related: /docs/wallets/address-types -->
 
 ### Payment Channel
 A mechanism that enables multiple Bitcoin transactions between two parties without broadcasting each one to the blockchain, using a 2-of-2 multisig address as the foundation. Funds are locked in the multisig through an on-chain funding transaction, then balance updates happen off-chain through exchanging signed transactions. Only the final state needs to be published to the blockchain, dramatically reducing fees and enabling instant transfers.
+<!-- related: /docs/lightning/channels -->
 
 ### Payment Hash
 A cryptographic hash of the payment preimage, used in Lightning Network HTLCs to cryptographically link payment attempts across the network. The receiver generates a random preimage and provides its hash to the sender; the payment can only be claimed by revealing the preimage that produces this hash. This creates an atomic payment mechanism where either the entire path succeeds (preimage revealed) or fails (preimage never revealed).
@@ -616,22 +704,29 @@ The original input data that produces a specific hash output through a cryptogra
 The process by which new blocks and transactions spread across the Bitcoin network from node to node through the gossip protocol. Fast propagation is critical for network security; slow block propagation increases orphan rates and gives advantages to miners with better connectivity. Bitcoin Core includes optimizations like compact blocks and transaction relay improvements to minimize propagation delay.
 
 ### Private Key
-A 256-bit secret number that cryptographically proves ownership of associated Bitcoin addresses, enabling the creation of valid signatures to spend funds. Private keys must be generated with sufficient randomness and kept absolutely secure. Anyone who obtains a private key can irreversibly steal all funds it controls. Modern wallets generate private keys from seed phrases using deterministic derivation, so users typically only need to secure the seed phrase.
+A 256-bit secret number that cryptographically proves ownership of associated Bitcoin addresses, enabling the creation of valid signatures to spend funds.
+<!-- related: /docs/bitcoin-development/keys -->
+Private keys must be generated with sufficient randomness and kept absolutely secure. Anyone who obtains a private key can irreversibly steal all funds it controls. Modern wallets generate private keys from seed phrases using deterministic derivation, so users typically only need to secure the seed phrase.
 
 ### Proof Of Keys
 The act of withdrawing bitcoin from a third-party exchange into a wallet where you control the private keys. This movement is celebrated annually on January 3rd to promote self-custody and highlight the importance of personal control over your funds.
 
 ### PoW
-Proof-of-Work (PoW): the consensus mechanism securing Bitcoin, requiring miners to expend computational resources to find a block hash below a target difficulty threshold. This work is easy to verify but expensive to produce, creating a cost to create blocks that prevents spam and makes chain reorganization economically infeasible. PoW also provides a fair mechanism for distributing new coins and achieves consensus without requiring identity or permission.
+Proof-of-Work (PoW): the consensus mechanism securing Bitcoin, requiring miners to expend computational resources to find a block hash below a target difficulty threshold.
+<!-- related: /docs/mining/proof-of-work -->
+This work is easy to verify but expensive to produce, creating a cost to create blocks that prevents spam and makes chain reorganization economically infeasible. PoW also provides a fair mechanism for distributing new coins and achieves consensus without requiring identity or permission.
 
 ### PSBT
 Partially Signed Bitcoin Transaction (PSBT): a standardized format (BIP 174) for creating, transferring, and signing Bitcoin transactions that require multiple steps or multiple signers. PSBTs contain all necessary information (UTXOs, derivation paths, scripts) for signers to validate and sign, then can be combined into a final transaction. This enables workflows like hardware wallet signing, multisig coordination, and air-gapped signing.
+<!-- related: /docs/bitcoin-development/psbt -->
 
 ### Protocol
 A set of rules that governs how participants in a network communicate and function. Bitcoin's protocol defines the rules for how transactions are processed, blocks are mined, and consensus is achieved across the network.
 
 ### Public Key
-A cryptographic key derived from a private key through one-way elliptic curve multiplication (on the secp256k1 curve), used to verify signatures and generate addresses. Public keys can be safely shared since the mathematical relationship to the private key cannot be reversed. Bitcoin uses two forms: uncompressed (65 bytes) and compressed (33 bytes), with compressed now standard for efficiency.
+A cryptographic key derived from a private key through one-way elliptic curve multiplication (on the secp256k1 curve), used to verify signatures and generate addresses.
+<!-- related: /docs/bitcoin-development/keys -->
+Public keys can be safely shared since the mathematical relationship to the private key cannot be reversed. Bitcoin uses two forms: uncompressed (65 bytes) and compressed (33 bytes), with compressed now standard for efficiency.
 
 ### Public Key Cryptography
 A method of encryption where every private key has a corresponding public key, from which it is impossible to determine the private key, and data encrypted with one key can be decrypted with the other. This lets you publish a key that lets anyone send encrypted messages to you without having to exchange a secret key first.
@@ -662,7 +757,9 @@ A scannable image often used in Bitcoin to represent a bitcoin address or a Ligh
 A form of computing based on quantum physics. Where classical computers rely on bits (zeros or ones) to make calculations, quantum computers use quantum bits (qubits) that leverage quantum mechanics to exist in a "superposition": a combination of zero and one, with some probability for each.
 
 ### RPC
-Remote Procedure Call (RPC): the JSON-RPC protocol interface that Bitcoin Core exposes for programmatic interaction, allowing applications to query blockchain data, manage wallets, and create transactions. Common RPC commands include getblockchaininfo, getblock, getrawtransaction, sendrawtransaction, and wallet management functions. The RPC interface is how block explorers, payment processors, and other applications integrate with Bitcoin nodes.
+Remote Procedure Call (RPC): the JSON-RPC protocol interface that Bitcoin Core exposes for programmatic interaction, allowing applications to query blockchain data, manage wallets, and create transactions.
+<!-- related: /docs/bitcoin/rpc -->
+Common RPC commands include getblockchaininfo, getblock, getrawtransaction, sendrawtransaction, and wallet management functions. The RPC interface is how block explorers, payment processors, and other applications integrate with Bitcoin nodes.
 
 ### RGB
 Really Good Bitcoin (RGB): a layer-2 smart contract system designed for creating and managing assets, such as tokens, off-chain while using Bitcoin's security. RGB enables scalable, private, and customizable smart contracts. It allows users to issue, transfer, and verify assets without burdening the Bitcoin blockchain, preserving privacy and minimizing transaction fees.
@@ -688,15 +785,18 @@ The pseudonymous creator of Bitcoin. He released the Bitcoin whitepaper in 2008 
 
 ### Seed Phrase
 A human-readable backup of a wallet's master secret, typically consisting of 12-24 words from a standardized BIP39 wordlist of 2048 words. This mnemonic phrase encodes the entropy used to derive all wallet keys through hierarchical deterministic (HD) derivation, allowing complete wallet recovery from just these words. Seed phrases should be stored securely offline and never entered into computers except during recovery. Also called a recovery phrase or mnemonic phrase.
+<!-- related: /docs/wallets/hd-wallets -->
 
 ### Self-Custody
-The practice of controlling your own private keys rather than entrusting them to a third party like an exchange or custodial service. Self-custody means you have true ownership of your Bitcoin, as expressed by the principle "not your keys, not your coins." While self-custody provides full control and eliminates counterparty risk, it requires proper security practices including secure [seed phrase](/docs/glossary#seed-phrase) storage, [hardware wallet](/docs/glossary#hardware-wallet) usage, and understanding of security best practices.
+The practice of controlling your own private keys rather than entrusting them to a third party like an exchange or custodial service. Self-custody means you have true ownership of your Bitcoin, as expressed by the principle "not your keys, not your coins." While self-custody provides full control and eliminates counterparty risk, it requires proper security practices including secure seed phrase storage, hardware wallet usage, and understanding of security best practices.
 
 ### Share
 A proof-of-work submission from a miner to a mining pool that meets the pool's difficulty target (lower than the actual network difficulty). Shares prove the miner is doing work without requiring them to find actual blocks, enabling fair reward distribution. Share counting allows pools to distribute block rewards proportionally to contributed hash power, dramatically reducing individual miner variance.
 
 ### Script
-Bitcoin's stack-based programming language used to define spending conditions for transaction outputs and provide proofs to satisfy them. Script is intentionally limited (not Turing complete) to ensure all programs terminate and can be analyzed for validity and resource consumption. Scripts execute by pushing data and running opcodes that manipulate a stack; a successful spend results in a non-empty stack with a true value on top.
+Bitcoin's stack-based programming language used to define spending conditions for transaction outputs and provide proofs to satisfy them.
+<!-- related: /docs/bitcoin/script -->
+Script is intentionally limited (not Turing complete) to ensure all programs terminate and can be analyzed for validity and resource consumption. Scripts execute by pushing data and running opcodes that manipulate a stack; a successful spend results in a non-empty stack with a true value on top.
 
 ### ScriptPubKey
 The locking script embedded in a transaction output that defines what conditions must be met to spend those funds. Named because it typically involves a public key or its hash, the scriptPubKey is essentially a puzzle that the spender must solve. Common patterns include requiring a signature matching a specific public key hash (P2PKH), satisfying a hashed script (P2SH), or meeting SegWit witness requirements (P2WPKH, P2WSH, P2TR).
@@ -705,10 +805,11 @@ The locking script embedded in a transaction output that defines what conditions
 The unlocking script in a transaction input that provides the data needed to satisfy the referenced output's scriptPubKey conditions. For P2PKH outputs, the scriptSig contains the signature and public key; for P2SH, it contains the serialized redeem script and any necessary signatures. The scriptSig is concatenated with the scriptPubKey during validation, and the combined script must execute successfully to validate the spend.
 
 ### Sequence
-A 32-bit field (nSequence) in each transaction input, used for [relative locktime](/docs/glossary#relative-time-lock) (OP_CHECKSEQUENCEVERIFY) and [RBF](/docs/glossary#rbf) signaling. For relative locktime, the sequence value encodes a block count or time unit that must pass before the input can be spent. For RBF, a sequence number below 0xfffffffe signals that the transaction is replaceable. Often set to 0xFFFFFFFF (final) when neither feature is used.
+A 32-bit field (nSequence) in each transaction input, used for relative locktime (OP_CHECKSEQUENCEVERIFY) and RBF signaling. For relative locktime, the sequence value encodes a block count or time unit that must pass before the input can be spent. For RBF, a sequence number below 0xfffffffe signals that the transaction is replaceable. Often set to 0xFFFFFFFF (final) when neither feature is used.
 
 ### SegWit
 Segregated Witness (SegWit): a major protocol upgrade activated in August 2017 (BIP 141) that moves signature data ("witness") outside the base transaction structure, fixing several important issues. SegWit resolved transaction malleability (which had blocked Lightning Network development), increased effective block capacity through a new weight-based limit, and enabled future upgrades like Taproot. By segregating witness data and applying a discount factor, SegWit transactions pay lower fees, typically 30-40% less than equivalent legacy transactions.
+<!-- related: /docs/bitcoin/segwit -->
 
 ### SHA-256
 A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect).
@@ -730,12 +831,17 @@ A test network (BIP 325) that adds a signature requirement to block validity, en
 
 ### Soft Fork
 A backward-compatible protocol change that tightens consensus rules, making some previously valid transactions or blocks now invalid. Non-upgraded nodes continue accepting new blocks but may not understand new features (they see transactions as "anyone can spend" but observe miners not spending them). Examples include SegWit (BIP 141) and Taproot (BIP 341). Because soft forks don't force the network to split, they're Bitcoin's preferred upgrade mechanism.
+<!-- related: /docs/history/forks -->
 
 ### Sidechain
-A separate blockchain that's interoperable with Bitcoin, allowing bitcoin to move between the two chains via two-way pegs. Sidechains can offer additional features or scalability while using Bitcoin as the base layer for security.
+A separate blockchain that's interoperable with Bitcoin, allowing bitcoin to move between the two chains via two-way pegs.
+<!-- related: /docs/advanced/sidechains -->
+Sidechains can offer additional features or scalability while using Bitcoin as the base layer for security.
 
 ### Sighash
-A 1-byte flag in Bitcoin signatures that selects which parts of the transaction are committed to by the signature. Sighash types (e.g. SIGHASH_ALL, SIGHASH_NONE, SIGHASH_SINGLE, SIGHASH_ANYPREVOUT) control whether the signer commits to all inputs and outputs, none, only the corresponding output, or allows the input to come from any outpoint. Sighash enables RBF (via sequence), contract protocols, and proposed covenants.
+A 1-byte flag in Bitcoin signatures that selects which parts of the transaction are committed to by the signature.
+<!-- related: /docs/bitcoin/sighash-types -->
+Sighash types (e.g. SIGHASH_ALL, SIGHASH_NONE, SIGHASH_SINGLE, SIGHASH_ANYPREVOUT) control whether the signer commits to all inputs and outputs, none, only the corresponding output, or allows the input to come from any outpoint. Sighash enables RBF (via sequence), contract protocols, and proposed covenants.
 
 ### Signature
 A digital signature in a Bitcoin transaction proves that the owner of the corresponding private key authorized the transaction. It ensures the authenticity and security of the transfer.
@@ -754,9 +860,11 @@ An asset that preserves its purchasing power over time. People use it to maintai
 
 ### Stratum
 The de facto standard protocol for communication between Bitcoin miners and mining pools, enabling work distribution and share submission. Stratum v1 has pools send work (block header template and target) to miners, who submit shares (valid proofs of work). Stratum V2 is a next-generation protocol that adds encryption, enables miners to select their own transactions (improving decentralization), and reduces bandwidth usage.
+<!-- related: /docs/mining/pools -->
 
 ### Stratum V2
 An upgraded communication protocol for Bitcoin mining pools that improves efficiency, security, and decentralization. It allows miners more control over the construction of block templates and reduces the risk of centralization in mining pools. Stratum V2 also enhances network security by encrypting communication between miners and pools.
+<!-- related: /docs/mining/pools -->
 
 ### Sybil Attack
 An attack where a malicious actor creates many fake identities (nodes) to gain disproportionate influence over the network, potentially to eclipse victims from honest nodes or manipulate peer discovery. Bitcoin mitigates Sybil attacks through several mechanisms: proof-of-work means mining power can't be faked, nodes limit connections per IP range, and the economic cost of running many nodes provides some resistance.
@@ -767,15 +875,18 @@ An attack where a malicious actor creates many fake identities (nodes) to gain d
 
 ### Taproot
 A major Bitcoin protocol upgrade activated in November 2021 (BIPs 340, 341, 342) that significantly improves privacy, efficiency, and smart contract capabilities. Taproot combines Schnorr signatures, MAST (Merkle Abstract Syntax Trees), and a new script version to make complex transactions indistinguishable from simple payments when using the key path. This means multisig wallets, Lightning channels, and sophisticated contracts all look like normal single-signature transactions on-chain, dramatically improving privacy for everyone.
+<!-- related: /docs/bitcoin/taproot -->
 
 ### Tapscript
 The scripting system used in Taproot’s script path (BIP 341/342). Tapscript is the opcode set and validation rules for the leaves of the Taproot Merkle tree when spending via a script rather than the key path. It reuses Bitcoin Script opcodes and adds BIP 342 opcodes (e.g. OP_CHECKSIGADD) for Schnorr and Taproot-specific behavior. Miniscript and other policy compilers can target Tapscript for P2TR outputs.
 
 ### Testnet
 A public Bitcoin network using worthless test coins, designed for development and testing without risking real money. Testnet uses different address prefixes (starting with "m", "n", "2", or "tb1") and different genesis block, ensuring testnet and mainnet transactions can never be confused. Testnet has had issues with griefing (malicious difficulty spikes) and coins sometimes acquiring value despite being meant to be free.
+<!-- related: /docs/development/testnets -->
 
 ### Time Lock
 A mechanism built into Bitcoin transactions that prevents funds from being spent until specified conditions are met, enabling time-based smart contracts. Absolute time locks (CLTV) prevent spending until a specific block height or Unix timestamp. Relative time locks (CSV) prevent spending until a certain time has passed since the UTXO was created. Time locks are fundamental to Lightning Network (for HTLC refunds), inheritance planning, vesting schedules, and various escrow arrangements.
+<!-- related: /docs/bitcoin/timelocks -->
 
 ### Tor
 An anonymity network that routes traffic through volunteer relays so that observers cannot see who is talking to whom. With Bitcoin, Tor is used to hide a user's IP when running a node or using wallets, mitigating network-level surveillance and eclipse risks. Satoshi cited Tor (with Gnutella) as an example of a resilient pure P2P network. See the [P2P protocol](/docs/bitcoin/p2p-protocol#tor-and-bitcoin) doc for context and node usage.
@@ -784,16 +895,22 @@ An anonymity network that routes traffic through volunteer relays so that observ
 Type-Length-Value (TLV): a flexible encoding format used extensively in Lightning Network protocol messages (BOLT specifications) that allows for extensible and forward-compatible data structures. Each TLV record contains a type identifier (what kind of data), a length (how many bytes), and the value itself. Nodes can safely ignore TLV types they don't understand while processing ones they do, enabling smooth protocol upgrades.
 
 ### Transaction
-The fundamental unit of value transfer in Bitcoin, consisting of inputs (references to previously unspent outputs being consumed), outputs (new UTXOs being created with specified amounts and spending conditions), and metadata. Every Bitcoin transaction must consume at least one existing UTXO and create at least one new one. The sum of input values must equal or exceed the sum of output values, with any difference becoming the miner fee.
+The fundamental unit of value transfer in Bitcoin, consisting of inputs (references to previously unspent outputs being consumed), outputs (new UTXOs being created with specified amounts and spending conditions), and metadata.
+<!-- related: /docs/bitcoin/transaction-structure -->
+Every Bitcoin transaction must consume at least one existing UTXO and create at least one new one. The sum of input values must equal or exceed the sum of output values, with any difference becoming the miner fee.
 
 ### Transaction Fee
-The amount paid to miners as incentive for including a transaction in a block, calculated as the difference between total input value and total output value. Fees are paid in satoshis and typically expressed as a fee rate (satoshis per virtual byte) to account for transaction size. During periods of high demand, users compete by offering higher fee rates to get faster confirmation.
+The amount paid to miners as incentive for including a transaction in a block, calculated as the difference between total input value and total output value.
+<!-- related: /docs/bitcoin/transaction-fees -->
+Fees are paid in satoshis and typically expressed as a fee rate (satoshis per virtual byte) to account for transaction size. During periods of high demand, users compete by offering higher fee rates to get faster confirmation.
 
 ### TXID
 Transaction ID (TXID): a unique 256-bit identifier for a transaction, calculated as the SHA256D hash of the serialized transaction data. TXIDs are used to reference transactions in inputs (specifying which output to spend), in block merkle trees, and throughout the ecosystem for tracking and identification. Before SegWit, TXIDs could be changed by third parties through malleability attacks. SegWit introduced the WTXID (witness transaction ID) that includes witness data, while the TXID excludes it, fixing malleability for SegWit transactions.
 
 ### Transaction Malleability
-A historical vulnerability where transaction signatures could be modified by third parties without invalidating them, causing the transaction ID to change even though the transaction itself remained valid. This was problematic for protocols that needed to reference unconfirmed transactions by TXID, like Lightning Network channels. SegWit (BIP 141) fixed malleability by moving signature data to a separate witness structure not included in the TXID calculation.
+A historical vulnerability where transaction signatures could be modified by third parties without invalidating them, causing the transaction ID to change even though the transaction itself remained valid.
+<!-- related: /docs/bitcoin/transaction-malleability -->
+This was problematic for protocols that needed to reference unconfirmed transactions by TXID, like Lightning Network channels. SegWit (BIP 141) fixed malleability by moving signature data to a separate witness structure not included in the TXID calculation.
 
 ### Triple Entry Bookkeeping
 An advancement of traditional double-entry bookkeeping that incorporates cryptographic verification. In Bitcoin, each transaction is logged in a decentralized ledger (the blockchain), where all participants can verify the transaction. This provides enhanced transparency and security, reducing the risk of fraud and errors compared to traditional accounting systems.
@@ -803,7 +920,9 @@ An advancement of traditional double-entry bookkeeping that incorporates cryptog
 ## U
 
 ### UTXO
-Unspent Transaction Output (UTXO): a transaction output that hasn't been spent yet, representing the actual "coins" in Bitcoin's accounting model. Unlike account-based systems (like bank accounts), Bitcoin tracks ownership through discrete UTXOs. Each is either entirely unspent or entirely consumed when used as an input. When you "have 1 BTC", you actually possess one or more UTXOs that sum to that amount. Spending requires consuming entire UTXOs and creating new ones, including change outputs when the input exceeds the payment.
+Unspent Transaction Output (UTXO): a transaction output that hasn't been spent yet, representing the actual "coins" in Bitcoin's accounting model.
+<!-- related: /docs/fundamentals/utxos -->
+Unlike account-based systems (like bank accounts), Bitcoin tracks ownership through discrete UTXOs. Each is either entirely unspent or entirely consumed when used as an input. When you "have 1 BTC", you actually possess one or more UTXOs that sum to that amount. Spending requires consuming entire UTXOs and creating new ones, including change outputs when the input exceeds the payment.
 
 ### UTXO Set
 The complete database of all unspent transaction outputs at a given point in time, representing the current state of Bitcoin ownership. Full nodes maintain the UTXO set in memory or fast storage for quick transaction validation, checking that referenced inputs exist and aren't already spent. The UTXO set currently contains around 70-100 million entries requiring several gigabytes to store. Keeping the UTXO set manageable is important for node performance, which is why creating dust outputs and unnecessary UTXOs is discouraged.
@@ -830,21 +949,26 @@ Newly mined bitcoin that has never been used in any transactions. It is untainte
 
 ### Wallet
 Software (or hardware) that manages Bitcoin private keys, tracks balances, and creates transactions on behalf of the user. Wallets can be full node (run their own node for verification), SPV (trust others for block validation), or custodial (third party holds keys). Hardware wallets store keys on secure devices that never expose private keys to potentially compromised computers. Modern wallets typically use HD (hierarchical deterministic) architecture, deriving all keys from a single seed phrase for easy backup.
+<!-- related: /docs/wallets/overview -->
 
 ### Watchtower
-A service that monitors the Bitcoin blockchain on behalf of Lightning Network users, watching for attempts to close channels with outdated (fraudulent) states. When a channel counterparty broadcasts a revoked commitment transaction while you're offline, the watchtower detects it and broadcasts a penalty transaction to claim all channel funds on your behalf. Watchtowers solve the "always online" problem in Lightning, allowing users to go offline safely knowing their channels are monitored.
+A service that monitors the Bitcoin blockchain on behalf of Lightning Network users, watching for attempts to close channels with outdated (fraudulent) states.
+<!-- related: /docs/lightning/watchtowers -->
+When a channel counterparty broadcasts a revoked commitment transaction while you're offline, the watchtower detects it and broadcasts a penalty transaction to claim all channel funds on your behalf. Watchtowers solve the "always online" problem in Lightning, allowing users to go offline safely knowing their channels are monitored.
 
 ### Weight Units
 The measurement system introduced by SegWit for calculating transaction size and block capacity, where base transaction data counts as 4 weight units per byte and witness data counts as 1 weight unit per byte. This 4:1 discount for witness data incentivizes SegWit adoption and reduces the fee cost of signatures. The block limit is 4 million weight units, which translates to approximately 1 MB of base data plus additional witness data, enabling effective block sizes of around 2-4 MB for blocks full of SegWit transactions.
 
 ### Witness
-The segregated data structure in SegWit transactions containing signatures, public keys, and other unlocking data that proves authorization to spend inputs. By moving witness data outside the base transaction (and thus outside the TXID calculation), SegWit fixed transaction malleability and enabled the witness discount for fee calculation. The witness is committed to through a separate witness root in the coinbase transaction rather than affecting the main merkle tree.
+The segregated data structure in SegWit transactions containing signatures, public keys, and other unlocking data that proves authorization to spend inputs.
+<!-- related: /docs/bitcoin/witness -->
+By moving witness data outside the base transaction (and thus outside the TXID calculation), SegWit fixed transaction malleability and enabled the witness discount for fee calculation. The witness is committed to through a separate witness root in the coinbase transaction rather than affecting the main merkle tree.
 
 ### Witness Discount
 A feature introduced in Bitcoin's SegWit upgrade, which reduces the cost of storing certain types of data, specifically witness data, by giving it a lower "weight" in terms of transaction fees. Witness data, which includes signatures, is given a discount to make Bitcoin transactions more efficient, promoting greater economic density on the timechain.
 
 ### wTXID
-Witness Transaction ID (wTXID): the hash of the full transaction including [witness](/docs/glossary#witness) data, used in SegWit and Taproot contexts where the full committed transaction identity matters (e.g. compact block relay). Unlike the [TXID](/docs/glossary#txid), which hashes only the base transaction (excluding witness), the wTXID changes if witness data changes. The TXID is used for [outpoint](/docs/glossary#outpoint) references and chain indexing; the wTXID is used where the full transaction identity is needed.
+Witness Transaction ID (wTXID): the hash of the full transaction including witness data, used in SegWit and Taproot contexts where the full committed transaction identity matters (e.g. compact block relay). Unlike the TXID, which hashes only the base transaction (excluding witness), the wTXID changes if witness data changes. The TXID is used for outpoint references and chain indexing; the wTXID is used where the full transaction identity is needed.
 
 ---
 

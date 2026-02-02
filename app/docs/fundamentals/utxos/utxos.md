@@ -4,7 +4,7 @@ The UTXO (Unspent Transaction Output) model is one of Bitcoin's most fundamental
 
 - **Discrete units**: Each UTXO is a separate, indivisible unit
 - **All-or-nothing spending**: You must spend an entire UTXO; partial spending isn't possible
-- **Consumption**: When a UTXO is spent, it's completely consumed and removed from the [UTXO set](/docs/glossary#utxo-set)
+- **Consumption**: When a UTXO is spent, it's completely consumed and removed from the UTXO set
 - **Creation**: Every transaction creates new UTXOs as outputs
 
 ---
@@ -326,7 +326,7 @@ The UTXO model has important privacy characteristics:
 **Best Practices**:
 - Generate new addresses for each transaction
 - Use [coin selection](/docs/wallets/coin-selection) strategies that enhance privacy
-- Consider [CoinJoin](/docs/glossary#coinjoin) for better privacy
+- Consider CoinJoin for better privacy
 - Avoid address reuse
 
 ---

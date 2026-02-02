@@ -1,9 +1,9 @@
 # Hash Time-Locked Contracts (HTLCs)
 
-HTLCs are the mechanism that enables payments to route through the Lightning Network. They ensure that payments can only be claimed with the correct [preimage](/docs/glossary#preimage), and expire after a certain time if unclaimed. An HTLC is a conditional payment that requires:
+HTLCs are the mechanism that enables payments to route through the Lightning Network. They ensure that payments can only be claimed with the correct preimage, and expire after a certain time if unclaimed. An HTLC is a conditional payment that requires:
 
 1. **Hash Lock**: Knowledge of a secret (preimage) that hashes to a known value
-2. **Time Lock**: Expires after a certain block height ([CLTV](/docs/glossary#cltv))
+2. **Time Lock**: Expires after a certain block height (CLTV)
 
 ```text
 HTLC Conditions:

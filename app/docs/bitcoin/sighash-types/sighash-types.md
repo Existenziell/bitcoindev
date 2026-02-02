@@ -10,7 +10,7 @@ For each input, the signer:
 
 1. Builds a **sighash** from the transaction according to the sighash type.
 2. Signs the sighash with the private key.
-3. The signature (plus the sighash type byte) is placed in the [witness](/docs/glossary#witness) or [scriptSig](/docs/glossary#scriptsig).
+3. The signature (plus the sighash type byte) is placed in the witness or scriptSig.
 
 Verifiers recompute the sighash the same way and check the signature against it. If the transaction is modified in a part that was included in the sighash, the signature fails.
 
@@ -44,9 +44,9 @@ So `SIGHASH_ALL | SIGHASH_ANYONECANPAY` means “commit to all outputs and to th
 
 **Default and most common.** The sighash includes:
 
-- Version, [locktime](/docs/glossary#locktime)
-- All inputs (or only the current one if `ANYONECANPAY` is set): [outpoint](/docs/glossary#outpoint), [script](/docs/bitcoin/script) (or scriptCode for [SegWit](/docs/bitcoin/segwit)), sequence
-- All outputs: value and [scriptPubKey](/docs/glossary#scriptpubkey)
+- Version, locktime
+- All inputs (or only the current one if `ANYONECANPAY` is set): outpoint, [script](/docs/bitcoin/script) (or scriptCode for [SegWit](/docs/bitcoin/segwit)), sequence
+- All outputs: value and scriptPubKey
 
 The signer commits to the whole [transaction](/docs/bitcoin/transaction-lifecycle) (or to all outputs and only this input with `ANYONECANPAY`). Changing any committed part invalidates the signature. For [SegWit](/docs/bitcoin/segwit) and [Taproot](/docs/bitcoin/taproot), the default used in most wallets is `SIGHASH_DEFAULT`, which is treated like `SIGHASH_ALL` (see below).
 
@@ -88,7 +88,7 @@ For [Taproot](/docs/bitcoin/taproot) (and commonly for [SegWit](/docs/bitcoin/se
 
 ## Use Cases
 
-- **Normal payments**: [SIGHASH_ALL](/docs/glossary#sighash) or SIGHASH_DEFAULT. Full commitment to the [transaction](/docs/bitcoin/transaction-lifecycle).
+- **Normal payments**: SIGHASH_ALL or SIGHASH_DEFAULT. Full commitment to the [transaction](/docs/bitcoin/transaction-lifecycle).
 - **[RBF](/docs/bitcoin/transaction-fees#replace-by-fee-rbf-and-bip-125)**: Same; the replacement is a new [transaction](/docs/bitcoin/transaction-lifecycle) with new signatures. Sighash types do not change.
 - **[CoinJoin](/docs/wallets/privacy)**: SIGHASH_ALL | SIGHASH_ANYONECANPAY so each participant signs only their input and agrees to the common outputs.
 - **Contract / [Covenant](/docs/advanced/covenants) designs**: SIGHASH_NONE, SIGHASH_SINGLE, or ANYONECANPAY can be used so that the signer does not commit to all outputs or all inputs. Proposed **SIGHASH_ANYPREVOUT** would allow reusing a signature across [transactions](/docs/bitcoin/transaction-lifecycle) with different outpoints, enabling more flexible [covenants](/docs/advanced/covenants) and [Lightning](/docs/lightning)-style protocols.

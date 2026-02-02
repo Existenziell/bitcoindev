@@ -14,7 +14,7 @@ Taproot is a major Bitcoin protocol upgrade activated in November 2021 (block 70
 
 ### 1. Schnorr Signatures (BIP 340)
 
-Taproot uses Schnorr for all P2TR signatures: 64-byte fixed size, signature aggregation ([MuSig](/docs/glossary#musig) / MuSig2), and batch verification. See [Schnorr Signatures](/docs/bitcoin/cryptography#schnorr-signatures) for the full treatment.
+Taproot uses Schnorr for all P2TR signatures: 64-byte fixed size, signature aggregation (MuSig / MuSig2), and batch verification. See [Schnorr Signatures](/docs/bitcoin/cryptography#schnorr-signatures) for the full treatment.
 
 ### 2. MAST (Merkle Abstract Syntax Trees)
 
@@ -456,7 +456,7 @@ Taproot introduces Tapscript, a new scripting language:
 
 - [SegWit](/docs/bitcoin/segwit) - Previous major upgrade
 - [Schnorr Signatures](/docs/bitcoin/cryptography#schnorr-signatures) - Signature scheme
-- [MAST](/docs/glossary#mast) - Merkle Abstract Syntax Trees
+- MAST - Merkle Abstract Syntax Trees
 - [Address Types](/docs/wallets/address-types) - Understanding P2TR addresses
 
 ---

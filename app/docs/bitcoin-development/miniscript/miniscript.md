@@ -14,7 +14,7 @@ Miniscript addresses this by:
 
 - **Policy vs. script**: You express a *policy* (high-level spending conditions); Miniscript compiles it to Script.
 - **Fragments**: A small set of composable *fragments* (e.g., `pk`, `thresh`, `after`) that map to Script.
-- **Analyzable**: Tools can compute correctness, [satisfaction](/docs/glossary#witness) size, and signature requirements automatically.
+- **Analyzable**: Tools can compute correctness, satisfaction size, and signature requirements automatically.
 
 ---
 
@@ -46,7 +46,7 @@ or(2 of [pk(A),pk(B),pk(C)], and(pk(D), after(1000)))
 | `hash(H)` | Reveal preimage of H | `OP_HASH256 H OP_EQUAL` |
 | `multi(n, K1, K2, ...)` | n-of-m multisig | `n K1 K2 ... m OP_CHECKMULTISIG` |
 
-Miniscript supports more fragments (e.g., `and_v`, `or_c`, `andor`) for different Script encodings and [sighash](/docs/glossary#sighash) behavior. The exact set is defined in the [Miniscript specification](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki).
+Miniscript supports more fragments (e.g., `and_v`, `or_c`, `andor`) for different Script encodings and sighash behavior. The exact set is defined in the [Miniscript specification](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki).
 
 ---
 
@@ -63,7 +63,7 @@ Not every Miniscript expression is **safe**; the compiler and analyzers can repo
 
 ## Compilation to Script
 
-A Miniscript policy is compiled down to [Script](/docs/bitcoin/script) (and thus to [P2WSH](/docs/glossary#p2wsh) or [P2TR](/docs/bitcoin/taproot) [Tapscript](/docs/glossary#tapscript)). The exact output depends on:
+A Miniscript policy is compiled down to [Script](/docs/bitcoin/script) (and thus to P2WSH or [P2TR](/docs/bitcoin/taproot) Tapscript). The exact output depends on:
 
 - The target (pre-Taproot P2WSH vs [Taproot](/docs/bitcoin/taproot) Tapscript)
 - Optimization options (e.g., minimize size, minimize signature count)
@@ -176,7 +176,7 @@ console.log(policyToDescriptor(policy));
 - **Schnorr** and `OP_CHECKSIGADD`
 - New rules and limits (e.g., 32-byte x-only [pubkeys](/docs/bitcoin/cryptography))
 
-Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki) and implementations) to support **Tapscript**, so the same policy language can target both pre-Taproot [P2WSH](/docs/glossary#p2wsh) and Taproot script paths.
+Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki) and implementations) to support **Tapscript**, so the same policy language can target both pre-Taproot P2WSH and Taproot script paths.
 
 ---
 

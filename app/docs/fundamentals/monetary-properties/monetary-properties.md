@@ -6,7 +6,7 @@ Bitcoin exhibits key monetary properties that make it suitable as both a medium 
 
 | Property | Definition | Bitcoin Implementation |
 |----------|------------|----------------------|
-| **Scarcity** | Limited supply that cannot be arbitrarily increased | Fixed [21 million](/docs/glossary#21-million) cap, predictable issuance via [halving](/docs/glossary#halving) schedule |
+| **Scarcity** | Limited supply that cannot be arbitrarily increased | Fixed 21 million cap, predictable issuance via halving schedule |
 | **Divisibility** | Ability to divide into smaller units | 8 decimal places (1 BTC = 100,000,000 satoshis). See [Denominations](/docs/fundamentals/denominations) for the full unit table. |
 | **Portability** | Easy to transport and transfer | Digital, transferable globally via internet, 24/7 |
 | **Durability** | Resistance to wear or destruction | Digital (no degradation), distributed across thousands of nodes |
@@ -19,7 +19,7 @@ Bitcoin exhibits key monetary properties that make it suitable as both a medium 
 
 **Verifiability:** Digital signatures prove ownership cryptographically. Anyone can verify transactions on the public blockchain, and counterfeiting is mathematically impossible.
 
-**Programmability:** Bitcoin [Script](/docs/glossary#script) enables conditional transactions: [time locks](/docs/glossary#time-lock) ([CLTV](/docs/glossary#cltv), [CSV](/docs/glossary#csv)), [multisignature](/docs/glossary#multisig) requirements, and basic smart contracts.
+**Programmability:** Bitcoin Script enables conditional transactions: time locks (CLTV, CSV), multisignature requirements, and basic smart contracts.
 
 **Censorship Resistance:** No central authority can block transactions. The global, permissionless network makes shutdown impractical.
 
@@ -44,6 +44,6 @@ Bitcoin exhibits key monetary properties that make it suitable as both a medium 
 
 **Store of Value:** Scarcity and deflationary supply support long-term value preservation. High short-term volatility, but growing institutional adoption as a "digital gold" asset.
 
-**Medium of Exchange:** Base layer handles ~7 TPS with fees that vary by demand. [Lightning Network](/docs/glossary#lightning-network) enables fast, low-fee payments for everyday transactions.
+**Medium of Exchange:** Base layer handles ~7 TPS with fees that vary by demand. Lightning Network enables fast, low-fee payments for everyday transactions.
 
 **Unit of Account:** Still developing. Prices are primarily quoted in fiat (USD), though some communities price goods in satoshis.

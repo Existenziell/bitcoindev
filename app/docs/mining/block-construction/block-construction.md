@@ -1,6 +1,6 @@
 # Block Construction
 
-Block construction is the process by which miners assemble a new block from pending transactions. This is where the [mempool](/docs/glossary#mempool) meets the blockchain. Miners must decide which transactions to include, how to order them, and how to structure the block for maximum profit while following [consensus rules](/docs/glossary#consensus-rules).
+Block construction is the process by which miners assemble a new block from pending transactions. This is where the mempool meets the blockchain. Miners must decide which transactions to include, how to order them, and how to structure the block for maximum profit while following consensus rules.
 
 ## Anatomy of a Block
 
@@ -19,7 +19,7 @@ flowchart TD
   BH --> Nonce["Nonce (4 bytes)"]
 ```
 
-All numeric fields (version, timestamp, [difficulty target](/docs/glossary#difficulty-target), [nonce](/docs/glossary#nonce)) are stored in [little endian](/docs/glossary#little-endian) byte order. The previous block hash and merkle root are stored as-is (32 bytes each).
+All numeric fields (version, timestamp, difficulty target, nonce) are stored in little endian byte order. The previous block hash and merkle root are stored as-is (32 bytes each).
 
 ### Block Body
 
@@ -54,13 +54,13 @@ Outputs:
 
 ### Coinbase Maturity
 
-Coinbase outputs cannot be spent until 100 blocks have passed. This prevents issues if the block is [orphaned](/docs/glossary#orphan-block).
+Coinbase outputs cannot be spent until 100 blocks have passed. This prevents issues if the block is orphaned.
 
 ---
 
 ## Candidate Block
 
-A **candidate block** is the block a miner is currently hashing. It is built from a [block template](/docs/glossary#block-template): the miner fills in the header (version, previous block hash, merkle root, timestamp, [difficulty target](/docs/glossary#difficulty-target), [nonce](/docs/glossary#nonce)), includes the [coinbase transaction](/docs/glossary#coinbase-transaction) and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first one that meets the [proof-of-work](/docs/glossary#pow) requirement is broadcast as the new block.
+A **candidate block** is the block a miner is currently hashing. It is built from a block template: the miner fills in the header (version, previous block hash, merkle root, timestamp, difficulty target, nonce), includes the coinbase transaction and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first one that meets the proof-of-work requirement is broadcast as the new block.
 
 ---
 
@@ -72,13 +72,13 @@ Miners want to maximize revenue, which means selecting transactions that pay the
 
 Block construction is a variant of the knapsack optimization problem:
 
-- **Constraint**: Block weight limit (4 million [weight units](/docs/glossary#weight-units) ≈ 1 MB base + 3 MB witness)
+- **Constraint**: Block weight limit (4 million weight units ≈ 1 MB base + 3 MB witness)
 - **Objective**: Maximize total fees
 - **Complication**: Transaction dependencies (child transactions require parents)
 
 ### Fee Rate Priority
 
-Transactions are generally sorted by **[fee rate](/docs/glossary#fee-rate)** (satoshis per virtual byte):
+Transactions are generally sorted by **fee rate** (satoshis per virtual byte):
 
 ```
 Priority Queue:
@@ -100,7 +100,7 @@ Ancestor fee rate of child = (10×200 + 100×150) / (200 + 150)
                            = 17,000 / 350 = 48.6 sat/vB
 ```
 
-This is how [CPFP](/docs/glossary#cpfp) (Child Pays for Parent) works: the child's high fee pulls the parent along.
+This is how CPFP (Child Pays for Parent) works: the child's high fee pulls the parent along.
 
 ### Block Template Algorithm
 
@@ -116,7 +116,7 @@ Bitcoin Core's `getblocktemplate` uses this approach:
 
 ## Block Weight and SegWit
 
-Since [SegWit](/docs/glossary#segwit) (2017), blocks use **weight** instead of raw size:
+Since SegWit (2017), blocks use **weight** instead of raw size:
 
 ```
 Block Weight = (Base Size × 4) + Witness Size
@@ -132,7 +132,7 @@ Maximum Block Weight = 4,000,000 weight units (4 MWU)
 
 ### Why Weight Matters for Miners
 
-SegWit transactions are "discounted" because their [witness](/docs/glossary#witness) data costs less weight. This means:
+SegWit transactions are "discounted" because their witness data costs less weight. This means:
 
 - SegWit transactions can pay lower absolute fees for the same priority
 - Miners can fit more transactions in a block
@@ -142,7 +142,7 @@ SegWit transactions are "discounted" because their [witness](/docs/glossary#witn
 
 ## Constructing the Merkle Root
 
-All transactions in a block are hashed into a **[Merkle tree](/docs/glossary#merkle-tree)**:
+All transactions in a block are hashed into a **Merkle tree**:
 
 ```
                     Merkle Root
@@ -157,7 +157,7 @@ All transactions in a block are hashed into a **[Merkle tree](/docs/glossary#mer
 ### Why Merkle Trees?
 
 - **Efficient verification**: Prove a transaction is in a block with O(log n) hashes
-- **Compact proofs**: [SPV](/docs/glossary#spv) wallets only need the Merkle path, not the full block
+- **Compact proofs**: SPV wallets only need the Merkle path, not the full block
 - **Tamper detection**: Any change to any transaction changes the root
 
 ### Merkle Tree Construction
@@ -715,7 +715,7 @@ console.log(`Proof valid: ${isValid}`);
 
 ## The Block Template
 
-When a miner requests work, they receive a **[block template](/docs/glossary#block-template)**:
+When a miner requests work, they receive a **block template**:
 
 ```json
 {
@@ -754,7 +754,7 @@ Sometimes miners produce **empty blocks** (only coinbase transaction):
 
 1. **Speed**: Immediately after finding a block, miners start on the next
 2. **Validation lag**: New block's transactions aren't yet validated
-3. **Profit**: [Block reward](/docs/glossary#block-reward) alone is still profitable
+3. **Profit**: Block reward alone is still profitable
 
 ### SPV Mining
 
@@ -770,7 +770,7 @@ This is risky but provides a head start.
 
 ## Extra Nonce
 
-The 4-byte nonce in the header provides only 2³² possibilities, which is not enough for modern [ASICs](/docs/glossary#asic).
+The 4-byte nonce in the header provides only 2³² possibilities, which is not enough for modern ASICs.
 
 ### Expanding the Search Space
 

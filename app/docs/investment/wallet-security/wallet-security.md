@@ -1,6 +1,6 @@
 # Wallet Security & Self-Custody
 
-**[Not your keys, not your coins](/docs/glossary#not-your-keys-not-your-coins).** This fundamental principle of Bitcoin ownership means that if you don't control your private keys, you don't truly own your Bitcoin. This guide explains how to securely store your Bitcoin using [cold wallets](/docs/glossary#cold-storage-wallet), hardware wallets, and air-gapped systems.
+**Not your keys, not your coins.** This fundamental principle of Bitcoin ownership means that if you don't control your private keys, you don't truly own your Bitcoin. This guide explains how to securely store your Bitcoin using cold wallets, hardware wallets, and air-gapped systems.
 
 ---
 
@@ -13,7 +13,7 @@ When you store Bitcoin on an exchange or custodial service, you're trusting a th
 - **Counterparty risk:** The exchange could go bankrupt or disappear
 - **No true ownership:** You don't control your private keys
 
-**[Self-custody](/docs/glossary#self-custody)** means you control your private keys, giving you true ownership of your Bitcoin. However, with great power comes great responsibility: you must secure your keys properly.
+**Self-custody** means you control your private keys, giving you true ownership of your Bitcoin. However, with great power comes great responsibility: you must secure your keys properly.
 
 ---
 
@@ -38,9 +38,9 @@ A **seed phrase** (also called a recovery phrase or mnemonic) is a human-readabl
 | **Hot Wallets** | Internet-connected | Lower | High | Small amounts, daily use, frequent transactions |
 | **Cold Wallets** | Offline | Highest | Lower | Long-term storage, significant amounts |
 
-**[Hot Wallets](/docs/glossary#hot-wallet):** Mobile apps, desktop software, web wallets. Easy to use but more vulnerable to hacking.
+**Hot Wallets:** Mobile apps, desktop software, web wallets. Easy to use but more vulnerable to hacking.
 
-**[Cold Wallets](/docs/glossary#cold-storage-wallet):** Hardware wallets, air-gapped systems. Private keys never touch the internet. Much more secure but less convenient.
+**Cold Wallets:** Hardware wallets, air-gapped systems. Private keys never touch the internet. Much more secure but less convenient.
 
 ---
 
@@ -131,7 +131,7 @@ An **air-gapped** system is a computer or device that has never been connected t
 
 ## Multi-Signature Wallets
 
-A **multi-signature (multisig)** wallet requires multiple private keys to authorize a transaction. For example, a [2-of-3 multisig](/docs/glossary#2-of-3-multisig) requires 2 out of 3 keys to sign.
+A **multi-signature (multisig)** wallet requires multiple private keys to authorize a transaction. For example, a 2-of-3 multisig requires 2 out of 3 keys to sign.
 
 ### Benefits
 

@@ -1,6 +1,6 @@
 # Key Management & Security
 
-In Bitcoin's [trust model](/docs/fundamentals/trust-model), you don't rely on a custodian; you prove ownership with [private keys](/docs/glossary#private-key) and signatures. "Not your keys, not your coins" means key management is the foundation of security. This guide covers [HD wallets](/docs/glossary#hd-wallet), [seed phrases](/docs/glossary#seed-phrase), derivation paths, and best practices so you can generate and use keys in code without trusting third parties.
+In Bitcoin's [trust model](/docs/fundamentals/trust-model), you don't rely on a custodian; you prove ownership with private keys and signatures. "Not your keys, not your coins" means key management is the foundation of security. This guide covers HD wallets, seed phrases, derivation paths, and best practices so you can generate and use keys in code without trusting third parties.
 
 ## HD Wallets (BIP32)
 

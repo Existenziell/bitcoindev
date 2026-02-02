@@ -6,8 +6,10 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import Link from 'next/link'
 import { ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
-import relatedArticles from '@/app/docs/glossary/related-articles.json'
 import { generateSlug } from '@/scripts/lib/slug'
+import { docPages } from '@/app/utils/navigation'
+
+const RELATED_COMMENT_RE = /^\s*<!--\s*related:\s*(\/[^\s]+)\s*-->\s*$/
 
 interface GlossaryRendererProps {
   content: string
@@ -17,12 +19,23 @@ interface GlossaryEntry {
   term: string
   slug: string
   definition: string
+  relatedArticle?: string
 }
 
 interface GlossarySection {
   letter: string
   slug: string
   entries: GlossaryEntry[]
+}
+
+function parseDefinitionAndRelated(definitionLines: string[]): { definition: string; relatedArticle?: string } {
+  const relatedMatch = definitionLines.find((l) => RELATED_COMMENT_RE.test(l))
+  const lines = relatedMatch
+    ? definitionLines.filter((l) => !RELATED_COMMENT_RE.test(l))
+    : definitionLines
+  const definition = lines.join('\n').trim()
+  const relatedArticle = relatedMatch ? RELATED_COMMENT_RE.exec(relatedMatch)?.[1] : undefined
+  return { definition, relatedArticle }
 }
 
 function parseGlossaryContent(content: string): GlossarySection[] {
@@ -37,7 +50,9 @@ function parseGlossaryContent(content: string): GlossarySection[] {
     const sectionMatch = line.match(/^## (.+)$/)
     if (sectionMatch) {
       if (currentEntry && currentSection) {
-        currentEntry.definition = currentDefinitionLines.join('\n').trim()
+        const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
+        currentEntry.definition = definition
+        currentEntry.relatedArticle = relatedArticle
         currentSection.entries.push(currentEntry)
         currentEntry = null
         currentDefinitionLines = []
@@ -59,7 +74,9 @@ function parseGlossaryContent(content: string): GlossarySection[] {
     const termMatch = line.match(/^### (.+)$/)
     if (termMatch && currentSection) {
       if (currentEntry) {
-        currentEntry.definition = currentDefinitionLines.join('\n').trim()
+        const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
+        currentEntry.definition = definition
+        currentEntry.relatedArticle = relatedArticle
         currentSection.entries.push(currentEntry)
         currentDefinitionLines = []
       }
@@ -79,7 +96,9 @@ function parseGlossaryContent(content: string): GlossarySection[] {
   }
 
   if (currentEntry && currentSection) {
-    currentEntry.definition = currentDefinitionLines.join('\n').trim()
+    const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
+    currentEntry.definition = definition
+    currentEntry.relatedArticle = relatedArticle
     currentSection.entries.push(currentEntry)
   }
   if (currentSection) {
@@ -239,13 +258,13 @@ export default function GlossaryRenderer({ content }: GlossaryRendererProps) {
 
                 <div className="glossary-definition px-4 py-4 ml-6 border-l-2 border-gray-200 dark:border-gray-700 mt-2 text-gray-800 dark:text-gray-200">
                   <DefinitionRenderer content={entry.definition} />
-                  {(relatedArticles as Record<string, string>)[entry.slug] && (
+                  {entry.relatedArticle && (
                     <p className="mt-3 text-sm">
                       <Link
-                        href={(relatedArticles as Record<string, string>)[entry.slug]}
+                        href={entry.relatedArticle}
                         className="text-btc hover:underline inline-flex items-center gap-1"
                       >
-                        Related article
+                        {docPages.find((p) => p.path === entry.relatedArticle)?.title ?? 'Related article'}
                         <ChevronRight className="w-3.5 h-3.5" />
                       </Link>
                     </p>

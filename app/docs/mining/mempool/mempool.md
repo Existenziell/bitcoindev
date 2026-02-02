@@ -2,7 +2,7 @@
 
 The **mempool** (memory pool) is Bitcoin's waiting room for unconfirmed transactions. When you broadcast a transaction, it doesn't immediately go into a block. It first enters the mempool, where it waits for a miner to include it in the next block.
 
-Every [full node](/docs/glossary#full-node) maintains its own mempool. There is no single, global mempool; each node has its own view of pending transactions, though they generally converge through transaction propagation across the network.
+Every full node maintains its own mempool. There is no single, global mempool; each node has its own view of pending transactions, though they generally converge through transaction propagation across the network.
 
 ## How the Mempool Works
 
@@ -11,7 +11,7 @@ Every [full node](/docs/glossary#full-node) maintains its own mempool. There is 
 1. **Broadcast**: User signs and broadcasts a transaction
 2. **Validation**: Nodes verify the transaction is valid (correct signatures, sufficient funds, proper format)
 3. **Mempool Entry**: Valid transactions enter the node's mempool
-4. **Propagation**: Nodes relay transactions to their [peers](/docs/glossary#peer)
+4. **Propagation**: Nodes relay transactions to their peers
 5. **Selection**: Miners select transactions from their mempool to include in blocks
 6. **Confirmation**: Once included in a block, the transaction leaves the mempool
 
@@ -39,7 +39,7 @@ Each node can set its own mempool policies:
 
 ## Querying the Mempool
 
-You can query mempool information using Bitcoin Core's [RPC](/docs/glossary#rpc) interface:
+You can query mempool information using Bitcoin Core's RPC interface:
 
 :::code-group
 ```rust
@@ -455,7 +455,7 @@ The mempool creates a **fee market** where users bid for block space.
 - Transactions pay fees measured in **satoshis per virtual byte (sat/vB)**
 - Miners prioritize higher-fee transactions (more profit per block)
 - When blocks are full, low-fee transactions wait longer
-- [Fee rates](/docs/glossary#fee-rate) fluctuate based on demand for block space
+- Fee rates fluctuate based on demand for block space
 
 ### Fee Estimation
 
@@ -484,7 +484,7 @@ When transaction volume exceeds block capacity:
 
 ## Replace-by-Fee (RBF)
 
-**[RBF](/docs/glossary#rbf)** allows replacing an unconfirmed transaction with a new version paying a higher fee.
+**RBF** allows replacing an unconfirmed transaction with a new version paying a higher fee.
 
 ### How RBF Works
 
@@ -496,7 +496,7 @@ When transaction volume exceeds block capacity:
 ### RBF Use Cases
 
 - **Fee bumping**: Speed up a stuck transaction
-- **Payment updates**: Change the amount or destination before [confirmation](/docs/glossary#confirmation)
+- **Payment updates**: Change the amount or destination before confirmation
 - **Consolidation**: Combine outputs more efficiently
 
 ### Full RBF vs Opt-in RBF
@@ -508,7 +508,7 @@ When transaction volume exceeds block capacity:
 
 ## Child Pays for Parent (CPFP)
 
-An alternative to RBF for [fee bumping](/docs/glossary#fee-bumping).
+An alternative to RBF for fee bumping.
 
 ### How CPFP Works
 
@@ -519,7 +519,7 @@ An alternative to RBF for [fee bumping](/docs/glossary#fee-bumping).
 
 ### CPFP vs RBF
 
-| Aspect | RBF | [CPFP](/docs/glossary#cpfp) |
+| Aspect | RBF | CPFP |
 |--------|-----|------|
 | Who can bump | Sender only | Sender or recipient |
 | Requires | RBF signaling | Spendable output |
@@ -608,7 +608,7 @@ Common in DeFi on other chains, less relevant for Bitcoin's simpler transactions
 ### Receiving Transactions
 
 1. **Wait for confirmations**: Unconfirmed transactions can be replaced or dropped
-2. **Check RBF status**: RBF transactions are more easily [double-spent](/docs/glossary#double-spend) before confirmation
+2. **Check RBF status**: RBF transactions are more easily double-spent before confirmation
 3. **Monitor mempool**: Track your incoming transaction's position
 
 ---

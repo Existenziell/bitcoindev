@@ -1,6 +1,6 @@
 # Denominations
 
-Bitcoin is highly divisible: one bitcoin (BTC) equals 100 million of the smallest on-chain unit, the satoshi (sat). This design supports both large transfers and tiny amounts, and it scales as the nominal value of each unit changes over time. Common units include satoshis for small amounts, bits (µBTC, or one millionth of a BTC) for everyday thinking, and millibits (mBTC) or whole BTC for larger sums. Understanding how these units relate helps when reading [fees](/docs/glossary#fee-rate), [block rewards](/docs/glossary#block-reward), and prices across wallets and Lightning apps. Below you can convert between units and see the full reference table. More tools: [Tools](/tools) hub.
+Bitcoin is highly divisible: one bitcoin (BTC) equals 100 million of the smallest on-chain unit, the satoshi (sat). This design supports both large transfers and tiny amounts, and it scales as the nominal value of each unit changes over time. Common units include satoshis for small amounts, bits (µBTC, or one millionth of a BTC) for everyday thinking, and millibits (mBTC) or whole BTC for larger sums. Understanding how these units relate helps when reading fees, block rewards, and prices across wallets and Lightning apps. Below you can convert between units and see the full reference table. More tools: [Tools](/tools) hub.
 
 ## Calculator
 
@@ -23,4 +23,4 @@ Bitcoin is highly divisible: one bitcoin (BTC) equals 100 million of the smalles
 | Kilobit | kBTC | 1,000 |
 | Megabit | MBTC | 1,000,000 |
 
-The [Lightning Network](/docs/glossary#lightning-network) uses **millisatoshis** (1/1000 of a satoshi) for routing and invoice amounts.
+The Lightning Network uses **millisatoshis** (1/1000 of a satoshi) for routing and invoice amounts.

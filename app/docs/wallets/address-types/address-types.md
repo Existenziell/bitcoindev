@@ -403,7 +403,7 @@ func main() {
 
 ## P2WPKH (Native SegWit)
 
-Introduced with [SegWit](/docs/glossary#segwit) in BIP141, P2WPKH provides significant fee savings.
+Introduced with SegWit in BIP141, P2WPKH provides significant fee savings.
 
 ### Structure
 
@@ -611,7 +611,7 @@ witness: <data...> <witnessScript>
 
 ## P2TR (Pay-to-Taproot)
 
-Introduced in BIP341, [Taproot](/docs/glossary#taproot) provides the best combination of privacy, efficiency, and flexibility.
+Introduced in BIP341, Taproot provides the best combination of privacy, efficiency, and flexibility.
 
 ### Structure
 

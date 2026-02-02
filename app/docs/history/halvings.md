@@ -1,6 +1,6 @@
 # Bitcoin Halving Schedule
 
-Bitcoin's [block reward](/docs/glossary#block-reward) halves every 210,000 blocks, which occurs approximately every 4 years. This creates a predictable, decreasing inflation rate and ensures the total supply will never exceed 21 million BTC.
+Bitcoin's block reward halves every 210,000 blocks, which occurs approximately every 4 years. This creates a predictable, decreasing inflation rate and ensures the total supply will never exceed 21 million BTC.
 
 ## Supply Formula
 
@@ -13,7 +13,7 @@ Total Supply = 210,000 × 50 × (1 + 1/2 + 1/4 + 1/8 + ...)
 ```
 
 This geometric series ensures that:
-- Each [halving](/docs/glossary#halving) period creates 210,000 blocks
+- Each halving period creates 210,000 blocks
 - Each period creates half the Bitcoin of the previous period
 - The series converges to exactly 21 million BTC
 - After 32 halvings, the subsidy becomes effectively 0
@@ -59,7 +59,7 @@ This geometric series ensures that:
 | **Halving 32** | ~2136 | 6,720,000 | 0.0000000116415321826934814453125 | 0.002444721758365631103515625 BTC |
 | **Halving 33+** | After 2140 | After 6,930,000 | 0 BTC | 0 BTC |
 
-**Note**: After halving 33, the subsidy becomes effectively 0 (less than 1 [satoshi](/docs/glossary#sat) per block). The last Bitcoin will be mined around December 22, 2137.
+**Note**: After halving 33, the subsidy becomes effectively 0 (less than 1 satoshi per block). The last Bitcoin will be mined around December 22, 2137.
 
 ---
 
@@ -81,7 +81,7 @@ This geometric series ensures that:
 Once all 21 million Bitcoin have been created (around December 22, 2137):
 
 - **No New Bitcoin**: Block rewards will be 0
-- **Miner Income**: Miners will rely entirely on [transaction fees](/docs/glossary#transaction-fee)
+- **Miner Income**: Miners will rely entirely on transaction fees
 - **Network Security**: Economic incentives remain through fee collection
 - **Inflation**: Bitcoin becomes deflationary (supply decreases if coins are lost)
 

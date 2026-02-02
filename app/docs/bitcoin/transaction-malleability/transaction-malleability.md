@@ -98,7 +98,7 @@ wtxid = SHA256D(transaction WITH witness)
 
 ## wTXID
 
-The **witness transaction ID (wTXID)** is the hash of the full transaction including [witness](/docs/glossary#witness) data. Unlike the [TXID](/docs/glossary#txid), which hashes only the base transaction (and thus excludes witness), the wTXID changes if witness data changes. SegWit and Taproot transactions have both a TXID (used for [outpoint](/docs/glossary#outpoint) references and chain indexing) and a wTXID. The wTXID is used where the full committed transaction identity matters (e.g. compact block relay). Because the TXID excludes witness, it is stable and malleability is fixed.
+The **witness transaction ID (wTXID)** is the hash of the full transaction including witness data. Unlike the TXID, which hashes only the base transaction (and thus excludes witness), the wTXID changes if witness data changes. SegWit and Taproot transactions have both a TXID (used for outpoint references and chain indexing) and a wTXID. The wTXID is used where the full committed transaction identity matters (e.g. compact block relay). Because the TXID excludes witness, it is stable and malleability is fixed.
 
 ---
 

@@ -1,6 +1,6 @@
 # Mining Hardware Evolution
 
-Bitcoin mining hardware has undergone a remarkable evolution, from hobbyists running CPUs on laptops to industrial-scale operations with purpose-built silicon. This progression represents one of the fastest hardware development cycles in computing history, driven by the economic incentives of [proof-of-work](/docs/glossary#pow) mining.
+Bitcoin mining hardware has undergone a remarkable evolution, from hobbyists running CPUs on laptops to industrial-scale operations with purpose-built silicon. This progression represents one of the fastest hardware development cycles in computing history, driven by the economic incentives of proof-of-work mining.
 
 ## The Four Eras of Mining Hardware
 
@@ -18,7 +18,7 @@ When [Satoshi](/docs/history/people#satoshi-nakamoto) launched Bitcoin, mining w
 
 **Why CPUs Work**
 
-[SHA-256](/docs/glossary#sha-256) (Bitcoin's hash function) is computationally simple:
+SHA-256 (Bitcoin's hash function) is computationally simple:
 - Bitwise operations (AND, OR, XOR)
 - 32-bit additions
 - No complex branching

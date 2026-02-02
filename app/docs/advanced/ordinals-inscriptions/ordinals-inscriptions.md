@@ -1,14 +1,14 @@
 # Ordinals & Inscriptions
 
-Ordinals and inscriptions are a method for attaching arbitrary data to individual [satoshis](/docs/glossary#sat) on the Bitcoin blockchain. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol assigns unique identifiers to satoshis and allows "inscribing" content (images, text, JSON, or other files) into [witness data](/docs/glossary#witness) that gets stored on-chain.
+Ordinals and inscriptions are a method for attaching arbitrary data to individual satoshis on the Bitcoin blockchain. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol assigns unique identifiers to satoshis and allows "inscribing" content (images, text, JSON, or other files) into witness data that gets stored on-chain.
 
-The **Ordinals protocol** assigns a unique, sequential number to each satoshi based on the order it was mined. This creates a way to identify and track individual sats through [transactions](/docs/glossary#transaction) and [UTXOs](/docs/glossary#utxo). Key concepts: **Ordinal number** (a satoshi's position in the total supply, 0 to 2.1 quadrillion minus 1), **Ordinal theory** (tracks which ordinal numbers are in which UTXOs when [inputs](/docs/glossary#input) are spent, first-in-first-out by default), **Rare sats** (certain ordinals considered "rare," e.g., first sat of a [halving](/docs/history/halvings) or [block](/docs/glossary#block) subsidy). When Bitcoin is spent, inputs are consumed in the order they appear and their ordinal numbers transfer to outputs in order (default: FIFO). Ordinals do not require a [soft fork](/docs/glossary#soft-fork) or [consensus](/docs/glossary#consensus) change; they are an agreed-upon numbering and tracking scheme that [full nodes](/docs/glossary#full-node) do not need to implement, only indexers and wallets that support Ordinals do.
+The **Ordinals protocol** assigns a unique, sequential number to each satoshi based on the order it was mined. This creates a way to identify and track individual sats through transactions and UTXOs. Key concepts: **Ordinal number** (a satoshi's position in the total supply, 0 to 2.1 quadrillion minus 1), **Ordinal theory** (tracks which ordinal numbers are in which UTXOs when inputs are spent, first-in-first-out by default), **Rare sats** (certain ordinals considered "rare," e.g., first sat of a [halving](/docs/history/halvings) or block subsidy). When Bitcoin is spent, inputs are consumed in the order they appear and their ordinal numbers transfer to outputs in order (default: FIFO). Ordinals do not require a soft fork or consensus change; they are an agreed-upon numbering and tracking scheme that full nodes do not need to implement, only indexers and wallets that support Ordinals do.
 
 ---
 
 ## Inscriptions
 
-**Inscriptions** use the Ordinals protocol to attach content to a specific satoshi. The content is stored in the [witness](/docs/glossary#witness) (SegWit) portion of a transaction, often in an `OP_IF`/`OP_ENDIF` or similar pattern that is pruned from the [UTXO set](/docs/glossary#utxo-set) but remains in the blockchain.
+**Inscriptions** use the Ordinals protocol to attach content to a specific satoshi. The content is stored in the witness (SegWit) portion of a transaction, often in an `OP_IF`/`OP_ENDIF` or similar pattern that is pruned from the UTXO set but remains in the blockchain.
 
 ### Inscription Structure
 
@@ -20,7 +20,7 @@ The **Ordinals protocol** assigns a unique, sequential number to each satoshi ba
 
 ### Why Witness Data?
 
-- [SegWit](/docs/bitcoin/segwit) witness data is **discounted** in [block weight](/docs/glossary#block-size) (1 WU per byte vs 4 for non-witness)
+- [SegWit](/docs/bitcoin/segwit) witness data is **discounted** in block weight (1 WU per byte vs 4 for non-witness)
 - Inscription data does not expand the UTXO set
 - Same consensus rules as other valid SegWit [scripts](/docs/bitcoin/script)
 
@@ -28,13 +28,13 @@ The **Ordinals protocol** assigns a unique, sequential number to each satoshi ba
 
 ## BRC-20 and Other Token Standards
 
-**BRC-20** is an experimental, [fungible](/docs/glossary#fungibility) token standard on Bitcoin that uses JSON inscriptions to define "transfer" and "mint" operations. Similar in concept to [ERC-20](https://ethereum.org) on Ethereum, BRC-20 tokens do not use [Bitcoin Script](/docs/bitcoin/script) for logic; they rely on external indexers to parse inscription content and track balances.
+**BRC-20** is an experimental, fungible token standard on Bitcoin that uses JSON inscriptions to define "transfer" and "mint" operations. Similar in concept to [ERC-20](https://ethereum.org) on Ethereum, BRC-20 tokens do not use [Bitcoin Script](/docs/bitcoin/script) for logic; they rely on external indexers to parse inscription content and track balances.
 
 ### Characteristics
 
 - **Inefficient**: Each "transfer" or "mint" typically requires a separate on-chain inscription and [transaction fees](/docs/bitcoin/transaction-fees)
 - **Indexer-dependent**: Balances and transfers are not enforced by consensus; they require off-chain indexing
-- **Blockspace**: During 2023–2024, BRC-20 and Ordinals activity contributed to [mempool](/docs/mining/mempool) congestion and higher [fee rates](/docs/glossary#fee-rate)
+- **Blockspace**: During 2023–2024, BRC-20 and Ordinals activity contributed to [mempool](/docs/mining/mempool) congestion and higher fee rates
 
 ### Runes
 
@@ -47,11 +47,11 @@ The **Ordinals protocol** assigns a unique, sequential number to each satoshi ba
 ### Blockspace and Fees
 
 - Inscriptions and BRC-20 can generate many [transactions](/docs/bitcoin/transaction-lifecycle) competing for [block](/docs/bitcoin/blocks) space
-- During peaks, [fee rates](/docs/bitcoin/transaction-fees) increased, affecting users making ordinary [on-chain](/docs/glossary#on-chain) payments
+- During peaks, [fee rates](/docs/bitcoin/transaction-fees) increased, affecting users making ordinary on-chain payments
 
 ### Consensus and Policy
 
-- Ordinals and inscriptions use existing [SegWit](/docs/bitcoin/segwit) and [Taproot](/docs/bitcoin/taproot) rules; they are **valid** under current [consensus rules](/docs/glossary#consensus-rules)
+- Ordinals and inscriptions use existing [SegWit](/docs/bitcoin/segwit) and [Taproot](/docs/bitcoin/taproot) rules; they are **valid** under current consensus rules
 - Limits on data size (e.g., `-datacarriersize` for [OP_RETURN](/docs/controversies/op-return)) are **relay policy**, not consensus; witness-based inscriptions are subject to node policy (e.g., non-standard or size limits) in some configurations
 
 ### Debate

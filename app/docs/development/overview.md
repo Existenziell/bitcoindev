@@ -191,10 +191,10 @@ Building applications that manage keys and create transactions.
 - Handle address types (P2PKH, P2WPKH, P2TR)
 
 **Key concepts:**
-- BIP32 ([HD wallets](/docs/glossary#hd-wallet))
-- BIP39 ([Mnemonic/seed phrases](/docs/glossary#seed-phrase))
-- BIP44/49/84/86 ([Derivation paths](/docs/glossary#derivation-path))
-- [PSBT](/docs/glossary#psbt) (Partially Signed Bitcoin Transactions)
+- BIP32 (HD wallets)
+- BIP39 (Mnemonic/seed phrases)
+- BIP44/49/84/86 (Derivation paths)
+- PSBT (Partially Signed Bitcoin Transactions)
 
 **Getting started:**
 1. Choose a wallet library (BDK, bitcoinjs-lib, etc.) - see [Libraries & SDKs](/docs/development/libraries)
@@ -214,7 +214,7 @@ Building on the Lightning Network for instant, low-fee payments.
 
 **Approaches:**
 - **LND + API**: Run lnd, use REST/gRPC API
-- **LDK**: Embed [Lightning Network](/docs/glossary#lightning-network) in your application
+- **LDK**: Embed Lightning Network in your application
 - **Core Lightning**: Plugin-based development
 - **Eclair**: JVM-based implementation
 
@@ -235,10 +235,10 @@ Working with Bitcoin's scripting system.
 - Implement multisig schemes
 
 **Key concepts:**
-- [OP codes](/docs/glossary#opcode) and stack operations
-- [P2SH](/docs/glossary#p2sh) and [P2WSH](/docs/glossary#p2wsh)
-- [Taproot](/docs/glossary#taproot) and Tapscript
-- [Miniscript](/docs/glossary#miniscript) for policy compilation
+- OP codes and stack operations
+- P2SH and P2WSH
+- Taproot and Tapscript
+- Miniscript for policy compilation
 
 **Getting started:**
 1. Learn basic OP codes
@@ -250,7 +250,7 @@ Working with Bitcoin's scripting system.
 
 ## Development Networks
 
-### [Mainnet](/docs/glossary#mainnet)
+### Mainnet
 
 The real Bitcoin network. Use only for production applications.
 
@@ -259,7 +259,7 @@ The real Bitcoin network. Use only for production applications.
 - ~10 minute block times
 - Full transaction fees
 
-### [Testnet](/docs/glossary#testnet)
+### Testnet
 
 Long-running test network. Coins have no value.
 
@@ -272,7 +272,7 @@ Long-running test network. Coins have no value.
 - [coinfaucet.eu/en/btc-testnet/](https://coinfaucet.eu/en/btc-testnet/)
 - [bitcoinfaucet.uo1.net/](https://bitcoinfaucet.uo1.net/)
 
-### [Signet](/docs/glossary#signet)
+### Signet
 
 More controlled test network with consistent block production.
 
@@ -285,7 +285,7 @@ More controlled test network with consistent block production.
 - [signet.bc-2.jp/](https://signet.bc-2.jp/)
 - [alt.signetfaucet.com/](https://alt.signetfaucet.com/)
 
-### [Regtest](/docs/glossary#regtest)
+### Regtest
 
 Local, private test network. You control everything.
 

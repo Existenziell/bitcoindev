@@ -81,7 +81,7 @@ This "unforgeable costliness" (a term coined by [Nick Szabo](/docs/history/peopl
 
 ### How PoW Creates Consensus
 
-Bitcoin uses **[Proof-of-Work](/docs/glossary#pow)** (PoW) as its consensus mechanism. Miners compete to solve cryptographic puzzles, with [difficulty](/docs/glossary#difficulty) adjusting to maintain ~10 minute block intervals. The first miner to find a valid solution broadcasts the block, other nodes verify it, and the longest valid chain becomes the accepted truth.
+Bitcoin uses **Proof-of-Work** (PoW) as its consensus mechanism. Miners compete to solve cryptographic puzzles, with difficulty adjusting to maintain ~10 minute block intervals. The first miner to find a valid solution broadcasts the block, other nodes verify it, and the longest valid chain becomes the accepted truth.
 
 ### The Consensus Process
 
@@ -98,7 +98,7 @@ Bitcoin uses **[Proof-of-Work](/docs/glossary#pow)** (PoW) as its consensus mech
 
 ## Consensus Rules
 
-Nodes validate three layers: **transactions** (valid signatures, unspent inputs, no [double-spends](/docs/glossary#double-spend)), **blocks** (correct structure, valid PoW, all transactions valid), and **chains** (blocks link correctly, longest chain is canonical).
+Nodes validate three layers: **transactions** (valid signatures, unspent inputs, no double-spends), **blocks** (correct structure, valid PoW, all transactions valid), and **chains** (blocks link correctly, longest chain is canonical).
 
 ### Consensus Rules vs Policy
 
@@ -115,11 +115,11 @@ Nodes validate three layers: **transactions** (valid signatures, unspent inputs,
 
 ### The Longest Chain Rule
 
-The chain with the most cumulative proof-of-work is considered valid. This simple rule ensures consensus emerges naturally: honest miners extend the longest chain because it's most profitable, attackers need >50% [hash rate](/docs/glossary#hash-rate) to create a competing chain, and the network converges on a single history.
+The chain with the most cumulative proof-of-work is considered valid. This simple rule ensures consensus emerges naturally: honest miners extend the longest chain because it's most profitable, attackers need >50% hash rate to create a competing chain, and the network converges on a single history.
 
 ### Block Confirmations
 
-Each additional block makes transaction reversal exponentially more difficult ([confirmations](/docs/glossary#confirmation)):
+Each additional block makes transaction reversal exponentially more difficult (confirmations):
 
 | Confirmations | Security Level | Typical Use Case |
 |---------------|----------------|------------------|
@@ -139,7 +139,7 @@ Nodes stay synchronized by constantly sharing and verifying blocks. When tempora
 
 ### 51% Attack
 
-A [51% attack](/docs/glossary#51-attack) occurs when an entity controls more than half the network's hash rate, enabling them to create a longer chain than honest miners and potentially reverse transactions. However, this attack faces severe practical barriers:
+A 51% attack occurs when an entity controls more than half the network's hash rate, enabling them to create a longer chain than honest miners and potentially reverse transactions. However, this attack faces severe practical barriers:
 
 | Barrier | Details |
 |---------|---------|
@@ -151,7 +151,7 @@ A [51% attack](/docs/glossary#51-attack) occurs when an entity controls more tha
 
 ### Economic Security
 
-Bitcoin's security is fundamentally economic. Miners receive [block rewards](/docs/glossary#block-reward) + fees for honest behavior, making attacks unprofitable. The cost to attack exceeds any possible gain, and the network can respond by changing the PoW algorithm, rendering attacker hardware worthless.
+Bitcoin's security is fundamentally economic. Miners receive block rewards + fees for honest behavior, making attacks unprofitable. The cost to attack exceeds any possible gain, and the network can respond by changing the PoW algorithm, rendering attacker hardware worthless.
 
 ---
 
@@ -159,7 +159,7 @@ Bitcoin's security is fundamentally economic. Miners receive [block rewards](/do
 
 | Property | Definition | Bitcoin's Implementation |
 |----------|------------|-------------------------|
-| **[Finality](/docs/glossary#finality)** | Transactions cannot be reversed | Probabilistic: 6+ confirmations is economically final |
+| **Finality** | Transactions cannot be reversed | Probabilistic: 6+ confirmations is economically final |
 | **Liveness** | System continues producing blocks | ~10 min blocks; resilient to node failures |
 | **Safety** | No conflicting states | All nodes agree on single chain; no double-spends |
 

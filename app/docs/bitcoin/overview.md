@@ -48,15 +48,15 @@ The [subsidy equation](/docs/bitcoin/subsidy) mathematically guarantees Bitcoin'
 ## Network Participants
 
 **Nodes:**
-- [Full nodes](/docs/glossary#full-node): Store complete blockchain, validate all transactions
+- Full nodes: Store complete blockchain, validate all transactions
 - Light nodes: Store minimal data, rely on full nodes
 - Mining nodes: Create new blocks, secure the network
 
 **Miners:**
 - Verify transactions
 - Create new blocks
-- Secure the network through [proof-of-work](/docs/glossary#pow)
-- Receive [block rewards](/docs/glossary#block-reward) and fees
+- Secure the network through proof-of-work
+- Receive block rewards and fees
 
 **Users:**
 - Send and receive bitcoin

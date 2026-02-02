@@ -31,10 +31,10 @@ When using different versions, consult each library's migration guides for API c
 | Feature | bitcoinjs-lib | rust-bitcoin | BDK | python-bitcoinlib |
 |---------|--------------|--------------|-----|-------------------|
 | Transaction Building | ✓ | ✓ | ✓ | ✓ |
-| [PSBT](/docs/glossary#psbt) Support | ✓ | ✓ | ✓ | Partial |
-| [Taproot](/docs/glossary#taproot) | ✓ | ✓ | ✓ | Limited |
-| [HD Wallets](/docs/glossary#hd-wallet) | Via bip32/bip39 | Via bip32 | ✓ | Via bip32utils |
-| [Coin Selection](/docs/glossary#coin-selection) | Manual | Manual | ✓ | Manual |
+| PSBT Support | ✓ | ✓ | ✓ | Partial |
+| Taproot | ✓ | ✓ | ✓ | Limited |
+| HD Wallets | Via bip32/bip39 | Via bip32 | ✓ | Via bip32utils |
+| Coin Selection | Manual | Manual | ✓ | Manual |
 | Blockchain Sync | No | No | ✓ | No |
 
 ---

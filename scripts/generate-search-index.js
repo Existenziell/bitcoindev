@@ -186,6 +186,7 @@ for (const { slug, title, body } of parsePeopleSections(peopleContent)) {
 }
 
 for (const page of docPages) {
+  if (page.path === '/docs/glossary') continue // Glossary not shown in search results
   const raw = mdContent[page.path]?.content
   const body = raw ? excerpt(stripMarkdown(raw), 500) : ''
   index.push(

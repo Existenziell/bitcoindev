@@ -4,7 +4,7 @@ Bitcoin has undergone several protocol upgrades through both soft forks and hard
 
 ## Understanding Forks
 
-The fundamental difference between soft forks and hard forks comes down to one thing: **are the [consensus rules](/docs/glossary#consensus-rules) being tightened or loosened?**
+The fundamental difference between soft forks and hard forks comes down to one thing: **are the consensus rules being tightened or loosened?**
 
 | | Soft Fork | Hard Fork |
 |---|-----------|-----------|
@@ -16,7 +16,7 @@ The fundamental difference between soft forks and hard forks comes down to one t
 ### Soft Fork
 A **soft fork** **tightens** the consensus rules. Blocks valid under new rules are always valid under old rules, so old nodes continue to accept them.
 
-**Example**: [SegWit](/docs/glossary#segwit) made certain transaction formats invalid that were previously valid. Old nodes still accept SegWit blocks because they don't violate the old (looser) rules.
+**Example**: SegWit made certain transaction formats invalid that were previously valid. Old nodes still accept SegWit blocks because they don't violate the old (looser) rules.
 
 **Can soft forks cause chain splits?** Yes, in certain scenarios:
 - **UASF (User Activated Soft Fork)**: If nodes enforce rules that miners don't follow, the chain can split. The 2017 BIP 148 UASF threatened a split if miners didn't signal for SegWit.
@@ -26,7 +26,7 @@ A **soft fork** **tightens** the consensus rules. Blocks valid under new rules a
 ### Hard Fork
 A **hard fork** **loosens** the consensus rules (or changes them incompatibly). Blocks valid under new rules may be invalid under old rules, so old nodes reject them.
 
-**Example**: Bitcoin Cash increased the [block size](/docs/glossary#block-size) limit from 1 MB to 8 MB. Old nodes reject these larger blocks as invalid, guaranteeing a chain split.
+**Example**: Bitcoin Cash increased the block size limit from 1 MB to 8 MB. Old nodes reject these larger blocks as invalid, guaranteeing a chain split.
 
 ```mermaid
 flowchart LR

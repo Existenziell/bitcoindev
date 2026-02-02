@@ -36,7 +36,7 @@ Fee Rate = (Total Input Value - Total Output Value) / Virtual Transaction Size
 ```
 
 **Virtual Transaction Size (vBytes):**
-- Defined in BIP 141 ([SegWit](/docs/glossary#segwit))
+- Defined in BIP 141 (SegWit)
 - Weight units / 4
 - Accounts for witness data differently
 
@@ -205,7 +205,7 @@ UTXOs can have different script types, affecting transaction size:
 | P2PKH (Legacy) | `1...` | ~148 vB |
 | P2SH | `3...` | ~91 vB |
 | P2WPKH (SegWit) | `bc1q...` | ~68 vB |
-| P2TR ([Taproot](/docs/glossary#taproot)) | `bc1p...` | ~58 vB |
+| P2TR (Taproot) | `bc1p...` | ~58 vB |
 
 :::code-group
 ```rust

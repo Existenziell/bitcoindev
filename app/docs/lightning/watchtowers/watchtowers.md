@@ -4,7 +4,7 @@ Watchtowers are third-party services that monitor the Bitcoin blockchain for cha
 
 ## Why Watchtowers?
 
-Lightning channels rely on both parties being able to detect and respond to cheating attempts. If your counterparty broadcasts an old [commitment transaction](/docs/glossary#commitment-transaction), you must respond with a penalty transaction before the timelock expires.
+Lightning channels rely on both parties being able to detect and respond to cheating attempts. If your counterparty broadcasts an old commitment transaction, you must respond with a penalty transaction before the timelock expires.
 
 **The Problem**: If your node is offline when a breach occurs, you cannot detect or respond to it.
 

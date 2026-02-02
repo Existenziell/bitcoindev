@@ -61,7 +61,7 @@ flowchart LR
 
 ## How Bitcoin works
 
-At a high level: you hold [private keys](/docs/glossary#private-key) that control [addresses](/docs/glossary#address). To send bitcoin you build a [transaction](/docs/glossary#transaction) that spends [UTXOs](/docs/glossary#utxo) and creates new outputs. The transaction is broadcast to the network and sits in the [mempool](/docs/glossary#mempool) until [miners](/docs/glossary#miner) include it in a [block](/docs/glossary#block). Each new block adds a [confirmation](/docs/glossary#confirmation); more confirmations mean stronger finality. The [blockchain](/docs/fundamentals/blockchain) is the shared ledger that everyone can verify.
+At a high level: you hold private keys that control addresses. To send bitcoin you build a transaction that spends UTXOs and creates new outputs. The transaction is broadcast to the network and sits in the mempool until miners include it in a block. Each new block adds a confirmation; more confirmations mean stronger finality. The [blockchain](/docs/fundamentals/blockchain) is the shared ledger that everyone can verify.
 
 ---
 
@@ -69,8 +69,8 @@ At a high level: you hold [private keys](/docs/glossary#private-key) that contro
 
 ### Proof-of-Work
 - Secures the network through computational work
-- Prevents [double-spending](/docs/glossary#double-spend)
-- Reaches [consensus](/docs/glossary#consensus) without central authority
+- Prevents double-spending
+- Reaches consensus without central authority
 - Requires significant computational resources
 
 ### UTXO Model
@@ -82,7 +82,7 @@ At a high level: you hold [private keys](/docs/glossary#private-key) that contro
 ### Merkle Trees
 - Efficient transaction verification
 - Compact block structure
-- Enables [SPV](/docs/glossary#spv) (Simplified Payment Verification)
+- Enables SPV (Simplified Payment Verification)
 - Cryptographic integrity
 
 ---

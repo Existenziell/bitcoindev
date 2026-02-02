@@ -1,6 +1,6 @@
 # Block Propagation
 
-This document explains how blocks propagate through the Bitcoin network, including the [gossip protocol](/docs/glossary#gossip-protocol), validation process, and [orphan block](/docs/glossary#orphan-block) handling.
+This document explains how blocks propagate through the Bitcoin network, including the gossip protocol, validation process, and orphan block handling.
 
 ## Block Structure
 
@@ -22,9 +22,9 @@ The block header is hashed twice with SHA-256 to produce the block hash, which m
 
 When a miner finds a new block:
 
-1. **Miner solves [proof-of-work](/docs/glossary#pow) puzzle**: Finds a valid nonce
-2. **Creates valid block**: Includes transactions from [mempool](/docs/glossary#mempool)
-3. **Immediately broadcasts**: Sends to all connected [peers](/docs/glossary#peer) (8-10 first-hop nodes)
+1. **Miner solves proof-of-work puzzle**: Finds a valid nonce
+2. **Creates valid block**: Includes transactions from mempool
+3. **Immediately broadcasts**: Sends to all connected peers (8-10 first-hop nodes)
 4. **First-hop nodes validate**: Each node checks the block
 5. **First-hop nodes forward**: Send to their peers (50-100 second-hop nodes)
 6. **Your node receives**: Eventually gets the block from one or more peers
@@ -62,19 +62,19 @@ flowchart LR
 Each full node performs complete validation:
 
 1. **Header Validation**
-   - Proof-of-work meets [difficulty](/docs/glossary#difficulty) target
+   - Proof-of-work meets difficulty target
    - Timestamp is reasonable
    - Version is acceptable
    - Previous block hash is correct
 
 2. **Transaction Validation**
    - All transactions are valid
-   - No [double-spends](/docs/glossary#double-spend)
+   - No double-spends
    - Proper signatures
-   - [UTXO](/docs/glossary#utxo) references are correct
-   - [Consensus rules](/docs/glossary#consensus-rules) compliance
+   - UTXO references are correct
+   - Consensus rules compliance
 
-3. **[Merkle Tree](/docs/glossary#merkle-tree) Verification**
+3. **Merkle Tree Verification**
    - Merkle root matches transactions
    - Tree structure is valid
 
@@ -93,7 +93,7 @@ Compact blocks dramatically reduce propagation bandwidth and latency:
 Instead of sending full blocks (~1-2 MB), nodes send:
 1. **Block header** (80 bytes)
 2. **Short transaction IDs** (6 bytes each)
-3. **Prefilled transactions** (usually just the [coinbase](/docs/glossary#coinbase-transaction))
+3. **Prefilled transactions** (usually just the coinbase)
 
 The receiving node reconstructs the full block using transactions already in its mempool.
 
@@ -611,7 +611,7 @@ Time 0:14    Orphaned transactions return to mempool
 - Unique transactions from orphans return to mempool
 - Miners' work on orphaned blocks is wasted
 - Network automatically converges on longest chain
-- This is why exchanges wait for 6 [confirmations](/docs/glossary#confirmation)
+- This is why exchanges wait for 6 confirmations
 
 ---
 
@@ -651,7 +651,7 @@ Time 0:14    Orphaned transactions return to mempool
 A typical Bitcoin node has:
 - **8-10 outbound connections**: You connect TO other nodes
 - **Up to 125 inbound connections**: Other nodes connect TO you
-- **Diverse IP ranges**: Protection against [eclipse attacks](/docs/glossary#sybil-attack)
+- **Diverse IP ranges**: Protection against eclipse attacks
 
 ### Connection Types
 

@@ -4,7 +4,7 @@ Hierarchical Deterministic (HD) wallets generate all keys from a single master s
 
 ## Overview
 
-HD wallets, defined in [BIP32](/docs/glossary#bip), allow a wallet to derive an unlimited number of key pairs from a single master seed. Combined with BIP39 (mnemonic phrases) and BIP44 (account structure), this creates a powerful and standardized wallet system.
+HD wallets, defined in BIP32, allow a wallet to derive an unlimited number of key pairs from a single master seed. Combined with BIP39 (mnemonic phrases) and BIP44 (account structure), this creates a powerful and standardized wallet system.
 
 **Key Benefits:**
 - Single backup (seed phrase) for all keys

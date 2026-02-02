@@ -10,7 +10,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Header from '@/app/components/Header'
 import StickyBar from '@/app/components/StickyBar'
 import Notification from '@/app/components/Notification'
-import { GlossaryProvider } from '@/app/contexts/GlossaryContext'
 import { StickyScrollProvider } from '@/app/contexts/StickyScrollContext'
 import { SearchProvider } from '@/app/contexts/SearchContext'
 import SearchModalWrapper from '@/app/components/SearchModalWrapper'
@@ -96,23 +95,21 @@ export default function RootLayout({
       </head>
       <body className={`${ubuntu.className} flex flex-col min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <GlossaryProvider>
-            <StickyScrollProvider>
-              <SearchProvider>
-                <Notification />
-                <div className="flex-shrink-0">
-                  <Header />
-                </div>
-                <StickyBar />
-                <div className="flex-1 flex flex-col">
-                  {children}
-                </div>
-                <SearchModalWrapper />
-                <Analytics />
-                <SpeedInsights />
-              </SearchProvider>
-            </StickyScrollProvider>
-          </GlossaryProvider>
+          <StickyScrollProvider>
+            <SearchProvider>
+              <Notification />
+              <div className="flex-shrink-0">
+                <Header />
+              </div>
+              <StickyBar />
+              <div className="flex-1 flex flex-col">
+                {children}
+              </div>
+              <SearchModalWrapper />
+              <Analytics />
+              <SpeedInsights />
+            </SearchProvider>
+          </StickyScrollProvider>
         </ThemeProvider>
       </body>
     </html>

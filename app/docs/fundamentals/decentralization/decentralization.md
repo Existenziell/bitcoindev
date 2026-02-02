@@ -1,10 +1,10 @@
 # Decentralization
 
-Decentralization is the distribution of control across many independent participants rather than a single central authority. It's the foundation of Bitcoin's [censorship resistance](/docs/glossary#censorship-resistance), resilience, and trustlessness.
+Decentralization is the distribution of control across many independent participants rather than a single central authority. It's the foundation of Bitcoin's censorship resistance, resilience, and trustlessness.
 
 ## What Decentralization Means
 
-No single entity controls Bitcoin. Control is distributed across thousands of nodes, multiple [mining pools](/docs/glossary#mining-pool), diverse developers, and a global user base. This means:
+No single entity controls Bitcoin. Control is distributed across thousands of nodes, multiple mining pools, diverse developers, and a global user base. This means:
 
 - **No central authority:** No government, company, or person controls Bitcoin
 - **No single point of failure:** The network survives even if parts go offline
@@ -30,15 +30,15 @@ Decentralization enables Bitcoin's core properties:
 
 ### Nodes
 
-Bitcoin has ~15,000-20,000 reachable [full nodes](/docs/glossary#full-node) spread across 100+ countries. Each node independently validates every transaction and stores the complete blockchain. No single node is essential; if one goes offline, the network continues.
+Bitcoin has ~15,000-20,000 reachable full nodes spread across 100+ countries. Each node independently validates every transaction and stores the complete blockchain. No single node is essential; if one goes offline, the network continues.
 
 ### Mining
 
-[Hash rate](/docs/glossary#hash-rate) is distributed across multiple independent mining pools, with the largest typically controlling less than 20% of total hash power. Miners can switch pools freely, preventing any single pool from gaining too much control. Geographic distribution across many countries reduces regulatory risk.
+Hash rate is distributed across multiple independent mining pools, with the largest typically controlling less than 20% of total hash power. Miners can switch pools freely, preventing any single pool from gaining too much control. Geographic distribution across many countries reduces regulatory risk.
 
 ### Development
 
-Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the [BIP](/docs/glossary#bip) (Bitcoin Improvement Proposal) process and require community [consensus](/docs/glossary#consensus). No single developer or team controls the protocol.
+Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the BIP (Bitcoin Improvement Proposal) process and require community consensus. No single developer or team controls the protocol.
 
 ---
 
@@ -50,8 +50,8 @@ The Bitcoin Trilemma describes the challenge of balancing three critical blockch
 
 | Property | Definition | Bitcoin's Approach |
 |----------|------------|-------------------|
-| **Scalability** | Ability to process many transactions quickly | ~7 TPS, 1 MB blocks (up to ~4 MB with [SegWit](/docs/glossary#segwit)), 10-min block time |
-| **Security** | Resistance to attacks and manipulation | 700+ EH/s hash rate, [proof-of-work](/docs/glossary#pow), economic incentives |
+| **Scalability** | Ability to process many transactions quickly | ~7 TPS, 1 MB blocks (up to ~4 MB with SegWit), 10-min block time |
+| **Security** | Resistance to attacks and manipulation | 700+ EH/s hash rate, proof-of-work, economic incentives |
 | **Decentralization** | Distribution of control across participants | Thousands of global nodes, open participation, multiple mining pools |
 
 ### The Trade-offs
@@ -72,7 +72,7 @@ Bitcoin intentionally limits base-layer scalability to maintain security and dec
 
 Scalability is addressed through Layer 2 solutions that inherit base-layer security:
 
-- **[Lightning Network](/docs/glossary#lightning-network):** Off-chain payment channels enabling millions of TPS with low fees
+- **Lightning Network:** Off-chain payment channels enabling millions of TPS with low fees
 - **Sidechains:** Liquid, Rootstock for specific use cases
 - **State/Payment channels:** Direct peer-to-peer transactions
 

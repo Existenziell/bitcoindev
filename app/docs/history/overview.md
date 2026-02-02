@@ -19,11 +19,11 @@ Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing th
 ### Bitcoin Launch
 
 - **Date**: January 3, 2009
-- **Block**: 0 ([Genesis Block](/docs/glossary#genesis-block))
+- **Block**: 0 (Genesis Block)
 - **Block Reward**: 50 BTC
 - **Creator**: Satoshi Nakamoto
 
-The [Genesis Block](/docs/glossary#genesis-block) was mined by Satoshi Nakamoto, marking the birth of the Bitcoin network. The block contains a hidden message in its coinbase transaction: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks": a reference to a headline from The Times newspaper, highlighting Bitcoin's purpose as an alternative to the traditional financial system.
+The Genesis Block was mined by Satoshi Nakamoto, marking the birth of the Bitcoin network. The block contains a hidden message in its coinbase transaction: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks": a reference to a headline from The Times newspaper, highlighting Bitcoin's purpose as an alternative to the traditional financial system.
 
 ### First Transaction
 
@@ -67,7 +67,7 @@ Mt. Gox launched as the first major Bitcoin exchange, eventually handling over 7
 
 - **Date**: August 15, 2010
 
-A critical [consensus](/docs/glossary#consensus) bug was discovered that allowed creation of 184 billion BTC from an integer overflow in [output](/docs/glossary#output) validation. The exploit was fixed with a [soft fork](/docs/glossary#soft-fork), and the invalid [transaction](/docs/bitcoin/transaction-lifecycle) was removed from the [blockchain](/docs/glossary#blockchain). It remains one of the most serious early [protocol](/docs/bitcoin) bugs; the response showed the network could coordinate a timely fix.
+A critical consensus bug was discovered that allowed creation of 184 billion BTC from an integer overflow in output validation. The exploit was fixed with a soft fork, and the invalid [transaction](/docs/bitcoin/transaction-lifecycle) was removed from the blockchain. It remains one of the most serious early [protocol](/docs/bitcoin) bugs; the response showed the network could coordinate a timely fix.
 
 ---
 
@@ -91,7 +91,7 @@ Bitcoin's first major price spike, followed by a crash to $2 by November.
 
 - **Date**: February 2011
 
-Silk Road, an online marketplace that used Bitcoin for payments, launched. It became the best-known early use case for [Bitcoin](/docs/glossary#bitcoin-network) and drew attention (both positive and negative) to [censorship resistance](/docs/glossary#censorship-resistance) and [privacy](/docs/wallets/privacy). The site was shut down by law enforcement in October 2013; the episode highlighted that [Bitcoin](/docs/glossary#bitcoin-network) is neutral infrastructure and that adoption and regulation would continue to evolve.
+Silk Road, an online marketplace that used Bitcoin for payments, launched. It became the best-known early use case for Bitcoin and drew attention (both positive and negative) to censorship resistance and [privacy](/docs/wallets/privacy). The site was shut down by law enforcement in October 2013; the episode highlighted that Bitcoin is neutral infrastructure and that adoption and regulation would continue to evolve.
 
 ---
 
@@ -132,7 +132,7 @@ Bitcoin crossed $1,000 for the first time during a rally driven by Chinese excha
 
 - **Date**: October 2013
 
-U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over [Bitcoin](/docs/glossary#bitcoin-network)’s use in illicit markets and over [regulation](/docs/glossary#aml). The [network](/docs/bitcoin/p2p-protocol) continued to operate; no [protocol](/docs/bitcoin) change was required.
+U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over Bitcoin’s use in illicit markets and over regulation. The [network](/docs/bitcoin/p2p-protocol) continued to operate; no [protocol](/docs/bitcoin) change was required.
 
 ---
 
@@ -152,7 +152,7 @@ U.S. law enforcement shut down Silk Road and arrested its operator. The event fu
 
 - **Date**: 2015
 
-The [blocksize wars](/docs/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via [Layer 2](/docs/glossary#layer-2) and [SegWit](/docs/glossary#segwit). In the same year, Joseph Poon and Thaddeus Dryja published the [Lightning Network](/docs/glossary#lightning-network) whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
+The [blocksize wars](/docs/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via Layer 2 and SegWit. In the same year, Joseph Poon and Thaddeus Dryja published the Lightning Network whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
 
 ---
 

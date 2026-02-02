@@ -306,20 +306,6 @@ main > div > div > h1:first-child {
   @apply mb-4 leading-7;
 }
 
-/* Glossary links - dotted underline by default, BTC color with solid underline on hover */
-.markdown-content a[href^="/docs/glossary"],
-.markdown-content .glossary-link {
-  @apply text-gray-900 dark:text-gray-200 hover:text-btc transition-colors;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 2px;
-}
-
-.markdown-content a[href^="/docs/glossary"]:hover,
-.markdown-content .glossary-link:hover {
-  text-underline-offset: 3px;
-}
-
 .markdown-content ul,
 .markdown-content ol {
   @apply mb-4 ml-6;

@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Bitcoin wallet is a software application or device that allows users to store, send, and receive Bitcoin. Despite the name, a wallet doesn't actually "store" Bitcoin. Bitcoin exists only on the blockchain. Instead, a wallet stores the **[private keys](/docs/glossary#private-key)** needed to access and control Bitcoin [addresses](/docs/glossary#address).
+A Bitcoin wallet is a software application or device that allows users to store, send, and receive Bitcoin. Despite the name, a wallet doesn't actually "store" Bitcoin. Bitcoin exists only on the blockchain. Instead, a wallet stores the **private keys** needed to access and control Bitcoin addresses.
 
 ### Key Concepts
 
@@ -46,12 +46,12 @@ A Bitcoin wallet is a software application or device that allows users to store,
 
 ### By Technology
 
-#### [Full Node](/docs/glossary#full-node) Wallets
+#### Full Node Wallets
 - **Bitcoin Core**: Downloads entire blockchain
 - **Pros**: Maximum privacy, validates all transactions
 - **Cons**: Requires significant storage and bandwidth
 
-#### [SPV](/docs/glossary#spv) (Simplified Payment Verification) Wallets
+#### SPV (Simplified Payment Verification) Wallets
 - **Light clients**: Don't download full blockchain
 - **Pros**: Faster setup, less storage
 - **Cons**: Less privacy, relies on other nodes
@@ -70,20 +70,20 @@ A Bitcoin wallet is a software application or device that allows users to store,
 1. **Random Generation**: Private key is randomly generated (256 bits)
 2. **Public Key Derivation**: Public key derived using elliptic curve cryptography
 3. **Address Creation**: Address generated from public key using hash functions
-4. **Address Types**: [P2PKH](/docs/glossary#p2pkh), [P2SH](/docs/glossary#p2sh), [P2WPKH](/docs/glossary#p2wpkh), [P2TR](/docs/glossary#p2tr) (Taproot)
+4. **Address Types**: P2PKH, P2SH, P2WPKH, P2TR (Taproot)
 
 ### Getting your first bitcoin
 
-You can buy bitcoin on [exchanges](/docs/glossary#exchange) (often with identity checks) or at some ATMs, then withdraw to your own wallet. Withdrawing to a non-custodial wallet gives you self-custody.
+You can buy bitcoin on exchanges (often with identity checks) or at some ATMs, then withdraw to your own wallet. Withdrawing to a non-custodial wallet gives you self-custody.
 
 ### Sending safely
 
-Before sending, double-check the recipient [address](/docs/glossary#address) (Bitcoin addresses are long; a typo can lose funds). Check current [fee](/docs/bitcoin/transaction-fees) conditions so your transaction is included in a reasonable time. See [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) for how confirmations work.
+Before sending, double-check the recipient address (Bitcoin addresses are long; a typo can lose funds). Check current [fee](/docs/bitcoin/transaction-fees) conditions so your transaction is included in a reasonable time. See [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) for how confirmations work.
 
 ### Transaction Process
 
-1. **UTXO Selection**: Wallet chooses which UTXOs to spend ([coin selection](/docs/glossary#coin-selection))
-2. **Transaction Creation**: Builds transaction with [inputs](/docs/glossary#input) and [outputs](/docs/glossary#output)
+1. **UTXO Selection**: Wallet chooses which UTXOs to spend (coin selection)
+2. **Transaction Creation**: Builds transaction with inputs and outputs
 3. **Signing**: Signs transaction with private key(s)
 4. **Broadcasting**: Sends transaction to Bitcoin network
 5. **Confirmation**: Transaction included in a block
@@ -91,7 +91,7 @@ Before sending, double-check the recipient [address](/docs/glossary#address) (Bi
 ### Address Management
 
 - **HD Wallets**: Hierarchical Deterministic wallets generate addresses from a single seed
-- **Key Derivation**: Uses BIP32/BIP44 standards with [derivation paths](/docs/glossary#derivation-path)
+- **Key Derivation**: Uses BIP32/BIP44 standards with derivation paths
 - **Address Reuse**: Generally discouraged for privacy
 - **Change Addresses**: New addresses created for change outputs
 
@@ -319,11 +319,11 @@ console.log('Address:', address);
 
 ### Advanced Features
 
-- **[Multisig](/docs/glossary#multisig)**: Require multiple signatures
+- **Multisig**: Require multiple signatures
 - **Coin Control**: Manually select which UTXOs to spend
-- **Fee Estimation**: Calculate appropriate [fee rates](/docs/glossary#fee-rate)
-- **[RBF](/docs/glossary#rbf)**: Replace unconfirmed transactions
-- **[PSBT](/docs/glossary#psbt)**: Partially Signed Bitcoin Transactions
+- **Fee Estimation**: Calculate appropriate fee rates
+- **RBF**: Replace unconfirmed transactions
+- **PSBT**: Partially Signed Bitcoin Transactions
 
 ---
 

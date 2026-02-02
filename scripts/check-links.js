@@ -1,12 +1,8 @@
 #!/usr/bin/env node
 /**
  * Check markdown files for:
- * 1. Glossary links: all /docs/glossary#slug links have matching entries in glossary.json
- * 2. Internal links: all /docs/* links (excluding glossary) point to valid pages
- * 3. External links: optionally check that external URLs are accessible (use --check-external)
- *
- * Note: Unused imports are typically handled by ESLint with eslint-plugin-import.
- * Run `npm run lint` to check for unused imports in TypeScript/JavaScript files.
+ * 1. Internal links: all /docs/* links point to valid pages
+ * 2. External links: optionally check that external URLs are accessible (use --check-external)
  *
  * Run: node scripts/check-links.js [--check-external]
  */
@@ -20,11 +16,6 @@ const { parseDocPages } = require('./lib/parse-doc-pages')
 
 // Parse command line arguments
 const checkExternal = process.argv.includes('--check-external')
-
-// Load glossary
-const glossaryPath = path.join(__dirname, '../public/data/glossary.json')
-const glossary = JSON.parse(fs.readFileSync(glossaryPath, 'utf-8'))
-const glossarySlugs = new Set(Object.keys(glossary))
 
 // Load valid doc pages from navigation.ts
 const navigationPath = path.join(__dirname, '../app/utils/navigation.ts')
@@ -63,11 +54,7 @@ function findMdFiles(dir, files = []) {
 
 const mdFiles = findMdFiles(path.join(__dirname, '../app'))
 
-// Check glossary links
-const glossaryRe = /\]\(\/docs\/glossary#([a-z0-9-]+)\)/g
-const glossaryUsed = new Map() // slug -> [ { file, lineNum, line } ]
-
-// Check internal doc links (excluding glossary links)
+// Check internal doc links
 const internalLinkRe = /\]\((\/docs\/[^#\s)]+)(?:#[^\s)]+)?\)/g
 const internalLinks = new Map() // path -> [ { file, lineNum, line, fullLink } ]
 
@@ -79,22 +66,10 @@ for (const file of mdFiles) {
   const content = fs.readFileSync(file, 'utf-8')
   const lines = content.split('\n')
   for (let i = 0; i < lines.length; i++) {
-    // Check glossary links
     let m
-    glossaryRe.lastIndex = 0
-    while ((m = glossaryRe.exec(lines[i])) !== null) {
-      const slug = m[1]
-      if (!glossaryUsed.has(slug)) glossaryUsed.set(slug, [])
-      glossaryUsed.get(slug).push({ file, lineNum: i + 1, line: lines[i].trim() })
-    }
-
-    // Check internal doc links (excluding glossary)
     internalLinkRe.lastIndex = 0
     while ((m = internalLinkRe.exec(lines[i])) !== null) {
       const linkPath = m[1]
-      // Skip glossary links (already checked above)
-      if (linkPath === '/docs/glossary') continue
-      
       if (!internalLinks.has(linkPath)) internalLinks.set(linkPath, [])
       internalLinks.get(linkPath).push({
         file,
@@ -205,10 +180,6 @@ async function checkExternalUrl(url, timeout = 10000, maxRedirects = 5) {
 
 // Main function to run checks
 async function runChecks() {
-  // Check for missing glossary terms
-  const missingGlossary = [...glossaryUsed.keys()].filter(s => !glossarySlugs.has(s))
-
-  // Check for invalid internal links
   const invalidInternalLinks = [...internalLinks.keys()].filter(p => !allValidPaths.has(p))
 
   let hasErrors = false
@@ -252,20 +223,6 @@ async function runChecks() {
     }
   }
 
-  // Report glossary link errors
-  if (missingGlossary.length > 0) {
-    hasErrors = true
-    console.error('ERROR: Glossary links that have no matching term (tooltips will fall back to plain link):\n')
-    for (const slug of missingGlossary.sort()) {
-      const occurrences = glossaryUsed.get(slug)
-      for (const { file, lineNum } of occurrences) {
-        console.error(`  /docs/glossary#${slug}`)
-        console.error(`    -> ${path.relative(process.cwd(), file)}:${lineNum}`)
-      }
-      console.error('')
-    }
-  }
-
   // Report internal link errors
   if (invalidInternalLinks.length > 0) {
     hasErrors = true
@@ -306,9 +263,6 @@ async function runChecks() {
 
   // Success messages
   const messages = []
-  if (glossaryUsed.size > 0) {
-    messages.push(`✓ All ${glossaryUsed.size} glossary link(s) have matching terms`)
-  }
   if (internalLinks.size > 0) {
     messages.push(`✓ All ${internalLinks.size} internal link(s) point to valid pages`)
   }

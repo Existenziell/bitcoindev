@@ -9,9 +9,9 @@ The primary revenue source for miners is the block reward, which consists of two
 | Component | Description | Current Value |
 |-----------|-------------|---------------|
 | **Block Subsidy** | New bitcoin created with each block | 3.125 BTC |
-| **[Transaction Fees](/docs/glossary#transaction-fee)** | Sum of fees from included transactions | 0.1-1+ BTC |
+| **Transaction Fees** | Sum of fees from included transactions | 0.1-1+ BTC |
 
-- **Current Reward**: 3.125 BTC per block (after 2024 [halving](/docs/glossary#halving))
+- **Current Reward**: 3.125 BTC per block (after 2024 halving)
 - **Next Halving**: ~2028 (reward will be 1.5625 BTC)
 - **Total Reward**: Block subsidy + transaction fees
 
@@ -30,7 +30,7 @@ Electricity is typically the largest ongoing cost for miners:
 
 ### Hardware Costs
 
-- **[ASIC](/docs/glossary#asic) Purchase**: $2,000–$15,000+ per unit
+- **ASIC Purchase**: $2,000–$15,000+ per unit
 - **Depreciation**: Hardware loses value as newer, more efficient models release
 - **Lifespan**: Typically 2-4 years of competitive operation
 - **Maintenance**: Fans, power supplies may need replacement
@@ -446,14 +446,14 @@ console.log(`Break-even rate: $${calc.breakEvenElectricityRate().toFixed(4)}/kWh
 
 ## Mining Profitability Factors
 
-### Network [Hash Rate](/docs/glossary#hash-rate)
+### Network Hash Rate
 - **Current**: ~700 EH/s (exahashes per second)
 - **Trend**: Generally increasing over time
 - **Impact**: Higher network hash rate means smaller share of rewards
 
-### [Difficulty](/docs/glossary#difficulty) Adjustment
+### Difficulty Adjustment
 - **Frequency**: Every 2016 blocks (~2 weeks)
-- **Purpose**: Maintains ~10 minute [block times](/docs/glossary#block-time)
+- **Purpose**: Maintains ~10 minute block times
 - **Effect**: Adjusts to network hash rate changes
 - **See Also**: [Difficulty Adjustment](/docs/mining/difficulty) for detailed explanation
 
@@ -471,8 +471,8 @@ console.log(`Break-even rate: $${calc.breakEvenElectricityRate().toFixed(4)}/kWh
 
 ## Pool Mining Economics
 
-### How [Pool Mining](/docs/glossary#mining-pool) Works
-1. Miners contribute [hash power](/docs/glossary#hash-rate) to pool
+### How Pool Mining Works
+1. Miners contribute hash power to pool
 2. Pool finds blocks collectively
 3. Rewards distributed based on contribution
 4. More consistent payouts than solo mining

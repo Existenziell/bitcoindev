@@ -1,6 +1,6 @@
 # Difficulty Adjustment
 
-Bitcoin's difficulty adjustment is a critical mechanism that maintains the network's target [block time](/docs/glossary#block-time) of approximately 10 minutes. Every 2016 blocks (~2 weeks), the network automatically adjusts the mining difficulty based on the actual time it took to mine the previous 2016 blocks.
+Bitcoin's difficulty adjustment is a critical mechanism that maintains the network's target block time of approximately 10 minutes. Every 2016 blocks (~2 weeks), the network automatically adjusts the mining difficulty based on the actual time it took to mine the previous 2016 blocks.
 
 ## How Difficulty Adjustment Works
 
@@ -46,8 +46,8 @@ flowchart LR
 
 ### Network Security
 
-- **Hash Rate Changes**: Network [hash rate](/docs/glossary#hash-rate) fluctuates
-- **Hardware Improvements**: New [ASICs](/docs/glossary#asic) increase network hash rate
+- **Hash Rate Changes**: Network hash rate fluctuates
+- **Hardware Improvements**: New ASICs increase network hash rate
 - **Miner Participation**: Miners join/leave the network
 - **Adaptation**: Difficulty adjusts to maintain security
 
@@ -88,7 +88,7 @@ flowchart LR
 
 ### Target (difficulty encoding)
 
-The [difficulty target](/docs/glossary#difficulty-target) is stored in the block header in the **nBits** (or "bits") field, a compact 4-byte representation. Miners hash the block header; the resulting hash must be numerically below the target for the block to be valid. A lower target means higher difficulty (fewer valid hashes); a higher target means lower difficulty. The target is decoded from nBits into a 256-bit value for comparison. See [Block Header](/docs/glossary#block-header) for the six header fields.
+The difficulty target is stored in the block header in the **nBits** (or "bits") field, a compact 4-byte representation. Miners hash the block header; the resulting hash must be numerically below the target for the block to be valid. A lower target means higher difficulty (fewer valid hashes); a higher target means lower difficulty. The target is decoded from nBits into a 256-bit value for comparison. See Block Header for the six header fields.
 
 ### Difficulty Calculation
 
@@ -123,11 +123,11 @@ When network hash rate decreases:
 
 ## Technical Details
 
-### [Block Header](/docs/glossary#block-header) Fields
+### Block Header Fields
 
 The difficulty is encoded in the block header's `nBits` field:
 - **Compact representation**: 32-bit value
-- **Target calculation**: Converts nBits to full 256-bit [difficulty target](/docs/glossary#difficulty-target)
+- **Target calculation**: Converts nBits to full 256-bit difficulty target
 - **Validation**: Block hash must be less than target
 
 ### Adjustment Algorithm

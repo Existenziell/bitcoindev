@@ -9,8 +9,8 @@ The Bitcoin community overwhelmingly rejects Wright's claims, derisively calling
 ### What Would Prove It
 
 The real Satoshi Nakamoto has access to:
-- [Private keys](/docs/glossary#private-key) that mined the earliest Bitcoin blocks
-- The private key behind the [genesis block](/docs/glossary#genesis-block)
+- Private keys that mined the earliest Bitcoin blocks
+- The private key behind the genesis block
 - Keys controlling approximately 1 million unmoved BTC
 
 To prove identity, Satoshi need only **sign a message** with one of these keys. This is trivial to do and impossible to fake. Every legitimate Bitcoiner would accept this as proof.
@@ -52,7 +52,7 @@ Wright became involved in the Bitcoin Cash (BCH) community after the August 2017
 
 ### 2018: Bitcoin SV Fork
 
-In November 2018, Wright led a contentious [hard fork](/docs/glossary#hard-fork) of Bitcoin Cash, creating Bitcoin Satoshi Vision (BSV). The fork was accompanied by threats of a "[hash](/docs/glossary#hash-rate) war" to destroy the original BCH chain.
+In November 2018, Wright led a contentious hard fork of Bitcoin Cash, creating Bitcoin Satoshi Vision (BSV). The fork was accompanied by threats of a "hash war" to destroy the original BCH chain.
 
 BSV was explicitly designed around Wright's interpretation of Satoshi's "vision", primarily larger blocks and removing protocol changes. The fork was backed by Calvin Ayre, an online gambling billionaire who has been Wright's primary financial supporter.
 
@@ -175,7 +175,7 @@ For the Bitcoin community, Wright serves as a useful reminder:
 
 - **Proof of work matters**: Claims require evidence. In Bitcoin, cryptographic proof is king.
 - **Decentralization protects**: Bitcoin has no CEO or founder who can be captured. Even if someone credibly claimed to be Satoshi, they couldn't control the protocol.
-- **The community decides**: [Consensus](/docs/glossary#consensus) (whether about code or identity) emerges from the network, not from proclamations.
+- **The community decides**: Consensus (whether about code or identity) emerges from the network, not from proclamations.
 
 Craig Wright is not Satoshi Nakamoto. A UK High Court has ruled it. The cryptographic evidence (or lack thereof) proves it. And the Bitcoin community has always known it.
 

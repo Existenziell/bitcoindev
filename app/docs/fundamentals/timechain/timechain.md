@@ -43,7 +43,7 @@ There's no trusted time server that all nodes can query. Even if there were, tru
 
 ## Bitcoin's Solution: Proof-of-Work as Time
 
-Bitcoin solves the timing problem by using **[proof-of-work](/docs/glossary#pow)** to create an objective, verifiable ordering mechanism. Instead of relying on clocks, Bitcoin uses **computational work** as a proxy for time.
+Bitcoin solves the timing problem by using **proof-of-work** to create an objective, verifiable ordering mechanism. Instead of relying on clocks, Bitcoin uses **computational work** as a proxy for time.
 
 ### Blocks as Temporal Units
 
@@ -110,7 +110,7 @@ All transactions are ordered by the block they appear in. If two transactions co
 
 ### Time-Locked Contracts
 
-Bitcoin supports [time locks](/docs/glossary#time-lock) that prevent spending until a certain time:
+Bitcoin supports time locks that prevent spending until a certain time:
 - **Absolute time locks (CLTV):** "Cannot spend until block height 800,000" or "Cannot spend until Unix timestamp 1700000000"
 - **Relative time locks (CSV):** "Cannot spend until 1000 blocks after this UTXO was created"
 

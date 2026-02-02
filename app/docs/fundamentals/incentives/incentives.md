@@ -69,7 +69,7 @@ The cost of attacking Bitcoin exceeds any potential gain, making attacks economi
 
 ### Fee Market Evolution
 
-As block subsidies decrease through [halvings](/docs/glossary#halving), transaction fees become increasingly important:
+As block subsidies decrease through halvings, transaction fees become increasingly important:
 
 - **Current**: Block subsidy (3.125 BTC) >> Transaction fees (~0.1-1 BTC)
 - **Future**: Transaction fees will become primary miner revenue
@@ -81,7 +81,7 @@ This transition ensures miners remain incentivized to secure the network even af
 
 ## Node Incentives
 
-[Full nodes](/docs/glossary#full-node) validate all transactions and blocks, maintaining network integrity. Unlike miners, nodes don't receive direct financial rewards, yet thousands of nodes operate worldwide.
+Full nodes validate all transactions and blocks, maintaining network integrity. Unlike miners, nodes don't receive direct financial rewards, yet thousands of nodes operate worldwide.
 
 ### Why Run a Node?
 
