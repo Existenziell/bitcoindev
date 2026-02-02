@@ -148,11 +148,15 @@ body {
 
   /* Icon button - header/nav, copy, download; shared hover/focus */
   .btn-icon {
-    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800;
+    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 hover:no-underline;
   }
 
   .btn-icon-sm {
     @apply p-1.5 text-xs;
+  }
+
+  .btn-icon-lg {
+    @apply px-4 py-2 text-xl font-bold;
   }
 
   .btn-icon-bordered {

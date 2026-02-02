@@ -127,13 +127,15 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
     <div className="glossary-accordion glossary-content">
       {/* Letter navigation */}
       <div className="mb-8 pb-4 border-b border-gray-300 dark:border-gray-700">
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          {sections.map((section) => (
+        <div className="flex flex-wrap items-center text-sm">
+          {sections
+            .filter((section) => section.letter !== '0-9')
+            .map((section) => (
             <a
               key={section.slug}
               href={`#${section.slug}`}
               onClick={(e) => handleLetterClick(section.slug, e)}
-              className="text-btc hover:text-btc-dark dark:hover:text-btc-light hover:underline font-medium transition-colors"
+              className="btn-icon btn-icon-accent btn-icon-bordered btn-icon-lg"
             >
               {section.letter}
             </a>
