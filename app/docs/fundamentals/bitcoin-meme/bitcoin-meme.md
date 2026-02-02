@@ -73,13 +73,13 @@ See [Bitcoin Adoption](/docs/adoption) for real-world examples of people and com
 
 ---
 
-## "Magic Internet Money" & Other Memes
+## Magic Internet Money & Other Memes
 
 Bitcoin culture has produced numerous memes that serve multiple functions: they're satirical, self-deprecating, educational, and defensive.
 
 ### Magic Internet Money
 
-**"Magic Internet Money"** is a satirical term that acknowledges Bitcoin's seemingly impossible nature while hinting at its power. It's used both by Bitcoiners (self-deprecating humor) and critics (dismissal), but the meme has been embraced by the community.
+**Magic Internet Money** is a satirical term that acknowledges Bitcoin's seemingly impossible nature while hinting at its power. It's used both by Bitcoiners (self-deprecating humor) and critics (dismissal), but the meme has been embraced by the community.
 
 The term highlights that Bitcoin *is* remarkable: digital scarcity without a central issuer, global transfers without intermediaries, and value storage without physical form. Behind the meme is serious technology: [cryptography](/docs/bitcoin/cryptography), [proof-of-work](/docs/mining/proof-of-work), and [game theory](/docs/fundamentals/game-theory).
 

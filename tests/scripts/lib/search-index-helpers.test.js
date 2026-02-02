@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { excerpt, parsePeopleSections } from '@/scripts/lib/search-index-helpers.js'
+import { excerpt, parseH2Sections, parsePeopleSections } from '@/scripts/lib/search-index-helpers.js'
 
 describe('excerpt', () => {
   it('returns as-is when short or under maxLen', () => {
@@ -53,5 +53,43 @@ Bob bio.`
 Your entry.`
     const sections = parsePeopleSections(md)
     expect(sections.length).toBe(0)
+  })
+})
+
+describe('parseH2Sections', () => {
+  it('returns [] for null or empty', () => {
+    expect(parseH2Sections(null)).toEqual([])
+    expect(parseH2Sections('')).toEqual([])
+  })
+  it('extracts one H2 with slug, title, body', () => {
+    const md = `Intro before first H2.
+
+## The Orange Pill
+
+The orange pill refers to the process of waking up to Bitcoin.`
+    const sections = parseH2Sections(md)
+    expect(sections.length).toBe(1)
+    expect(sections[0].slug).toBe('the-orange-pill')
+    expect(sections[0].title).toBe('The Orange Pill')
+    expect(sections[0].body).toContain('orange pill')
+  })
+  it('extracts multiple H2s with correct slug, title, body', () => {
+    const md = `Preamble.
+
+## First Section
+
+First body text.
+
+## Second Section
+
+Second body.`
+    const sections = parseH2Sections(md)
+    expect(sections.length).toBe(2)
+    expect(sections[0].slug).toBe('first-section')
+    expect(sections[0].title).toBe('First Section')
+    expect(sections[0].body).toContain('First body')
+    expect(sections[1].slug).toBe('second-section')
+    expect(sections[1].title).toBe('Second Section')
+    expect(sections[1].body).toContain('Second body')
   })
 })

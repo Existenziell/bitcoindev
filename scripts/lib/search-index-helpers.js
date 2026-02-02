@@ -38,4 +38,21 @@ function parsePeopleSections(md) {
     .filter(Boolean)
 }
 
-module.exports = { excerpt, parsePeopleSections, stripMarkdown }
+/**
+ * Parse ## Title sections from any doc page markdown. Returns [{ slug, title, body }] for each H2.
+ * Drops content before first ##. Used to add H2 section entries to the search index.
+ */
+function parseH2Sections(md) {
+  if (!md) return []
+  const parts = md.split(/\n## /)
+  parts.shift()
+  return parts.map((part) => {
+    const idx = part.indexOf('\n\n')
+    const title = (idx >= 0 ? part.slice(0, idx) : part).trim()
+    const body = idx >= 0 ? part.slice(idx).trim() : ''
+    const slug = generateSlug(title)
+    return { slug, title, body: excerpt(stripMarkdown(body), 200) }
+  })
+}
+
+module.exports = { excerpt, parseH2Sections, parsePeopleSections, stripMarkdown }

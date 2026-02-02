@@ -9,7 +9,7 @@
 const fs = require('fs')
 const path = require('path')
 const { parseDocPages } = require('./lib/parse-doc-pages')
-const { excerpt, parsePeopleSections, stripMarkdown } = require('./lib/search-index-helpers')
+const { excerpt, parseH2Sections, parsePeopleSections, stripMarkdown } = require('./lib/search-index-helpers')
 
 const mdPath = path.join(__dirname, '../public/data/md-content.json')
 const navPath = path.join(__dirname, '../app/utils/navigation.ts')
@@ -198,6 +198,18 @@ for (const page of docPages) {
       keywords: pathKeywords[page.path],
     })
   )
+  if (raw) {
+    for (const { slug, title, body: sectionBody } of parseH2Sections(raw)) {
+      index.push(
+        addEntry({
+          path: `${page.path}#${slug}`,
+          title,
+          section: page.section,
+          body: sectionBody || title,
+        })
+      )
+    }
+  }
 }
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true })

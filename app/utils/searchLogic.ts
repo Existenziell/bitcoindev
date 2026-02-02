@@ -128,6 +128,7 @@ type Row = SearchResult & { rank: number }
 /**
  * Deduplicate results by removing overview pages when specific child results exist.
  * For example, if we have results for specific people, remove the /docs/history/people overview page.
+ * Also: if we have results for a doc page and for section(s) of that page (path#fragment), drop the page-level result.
  */
 function deduplicateResults(rows: Row[]): Row[] {
   const _resultPaths = new Set(rows.map(r => r.path))
@@ -149,6 +150,13 @@ function deduplicateResults(rows: Row[]): Row[] {
             break
           }
         }
+      }
+    }
+    // Drop page-level result when we have section results for the same page (path#fragment)
+    if (!shouldExclude && !row.path.includes('#')) {
+      const hasSectionResult = rows.some(r => r.path.startsWith(row.path + '#'))
+      if (hasSectionResult) {
+        shouldExclude = true
       }
     }
     if (!shouldExclude) {
