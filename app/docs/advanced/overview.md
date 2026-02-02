@@ -32,17 +32,6 @@ For how Bitcoin evolves through rough consensus and the BIP process, see [Govern
 
 ---
 
-## Prerequisites
-
-Before diving into advanced topics, ensure you understand:
-
-- [Bitcoin Protocol fundamentals](/docs/bitcoin)
-- [Lightning Network basics](/docs/lightning)
-- [Bitcoin Script](/docs/bitcoin/script)
-- [Transaction construction](/docs/bitcoin-development/transactions)
-
----
-
 ## Experimental Features
 
 **Warning**: Some topics in this section describe experimental or early-stage features:
