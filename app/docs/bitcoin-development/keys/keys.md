@@ -688,6 +688,7 @@ Never expose private keys, use hardware wallets for significant amounts, and alw
 ## Related Topics
 
 - [Address Generation](/docs/bitcoin-development/addresses) - Creating addresses from keys
+- [Output Descriptors](/docs/bitcoin-development/descriptors) - Describing keys and derivation in descriptors
 - [HD Wallets](/docs/wallets/hd-wallets) - Hierarchical deterministic wallet concepts
 - [Multisig](/docs/wallets/multisig) - Multi-signature security setups
 - [Cryptography](/docs/bitcoin/cryptography) - Underlying cryptographic primitives

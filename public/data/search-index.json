@@ -834,10 +834,28 @@
     "body": "Address Generation & Validation In the UTXO model, coins are locked by output scripts (scriptPubKeys). Addresses are human-readable encodings of those scripts, so generating and validating addresses is how you turn Bitcoin Script into something users and APIs can use. This page covers the main address types (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), encoding (Base58Check, Bech32, Bech32m), and how to derive and validate them in code. Address Types Overview Legacy Addresses (P2PKH) Format: Starts with "
   },
   {
+    "path": "/docs/bitcoin-development/fee-estimation",
+    "title": "Fee Estimation",
+    "section": "bitcoin-development",
+    "body": "Fee Estimation When building transactions, you need a fee rate (sat/vB) so the transaction is included in a block within an acceptable time. Fee estimation uses the mempool and sometimes external APIs to suggest a rate. This guide covers getting fee rates from your node (e.g. Bitcoin Core RPC), from HTTP APIs, and how to use them in code. For the economics of fees, see Transaction Fees. Why Fee Estimation Matters Too low: Transaction may sit in the mempool or be dropped; user waits or payment "
+  },
+  {
+    "path": "/docs/bitcoin-development/coin-selection",
+    "title": "Coin Selection",
+    "section": "bitcoin-development",
+    "body": "Coin Selection When building a transaction, you must choose which UTXOs to spend so that their total value covers the payment amount plus fees. Coin selection is the process of picking those inputs and, when necessary, creating a change output back to your wallet. This page focuses on implementation: effective value, fee budget, and a simple selection loop. For algorithms (e.g. branch-and-bound, privacy-aware strategies) and wallet UX, see Coin Selection in Wallet Development. For fee rate "
+  },
+  {
     "path": "/docs/bitcoin-development/transactions",
     "title": "Transaction Construction",
     "section": "bitcoin-development",
     "body": "Transaction Construction Building a transaction is the direct application of the UTXO model: you select unspent outputs as inputs, create new outputs (recipient and change), and sign to prove ownership. The transaction lifecycle (create, sign, broadcast, mempool, confirmed) is what your code drives; fee choice ties into the incentive structure of the network. This guide covers the complete process from UTXO selection to broadcasting. Transaction Lifecycle Understanding the complete lifecycle of "
+  },
+  {
+    "path": "/docs/bitcoin-development/signing",
+    "title": "Signing & Sighash",
+    "section": "bitcoin-development",
+    "body": "Signing & Sighash When you build a transaction, each input must be signed so that the script spending condition is satisfied. The sighash type controls which parts of the transaction are committed to when signing. This page covers how to choose and use sighash types in code, signing order for multisig, and how signing fits into PSBT workflows. For the protocol definition of sighash types, see Sighash Types. Sighash Types in Practice SIGHASH_ALL (0x01) or SIGHASH_DEFAULT (0x00) for Taproot: "
   },
   {
     "path": "/docs/bitcoin-development/psbt",
@@ -849,6 +867,18 @@
       "partially signed bitcoin transaction",
       "partially signed bitcoin transactions"
     ]
+  },
+  {
+    "path": "/docs/bitcoin-development/fee-bumping",
+    "title": "Fee Bumping",
+    "section": "bitcoin-development",
+    "body": "Fee Bumping When a transaction is stuck in the mempool because the fee rate is too low, you can increase the effective fee using Replace-by-Fee (RBF) or Child Pays for Parent (CPFP). This page is a developer-focused guide: when to use which, how to signal RBF, and how to build replacement or child transactions in code. For the protocol rules and fee market, see Transaction Fees and Mempool. When to Use RBF vs CPFP | Situation | Use | |-----------|-----| | You are the sender and control the "
+  },
+  {
+    "path": "/docs/bitcoin-development/payment-requests",
+    "title": "Payment Requests",
+    "section": "bitcoin-development",
+    "body": "Payment Requests Requesting and receiving Bitcoin payments in applications involves generating a address (or reusing a dedicated one per invoice), communicating amount and recipient to the payer (e.g. via a bitcoin: URI or QR code), and verifying that payment was received. This guide covers BIP 21 bitcoin: URIs, generating and parsing payment requests, and handling verification and refunds. For fiat conversion on invoices, see Price Tracking. For watching addresses, see Blockchain Monitoring. "
   },
   {
     "path": "/docs/bitcoin-development/blockchain-monitoring",
@@ -873,6 +903,12 @@
     "title": "Miniscript",
     "section": "bitcoin-development",
     "body": "Miniscript Miniscript is a structured language for writing Bitcoin Script that is easier to analyze, compose, and reason about than raw Script. It maps to a well-defined subset of Script and provides guarantees about spending conditions, costs, and the number and type of signatures required. It sits on top of Bitcoin Script and the same smart contract spending conditions, giving you a policy language that compiles to correct Script. Why Miniscript? Raw Bitcoin Script is flexible but hard to "
+  },
+  {
+    "path": "/docs/bitcoin-development/descriptors",
+    "title": "Output Descriptors",
+    "section": "bitcoin-development",
+    "body": "Output Descriptors Output descriptors (BIP 380, BIP 386) are a standardized, human-readable way to describe which output scripts and addresses a wallet can generate. They encode script type, keys, and derivation paths in a single string, so wallets can interoperate, export watch-only setups, and back up \"what to derive\" without ambiguity. This guide covers descriptor syntax, common script expressions, key expressions, and how to use them in code. For policies that compile to Script, see "
   },
   {
     "path": "/docs/controversies",

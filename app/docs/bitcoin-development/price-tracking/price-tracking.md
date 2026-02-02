@@ -573,6 +573,7 @@ Price tracking requires:
 
 ## Related Topics
 
+- [Payment Requests](/docs/bitcoin-development/payment-requests) - Fiat amounts on invoices and payment requests
 - [Getting Started](/docs/development) - Bitcoin development introduction
 - [Libraries & SDKs](/docs/development/libraries) - HTTP client libraries for each language
 - [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) - Real-time blockchain data

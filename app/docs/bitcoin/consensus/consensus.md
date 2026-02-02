@@ -75,7 +75,7 @@ Bitcoin mining works the same way. When a miner presents a valid block hash, the
 | Property | Gold | Bitcoin |
 |----------|------|---------|
 | Proof of work | Physical extraction from earth | Computational puzzle solution |
-| Verification | Assay testing (easy) | Hash check (instant) |
+| Verification | Assay testing (easy) | [Hash check](/tools/hash) (instant) |
 | Forgery | Physically impossible to create cheaply | Computationally impossible to fake |
 | Scarcity | Geological limits | Protocol-enforced supply cap |
 | Cost | Energy, equipment, labor | Energy, ASICs, facilities |

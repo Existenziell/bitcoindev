@@ -67,6 +67,8 @@ A **cryptographic hash function** takes any input data and produces a fixed-size
 | **Collision-resistant** | Infeasible to find two inputs with same output |
 | **Avalanche effect** | Small input change = completely different output |
 
+You can try hashing with the [Hash tool](/tools/hash).
+
 ### SHA-256
 
 Bitcoin's primary hash function is **SHA-256** (Secure Hash Algorithm, 256-bit).

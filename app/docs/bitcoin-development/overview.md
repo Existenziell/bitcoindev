@@ -26,6 +26,24 @@ Generate and validate Bitcoin addresses for different address types (P2PKH, P2SH
 - Address validation
 - Derivation paths
 
+### [Fee Estimation](/docs/bitcoin-development/fee-estimation)
+
+Get a fee rate (sat/vB) from your node (e.g. `estimatesmartfee`) or from external APIs so you can set transaction fees appropriately. Integrates with [Transaction Construction](/docs/bitcoin-development/transactions) and [Coin Selection](/docs/bitcoin-development/coin-selection).
+
+**Key topics:**
+- Node RPC (estimatesmartfee)
+- External fee APIs (e.g. mempool.space)
+- Confirmation targets and units
+
+### [Coin Selection](/docs/bitcoin-development/coin-selection)
+
+Choose which UTXOs to spend so that total input value covers the payment plus fees. Implementation-focused: effective value, fee budget, and change handling. For algorithms and privacy strategies, see [Wallet Development](/docs/wallets) coin selection.
+
+**Key topics:**
+- Effective value and input size
+- Selecting inputs to cover amount + fee
+- Change output and dust
+
 ### [Transaction Construction](/docs/bitcoin-development/transactions)
 
 Build Bitcoin transactions from scratch, understanding inputs, outputs, fees, and signing. Learn the complete process from UTXO selection to broadcasting.
@@ -35,6 +53,15 @@ Build Bitcoin transactions from scratch, understanding inputs, outputs, fees, an
 - Fee calculation strategies
 - Coin selection algorithms
 - Signing and validation
+
+### [Signing & Sighash](/docs/bitcoin-development/signing)
+
+Choose and use sighash types in code, multisig signing order, and how signing fits into [PSBT](/docs/bitcoin-development/psbt) workflows. For the protocol definition of sighash types, see [Sighash Types](/docs/bitcoin/sighash-types).
+
+**Key topics:**
+- Sighash types in practice (ALL, ANYONECANPAY)
+- Multisig signing and PSBT flow
+- Single-input signing and witness
 
 ### [PSBT](/docs/bitcoin-development/psbt)
 
@@ -46,9 +73,27 @@ Partially Signed Bitcoin Transactions (BIP-174) provide a standardized format fo
 - Hardware wallet integration
 - Multi-signature coordination
 
+### [Fee Bumping](/docs/bitcoin-development/fee-bumping)
+
+When a transaction is stuck in the mempool, increase the effective fee using Replace-by-Fee (RBF) or Child Pays for Parent (CPFP). Developer-focused: when to use which, enabling RBF, and building replacement or child transactions in code.
+
+**Key topics:**
+- RBF vs CPFP and BIP 125 rules
+- Enabling RBF and creating replacements
+- Creating CPFP child transactions
+
 ---
 
 ## Monitoring & Integration
+
+### [Payment Requests](/docs/bitcoin-development/payment-requests)
+
+Request and receive Bitcoin payments: BIP 21 `bitcoin:` URIs, QR codes, verifying payment, and handling refunds. Use with [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) to detect incoming payments and [Price Tracking](/docs/bitcoin-development/price-tracking) for fiat amounts on invoices.
+
+**Key topics:**
+- BIP 21 bitcoin: URI (generate and parse)
+- QR codes and verification
+- Refunds and confirmation handling
 
 ### [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring)
 
@@ -98,82 +143,14 @@ Structured policy language that compiles to Bitcoin Script. Express spending con
 - Correctness and safety
 - Tapscript support
 
----
+### [Output Descriptors](/docs/bitcoin-development/descriptors)
 
-## Development Workflow
+Standardized, human-readable strings (BIP 380/386) that describe which output scripts and addresses a wallet can derive. Essential for watch-only wallets, backup/restore, and interoperability with hardware wallets and [PSBT](/docs/bitcoin-development/psbt). Complements [Miniscript](/docs/bitcoin-development/miniscript) (policies compile to descriptors).
 
-### Typical Development Flow
-
-1. **Setup**: Install Bitcoin Core and configure your [development environment](/docs/development)
-2. **Keys & Addresses**: Generate keys and addresses for your application
-3. **Transaction Building**: Construct transactions using UTXOs
-4. **Signing**: Sign transactions (directly or using PSBTs)
-5. **Monitoring**: Track transactions and blockchain state
-6. **Testing**: Use [test networks](/docs/development/testnets) before mainnet
-
-### Integration Points
-
-These development tasks integrate with:
-
-- **[Setup & Infrastructure](/docs/development)**: Setup, testing, libraries
-- **[Wallet Development](/docs/wallets)**: HD wallets, coin selection, multisig
-- **[Bitcoin Protocol](/docs/bitcoin)**: Script system, transaction structure, RPC
-- **[Mining](/docs/mining)**: Block construction, mempool, fees
-
----
-
-## Common Patterns
-
-### Transaction Creation Pattern
-
-```python
-# 1. Select UTXOs
-utxos = select_utxos(amount_needed, fee_rate)
-
-# 2. Create transaction
-tx = create_transaction(utxos, recipient_address, amount)
-
-# 3. Sign transaction
-signed_tx = sign_transaction(tx, private_keys)
-
-# 4. Broadcast
-txid = broadcast_transaction(signed_tx)
-```
-
-### PSBT Workflow Pattern
-
-```python
-# 1. Create unsigned PSBT
-psbt = create_psbt(inputs, outputs)
-
-# 2. Pass to signer (hardware wallet, etc.)
-signed_psbt = hardware_wallet.sign(psbt)
-
-# 3. Combine signatures
-final_psbt = combine_psbts([psbt1, psbt2, psbt3])
-
-# 4. Extract and broadcast
-final_tx = finalize_psbt(final_psbt)
-broadcast(final_tx)
-```
-
----
-
-## Best Practices
-
-### Transaction Construction
-
-- **Calculate fees properly**: Too low = stuck, too high = waste
-- **Handle dust outputs**: Outputs below ~546 sats may be unspendable
-- **Verify before broadcasting**: Double-check all transaction details
-- **Use PSBT for complex scenarios**: Multi-party or hardware wallet signing
-
-### Monitoring
-
-- **Handle reorgs**: Transactions can be reversed until deeply confirmed
-- **Wait for confirmations**: 6 blocks for high-value transactions
-- **Don't trust unconfirmed**: Zero-conf can be double-spent
-- **Monitor mempool**: Track transaction propagation and fee rates
+**Key topics:**
+- Script and key expressions (wpkh, wsh, tr, xpub, paths)
+- Parsing, validating, and deriving addresses
+- Use cases: watch-only, backup, scanning
 
 ---
 

@@ -192,6 +192,7 @@ Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob
 ## Related Topics
 
 - [Bitcoin Script](/docs/bitcoin/script) - Script system
+- [Output Descriptors](/docs/bitcoin-development/descriptors) - Miniscript compiles to descriptors
 - [Script Patterns](/docs/bitcoin-development/script-patterns) - Common patterns and Miniscript
 - [Smart Contracts](/docs/wallets/smart-contracts) - Contract patterns and Miniscript
 - [Taproot](/docs/bitcoin/taproot) - Tapscript and Miniscript

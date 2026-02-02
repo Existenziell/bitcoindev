@@ -12,7 +12,7 @@ A Bitcoin block consists of:
 - **Transaction Count**: Variable-length integer indicating number of transactions
 - **Transactions**: List of transactions, starting with the coinbase transaction
 
-The block header is hashed twice with SHA-256 to produce the block hash, which must meet the difficulty target for the block to be valid. See the [Block Visualizer](/block-visualizer) to explore the latest blocks and transactions.
+The block header is hashed twice with SHA-256 (try the [Hash tool](/tools/hash)) to produce the block hash, which must meet the difficulty target for the block to be valid. See the [Block Visualizer](/block-visualizer) to explore the latest blocks and transactions.
 
 ---
 

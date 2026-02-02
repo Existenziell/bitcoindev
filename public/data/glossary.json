@@ -623,7 +623,7 @@
       {
         "term": "Hash",
         "slug": "hash",
-        "definition": "A cryptographic function that takes any input and produces a fixed-size output (digest) that appears random but is deterministic: the same input always produces the same output. Hashing is the process of applying a hash function to data. Bitcoin uses SHA-256 for proof-of-work and transaction IDs, and RIPEMD-160 combined with SHA-256 for address generation. Hash functions are one-way, collision-resistant, and avalanche-sensitive (small input changes completely change the output)."
+        "definition": "A cryptographic function that takes any input and produces a fixed-size output (digest) that appears random but is deterministic: the same input always produces the same output. Hashing is the process of applying a hash function to data. Bitcoin uses SHA-256 for proof-of-work and transaction IDs, and RIPEMD-160 combined with SHA-256 for address generation. Hash functions are one-way, collision-resistant, and avalanche-sensitive (small input changes completely change the output). Try the [Hash tool](/tools/hash) to compute SHA-256, HASH256, and HASH160."
       },
       {
         "term": "Hash Rate",
@@ -1156,7 +1156,7 @@
       {
         "term": "RIPEMD-160",
         "slug": "ripemd-160",
-        "definition": "A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte \"pubkey hash\" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short."
+        "definition": "A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte \"pubkey hash\" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short. The [Hash tool](/tools/hash) computes HASH160 and raw RIPEMD-160."
       },
       {
         "term": "QR Code",
@@ -1256,12 +1256,12 @@
       {
         "term": "SHA-256",
         "slug": "sha-256",
-        "definition": "A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect)."
+        "definition": "A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect). You can compute SHA-256 and related hashes with the [Hash tool](/tools/hash)."
       },
       {
         "term": "SHA256D",
         "slug": "sha256d",
-        "definition": "Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult."
+        "definition": "Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult. Try double SHA-256 in the [Hash tool](/tools/hash)."
       },
       {
         "term": "Schnorr Signature",

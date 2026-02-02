@@ -765,6 +765,9 @@ Understanding these fundamentals enables building robust Bitcoin applications th
 ## Related Topics
 
 - [PSBT](/docs/bitcoin-development/psbt) - Partially Signed Bitcoin Transactions
-- [Coin Selection](/docs/wallets/coin-selection) - UTXO selection algorithms
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - Selecting UTXOs for transaction building
+- [Fee Estimation](/docs/bitcoin-development/fee-estimation) - Getting fee rate (sat/vB)
+- [Fee Bumping](/docs/bitcoin-development/fee-bumping) - RBF and CPFP when transactions are stuck
+- [Signing & Sighash](/docs/bitcoin-development/signing) - Sighash types and signing in code
 - [Address Generation](/docs/bitcoin-development/addresses) - Creating recipient addresses
 - [Mempool](/docs/mining/mempool) - Transaction propagation and fees

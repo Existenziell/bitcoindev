@@ -684,6 +684,7 @@ except Exception as e:
 
 ## Related Topics
 
+- [Payment Requests](/docs/bitcoin-development/payment-requests) - Watching for incoming payments
 - [RPC Commands](/docs/bitcoin/rpc) - Bitcoin Core RPC interface
 - [Mempool](/docs/mining/mempool) - Transaction mempool details
 - [Block Construction](/docs/mining/block-construction) - How miners build blocks

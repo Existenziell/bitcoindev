@@ -97,6 +97,8 @@ Most common legacy type. Hides the public key until spending.
 | 6 | `OP_EQUALVERIFY` | `[sig, pubkey]` *(fails if hashes ≠)* |
 | 7 | `OP_CHECKSIG` | `[1]` ✅ |
 
+You can compute HASH160 and HASH256 in the [Hash tool](/tools/hash).
+
 <div class="divider-subtle"></div>
 
 ### P2MS (Bare Multisig)
