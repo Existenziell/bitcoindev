@@ -513,7 +513,7 @@
     "path": "/docs/bitcoin/p2p-protocol",
     "title": "P2P Network Protocol",
     "section": "bitcoin",
-    "body": "P2P Network Protocol Bitcoin uses a peer-to-peer (P2P) network protocol for nodes to communicate, share blocks, and propagate transactions. Understanding the P2P protocol is essential for running nodes and understanding network behavior. Design context Bitcoin's P2P design was inspired by the same P2P ideas and era (early 2000s), including BitTorrent's success—decentralization, no single point of failure, and censorship resistance. Bitcoin does not use BitTorrent's protocol; it has its own "
+    "body": "P2P Network Protocol Bitcoin uses a peer-to-peer (P2P) network protocol for nodes to communicate, share blocks, and propagate transactions. Understanding the P2P protocol is essential for running nodes and understanding network behavior. Design context Bitcoin's P2P design was inspired by the same P2P ideas and era (early 2000s), including BitTorrent's success; decentralization, no single point of failure, and censorship resistance. Bitcoin does not use BitTorrent's protocol; it has its own "
   },
   {
     "path": "/docs/bitcoin/data-encoding",
@@ -896,7 +896,7 @@
     "path": "/docs/controversies/ordinals",
     "title": "Ordinals and Inscriptions",
     "section": "controversies",
-    "body": "Ordinals and Inscriptions Controversy Ordinals and inscriptions let users attach arbitrary data—images, text, JSON—to individual satoshis using witness data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. BRC-20) sparked a heated debate: are they legitimate use of block space or spam that raises fees and distorts Bitcoin’s purpose? What Are Ordinals and Inscriptions? Ordinals: A numbering scheme that assigns a unique index to each satoshi and tracks "
+    "body": "Ordinals and Inscriptions Controversy Ordinals and inscriptions let users attach arbitrary data (images, text, JSON) to individual satoshis using witness data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. BRC-20) sparked a heated debate: are they legitimate use of block space or spam that raises fees and distorts Bitcoin’s purpose? What Are Ordinals and Inscriptions? Ordinals: A numbering scheme that assigns a unique index to each satoshi and tracks "
   },
   {
     "path": "/docs/controversies/energy-consumption",
