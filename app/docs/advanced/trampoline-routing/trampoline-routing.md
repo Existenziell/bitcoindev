@@ -45,16 +45,13 @@ Sender → T1 → [?] → T2 → [?] → Recipient
 
 Trampoline uses nested onion routing:
 
-```mermaid
-flowchart TD
-  Outer[Outer Onion sender builds]
-  Outer --> L1[Layer 1: First hop]
-  Outer --> L2[Layer 2: Second hop]
-  Outer --> L3[Layer 3: Trampoline T1]
-  Inner[Inner Onion trampoline instruction]
-  L3 --> Inner
-  Inner --> T2[Next trampoline: T2]
-  Inner --> Dest[Or: Final destination]
+```text
+[Outer Onion sender builds]
+├── Layer 1: First hop
+├── Layer 2: Second hop
+└── Layer 3: Trampoline T1
+    ├── Next trampoline: T2
+    └── Or: Final destination
 ```
 
 Trampoline T1 receives: outer onion layer (decrypts), inner onion (trampoline payload), instructions "Forward to T2", then builds new outer onion: T1 → [...] → T2.
@@ -123,15 +120,14 @@ Trampoline support advertised via:
 
 Trampoline data in inner onion:
 
-```mermaid
-flowchart TD
-  T66100[Type 66100: Trampoline packet]
-  T66100 --> Ver[Version 1 byte]
-  T66100 --> PK[Public key 33 bytes]
-  T66100 --> Amt[Amount to forward var]
-  T66100 --> CLTV[Outgoing CLTV 4 bytes]
-  T66100 --> Feat[Features var]
-  T66100 --> Payload[Encrypted payload for next trampoline]
+```text
+[Type 66100: Trampoline packet]
+├── Version 1 byte
+├── Public key 33 bytes
+├── Amount to forward var
+├── Outgoing CLTV 4 bytes
+├── Features var
+└── Encrypted payload for next trampoline
 ```
 
 ### Fee Handling

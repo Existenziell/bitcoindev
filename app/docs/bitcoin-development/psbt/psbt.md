@@ -8,27 +8,23 @@ PSBTs (BIP-174) provide a standardized format for passing unsigned or partially 
 
 ### Components
 
-```mermaid
-flowchart TD
-  PSBT[PSBT]
-  Global[Global Data]
-  Input[Input Data per input]
-  Output[Output Data per output]
-  PSBT --> Global
-  PSBT --> Input
-  PSBT --> Output
-  Global --> UT[Unsigned Transaction]
-  Global --> XP[Extended Public Keys optional]
-  Input --> NW[Non-Witness UTXO]
-  Input --> WU[Witness UTXO]
-  Input --> PS[Partial Signatures]
-  Input --> SH[Sighash Type]
-  Input --> RS[Redeem Script]
-  Input --> WS[Witness Script]
-  Input --> BIP32I[BIP32 Derivation Paths]
-  Output --> RSO[Redeem Script]
-  Output --> WSO[Witness Script]
-  Output --> BIP32O[BIP32 Derivation Paths]
+```text
+[PSBT]
+├── Global Data
+│   ├── Unsigned Transaction
+│   └── Extended Public Keys (optional)
+├── Input Data per input
+│   ├── Non-Witness UTXO
+│   ├── Witness UTXO
+│   ├── Partial Signatures
+│   ├── Sighash Type
+│   ├── Redeem Script
+│   ├── Witness Script
+│   └── BIP32 Derivation Paths
+└── Output Data per output
+    ├── Redeem Script
+    ├── Witness Script
+    └── BIP32 Derivation Paths
 ```
 
 ### Roles in PSBT Workflow

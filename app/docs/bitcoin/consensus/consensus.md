@@ -45,16 +45,19 @@ The elegant solution combines cryptographic proof (making fraud detectable) with
 - The current state of the blockchain (who owns what)
 - Which blocks form the canonical chain
 
-```mermaid
-flowchart TD
-  Receive[Receive block]
-  Validate[Validate block]
-  Longer[Longer chain?]
-  Append[Append to chain]
-  Orphan[Orphan block]
-  Receive --> Validate --> Longer
-  Longer -->|Yes| Append
-  Longer -->|No| Orphan
+```text
+          [Receive block]
+                |
+                |
+          [Validate block]
+                |
+                |
+          [Longer chain?]
+               / \
+            Yes   No
+            /      \
+           /        \
+[Append to chain]  [Orphan block]
 ```
 
 ---

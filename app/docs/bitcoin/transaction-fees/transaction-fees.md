@@ -331,13 +331,8 @@ Child Transaction:
 
 CPFP works only if you control an output of the parent (e.g., you received the payment). The child must be valid and, under typical package relay rules, the parent+child package must meet the node’s fee and size policies.
 
-```mermaid
-flowchart LR
-  Parent[Parent tx stuck in mempool]
-  Child[Child tx spends parent output]
-  HighFee[High fee on child]
-  Miner[Miner includes both]
-  Parent --> Child --> HighFee --> Miner
+```text
+[Parent tx stuck in mempool] --> [Child tx spends parent output] --> [High fee on child] --> [Miner includes both]
 ```
 
 ### Transaction Pinning

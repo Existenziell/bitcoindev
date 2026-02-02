@@ -38,13 +38,8 @@ When a miner finds a new block:
 | 3 | First-hop nodes | Validate block; forward to their peers |
 | 4 | Receiving node | Validate; forward to peers that have not seen it |
 
-```mermaid
-flowchart LR
-  Miner[Miner]
-  Peer1[First-hop peers]
-  Peer2[Second-hop peers]
-  Node[Your node]
-  Miner --> Peer1 --> Peer2 --> Node
+```text
+[Miner] --> [First-hop peers] --> [Second-hop peers] --> [Your node]
 ```
 
 ### 2. Gossip Protocol Mechanism

@@ -73,14 +73,9 @@ Payment Channel Setup:
 
 SegWit separated witness (signature) data from transaction data:
 
-```mermaid
-flowchart LR
-  Before[Before: Signature in tx body]
-  After[After: Signature in witness]
-  TXID1[TXID includes sig - malleable]
-  TXID2[TXID excludes sig - fixed]
-  Before --> TXID1
-  After --> TXID2
+```text
+[Before: Signature in tx body] --> [TXID includes sig - malleable]
+[After: Signature in witness] --> [TXID excludes sig - fixed]
 ```
 
 ```text

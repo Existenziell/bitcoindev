@@ -24,16 +24,14 @@ Anchor outputs solve this by:
 2. Adding small "anchor" outputs that either party can spend
 3. Using CPFP (Child Pays for Parent) to boost fees at broadcast time
 
-```mermaid
-flowchart TD
-  subgraph commitBlock [Commitment Transaction]
-    In[Input: Funding output]
-    O1[Output 1: to_local]
-    O2[Output 2: to_remote]
-    O3[Output 3: Alice anchor 330 sats]
-    O4[Output 4: Bob anchor 330 sats]
-    Fee[Fee: Minimum 1 sat/vB]
-  end
+```text
+--- Commitment Transaction ---
+Input: Funding output
+Output 1: to_local
+Output 2: to_remote
+Output 3: Alice anchor 330 sats
+Output 4: Bob anchor 330 sats
+Fee: Minimum 1 sat/vB
 ```
 
 ---

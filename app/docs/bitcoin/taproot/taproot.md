@@ -20,17 +20,12 @@ Taproot uses Schnorr for all P2TR signatures: 64-byte fixed size, signature aggr
 
 MAST allows multiple spending conditions while only revealing the one used:
 
-```mermaid
-flowchart TD
-  CC[Complex Contract]
-  C1["Condition 1: 2-of-3 multisig"]
-  C2["Condition 2: Timelock + signature"]
-  C3["Condition 3: Hash preimage reveal"]
-  C4["Condition 4: Simple signature (key path)"]
-  CC --> C1
-  CC --> C2
-  CC --> C3
-  CC --> C4
+```text
+[Complex Contract]
+├── Condition 1: 2-of-3 multisig
+├── Condition 2: Timelock + signature
+├── Condition 3: Hash preimage reveal
+└── Condition 4: Simple signature (key path)
 ```
 
 When spending:
@@ -433,13 +428,10 @@ Taproot uses Bech32m (modified Bech32) instead of Bech32:
 
 Taproot uses witness version 1:
 
-```mermaid
-flowchart TD
-  WP[Witness Program]
-  V["Version (1 byte): 0x01"]
-  P["Program (32 bytes): Taproot output key"]
-  WP --> V
-  WP --> P
+```text
+[Witness Program]
+├── Version (1 byte): 0x01
+└── Program (32 bytes): Taproot output key
 ```
 
 ### Tapscript

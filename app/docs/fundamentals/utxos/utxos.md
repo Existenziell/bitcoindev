@@ -35,17 +35,8 @@ Bitcoin's UTXO model differs fundamentally from traditional account-based system
 
 The UTXO lifecycle follows this flow:
 
-```mermaid
-flowchart LR
-  Out[Transaction Output in block]
-  UTXO[UTXO unspent]
-  Ref[Referenced by Transaction Input]
-  Consumed[Consumed removed from UTXO set]
-  New[New Outputs Created]
-  Out --> UTXO
-  UTXO --> Ref
-  Ref --> Consumed
-  Consumed --> New
+```text
+[Transaction Output in block] --> [UTXO unspent] --> [Referenced by Transaction Input] --> [Consumed removed from UTXO set] --> [New Outputs Created]
 ```
 
 ### Step-by-Step Lifecycle
@@ -64,13 +55,8 @@ flowchart LR
 
 **Addresses are not accounts.** They're human-readable encodings of spending conditions that get embedded in transaction outputs.
 
-```mermaid
-flowchart TD
-  Addr[Address]
-  Script[Output ScriptPubKey]
-  UTXO[UTXO]
-  Addr -->|encoded as| Script
-  Script -->|when unspent| UTXO
+```text
+[Address] -- encoded as --> [Output ScriptPubKey] -- when unspent --> [UTXO]
 ```
 
 When someone sends bitcoin to your address:
@@ -84,13 +70,12 @@ When someone sends bitcoin to your address:
 
 When you want to spend bitcoin, you reference existing UTXOs as inputs:
 
-```mermaid
-flowchart TD
-  In[Input Structure]
-  In --> PrevTXID[Previous TXID]
-  In --> OutIdx[Output Index]
-  In --> ScriptSig[ScriptSig]
-  In --> Seq[Sequence]
+```text
+[Input Structure]
+├── Previous TXID
+├── Output Index
+├── ScriptSig
+└── Sequence
 ```
 
 Each input references exactly one UTXO. The input must provide proof (via ScriptSig and witness data) that it satisfies the spending conditions encoded in that UTXO's scriptPubKey.
@@ -99,17 +84,14 @@ Each input references exactly one UTXO. The input must provide proof (via Script
 
 Every transaction must create at least one output. When you spend UTXOs:
 
-```mermaid
-flowchart TD
-  Tx[Transaction]
-  Inputs[Inputs consuming UTXOs]
-  Outputs[Outputs creating new UTXOs]
-  Tx --> Inputs
-  Tx --> Outputs
-  Inputs --> I1[Input 1: 0.5 BTC UTXO]
-  Inputs --> I2[Input 2: 0.3 BTC UTXO]
-  Outputs --> O1[Output 1: 0.7 BTC to recipient]
-  Outputs --> O2[Output 2: 0.1 BTC change]
+```text
+[Transaction]
+├── Inputs consuming UTXOs
+│   ├── Input 1: 0.5 BTC UTXO
+│   └── Input 2: 0.3 BTC UTXO
+└── Outputs creating new UTXOs
+    ├── Output 1: 0.7 BTC to recipient
+    └── Output 2: 0.1 BTC change
 ```
 
 **Key Rule**: `Sum of Input Values ≥ Sum of Output Values`
@@ -120,15 +102,12 @@ The difference becomes the transaction fee paid to miners.
 
 A transaction is the bridge between consuming old UTXOs and creating new ones:
 
-```mermaid
-flowchart TD
-  Tx[Transaction]
-  Tx --> Ver[Version]
-  Tx --> Inputs[Inputs]
-  Tx --> Outputs[Outputs]
-  Tx --> Lock[Locktime]
-  Inputs --> InDesc["Each input: TXID, output_index, scriptSig, sequence"]
-  Outputs --> OutDesc["Each output: value, scriptPubKey"]
+```text
+[Transaction]
+├── Version
+├── Inputs (each input: TXID, output_index, scriptSig, sequence)
+├── Outputs (each output: value, scriptPubKey)
+└── Locktime
 ```
 
 ---
@@ -231,15 +210,8 @@ Full nodes maintain the UTXO set for fast transaction validation:
 
 The UTXO set is updated with each new block:
 
-```mermaid
-flowchart TD
-  Block[New Block Arrives]
-  ForEach[For each transaction]
-  Block --> ForEach
-  ForEach --> Remove[Remove consumed UTXOs from set - inputs]
-  ForEach --> Add[Add new UTXOs to set - outputs]
-  Remove --> Updated[UTXO set updated]
-  Add --> Updated
+```text
+[New Block Arrives] --> [For each transaction] --> [Remove consumed UTXOs from set - inputs] + [Add new UTXOs to set - outputs] --> [UTXO set updated]
 ```
 
 **Example**:

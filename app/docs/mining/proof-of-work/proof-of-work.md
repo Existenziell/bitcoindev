@@ -10,16 +10,19 @@ Bitcoin uses a **proof-of-work** consensus mechanism where miners compete to sol
 4. **Success**: When a miner finds a valid hash, they broadcast the block to the network
 5. **Reward**: The miner receives the block reward (currently 3.125 BTC) plus transaction fees
 
-```mermaid
-flowchart TD
-  Construct[Construct block]
-  Hash[Hash block header]
-  Check[Below target?]
-  Broadcast[Broadcast block]
-  Retry[Change nonce or coinbase]
-  Construct --> Hash --> Check
-  Check -->|Yes| Broadcast
-  Check -->|No| Retry --> Hash
+```text
+           [Construct block]
+                  |
+                  |
+          [Hash block header]
+                  |
+                  |
+            [Below target?]
+                 / \
+               Yes  No
+               /      \
+              /        \
+[Broadcast block]  [Change nonce or coinbase] --> (back to Hash)
 ```
 
 ---

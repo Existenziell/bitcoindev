@@ -19,16 +19,8 @@ For detailed transaction construction, see [Transaction Construction](/docs/bitc
 
 A transaction goes through several states:
 
-```mermaid
-flowchart LR
-  Created[Created]
-  Signed[Signed]
-  Broadcast[Broadcast]
-  Mempool[Mempool]
-  Pending[Pending]
-  Confirmed[Confirmed]
-  Deep[Deeply Confirmed]
-  Created --> Signed --> Broadcast --> Mempool --> Pending --> Confirmed --> Deep
+```text
+[Created] --> [Signed] --> [Broadcast] --> [Mempool] --> [Pending] --> [Confirmed] --> [Deeply Confirmed]
 ```
 
 | State | Description |

@@ -15,15 +15,8 @@ Every full node maintains its own mempool. There is no single, global mempool; e
 5. **Selection**: Miners select transactions from their mempool to include in blocks
 6. **Confirmation**: Once included in a block, the transaction leaves the mempool
 
-```mermaid
-flowchart LR
-  Broadcast[Broadcast]
-  Validation[Validation]
-  Mempool[Mempool]
-  Propagation[Propagation]
-  Selection[Miner selection]
-  Block[Block]
-  Broadcast --> Validation --> Mempool --> Propagation --> Selection --> Block
+```text
+[Broadcast] --> [Validation] --> [Mempool] --> [Propagation] --> [Miner selection] --> [Block]
 ```
 
 ### Mempool Policies

@@ -47,44 +47,29 @@ Before SegWit:
 
 SegWit transactions have two parts:
 
-```mermaid
-flowchart TD
-  Tx[Transaction]
-  Base[Base Transaction]
-  Ver[Version]
-  In[Inputs without signatures]
-  Out[Outputs]
-  Lock[Locktime]
-  Wit[Witness Data]
-  WitIn[Witness for each input]
-  Tx --> Base
-  Tx --> Wit
-  Base --> Ver
-  Base --> In
-  Base --> Out
-  Base --> Lock
-  Wit --> WitIn
+```text
+[Transaction]
+├── Base Transaction
+│   ├── Version
+│   ├── Inputs without signatures
+│   ├── Outputs
+│   └── Locktime
+└── Witness Data
+    └── Witness for each input
 ```
 
 ### Witness Structure
 
 Each input can have witness data:
 
-```mermaid
-flowchart TD
-  W[Witness]
-  N["Number of witness elements (varint)"]
-  E[Witness elements]
-  E1["Element 1 length (varint)"]
-  E1D[Element 1 data]
-  E2["Element 2 length (varint)"]
-  E2D[Element 2 data]
-  W --> N
-  W --> E
-  E --> E1
-  E --> E1D
-  E --> E2
-  E --> E2D
+```text
+[Witness]
+├── Number of witness elements (varint)
+└── Witness elements
+    ├── Element 1 length (varint)
+    ├── Element 1 data
+    ├── Element 2 length (varint)
+    └── Element 2 data
 ```
 
 ### Weight Units
@@ -492,17 +477,12 @@ As of 2024:
 
 SegWit uses witness version 0:
 
-```mermaid
-flowchart TD
-  WP[Witness Program]
-  V["Version (1 byte): 0x00"]
-  Prog["Program (20 or 32 bytes)"]
-  P2WPKH["20 bytes: P2WPKH"]
-  P2WSH["32 bytes: P2WSH"]
-  WP --> V
-  WP --> Prog
-  Prog --> P2WPKH
-  Prog --> P2WSH
+```text
+[Witness Program]
+├── Version (1 byte): 0x00
+└── Program (20 or 32 bytes)
+    ├── 20 bytes: P2WPKH
+    └── 32 bytes: P2WSH
 ```
 
 ### Script Execution

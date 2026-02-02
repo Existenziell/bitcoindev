@@ -17,13 +17,8 @@ Before Bitcoin, decentralized digital currency faced seemingly insurmountable pr
 | Byzantine / agreement | Trusted coordinator | Nakamoto consensus; economic incentives |
 | Timing / ordering | Central time source | Proof-of-work; block sequence as time |
 
-```mermaid
-flowchart LR
-  Problem[Double-spend / Byzantine]
-  BitcoinSol[Bitcoin solution]
-  PoW[Proof-of-Work]
-  Chain[Longest chain]
-  Problem --> BitcoinSol --> PoW --> Chain
+```text
+[Double-spend / Byzantine] --> [Bitcoin solution] --> [Proof-of-Work] --> [Longest chain]
 ```
 
 ---

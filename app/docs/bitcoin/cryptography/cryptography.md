@@ -39,25 +39,16 @@ Bitcoin uses cryptography for three main purposes:
 | **ECDSA** | Signatures (legacy) | P2PKH, P2SH, pre-Taproot outputs |
 | **Schnorr (BIP 340)** | Signatures (Taproot) | P2TR outputs, signature aggregation |
 
-```mermaid
-flowchart LR
-  subgraph Sign[Sign]
-    PK1[Private key]
-    Msg1[Message]
-    Sig[Signature]
-    PK1 --> Sig
-    Msg1 --> Sig
-  end
-  subgraph Verify[Verify]
-    Sig2[Signature]
-    Msg2[Message]
-    Pub[Public key]
-    Result[Valid or Invalid]
-    Sig2 --> Result
-    Msg2 --> Result
-    Pub --> Result
-  end
-  Sign --> Verify
+```text
+--- Sign ---
+[Private key] ----\
+                   --> [Signature]
+[Message] ---------/
+
+--- Verify ---
+[Signature] ----\
+[Message] ------- --> [Valid or Invalid]
+[Public key] ----/
 ```
 
 ---

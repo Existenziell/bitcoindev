@@ -8,15 +8,14 @@ A Bitcoin block consists of two main parts:
 
 ### Block Header (80 bytes)
 
-```mermaid
-flowchart TD
-  BH[Block Header 80 bytes]
-  BH --> V["Version (4 bytes)"]
-  BH --> Prev["Previous Block Hash (32 bytes)"]
-  BH --> MR["Merkle Root (32 bytes)"]
-  BH --> TS["Timestamp (4 bytes)"]
-  BH --> Diff["Difficulty Target (4 bytes)"]
-  BH --> Nonce["Nonce (4 bytes)"]
+```text
+[Block Header 80 bytes]
+├── Version (4 bytes)
+├── Previous Block Hash (32 bytes)
+├── Merkle Root (32 bytes)
+├── Timestamp (4 bytes)
+├── Difficulty Target (4 bytes)
+└── Nonce (4 bytes)
 ```
 
 All numeric fields (version, timestamp, difficulty target, nonce) are stored in little endian byte order. The previous block hash and merkle root are stored as-is (32 bytes each).

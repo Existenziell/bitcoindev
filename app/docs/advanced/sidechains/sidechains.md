@@ -4,21 +4,14 @@ Sidechains are separate blockchains that are pegged to Bitcoin, allowing bitcoin
 
 **Sidechains** are independent blockchains with their own consensus rules that are pegged to Bitcoin:
 
-```mermaid
-flowchart LR
-  subgraph Main [Bitcoin Mainnet]
-    Lock[Lock bitcoin]
-    ReceiveMain[Receive sidechain tokens]
-    Lock --> ReceiveMain
-  end
-  subgraph Side [Sidechain]
-    ReceiveSide[Receive tokens]
-    Use[Use sidechain features]
-    Unlock[Unlock to return to Bitcoin]
-    ReceiveSide --> Use --> Unlock
-  end
-  ReceiveMain --> ReceiveSide
-  Unlock --> Lock
+```text
+--- Bitcoin Mainnet ---
+[Lock bitcoin] --> [Receive sidechain tokens]
+
+--- Sidechain ---
+[Receive tokens] --> [Use sidechain features] --> [Unlock to return to Bitcoin]
+
+[Receive sidechain tokens] --> [Receive tokens]    [Unlock to return to Bitcoin] --> [Lock bitcoin]
 ```
 
 ---

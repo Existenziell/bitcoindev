@@ -344,6 +344,12 @@ main > div > div > h1:first-child {
   color: inherit;
 }
 
+/* Slightly smaller font for ASCII diagrams (```text blocks) */
+.markdown-content .code-block-wrapper:has(pre code.language-text) pre,
+.markdown-content .code-block-wrapper:has(pre code.language-text) pre code {
+  font-size: 0.8125rem; /* 13px – slightly smaller than text-sm (0.875rem) */
+}
+
 /* Remove unwanted line backgrounds in code blocks that look like selections in dark mode */
 /* Target all elements except those with intentional background colors (addition/deletion) */
 .markdown-content pre code *:not(.hljs-addition):not(.hljs-deletion),

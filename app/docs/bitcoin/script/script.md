@@ -17,12 +17,8 @@ When you spend bitcoin, the network executes both scripts together:
 2. **Locking script runs second** (verifies the data satisfies the conditions)
 3. **If the stack ends with `1` (true)**, the spend is valid
 
-```mermaid
-flowchart LR
-  Unlock[Unlocking script runs]
-  Lock[Locking script runs]
-  Result[Stack ends with 1 = valid]
-  Unlock --> Lock --> Result
+```text
+[Unlocking script runs] --> [Locking script runs] --> [Stack ends with 1 = valid]
 ```
 
 Scripts execute on a stack (LIFO). They are intentionally not Turing-complete: no loops means every script terminates, preventing denial-of-service attacks. Fewer features also means fewer vulnerabilities. Build and run scripts in [Stack Lab](/stack-lab).

@@ -15,14 +15,13 @@ Example Invoice:
 lnbc2500u1pvjluezsp5zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zygspp5qqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqypqdq5xysxxatsyp3k7enxv4jsxqzpu9qxpqysgq...
 ```
 
-```mermaid
-flowchart TD
-  Inv[Invoice Breakdown]
-  Inv --> lnbc["lnbc - Network (mainnet Bitcoin)"]
-  Inv --> amt["2500u - Amount (250,000 sats)"]
-  Inv --> sep["1 - Separator"]
-  Inv --> data["pvjluez... - Bech32-encoded data"]
-  Inv --> sig["9qxpqysgq... - Signature"]
+```text
+[Invoice Breakdown]
+├── lnbc - Network (mainnet Bitcoin)
+├── 2500u - Amount (250,000 sats)
+├── 1 - Separator
+├── pvjluez... - Bech32-encoded data
+└── 9qxpqysgq... - Signature
 ```
 
 ---
@@ -537,14 +536,13 @@ Common expiry values:
 
 Private channels require route hints to be payable:
 
-```mermaid
-flowchart TD
-  RH[Route Hint Structure]
-  RH --> NodeID[Node ID 33 bytes]
-  RH --> SCID[Short Channel ID 8 bytes]
-  RH --> FeeBase[Fee Base 4 bytes]
-  RH --> FeeProp[Fee Proportional 4 bytes]
-  RH --> CLTV[CLTV Expiry Delta 2 bytes]
+```text
+[Route Hint Structure]
+├── Node ID 33 bytes
+├── Short Channel ID 8 bytes
+├── Fee Base 4 bytes
+├── Fee Proportional 4 bytes
+└── CLTV Expiry Delta 2 bytes
 ```
 
 Route hints tell the sender how to reach a node through private/unannounced channels.

@@ -19,15 +19,8 @@ Payment channels are the fundamental building block of the Lightning Network. Th
 - Broadcast to Bitcoin network
 - Wait for confirmation (typically 3-6 blocks)
 
-```mermaid
-flowchart LR
-  A1[Alice and Bob agree]
-  A2[Create funding tx 2-of-2 multisig]
-  A3[Exchange initial commitments]
-  A4[Broadcast funding tx]
-  A5[Wait for confirmation]
-  A6[Channel active]
-  A1 --> A2 --> A3 --> A4 --> A5 --> A6
+```text
+[Alice and Bob agree] --> [Create funding tx 2-of-2 multisig] --> [Exchange initial commitments] --> [Broadcast funding tx] --> [Wait for confirmation] --> [Channel active]
 ```
 
 ### 2. Channel Active
@@ -64,14 +57,12 @@ sequenceDiagram
 
 Each commitment transaction represents the current channel state:
 
-```mermaid
-flowchart TD
-  Commit[Commitment Transaction]
-  In[Input: Funding tx output 2-of-2 multisig]
-  Commit --> In
-  Commit --> O1[Alice balance to_local or to_remote]
-  Commit --> O2[Bob balance to_local or to_remote]
-  Commit --> O3[Any pending HTLCs]
+```text
+[Commitment Transaction]
+├── Input: Funding tx output 2-of-2 multisig
+├── Alice balance to_local or to_remote
+├── Bob balance to_local or to_remote
+└── Any pending HTLCs
 ```
 
 ### Asymmetric Commitments

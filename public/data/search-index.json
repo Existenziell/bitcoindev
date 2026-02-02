@@ -566,7 +566,7 @@
     "path": "/docs/mining/block-construction",
     "title": "Block Construction",
     "section": "mining",
-    "body": "Block Construction Block construction is the process by which miners assemble a new block from pending transactions. This is where the mempool meets the blockchain. Miners must decide which transactions to include, how to order them, and how to structure the block for maximum profit while following consensus rules. Anatomy of a Block A Bitcoin block consists of two main parts: Block Header (80 bytes) flowchart TD BHBlock Header 80 bytes] BH --> V[\"Version (4 bytes)\"] BH --> Prev[\"Previous Block "
+    "body": "Block Construction Block construction is the process by which miners assemble a new block from pending transactions. This is where the mempool meets the blockchain. Miners must decide which transactions to include, how to order them, and how to structure the block for maximum profit while following consensus rules. Anatomy of a Block A Bitcoin block consists of two main parts: Block Header (80 bytes) Block Header 80 bytes] ├── Version (4 bytes) ├── Previous Block Hash (32 bytes) ├── Merkle Root "
   },
   {
     "path": "/docs/mining/economics",
@@ -944,7 +944,7 @@
     "path": "/docs/advanced/sidechains",
     "title": "Sidechains & Layer 2",
     "section": "advanced",
-    "body": "Sidechains & Layer 2 Alternatives Sidechains are separate blockchains that are pegged to Bitcoin, allowing bitcoin to be moved between the main chain and sidechain. They provide alternative scaling solutions and specialized features. Sidechains are independent blockchains with their own consensus rules that are pegged to Bitcoin: flowchart LR subgraph Main Bitcoin Mainnet] Lock[Lock bitcoin] ReceiveMain[Receive sidechain tokens] Lock --> ReceiveMain end subgraph Side [Sidechain] "
+    "body": "Sidechains & Layer 2 Alternatives Sidechains are separate blockchains that are pegged to Bitcoin, allowing bitcoin to be moved between the main chain and sidechain. They provide alternative scaling solutions and specialized features. Sidechains are independent blockchains with their own consensus rules that are pegged to Bitcoin: --- Bitcoin Mainnet --- Lock bitcoin] --> [Receive sidechain tokens] --- Sidechain --- [Receive tokens] --> [Use sidechain features] --> [Unlock to return to Bitcoin "
   },
   {
     "path": "/docs/advanced/atomic-swaps",

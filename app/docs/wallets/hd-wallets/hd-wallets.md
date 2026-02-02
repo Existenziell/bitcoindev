@@ -12,13 +12,8 @@ HD wallets, defined in BIP32, allow a wallet to derive an unlimited number of ke
 - Watch-only wallets using extended public keys
 - Deterministic key generation across devices
 
-```mermaid
-flowchart LR
-  Seed[Seed]
-  Account["m/44'/0'/0'"]
-  Index["m/44'/0'/0'/0"]
-  Addr[Addresses]
-  Seed --> Account --> Index --> Addr
+```text
+[Seed] --> [m/44'/0'/0'] --> [m/44'/0'/0'/0] --> [Addresses]
 ```
 
 ---

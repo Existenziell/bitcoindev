@@ -51,12 +51,11 @@ Watchtower → Blockchain: Penalty transaction (claims funds)
 
 Breach hints allow watchtowers to detect breaches without knowing channel details:
 
-```mermaid
-flowchart TD
-  BH[Breach Hint]
-  BH --> Loc["Locator (16 bytes): SHA256(breach_txid)[0:16]"]
-  BH --> Blob[Encrypted Blob: AES-encrypted penalty tx]
-  BH --> Session[Session Info: Tower identification]
+```text
+[Breach Hint]
+├── Locator (16 bytes): SHA256(breach_txid)[0:16]
+├── Encrypted Blob: AES-encrypted penalty tx
+└── Session Info: Tower identification
 ```
 
 The locator is derived from the commitment transaction ID. When a watchtower sees a transaction matching a locator, it can decrypt and broadcast the penalty.
@@ -207,13 +206,8 @@ When choosing watchtowers, consider:
 
 ### Trust Model
 
-```mermaid
-flowchart LR
-  Self[Self-hosted: most trust, most effort]
-  Friend[Friend tower: trusted party]
-  Community[Community towers: reputation-based]
-  Commercial[Commercial towers: contractual]
-  Self --> Friend --> Community --> Commercial
+```text
+[Self-hosted: most trust, most effort] --> [Friend tower: trusted party] --> [Community towers: reputation-based] --> [Commercial towers: contractual]
 ```
 
 ---
