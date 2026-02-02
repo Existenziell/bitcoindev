@@ -6,106 +6,23 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import Link from 'next/link'
 import { ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
-import { generateSlug } from '@/scripts/lib/slug'
 import { docPages } from '@/app/utils/navigation'
 
-const RELATED_COMMENT_RE = /^\s*<!--\s*related:\s*(\/[^\s]+)\s*-->\s*$/
-
-interface GlossaryRendererProps {
-  content: string
-}
-
-interface GlossaryEntry {
+export interface GlossaryEntry {
   term: string
   slug: string
   definition: string
   relatedArticle?: string
 }
 
-interface GlossarySection {
+export interface GlossarySection {
   letter: string
   slug: string
   entries: GlossaryEntry[]
 }
 
-function parseDefinitionAndRelated(definitionLines: string[]): { definition: string; relatedArticle?: string } {
-  const relatedMatch = definitionLines.find((l) => RELATED_COMMENT_RE.test(l))
-  const lines = relatedMatch
-    ? definitionLines.filter((l) => !RELATED_COMMENT_RE.test(l))
-    : definitionLines
-  const definition = lines.join('\n').trim()
-  const relatedArticle = relatedMatch ? RELATED_COMMENT_RE.exec(relatedMatch)?.[1] : undefined
-  return { definition, relatedArticle }
-}
-
-function parseGlossaryContent(content: string): GlossarySection[] {
-  const sections: GlossarySection[] = []
-  const lines = content.split('\n')
-
-  let currentSection: GlossarySection | null = null
-  let currentEntry: GlossaryEntry | null = null
-  let currentDefinitionLines: string[] = []
-
-  for (const line of lines) {
-    const sectionMatch = line.match(/^## (.+)$/)
-    if (sectionMatch) {
-      if (currentEntry && currentSection) {
-        const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
-        currentEntry.definition = definition
-        currentEntry.relatedArticle = relatedArticle
-        currentSection.entries.push(currentEntry)
-        currentEntry = null
-        currentDefinitionLines = []
-      }
-
-      if (currentSection) {
-        sections.push(currentSection)
-      }
-
-      const letter = sectionMatch[1].trim()
-      currentSection = {
-        letter,
-        slug: generateSlug(letter),
-        entries: []
-      }
-      continue
-    }
-
-    const termMatch = line.match(/^### (.+)$/)
-    if (termMatch && currentSection) {
-      if (currentEntry) {
-        const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
-        currentEntry.definition = definition
-        currentEntry.relatedArticle = relatedArticle
-        currentSection.entries.push(currentEntry)
-        currentDefinitionLines = []
-      }
-
-      const term = termMatch[1].trim()
-      currentEntry = {
-        term,
-        slug: generateSlug(term),
-        definition: ''
-      }
-      continue
-    }
-
-    if (currentEntry) {
-      currentDefinitionLines.push(line)
-    }
-  }
-
-  if (currentEntry && currentSection) {
-    const { definition, relatedArticle } = parseDefinitionAndRelated(currentDefinitionLines)
-    currentEntry.definition = definition
-    currentEntry.relatedArticle = relatedArticle
-    currentSection.entries.push(currentEntry)
-  }
-  if (currentSection) {
-    sections.push(currentSection)
-  }
-
-  return sections
+interface GlossaryRendererProps {
+  sections: GlossarySection[]
 }
 
 // Inline-only markdown for definitions
@@ -151,9 +68,8 @@ function DefinitionRenderer({ content }: { content: string }) {
   )
 }
 
-export default function GlossaryRenderer({ content }: GlossaryRendererProps) {
+export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
-  const sections = React.useMemo(() => parseGlossaryContent(content), [content])
 
   useEffect(() => {
     const handleHash = () => {

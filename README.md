@@ -63,7 +63,7 @@ Many examples are shown in **five languages** (Python, Rust, C++, Go, JavaScript
 
 ## Search
 
-**Command+K** (Mac) or **Ctrl+K** (Windows/Linux) opens the search modal. It indexes docs, glossary terms, and key pages. Also available via the search icon in the header.
+**Command+K** (Mac) or **Ctrl+K** (Windows/Linux) opens the search modal. It indexes docs and key pages. Also available via the search icon in the header.
 
 ---
 
@@ -101,6 +101,7 @@ npm run dev    # → http://localhost:3000
 | `npm run dev` | Development server |
 | `npm run build` | Production build |
 | `npm run start` | Production server |
+| `npm run generate:all` | Regenerate md-content, glossary.json, and search index (run after editing `app/docs/` or `app/docs/glossary/terms.md`) |
 | `npm run test` | Unit + E2E |
 | `npm run test:unit` | Vitest (once) |
 | `npm run test:unit:watch` | Vitest watch |

@@ -9,6 +9,7 @@
 const fs = require('fs')
 const path = require('path')
 const { parseDocPages } = require('./lib/parse-doc-pages')
+const { parseGlossaryContent } = require('./lib/parse-glossary')
 
 const navigationPath = path.join(__dirname, '../app/utils/navigation.ts')
 const navigationContent = fs.readFileSync(navigationPath, 'utf-8')
@@ -21,6 +22,8 @@ if (docPages.length === 0) {
 
 const mdContent = {}
 
+let glossarySections = null
+
 for (const page of docPages) {
   const { path: urlPath, mdFile } = page
   const fullPath = path.join(__dirname, '..', mdFile)
@@ -30,6 +33,9 @@ for (const page of docPages) {
     mdContent[urlPath] = {
       content,
       filename: path.basename(mdFile)
+    }
+    if (urlPath === '/docs/glossary') {
+      glossarySections = parseGlossaryContent(content)
     }
     console.log(`✓ ${urlPath}`)
   } catch (err) {
@@ -44,3 +50,9 @@ fs.mkdirSync(dataDir, { recursive: true })
 const mdContentPath = path.join(dataDir, 'md-content.json')
 fs.writeFileSync(mdContentPath, JSON.stringify(mdContent, null, 2))
 console.log(`\nGenerated ${Object.keys(mdContent).length} entries to public/data/md-content.json`)
+
+if (glossarySections !== null) {
+  const glossaryPath = path.join(dataDir, 'glossary.json')
+  fs.writeFileSync(glossaryPath, JSON.stringify(glossarySections, null, 2))
+  console.log(`Generated glossary.json (${glossarySections.length} sections)`)
+}

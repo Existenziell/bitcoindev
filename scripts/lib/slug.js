@@ -1,6 +1,6 @@
 /**
  * Generate URL-safe slug from text.
- * Used by: generate-search-index, MarkdownRenderer, GlossaryRenderer.
+ * Used by: generate-search-index, MarkdownRenderer, parse-glossary.
  */
 function generateSlug(text) {
   return text

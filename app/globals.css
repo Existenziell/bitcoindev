@@ -663,19 +663,6 @@ main > div > div > h1:first-child {
   @apply bg-btc/10 dark:bg-btc/20;
 }
 
-/* Glossary definition prose styling */
-.glossary-definition a[href^="/docs/glossary"] {
-  @apply text-gray-900 dark:text-gray-200 hover:text-btc transition-colors;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 2px;
-}
-
-.glossary-definition a[href^="/docs/glossary"]:hover {
-  text-decoration-style: solid;
-  text-underline-offset: 3px;
-}
-
 /*
 * Terminal Styles
 */

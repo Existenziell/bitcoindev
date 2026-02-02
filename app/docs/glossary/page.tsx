@@ -1,7 +1,7 @@
 import GlossaryRenderer from '@/app/components/GlossaryRenderer'
 import { sections } from '@/app/utils/navigation'
 import { generatePageMetadata } from '@/app/utils/metadata'
-import mdContent from '@/public/data/md-content.json'
+import glossaryData from '@/public/data/glossary.json'
 
 export const metadata = generatePageMetadata({
   title: 'Glossary',
@@ -10,14 +10,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default async function GlossaryPage() {
-  // Get glossary content from pre-generated md-content.json (same as other doc pages)
-  const entry = (mdContent as Record<string, { content: string }>)['/docs/glossary']
-  const content = entry?.content || ''
-
   return (
     <div>
       <h1 className="heading-page">Glossary</h1>
-      <GlossaryRenderer content={content} />
+      <GlossaryRenderer sections={glossaryData} />
     </div>
   )
 }
