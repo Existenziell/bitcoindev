@@ -446,7 +446,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       }
 
       return (
-        <pre className="hljs bg-gray-100 dark:bg-gray-900 rounded-lg p-4 overflow-x-auto mb-4 border border-gray-300 dark:border-gray-700" {...props}>
+        <pre className="code-block-pre rounded-lg mb-4" {...props}>
           {children}
         </pre>
       )

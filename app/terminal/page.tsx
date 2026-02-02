@@ -643,7 +643,7 @@ export default function TerminalPage() {
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               disabled={isLoading || isLocked}
-              className="flex-1 bg-transparent text-green-400 dark:text-gray-200 font-mono text-xs md:text-sm outline-none placeholder-green-700 dark:placeholder-gray-600 min-w-0"
+              className="terminal-input"
               placeholder={isLoading ? 'executing...' : 'enter command...'}
               autoFocus
               spellCheck={false}
@@ -654,7 +654,7 @@ export default function TerminalPage() {
             <button
               type="submit"
               disabled={isLoading || isLocked}
-              className="px-2 md:px-3 py-1 bg-green-600 dark:bg-btc text-white dark:text-gray-900 font-mono text-xs md:text-sm rounded hover:bg-green-500 dark:hover:bg-btc/80 disabled:opacity-50"
+              className="terminal-submit"
             >
               Run
             </button>

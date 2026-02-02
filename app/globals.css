@@ -182,6 +182,73 @@ body {
   .footer-bar {
     @apply w-full border-t border-gray-200 dark:border-gray-700 pt-4 flex flex-col md:flex-row items-center justify-center gap-y-1 md:gap-x-4 md:gap-y-0 text-sm text-secondary;
   }
+
+  /* Code block pre - hljs container (add rounded-b-lg border-t-0 for CodeBlock, rounded-lg mb-4 for MarkdownRenderer) */
+  .code-block-pre {
+    @apply hljs bg-gray-100 dark:bg-gray-900 p-4 overflow-x-auto border border-gray-300 dark:border-gray-700;
+  }
+
+  /* Read-only gray output panel */
+  .output-panel {
+    @apply px-3 py-2 rounded border bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 pointer-events-none;
+  }
+
+  /* Block visualizer card - gradient, border, padding */
+  .block-card {
+    @apply relative flex-shrink-0 w-44 h-44 overflow-hidden rounded-none border border-gray-200 dark:border-gray-700 bg-gradient-to-b from-cyan-500/10 to-purple-500/10 dark:from-cyan-500/20 dark:to-purple-500/20 p-3 text-sm;
+  }
+
+  /* Block visualizer scroll arrows - add left-0 or right-0 and gradient */
+  .block-nav-arrow {
+    @apply absolute top-0 bottom-8 z-10 flex items-center justify-center w-10 text-secondary hover:text-btc transition-colors;
+  }
+
+  .block-nav-arrow-left {
+    @apply left-0 bg-gradient-to-r from-white dark:from-gray-900 to-transparent;
+  }
+
+  .block-nav-arrow-right {
+    @apply right-0 bg-gradient-to-l from-white dark:from-gray-900 to-transparent;
+  }
+
+  /* Search modal input - transparent, no border, placeholder/focus */
+  .search-input {
+    @apply flex-1 py-5 text-lg bg-transparent border-0 border-none outline-none placeholder:text-gray-500 dark:placeholder:text-gray-400 text-gray-900 dark:text-gray-200 focus:ring-0 focus:border-0;
+  }
+
+  /* Tools grid card */
+  .tool-card {
+    @apply block p-5 rounded-lg hover:no-underline border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 hover:border-btc hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-colors;
+  }
+
+  /* Terminal input and submit */
+  .terminal-input {
+    @apply flex-1 bg-transparent text-green-400 dark:text-gray-200 font-mono text-xs md:text-sm outline-none placeholder-green-700 dark:placeholder-gray-600 min-w-0;
+  }
+
+  .terminal-submit {
+    @apply px-2 md:px-3 py-1 bg-green-600 dark:bg-btc text-white dark:text-gray-900 font-mono text-xs md:text-sm rounded hover:bg-green-500 dark:hover:bg-btc/80 disabled:opacity-50;
+  }
+
+  /* Success badge (emerald) */
+  .badge-success {
+    @apply flex-shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 dark:bg-emerald-800/50 text-emerald-700 dark:text-emerald-300;
+  }
+
+  /* Warning panel (yellow) */
+  .warning-panel {
+    @apply bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 text-sm text-yellow-800 dark:text-yellow-200;
+  }
+
+  /* Info tooltip popover */
+  .info-tooltip {
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 absolute right-0 top-6 w-64 p-3 shadow-lg text-xs text-gray-700 dark:text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10;
+  }
+
+  /* Mobile nav toggle button */
+  .mobile-nav-button {
+    @apply w-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-200 px-4 py-2 rounded-lg flex items-center justify-between transition-colors;
+  }
 }
 
 @layer utilities {}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
+import { cn } from '@/app/utils/cn'
 import DocsNavigation from '@/app/components/DocsNavigation'
 import MobileNav from '@/app/components/MobileNav'
 import PageNavigation from '@/app/components/PageNavigation'
@@ -61,7 +62,10 @@ export default function DocsLayoutWrapper({
       <div className="container-content py-4 md:py-8 flex-grow">
         <div className="flex flex-col md:flex-row gap-4 md:gap-0">
           <div
-            className={`hidden md:block md:flex-shrink-0 md:self-start md:overflow-y-auto md:overflow-x-hidden transition-[width] duration-200 ease-in-out ${isSidebarCollapsed ? 'md:w-12' : 'md:w-64'}`}
+            className={cn(
+              'hidden md:block md:flex-shrink-0 md:self-start md:overflow-y-auto md:overflow-x-hidden transition-[width] duration-200 ease-in-out',
+              isSidebarCollapsed ? 'md:w-12' : 'md:w-64'
+            )}
           >
             <DocsNavigation
               isSidebarCollapsed={isSidebarCollapsed}
@@ -71,7 +75,10 @@ export default function DocsLayoutWrapper({
           <div className="flex-1 min-w-0">
             <MobileNav />
             <div
-              className={`mx-auto w-full transition-[max-width] duration-200 ease-in-out ${isSidebarCollapsed ? 'max-w-6xl' : 'max-w-4xl'}`}
+              className={cn(
+                'mx-auto w-full transition-[max-width] duration-200 ease-in-out',
+                isSidebarCollapsed ? 'max-w-6xl' : 'max-w-4xl'
+              )}
             >
               {children}
             </div>

@@ -88,7 +88,7 @@ function CodeBlock({ language, children, className, rawCode, ...props }: CodeBlo
           </button>
         )}
       </div>
-      <pre className="hljs bg-gray-100 dark:bg-gray-900 rounded-b-lg p-4 overflow-x-auto border border-gray-300 dark:border-gray-700 border-t-0" role="code" aria-label={`${displayName} code`}>
+      <pre className="code-block-pre rounded-b-lg border-t-0" role="code" aria-label={`${displayName} code`}>
         <code className={className} {...props}>
           {children}
         </code>
@@ -196,7 +196,7 @@ export function MultiLanguageCodeBlock({ languages }: MultiLanguageCodeBlockProp
         </button>
       </div>
       <pre
-        className="hljs bg-gray-100 dark:bg-gray-900 rounded-b-lg p-4 overflow-x-auto border border-gray-300 dark:border-gray-700 border-t-0"
+        className="code-block-pre rounded-b-lg border-t-0"
         role="code"
         aria-label={`${languageNames[selectedLang] || selectedLang} code`}
         id={`code-block-${selectedLang}`}

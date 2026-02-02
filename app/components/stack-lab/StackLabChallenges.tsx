@@ -431,7 +431,7 @@ export default function StackLabChallenges() {
                   <div className="font-semibold text-gray-800 dark:text-gray-200">{c.title}</div>
                   {solved && (
                     <span
-                      className="flex-shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-emerald-100 dark:bg-emerald-800/50 text-emerald-700 dark:text-emerald-300"
+                      className="badge-success"
                       title="Solved"
                     >
                       ✓ Solved
@@ -730,7 +730,7 @@ export default function StackLabChallenges() {
 
           <DragOverlay dropAnimation={null}>
             {activeId && activeId.startsWith('opcode-') ? (
-              <div className="px-3 py-2 rounded border bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 pointer-events-none">
+              <div className="output-panel">
                 <div className="font-mono text-sm font-semibold">
                   {activeId.replace('opcode-', '')}
                 </div>

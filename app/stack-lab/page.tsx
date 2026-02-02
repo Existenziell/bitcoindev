@@ -400,7 +400,7 @@ export default function StackLabPage() {
 
           <DragOverlay dropAnimation={null}>
             {activeId && activeId.startsWith('opcode-') ? (
-              <div className="px-3 py-2 rounded border bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 pointer-events-none">
+              <div className="output-panel">
                 <div className="font-mono text-sm font-semibold">
                   {activeId.replace('opcode-', '')}
                 </div>

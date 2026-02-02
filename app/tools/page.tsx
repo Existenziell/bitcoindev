@@ -58,7 +58,7 @@ export default function ToolsPage() {
           <li key={tool.href}>
             <Link
               href={tool.href}
-              className="block p-5 rounded-lg hover:no-underline border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 hover:border-btc hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-colors"
+              className="tool-card"
             >
               <div className="flex items-center gap-3 mb-2">
                 {tool.href === '/terminal' && <TerminalIcon className="w-6 h-6 shrink-0 text-btc" />}

@@ -86,7 +86,7 @@ function ScriptItem({
               handleCancel()
             }
           }}
-          className="flex-1 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded px-2 py-1 text-sm font-mono text-gray-800 dark:text-gray-200 focus:outline-none focus:border-btc"
+          className="input-panel flex-1 rounded px-2 py-1 text-sm font-mono"
           autoFocus
         />
         <button

@@ -10,7 +10,7 @@ export default function MobileNav() {
     <div className="md:hidden mb-4">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-200 px-4 py-2 rounded-lg flex items-center justify-between transition-colors"
+        className="mobile-nav-button"
         aria-label="Toggle navigation menu"
       >
         <span className="font-semibold">Navigation</span>

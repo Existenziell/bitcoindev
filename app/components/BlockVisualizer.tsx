@@ -392,7 +392,7 @@ export default function BlockVisualizer() {
               <button
                 type="button"
                 onClick={() => scrollPreviousBlocks('left')}
-                className="absolute left-0 top-0 bottom-8 z-10 flex items-center justify-center w-10 bg-gradient-to-r from-white dark:from-gray-900 to-transparent text-secondary hover:text-btc transition-colors"
+                className="block-nav-arrow block-nav-arrow-left"
                 aria-label="Scroll previous blocks left"
               >
                 <ChevronLeft className="w-8 h-8" />
@@ -409,7 +409,7 @@ export default function BlockVisualizer() {
                   <span className="text-btc text-base font-medium truncate">{formatNumber(snap.height)}</span>
                 </div>
                 <div
-                  className="relative flex-shrink-0 w-44 h-44 overflow-hidden rounded-none border border-gray-200 dark:border-gray-700 bg-gradient-to-b from-cyan-500/10 to-purple-500/10 dark:from-cyan-500/20 dark:to-purple-500/20 p-3 text-sm"
+                  className="block-card"
                 >
                 <div className="text-xs">
                   <div className="mb-2">{getRelativeTime(snap.timestamp)}</div>
@@ -439,7 +439,7 @@ export default function BlockVisualizer() {
               <button
                 type="button"
                 onClick={() => scrollPreviousBlocks('right')}
-                className="absolute right-0 top-0 bottom-8 z-10 flex items-center justify-center w-10 bg-gradient-to-l from-white dark:from-gray-900 to-transparent text-secondary hover:text-btc transition-colors"
+                className="block-nav-arrow block-nav-arrow-right"
                 aria-label="Scroll previous blocks right"
               >
                 <ChevronRight className="w-8 h-8" />
@@ -497,7 +497,7 @@ export default function BlockVisualizer() {
       </div>
 
       {error && blockData && (
-        <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 text-sm text-yellow-800 dark:text-yellow-200">
+        <div className="warning-panel">
           <div className="font-semibold mb-1">Warning</div>
           <div>{error}</div>
         </div>

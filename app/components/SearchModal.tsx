@@ -91,7 +91,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search docs…"
-            className="flex-1 py-5 text-lg bg-transparent border-0 border-none outline-none placeholder:text-gray-500 dark:placeholder:text-gray-400 text-gray-900 dark:text-gray-200 focus:ring-0 focus:border-0"
+            className="search-input"
             autoComplete="off"
             autoCorrect="off"
             aria-label="Search"
