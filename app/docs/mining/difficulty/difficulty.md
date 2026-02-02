@@ -47,7 +47,7 @@ flowchart LR
 ### Network Security
 
 - **Hash Rate Changes**: Network [hash rate](/docs/glossary#hash-rate) fluctuates
-- **Hardware Improvements**: New [ASICs](/docs/glossary#asic-application-specific-integrated-circuit) increase network hash rate
+- **Hardware Improvements**: New [ASICs](/docs/glossary#asic) increase network hash rate
 - **Miner Participation**: Miners join/leave the network
 - **Adaptation**: Difficulty adjusts to maintain security
 

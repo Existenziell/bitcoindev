@@ -40,11 +40,11 @@ The same cannot be said for cash. A briefcase of dollars changes hands in privat
 
 ### Novelty
 
-Bitcoin is new. "Crypto" attracts political and media attention. Fiat banking is ordinary; its role in crime is old news. The novelty of Bitcoin makes it a convenient villain and a useful narrative for regulators and politicians who want to justify [AML](/docs/glossary#aml-anti-money-laundering) and [KYC](/docs/glossary#kyc-know-your-customer) rules that extend state control over financial rails.
+Bitcoin is new. "Crypto" attracts political and media attention. Fiat banking is ordinary; its role in crime is old news. The novelty of Bitcoin makes it a convenient villain and a useful narrative for regulators and politicians who want to justify [AML](/docs/glossary#aml) and [KYC](/docs/glossary#kyc) rules that extend state control over financial rails.
 
 ### The Narrative Sells
 
-The "Bitcoin for criminals" story fits agendas: more surveillance, more [KYC](/docs/glossary#kyc-know-your-customer), more gatekeepers at the borders of the [network](/docs/bitcoin/p2p-protocol). It is easier to rally support for cracking down on something that sounds dangerous and unfamiliar than to address the systemic role of fiat and banking in illicit flows.
+The "Bitcoin for criminals" story fits agendas: more surveillance, more [KYC](/docs/glossary#kyc), more gatekeepers at the borders of the [network](/docs/bitcoin/p2p-protocol). It is easier to rally support for cracking down on something that sounds dangerous and unfamiliar than to address the systemic role of fiat and banking in illicit flows.
 
 ---
 
@@ -53,7 +53,7 @@ The "Bitcoin for criminals" story fits agendas: more surveillance, more [KYC](/d
 Bitcoin is one of the *least* attractive currencies for sophisticated criminals who want to evade detection.
 
 - **Public ledger**: Every transaction is recorded. [Blockchain monitoring](/docs/bitcoin-development/blockchain-monitoring) and chain analysis can trace flows, cluster addresses, and link them to exchanges.
-- **KYC at off-ramps**: Converting Bitcoin to fiat usually requires an exchange or similar service that collects identity under [KYC](/docs/glossary#kyc-know-your-customer) and [AML](/docs/glossary#aml-anti-money-laundering) rules. That creates a durable link between on-chain activity and real-world identity.
+- **KYC at off-ramps**: Converting Bitcoin to fiat usually requires an exchange or similar service that collects identity under [KYC](/docs/glossary#kyc) and [AML](/docs/glossary#aml) rules. That creates a durable link between on-chain activity and real-world identity.
 - **Cash is more anonymous**: Physical cash leaves no permanent record. For someone who wants to obscure the origin of funds, cash is far more convenient than a transparent, permanent blockchain.
 
 This is why the narrative is ironic: the same transparency that makes Bitcoin's use in crime *visible* also makes it *traceable*. The idea that Bitcoin is the preferred tool for serious, organized crime does not hold up. It is used in some crimes because it is convenient for cross-border, digital payments, but so is the traditional banking system, at far greater scale.

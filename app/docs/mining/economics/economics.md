@@ -30,7 +30,7 @@ Electricity is typically the largest ongoing cost for miners:
 
 ### Hardware Costs
 
-- **[ASIC](/docs/glossary#asic-application-specific-integrated-circuit) Purchase**: $2,000–$15,000+ per unit
+- **[ASIC](/docs/glossary#asic) Purchase**: $2,000–$15,000+ per unit
 - **Depreciation**: Hardware loses value as newer, more efficient models release
 - **Lifespan**: Typically 2-4 years of competitive operation
 - **Maintenance**: Fans, power supplies may need replacement

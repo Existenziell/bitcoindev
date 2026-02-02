@@ -1,6 +1,6 @@
 # Ordinals and Inscriptions Controversy
 
-[Ordinals](/docs/glossary#ordinals) and [inscriptions](/docs/glossary#inscriptions) let users attach arbitrary data (images, text, JSON) to individual [satoshis](/docs/glossary#sat-satoshi) using [witness](/docs/glossary#witness) data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. [BRC-20](/docs/glossary#brc-20-tokens)) sparked a heated debate: are they legitimate use of [block space](/docs/glossary#block-size) or spam that raises [fees](/docs/glossary#fee-rate) and distorts Bitcoin’s purpose?
+[Ordinals](/docs/glossary#ordinals) and [inscriptions](/docs/glossary#inscriptions) let users attach arbitrary data (images, text, JSON) to individual [satoshis](/docs/glossary#sat) using [witness](/docs/glossary#witness) data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. [BRC-20](/docs/glossary#brc-20-tokens)) sparked a heated debate: are they legitimate use of [block space](/docs/glossary#block-size) or spam that raises [fees](/docs/glossary#fee-rate) and distorts Bitcoin’s purpose?
 
 ## What Are Ordinals and Inscriptions?
 
@@ -17,9 +17,9 @@ For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-ins
 
 **Arguments:**
 
-- Bitcoin exists to be **sound money** and [peer-to-peer](/docs/glossary#peer-to-peer-p2p) cash. Storing images, JSON, or token metadata is not monetary use and **crowds out** normal [transactions](/docs/glossary#transaction).
+- Bitcoin exists to be **sound money** and [peer-to-peer](/docs/glossary#p2p) cash. Storing images, JSON, or token metadata is not monetary use and **crowds out** normal [transactions](/docs/glossary#transaction).
 - Inscription-heavy activity has driven [mempool](/docs/mining/mempool) congestion and higher [fee rates](/docs/glossary#fee-rate), especially in 2023–2024, making cheap on-chain payments harder.
-- [Full node](/docs/glossary#full-node) and [IBD](/docs/glossary#ibd-initial-block-download) costs (bandwidth, storage) increase for data many consider non‑monetary.
+- [Full node](/docs/glossary#full-node) and [IBD](/docs/glossary#ibd) costs (bandwidth, storage) increase for data many consider non‑monetary.
 - BRC-20 and similar tokens depend on **off-chain indexers**; they are not enforced by consensus and add complexity and [trust](/docs/fundamentals/trust-model) outside the protocol.
 
 **Proposals:**

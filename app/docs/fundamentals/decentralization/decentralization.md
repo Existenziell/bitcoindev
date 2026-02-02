@@ -38,7 +38,7 @@ Bitcoin has ~15,000-20,000 reachable [full nodes](/docs/glossary#full-node) spre
 
 ### Development
 
-Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the [BIP](/docs/glossary#bip-bitcoin-improvement-proposal) (Bitcoin Improvement Proposal) process and require community [consensus](/docs/glossary#consensus). No single developer or team controls the protocol.
+Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the [BIP](/docs/glossary#bip) (Bitcoin Improvement Proposal) process and require community [consensus](/docs/glossary#consensus). No single developer or team controls the protocol.
 
 ---
 

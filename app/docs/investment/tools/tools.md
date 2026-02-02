@@ -69,7 +69,7 @@ Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understandin
 
 ### Decentralized Exchanges (DEX)
 
-**What DEXs are:** [Decentralized exchanges (DEXs)](/docs/glossary#dex-decentralized-exchange) that operate without a central authority, using smart contracts or peer-to-peer protocols.
+**What DEXs are:** [Decentralized exchanges (DEXs)](/docs/glossary#dex) that operate without a central authority, using smart contracts or peer-to-peer protocols.
 
 | Aspect | DEX/P2P | CEX |
 |--------|---------|-----|

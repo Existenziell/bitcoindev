@@ -132,7 +132,7 @@ Bitcoin crossed $1,000 for the first time during a rally driven by Chinese excha
 
 - **Date**: October 2013
 
-U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over [Bitcoin](/docs/glossary#bitcoin-network)’s use in illicit markets and over [regulation](/docs/glossary#aml-anti-money-laundering). The [network](/docs/bitcoin/p2p-protocol) continued to operate; no [protocol](/docs/bitcoin) change was required.
+U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over [Bitcoin](/docs/glossary#bitcoin-network)’s use in illicit markets and over [regulation](/docs/glossary#aml). The [network](/docs/bitcoin/p2p-protocol) continued to operate; no [protocol](/docs/bitcoin) change was required.
 
 ---
 

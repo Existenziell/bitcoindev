@@ -16,7 +16,7 @@ This made sense for the early network when anyone could profitably mine with a r
 
 As Bitcoin matured, these functions became increasingly specialized:
 
-**Mining** evolved from CPU → GPU → FPGA → [ASIC](/docs/glossary#asic-application-specific-integrated-circuit), making the built-in miner obsolete for anything other than [testnet](/docs/glossary#testnet) or [regtest](/docs/glossary#regtest). Dedicated mining software like cgminer and modern pool protocols emerged to handle specialized hardware.
+**Mining** evolved from CPU → GPU → FPGA → [ASIC](/docs/glossary#asic), making the built-in miner obsolete for anything other than [testnet](/docs/glossary#testnet) or [regtest](/docs/glossary#regtest). Dedicated mining software like cgminer and modern pool protocols emerged to handle specialized hardware.
 
 **Wallets** diversified into hardware wallets, mobile wallets, and specialized desktop applications with better UX than the built-in wallet. Many users prefer lightweight wallets that don't require running a full node.
 

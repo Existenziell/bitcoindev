@@ -248,7 +248,7 @@ His role diminished after 2014, particularly following the blocksize debate and 
 
 Laszlo Hanyecz is a programmer who, on May 22, 2010, completed the first known commercial transaction using Bitcoin: he paid 10,000 BTC for two pizzas delivered to his home in Florida. The deal was arranged on the Bitcointalk forum, where Hanyecz had offered to pay BTC for pizza delivery. A participant in the UK ordered the pizzas; Hanyecz sent the bitcoin. The exchange proved that Bitcoin could be used as a medium of exchange for real goods and services.
 
-The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 is sometimes observed as Bitcoin Pizza Day) and a reminder of Bitcoin's early, experimental use. At later prices, those 10,000 BTC would be worth hundreds of millions of dollars; at the time, they were a fair price for two pizzas and a historic proof of concept. Hanyecz continued contributing to Bitcoin, including work on the GPU mining software that would precede [ASIC](/docs/glossary#asic-application-specific-integrated-circuit) miners.
+The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 is sometimes observed as Bitcoin Pizza Day) and a reminder of Bitcoin's early, experimental use. At later prices, those 10,000 BTC would be worth hundreds of millions of dollars; at the time, they were a fair price for two pizzas and a historic proof of concept. Hanyecz continued contributing to Bitcoin, including work on the GPU mining software that would precede [ASIC](/docs/glossary#asic) miners.
 
 [More](https://en.wikipedia.org/wiki/Laszlo_Hanyecz)
 
@@ -301,7 +301,7 @@ Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influenti
 
 **Contribution:** [Lightning Network](/docs/glossary#lightning-network) whitepaper (2015)
 
-Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the [blockchain](/docs/glossary#blockchain). The design built on [HTLCs](/docs/glossary#htlc), [time locks](/docs/glossary#time-lock), and [SegWit](/docs/glossary#segwit) (which was still under debate) to fix [transaction malleability](/docs/glossary#transaction-malleability) and enable bi-directional channels. The Lightning Network, as specified in the [BOLT](/docs/glossary#bolt-basis-of-lightning-technology) documents and implemented by LND, Core Lightning, Eclair, and others, is the main [Layer 2](/docs/glossary#layer-2) for Bitcoin and is directly rooted in their whitepaper.
+Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the [blockchain](/docs/glossary#blockchain). The design built on [HTLCs](/docs/glossary#htlc), [time locks](/docs/glossary#time-lock), and [SegWit](/docs/glossary#segwit) (which was still under debate) to fix [transaction malleability](/docs/glossary#transaction-malleability) and enable bi-directional channels. The Lightning Network, as specified in the [BOLT](/docs/glossary#bolt) documents and implemented by LND, Core Lightning, Eclair, and others, is the main [Layer 2](/docs/glossary#layer-2) for Bitcoin and is directly rooted in their whitepaper.
 
 [More](https://lightning.network/lightning-network-paper.pdf) (whitepaper)
 

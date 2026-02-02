@@ -1,6 +1,6 @@
 # RPC Commands Reference
 
-This document provides a guide for interacting with your Bitcoin node using both curl and bitcoin-cli commands via [RPC](/docs/glossary#rpc-remote-procedure-call).
+This document provides a guide for interacting with your Bitcoin node using both curl and bitcoin-cli commands via [RPC](/docs/glossary#rpc).
 
 > **Try it live!** Test these commands directly in the [Bitcoin CLI Terminal](/terminal). Connected to mainnet, no setup required.
 
@@ -516,7 +516,7 @@ btc getblockchaininfo
 - `blocks`: Current [block height](/docs/glossary#block-height)
 - `headers`: Number of headers downloaded
 - `verificationprogress`: Sync progress (0.0 to 1.0)
-- `initialblockdownload`: Whether still in [IBD](/docs/glossary#ibd-initial-block-download)
+- `initialblockdownload`: Whether still in [IBD](/docs/glossary#ibd)
 - `pruned`: Whether node is pruned
 
 ### 2. Network Information
@@ -651,7 +651,7 @@ btc getnetworkinfo | jq '{connections, connections_in, connections_out}'
 
 ## 11. ZMQ Notifications
 
-[ZeroMQ](/docs/glossary#zmq-zeromq) provides real-time notifications for blockchain events, enabling instant detection of new blocks and transactions without polling.
+[ZeroMQ](/docs/glossary#zmq) provides real-time notifications for blockchain events, enabling instant detection of new blocks and transactions without polling.
 
 ### Configuration
 

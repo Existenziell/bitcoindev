@@ -18,7 +18,7 @@ Each output creates a new UTXO: an amount and a [scriptPubKey](/docs/glossary#sc
 
 | Field | Description |
 |-------|-------------|
-| **Value** | Amount in [satoshis](/docs/glossary#sat-satoshi). |
+| **Value** | Amount in [satoshis](/docs/glossary#sat). |
 | **ScriptPubKey** | The locking script (e.g. P2PKH, P2WPKH, P2TR). Defines the conditions that must be met to spend this output. |
 
 ## Serialization notes

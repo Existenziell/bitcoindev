@@ -39,7 +39,7 @@ Each node can set its own mempool policies:
 
 ## Querying the Mempool
 
-You can query mempool information using Bitcoin Core's [RPC](/docs/glossary#rpc-remote-procedure-call) interface:
+You can query mempool information using Bitcoin Core's [RPC](/docs/glossary#rpc) interface:
 
 :::code-group
 ```rust
@@ -519,7 +519,7 @@ An alternative to RBF for [fee bumping](/docs/glossary#fee-bumping).
 
 ### CPFP vs RBF
 
-| Aspect | RBF | [CPFP](/docs/glossary#cpfp-child-pays-for-parent) |
+| Aspect | RBF | [CPFP](/docs/glossary#cpfp) |
 |--------|-----|------|
 | Who can bump | Sender only | Sender or recipient |
 | Requires | RBF signaling | Spendable output |

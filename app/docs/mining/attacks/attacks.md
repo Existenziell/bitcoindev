@@ -716,7 +716,7 @@ An attack relevant to Layer 2 protocols like [Lightning](/docs/lightning).
 ### How It Works
 
 1. Attacker creates a low-fee transaction spending the same output
-2. Transaction is large, making [CPFP](/docs/glossary#cpfp-child-pays-for-parent) expensive
+2. Transaction is large, making [CPFP](/docs/glossary#cpfp) expensive
 3. Victim's transaction can't confirm
 4. Time-sensitive protocols (Lightning) may fail
 

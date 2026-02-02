@@ -26,19 +26,13 @@ Anchor outputs solve this by:
 
 ```mermaid
 flowchart TD
-  subgraph commitBlock [Commitment Transaction with anchors]
+  subgraph commitBlock [Commitment Transaction]
     In[Input: Funding output]
     O1[Output 1: to_local]
     O2[Output 2: to_remote]
     O3[Output 3: Alice anchor 330 sats]
     O4[Output 4: Bob anchor 330 sats]
     Fee[Fee: Minimum 1 sat/vB]
-  end
-  subgraph bumpBlock [Fee Bumping]
-    Child[Child Transaction]
-    Child --> AIn[Input: Anchor output 330 sats]
-    Child --> UIn[Input: Your UTXO for fee]
-    Child --> CFee[Fee: Whatever needed]
   end
 ```
 

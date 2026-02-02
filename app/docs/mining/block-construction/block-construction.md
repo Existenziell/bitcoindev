@@ -100,7 +100,7 @@ Ancestor fee rate of child = (10×200 + 100×150) / (200 + 150)
                            = 17,000 / 350 = 48.6 sat/vB
 ```
 
-This is how [CPFP](/docs/glossary#cpfp-child-pays-for-parent) (Child Pays for Parent) works: the child's high fee pulls the parent along.
+This is how [CPFP](/docs/glossary#cpfp) (Child Pays for Parent) works: the child's high fee pulls the parent along.
 
 ### Block Template Algorithm
 
@@ -770,7 +770,7 @@ This is risky but provides a head start.
 
 ## Extra Nonce
 
-The 4-byte nonce in the header provides only 2³² possibilities, which is not enough for modern [ASICs](/docs/glossary#asic-application-specific-integrated-circuit).
+The 4-byte nonce in the header provides only 2³² possibilities, which is not enough for modern [ASICs](/docs/glossary#asic).
 
 ### Expanding the Search Space
 

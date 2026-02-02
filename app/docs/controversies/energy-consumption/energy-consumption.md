@@ -118,7 +118,7 @@ To understand Bitcoin's energy consumption, it's helpful to compare it with othe
 
 Bitcoin mining has become more energy-efficient over time:
 
-- **Hardware Improvements**: [ASIC](/docs/glossary#asic-application-specific-integrated-circuit) miners have become more efficient
+- **Hardware Improvements**: [ASIC](/docs/glossary#asic) miners have become more efficient
 - **Renewable Energy Adoption**: Increasing use of renewable energy sources
 - **Hash Rate Efficiency**: More hash power per unit of energy consumed
 - **[Mining Pool](/docs/glossary#mining-pool) Optimization**: Better coordination reduces wasted computation

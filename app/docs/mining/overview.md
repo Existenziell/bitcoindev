@@ -299,7 +299,7 @@ if (nonce !== null) {
 
 ### Mining Hardware
 
-- **[ASIC](/docs/glossary#asic-application-specific-integrated-circuit) Miners**: Application-Specific Integrated Circuits designed specifically for Bitcoin mining (most efficient)
+- **[ASIC](/docs/glossary#asic) Miners**: Application-Specific Integrated Circuits designed specifically for Bitcoin mining (most efficient)
 - **GPU Mining**: Graphics Processing Units (less efficient than ASICs, rarely profitable)
 - **CPU Mining**: Central Processing Units (least efficient, primarily educational)
 
