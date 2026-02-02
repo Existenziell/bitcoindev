@@ -243,7 +243,7 @@ function merkleRoot(transactions) {
 
 ## SPV (Simplified Payment Verification)
 
-Merkle trees enable [SPV](/docs/glossary#spv-simplified-payment-verification) clients:
+Merkle trees enable [SPV](/docs/glossary#spv) clients:
 
 ```text
 SPV Client:

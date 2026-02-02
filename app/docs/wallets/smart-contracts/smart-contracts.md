@@ -305,7 +305,7 @@ Benefits:
 
 ## Covenants (Proposed)
 
-[Covenants](/docs/advanced/covenants) are a *proposed* type of contract that would restrict how [outputs](/docs/glossary#output) can be spent in *future* [transactions](/docs/bitcoin/transaction-lifecycle), for example, "this [UTXO](/docs/glossary#utxo-unspent-transaction-output) may only be spent to addresses of type X" or "funds must pass through a timelocked recovery path." Proposals such as **OP_CAT**, **OP_CTV** (CheckTemplateVerify), and **SIGHASH_ANYPREVOUT** aim to enable covenant-like behavior. None are in [consensus](/docs/glossary#consensus) today; see [Covenants](/docs/advanced/covenants) for the design space and BIPs.
+[Covenants](/docs/advanced/covenants) are a *proposed* type of contract that would restrict how [outputs](/docs/glossary#output) can be spent in *future* [transactions](/docs/bitcoin/transaction-lifecycle), for example, "this [UTXO](/docs/glossary#utxo) may only be spent to addresses of type X" or "funds must pass through a timelocked recovery path." Proposals such as **OP_CAT**, **OP_CTV** (CheckTemplateVerify), and **SIGHASH_ANYPREVOUT** aim to enable covenant-like behavior. None are in [consensus](/docs/glossary#consensus) today; see [Covenants](/docs/advanced/covenants) for the design space and BIPs.
 
 ---
 

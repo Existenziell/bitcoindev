@@ -1,6 +1,6 @@
 # Mining Hardware Evolution
 
-Bitcoin mining hardware has undergone a remarkable evolution, from hobbyists running CPUs on laptops to industrial-scale operations with purpose-built silicon. This progression represents one of the fastest hardware development cycles in computing history, driven by the economic incentives of [proof-of-work](/docs/glossary#proof-of-work-pow) mining.
+Bitcoin mining hardware has undergone a remarkable evolution, from hobbyists running CPUs on laptops to industrial-scale operations with purpose-built silicon. This progression represents one of the fastest hardware development cycles in computing history, driven by the economic incentives of [proof-of-work](/docs/glossary#pow) mining.
 
 ## The Four Eras of Mining Hardware
 

@@ -34,7 +34,7 @@ Double-spending occurs when the same digital currency unit is spent more than on
 
 **Traditional solution:** A central authority (bank) maintains the ledger and verifies each transaction. Problem: requires trust in that authority.
 
-**Bitcoin's solution:** A public blockchain where all transactions are visible, ordered into blocks, and secured by [proof-of-work](/docs/glossary#proof-of-work-pow). Nodes independently verify that inputs haven't been spent. The longest chain determines valid transactions, so only the first spend succeeds.
+**Bitcoin's solution:** A public blockchain where all transactions are visible, ordered into blocks, and secured by [proof-of-work](/docs/glossary#pow). Nodes independently verify that inputs haven't been spent. The longest chain determines valid transactions, so only the first spend succeeds.
 
 ```
 Alice has 1 BTC, attempts to send it to both Bob and Charlie:

@@ -16,7 +16,7 @@ The fundamental difference between soft forks and hard forks comes down to one t
 ### Soft Fork
 A **soft fork** **tightens** the consensus rules. Blocks valid under new rules are always valid under old rules, so old nodes continue to accept them.
 
-**Example**: [SegWit](/docs/glossary#segwit-segregated-witness) made certain transaction formats invalid that were previously valid. Old nodes still accept SegWit blocks because they don't violate the old (looser) rules.
+**Example**: [SegWit](/docs/glossary#segwit) made certain transaction formats invalid that were previously valid. Old nodes still accept SegWit blocks because they don't violate the old (looser) rules.
 
 **Can soft forks cause chain splits?** Yes, in certain scenarios:
 - **UASF (User Activated Soft Fork)**: If nodes enforce rules that miners don't follow, the chain can split. The 2017 BIP 148 UASF threatened a split if miners didn't signal for SegWit.

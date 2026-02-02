@@ -1,6 +1,6 @@
 # Covenants
 
-**Covenants** are a *proposed* type of [Bitcoin Script](/docs/bitcoin/script) constraint that would restrict how [outputs](/docs/glossary#output) from a [transaction](/docs/bitcoin/transaction-lifecycle) can be spent in **future** transactions. Unlike today’s scripts, which only define “who can spend and under what conditions,” covenants would allow “this [UTXO](/docs/glossary#utxo-unspent-transaction-output) may only be spent in a transaction that looks like X” (e.g., only to certain [address](/docs/glossary#address) types, or only after passing through a timelocked recovery path).
+**Covenants** are a *proposed* type of [Bitcoin Script](/docs/bitcoin/script) constraint that would restrict how [outputs](/docs/glossary#output) from a [transaction](/docs/bitcoin/transaction-lifecycle) can be spent in **future** transactions. Unlike today’s scripts, which only define “who can spend and under what conditions,” covenants would allow “this [UTXO](/docs/glossary#utxo) may only be spent in a transaction that looks like X” (e.g., only to certain [address](/docs/glossary#address) types, or only after passing through a timelocked recovery path).
 
 No covenant opcodes are in [consensus](/docs/glossary#consensus) today. This page describes the design space and main proposals. A **covenant** restricts the *shape* or *destination* of the transaction that spends an [output](/docs/glossary#output):
 
@@ -24,7 +24,7 @@ Covenants enable:
 
 ### OP_CTV (CheckTemplateVerify)
 
-**OP_CTV** (or **OP_CHECKTEMPLATEVERIFY**) commits to a **hash of a specific spending transaction template**. The [script](/docs/bitcoin/script) would specify the exact [inputs](/docs/glossary#input) (by [outpoint](/docs/glossary#outpoint)) and [outputs](/docs/glossary#output) (scriptPubKey + amount) of the *only* transaction that can spend the [UTXO](/docs/glossary#utxo-unspent-transaction-output). This is a **one-step** covenant: the *next* spend is fully fixed; you cannot recursively chain OP_CTV in arbitrarily complex ways without further opcodes.
+**OP_CTV** (or **OP_CHECKTEMPLATEVERIFY**) commits to a **hash of a specific spending transaction template**. The [script](/docs/bitcoin/script) would specify the exact [inputs](/docs/glossary#input) (by [outpoint](/docs/glossary#outpoint)) and [outputs](/docs/glossary#output) (scriptPubKey + amount) of the *only* transaction that can spend the [UTXO](/docs/glossary#utxo). This is a **one-step** covenant: the *next* spend is fully fixed; you cannot recursively chain OP_CTV in arbitrarily complex ways without further opcodes.
 
 Use cases: vaults with a single recovery path, [Lightning](/docs/lightning) [anchor](/docs/lightning/anchor-outputs) or channel-like structures where the on-chain spend must match a known template, and congestion-control or batch-spend patterns.
 

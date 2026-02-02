@@ -102,9 +102,9 @@ Bitcoin often uses **double SHA-256**: `SHA256(SHA256(data))`
 
 **Used for:**
 - Block hashes
-- [Transaction IDs](/docs/glossary#transaction-id-txid) (TXIDs)
+- [Transaction IDs](/docs/glossary#txid) (TXIDs)
 - [Merkle tree](/docs/glossary#merkle-tree) nodes
-- [Proof-of-work](/docs/glossary#proof-of-work-pow)
+- [Proof-of-work](/docs/glossary#pow)
 
 **Why double hashing?**
 - Defense against length-extension attacks
@@ -235,7 +235,7 @@ console.log(`Double SHA-256: ${doubleSha256(message).toString('hex')}`);
 **Hash160 = RIPEMD160(SHA256(data))**
 
 **Used for:**
-- Bitcoin [addresses](/docs/glossary#address) ([P2PKH](/docs/glossary#p2pkh-pay-to-pubkey-hash), [P2SH](/docs/glossary#p2sh-pay-to-script-hash))
+- Bitcoin [addresses](/docs/glossary#address) ([P2PKH](/docs/glossary#p2pkh), [P2SH](/docs/glossary#p2sh))
 - Shorter than SHA-256, reducing address length
 - Still cryptographically secure
 
@@ -358,7 +358,7 @@ A **Merkle tree** (or hash tree) is a data structure that efficiently summarizes
 
 **Benefits:**
 1. **Efficient verification**: Prove transaction inclusion with O(log n) hashes
-2. **Compact proofs**: [SPV](/docs/glossary#spv-simplified-payment-verification) nodes don't need full blockchain
+2. **Compact proofs**: [SPV](/docs/glossary#spv) nodes don't need full blockchain
 3. **Data integrity**: Any tampering is immediately detectable
 
 ### Merkle Proofs (SPV)
@@ -1252,7 +1252,7 @@ Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends ne
 
 ### [Bech32](/docs/glossary#bech32) and Bech32m
 
-**Bech32** encoding (BIP-173) is used for [SegWit](/docs/glossary#segwit-segregated-witness) addresses:
+**Bech32** encoding (BIP-173) is used for [SegWit](/docs/glossary#segwit) addresses:
 
 **Characteristics:**
 - Case-insensitive
@@ -1261,8 +1261,8 @@ Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends ne
 - Prefix: `bc1` for mainnet, `tb1` for testnet
 
 **Address Types:**
-- `bc1q...`: Native SegWit ([P2WPKH](/docs/glossary#p2wpkh-pay-to-witness-pubkey-hash), [P2WSH](/docs/glossary#p2wsh-pay-to-witness-script-hash)) - Bech32
-- `bc1p...`: Taproot ([P2TR](/docs/glossary#p2tr-pay-to-taproot)) - Bech32m
+- `bc1q...`: Native SegWit ([P2WPKH](/docs/glossary#p2wpkh), [P2WSH](/docs/glossary#p2wsh)) - Bech32
+- `bc1p...`: Taproot ([P2TR](/docs/glossary#p2tr)) - Bech32m
 
 **Bech32m** (BIP-350) is a modified version for Taproot addresses with improved error detection.
 

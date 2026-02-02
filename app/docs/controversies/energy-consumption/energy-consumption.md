@@ -50,7 +50,7 @@ This is why the energy debate is ultimately unproductive. It disguises a subject
 
 ## Energy Use as a Security Feature
 
-Bitcoin's [proof-of-work](/docs/glossary#proof-of-work-pow) mechanism requires significant computational resources, which translates to energy consumption. This is by design:
+Bitcoin's [proof-of-work](/docs/glossary#pow) mechanism requires significant computational resources, which translates to energy consumption. This is by design:
 
 - **Attack Cost**: To attack Bitcoin, an attacker would need to control more than 50% of the network's [hash rate](/docs/glossary#hash-rate), requiring enormous energy investment (see [51% attack](/docs/glossary#51-attack))
 - **Economic Security**: The cost of energy creates a real economic barrier to attacks

@@ -55,7 +55,7 @@ The [subsidy equation](/docs/bitcoin/subsidy) mathematically guarantees Bitcoin'
 **Miners:**
 - Verify transactions
 - Create new blocks
-- Secure the network through [proof-of-work](/docs/glossary#proof-of-work-pow)
+- Secure the network through [proof-of-work](/docs/glossary#pow)
 - Receive [block rewards](/docs/glossary#block-reward) and fees
 
 **Users:**

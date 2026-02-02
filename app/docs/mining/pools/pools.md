@@ -16,7 +16,7 @@ Consider a solo miner with 0.001% of total network hashrate:
 
 This variance is unacceptable for anyone running mining as a business.
 
-[Incentives](/docs/fundamentals/incentives) and [proof-of-work](/docs/glossary#proof-of-work-pow) make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine [hash rate](/docs/glossary#hash-rate) and share rewards proportionally. 
+[Incentives](/docs/fundamentals/incentives) and [proof-of-work](/docs/glossary#pow) make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine [hash rate](/docs/glossary#hash-rate) and share rewards proportionally. 
 
 ### Pool Solution
 
@@ -859,7 +859,7 @@ This section covers connecting to a pool (e.g. Stratum), configuring payouts, an
 
 ### Requirements
 
-1. **Mining hardware**: [ASICs](/docs/glossary#asic-application-specific-integrated-circuit) for Bitcoin (or CPU/GPU for testing)
+1. **Mining hardware**: [ASICs](/docs/glossary#asic) for Bitcoin (or CPU/GPU for testing)
 2. **Pool account**: Register with chosen pool
 3. **Mining software**: CGMiner, BFGMiner, or manufacturer software
 4. **Wallet**: For receiving payouts

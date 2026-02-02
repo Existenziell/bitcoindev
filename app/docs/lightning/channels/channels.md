@@ -1,6 +1,6 @@
 # Lightning Payment Channels
 
-Payment channels are the fundamental building block of the Lightning Network. They enable off-chain transactions between two parties with on-chain settlement. A payment channel is a 2-of-2 [multisig](/docs/glossary#multisig-multi-signature) address that locks Bitcoin between two parties. The parties can update the channel balance off-chain without broadcasting to the Bitcoin network. Key properties:
+Payment channels are the fundamental building block of the Lightning Network. They enable off-chain transactions between two parties with on-chain settlement. A payment channel is a 2-of-2 [multisig](/docs/glossary#multisig) address that locks Bitcoin between two parties. The parties can update the channel balance off-chain without broadcasting to the Bitcoin network. Key properties:
 
 - **2-of-2 Multisig**: Both parties must sign to spend
 - **Off-Chain Updates**: Balance changes happen instantly without blockchain transactions
@@ -293,7 +293,7 @@ To receive payments or [route](/docs/lightning/routing) effectively, you need **
 
 ### How It Works
 
-- **Splice-in**: You add an extra [input](/docs/glossary#input) (and possibly [output](/docs/glossary#output)) to a new **funding [transaction](/docs/bitcoin/transaction-lifecycle)** that spends the existing 2-of-2 [multisig](/docs/glossary#multisig-multi-signature) [UTXO](/docs/glossary#utxo-unspent-transaction-output) and creates a **new** 2-of-2 with a larger (or smaller) amount. Both parties sign; the channel capacity is updated on [confirmation](/docs/glossary#confirmation).
+- **Splice-in**: You add an extra [input](/docs/glossary#input) (and possibly [output](/docs/glossary#output)) to a new **funding [transaction](/docs/bitcoin/transaction-lifecycle)** that spends the existing 2-of-2 [multisig](/docs/glossary#multisig) [UTXO](/docs/glossary#utxo) and creates a **new** 2-of-2 with a larger (or smaller) amount. Both parties sign; the channel capacity is updated on [confirmation](/docs/glossary#confirmation).
 - **Splice-out**: Part of the channel [balance](/docs/lightning/channels#channel-capacity-and-liquidity) is sent to an [address](/docs/glossary#address) (yours or your peer’s) in the splice [transaction](/docs/bitcoin/transaction-lifecycle), reducing the new 2-of-2 amount.
 
 Splicing is **dual-funded** in the sense that the splice [transaction](/docs/bitcoin/transaction-lifecycle) is cooperatively built; typically it also uses [anchor outputs](/docs/lightning/anchor-outputs) or similar so [fee bumping](/docs/glossary#fee-bumping) works.

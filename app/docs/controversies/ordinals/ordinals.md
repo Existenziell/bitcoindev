@@ -4,8 +4,8 @@
 
 ## What Are Ordinals and Inscriptions?
 
-- **Ordinals**: A numbering scheme that assigns a unique index to each satoshi and tracks how they move when [UTXOs](/docs/glossary#utxo-unspent-transaction-output) are spent. It does not change [consensus](/docs/glossary#consensus); it is an indexing convention.
-- **Inscriptions**: Data (images, text, JSON) embedded in [SegWit](/docs/glossary#segwit-segregated-witness) witness scripts and stored on-chain. The content is in the [blockchain](/docs/glossary#blockchain) but does not grow the [UTXO set](/docs/glossary#utxo-set) because it lives in prunable witness data.
+- **Ordinals**: A numbering scheme that assigns a unique index to each satoshi and tracks how they move when [UTXOs](/docs/glossary#utxo) are spent. It does not change [consensus](/docs/glossary#consensus); it is an indexing convention.
+- **Inscriptions**: Data (images, text, JSON) embedded in [SegWit](/docs/glossary#segwit) witness scripts and stored on-chain. The content is in the [blockchain](/docs/glossary#blockchain) but does not grow the [UTXO set](/docs/glossary#utxo-set) because it lives in prunable witness data.
 
 For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-inscriptions).
 

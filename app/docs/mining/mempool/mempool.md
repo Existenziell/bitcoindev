@@ -484,7 +484,7 @@ When transaction volume exceeds block capacity:
 
 ## Replace-by-Fee (RBF)
 
-**[RBF](/docs/glossary#rbf-replace-by-fee)** allows replacing an unconfirmed transaction with a new version paying a higher fee.
+**[RBF](/docs/glossary#rbf)** allows replacing an unconfirmed transaction with a new version paying a higher fee.
 
 ### How RBF Works
 

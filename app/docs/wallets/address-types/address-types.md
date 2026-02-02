@@ -403,7 +403,7 @@ func main() {
 
 ## P2WPKH (Native SegWit)
 
-Introduced with [SegWit](/docs/glossary#segwit-segregated-witness) in BIP141, P2WPKH provides significant fee savings.
+Introduced with [SegWit](/docs/glossary#segwit) in BIP141, P2WPKH provides significant fee savings.
 
 ### Structure
 

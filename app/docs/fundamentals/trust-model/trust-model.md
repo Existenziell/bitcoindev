@@ -29,7 +29,7 @@ You trust **mathematics and code** rather than **people and institutions**. This
 ### What You Must Trust
 
 - **Protocol correctness:** Bitcoin works as designed
-- **Cryptography:** [SHA-256](/docs/glossary#sha-256), [ECDSA](/docs/glossary#ecdsa-elliptic-curve-digital-signature-algorithm) remain secure
+- **Cryptography:** [SHA-256](/docs/glossary#sha-256), [ECDSA](/docs/glossary#ecdsa) remain secure
 - **Network honesty:** Majority of [hash rate](/docs/glossary#hash-rate) follows the rules
 - **Your own security:** You protect your [private keys](/docs/glossary#private-key)
 

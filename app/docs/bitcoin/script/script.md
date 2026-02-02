@@ -43,13 +43,13 @@ Bitcoin Script has evolved over time, introducing new output types (address form
 |-------------|-----------|------------|-------|-----|----------|--------|-------------|
 | **P2PK** | Pay&#8209;to&#8209;Pubkey | Jan 2009 | 0 | - | - | - | Earliest type. Locks directly to public key. No address format (raw pubkey in script). Rarely used today. |
 | **P2PKH** | Pay&#8209;to&#8209;Pubkey&#8209;Hash | Jan 2009 | 0 | - | [Base58](/docs/glossary#base58) | `1` | Original address type. Locks to hash of public key. More private than P2PK. |
-| **P2MS** | Pay&#8209;to&#8209;Multisig | Jan 2009 | 0 | - | - | - | Bare [multisig](/docs/glossary#multisig-multi-signature) (m-of-n). No address format. Limited to 3 keys for standardness. Superseded by P2SH. |
+| **P2MS** | Pay&#8209;to&#8209;Multisig | Jan 2009 | 0 | - | - | - | Bare [multisig](/docs/glossary#multisig) (m-of-n). No address format. Limited to 3 keys for standardness. Superseded by P2SH. |
 | **P2SH** | Pay&#8209;to&#8209;Script&#8209;Hash | Apr 2012 | 173,805 | [16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki) | Base58 | `3` | Complex scripts (multisig, timelocks) as hash. Script revealed only when spending. |
 | **P2SH&#8209;P2WPKH** | Nested&#8209;SegWit | Aug 2017 | 481,824 | [141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) | Base58 | `3` | P2WPKH wrapped in P2SH for backwards compatibility. Works with older wallets. |
 | **P2SH&#8209;P2WSH** | Nested&#8209;SegWit&#8209;Script | Aug 2017 | 481,824 | [141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) | Base58 | `3` | P2WSH wrapped in P2SH. Complex scripts with SegWit benefits, backwards compatible. |
-| **P2WPKH** | Pay&#8209;to&#8209;Witness&#8209;Pubkey&#8209;Hash | Aug 2017 | 481,824 | [141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) | [Bech32](/docs/glossary#bech32) | `bc1q` | Native [SegWit](/docs/glossary#segwit-segregated-witness). Lower fees, fixes [malleability](/docs/glossary#transaction-malleability). |
+| **P2WPKH** | Pay&#8209;to&#8209;Witness&#8209;Pubkey&#8209;Hash | Aug 2017 | 481,824 | [141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) | [Bech32](/docs/glossary#bech32) | `bc1q` | Native [SegWit](/docs/glossary#segwit). Lower fees, fixes [malleability](/docs/glossary#transaction-malleability). |
 | **P2WSH** | Pay&#8209;to&#8209;Witness&#8209;Script&#8209;Hash | Aug 2017 | 481,824 | [141](https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki) | Bech32 | `bc1q` | Native SegWit for complex scripts. Used for multisig, timelocks with witness benefits. |
-| **P2TR** | Pay&#8209;to&#8209;Taproot | Nov 2021 | 709,632 | [341](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki) | Bech32m | `bc1p` | [Taproot](/docs/glossary#taproot) with [Schnorr](/docs/glossary#schnorr-signature) signatures and [MAST](/docs/glossary#mast-merkle-abstract-syntax-tree). Best privacy and efficiency. |
+| **P2TR** | Pay&#8209;to&#8209;Taproot | Nov 2021 | 709,632 | [341](https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki) | Bech32m | `bc1p` | [Taproot](/docs/glossary#taproot) with [Schnorr](/docs/glossary#schnorr-signature) signatures and [MAST](/docs/glossary#mast). Best privacy and efficiency. |
 
 **Example addresses:**
 - P2PKH: `1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa` (Satoshi's address)

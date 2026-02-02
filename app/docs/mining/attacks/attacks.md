@@ -1,6 +1,6 @@
 # Mining Attacks
 
-Bitcoin's [proof-of-work](/docs/glossary#proof-of-work-pow) security model is designed to make attacks economically irrational. However, understanding potential attacks is crucial for appreciating Bitcoin's security properties and the incentives that protect the network.
+Bitcoin's [proof-of-work](/docs/glossary#pow) security model is designed to make attacks economically irrational. However, understanding potential attacks is crucial for appreciating Bitcoin's security properties and the incentives that protect the network.
 
 This section covers theoretical attacks on Bitcoin mining, their costs, and why they generally don't happen.
 
@@ -704,7 +704,7 @@ Attacker mines competing Block N' including the high-fee tx.
 ### Prevention
 
 - **nLockTime**: Transactions can specify earliest block
-- **[CLTV](/docs/glossary#cltv-checklocktimeverify)**: Similar lock-time mechanism
+- **[CLTV](/docs/glossary#cltv)**: Similar lock-time mechanism
 - **Low fees**: Don't create tempting targets
 
 ---

@@ -4,7 +4,7 @@ Bitcoin serializes transactions and blocks as byte sequences. When you read or w
 
 ## Bytes and hexadecimal
 
-Raw transaction and block data are sequences of **bytes** (8-bit values, 0–255). They are often shown in **hexadecimal** (base-16): each byte is two hex digits (0–9, A–F). For example, the 32-byte [TXID](/docs/glossary#transaction-id-txid) is 64 hex characters.
+Raw transaction and block data are sequences of **bytes** (8-bit values, 0–255). They are often shown in **hexadecimal** (base-16): each byte is two hex digits (0–9, A–F). For example, the 32-byte [TXID](/docs/glossary#txid) is 64 hex characters.
 
 ## Little-endian
 

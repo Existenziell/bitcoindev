@@ -81,7 +81,7 @@ This "unforgeable costliness" (a term coined by [Nick Szabo](/docs/history/peopl
 
 ### How PoW Creates Consensus
 
-Bitcoin uses **[Proof-of-Work](/docs/glossary#proof-of-work-pow)** (PoW) as its consensus mechanism. Miners compete to solve cryptographic puzzles, with [difficulty](/docs/glossary#difficulty) adjusting to maintain ~10 minute block intervals. The first miner to find a valid solution broadcasts the block, other nodes verify it, and the longest valid chain becomes the accepted truth.
+Bitcoin uses **[Proof-of-Work](/docs/glossary#pow)** (PoW) as its consensus mechanism. Miners compete to solve cryptographic puzzles, with [difficulty](/docs/glossary#difficulty) adjusting to maintain ~10 minute block intervals. The first miner to find a valid solution broadcasts the block, other nodes verify it, and the longest valid chain becomes the accepted truth.
 
 ### The Consensus Process
 

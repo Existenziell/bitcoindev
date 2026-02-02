@@ -225,7 +225,7 @@ class BloomFilter {
 
 ## Related Topics
 
-- [SPV](/docs/glossary#spv-simplified-payment-verification) - Simplified payment verification
+- [SPV](/docs/glossary#spv) - Simplified payment verification
 - [Node Types](/docs/development/node-types) - Different node configurations
 - [Privacy Techniques](/docs/wallets/privacy) - Privacy improvements
 

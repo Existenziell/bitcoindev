@@ -51,7 +51,7 @@ This seemingly simple question divided the community into two camps with fundame
 
 **Proposed Solutions:**
 - Keep 1 MB limit
-- Implement [Segregated Witness (SegWit)](/docs/glossary#segwit-segregated-witness)
+- Implement [Segregated Witness (SegWit)](/docs/glossary#segwit)
 - Build [Lightning Network](/docs/glossary#lightning-network) for scaling
 - Optimize transaction efficiency
 

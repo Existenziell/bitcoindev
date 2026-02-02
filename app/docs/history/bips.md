@@ -33,12 +33,12 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 - **Description**: Mechanism for deploying [soft forks](/docs/glossary#soft-fork) using version bits in block headers. Allows multiple soft forks to be deployed in parallel with defined activation thresholds and timeouts.
 - **Key Concepts**: Miners signal readiness by setting bits in block version field. Activation requires 95% of blocks in a retarget period.
 
-### BIP 16 - Pay to Script Hash ([P2SH](/docs/glossary#p2sh-pay-to-script-hash))
+### BIP 16 - Pay to Script Hash ([P2SH](/docs/glossary#p2sh))
 
 - **Status**: Final
 - **Activated**: April 1, 2012 (Block 173,805)
 - **Description**: Allows transactions to be sent to a [script](/docs/glossary#script) hash instead of a [public key](/docs/glossary#public-key) hash. The actual script is revealed only when spending.
-- **Impact**: Enabled [multisig](/docs/glossary#multisig-multi-signature) wallets, complex scripts, and reduced transaction sizes for senders.
+- **Impact**: Enabled [multisig](/docs/glossary#multisig) wallets, complex scripts, and reduced transaction sizes for senders.
 
 ### BIP 34 - Block v2, Height in Coinbase
 
@@ -47,7 +47,7 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 - **Description**: Requires [block height](/docs/glossary#block-height) to be included in [coinbase transaction](/docs/glossary#coinbase-transaction). Ensures all coinbase transactions are unique.
 - **Impact**: Fixed duplicate transaction issue, enabled merged mining.
 
-### BIP 65 - OP_CHECKLOCKTIMEVERIFY ([CLTV](/docs/glossary#cltv-checklocktimeverify))
+### BIP 65 - OP_CHECKLOCKTIMEVERIFY ([CLTV](/docs/glossary#cltv))
 
 - **Status**: Final
 - **Activated**: December 2015 (Block 388,381)
@@ -58,8 +58,8 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 
 - **Status**: Final
 - **Activated**: July 2015 (Block 363,724)
-- **Description**: Requires all [ECDSA](/docs/glossary#ecdsa-elliptic-curve-digital-signature-algorithm) signatures to use strict DER encoding. Fixed signature malleability issues.
-- **Impact**: Security improvement, prerequisite for [SegWit](/docs/glossary#segwit-segregated-witness).
+- **Description**: Requires all [ECDSA](/docs/glossary#ecdsa) signatures to use strict DER encoding. Fixed signature malleability issues.
+- **Impact**: Security improvement, prerequisite for [SegWit](/docs/glossary#segwit).
 
 ### BIP 68 - Relative Lock-Time Using Consensus-Enforced Sequence Numbers
 
@@ -68,12 +68,12 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 - **Description**: Enables [relative time locks](/docs/glossary#relative-time-lock) based on the age of the referenced output. Uses the sequence field of transaction [inputs](/docs/glossary#input).
 - **Use Cases**: [Lightning Network](/docs/glossary#lightning-network) channels, bidirectional payment channels, revocable transactions.
 
-### BIP 112 - OP_CHECKSEQUENCEVERIFY ([CSV](/docs/glossary#csv-checksequenceverify))
+### BIP 112 - OP_CHECKSEQUENCEVERIFY ([CSV](/docs/glossary#csv))
 
 - **Status**: Final
 - **Activated**: July 2016 (Block 419,328)
 - **Description**: Companion to BIP 68. Adds an opcode to verify relative lock-times in scripts.
-- **Use Cases**: Lightning Network, revocable sequences, [hash time-locked contracts (HTLCs)](/docs/glossary#htlc-hash-time-locked-contract).
+- **Use Cases**: Lightning Network, revocable sequences, [hash time-locked contracts (HTLCs)](/docs/glossary#htlc).
 
 ### BIP 113 - Median Time-Past as Endpoint for Lock-Time Calculations
 
@@ -112,7 +112,7 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 
 - **Status**: Final
 - **Activated**: November 14, 2021 (Block 709,632)
-- **Description**: Major upgrade introducing Taproot outputs. Combines Schnorr signatures with [MAST](/docs/glossary#mast-merkle-abstract-syntax-tree) (Merkle Abstract Syntax Trees).
+- **Description**: Major upgrade introducing Taproot outputs. Combines Schnorr signatures with [MAST](/docs/glossary#mast) (Merkle Abstract Syntax Trees).
 - **Impact**: Better privacy (all transactions look similar), lower fees, more flexible smart contracts.
 
 ### BIP 342 - Validation of Taproot Scripts
@@ -127,7 +127,7 @@ These BIPs define changes to the Bitcoin consensus rules and protocol.
 
 These BIPs define standards for wallets, key derivation, and seed phrases.
 
-### BIP 32 - [Hierarchical Deterministic Wallets](/docs/glossary#hd-wallet-hierarchical-deterministic-wallet)
+### BIP 32 - [Hierarchical Deterministic Wallets](/docs/glossary#hd-wallet)
 
 - **Status**: Final
 - **Year**: 2012
@@ -170,7 +170,7 @@ These BIPs define standards for wallets, key derivation, and seed phrases.
 - **Description**: Defines derivation paths for Taproot addresses (starting with `bc1p`).
 - **Path**: `m/86'/0'/account'/change/address_index`
 
-### BIP 174 - [Partially Signed Bitcoin Transactions (PSBT)](/docs/glossary#psbt-partially-signed-bitcoin-transaction)
+### BIP 174 - [Partially Signed Bitcoin Transactions (PSBT)](/docs/glossary#psbt)
 
 - **Status**: Proposed
 - **Year**: 2017
@@ -213,7 +213,7 @@ These BIPs define Bitcoin address formats and encoding.
 
 ## Transaction & Script BIPs
 
-### BIP 125 - Opt-in Full [Replace-by-Fee](/docs/glossary#rbf-replace-by-fee) Signaling
+### BIP 125 - Opt-in Full [Replace-by-Fee](/docs/glossary#rbf) Signaling
 
 - **Status**: Proposed
 - **Year**: 2015

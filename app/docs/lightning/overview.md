@@ -14,7 +14,7 @@ The first mainnet Lightning implementations launched in 2018, including LND (Lig
 
 - **Payment Channels**: Two-party channels that allow unlimited off-chain transactions
 - **Off-Chain Transactions**: Payments settle instantly without blockchain confirmation
-- **HTLCs**: [Hash Time-Locked Contracts](/docs/glossary#htlc-hash-time-locked-contract) enable trustless multi-hop routing
+- **HTLCs**: [Hash Time-Locked Contracts](/docs/glossary#htlc) enable trustless multi-hop routing
 - **Onion Routing**: Privacy-preserving payment routing (similar to Tor)
 - **Instant Settlement**: Payments complete in milliseconds, not minutes
 
@@ -22,7 +22,7 @@ The first mainnet Lightning implementations launched in 2018, including LND (Lig
 
 ## How It Works
 
-1. **Open Channel**: Two parties lock Bitcoin in a 2-of-2 [multisig](/docs/glossary#multisig-multi-signature) address
+1. **Open Channel**: Two parties lock Bitcoin in a 2-of-2 [multisig](/docs/glossary#multisig) address
 2. **Update Balance**: Parties exchange signed [commitment transactions](/docs/glossary#commitment-transaction) to update the channel balance
 3. **Route Payments**: Payments can route through multiple channels using HTLCs
 4. **Close Channel**: Final state is broadcast to the Bitcoin blockchain

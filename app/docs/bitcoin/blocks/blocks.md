@@ -21,7 +21,7 @@ The block header is hashed twice with SHA-256 to produce the block hash, which m
 
 When a miner finds a new block:
 
-1. **Miner solves [proof-of-work](/docs/glossary#proof-of-work-pow) puzzle**: Finds a valid nonce
+1. **Miner solves [proof-of-work](/docs/glossary#pow) puzzle**: Finds a valid nonce
 2. **Creates valid block**: Includes transactions from [mempool](/docs/glossary#mempool)
 3. **Immediately broadcasts**: Sends to all connected [peers](/docs/glossary#peer) (8-10 first-hop nodes)
 4. **First-hop nodes validate**: Each node checks the block
@@ -70,7 +70,7 @@ Each full node performs complete validation:
    - All transactions are valid
    - No [double-spends](/docs/glossary#double-spend)
    - Proper signatures
-   - [UTXO](/docs/glossary#utxo-unspent-transaction-output) references are correct
+   - [UTXO](/docs/glossary#utxo) references are correct
    - [Consensus rules](/docs/glossary#consensus-rules) compliance
 
 3. **[Merkle Tree](/docs/glossary#merkle-tree) Verification**

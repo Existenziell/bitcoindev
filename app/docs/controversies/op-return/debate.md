@@ -73,7 +73,7 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
 ### 2009-2013: Early Days
 
 - **No OP_RETURN:** Initially, people used other methods to store data
-  - Encoding data in addresses ([P2PKH](/docs/glossary#p2pkh-pay-to-pubkey-hash) outputs)
+  - Encoding data in addresses ([P2PKH](/docs/glossary#p2pkh) outputs)
   - Using fake addresses with embedded data
   - These methods bloated the UTXO set
 

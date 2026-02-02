@@ -4,13 +4,13 @@ A Bitcoin [transaction](/docs/glossary#transaction) is a serialized structure wi
 
 ## Input fields
 
-Each input references one [UTXO](/docs/glossary#utxo-unspent-transaction-output) and provides data to satisfy its spending conditions.
+Each input references one [UTXO](/docs/glossary#utxo) and provides data to satisfy its spending conditions.
 
 | Field | Description |
 |-------|-------------|
-| **Previous output (outpoint)** | The [transaction ID](/docs/glossary#transaction-id-txid) (txid) of the transaction that created the UTXO, plus the **vout** (output index) in that transaction. Together (txid, vout) is the [outpoint](/docs/glossary#outpoint) that uniquely identifies the UTXO. |
+| **Previous output (outpoint)** | The [transaction ID](/docs/glossary#txid) (txid) of the transaction that created the UTXO, plus the **vout** (output index) in that transaction. Together (txid, vout) is the [outpoint](/docs/glossary#outpoint) that uniquely identifies the UTXO. |
 | **ScriptSig** | For legacy (pre-SegWit) inputs, the unlocking script (e.g. signature and public key). For SegWit/Taproot inputs, this is usually empty; unlocking data is in the [witness](/docs/glossary#witness). |
-| **Sequence** | A 32-bit value used for [relative locktime](/docs/glossary#relative-time-lock) (OP_CSV) and [RBF](/docs/glossary#rbf-replace-by-fee) signaling. Often `0xFFFFFFFF` (final). |
+| **Sequence** | A 32-bit value used for [relative locktime](/docs/glossary#relative-time-lock) (OP_CSV) and [RBF](/docs/glossary#rbf) signaling. Often `0xFFFFFFFF` (final). |
 
 ## Output fields
 

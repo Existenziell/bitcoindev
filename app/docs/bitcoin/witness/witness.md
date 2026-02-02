@@ -1,6 +1,6 @@
 # Witness
 
-The [witness](/docs/glossary#witness) is the part of a Bitcoin transaction that contains unlocking data (signatures, public keys, and other data) that proves authorization to spend [inputs](/docs/glossary#input). [SegWit](/docs/bitcoin/segwit) (2017) moved witness data out of the base transaction into a separate structure, so it is no longer part of the data hashed for the [TXID](/docs/glossary#transaction-id-txid). That fixed [transaction malleability](/docs/bitcoin/transaction-malleability) and enabled the [witness discount](/docs/glossary#witness-discount) for fee calculation.
+The [witness](/docs/glossary#witness) is the part of a Bitcoin transaction that contains unlocking data (signatures, public keys, and other data) that proves authorization to spend [inputs](/docs/glossary#input). [SegWit](/docs/bitcoin/segwit) (2017) moved witness data out of the base transaction into a separate structure, so it is no longer part of the data hashed for the [TXID](/docs/glossary#txid). That fixed [transaction malleability](/docs/bitcoin/transaction-malleability) and enabled the [witness discount](/docs/glossary#witness-discount) for fee calculation.
 
 ## Where witness lives
 

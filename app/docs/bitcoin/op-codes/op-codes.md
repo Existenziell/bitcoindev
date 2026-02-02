@@ -516,9 +516,9 @@ OP_ROT:
 | OP_SHA256 | 0xa8 | [SHA-256](/docs/glossary#sha-256) hash |
 | OP_HASH160 | 0xa9 | SHA256 + RIPEMD160 |
 | OP_HASH256 | 0xaa | Double SHA-256 |
-| OP_CHECKSIG | 0xac | Verify [ECDSA](/docs/glossary#ecdsa-elliptic-curve-digital-signature-algorithm) signature |
+| OP_CHECKSIG | 0xac | Verify [ECDSA](/docs/glossary#ecdsa) signature |
 | OP_CHECKSIGVERIFY | 0xad | OP_CHECKSIG + OP_VERIFY |
-| OP_CHECKMULTISIG | 0xae | Verify [multisig](/docs/glossary#multisig-multi-signature) |
+| OP_CHECKMULTISIG | 0xae | Verify [multisig](/docs/glossary#multisig) |
 | OP_CHECKMULTISIGVERIFY | 0xaf | OP_CHECKMULTISIG + OP_VERIFY |
 
 ---
@@ -562,7 +562,7 @@ OP_ENDIF
 
 ## Time Lock Operations
 
-### [OP_CHECKLOCKTIMEVERIFY](/docs/glossary#cltv-checklocktimeverify) (CLTV)
+### [OP_CHECKLOCKTIMEVERIFY](/docs/glossary#cltv) (CLTV)
 
 **Code**: `0xb1`
 
@@ -577,7 +577,7 @@ Use cases:
 - Time-locked savings
 - Inheritance planning
 
-### [OP_CHECKSEQUENCEVERIFY](/docs/glossary#csv-checksequenceverify) (CSV)
+### [OP_CHECKSEQUENCEVERIFY](/docs/glossary#csv) (CSV)
 
 **Code**: `0xb2`
 
@@ -588,7 +588,7 @@ Verifies the input's sequence number enforces a relative time lock.
 ```
 
 Use cases:
-- [Lightning Network](/docs/glossary#lightning-network) [HTLCs](/docs/glossary#htlc-hash-time-locked-contract)
+- [Lightning Network](/docs/glossary#lightning-network) [HTLCs](/docs/glossary#htlc)
 - Escrow with timeout
 - Revocable transactions
 
@@ -666,7 +666,7 @@ These opcodes were disabled for security reasons:
 
 ## Common Script Patterns
 
-### [P2PKH](/docs/glossary#p2pkh-pay-to-pubkey-hash) (Pay-to-Pubkey-Hash)
+### [P2PKH](/docs/glossary#p2pkh) (Pay-to-Pubkey-Hash)
 
 ```
 Locking Script (scriptPubKey):
@@ -676,7 +676,7 @@ Unlocking Script (scriptSig):
 <signature> <publickey>
 ```
 
-### [P2SH](/docs/glossary#p2sh-pay-to-script-hash) (Pay-to-Script-Hash)
+### [P2SH](/docs/glossary#p2sh) (Pay-to-Script-Hash)
 
 ```
 Locking Script:
@@ -686,7 +686,7 @@ Unlocking Script:
 <data> ... <redeemscript>
 ```
 
-### [Multisig](/docs/glossary#multisig-multi-signature) (2-of-3)
+### [Multisig](/docs/glossary#multisig) (2-of-3)
 
 ```
 Locking Script:

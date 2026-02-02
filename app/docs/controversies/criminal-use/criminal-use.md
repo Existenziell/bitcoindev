@@ -12,7 +12,7 @@ Bitcoin is no different. It is a [protocol](/docs/bitcoin) for transferring valu
 
 ### Responsibility Lies With the User
 
-The person who chooses to break the law is responsible. The protocol that blindly processes valid [transactions](/docs/glossary#transaction) is not. Bitcoin does not know or care whether a [UTXO](/docs/glossary#utxo-unspent-transaction-output) was earned by mining, trading, or theft. It only checks signatures and rules.
+The person who chooses to break the law is responsible. The protocol that blindly processes valid [transactions](/docs/glossary#transaction) is not. Bitcoin does not know or care whether a [UTXO](/docs/glossary#utxo) was earned by mining, trading, or theft. It only checks signatures and rules.
 
 Blaming Bitcoin for crime confuses the instrument with the actor. The controversy is not really about Bitcoin: it is about whether we hold money itself responsible for its users' choices. The answer is no.
 

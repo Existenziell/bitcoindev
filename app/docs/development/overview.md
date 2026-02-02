@@ -191,10 +191,10 @@ Building applications that manage keys and create transactions.
 - Handle address types (P2PKH, P2WPKH, P2TR)
 
 **Key concepts:**
-- BIP32 ([HD wallets](/docs/glossary#hd-wallet-hierarchical-deterministic-wallet))
+- BIP32 ([HD wallets](/docs/glossary#hd-wallet))
 - BIP39 ([Mnemonic/seed phrases](/docs/glossary#seed-phrase))
 - BIP44/49/84/86 ([Derivation paths](/docs/glossary#derivation-path))
-- [PSBT](/docs/glossary#psbt-partially-signed-bitcoin-transaction) (Partially Signed Bitcoin Transactions)
+- [PSBT](/docs/glossary#psbt) (Partially Signed Bitcoin Transactions)
 
 **Getting started:**
 1. Choose a wallet library (BDK, bitcoinjs-lib, etc.) - see [Libraries & SDKs](/docs/development/libraries)
@@ -236,7 +236,7 @@ Working with Bitcoin's scripting system.
 
 **Key concepts:**
 - [OP codes](/docs/glossary#opcode) and stack operations
-- [P2SH](/docs/glossary#p2sh-pay-to-script-hash) and [P2WSH](/docs/glossary#p2wsh-pay-to-witness-script-hash)
+- [P2SH](/docs/glossary#p2sh) and [P2WSH](/docs/glossary#p2wsh)
 - [Taproot](/docs/glossary#taproot) and Tapscript
 - [Miniscript](/docs/glossary#miniscript) for policy compilation
 

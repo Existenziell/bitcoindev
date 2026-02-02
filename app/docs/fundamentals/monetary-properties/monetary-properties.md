@@ -19,7 +19,7 @@ Bitcoin exhibits key monetary properties that make it suitable as both a medium 
 
 **Verifiability:** Digital signatures prove ownership cryptographically. Anyone can verify transactions on the public blockchain, and counterfeiting is mathematically impossible.
 
-**Programmability:** Bitcoin [Script](/docs/glossary#script) enables conditional transactions: [time locks](/docs/glossary#time-lock) ([CLTV](/docs/glossary#cltv-checklocktimeverify), [CSV](/docs/glossary#csv-checksequenceverify)), [multisignature](/docs/glossary#multisig-multi-signature) requirements, and basic smart contracts.
+**Programmability:** Bitcoin [Script](/docs/glossary#script) enables conditional transactions: [time locks](/docs/glossary#time-lock) ([CLTV](/docs/glossary#cltv), [CSV](/docs/glossary#csv)), [multisignature](/docs/glossary#multisig) requirements, and basic smart contracts.
 
 **Censorship Resistance:** No central authority can block transactions. The global, permissionless network makes shutdown impractical.
 

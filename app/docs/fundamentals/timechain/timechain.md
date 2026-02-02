@@ -43,7 +43,7 @@ There's no trusted time server that all nodes can query. Even if there were, tru
 
 ## Bitcoin's Solution: Proof-of-Work as Time
 
-Bitcoin solves the timing problem by using **[proof-of-work](/docs/glossary#proof-of-work-pow)** to create an objective, verifiable ordering mechanism. Instead of relying on clocks, Bitcoin uses **computational work** as a proxy for time.
+Bitcoin solves the timing problem by using **[proof-of-work](/docs/glossary#pow)** to create an objective, verifiable ordering mechanism. Instead of relying on clocks, Bitcoin uses **computational work** as a proxy for time.
 
 ### Blocks as Temporal Units
 

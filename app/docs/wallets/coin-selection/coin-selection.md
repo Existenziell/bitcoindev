@@ -36,7 +36,7 @@ Fee Rate = (Total Input Value - Total Output Value) / Virtual Transaction Size
 ```
 
 **Virtual Transaction Size (vBytes):**
-- Defined in BIP 141 ([SegWit](/docs/glossary#segwit-segregated-witness))
+- Defined in BIP 141 ([SegWit](/docs/glossary#segwit))
 - Weight units / 4
 - Accounts for witness data differently
 

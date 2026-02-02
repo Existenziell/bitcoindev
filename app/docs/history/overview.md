@@ -152,7 +152,7 @@ U.S. law enforcement shut down Silk Road and arrested its operator. The event fu
 
 - **Date**: 2015
 
-The [blocksize wars](/docs/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via [Layer 2](/docs/glossary#layer-2) and [SegWit](/docs/glossary#segwit-segregated-witness). In the same year, Joseph Poon and Thaddeus Dryja published the [Lightning Network](/docs/glossary#lightning-network) whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
+The [blocksize wars](/docs/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via [Layer 2](/docs/glossary#layer-2) and [SegWit](/docs/glossary#segwit). In the same year, Joseph Poon and Thaddeus Dryja published the [Lightning Network](/docs/glossary#lightning-network) whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
 
 ---
 

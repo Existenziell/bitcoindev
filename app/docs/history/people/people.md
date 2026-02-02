@@ -68,7 +68,7 @@ John Gilmore is a computer scientist, entrepreneur, and civil-liberties advocate
 
 ![Adam Back](/images/people/Adam_Back.jpg)
 
-**Contribution:** Hashcash (1997) - [Proof-of-Work](/docs/glossary#proof-of-work-pow) for spam prevention
+**Contribution:** Hashcash (1997) - [Proof-of-Work](/docs/glossary#pow) for spam prevention
 
 Adam Back is a British cryptographer who invented Hashcash in 1997, a proof-of-work system designed to limit email spam and denial-of-service attacks. The core idea was elegant: require senders to perform computational work before sending an email, making mass spam economically infeasible.
 
@@ -124,7 +124,7 @@ The smallest subunit of Ether (Ethereum's currency) is called a "wei" in his hon
 
 **Contribution:** Merkle trees (1979) - Efficient verification of block contents
 
-Ralph Merkle is a computer scientist who invented Merkle trees (also called hash trees) in 1979. In this structure, leaf nodes contain hashes of data, and each parent node is the hash of its children, building up to a single root hash. The Bitcoin whitepaper uses this construction to enable compact proofs: [SPV](/docs/glossary#spv-simplified-payment-verification) clients can verify that a transaction is in a block by checking a path from the transaction to the [Merkle root](/docs/glossary#merkle-root) in the block header, without downloading the full block.
+Ralph Merkle is a computer scientist who invented Merkle trees (also called hash trees) in 1979. In this structure, leaf nodes contain hashes of data, and each parent node is the hash of its children, building up to a single root hash. The Bitcoin whitepaper uses this construction to enable compact proofs: [SPV](/docs/glossary#spv) clients can verify that a transaction is in a block by checking a path from the transaction to the [Merkle root](/docs/glossary#merkle-root) in the block header, without downloading the full block.
 
 Merkle trees are fundamental to Bitcoin's [block](/docs/glossary#block) structure. Every block header includes a Merkle root that commits to all transactions in the block; tampering with any transaction changes the root and breaks the chain. Merkle also contributed to public-key cryptography (Merkle's puzzles) and later to nanotechnology. His 1979 paper "Protocols for Public Key Cryptosystems" and the Merkle tree concept are among the cryptographic foundations Satoshi drew on.
 
@@ -275,7 +275,7 @@ His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-
 
 **Contribution:** SegWit (BIP 141), Taproot (BIP 340-342), libsecp256k1
 
-Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of [SegWit](/docs/bitcoin/segwit) (BIP 141), activated in 2017, which separated signature data from transaction data in the [block](/docs/glossary#block) structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, [MAST](/docs/glossary#mast-merkle-abstract-syntax-tree), and improved privacy and flexibility for smart contracts.
+Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of [SegWit](/docs/bitcoin/segwit) (BIP 141), activated in 2017, which separated signature data from transaction data in the [block](/docs/glossary#block) structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, [MAST](/docs/glossary#mast), and improved privacy and flexibility for smart contracts.
 
 Wuille created and maintains libsecp256k1, the cryptographic library used by Bitcoin Core for [elliptic curve](/docs/bitcoin/cryptography) operations, faster and more secure than generic crypto libraries. His work has shaped the security, scalability, and expressiveness of the Bitcoin protocol. He is a co-founder of Blockstream and remains an active Bitcoin Core contributor.
 
@@ -289,7 +289,7 @@ Wuille created and maintains libsecp256k1, the cryptographic library used by Bit
 
 **Contribution:** Bitcoin Core developer, Blockstream co-founder, [CoinJoin](/docs/glossary#coinjoin), Confidential Transactions, [Sidechains](/docs/glossary#sidechain)
 
-Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on [CoinJoin](/docs/glossary#coinjoin) (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the [blocksize wars](/docs/controversies/blocksize-wars), arguing for [Layer 2](/docs/glossary#layer-2) scaling and against raising the block size limit. His advocacy for [SegWit](/docs/glossary#segwit-segregated-witness) and for a conservative, [decentralization](/docs/glossary#decentralization)-focused approach to scaling helped shape Bitcoin's current direction.
+Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on [CoinJoin](/docs/glossary#coinjoin) (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the [blocksize wars](/docs/controversies/blocksize-wars), arguing for [Layer 2](/docs/glossary#layer-2) scaling and against raising the block size limit. His advocacy for [SegWit](/docs/glossary#segwit) and for a conservative, [decentralization](/docs/glossary#decentralization)-focused approach to scaling helped shape Bitcoin's current direction.
 
 [More](https://en.wikipedia.org/wiki/Gregory_Maxwell)
 
@@ -301,7 +301,7 @@ Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influenti
 
 **Contribution:** [Lightning Network](/docs/glossary#lightning-network) whitepaper (2015)
 
-Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the [blockchain](/docs/glossary#blockchain). The design built on [HTLCs](/docs/glossary#htlc-hash-time-locked-contract), [time locks](/docs/glossary#time-lock), and [SegWit](/docs/glossary#segwit-segregated-witness) (which was still under debate) to fix [transaction malleability](/docs/glossary#transaction-malleability) and enable bi-directional channels. The Lightning Network, as specified in the [BOLT](/docs/glossary#bolt-basis-of-lightning-technology) documents and implemented by LND, Core Lightning, Eclair, and others, is the main [Layer 2](/docs/glossary#layer-2) for Bitcoin and is directly rooted in their whitepaper.
+Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments" (2015), which described a second-layer network of payment channels that would allow fast, low-cost transactions without recording every payment on the [blockchain](/docs/glossary#blockchain). The design built on [HTLCs](/docs/glossary#htlc), [time locks](/docs/glossary#time-lock), and [SegWit](/docs/glossary#segwit) (which was still under debate) to fix [transaction malleability](/docs/glossary#transaction-malleability) and enable bi-directional channels. The Lightning Network, as specified in the [BOLT](/docs/glossary#bolt-basis-of-lightning-technology) documents and implemented by LND, Core Lightning, Eclair, and others, is the main [Layer 2](/docs/glossary#layer-2) for Bitcoin and is directly rooted in their whitepaper.
 
 [More](https://lightning.network/lightning-network-paper.pdf) (whitepaper)
 

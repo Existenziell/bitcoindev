@@ -51,7 +51,7 @@ A Bitcoin wallet is a software application or device that allows users to store,
 - **Pros**: Maximum privacy, validates all transactions
 - **Cons**: Requires significant storage and bandwidth
 
-#### [SPV](/docs/glossary#spv-simplified-payment-verification) (Simplified Payment Verification) Wallets
+#### [SPV](/docs/glossary#spv) (Simplified Payment Verification) Wallets
 - **Light clients**: Don't download full blockchain
 - **Pros**: Faster setup, less storage
 - **Cons**: Less privacy, relies on other nodes
@@ -70,7 +70,7 @@ A Bitcoin wallet is a software application or device that allows users to store,
 1. **Random Generation**: Private key is randomly generated (256 bits)
 2. **Public Key Derivation**: Public key derived using elliptic curve cryptography
 3. **Address Creation**: Address generated from public key using hash functions
-4. **Address Types**: [P2PKH](/docs/glossary#p2pkh-pay-to-pubkey-hash), [P2SH](/docs/glossary#p2sh-pay-to-script-hash), [P2WPKH](/docs/glossary#p2wpkh-pay-to-witness-pubkey-hash), [P2TR](/docs/glossary#p2tr-pay-to-taproot) (Taproot)
+4. **Address Types**: [P2PKH](/docs/glossary#p2pkh), [P2SH](/docs/glossary#p2sh), [P2WPKH](/docs/glossary#p2wpkh), [P2TR](/docs/glossary#p2tr) (Taproot)
 
 ### Getting your first bitcoin
 
@@ -319,11 +319,11 @@ console.log('Address:', address);
 
 ### Advanced Features
 
-- **[Multisig](/docs/glossary#multisig-multi-signature)**: Require multiple signatures
+- **[Multisig](/docs/glossary#multisig)**: Require multiple signatures
 - **Coin Control**: Manually select which UTXOs to spend
 - **Fee Estimation**: Calculate appropriate [fee rates](/docs/glossary#fee-rate)
-- **[RBF](/docs/glossary#rbf-replace-by-fee)**: Replace unconfirmed transactions
-- **[PSBT](/docs/glossary#psbt-partially-signed-bitcoin-transaction)**: Partially Signed Bitcoin Transactions
+- **[RBF](/docs/glossary#rbf)**: Replace unconfirmed transactions
+- **[PSBT](/docs/glossary#psbt)**: Partially Signed Bitcoin Transactions
 
 ---
 

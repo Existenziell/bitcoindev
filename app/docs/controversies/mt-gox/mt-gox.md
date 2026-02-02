@@ -57,7 +57,7 @@ At 2014 prices (~$450/BTC), this was about $450 million. At Bitcoin's 2021 peak 
 
 ### The Official Story
 
-Mt. Gox blamed "[transaction malleability](/docs/glossary#transaction-malleability)", a known Bitcoin quirk where [transaction IDs](/docs/glossary#transaction-id-txid) could be changed before [confirmation](/docs/glossary#confirmation) without invalidating the transaction. The exchange claimed hackers exploited this to steal Bitcoin over time.
+Mt. Gox blamed "[transaction malleability](/docs/glossary#transaction-malleability)", a known Bitcoin quirk where [transaction IDs](/docs/glossary#txid) could be changed before [confirmation](/docs/glossary#confirmation) without invalidating the transaction. The exchange claimed hackers exploited this to steal Bitcoin over time.
 
 ### The Reality
 
@@ -106,7 +106,7 @@ This mantra became foundational to Bitcoin culture.
 The industry responded with:
 - **Proof of Reserves**: Cryptographic audits showing exchanges hold customer funds
 - **Cold Storage**: Keeping most funds offline
-- **[Multisig](/docs/glossary#multisig-multi-signature) Wallets**: Requiring multiple keys to move funds
+- **[Multisig](/docs/glossary#multisig) Wallets**: Requiring multiple keys to move funds
 - **Regular Audits**: Independent verification of holdings
 
 ### Regulatory Awareness

@@ -10,7 +10,7 @@ The analogy runs deeper:
 
 | Gold Mining | Bitcoin Mining |
 |-------------|----------------|
-| Requires work to extract value | Requires computational work ([proof-of-work](/docs/glossary#proof-of-work-pow)) |
+| Requires work to extract value | Requires computational work ([proof-of-work](/docs/glossary#pow)) |
 | Gold supply is finite | Bitcoin supply is capped at 21 million |
 | Gets harder to mine over time (deeper deposits) | Gets harder over time ([difficulty adjustment](/docs/mining/difficulty)) |
 | New gold enters circulation through mining | New bitcoin enters circulation through mining |

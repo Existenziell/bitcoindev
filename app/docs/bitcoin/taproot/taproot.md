@@ -456,7 +456,7 @@ Taproot introduces Tapscript, a new scripting language:
 
 - [SegWit](/docs/bitcoin/segwit) - Previous major upgrade
 - [Schnorr Signatures](/docs/bitcoin/cryptography#schnorr-signatures) - Signature scheme
-- [MAST](/docs/glossary#mast-merkle-abstract-syntax-tree) - Merkle Abstract Syntax Trees
+- [MAST](/docs/glossary#mast) - Merkle Abstract Syntax Trees
 - [Address Types](/docs/wallets/address-types) - Understanding P2TR addresses
 
 ---

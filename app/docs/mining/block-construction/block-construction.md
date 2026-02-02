@@ -60,7 +60,7 @@ Coinbase outputs cannot be spent until 100 blocks have passed. This prevents iss
 
 ## Candidate Block
 
-A **candidate block** is the block a miner is currently hashing. It is built from a [block template](/docs/glossary#block-template): the miner fills in the header (version, previous block hash, merkle root, timestamp, [difficulty target](/docs/glossary#difficulty-target), [nonce](/docs/glossary#nonce)), includes the [coinbase transaction](/docs/glossary#coinbase-transaction) and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first one that meets the [proof-of-work](/docs/glossary#proof-of-work-pow) requirement is broadcast as the new block.
+A **candidate block** is the block a miner is currently hashing. It is built from a [block template](/docs/glossary#block-template): the miner fills in the header (version, previous block hash, merkle root, timestamp, [difficulty target](/docs/glossary#difficulty-target), [nonce](/docs/glossary#nonce)), includes the [coinbase transaction](/docs/glossary#coinbase-transaction) and selected transactions, then repeatedly changes the nonce (and optionally coinbase data) and hashes the header until the hash is below the target. Each attempt is a candidate block; the first one that meets the [proof-of-work](/docs/glossary#pow) requirement is broadcast as the new block.
 
 ---
 
@@ -116,7 +116,7 @@ Bitcoin Core's `getblocktemplate` uses this approach:
 
 ## Block Weight and SegWit
 
-Since [SegWit](/docs/glossary#segwit-segregated-witness) (2017), blocks use **weight** instead of raw size:
+Since [SegWit](/docs/glossary#segwit) (2017), blocks use **weight** instead of raw size:
 
 ```
 Block Weight = (Base Size × 4) + Witness Size
@@ -157,7 +157,7 @@ All transactions in a block are hashed into a **[Merkle tree](/docs/glossary#mer
 ### Why Merkle Trees?
 
 - **Efficient verification**: Prove a transaction is in a block with O(log n) hashes
-- **Compact proofs**: [SPV](/docs/glossary#spv-simplified-payment-verification) wallets only need the Merkle path, not the full block
+- **Compact proofs**: [SPV](/docs/glossary#spv) wallets only need the Merkle path, not the full block
 - **Tamper detection**: Any change to any transaction changes the root
 
 ### Merkle Tree Construction

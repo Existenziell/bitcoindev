@@ -50,8 +50,8 @@ The Bitcoin Trilemma describes the challenge of balancing three critical blockch
 
 | Property | Definition | Bitcoin's Approach |
 |----------|------------|-------------------|
-| **Scalability** | Ability to process many transactions quickly | ~7 TPS, 1 MB blocks (up to ~4 MB with [SegWit](/docs/glossary#segwit-segregated-witness)), 10-min block time |
-| **Security** | Resistance to attacks and manipulation | 700+ EH/s hash rate, [proof-of-work](/docs/glossary#proof-of-work-pow), economic incentives |
+| **Scalability** | Ability to process many transactions quickly | ~7 TPS, 1 MB blocks (up to ~4 MB with [SegWit](/docs/glossary#segwit)), 10-min block time |
+| **Security** | Resistance to attacks and manipulation | 700+ EH/s hash rate, [proof-of-work](/docs/glossary#pow), economic incentives |
 | **Decentralization** | Distribution of control across participants | Thousands of global nodes, open participation, multiple mining pools |
 
 ### The Trade-offs

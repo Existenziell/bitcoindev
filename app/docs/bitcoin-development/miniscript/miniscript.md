@@ -63,7 +63,7 @@ Not every Miniscript expression is **safe**; the compiler and analyzers can repo
 
 ## Compilation to Script
 
-A Miniscript policy is compiled down to [Script](/docs/bitcoin/script) (and thus to [P2WSH](/docs/glossary#p2wsh-pay-to-witness-script-hash) or [P2TR](/docs/bitcoin/taproot) [Tapscript](/docs/glossary#tapscript)). The exact output depends on:
+A Miniscript policy is compiled down to [Script](/docs/bitcoin/script) (and thus to [P2WSH](/docs/glossary#p2wsh) or [P2TR](/docs/bitcoin/taproot) [Tapscript](/docs/glossary#tapscript)). The exact output depends on:
 
 - The target (pre-Taproot P2WSH vs [Taproot](/docs/bitcoin/taproot) Tapscript)
 - Optimization options (e.g., minimize size, minimize signature count)
@@ -176,7 +176,7 @@ console.log(policyToDescriptor(policy));
 - **Schnorr** and `OP_CHECKSIGADD`
 - New rules and limits (e.g., 32-byte x-only [pubkeys](/docs/bitcoin/cryptography))
 
-Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki) and implementations) to support **Tapscript**, so the same policy language can target both pre-Taproot [P2WSH](/docs/glossary#p2wsh-pay-to-witness-script-hash) and Taproot script paths.
+Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob/master/bip-0382.mediawiki) and implementations) to support **Tapscript**, so the same policy language can target both pre-Taproot [P2WSH](/docs/glossary#p2wsh) and Taproot script paths.
 
 ---
 
