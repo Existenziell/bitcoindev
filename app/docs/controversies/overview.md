@@ -73,13 +73,3 @@ The catastrophic failure of the world's largest Bitcoin exchange. 850,000 BTC lo
 
 [**Craig Wright / "Faketoshi"**](/docs/controversies/craig-wright)
 The ongoing saga of a man claiming to be Satoshi Nakamoto. Failed cryptographic proofs, forged documents, and legal battles culminated in a 2024 UK court ruling definitively stating Wright is not Satoshi.
-
----
-
-## Learning from Controversy
-
-These debates aren't just historical curiosities. They reveal:
-
-- **What Bitcoiners value**: decentralization, self-sovereignty, censorship resistance
-- **How Bitcoin evolves**: slowly, carefully, with broad consensus
-- **Why Bitcoin is resilient**: it survives attacks, scams, and internal conflicts

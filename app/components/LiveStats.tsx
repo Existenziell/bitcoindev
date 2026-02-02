@@ -5,7 +5,7 @@ import Link from 'next/link'
 import copyToClipboard from '@/app/utils/copyToClipboard'
 import { bitcoinRpc } from '@/app/utils/bitcoinRpc'
 import { formatNumber, formatPrice, formatDifficulty, formatBytes } from '@/app/utils/formatting'
-import { ExternalLinkIcon } from '@/app/components/Icons'
+import ExternalLink from '@/app/components/ExternalLink'
 
 const BTC_HEX = '#f2a900'
 
@@ -159,18 +159,14 @@ export default function LiveStats() {
     if (stat.href) {
       if (stat.external) {
         return (
-          <a
+          <ExternalLink
             href={stat.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${className} external group flex flex-col items-center justify-center`}
+            className={`${className} flex flex-col items-center justify-center`}
+            iconClassName="mt-0.5"
             aria-label={`${stat.label}: ${stat.value || 'No data'} (opens in new tab)`}
           >
             {content}
-            <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 mt-0.5">
-              <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-            </span>
-          </a>
+          </ExternalLink>
         )
       }
       return (

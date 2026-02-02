@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { footerLinksExplore, footerLinksExternal } from '@/app/utils/navigation'
-import { ExternalLinkIcon } from '@/app/components/Icons'
+import ExternalLink from '@/app/components/ExternalLink'
 
 export default function Footer() {
   return (
@@ -17,17 +17,12 @@ export default function Footer() {
             <ul className='flex flex-col md:flex-row md:flex-wrap md:justify-center md:gap-x-6 gap-y-1'>
               {footerLinksExternal.map((resource) => (
                 <li key={resource.name} className='text-center'>
-                  <Link
+                  <ExternalLink
                     href={resource.url}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='external group inline-flex items-center text-sm text-secondary hover:text-btc transition-colors no-underline hover:underline'
+                    className='text-sm text-secondary hover:text-btc transition-colors no-underline hover:underline'
                   >
                     {resource.name}
-                    <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ml-0.5">
-                      <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-                    </span>
-                  </Link>
+                  </ExternalLink>
                 </li>
               ))}
             </ul>

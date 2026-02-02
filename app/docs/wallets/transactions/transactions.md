@@ -190,51 +190,6 @@ public:
 };
 ```
 
-```javascript
-const bech32 = require('@savingsatoshi/bech32js');
-
-class Output {
-  constructor() {
-    this.value = 0;
-    this.witness_version = 0;
-    this.witness_data = Buffer.alloc(0);
-  }
-
-  static from_options(addr, value) {
-    const self = new this();
-    // Decode bech32 address
-    const decoded = bech32.bech32_decode(addr);
-    const words = decoded[1];
-    
-    self.witness_version = words[0];
-    // Convert 5-bit to 8-bit values
-    const witness_program = bech32.fromWords(words.slice(1));
-    self.witness_data = Buffer.from(witness_program);
-    self.value = value;
-    return self;
-  }
-
-  serialize() {
-    // Value: 8 bytes (little-endian)
-    const valueBuffer = Buffer.alloc(8);
-    const value = BigInt(this.value);
-    valueBuffer.writeUInt32LE(Number(value & 0xffffffffn), 0);
-    valueBuffer.writeUInt32LE(Number((value >> 32n) & 0xffffffffn), 4);
-    
-    // Script length
-    const script_length = 1 + 1 + this.witness_data.length;
-    
-    return Buffer.concat([
-      valueBuffer,
-      Buffer.from([script_length]),
-      Buffer.from([this.witness_version]),
-      Buffer.from([this.witness_data.length]),
-      this.witness_data
-    ]);
-  }
-}
-```
-
 ```go
 package main
 
@@ -309,6 +264,51 @@ func main() {
 
 	serialized := output.Serialize()
 	fmt.Printf("Serialized output: %s\n", hex.EncodeToString(serialized))
+}
+```
+
+```javascript
+const bech32 = require('@savingsatoshi/bech32js');
+
+class Output {
+  constructor() {
+    this.value = 0;
+    this.witness_version = 0;
+    this.witness_data = Buffer.alloc(0);
+  }
+
+  static from_options(addr, value) {
+    const self = new this();
+    // Decode bech32 address
+    const decoded = bech32.bech32_decode(addr);
+    const words = decoded[1];
+    
+    self.witness_version = words[0];
+    // Convert 5-bit to 8-bit values
+    const witness_program = bech32.fromWords(words.slice(1));
+    self.witness_data = Buffer.from(witness_program);
+    self.value = value;
+    return self;
+  }
+
+  serialize() {
+    // Value: 8 bytes (little-endian)
+    const valueBuffer = Buffer.alloc(8);
+    const value = BigInt(this.value);
+    valueBuffer.writeUInt32LE(Number(value & 0xffffffffn), 0);
+    valueBuffer.writeUInt32LE(Number((value >> 32n) & 0xffffffffn), 4);
+    
+    // Script length
+    const script_length = 1 + 1 + this.witness_data.length;
+    
+    return Buffer.concat([
+      valueBuffer,
+      Buffer.from([script_length]),
+      Buffer.from([this.witness_version]),
+      Buffer.from([this.witness_data.length]),
+      this.witness_data
+    ]);
+  }
 }
 ```
 :::
@@ -462,32 +462,6 @@ std::string outputs_json = outputs.dump();
 std::string unsigned_tx = bcli("createrawtransaction '" + inputs_json + "' '" + outputs_json + "'");
 ```
 
-```javascript
-const { execSync } = require('child_process');
-
-function bcli(cmd) {
-  const result = execSync(`bitcoin-cli -signet ${cmd}`, { encoding: 'utf-8' });
-  return result.trim();
-}
-
-// Build inputs from selected UTXOs
-const inputs = selectedUtxos.map(utxo => ({
-  txid: utxo.txid,
-  vout: utxo.vout
-}));
-
-// Build outputs (payment + change)
-const outputs = {
-  [destinationAddress]: paymentAmount,
-  [changeAddress]: changeAmount
-};
-
-// Create raw transaction
-const inputsJson = JSON.stringify(inputs);
-const outputsJson = JSON.stringify(outputs);
-const unsignedTx = bcli(`createrawtransaction '${inputsJson}' '${outputsJson}'`);
-```
-
 ```go
 package main
 
@@ -544,6 +518,32 @@ func main() {
 
 	fmt.Printf("Unsigned transaction: %s\n", unsignedTx)
 }
+```
+
+```javascript
+const { execSync } = require('child_process');
+
+function bcli(cmd) {
+  const result = execSync(`bitcoin-cli -signet ${cmd}`, { encoding: 'utf-8' });
+  return result.trim();
+}
+
+// Build inputs from selected UTXOs
+const inputs = selectedUtxos.map(utxo => ({
+  txid: utxo.txid,
+  vout: utxo.vout
+}));
+
+// Build outputs (payment + change)
+const outputs = {
+  [destinationAddress]: paymentAmount,
+  [changeAddress]: changeAmount
+};
+
+// Create raw transaction
+const inputsJson = JSON.stringify(inputs);
+const outputsJson = JSON.stringify(outputs);
+const unsignedTx = bcli(`createrawtransaction '${inputsJson}' '${outputsJson}'`);
 ```
 :::
 
@@ -625,22 +625,6 @@ std::string txid = bcli("sendrawtransaction " + signed_tx + " 0");
 std::cout << "Transaction broadcast: " << txid << std::endl;
 ```
 
-```javascript
-// Sign the transaction
-const signResult = bcli(`signrawtransactionwithwallet ${unsignedTx}`);
-const signedData = JSON.parse(signResult);
-
-if (!signedData.complete) {
-  throw new Error('Transaction signing incomplete');
-}
-
-const signedTx = signedData.hex;
-
-// Broadcast transaction (0 = no maxfeerate protection)
-const txid = bcli(`sendrawtransaction ${signedTx} 0`);
-console.log(`Transaction broadcast: ${txid}`);
-```
-
 ```go
 package main
 
@@ -688,6 +672,22 @@ func main() {
 
 	fmt.Printf("Transaction broadcast: %s\n", txid)
 }
+```
+
+```javascript
+// Sign the transaction
+const signResult = bcli(`signrawtransactionwithwallet ${unsignedTx}`);
+const signedData = JSON.parse(signResult);
+
+if (!signedData.complete) {
+  throw new Error('Transaction signing incomplete');
+}
+
+const signedTx = signedData.hex;
+
+// Broadcast transaction (0 = no maxfeerate protection)
+const txid = bcli(`sendrawtransaction ${signedTx} 0`);
+console.log(`Transaction broadcast: ${txid}`);
 ```
 :::
 

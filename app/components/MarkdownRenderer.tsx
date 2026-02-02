@@ -17,7 +17,8 @@ const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), 
   ssr: false,
   loading: () => <div className="mermaid-diagram my-4 min-h-[120px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 animate-pulse" aria-hidden />,
 })
-import { ChevronDown, ExternalLinkIcon } from '@/app/components/Icons'
+import { ChevronDown } from '@/app/components/Icons'
+import ExternalLink from '@/app/components/ExternalLink'
 import { generateSlug } from '@/scripts/lib/slug'
 
 interface MarkdownRendererProps {
@@ -399,18 +400,9 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         )
       }
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="external group inline-flex items-center"
-          {...props}
-        >
+        <ExternalLink href={href} className={props.className}>
           {children}
-          <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ml-0.5">
-            <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-          </span>
-        </a>
+        </ExternalLink>
       )
     },
     code: ({ inline, className, children, ...props }: any) => {

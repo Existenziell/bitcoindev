@@ -26,7 +26,7 @@ export default function ExecutionControls({
       <button
         onClick={onExecute}
         disabled={!canExecute || isExecuting}
-        className="btn-primary-sm disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-primary-sm disabled-btn"
       >
         Execute
       </button>
@@ -34,7 +34,7 @@ export default function ExecutionControls({
         <button
           onClick={onStepBack}
           disabled={!canStepBack || isExecuting}
-          className="panel-base-hover px-5 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="panel-base-hover px-5 py-2 disabled-btn"
           title="Step back to previous execution state"
         >
           ←
@@ -43,14 +43,14 @@ export default function ExecutionControls({
       <button
         onClick={onStep}
         disabled={!canStep || isExecuting}
-        className="panel-base-hover px-5 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="panel-base-hover px-5 py-2 disabled-btn"
       >
         →
       </button>
       <button
         onClick={onReset}
         disabled={isExecuting}
-        className="panel-base px-4 py-2 hover:border-gray-400 dark:hover:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="panel-base-hover px-4 py-2 disabled-btn"
       >
         Reset
       </button>

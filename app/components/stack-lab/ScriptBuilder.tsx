@@ -117,7 +117,7 @@ function ScriptItem({
   }
 
   return (
-    <div className="panel-base flex items-center gap-2 hover:border-gray-400 dark:hover:border-gray-600 transition-colors group">
+    <div className="panel-base-hover flex items-center gap-2 group">
       <div 
         className="flex-1 font-mono text-sm text-gray-800 dark:text-gray-200 cursor-text"
         onClick={handleEdit}

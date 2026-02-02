@@ -133,34 +133,6 @@ int main() {
 }
 ```
 
-```javascript
-const bip39 = require('bip39');
-
-function generateMnemonic(strength = 256) {
-    // Generate mnemonic (128=12 words, 256=24 words)
-    return bip39.generateMnemonic(strength);
-}
-
-async function mnemonicToSeed(mnemonic, passphrase = '') {
-    // Convert mnemonic to 512-bit seed using PBKDF2
-    return bip39.mnemonicToSeed(mnemonic, passphrase);
-}
-
-// Generate 24-word mnemonic
-const mnemonic = generateMnemonic(256);
-console.log('Mnemonic:', mnemonic);
-
-// Convert to seed
-mnemonicToSeed(mnemonic).then(seed => {
-    console.log('Seed:', seed.toString('hex'));
-});
-
-// Note: When using bip32 for key derivation, use BIP32Factory:
-// const { BIP32Factory } = require('bip32');
-// const ecc = require('tiny-secp256k1');
-// const bip32 = BIP32Factory(ecc);
-```
-
 ```go
 package main
 
@@ -199,6 +171,34 @@ func main() {
 	}
 	fmt.Printf("Seed: %x\n", seed)
 }
+```
+
+```javascript
+const bip39 = require('bip39');
+
+function generateMnemonic(strength = 256) {
+    // Generate mnemonic (128=12 words, 256=24 words)
+    return bip39.generateMnemonic(strength);
+}
+
+async function mnemonicToSeed(mnemonic, passphrase = '') {
+    // Convert mnemonic to 512-bit seed using PBKDF2
+    return bip39.mnemonicToSeed(mnemonic, passphrase);
+}
+
+// Generate 24-word mnemonic
+const mnemonic = generateMnemonic(256);
+console.log('Mnemonic:', mnemonic);
+
+// Convert to seed
+mnemonicToSeed(mnemonic).then(seed => {
+    console.log('Seed:', seed.toString('hex'));
+});
+
+// Note: When using bip32 for key derivation, use BIP32Factory:
+// const { BIP32Factory } = require('bip32');
+// const ecc = require('tiny-secp256k1');
+// const bip32 = BIP32Factory(ecc);
 ```
 :::
 
@@ -346,42 +346,6 @@ int main() {
 }
 ```
 
-```javascript
-const { BIP32Factory } = require('bip32');
-const ecc = require('tiny-secp256k1');
-const bip39 = require('bip39');
-
-// Initialize bip32 with the elliptic curve library
-const bip32 = BIP32Factory(ecc);
-
-async function deriveKeys(mnemonic) {
-    // Convert mnemonic to seed
-    const seed = await bip39.mnemonicToSeed(mnemonic);
-    
-    // Create master key from seed
-    const master = bip32.fromSeed(seed);
-    console.log('Master xprv:', master.toBase58());
-    
-    // Derive BIP84 path: m/84'/0'/0'/0/0
-    // 84' = purpose (native SegWit)
-    // 0' = coin type (Bitcoin mainnet)
-    // 0' = account
-    // 0 = external chain (receiving)
-    // 0 = first address
-    const path = "m/84'/0'/0'/0/0";
-    const derived = master.derivePath(path);
-    
-    console.log('Derived xprv:', derived.toBase58());
-    console.log('Derived xpub:', derived.neutered().toBase58());
-    console.log('Private key:', derived.privateKey.toString('hex'));
-    console.log('Public key:', derived.publicKey.toString('hex'));
-}
-
-const mnemonic = bip39.generateMnemonic(256);
-console.log('Mnemonic:', mnemonic);
-deriveKeys(mnemonic);
-```
-
 ```go
 package main
 
@@ -450,6 +414,42 @@ func main() {
 	fmt.Printf("Mnemonic: %s\n", mnemonic)
 	deriveKeys(mnemonic)
 }
+```
+
+```javascript
+const { BIP32Factory } = require('bip32');
+const ecc = require('tiny-secp256k1');
+const bip39 = require('bip39');
+
+// Initialize bip32 with the elliptic curve library
+const bip32 = BIP32Factory(ecc);
+
+async function deriveKeys(mnemonic) {
+    // Convert mnemonic to seed
+    const seed = await bip39.mnemonicToSeed(mnemonic);
+    
+    // Create master key from seed
+    const master = bip32.fromSeed(seed);
+    console.log('Master xprv:', master.toBase58());
+    
+    // Derive BIP84 path: m/84'/0'/0'/0/0
+    // 84' = purpose (native SegWit)
+    // 0' = coin type (Bitcoin mainnet)
+    // 0' = account
+    // 0 = external chain (receiving)
+    // 0 = first address
+    const path = "m/84'/0'/0'/0/0";
+    const derived = master.derivePath(path);
+    
+    console.log('Derived xprv:', derived.toBase58());
+    console.log('Derived xpub:', derived.neutered().toBase58());
+    console.log('Private key:', derived.privateKey.toString('hex'));
+    console.log('Public key:', derived.publicKey.toString('hex'));
+}
+
+const mnemonic = bip39.generateMnemonic(256);
+console.log('Mnemonic:', mnemonic);
+deriveKeys(mnemonic);
 ```
 :::
 
@@ -566,36 +566,6 @@ void generate_addresses_from_xpub(const std::string& xpub_str, uint32_t count) {
 }
 ```
 
-```javascript
-const { BIP32Factory } = require('bip32');
-const ecc = require('tiny-secp256k1');
-const bitcoin = require('bitcoinjs-lib');
-
-// Initialize bip32 with the elliptic curve library
-const bip32 = BIP32Factory(ecc);
-
-function generateAddressesFromXpub(xpubString, count = 5) {
-    const xpub = bip32.fromBase58(xpubString);
-    
-    for (let i = 0; i < count; i++) {
-        // Derive: xpub/0/i (receiving chain)
-        const derived = xpub.derive(0).derive(i);
-        
-        // Generate P2WPKH address
-        const { address } = bitcoin.payments.p2wpkh({
-            pubkey: derived.publicKey,
-            network: bitcoin.networks.bitcoin
-        });
-        
-        console.log(`Address ${i}: ${address}`);
-    }
-}
-
-// Example usage with account xpub
-const xpub = 'xpub...';
-generateAddressesFromXpub(xpub, 5);
-```
-
 ```go
 package main
 
@@ -644,6 +614,36 @@ func main() {
 	xpub := "xpub..." // Extended public key
 	generateAddressesFromXpub(xpub, 5)
 }
+```
+
+```javascript
+const { BIP32Factory } = require('bip32');
+const ecc = require('tiny-secp256k1');
+const bitcoin = require('bitcoinjs-lib');
+
+// Initialize bip32 with the elliptic curve library
+const bip32 = BIP32Factory(ecc);
+
+function generateAddressesFromXpub(xpubString, count = 5) {
+    const xpub = bip32.fromBase58(xpubString);
+    
+    for (let i = 0; i < count; i++) {
+        // Derive: xpub/0/i (receiving chain)
+        const derived = xpub.derive(0).derive(i);
+        
+        // Generate P2WPKH address
+        const { address } = bitcoin.payments.p2wpkh({
+            pubkey: derived.publicKey,
+            network: bitcoin.networks.bitcoin
+        });
+        
+        console.log(`Address ${i}: ${address}`);
+    }
+}
+
+// Example usage with account xpub
+const xpub = 'xpub...';
+generateAddressesFromXpub(xpub, 5);
 ```
 :::
 

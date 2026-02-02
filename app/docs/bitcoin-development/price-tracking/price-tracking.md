@@ -52,15 +52,6 @@ double get_price_coingecko() {
 }
 ```
 
-```javascript
-async function getPriceCoingecko() {
-  const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur';
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.bitcoin.usd;
-}
-```
-
 ```go
 package main
 
@@ -100,6 +91,15 @@ func main() {
 	fmt.Printf("Bitcoin price: $%.2f\n", price)
 }
 ```
+
+```javascript
+async function getPriceCoingecko() {
+  const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur';
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.bitcoin.usd;
+}
+```
 :::
 
 ### Mempool.space API
@@ -127,14 +127,6 @@ double get_price_mempool() {
     std::string url = "https://mempool.space/api/v1/prices";
     // ... fetch and parse JSON
     return json["USD"].get<double>();
-}
-```
-
-```javascript
-async function getPriceMempool() {
-  const response = await fetch('https://mempool.space/api/v1/prices');
-  const data = await response.json();
-  return data.USD;
 }
 ```
 
@@ -175,6 +167,14 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("Bitcoin price: $%.2f\n", price)
+}
+```
+
+```javascript
+async function getPriceMempool() {
+  const response = await fetch('https://mempool.space/api/v1/prices');
+  const data = await response.json();
+  return data.USD;
 }
 ```
 :::
@@ -289,23 +289,6 @@ public:
 };
 ```
 
-```javascript
-const cache = new Map();
-const CACHE_DURATION = 60000; // milliseconds
-
-function getCachedPrice(currency) {
-  const entry = cache.get(currency);
-  if (entry && Date.now() - entry.timestamp < CACHE_DURATION) {
-    return entry.price;
-  }
-  return null;
-}
-
-function setCachedPrice(currency, price) {
-  cache.set(currency, { price, timestamp: Date.now() });
-}
-```
-
 ```go
 package main
 
@@ -366,6 +349,23 @@ func main() {
 	if price, ok := cache.Get("USD"); ok {
 		fmt.Printf("Cached price: $%.2f\n", price)
 	}
+}
+```
+
+```javascript
+const cache = new Map();
+const CACHE_DURATION = 60000; // milliseconds
+
+function getCachedPrice(currency) {
+  const entry = cache.get(currency);
+  if (entry && Date.now() - entry.timestamp < CACHE_DURATION) {
+    return entry.price;
+  }
+  return null;
+}
+
+function setCachedPrice(currency, price) {
+  cache.set(currency, { price, timestamp: Date.now() });
 }
 ```
 :::

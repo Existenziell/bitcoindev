@@ -127,34 +127,6 @@ int main() {
 }
 ```
 
-```javascript
-const bitcoin = require('bitcoinjs-lib');
-const { ECPairFactory } = require('ecpair');
-const ecc = require('tiny-secp256k1');
-
-const ECPair = ECPairFactory(ecc);
-
-function generateP2PKHAddress() {
-    // Generate key pair
-    const keyPair = ECPair.makeRandom();
-    
-    // Create P2PKH address
-    const { address } = bitcoin.payments.p2pkh({
-        pubkey: keyPair.publicKey,
-        network: bitcoin.networks.bitcoin
-    });
-    
-    return {
-        privateKey: keyPair.toWIF(),
-        address: address  // Starts with '1'
-    };
-}
-
-const { privateKey, address } = generateP2PKHAddress();
-console.log('Private Key (WIF):', privateKey);
-console.log('P2PKH Address:', address);
-```
-
 ```go
 package main
 
@@ -194,6 +166,34 @@ func main() {
 	fmt.Printf("Private Key (WIF): %s\n", privateKey)
 	fmt.Printf("P2PKH Address: %s\n", address) // Starts with '1'
 }
+```
+
+```javascript
+const bitcoin = require('bitcoinjs-lib');
+const { ECPairFactory } = require('ecpair');
+const ecc = require('tiny-secp256k1');
+
+const ECPair = ECPairFactory(ecc);
+
+function generateP2PKHAddress() {
+    // Generate key pair
+    const keyPair = ECPair.makeRandom();
+    
+    // Create P2PKH address
+    const { address } = bitcoin.payments.p2pkh({
+        pubkey: keyPair.publicKey,
+        network: bitcoin.networks.bitcoin
+    });
+    
+    return {
+        privateKey: keyPair.toWIF(),
+        address: address  // Starts with '1'
+    };
+}
+
+const { privateKey, address } = generateP2PKHAddress();
+console.log('Private Key (WIF):', privateKey);
+console.log('P2PKH Address:', address);
 ```
 :::
 
@@ -314,37 +314,6 @@ int main() {
 }
 ```
 
-```javascript
-const bitcoin = require('bitcoinjs-lib');
-const { ECPairFactory } = require('ecpair');
-const ecc = require('tiny-secp256k1');
-
-const ECPair = ECPairFactory(ecc);
-
-function generateP2SHP2WPKHAddress() {
-    const keyPair = ECPair.makeRandom();
-    
-    // Create P2SH-P2WPKH (nested SegWit)
-    const p2wpkh = bitcoin.payments.p2wpkh({
-        pubkey: keyPair.publicKey,
-        network: bitcoin.networks.bitcoin
-    });
-    
-    const p2sh = bitcoin.payments.p2sh({
-        redeem: p2wpkh,
-        network: bitcoin.networks.bitcoin
-    });
-    
-    return {
-        privateKey: keyPair.toWIF(),
-        address: p2sh.address  // Starts with '3'
-    };
-}
-
-const { privateKey, address } = generateP2SHP2WPKHAddress();
-console.log('P2SH-P2WPKH Address:', address);
-```
-
 ```go
 package main
 
@@ -389,6 +358,37 @@ func main() {
 	fmt.Printf("Private Key (WIF): %s\n", privateKey)
 	fmt.Printf("P2SH-P2WPKH Address: %s\n", address) // Starts with '3'
 }
+```
+
+```javascript
+const bitcoin = require('bitcoinjs-lib');
+const { ECPairFactory } = require('ecpair');
+const ecc = require('tiny-secp256k1');
+
+const ECPair = ECPairFactory(ecc);
+
+function generateP2SHP2WPKHAddress() {
+    const keyPair = ECPair.makeRandom();
+    
+    // Create P2SH-P2WPKH (nested SegWit)
+    const p2wpkh = bitcoin.payments.p2wpkh({
+        pubkey: keyPair.publicKey,
+        network: bitcoin.networks.bitcoin
+    });
+    
+    const p2sh = bitcoin.payments.p2sh({
+        redeem: p2wpkh,
+        network: bitcoin.networks.bitcoin
+    });
+    
+    return {
+        privateKey: keyPair.toWIF(),
+        address: p2sh.address  // Starts with '3'
+    };
+}
+
+const { privateKey, address } = generateP2SHP2WPKHAddress();
+console.log('P2SH-P2WPKH Address:', address);
 ```
 :::
 
@@ -512,32 +512,6 @@ int main() {
 }
 ```
 
-```javascript
-const bitcoin = require('bitcoinjs-lib');
-const { ECPairFactory } = require('ecpair');
-const ecc = require('tiny-secp256k1');
-
-const ECPair = ECPairFactory(ecc);
-
-function generateP2WPKHAddress() {
-    const keyPair = ECPair.makeRandom();
-    
-    // Create P2WPKH (native SegWit)
-    const { address } = bitcoin.payments.p2wpkh({
-        pubkey: keyPair.publicKey,
-        network: bitcoin.networks.bitcoin
-    });
-    
-    return {
-        privateKey: keyPair.toWIF(),
-        address: address  // Starts with 'bc1q'
-    };
-}
-
-const { privateKey, address } = generateP2WPKHAddress();
-console.log('P2WPKH Address:', address);
-```
-
 ```go
 package main
 
@@ -577,6 +551,32 @@ func main() {
 	fmt.Printf("Private Key (WIF): %s\n", privateKey)
 	fmt.Printf("P2WPKH Address: %s\n", address) // Starts with 'bc1q'
 }
+```
+
+```javascript
+const bitcoin = require('bitcoinjs-lib');
+const { ECPairFactory } = require('ecpair');
+const ecc = require('tiny-secp256k1');
+
+const ECPair = ECPairFactory(ecc);
+
+function generateP2WPKHAddress() {
+    const keyPair = ECPair.makeRandom();
+    
+    // Create P2WPKH (native SegWit)
+    const { address } = bitcoin.payments.p2wpkh({
+        pubkey: keyPair.publicKey,
+        network: bitcoin.networks.bitcoin
+    });
+    
+    return {
+        privateKey: keyPair.toWIF(),
+        address: address  // Starts with 'bc1q'
+    };
+}
+
+const { privateKey, address } = generateP2WPKHAddress();
+console.log('P2WPKH Address:', address);
 ```
 :::
 
@@ -719,38 +719,6 @@ int main() {
 }
 ```
 
-```javascript
-const bitcoin = require('bitcoinjs-lib');
-const { ECPairFactory } = require('ecpair');
-const ecc = require('tiny-secp256k1');
-
-const ECPair = ECPairFactory(ecc);
-
-// Initialize ECC library for Taproot
-bitcoin.initEccLib(ecc);
-
-function generateP2TRAddress() {
-    const keyPair = ECPair.makeRandom();
-    
-    // Get x-only public key (32 bytes)
-    const xOnlyPubkey = keyPair.publicKey.slice(1, 33);
-    
-    // Create P2TR address (key path only)
-    const { address } = bitcoin.payments.p2tr({
-        internalPubkey: xOnlyPubkey,
-        network: bitcoin.networks.bitcoin
-    });
-    
-    return {
-        privateKey: keyPair.toWIF(),
-        address: address  // Starts with 'bc1p'
-    };
-}
-
-const { privateKey, address } = generateP2TRAddress();
-console.log('P2TR Address:', address);
-```
-
 ```go
 package main
 
@@ -794,6 +762,38 @@ func main() {
 	fmt.Printf("Private Key (WIF): %s\n", privateKey)
 	fmt.Printf("P2TR Address: %s\n", address) // Starts with 'bc1p'
 }
+```
+
+```javascript
+const bitcoin = require('bitcoinjs-lib');
+const { ECPairFactory } = require('ecpair');
+const ecc = require('tiny-secp256k1');
+
+const ECPair = ECPairFactory(ecc);
+
+// Initialize ECC library for Taproot
+bitcoin.initEccLib(ecc);
+
+function generateP2TRAddress() {
+    const keyPair = ECPair.makeRandom();
+    
+    // Get x-only public key (32 bytes)
+    const xOnlyPubkey = keyPair.publicKey.slice(1, 33);
+    
+    // Create P2TR address (key path only)
+    const { address } = bitcoin.payments.p2tr({
+        internalPubkey: xOnlyPubkey,
+        network: bitcoin.networks.bitcoin
+    });
+    
+    return {
+        privateKey: keyPair.toWIF(),
+        address: address  // Starts with 'bc1p'
+    };
+}
+
+const { privateKey, address } = generateP2TRAddress();
+console.log('P2TR Address:', address);
 ```
 :::
 

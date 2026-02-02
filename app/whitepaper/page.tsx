@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { DownloadPDFIcon, ExternalLinkIcon } from '@/app/components/Icons'
+import { DownloadPDFIcon } from '@/app/components/Icons'
+import ExternalLink from '@/app/components/ExternalLink'
 
 export default function WhitepaperPage() {
   return (
@@ -12,30 +13,14 @@ export default function WhitepaperPage() {
           {/* History */}
           <p className="text-center text-sm text-secondary max-w-lg mx-auto leading-relaxed">
             Satoshi Nakamoto announced the whitepaper on the{' '}
-            <a
-              href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external group inline-flex items-center text-btc hover:underline"
-            >
+            <ExternalLink href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html" className="text-btc hover:underline">
               cryptography mailing list
-              <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ml-0.5">
-                <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-              </span>
-            </a>
+            </ExternalLink>
             {' '}on October 31, 2008.
             The Bitcoin network launched on January 3, 2009, when Satoshi mined the{' '}
-            <a
-              href="https://www.blockchain.com/explorer/blocks/btc/0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external group inline-flex items-center text-btc hover:underline"
-            >
+            <ExternalLink href="https://www.blockchain.com/explorer/blocks/btc/0" className="text-btc hover:underline">
               Genesis Block
-              <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ml-0.5">
-                <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-              </span>
-            </a>.
+            </ExternalLink>.
           </p>
       </div>
 

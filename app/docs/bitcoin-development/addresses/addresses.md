@@ -128,16 +128,6 @@ bc::wallet::payment_address generate_address(const bc::ec_secret& secret) {
 }
 ```
 
-```javascript
-import * as bitcoin from 'bitcoinjs-lib';
-
-const p2wpkh = bitcoin.payments.p2wpkh({ 
-  pubkey: publicKey,
-  network: bitcoin.networks.bitcoin 
-});
-console.log(p2wpkh.address); // bc1q...
-```
-
 ```go
 package main
 
@@ -178,6 +168,16 @@ func main() {
 	addr, _ := pubkeyToP2WPKH(pubkeyBytes, true)
 	fmt.Println(addr) // bc1q...
 }
+```
+
+```javascript
+import * as bitcoin from 'bitcoinjs-lib';
+
+const p2wpkh = bitcoin.payments.p2wpkh({ 
+  pubkey: publicKey,
+  network: bitcoin.networks.bitcoin 
+});
+console.log(p2wpkh.address); // bc1q...
 ```
 :::
 
@@ -229,19 +229,6 @@ bool validate_address(const std::string& address) {
 }
 ```
 
-```javascript
-import * as bitcoin from 'bitcoinjs-lib';
-
-function validateAddress(address, network = bitcoin.networks.bitcoin) {
-  try {
-    bitcoin.address.toOutputScript(address, network);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-```
-
 ```go
 package main
 
@@ -281,6 +268,19 @@ func validateAddress(address string) (bool, string) {
 func main() {
 	valid, addrType := validateAddress("1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2")
 	fmt.Printf("Valid: %v, Type: %s\n", valid, addrType)
+}
+```
+
+```javascript
+import * as bitcoin from 'bitcoinjs-lib';
+
+function validateAddress(address, network = bitcoin.networks.bitcoin) {
+  try {
+    bitcoin.address.toOutputScript(address, network);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 ```
 :::
@@ -334,14 +334,6 @@ std::string script_to_address(const bc::chain::script& script) {
 }
 ```
 
-```javascript
-import * as bitcoin from 'bitcoinjs-lib';
-
-function scriptToAddress(script, network = bitcoin.networks.bitcoin) {
-  return bitcoin.address.fromOutputScript(script, network);
-}
-```
-
 ```go
 package main
 
@@ -373,6 +365,14 @@ func main() {
 
 	addr, _ := scriptToAddress(script)
 	fmt.Println(addr)
+}
+```
+
+```javascript
+import * as bitcoin from 'bitcoinjs-lib';
+
+function scriptToAddress(script, network = bitcoin.networks.bitcoin) {
+  return bitcoin.address.fromOutputScript(script, network);
 }
 ```
 :::
@@ -486,16 +486,6 @@ std::string create_multisig(uint8_t m, const std::vector<bc::ec_compressed>& pub
 }
 ```
 
-```javascript
-import * as bitcoin from 'bitcoinjs-lib';
-
-function createMultisig(m, pubkeys) {
-  const multisig = bitcoin.payments.p2ms({ m, pubkeys });
-  const p2wsh = bitcoin.payments.p2wsh({ redeem: multisig });
-  return p2wsh.address; // bc1q... (P2WSH)
-}
-```
-
 ```go
 package main
 
@@ -542,6 +532,16 @@ func main() {
 
 	addr, _ := createMultisig(2, pubkeys)
 	fmt.Println(addr) // bc1q... (P2WSH)
+}
+```
+
+```javascript
+import * as bitcoin from 'bitcoinjs-lib';
+
+function createMultisig(m, pubkeys) {
+  const multisig = bitcoin.payments.p2ms({ m, pubkeys });
+  const p2wsh = bitcoin.payments.p2wsh({ redeem: multisig });
+  return p2wsh.address; // bc1q... (P2WSH)
 }
 ```
 :::

@@ -64,16 +64,6 @@ bc::wallet::hd_private derive_key(const bc::data_chunk& seed) {
 }
 ```
 
-```javascript
-import { BIP32Factory } from 'bip32';
-import * as bip39 from 'bip39';
-
-const mnemonic = bip39.generateMnemonic(256);
-const seed = await bip39.mnemonicToSeed(mnemonic);
-const root = bip32.fromSeed(seed);
-const child = root.derivePath("m/84'/0'/0'/0/0");
-```
-
 ```go
 package main
 
@@ -127,6 +117,16 @@ func main() {
 	fmt.Printf("Derived key: %x\n", key.Key)
 }
 ```
+
+```javascript
+import { BIP32Factory } from 'bip32';
+import * as bip39 from 'bip39';
+
+const mnemonic = bip39.generateMnemonic(256);
+const seed = await bip39.mnemonicToSeed(mnemonic);
+const root = bip32.fromSeed(seed);
+const child = root.derivePath("m/84'/0'/0'/0/0");
+```
 :::
 
 ---
@@ -163,14 +163,6 @@ bool is_valid = bc::wallet::validate_mnemonic(words);
 auto seed = bc::wallet::decode_mnemonic(words);
 ```
 
-```javascript
-import * as bip39 from 'bip39';
-
-const mnemonic = bip39.generateMnemonic(256);
-const isValid = bip39.validateMnemonic(mnemonic);
-const seed = await bip39.mnemonicToSeed(mnemonic, 'optional_passphrase');
-```
-
 ```go
 package main
 
@@ -205,6 +197,14 @@ func main() {
 	fmt.Printf("Valid: %v\n", isValid)
 	fmt.Printf("Seed: %x\n", seed)
 }
+```
+
+```javascript
+import * as bip39 from 'bip39';
+
+const mnemonic = bip39.generateMnemonic(256);
+const isValid = bip39.validateMnemonic(mnemonic);
+const seed = await bip39.mnemonicToSeed(mnemonic, 'optional_passphrase');
 ```
 :::
 

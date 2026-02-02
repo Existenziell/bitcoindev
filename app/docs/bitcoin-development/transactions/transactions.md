@@ -91,26 +91,6 @@ bc::chain::transaction create_transaction(const bc::hash_digest& prev_txid,
 }
 ```
 
-```javascript
-import * as bitcoin from 'bitcoinjs-lib';
-
-function createTransaction(prevTxid, recipientAddr, changeAddr) {
-  const psbt = new bitcoin.Psbt({ network: bitcoin.networks.bitcoin });
-  
-  psbt.addInput({
-    hash: prevTxid,
-    index: 0,
-    witnessUtxo: { script: Buffer.from('0014...', 'hex'), value: 100000 },
-  });
-  
-  psbt.addOutput({ address: recipientAddr, value: 50000 });
-  psbt.addOutput({ address: changeAddr, value: 49000 });
-  
-  // Sign and finalize...
-  return psbt;
-}
-```
-
 ```go
 package main
 
@@ -166,6 +146,26 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("Transaction created with %d inputs and %d outputs\n", len(tx.TxIn), len(tx.TxOut))
+}
+```
+
+```javascript
+import * as bitcoin from 'bitcoinjs-lib';
+
+function createTransaction(prevTxid, recipientAddr, changeAddr) {
+  const psbt = new bitcoin.Psbt({ network: bitcoin.networks.bitcoin });
+  
+  psbt.addInput({
+    hash: prevTxid,
+    index: 0,
+    witnessUtxo: { script: Buffer.from('0014...', 'hex'), value: 100000 },
+  });
+  
+  psbt.addOutput({ address: recipientAddr, value: 50000 });
+  psbt.addOutput({ address: changeAddr, value: 49000 });
+  
+  // Sign and finalize...
+  return psbt;
 }
 ```
 :::
@@ -631,17 +631,6 @@ std::string broadcast_transaction(const std::string& tx_hex) {
 }
 ```
 
-```javascript
-async function broadcastTransaction(txHex) {
-  const response = await fetch('https://mempool.space/api/tx', {
-    method: 'POST',
-    body: txHex,
-  });
-  if (!response.ok) throw new Error(await response.text());
-  return await response.text(); // Returns txid
-}
-```
-
 ```go
 package main
 
@@ -682,6 +671,17 @@ func main() {
 		panic(err)
 	}
 	fmt.Printf("Transaction broadcast: %s\n", txid)
+}
+```
+
+```javascript
+async function broadcastTransaction(txHex) {
+  const response = await fetch('https://mempool.space/api/tx', {
+    method: 'POST',
+    body: txHex,
+  });
+  if (!response.ok) throw new Error(await response.text());
+  return await response.text(); // Returns txid
 }
 ```
 :::

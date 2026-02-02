@@ -103,22 +103,6 @@ void monitor_blocks() {
 }
 ```
 
-```javascript
-const zmq = require('zeromq');
-
-async function monitorBlocks() {
-  const socket = new zmq.Subscriber();
-  socket.connect('tcp://127.0.0.1:28332');
-  socket.subscribe('hashblock');
-
-  for await (const [topic, msg] of socket) {
-    const blockHash = msg.toString('hex');
-    console.log(`New block: ${blockHash}`);
-  }
-}
-monitorBlocks();
-```
-
 ```go
 package main
 
@@ -171,6 +155,22 @@ func main() {
 		log.Fatal(err)
 	}
 }
+```
+
+```javascript
+const zmq = require('zeromq');
+
+async function monitorBlocks() {
+  const socket = new zmq.Subscriber();
+  socket.connect('tcp://127.0.0.1:28332');
+  socket.subscribe('hashblock');
+
+  for await (const [topic, msg] of socket) {
+    const blockHash = msg.toString('hex');
+    console.log(`New block: ${blockHash}`);
+  }
+}
+monitorBlocks();
 ```
 :::
 
@@ -225,20 +225,6 @@ void poll_blocks(BitcoinRPC& rpc) {
 }
 ```
 
-```javascript
-async function pollBlocks(rpc) {
-  let lastBlock = await rpc.getBlockCount();
-  while (true) {
-    const current = await rpc.getBlockCount();
-    if (current > lastBlock) {
-      console.log(`New block: ${current}`);
-      lastBlock = current;
-    }
-    await new Promise(r => setTimeout(r, 10000));
-  }
-}
-```
-
 ```go
 package main
 
@@ -289,6 +275,20 @@ func main() {
 	if err := pollBlocks(client); err != nil {
 		panic(err)
 	}
+}
+```
+
+```javascript
+async function pollBlocks(rpc) {
+  let lastBlock = await rpc.getBlockCount();
+  while (true) {
+    const current = await rpc.getBlockCount();
+    if (current > lastBlock) {
+      console.log(`New block: ${current}`);
+      lastBlock = current;
+    }
+    await new Promise(r => setTimeout(r, 10000));
+  }
 }
 ```
 :::
@@ -460,20 +460,6 @@ void monitor_mempool() {
 }
 ```
 
-```javascript
-const zmq = require('zeromq');
-
-async function monitorMempool() {
-  const socket = new zmq.Subscriber();
-  socket.connect('tcp://127.0.0.1:28333');
-  socket.subscribe('hashtx');
-
-  for await (const [topic, msg] of socket) {
-    console.log(`New transaction: ${msg.toString('hex')}`);
-  }
-}
-```
-
 ```go
 package main
 
@@ -525,6 +511,20 @@ func main() {
 	}
 }
 ```
+
+```javascript
+const zmq = require('zeromq');
+
+async function monitorMempool() {
+  const socket = new zmq.Subscriber();
+  socket.connect('tcp://127.0.0.1:28333');
+  socket.subscribe('hashtx');
+
+  for await (const [topic, msg] of socket) {
+    console.log(`New transaction: ${msg.toString('hex')}`);
+  }
+}
+```
 :::
 
 ### Transaction Analysis
@@ -543,11 +543,6 @@ tx = rpc.getrawtransaction(tx_hash, True)
 ```cpp
 json tx = rpc.getrawtransaction(tx_hash, true);
 // Access: tx["vin"], tx["vout"], tx["size"], tx["vsize"]
-```
-
-```javascript
-const tx = await rpc.getRawTransaction(txHash, true);
-// Access: tx.vin, tx.vout, tx.size, tx.vsize
 ```
 
 ```go
@@ -592,6 +587,11 @@ func main() {
 	// Example usage
 	_ = getTransactionInfo(client, "example_tx_hash")
 }
+```
+
+```javascript
+const tx = await rpc.getRawTransaction(txHash, true);
+// Access: tx.vin, tx.vout, tx.size, tx.vsize
 ```
 :::
 

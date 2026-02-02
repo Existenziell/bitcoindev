@@ -5,7 +5,8 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import Link from 'next/link'
-import { ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
+import { ChevronRight } from '@/app/components/Icons'
+import ExternalLink from '@/app/components/ExternalLink'
 import { docPages } from '@/app/utils/navigation'
 
 export interface GlossaryEntry {
@@ -40,19 +41,14 @@ function DefinitionRenderer({ content }: { content: string }) {
           if (href?.startsWith('#')) {
             return <a href={href} className="text-btc hover:underline">{children}</a>
           }
-          return (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external group inline-flex items-center text-btc hover:underline"
-            >
-              {children}
-              <span className="inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ml-0.5">
-                <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
-              </span>
-            </a>
-          )
+          if (href) {
+            return (
+              <ExternalLink href={href} className="text-btc hover:underline">
+                {children}
+              </ExternalLink>
+            )
+          }
+          return <a href={href ?? '#'} className="text-btc hover:underline">{children}</a>
         },
         code: ({ children }) => (
           <code className="bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-btc">

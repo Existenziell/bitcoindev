@@ -105,25 +105,6 @@ std::copy_if(coins.begin(), coins.end(), std::back_inserter(useful_coins),
     });
 ```
 
-```javascript
-/**
- * Calculate effective value of a coin at a given fee rate
- * effective_value = amount - (input_vbytes * fee_rate)
- * 
- * @param {Object} coin - UTXO with 'amount' and 'address' fields
- * @param {number} feeRate - Fee rate in BTC/vB
- * @returns {number} Effective value (can be negative for dust UTXOs)
- */
-function effectiveValue(coin, feeRate) {
-    const spendCost = inputVbytes(coin.address) * feeRate;
-    return coin.amount - spendCost;
-}
-
-// Example: At 10 sat/vB, filter out negative effective value UTXOs
-const feeRate = 0.0000001; // 10 sat/vB in BTC/vB
-const usefulCoins = coins.filter(c => effectiveValue(c, feeRate) > 0);
-```
-
 ```go
 package main
 
@@ -189,6 +170,25 @@ func main() {
 
 	fmt.Printf("Useful coins: %d\n", len(usefulCoins))
 }
+```
+
+```javascript
+/**
+ * Calculate effective value of a coin at a given fee rate
+ * effective_value = amount - (input_vbytes * fee_rate)
+ * 
+ * @param {Object} coin - UTXO with 'amount' and 'address' fields
+ * @param {number} feeRate - Fee rate in BTC/vB
+ * @returns {number} Effective value (can be negative for dust UTXOs)
+ */
+function effectiveValue(coin, feeRate) {
+    const spendCost = inputVbytes(coin.address) * feeRate;
+    return coin.amount - spendCost;
+}
+
+// Example: At 10 sat/vB, filter out negative effective value UTXOs
+const feeRate = 0.0000001; // 10 sat/vB in BTC/vB
+const usefulCoins = coins.filter(c => effectiveValue(c, feeRate) > 0);
 ```
 :::
 
@@ -451,40 +451,6 @@ std::pair<std::vector<Coin>, double> select_largest_first(
 }
 ```
 
-```javascript
-/**
- * Select coins using largest-first greedy algorithm.
- * @param {Array} coins - Array of coin objects with 'amount' property
- * @param {number} targetAmount - Target amount to reach
- * @param {number} feeRate - Fee rate for estimation
- * @returns {Object} Object with 'selected' coins and 'change' amount
- */
-function selectLargestFirst(coins, targetAmount, feeRate) {
-    // Sort by amount descending
-    const sortedCoins = [...coins].sort((a, b) => b.amount - a.amount);
-    
-    const selected = [];
-    let total = 0;
-    
-    for (const coin of sortedCoins) {
-        selected.push(coin);
-        total += coin.amount;
-        
-        // Estimate fee based on selected inputs
-        const estimatedFee = estimateFee(selected.length, feeRate);
-        
-        if (total >= targetAmount + estimatedFee) {
-            return {
-                selected,
-                change: total - targetAmount - estimatedFee
-            };
-        }
-    }
-    
-    throw new Error('Insufficient funds');
-}
-```
-
 ```go
 package main
 
@@ -549,6 +515,40 @@ func main() {
 	}
 
 	fmt.Printf("Selected %d coins, change: %.8f BTC\n", len(selected), change)
+}
+```
+
+```javascript
+/**
+ * Select coins using largest-first greedy algorithm.
+ * @param {Array} coins - Array of coin objects with 'amount' property
+ * @param {number} targetAmount - Target amount to reach
+ * @param {number} feeRate - Fee rate for estimation
+ * @returns {Object} Object with 'selected' coins and 'change' amount
+ */
+function selectLargestFirst(coins, targetAmount, feeRate) {
+    // Sort by amount descending
+    const sortedCoins = [...coins].sort((a, b) => b.amount - a.amount);
+    
+    const selected = [];
+    let total = 0;
+    
+    for (const coin of sortedCoins) {
+        selected.push(coin);
+        total += coin.amount;
+        
+        // Estimate fee based on selected inputs
+        const estimatedFee = estimateFee(selected.length, feeRate);
+        
+        if (total >= targetAmount + estimatedFee) {
+            return {
+                selected,
+                change: total - targetAmount - estimatedFee
+            };
+        }
+    }
+    
+    throw new Error('Insufficient funds');
 }
 ```
 :::
@@ -745,34 +745,6 @@ int calculate_tx_vsize(
 }
 ```
 
-```javascript
-/**
- * Calculate the total virtual size of a transaction
- * tx_vsize = 10.5 (overhead) + sum(input_vbytes) + sum(output_vbytes)
- * 
- * @param {Array} inputs - List of UTXOs to spend
- * @param {Array} outputAddresses - List of destination addresses
- * @returns {number} Virtual size in vbytes (rounded up)
- */
-function calculateTxVsize(inputs, outputAddresses) {
-    // Transaction overhead: ~10.5 vB
-    const overhead = 10.5;
-    
-    // Sum input sizes based on address types
-    const inputSize = inputs.reduce(
-        (sum, coin) => sum + inputVbytes(coin.address), 0
-    );
-    
-    // Sum output sizes based on address types
-    const outputSize = outputAddresses.reduce(
-        (sum, addr) => sum + outputVbytes(addr), 0
-    );
-    
-    // Ceiling the vsize to ensure we don't underestimate
-    return Math.ceil(overhead + inputSize + outputSize);
-}
-```
-
 ```go
 package main
 
@@ -846,6 +818,34 @@ func main() {
 
 	vsize := CalculateTxVsize(inputs, outputs)
 	fmt.Printf("Transaction vsize: %d vbytes\n", vsize)
+}
+```
+
+```javascript
+/**
+ * Calculate the total virtual size of a transaction
+ * tx_vsize = 10.5 (overhead) + sum(input_vbytes) + sum(output_vbytes)
+ * 
+ * @param {Array} inputs - List of UTXOs to spend
+ * @param {Array} outputAddresses - List of destination addresses
+ * @returns {number} Virtual size in vbytes (rounded up)
+ */
+function calculateTxVsize(inputs, outputAddresses) {
+    // Transaction overhead: ~10.5 vB
+    const overhead = 10.5;
+    
+    // Sum input sizes based on address types
+    const inputSize = inputs.reduce(
+        (sum, coin) => sum + inputVbytes(coin.address), 0
+    );
+    
+    // Sum output sizes based on address types
+    const outputSize = outputAddresses.reduce(
+        (sum, addr) => sum + outputVbytes(addr), 0
+    );
+    
+    // Ceiling the vsize to ensure we don't underestimate
+    return Math.ceil(overhead + inputSize + outputSize);
 }
 ```
 :::
