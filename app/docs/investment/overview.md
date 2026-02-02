@@ -1,6 +1,6 @@
 # Bitcoin as Investment
 
-![Bitcoin Icon](/icons/bitcoin.png)
+<img src="/icons/bitcoin.png" alt="Bitcoin Icon" />
 
 Bitcoin represents a unique investment opportunity that combines technological innovation with monetary properties never before seen in human history. Whether you're considering your first Bitcoin purchase or looking to deepen your understanding of Bitcoin as an asset, these guides will help you make informed decisions.
 

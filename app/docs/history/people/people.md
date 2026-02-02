@@ -12,7 +12,7 @@ Bitcoin didn't emerge from a vacuum. It was built on decades of cryptographic re
 
 ## David Chaum
 
-![David Chaum](/images/people/David_Chaum.jpg)
+<img src="/images/people/David_Chaum.jpg" alt="David Chaum" class="doc-img-people" />
 
 **Contribution:** eCash (1982) - The godfather of cryptocurrency
 
@@ -26,7 +26,7 @@ While eCash ultimately failed commercially (DigiCash went bankrupt in 1998), Cha
 
 ## Eric Hughes
 
-![Eric Hughes](/images/people/Eric-Hughes.jpg)
+<img src="/images/people/Eric-Hughes.jpg" alt="Eric Hughes" class="doc-img-people" />
 
 **Contribution:** "A Cypherpunk's Manifesto" (1993) - Privacy through cryptography
 
@@ -40,7 +40,7 @@ The manifesto's principles, that we must defend our own privacy, that cryptograp
 
 ## Timothy C. May
 
-![Timothy C. May](/images/people/Timothy_May.jpg)
+<img src="/images/people/Timothy_May.jpg" alt="Timothy C. May" class="doc-img-people" />
 
 **Contribution:** "The Crypto Anarchist Manifesto," cypherpunk mailing list co-founder
 
@@ -54,7 +54,7 @@ May's writings foresaw many developments: anonymous digital currencies, reputati
 
 ## John Gilmore
 
-![John Gilmore](/images/people/John_Gilmore.jpg)
+<img src="/images/people/John_Gilmore.jpg" alt="John Gilmore" class="doc-img-people" />
 
 **Contribution:** Cypherpunk mailing list co-founder (1992)
 
@@ -66,7 +66,7 @@ John Gilmore is a computer scientist, entrepreneur, and civil-liberties advocate
 
 ## Adam Back
 
-![Adam Back](/images/people/Adam_Back.jpg)
+<img src="/images/people/Adam_Back.jpg" alt="Adam Back" class="doc-img-people" />
 
 **Contribution:** Hashcash (1997) - [Proof-of-Work](/docs/glossary#pow) for spam prevention
 
@@ -82,7 +82,7 @@ Back is currently CEO of Blockstream, a Bitcoin infrastructure company he co-fou
 
 ## Nick Szabo
 
-![Nick Szabo](/images/people/Nick_Szabo.jpg)
+<img src="/images/people/Nick_Szabo.jpg" alt="Nick Szabo" class="doc-img-people" />
 
 **Contribution:** Bit Gold (1998) - Decentralized digital currency concept
 
@@ -98,7 +98,7 @@ The similarities between Bit Gold and Bitcoin are so striking that many have spe
 
 ## Wei Dai
 
-![Wei Dai](/images/people/Wei_Dai.jpg)
+<img src="/images/people/Wei_Dai.jpg" alt="Wei Dai" class="doc-img-people" />
 
 **Contribution:** b-money (1998) - Digital scarcity and distributed consensus
 
@@ -120,7 +120,7 @@ The smallest subunit of Ether (Ethereum's currency) is called a "wei" in his hon
 
 ## Ralph Merkle
 
-![Ralph Merkle](/images/people/Ralph_Merkle.jpg)
+<img src="/images/people/Ralph_Merkle.jpg" alt="Ralph Merkle" class="doc-img-people" />
 
 **Contribution:** Merkle trees (1979) - Efficient verification of block contents
 
@@ -134,7 +134,7 @@ Merkle trees are fundamental to Bitcoin's [block](/docs/glossary#block) structur
 
 ## Stuart Haber and Scott Stornetta
 
-![Stuart Haber and Scott Stornetta](/images/people/Scott_Stornetta_and_Stuart_Haber.jpg)
+<img src="/images/people/Scott_Stornetta_and_Stuart_Haber.jpg" alt="Stuart Haber and Scott Stornetta" class="doc-img-people" />
 
 **Contribution:** Secure timestamps (1990-91) - "How to time-stamp a digital document"
 
@@ -148,7 +148,7 @@ Their approach used hash pointers to create an append-only, tamper-evident log. 
 
 ## Satoshi Nakamoto
 
-![Satoshi Nakamoto](/images/people/Satoshi_Nakamoto.jpg)
+<img src="/images/people/Satoshi_Nakamoto.jpg" alt="Satoshi Nakamoto" class="doc-img-people" />
 
 **Contribution:** Bitcoin (2008-2010) - Creator of Bitcoin
 
@@ -170,7 +170,7 @@ The mystery of Satoshi's identity has become part of Bitcoin's mythos. Various c
 
 ## Hal Finney
 
-![Hal Finney](/images/people/Hal_Finney.jpg)
+<img src="/images/people/Hal_Finney.jpg" alt="Hal Finney" class="doc-img-people" />
 
 **Contribution:** RPOW, PGP 2.0, first Bitcoin transaction recipient
 
@@ -190,7 +190,7 @@ The "Finney attack" in Bitcoin is named after him: a type of [double-spend](/doc
 
 ## Len Sassaman
 
-![Len Sassaman](/images/people/Len_Sassaman.jpg)
+<img src="/images/people/Len_Sassaman.jpg" alt="Len Sassaman" class="doc-img-people" />
 
 **Contribution:** Cypherpunk, anonymous remailer developer
 
@@ -208,7 +208,7 @@ Some have speculated that Sassaman was involved in Bitcoin's creation due to his
 
 ## Martti Malmi
 
-![Martti Malmi](/images/people/Martti_Malmi.jpg)
+<img src="/images/people/Martti_Malmi.jpg" alt="Martti Malmi" class="doc-img-people" />
 
 **Contribution:** Early contributor (2009-11) - bitcoin.org, first exchange and community tools
 
@@ -222,7 +222,7 @@ His work bridged the gap between Satoshi's protocol and the broader world: he ma
 
 ## Gavin Andresen
 
-![Gavin Andresen](/images/people/Gavin_Andresen.jpg)
+<img src="/images/people/Gavin_Andresen.jpg" alt="Gavin Andresen" class="doc-img-people" />
 
 **Contribution:** Lead developer after Satoshi (2010-2014)
 
@@ -242,7 +242,7 @@ His role diminished after 2014, particularly following the blocksize debate and 
 
 ## Laszlo Hanyecz
 
-![Laszlo Hanyecz](/images/people/Laszlo_Hanyecz.jpg)
+<img src="/images/people/Laszlo_Hanyecz.jpg" alt="Laszlo Hanyecz" class="doc-img-people" />
 
 **Contribution:** First documented real-world Bitcoin transaction (May 2010) - "Bitcoin pizza"
 
@@ -256,7 +256,7 @@ The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 
 
 ## Wladimir van der Laan
 
-![Wladimir van der Laan](/images/people/Wladimir_Laan.jpg)
+<img src="/images/people/Wladimir_Laan.jpg" alt="Wladimir van der Laan" class="doc-img-people" />
 
 **Contribution:** Bitcoin Core lead maintainer (2014-2021)
 
@@ -271,7 +271,7 @@ His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-
 
 ## Pieter Wuille
 
-![Pieter Wuille](/images/people/Pieter_Wuille.jpg)
+<img src="/images/people/Pieter_Wuille.jpg" alt="Pieter Wuille" class="doc-img-people" />
 
 **Contribution:** SegWit (BIP 141), Taproot (BIP 340-342), libsecp256k1
 
@@ -285,7 +285,7 @@ Wuille created and maintains libsecp256k1, the cryptographic library used by Bit
 
 ## Gregory Maxwell
 
-![Gregory Maxwell](/images/people/Gregory_Maxwell.jpg)
+<img src="/images/people/Gregory_Maxwell.jpg" alt="Gregory Maxwell" class="doc-img-people" />
 
 **Contribution:** Bitcoin Core developer, Blockstream co-founder, [CoinJoin](/docs/glossary#coinjoin), Confidential Transactions, [Sidechains](/docs/glossary#sidechain)
 
@@ -297,7 +297,7 @@ Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influenti
 
 ## Joseph Poon and Thaddeus Dryja
 
-![Joseph Poon and Thaddeus Dryja](/images/people/Poon_Dryja.jpg)
+<img src="/images/people/Poon_Dryja.jpg" alt="Joseph Poon and Thaddeus Dryja" class="doc-img-people" />
 
 **Contribution:** [Lightning Network](/docs/glossary#lightning-network) whitepaper (2015)
 
@@ -309,7 +309,7 @@ Joseph Poon and Thaddeus Dryja authored "The Bitcoin Lightning Network: Scalable
 
 ## Andreas M. Antonopoulos
 
-![Andreas Antonopoulos](/images/people/Andreas_Antonopoulos.jpg)
+<img src="/images/people/Andreas_Antonopoulos.jpg" alt="Andreas Antonopoulos" class="doc-img-people" />
 
 **Contribution:** Author, educator, Bitcoin evangelist
 
@@ -330,7 +330,7 @@ In 2017, after it was revealed he had not held significant Bitcoin despite years
 
 ## Roger Ver
 
-![Roger Ver](/images/people/Roger_Ver.jpg)
+<img src="/images/people/Roger_Ver.jpg" alt="Roger Ver" class="doc-img-people" />
 
 **Contribution:** Early investor, "Bitcoin Jesus," Bitcoin Cash advocate
 
@@ -342,7 +342,7 @@ Roger Ver is an early Bitcoin investor and promoter who became known as "Bitcoin
 
 ## You ?
 
-![You](/images/people/Anon.jpg)
+<img src="/images/people/Anon.jpg" alt="You" class="doc-img-people" />
 
 **Contribution:** The future of Bitcoin - Your story is still being written
 

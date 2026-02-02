@@ -453,6 +453,13 @@ main > div > div > h1:first-child {
   word-break: break-word;
 }
 
+.markdown-content table th,
+.markdown-content table td:first-child {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .markdown-content table td {
   @apply border border-gray-300 dark:border-gray-700 px-2 sm:px-4 py-2 text-xs sm:text-sm text-gray-900 dark:text-gray-300;
   min-width: 0;
@@ -477,8 +484,22 @@ main > div > div > h1:first-child {
   @apply border-t border-gray-300 dark:border-gray-600 my-6 opacity-30;
 }
 
-.markdown-content img {
-  @apply rounded-md my-4 max-w-full;
+/* Doc images: full width on mobile, max-w-md on desktop, with shadow */
+.markdown-content .doc-img {
+  @apply w-full md:max-w-xl rounded-sm mt-4 mb-2 shadow-md;
+}
+
+.markdown-content .doc-img-people {
+  @apply w-full md:max-w-sm rounded-sm shadow-md mb-4;
+}
+
+.markdown-content .doc-img-big {
+  @apply w-full rounded-sm mt-4 mb-2 shadow-md;
+}
+
+/* Image legends (captions) */
+.markdown-content .doc-img-legend {
+  @apply text-sm text-gray-500 dark:text-gray-400 italic mb-6;
 }
 
 /* Profile images for People page - consistent sizing */

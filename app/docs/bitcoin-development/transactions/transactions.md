@@ -22,7 +22,8 @@ A transaction with 6 confirmations is generally considered irreversible.
 
 ## Transaction Structure
 
-![Raw Bitcoin Transaction Bytes](/images/docs/raw-bitcoin-transacation-byte.jpg)
+<img src="/images/docs/raw-bitcoin-transacation-byte.jpg" alt="Raw Bitcoin Transaction Bytes" class="doc-img-big" />
+<p class="doc-img-legend">Raw Bitcoin Transaction Bytes</p>
 
 **Byte Order:** Most numeric fields (version, value, locktime, sequence, output index) are encoded in [little endian](/docs/glossary#little-endian). However, transaction IDs (TXIDs) and block hashes are typically *displayed* in big endian (reversed) for readability, even though they're stored internally in little endian. When working with raw transaction data, the `[::-1]` reversal in Python (or equivalent) converts between these formats.
 
@@ -34,7 +35,8 @@ Virtual size (vbytes) = (base_size × 3 + total_size) / 4
 
 ## Building Transactions
 
-![Transaction Binary Map](/images/docs/tx-binary-map.png)
+<img src="/images/docs/tx-binary-map.png" alt="Transaction Binary Map" class="doc-img-big" />
+<p class="doc-img-legend">Transaction Binary Map</p>
 
 :::code-group
 ```rust

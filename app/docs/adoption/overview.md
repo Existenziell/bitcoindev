@@ -4,7 +4,8 @@ Bitcoin is more than code and cryptography. It's a tool being used by real peopl
 
 ---
 
-<img src="/images/docs/adoption.jpg" alt="Bitcoin vs Internet Adoption" width="300" />
+<img src="/images/docs/adoption.jpg" alt="Bitcoin vs Internet Adoption" class="doc-img" />
+<p class="doc-img-legend">Bitcoin vs Internet Adoption</p>
 
 ## Why Real-World Examples Matter
 

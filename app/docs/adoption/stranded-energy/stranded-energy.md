@@ -5,9 +5,8 @@ Bitcoin mining has a unique property: it can monetize energy that would otherwis
 ---
 
 
-<img src="/images/docs/bitcoin-africa.webp" alt="Bitcoin mine in remote Zambia" width="300" 
-
-*Bitcoin mine in remote Zambia*
+<img src="/images/docs/bitcoin-africa.webp" alt="Bitcoin mine in remote Zambia" class="doc-img" />
+<p class="doc-img-legend">Bitcoin mine in remote Zambia</p>
 
 ## What is Stranded Energy?
 

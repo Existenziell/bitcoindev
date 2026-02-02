@@ -447,13 +447,13 @@
     "path": "/docs/bitcoin/merkle-trees",
     "title": "Merkle Trees",
     "section": "bitcoin",
-    "body": "Merkle Trees Merkle trees are a fundamental data structure in Bitcoin that enable efficient verification of transaction inclusion in blocks. They provide cryptographic proof that specific transactions are part of a block without downloading the entire block. The structure is named after Ralph Merkle, who invented it in 1979; Satoshi cited the concept in the Bitcoin whitepaper. A Merkle tree (also called a hash tree) is a binary tree where: Leaves: Hash of individual transactions Internal nodes: "
+    "body": "Merkle Trees Merkle trees are a fundamental data structure in Bitcoin that enable efficient verification of transaction inclusion in blocks. They provide cryptographic proof that specific transactions are part of a block without downloading the entire block. The structure is named after Ralph Merkle, who invented it in 1979; Satoshi cited the concept in the Bitcoin whitepaper. Merkle Tree Structure A Merkle tree (also called a hash tree) is a binary tree where: Leaves: Hash of individual "
   },
   {
     "path": "/docs/bitcoin/blocks",
     "title": "Block Propagation",
     "section": "bitcoin",
-    "body": "Block Propagation This document explains how blocks propagate through the Bitcoin network, including the gossip protocol, validation process, and orphan block handling. Block Structure A Bitcoin block consists of: Block Header (80 bytes): Contains version, previous block hash, merkle root, timestamp, difficulty target, and nonce Transaction Count: Variable-length integer indicating number of transactions Transactions: List of transactions, starting with the coinbase transaction The block header "
+    "body": "Block Propagation This document explains how blocks propagate through the Bitcoin network, including the gossip protocol, validation process, and orphan block handling. Block Structure Bitcoin Block Structure A Bitcoin block consists of: Block Header (80 bytes): Contains version, previous block hash, merkle root, timestamp, difficulty target, and nonce Transaction Count: Variable-length integer indicating number of transactions Transactions: List of transactions, starting with the coinbase "
   },
   {
     "path": "/docs/bitcoin/coinbase-transaction",
@@ -1040,13 +1040,13 @@
     "path": "/docs/adoption",
     "title": "Bitcoin Adoption",
     "section": "adoption",
-    "body": "Bitcoin Adoption Bitcoin is more than code and cryptography. It's a tool being used by real people to solve real problems. From energy producers monetizing waste to rural communities accessing financial services, Bitcoin adoption is happening in diverse and innovative ways around the world. Why Real-World Examples Matter Understanding Bitcoin's technical foundations is essential, but seeing how Bitcoin is actually used reveals its practical value: Energy Innovation: Bitcoin mining is turning "
+    "body": "Bitcoin Adoption Bitcoin is more than code and cryptography. It's a tool being used by real people to solve real problems. From energy producers monetizing waste to rural communities accessing financial services, Bitcoin adoption is happening in diverse and innovative ways around the world. Bitcoin vs Internet Adoption Why Real-World Examples Matter Understanding Bitcoin's technical foundations is essential, but seeing how Bitcoin is actually used reveals its practical value: Energy Innovation: "
   },
   {
     "path": "/docs/adoption/stranded-energy",
     "title": "Stranded Energy and Flared Gas",
     "section": "adoption",
-    "body": "Stranded Energy and Flared Gas Bitcoin mining has a unique property: it can monetize energy that would otherwise be wasted. This creates economic value from stranded energy sources like flared natural gas, excess hydroelectric capacity, and curtailed renewable generation. <img src=\"/images/docs/bitcoin-africa.webp\" alt=\"Bitcoin mine in remote Zambia\" width=\"300\" Bitcoin mine in remote Zambia What is Stranded Energy? Stranded energy is energy that is produced but cannot be economically used, "
+    "body": "Stranded Energy and Flared Gas Bitcoin mining has a unique property: it can monetize energy that would otherwise be wasted. This creates economic value from stranded energy sources like flared natural gas, excess hydroelectric capacity, and curtailed renewable generation. Bitcoin mine in remote Zambia What is Stranded Energy? Stranded energy is energy that is produced but cannot be economically used, stored, or transmitted. Common sources include: Flared natural gas: Gas produced at oil wells "
   },
   {
     "path": "/docs/adoption/rural-communities",

@@ -637,7 +637,8 @@ console.log(`Merkle Root: ${root.toString('hex')}`);
 
 ## Elliptic Curve Cryptography
 
-![Elliptic Curve Cryptography](/images/docs/ECC.webp)
+<img src="/images/docs/ECC.webp" alt="Elliptic Curve Cryptography" class="doc-img" />
+<p class="doc-img-legend">Elliptic Curve</p>
 
 **Elliptic Curve Cryptography (ECC)** is a public-key cryptography system based on the algebraic structure of elliptic curves over finite fields.
 
@@ -1067,7 +1068,9 @@ Schnorr offers simpler mathematics, stronger security proofs under standard assu
 
 ### Schnorr in Bitcoin (BIP 340)
 
-![Schnorr Signature Equations](/images/docs/schnorr-equations.png)
+<img src="/images/docs/schnorr-equations.png" alt="Schnorr Signature Equations" class="doc-img" />
+
+<p class="doc-img-legend">Schnorr Signature Equations</p>
 
 Schnorr signatures in Bitcoin follow BIP 340: they use the secp256k1 curve, x-only public keys, and tagged hashes for all hashing steps (signing, nonce derivation, challenge computation).
 
