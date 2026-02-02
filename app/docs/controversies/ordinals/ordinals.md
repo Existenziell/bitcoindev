@@ -1,6 +1,6 @@
 # Ordinals and Inscriptions Controversy
 
-[Ordinals](/docs/glossary#ordinals) and [inscriptions](/docs/glossary#inscriptions) let users attach arbitrary data—images, text, JSON—to individual [satoshis](/docs/glossary#sat-satoshi) using [witness](/docs/glossary#witness) data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. [BRC-20](/docs/glossary#brc-20-tokens)) sparked a heated debate: are they legitimate use of [block space](/docs/glossary#block-size) or spam that raises [fees](/docs/glossary#fee-rate) and distorts Bitcoin’s purpose?
+[Ordinals](/docs/glossary#ordinals) and [inscriptions](/docs/glossary#inscriptions) let users attach arbitrary data (images, text, JSON) to individual [satoshis](/docs/glossary#sat-satoshi) using [witness](/docs/glossary#witness) data. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol and related tokens (e.g. [BRC-20](/docs/glossary#brc-20-tokens)) sparked a heated debate: are they legitimate use of [block space](/docs/glossary#block-size) or spam that raises [fees](/docs/glossary#fee-rate) and distorts Bitcoin’s purpose?
 
 ## What Are Ordinals and Inscriptions?
 
@@ -41,7 +41,7 @@ For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-ins
 ## Relation to Other Disputes
 
 - **[OP_RETURN debate](/docs/controversies/op-return)**: OP_RETURN stores data in the base [transaction](/docs/bitcoin/transaction-lifecycle) and has explicit policy limits (e.g. `-datacarriersize`). Inscriptions use **witness** data, which is discounted and prunable; the limits and levers are different, but the underlying question is the same: how much non‑monetary data should Bitcoin carry?
-- **Blocksize wars**: Then, the fight was over **how much** capacity (bigger blocks vs [Layer 2](/docs/glossary#layer-2)). With Ordinals, the fight is over **what** uses that capacity—only “money” or any fee‑paying use.
+- **Blocksize wars**: Then, the fight was over **how much** capacity (bigger blocks vs [Layer 2](/docs/glossary#layer-2)). With Ordinals, the fight is over **what** uses that capacity, only “money” or any fee‑paying use.
 
 ---
 
@@ -58,7 +58,7 @@ For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-ins
 Understanding Ordinals highlights two recurring themes in Bitcoin:
 
 1. **Neutrality**: The base layer does not distinguish “good” vs “bad” use of block space; it enforces [consensus](/docs/glossary#consensus) and [fee](/docs/glossary#transaction-fee) rules. Debates about inscriptions are largely about **policy** and **values**, not consensus.
-2. **Scarcity and the fee market**: Block space is limited. When demand is high—from payments, [Lightning](/docs/glossary#lightning-network) channel opens, or inscriptions—[fees](/docs/bitcoin/transaction-fees) rise. That is by design; the argument is whether certain uses are desirable, not whether the fee market works.
+2. **Scarcity and the fee market**: Block space is limited. When demand is high (from payments, [Lightning](/docs/glossary#lightning-network) channel opens, or inscriptions) [fees](/docs/bitcoin/transaction-fees) rise. That is by design; the argument is whether certain uses are desirable, not whether the fee market works.
 
 ---
 

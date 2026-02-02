@@ -10,7 +10,7 @@ Bitcoin's history spans from its creation in 2009 to its future supply schedule 
 - **Author**: [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto)
 - **Title**: "Bitcoin: A Peer-to-Peer Electronic Cash System"
 
-Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing the concept of a decentralized digital currency system. The whitepaper outlined the technical foundation for Bitcoin, including proof-of-work, the blockchain, and the peer-to-peer network architecture. Its release coincided with the 2008 financial crisis—bank bailouts, failed institutions, and loss of trust in central banks—which gave the idea of peer-to-peer electronic cash without intermediaries immediate relevance.
+Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing the concept of a decentralized digital currency system. The whitepaper outlined the technical foundation for Bitcoin, including proof-of-work, the blockchain, and the peer-to-peer network architecture. Its release coincided with the 2008 financial crisis (bank bailouts, failed institutions, and loss of trust in central banks) which gave the idea of peer-to-peer electronic cash without intermediaries immediate relevance.
 
 ---
 

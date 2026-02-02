@@ -4,9 +4,9 @@ Bitcoin uses a peer-to-peer (P2P) network protocol for nodes to communicate, sha
 
 ## Design context
 
-Bitcoin's P2P design was inspired by the same P2P ideas and era (early 2000s), including BitTorrent's success—decentralization, no single point of failure, and censorship resistance. Bitcoin does not use BitTorrent's protocol; it has its own messages and peer discovery.
+Bitcoin's P2P design was inspired by the same P2P ideas and era (early 2000s), including BitTorrent's success; decentralization, no single point of failure, and censorship resistance. Bitcoin does not use BitTorrent's protocol; it has its own messages and peer discovery.
 
-Satoshi wrote that governments are good at cutting off centrally controlled networks like Napster, but that "pure P2P networks like Gnutella and Tor" hold their own—so the design philosophy aligns with that lineage.
+Satoshi wrote that governments are good at cutting off centrally controlled networks like Napster, but that "pure P2P networks like Gnutella and Tor" hold their own; so the design philosophy aligns with that lineage.
 
 ## Network Architecture
 

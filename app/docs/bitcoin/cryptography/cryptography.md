@@ -831,7 +831,7 @@ Finding `k` requires solving the **Elliptic Curve Discrete Logarithm Problem (EC
 
 ### ECC and Signature Schemes
 
-**Elliptic Curve Cryptography (ECC)** provides the curve (secp256k1), key generation, and the underlying math—it answers *how you get a public key from a private key*. **Signature schemes** such as [ECDSA](#ecdsa) and [Schnorr](#schnorr-signatures) are different algorithms built on top of ECC that use those key pairs to *sign* and *verify* messages. Bitcoin uses the same curve for both; ECC is the foundation, ECDSA and Schnorr are the signature algorithms.
+**Elliptic Curve Cryptography (ECC)** provides the curve (secp256k1), key generation, and the underlying math, it answers *how you get a public key from a private key*. **Signature schemes** such as [ECDSA](#ecdsa) and [Schnorr](#schnorr-signatures) are different algorithms built on top of ECC that use those key pairs to *sign* and *verify* messages. Bitcoin uses the same curve for both; ECC is the foundation, ECDSA and Schnorr are the signature algorithms.
 
 ---
 
@@ -1046,7 +1046,7 @@ console.log(`Signature valid: ${isValid}`);
 
 ### Why Schnorr in Bitcoin?
 
-Schnorr offers simpler mathematics, stronger security proofs under standard assumptions, and **linearity**—the property that enables key and signature aggregation. Fixed 64-byte signatures reduce size and cost compared to variable-length ECDSA.
+Schnorr offers simpler mathematics, stronger security proofs under standard assumptions, and **linearity**, the property that enables key and signature aggregation. Fixed 64-byte signatures reduce size and cost compared to variable-length ECDSA.
 
 ### Schnorr vs ECDSA
 
