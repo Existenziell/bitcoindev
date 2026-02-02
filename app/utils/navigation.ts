@@ -39,6 +39,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/fundamentals/denominations', mdFile: 'app/docs/fundamentals/denominations/denominations.md', title: 'Denominations', section: 'fundamentals' },
   { path: '/docs/fundamentals/incentives', mdFile: 'app/docs/fundamentals/incentives/incentives.md', title: 'Incentive Structure', section: 'fundamentals' },
   { path: '/docs/fundamentals/game-theory', mdFile: 'app/docs/fundamentals/game-theory/game-theory.md', title: 'Game Theory', section: 'fundamentals' },
+  { path: '/docs/fundamentals/governance', mdFile: 'app/docs/fundamentals/governance/governance.md', title: 'Governance & Evolution', section: 'fundamentals' },
   { path: '/docs/fundamentals/bitcoin-meme', mdFile: 'app/docs/fundamentals/bitcoin-meme/bitcoin-meme.md', title: 'Bitcoin, the Meme', section: 'fundamentals' },
 
   { path: '/docs/history', mdFile: 'app/docs/history/overview.md', title: 'Bitcoin History', section: 'history' },
@@ -137,7 +138,6 @@ export const docPages: DocPage[] = [
   { path: '/docs/controversies/craig-wright', mdFile: 'app/docs/controversies/craig-wright/craig-wright.md', title: 'Craig Wright', section: 'controversies' },
 
   { path: '/docs/advanced', mdFile: 'app/docs/advanced/overview.md', title: 'Advanced Topics', section: 'advanced' },
-  { path: '/docs/advanced/governance', mdFile: 'app/docs/advanced/governance/governance.md', title: 'Governance & Evolution', section: 'advanced' },
   { path: '/docs/advanced/sidechains', mdFile: 'app/docs/advanced/sidechains/sidechains.md', title: 'Sidechains & Layer 2', section: 'advanced' },
   { path: '/docs/advanced/atomic-swaps', mdFile: 'app/docs/advanced/atomic-swaps/atomic-swaps.md', title: 'Atomic Swaps', section: 'advanced' },
   { path: '/docs/advanced/dlcs', mdFile: 'app/docs/advanced/dlcs/dlcs.md', title: 'Discreet Log Contracts', section: 'advanced' },

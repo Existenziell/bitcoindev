@@ -1,6 +1,6 @@
 # The Future
 
-This page offers an outlook on upcoming technologies, trends, and directions in Bitcoin. It is not a roadmap or timeline, Bitcoin evolves through [rough consensus](/docs/advanced/governance) and adoption, so what follows are areas of active research, proposal, and ecosystem development.
+This page offers an outlook on upcoming technologies, trends, and directions in Bitcoin. It is not a roadmap or timeline, Bitcoin evolves through [rough consensus](/docs/fundamentals/governance) and adoption, so what follows are areas of active research, proposal, and ecosystem development.
 
 ---
 

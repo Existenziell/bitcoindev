@@ -24,10 +24,11 @@ This section covers advanced, experimental, and specialized Bitcoin topics that 
 
 - **[Ordinals & Inscriptions](/docs/advanced/ordinals-inscriptions)** - Attaching data to satoshis; BRC-20, Runes, and blockspace impact
 
-### Governance & Evolution
+### Protocol Proposals
 
-- **[Governance & Evolution](/docs/advanced/governance)** - How Bitcoin evolves through rough consensus and the BIP process
 - **[Covenants](/docs/advanced/covenants)** - Proposed opcodes (OP_CTV, SIGHASH_ANYPREVOUT) that would constrain how outputs can be spent
+
+For how Bitcoin evolves through rough consensus and the BIP process, see [Governance & Evolution](/docs/fundamentals/governance).
 
 ---
 

@@ -326,6 +326,12 @@
     "body": "Game Theory Game theory is the mathematical study of strategic decision-making. In Bitcoin, game theory explains why the network remains secure even when participants are anonymous, potentially malicious, and have no reason to trust each other. Bitcoin's design creates a system where rational self-interest naturally leads to honest behavior and network security. Why Game Theory Matters for Bitcoin Traditional financial systems rely on legal enforcement, trusted authorities, and institutional "
   },
   {
+    "path": "/docs/fundamentals/governance",
+    "title": "Governance & Evolution",
+    "section": "fundamentals",
+    "body": "Governance & Evolution Bitcoin has no central authority. Its evolution happens through a decentralized process of rough consensus, where changes are proposed, discussed, and adopted (or rejected) by the community. How Bitcoin Evolves The Process Proposal: BIP (Bitcoin Improvement Proposal) Discussion: Community review and debate Implementation: Code written and tested Activation: Network-wide adoption Deployment: Soft fork or hard fork Key Principles Rough consensus: No formal voting, but broad "
+  },
+  {
     "path": "/docs/fundamentals/bitcoin-meme",
     "title": "Bitcoin, the Meme",
     "section": "fundamentals",
@@ -969,12 +975,6 @@
     "title": "Advanced Topics",
     "section": "advanced",
     "body": "Advanced Topics This section covers advanced, experimental, and specialized Bitcoin topics that extend beyond the core protocol and standard development practices. What's in This Section Layer 2 & Scaling Solutions Sidechains & Layer 2 - Alternative scaling approaches including Liquid Network and Rootstock Statechains - Federated sidechains for state transfer Zero-Conf Channels - Experimental Lightning channels usable before confirmation Trampoline Routing - Advanced Lightning routing for "
-  },
-  {
-    "path": "/docs/advanced/governance",
-    "title": "Governance & Evolution",
-    "section": "advanced",
-    "body": "Governance & Evolution Bitcoin has no central authority. Its evolution happens through a decentralized process of rough consensus, where changes are proposed, discussed, and adopted (or rejected) by the community. How Bitcoin Evolves The Process Proposal: BIP (Bitcoin Improvement Proposal) Discussion: Community review and debate Implementation: Code written and tested Activation: Network-wide adoption Deployment: Soft fork or hard fork Key Principles Rough consensus: No formal voting, but broad "
   },
   {
     "path": "/docs/advanced/sidechains",

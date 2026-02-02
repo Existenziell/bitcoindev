@@ -81,7 +81,7 @@ Implementations (e.g., [Miniscript](/docs/bitcoin-development/miniscript)) and h
 - [Miniscript](/docs/bitcoin-development/miniscript) - Policy and script; future covenant targets
 - [Sighash Types](/docs/bitcoin/sighash-types) - How signing commits to transaction parts; APO extends this
 - [Lightning](/docs/lightning) - Potential use of covenants / APO
-- [Governance](/docs/advanced/governance) - How opcodes and soft forks are proposed and adopted
+- [Governance](/docs/fundamentals/governance) - How opcodes and soft forks are proposed and adopted
 
 ---
 

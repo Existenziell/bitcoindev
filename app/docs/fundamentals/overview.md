@@ -159,4 +159,5 @@ Dive deeper into the core concepts that make Bitcoin work:
 - [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin minimizes trust requirements
 - [Monetary Properties](/docs/fundamentals/monetary-properties) - The economic characteristics of Bitcoin
 - [Incentive Structure](/docs/fundamentals/incentives) - How economic incentives shape Bitcoin's security
+- [Governance & Evolution](/docs/fundamentals/governance) - How Bitcoin evolves through rough consensus and the BIP process
 - [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) - How Bitcoin functions as a powerful idea that spreads through culture
