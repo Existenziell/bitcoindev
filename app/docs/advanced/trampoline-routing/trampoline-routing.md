@@ -334,7 +334,7 @@ Trampoline routing provides:
 ## Related Topics
 
 - [Onion Routing](/docs/lightning/onion) - Privacy-preserving routing
-- [Routing & HTLCs](/docs/lightning/routing) - Standard routing mechanics
+- [Routing & HTLCs](/docs/lightning/routing-fees) - Standard routing mechanics
 
 ---
 

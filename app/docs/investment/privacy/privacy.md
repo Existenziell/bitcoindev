@@ -402,7 +402,7 @@ Privacy is especially important when:
 - [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
 - [Privacy Techniques](/docs/wallets/privacy) - Technical privacy techniques (for developers)
 - [UTXO Model](/docs/fundamentals/utxos) - Understanding how UTXOs work
-- [Coin Selection](/docs/wallets/coin-selection) - Privacy-aware coin selection strategies
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - Privacy-aware coin selection strategies
 - [Lightning Network](/docs/lightning) - Off-chain privacy benefits
 - [Interactive Tools](/docs/investment/tools) - Privacy-aware tools and resources
 

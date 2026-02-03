@@ -297,7 +297,7 @@ The UTXO model has important privacy characteristics:
 
 **Best Practices**:
 - Generate new addresses for each transaction
-- Use [coin selection](/docs/wallets/coin-selection) strategies that enhance privacy
+- Use [coin selection](/docs/bitcoin-development/coin-selection) strategies that enhance privacy
 - Consider CoinJoin for better privacy
 - Avoid address reuse
 
@@ -344,7 +344,7 @@ The UTXO model is not just a technical detail: it's fundamental to how Bitcoin w
 ## Related Topics
 
 - [Transaction Construction](/docs/bitcoin-development/transactions) - How to build transactions using UTXOs
-- [Coin Selection](/docs/wallets/coin-selection) - Algorithms for choosing which UTXOs to spend
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - Algorithms for choosing which UTXOs to spend
 - [Address Types](/docs/wallets/address-types) - How addresses relate to UTXO scriptPubKeys
 - [RPC Commands](/docs/bitcoin/rpc#9-utxo-set-information) - Querying the UTXO set
 - [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) - Tracking UTXOs programmatically

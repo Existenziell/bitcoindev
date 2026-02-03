@@ -331,7 +331,7 @@ console.log('Address:', address);
 
 - [HD Wallets](/docs/wallets/hd-wallets) - Hierarchical deterministic wallet architecture
 - [Address Types](/docs/wallets/address-types) - Understanding different Bitcoin address formats
-- [Coin Selection](/docs/wallets/coin-selection) - How wallets choose UTXOs to spend
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - How wallets choose UTXOs to spend
 - [Multisig](/docs/wallets/multisig) - Multi-signature wallet concepts
 - [Transaction Creation](/docs/wallets/transactions) - How to create and sign transactions
 - [Privacy Techniques](/docs/wallets/privacy) - CoinJoin, Payjoin, and privacy best practices

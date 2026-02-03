@@ -1,6 +1,6 @@
 # Coin Selection
 
-When building a [transaction](/docs/bitcoin-development/transactions), you must choose which [UTXOs](/docs/fundamentals/utxos) to spend so that their total value covers the payment amount plus [fees](/docs/bitcoin/transaction-fees). Coin selection is the process of picking those inputs and, when necessary, creating a **change** output back to your wallet. This page focuses on implementation: effective value, fee budget, and a simple selection loop. For algorithms (e.g. branch-and-bound, privacy-aware strategies) and wallet UX, see [Coin Selection](/docs/wallets/coin-selection) in Wallet Development. For fee rate sources, see [Fee Estimation](/docs/bitcoin-development/fee-estimation).
+When building a [transaction](/docs/bitcoin-development/transactions), you must choose which [UTXOs](/docs/fundamentals/utxos) to spend so that their total value covers the payment amount plus [fees](/docs/bitcoin/transaction-fees). Coin selection is the process of picking those inputs and, when necessary, creating a **change** output back to your wallet. This page covers implementation (effective value, fee budget, selection loop), common strategies (largest-first, branch-and-bound, privacy-aware), and wallet best practices. For fee rate sources, see [Fee Estimation](/docs/bitcoin-development/fee-estimation).
 
 ## The Problem
 
@@ -255,14 +255,50 @@ function selectCoins(utxos, paymentSats, feeRateSatPerVb, outputVb = 31) {
 
 If selected inputs exceed payment + fee, the remainder is **change**. Create a new output (to an address you control) for that amount. If the remainder is below the [dust](/docs/bitcoin/transaction-fees) threshold (e.g. 546 sats), you may add it to the fee (no change output) to avoid an unspendable output. In the snippets above, we only allow change ≥ 546 or exactly 0.
 
+**When to create change:** Create a change output if the remainder is above the dust threshold (typically 546 sats). If change would be dust, either donate it to the miner (include in fee) or select different UTXOs.
+
+## Coin Selection Strategies
+
+Beyond the simple greedy approach above, wallets use different strategies with different trade-offs:
+
+| Strategy | Description | Pros | Cons |
+|----------|-------------|------|------|
+| **Largest first** | Sort by value descending, select until payment + fee covered | Simple, minimizes inputs, fast | May overpay fees, poor privacy |
+| **Smallest first** | Sort by value ascending | Consolidates small UTXOs, better privacy | More inputs, higher fees |
+| **Exact match** | Use a single UTXO that equals payment + fee | No change output, clean | Rarely available; needs fallback |
+| **Branch and bound** | Search for combination minimizing size/change/inputs | Optimal, best privacy | Computationally expensive |
+| **Random** | Randomly select until sum ≥ payment + fee | Good privacy, unpredictable | May be suboptimal |
+
+Privacy-aware selection (e.g. avoiding linking transactions, preferring smaller UTXOs when appropriate) improves user privacy. See [Privacy Techniques](/docs/wallets/privacy) for context.
+
+## Implementation Considerations
+
+- **Iterative approach:** Estimate fee from initial selection, then select UTXOs, then recalculate fee from actual size; adjust (e.g. add input or drop change) if needed.
+- **Fee rate targets:** Use [Fee Estimation](/docs/bitcoin-development/fee-estimation) for sat/vB; common bands include low (1–5), medium (5–10), high (10–50), urgent (50+).
+- **Validation:** Before finalizing, verify UTXOs are still unspent, balance is sufficient, and fee rate meets target.
+
+## Best Practices
+
+- Prefer SegWit UTXOs (smaller size, lower fees).
+- Minimize number of inputs when fee is high.
+- Avoid creating dust change outputs.
+- Consider privacy when choosing a strategy (see [Privacy Techniques](/docs/wallets/privacy)).
+
+## Common Issues
+
+- **Insufficient funds:** Select more UTXOs, reduce payment, or wait for more funds.
+- **Fee too low:** Use fewer UTXOs if possible, or increase fee rate.
+- **Dust change:** Donate to miner (add to fee), increase payment, or pick different UTXOs.
+
 ## Integration with Transaction Building
 
 Use the selected UTXOs as inputs and amounts in your [transaction](/docs/bitcoin-development/transactions): one output for the payment, and one for change (if any). Fee = sum(inputs) - sum(outputs). Get the fee rate from [Fee Estimation](/docs/bitcoin-development/fee-estimation).
 
 ## Related Topics
 
-- [Coin Selection](/docs/wallets/coin-selection) - Algorithms, privacy, and wallet design
 - [Transaction Construction](/docs/bitcoin-development/transactions) - Building the transaction from selected UTXOs
 - [Fee Estimation](/docs/bitcoin-development/fee-estimation) - Getting fee rate (sat/vB)
 - [Transaction Fees](/docs/bitcoin/transaction-fees) - Fee market and dust
 - [UTXO Model](/docs/fundamentals/utxos) - What UTXOs are and how they are spent
+- [Wallet Development](/docs/wallets) - HD wallets, address types, transaction creation
+- [Privacy Techniques](/docs/wallets/privacy) - Privacy-aware coin selection and wallet design

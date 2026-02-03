@@ -1,17 +1,9 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import { SearchIcon, XIcon } from '@/app/components/Icons'
-import { SearchResultItem } from '@/app/components/SearchResultItem'
-import { SearchShortcutKey } from '@/app/components/SearchShortcutKey'
-import { SearchResultsStatus } from '@/app/components/SearchResultsStatus'
-import { sections } from '@/app/utils/navigation'
-import { getSearchResultSectionLabel } from '@/app/utils/searchResultIcon'
-import { MIN_QUERY_LEN } from '@/app/utils/searchLogic'
 import { useSearch } from '@/app/hooks/useSearch'
-import { useKeyboardNavigation } from '@/app/hooks/useKeyboardNavigation'
+import { SearchInput } from '@/app/components/SearchInput'
 
 interface SearchModalProps {
   isOpen: boolean
@@ -24,18 +16,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const router = useRouter()
   const pathname = usePathname()
   const previousPathnameRef = useRef<string>(pathname)
-
-  const { selectedIndex, setSelectedIndex, selectedItemRef } = useKeyboardNavigation({
-    items: results,
-    inputRef,
-    enabled: isOpen,
-    resetDeps: [query],
-    onEscape: onClose,
-    onNavigate: (item) => {
-      onClose()
-      router.push(item.path)
-    },
-  })
 
   useEffect(() => {
     if (isOpen) {
@@ -61,8 +41,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   if (!isOpen) return null
 
-  const sectionTitle = (id: string) => sections[id as keyof typeof sections]?.title ?? id
-
   return (
     <div
       className="modal-overlay flex items-start justify-center pt-[12vh] px-4"
@@ -71,77 +49,21 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       aria-modal="true"
       aria-label="Search documentation"
     >
-      <div
-        className="w-full max-w-2xl rounded-lg shadow-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center gap-3 px-6">
-          <Link
-            href="/docs"
-            onClick={onClose}
-            className="p-1.5 rounded text-gray-500 dark:text-gray-400 hover:text-btc hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Go to documentation overview"
-            title="Documentation overview"
-          >
-            <SearchIcon className="flex-shrink-0 w-6 h-6 text-gray-500 dark:text-gray-400" />
-          </Link>
-          <input
-            ref={inputRef}
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search docs…"
-            className="search-input"
-            autoComplete="off"
-            autoCorrect="off"
-            aria-label="Search"
-          />
-          <SearchShortcutKey className="hidden md:inline" />
-          <button
-            type="button"
-            onClick={onClose}
-            className="p-1 rounded text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
-            aria-label="Close"
-          >
-            <XIcon className="w-6 h-6" />
-          </button>
-        </div>
-        <div className="max-h-[min(60vh,400px)] overflow-y-auto overflow-x-hidden">
-          {loading ||
-          (query.length > 0 && query.length < MIN_QUERY_LEN) ||
-          (query.length >= MIN_QUERY_LEN && results.length === 0) ? (
-            <SearchResultsStatus
-              loading={loading}
-              queryLength={query.length}
-              resultsLength={results.length}
-              showMinChars
-              className="py-8 text-center text-secondary text-sm"
-            />
-          ) : results.length > 0 ? (
-            <ul className="py-2 min-w-0" role="listbox">
-              {results.map((r, i) => (
-                <SearchResultItem
-                  key={r.path + r.title}
-                  result={r}
-                  isSelected={i === selectedIndex}
-                  selectedItemRef={selectedItemRef as React.RefObject<HTMLLIElement>}
-                  onMouseEnter={() => setSelectedIndex(i)}
-                  onClick={onClose}
-                  refTarget="li"
-                  linkClassName={`flex gap-3 px-4 py-2.5 text-left transition-colors no-underline hover:no-underline block w-full min-w-0 ${
-                    i === selectedIndex
-                      ? 'bg-btc/20 dark:bg-btc/25 text-gray-900 dark:text-gray-200'
-                      : 'text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                  iconClassName="w-5 h-5 mt-0.5 text-gray-500 dark:text-gray-400"
-                  sectionLabel={getSearchResultSectionLabel(r.path, r.section, sectionTitle)}
-                  snippetClassName="line-clamp-2 md:line-clamp-none md:truncate"
-                />
-              ))}
-            </ul>
-          ) : null}
-        </div>
-      </div>
+      <SearchInput
+        variant="dropdown"
+        query={query}
+        setQuery={setQuery}
+        results={results}
+        loading={loading}
+        inputRef={inputRef}
+        onEscape={onClose}
+        onNavigate={(item) => {
+          onClose()
+          router.push(item.path)
+        }}
+        enabled={isOpen}
+        autoFocus={isOpen}
+      />
     </div>
   )
 }

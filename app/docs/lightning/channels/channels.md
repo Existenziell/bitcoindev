@@ -269,7 +269,7 @@ New nodes often struggle with inbound liquidity since opening channels only prov
 
 ### Liquidity Management
 
-To receive payments or [route](/docs/lightning/routing) effectively, you need **inbound** [liquidity](/docs/lightning/channels#inbound-vs-outbound-liquidity). To send or route in the other direction, you need **outbound** [liquidity](/docs/lightning/channels#inbound-vs-outbound-liquidity). Common ways to adjust it:
+To receive payments or [route](/docs/lightning/routing-fees) effectively, you need **inbound** [liquidity](/docs/lightning/channels#inbound-vs-outbound-liquidity). To send or route in the other direction, you need **outbound** [liquidity](/docs/lightning/channels#inbound-vs-outbound-liquidity). Common ways to adjust it:
 
 - **Circular rebalancing**: Pay yourself (e.g., between your own [channels](/docs/lightning/channels) or via a loop) to move [liquidity](/docs/lightning/channels#inbound-vs-outbound-liquidity) from one side to the other.
 - **Submarine swaps / liquidity marketplaces**: Use a service to swap on-chain BTC for [Lightning](/docs/lightning) [inbound](/docs/lightning/channels#inbound-vs-outbound-liquidity) (or the reverse), or to buy/sell [channel](/docs/lightning/channels) capacity.
@@ -292,7 +292,7 @@ Splicing is **dual-funded** in the sense that the splice [transaction](/docs/bit
 ### Why Use Splicing
 
 - **Add liquidity**: Get more [inbound](/docs/lightning/channels#inbound-vs-outbound-liquidity) or [outbound](/docs/lightning/channels#inbound-vs-outbound-liquidity) without opening a new [channel](/docs/lightning/channels) and without on-chain round-trips for a full close+reopen.
-- **Withdraw liquidity**: Reduce channel capacity and free BTC on-chain without closing the [channel](/docs/lightning/channels) and losing your [routing](/docs/lightning/routing) relationship.
+- **Withdraw liquidity**: Reduce channel capacity and free BTC on-chain without closing the [channel](/docs/lightning/channels) and losing your [routing](/docs/lightning/routing-fees) relationship.
 
 Support for splicing varies by implementation (e.g., [Core Lightning](https://github.com/ElementsProject/lightning), [LDK](https://github.com/lightningdevkit/rust-lightning)); check your node’s documentation.
 
@@ -379,6 +379,6 @@ Payment channels enable:
 
 ## Related Topics
 
-- [Routing Fees](/docs/lightning/routing), [HTLCs](/docs/lightning/routing/htlc), and [Multi-Part Payments](/docs/lightning/routing/mpp) - How payments route through channels
+- [Routing Fees](/docs/lightning/routing-fees), [HTLCs](/docs/lightning/routing/htlc), and [Multi-Part Payments](/docs/lightning/routing/mpp) - How payments route through channels
 - [Watchtowers](/docs/lightning/watchtowers) - Third-party channel monitoring
 - [Anchor Outputs](/docs/lightning/anchor-outputs) - Modern channel format for fee bumping and splicing

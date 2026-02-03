@@ -47,7 +47,7 @@ To pay via an offer, the **payer** sends an **invoice request** to the payee. Th
 - Can include **payer metadata** (e.g., for refunds or identification)
 - Is sent over the Lightning network to the payee’s node (or a [Blinded Path](https://github.com/lightning/bolts/blob/master/04-onion-routing.md#blinded-paths))
 
-The **payee** responds with a BOLT12 **invoice** (or a BOLT11 invoice if that’s what was negotiated). That invoice is then paid like any other [Lightning](/docs/lightning) payment (e.g., [HTLC](/docs/lightning/routing/htlc) [routing](/docs/lightning/routing)).
+The **payee** responds with a BOLT12 **invoice** (or a BOLT11 invoice if that’s what was negotiated). That invoice is then paid like any other [Lightning](/docs/lightning) payment (e.g., [HTLC](/docs/lightning/routing/htlc) [routing](/docs/lightning/routing-fees)).
 
 ---
 
@@ -93,7 +93,7 @@ Wallets and merchants that support BOLT12 can publish offers (e.g., on the web, 
 
 - [Invoices (BOLT11)](/docs/lightning/invoices) - Classic Lightning invoices
 - [Lightning Channels](/docs/lightning/channels) - Channel mechanics
-- [Routing & HTLCs](/docs/lightning/routing) - How payments are routed
+- [Routing & HTLCs](/docs/lightning/routing-fees) - How payments are routed
 - [Onion Routing](/docs/lightning/onion) - Privacy and blinded paths
 
 ---

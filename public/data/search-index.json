@@ -1564,6 +1564,36 @@
     "body": "| Aspect | Proof-of-Work (Bitcoin) | Proof-of-Stake | |--------|------------------------|----------------| | Security basis | Computational work (energy) | Staked capital | | Attack cost | Hardware + "
   },
   {
+    "path": "/docs/bitcoin/transaction-structure",
+    "title": "Transaction Structure",
+    "section": "bitcoin",
+    "body": "Transaction Structure A Bitcoin transaction is a serialized structure with a version, a list of inputs, a list of outputs, a locktime, and (for SegWit/Taproot) witness data. This page summarizes the main fields so you can read raw transactions or build them correctly. Input fields Each input references one UTXO and provides data to satisfy its spending conditions. | Field | Description | |-------|-------------| | Previous output (outpoint) | The transaction ID (txid) of the transaction that "
+  },
+  {
+    "path": "/docs/bitcoin/transaction-structure#input-fields",
+    "title": "Input fields",
+    "section": "bitcoin",
+    "body": "Each input references one UTXO and provides data to satisfy its spending conditions. | Field | Description | |-------|-------------| | Previous output (outpoint) | The transaction ID (txid) of the "
+  },
+  {
+    "path": "/docs/bitcoin/transaction-structure#output-fields",
+    "title": "Output fields",
+    "section": "bitcoin",
+    "body": "Each output creates a new UTXO: an amount and a scriptPubKey (locking script) that defines who can spend it. | Field | Description | |-------|-------------| | Value | Amount in satoshis. | | "
+  },
+  {
+    "path": "/docs/bitcoin/transaction-structure#serialization-notes",
+    "title": "Serialization notes",
+    "section": "bitcoin",
+    "body": "Numeric fields (version, locktime, sequence, value) are little-endian. Variable-length data (script length, script content) use compact size encoding. SegWit transactions have a marker and flag in "
+  },
+  {
+    "path": "/docs/bitcoin/transaction-structure#related",
+    "title": "Related",
+    "section": "bitcoin",
+    "body": "Transaction Decoder — decode raw transaction hex in the browser Transaction Lifecycle for states from creation to confirmation Transaction Construction for building transactions in code Script for "
+  },
+  {
     "path": "/docs/bitcoin/transaction-lifecycle",
     "title": "Transaction Lifecycle",
     "section": "bitcoin",
@@ -1616,36 +1646,6 @@
     "title": "Resources",
     "section": "bitcoin",
     "body": "mempool.space - Transaction status tracking"
-  },
-  {
-    "path": "/docs/bitcoin/transaction-structure",
-    "title": "Transaction Structure",
-    "section": "bitcoin",
-    "body": "Transaction Structure A Bitcoin transaction is a serialized structure with a version, a list of inputs, a list of outputs, a locktime, and (for SegWit/Taproot) witness data. This page summarizes the main fields so you can read raw transactions or build them correctly. Input fields Each input references one UTXO and provides data to satisfy its spending conditions. | Field | Description | |-------|-------------| | Previous output (outpoint) | The transaction ID (txid) of the transaction that "
-  },
-  {
-    "path": "/docs/bitcoin/transaction-structure#input-fields",
-    "title": "Input fields",
-    "section": "bitcoin",
-    "body": "Each input references one UTXO and provides data to satisfy its spending conditions. | Field | Description | |-------|-------------| | Previous output (outpoint) | The transaction ID (txid) of the "
-  },
-  {
-    "path": "/docs/bitcoin/transaction-structure#output-fields",
-    "title": "Output fields",
-    "section": "bitcoin",
-    "body": "Each output creates a new UTXO: an amount and a scriptPubKey (locking script) that defines who can spend it. | Field | Description | |-------|-------------| | Value | Amount in satoshis. | | "
-  },
-  {
-    "path": "/docs/bitcoin/transaction-structure#serialization-notes",
-    "title": "Serialization notes",
-    "section": "bitcoin",
-    "body": "Numeric fields (version, locktime, sequence, value) are little-endian. Variable-length data (script length, script content) use compact size encoding. SegWit transactions have a marker and flag in "
-  },
-  {
-    "path": "/docs/bitcoin/transaction-structure#related",
-    "title": "Related",
-    "section": "bitcoin",
-    "body": "Transaction Decoder — decode raw transaction hex in the browser Transaction Lifecycle for states from creation to confirmation Transaction Construction for building transactions in code Script for "
   },
   {
     "path": "/docs/bitcoin/script",
@@ -3513,78 +3513,6 @@
     "body": "Bitcoin Wallets - Introduction to Bitcoin wallets Coin Selection - How wallets choose UTXOs to spend Multisig - Multi-signature transaction signing PSBT - Partially Signed Bitcoin Transactions "
   },
   {
-    "path": "/docs/wallets/coin-selection",
-    "title": "Coin Selection",
-    "section": "wallets",
-    "body": "Coin Selection Coin selection is the process of choosing which UTXOs (Unspent Transaction Outputs) to spend when creating a Bitcoin transaction. This is a critical wallet function that affects transaction fees, privacy, and efficiency. For a deeper understanding of the UTXO model, see the UTXO Model documentation. The Challenge Given: A set of available UTXOs A payment amount to send A target fee rate Select UTXOs such that: Total input value > total output value Fee rate >= required minimum "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#the-challenge",
-    "title": "The Challenge",
-    "section": "wallets",
-    "body": "Given: A set of available UTXOs A payment amount to send A target fee rate Select UTXOs such that: Total input value > total output value Fee rate >= required minimum fee rate Transaction is valid "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#transaction-requirements",
-    "title": "Transaction Requirements",
-    "section": "wallets",
-    "body": "Basic Structure Transaction: Inputs: Selected UTXOs Outputs: Payment output (destination + amount) Change output (optional, back to wallet) Fee: Inputs - Outputs Fee Rate Calculation Fee Rate = "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#utxo-characteristics",
-    "title": "UTXO Characteristics",
-    "section": "wallets",
-    "body": "Different Script Types UTXOs can have different script types, affecting transaction size: | Type | Address Prefix | Input Size | |------|---------------|------------| | P2PKH (Legacy) | 1... | ~148 "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#coin-selection-strategies",
-    "title": "Coin Selection Strategies",
-    "section": "wallets",
-    "body": "1. Largest First (Greedy) Algorithm: Sort UTXOs by value (largest first) Select UTXOs until sum >= payment + estimated fee Create change output if needed :::code-group fn select_largest_first( coins: "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#fee-calculation",
-    "title": "Fee Calculation",
-    "section": "wallets",
-    "body": "Estimating Transaction Size Base Size: Transaction header: 10 bytes Input count: 1-9 bytes (varint) Output count: 1-9 bytes (varint) Input Size: Previous output: 36 bytes Script length: 1-9 bytes "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#change-output-creation",
-    "title": "Change Output Creation",
-    "section": "wallets",
-    "body": "When to Create Change Create change output if: Selected UTXOs > Payment + Fee + Dust Threshold Change amount > dust threshold (typically 546 sats) Dust Threshold Dust outputs are uneconomical to "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#implementation-considerations",
-    "title": "Implementation Considerations",
-    "section": "wallets",
-    "body": "Iterative Approach Estimate fee: Based on initial UTXO selection Select UTXOs: Using chosen strategy Calculate actual fee: Based on actual transaction size Adjust if needed: If fee doesn't meet "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#best-practices",
-    "title": "Best Practices",
-    "section": "wallets",
-    "body": "For Wallet Developers Use SegWit: Prefer SegWit UTXOs (smaller size) Minimize inputs: Fewer inputs = smaller transaction Optimize change: Avoid dust change outputs Privacy: Consider privacy "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#common-issues",
-    "title": "Common Issues",
-    "section": "wallets",
-    "body": "Insufficient Funds Problem: Selected UTXOs don't cover payment + fee Solution: Select more UTXOs Reduce payment amount Wait for more funds Fee Too Low Problem: Calculated fee rate below target "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#summary",
-    "title": "Summary",
-    "section": "wallets",
-    "body": "Coin selection is a critical wallet function: Multiple strategies: Different approaches for different goals Fee optimization: Balance between fees and efficiency Privacy considerations: UTXO "
-  },
-  {
-    "path": "/docs/wallets/coin-selection#related-topics",
-    "title": "Related Topics",
-    "section": "wallets",
-    "body": "Bitcoin Wallets - Introduction to Bitcoin wallets Transaction Creation - How to create and sign transactions Address Types - Understanding different Bitcoin address formats Mempool - How unconfirmed "
-  },
-  {
     "path": "/docs/wallets/privacy",
     "title": "Privacy Techniques",
     "section": "wallets",
@@ -3990,79 +3918,79 @@
     "body": "Routing Fees - How routing fees work Multi-Part Payments - Splitting payments across routes Onion Routing - Privacy in payment routing"
   },
   {
-    "path": "/docs/lightning/routing",
+    "path": "/docs/lightning/routing-fees",
     "title": "Routing Fees",
     "section": "lightning",
     "body": "Lightning Routing Fees Lightning routing fees are how nodes earn income for forwarding payments. Understanding fee calculation is essential for both routing nodes and payment senders. Fee Structure Lightning fees consist of two components: Base Fee: Fixed fee per HTLC (in millisatoshis) Proportional Fee: Percentage of payment amount (in parts per million) Fee Formula Total Fee = Base Fee + (Payment Amount × Proportional Fee / 1,000,000) :::code-group /// Calculate the fee for forwarding an "
   },
   {
-    "path": "/docs/lightning/routing#fee-structure",
+    "path": "/docs/lightning/routing-fees#fee-structure",
     "title": "Fee Structure",
     "section": "lightning",
     "body": "Lightning fees consist of two components: Base Fee: Fixed fee per HTLC (in millisatoshis) Proportional Fee: Percentage of payment amount (in parts per million) Fee Formula Total Fee = Base Fee + "
   },
   {
-    "path": "/docs/lightning/routing#routing-policy",
+    "path": "/docs/lightning/routing-fees#routing-policy",
     "title": "Routing Policy",
     "section": "lightning",
     "body": "Each node advertises a routing policy that specifies: fee_base_msat: Base fee in millisatoshis fee_proportional_millionths: Proportional fee in parts per million cltv_delta: Required expiry delta (in "
   },
   {
-    "path": "/docs/lightning/routing#fee-calculation-along-a-route",
+    "path": "/docs/lightning/routing-fees#fee-calculation-along-a-route",
     "title": "Fee Calculation Along a Route",
     "section": "lightning",
     "body": "When calculating fees for a multi-hop route, fees accumulate: Example Route Alice → Bob → Carol → Dave Payment: 100,000 sats Bob's Policy: Base: 1000 msat Proportional: 10 ppm Carol's Policy: Base: "
   },
   {
-    "path": "/docs/lightning/routing#htlc-amount-calculation",
+    "path": "/docs/lightning/routing-fees#htlc-amount-calculation",
     "title": "HTLC Amount Calculation",
     "section": "lightning",
     "body": "For each hop, the HTLC amount includes: Original payment amount All fees accumulated up to that point Backward Calculation Starting from the final amount, work backwards: Final Amount (to Dave): "
   },
   {
-    "path": "/docs/lightning/routing#integer-division",
+    "path": "/docs/lightning/routing-fees#integer-division",
     "title": "Integer Division",
     "section": "lightning",
     "body": "Important: Lightning uses integer division for fee calculation (as per BOLT 7). This means: Round down (floor) any fractional results No rounding up Can lead to small discrepancies Example Payment: "
   },
   {
-    "path": "/docs/lightning/routing#fee-economics",
+    "path": "/docs/lightning/routing-fees#fee-economics",
     "title": "Fee Economics",
     "section": "lightning",
     "body": "For Routing Nodes Revenue Sources: Base fees from each forwarded payment Proportional fees based on payment size Costs: Channel liquidity (locked capital) Risk of failed payments Operational costs "
   },
   {
-    "path": "/docs/lightning/routing#fee-limits",
+    "path": "/docs/lightning/routing-fees#fee-limits",
     "title": "Fee Limits",
     "section": "lightning",
     "body": "Maximum Fees There's no hard limit on fees, but: Very high fees reduce payment success Market forces keep fees reasonable Nodes compete for routing business Minimum Fees Some nodes set minimum fees "
   },
   {
-    "path": "/docs/lightning/routing#fee-discovery",
+    "path": "/docs/lightning/routing-fees#fee-discovery",
     "title": "Fee Discovery",
     "section": "lightning",
     "body": "How Senders Find Fees Network Graph: Query network for channel policies Route Calculation: Calculate fees for potential routes Fee Comparison: Compare routes by total fee Route Selection: Choose "
   },
   {
-    "path": "/docs/lightning/routing#best-practices",
+    "path": "/docs/lightning/routing-fees#best-practices",
     "title": "Best Practices",
     "section": "lightning",
     "body": "For Routing Nodes Competitive Pricing: Set fees that attract routing Monitor Market: Adjust fees based on network conditions Balance Channels: Maintain liquidity for routing Transparent Policies: "
   },
   {
-    "path": "/docs/lightning/routing#common-issues",
+    "path": "/docs/lightning/routing-fees#common-issues",
     "title": "Common Issues",
     "section": "lightning",
     "body": "Fees Too High Problem: Route has very high fees Solutions: Try different routes Use direct channels Split payment (MPP) Wait for better routing conditions Fees Not Calculated Correctly Problem: Fee "
   },
   {
-    "path": "/docs/lightning/routing#summary",
+    "path": "/docs/lightning/routing-fees#summary",
     "title": "Summary",
     "section": "lightning",
     "body": "Lightning routing fees: Two components: Base fee + proportional fee Accumulate: Fees add up along the route Integer division: Use floor division for calculations Economic incentive: Rewards nodes for "
   },
   {
-    "path": "/docs/lightning/routing#related-topics",
+    "path": "/docs/lightning/routing-fees#related-topics",
     "title": "Related Topics",
     "section": "lightning",
     "body": "HTLCs - Hash Time-Locked Contracts that carry payments along the route Multi-Part Payments - Splitting payments across multiple routes Channels - How channels and liquidity affect routing Onion "
@@ -5307,7 +5235,7 @@
     "path": "/docs/bitcoin-development/coin-selection",
     "title": "Coin Selection",
     "section": "bitcoin-development",
-    "body": "Coin Selection When building a transaction, you must choose which UTXOs to spend so that their total value covers the payment amount plus fees. Coin selection is the process of picking those inputs and, when necessary, creating a change output back to your wallet. This page focuses on implementation: effective value, fee budget, and a simple selection loop. For algorithms (e.g. branch-and-bound, privacy-aware strategies) and wallet UX, see Coin Selection in Wallet Development. For fee rate "
+    "body": "Coin Selection When building a transaction, you must choose which UTXOs to spend so that their total value covers the payment amount plus fees. Coin selection is the process of picking those inputs and, when necessary, creating a change output back to your wallet. This page covers implementation (effective value, fee budget, selection loop), common strategies (largest-first, branch-and-bound, privacy-aware), and wallet best practices. For fee rate sources, see Fee Estimation. The Problem Given: "
   },
   {
     "path": "/docs/bitcoin-development/coin-selection#the-problem",
@@ -5334,6 +5262,30 @@
     "body": "If selected inputs exceed payment + fee, the remainder is change. Create a new output (to an address you control) for that amount. If the remainder is below the dust threshold (e.g. 546 sats), you "
   },
   {
+    "path": "/docs/bitcoin-development/coin-selection#coin-selection-strategies",
+    "title": "Coin Selection Strategies",
+    "section": "bitcoin-development",
+    "body": "Beyond the simple greedy approach above, wallets use different strategies with different trade-offs: | Strategy | Description | Pros | Cons | |----------|-------------|------|------| | Largest first "
+  },
+  {
+    "path": "/docs/bitcoin-development/coin-selection#implementation-considerations",
+    "title": "Implementation Considerations",
+    "section": "bitcoin-development",
+    "body": "Iterative approach: Estimate fee from initial selection, then select UTXOs, then recalculate fee from actual size; adjust (e.g. add input or drop change) if needed. Fee rate targets: Use Fee "
+  },
+  {
+    "path": "/docs/bitcoin-development/coin-selection#best-practices",
+    "title": "Best Practices",
+    "section": "bitcoin-development",
+    "body": "Prefer SegWit UTXOs (smaller size, lower fees). Minimize number of inputs when fee is high. Avoid creating dust change outputs. Consider privacy when choosing a strategy (see Privacy Techniques)."
+  },
+  {
+    "path": "/docs/bitcoin-development/coin-selection#common-issues",
+    "title": "Common Issues",
+    "section": "bitcoin-development",
+    "body": "Insufficient funds: Select more UTXOs, reduce payment, or wait for more funds. Fee too low: Use fewer UTXOs if possible, or increase fee rate. Dust change: Donate to miner (add to fee), increase "
+  },
+  {
     "path": "/docs/bitcoin-development/coin-selection#integration-with-transaction-building",
     "title": "Integration with Transaction Building",
     "section": "bitcoin-development",
@@ -5343,7 +5295,7 @@
     "path": "/docs/bitcoin-development/coin-selection#related-topics",
     "title": "Related Topics",
     "section": "bitcoin-development",
-    "body": "Coin Selection - Algorithms, privacy, and wallet design Transaction Construction - Building the transaction from selected UTXOs Fee Estimation - Getting fee rate (sat/vB) Transaction Fees - Fee "
+    "body": "Transaction Construction - Building the transaction from selected UTXOs Fee Estimation - Getting fee rate (sat/vB) Transaction Fees - Fee market and dust UTXO Model - What UTXOs are and how they are "
   },
   {
     "path": "/docs/bitcoin-development/transactions",

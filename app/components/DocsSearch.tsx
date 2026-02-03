@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { SearchIcon } from '@/app/components/Icons'
 import { SearchResultItem } from '@/app/components/SearchResultItem'
 import { SearchResultsStatus } from '@/app/components/SearchResultsStatus'
 import { MIN_QUERY_LEN } from '@/app/utils/searchLogic'
 import { useSearch } from '@/app/hooks/useSearch'
 import { useKeyboardNavigation } from '@/app/hooks/useKeyboardNavigation'
+import { SearchInput } from '@/app/components/SearchInput'
 
 export default function DocsSearch() {
   const { query, setQuery, results, loading } = useSearch()
@@ -33,24 +33,14 @@ export default function DocsSearch() {
 
   return (
     <div className="w-full">
-      {/* Search Bar */}
       <div className="mb-2">
-        <div className="relative">
-          <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
-          <input
-            ref={inputRef}
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search documentation…"
-            className="input-panel-ring w-full pl-12 pr-4 py-4 text-base rounded-lg border-2 border-gray-200 dark:border-gray-700 focus:ring-btc/20 placeholder:text-gray-500 dark:placeholder:text-gray-400"
-            autoComplete="off"
-            autoCorrect="off"
-            aria-label="Search documentation"
-          />
-        </div>
+        <SearchInput
+          variant="inputOnly"
+          query={query}
+          setQuery={setQuery}
+          inputRef={inputRef}
+        />
       </div>
-
       {/* Search Results */}
       {(() => {
         const status = (
@@ -70,7 +60,7 @@ export default function DocsSearch() {
         <ul className="space-y-2">
           {results.map((result, i) => (
             <SearchResultItem
-              key={result.path}
+              key={`${result.path}-${result.title}-${result.section}-${i}`}
               result={result}
               isSelected={i === selectedIndex}
               selectedItemRef={selectedItemRef as React.RefObject<HTMLAnchorElement>}

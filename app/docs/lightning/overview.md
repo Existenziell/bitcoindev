@@ -250,7 +250,7 @@ lncli listpeers
 ## Next Steps
 
 - Learn about [Payment Channels](/docs/lightning/channels)
-- [Routing Fees](/docs/lightning/routing), [HTLCs](/docs/lightning/routing/htlc), and [Multi-Part Payments](/docs/lightning/routing/mpp)
+- [Routing Fees](/docs/lightning/routing-fees), [HTLCs](/docs/lightning/routing/htlc), and [Multi-Part Payments](/docs/lightning/routing/mpp)
 - Explore [Onion Routing](/docs/lightning/onion) for privacy
 - [Invoices (BOLT11)](/docs/lightning/invoices) and [Offers (BOLT12)](/docs/lightning/bolt12-offers) for payment requests and recurring payments
 

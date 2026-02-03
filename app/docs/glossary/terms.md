@@ -156,7 +156,7 @@ Miners construct the coinbase transaction to pay themselves, and it's the only t
 
 ### Coin Selection
 The process of choosing which UTXOs to spend when creating a transaction, which significantly impacts fees, privacy, and future UTXO management.
-<!-- related: /docs/wallets/coin-selection -->
+<!-- related: /docs/bitcoin-development/coin-selection -->
 Various algorithms exist: largest-first minimizes input count but creates large change outputs; smallest-first consolidates dust but increases fees; branch-and-bound tries to find exact matches avoiding change entirely. Wallet software typically handles this automatically.
 
 ### CoinJoin
@@ -261,7 +261,7 @@ Decentralized Autonomous Organization (DAO): governed by rules encoded in smart 
 
 ### DCA
 Dollar-Cost Averaging (DCA): a strategy where a fixed amount of money is used to buy bitcoin at regular intervals, smoothing out volatility by ignoring short-term price movements.
-<!-- related: /docs/investment/dollar-cost-averaging -->
+<!-- related: /docs/investment/investment-strategy -->
 
 ### DEX
 Decentralized Exchange (DEX): a decentralized exchange that allows users to trade cryptocurrencies without relying on a centralized entity. In Bitcoin, DEXs ensure users maintain control over their private keys during trades.

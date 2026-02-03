@@ -153,7 +153,7 @@ export default function DocsNavigation({
               }`}
               onClick={onLinkClick}
             >
-              Docs
+              Bitcoin Docs
             </Link>
           </div>
         </div>

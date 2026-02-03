@@ -869,5 +869,5 @@ Choose the appropriate type based on your use case, required features, and compa
 
 - [Bitcoin Wallets](/docs/wallets) - Introduction to Bitcoin wallets
 - [HD Wallets](/docs/wallets/hd-wallets) - Hierarchical deterministic key derivation
-- [Coin Selection](/docs/wallets/coin-selection) - How address types affect transaction fees
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - How address types affect transaction fees
 - [Address Generation](/docs/bitcoin-development/addresses) - Developer guide to address generation

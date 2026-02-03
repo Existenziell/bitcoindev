@@ -336,7 +336,7 @@ Multisig Transaction:
 ## Related Topics
 
 - [Address Types](/docs/wallets/address-types) - Understanding addresses
-- [Coin Selection](/docs/wallets/coin-selection) - Privacy-aware selection
+- [Coin Selection](/docs/bitcoin-development/coin-selection) - Privacy-aware selection
 - [Taproot](/docs/bitcoin/taproot) - Better privacy
 - [Lightning Network](/docs/lightning) - Off-chain privacy
 
