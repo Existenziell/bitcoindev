@@ -63,7 +63,7 @@ export default function DocsLayoutWrapper({
         <div className="flex flex-col md:flex-row gap-4 md:gap-0">
           <div
             className={cn(
-              'hidden md:block md:flex-shrink-0 md:overflow-y-auto md:overflow-x-hidden transition-[width] duration-200 ease-in-out',
+              'hidden md:block md:flex-shrink-0 md:overflow-y-auto md:overflow-x-hidden md:mr-8 transition-[width] duration-200 ease-in-out',
               isSidebarCollapsed ? 'md:w-10 md:self-start' : 'md:w-72 md:self-start'
             )}
           >
