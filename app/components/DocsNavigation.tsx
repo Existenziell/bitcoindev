@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { navItems, docsNavLinksTop, docsNavLinksBottom } from '@/app/utils/navigation'
+import { navItems, docsNavLinksTop, docsNavLinksBottom, interactiveToolsNavItem } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronRight, PanelCollapseIcon, PanelExpandIcon } from '@/app/components/Icons'
 
@@ -12,6 +12,9 @@ function matchesPath(pathname: string, href: string): boolean {
 }
 
 function findActiveSectionHref(pathname: string): string | null {
+  if (pathname === '/interactive-tools' || pathname.startsWith('/interactive-tools/')) {
+    return '/interactive-tools'
+  }
   for (const section of navItems) {
     if (matchesPath(pathname, section.href)) {
       return section.href
@@ -208,6 +211,50 @@ export default function DocsNavigation({
                 </li>
               )
             })}
+          </ul>
+        )}
+
+        {/* Interactive Tools - expandable section */}
+        <div className="mb-1 mt-2">
+          <div className="flex items-center gap-1.5 w-full text-left text-base mb-1">
+            <button
+              onClick={() => toggleSection('/interactive-tools')}
+              className="flex-shrink-0 p-1 pl-0 text-gray-500 dark:text-gray-400 hover:text-btc transition-colors"
+              aria-expanded={isExpanded('/interactive-tools')}
+              aria-label={isExpanded('/interactive-tools') ? 'Collapse Interactive Tools' : 'Expand Interactive Tools'}
+            >
+              <ChevronRight
+                className={`shrink-0 w-4 h-4 transition-transform ${
+                  isExpanded('/interactive-tools') ? 'rotate-90' : ''
+                }`}
+              />
+            </button>
+            <Link
+              href="/interactive-tools"
+              className={`flex-1 transition-colors ${
+                isActive('/interactive-tools')
+                  ? 'text-btc font-semibold'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-btc'
+              }`}
+              onClick={onLinkClick}
+            >
+              Interactive Tools
+            </Link>
+          </div>
+        </div>
+        {isExpanded('/interactive-tools') && interactiveToolsNavItem.children && (
+          <ul className="ml-7 mt-1 space-y-0 mb-2">
+            {interactiveToolsNavItem.children.map((child) => (
+              <li key={child.href}>
+                <Link
+                  href={child.href}
+                  className={getLinkClassName(isActive(child.href), 'sm')}
+                  onClick={onLinkClick}
+                >
+                  {child.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         )}
 

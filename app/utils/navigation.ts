@@ -246,17 +246,29 @@ export const ctaLinks: { href: string; title: string }[] = [
   { href: '/interactive-tools', title: 'Interactive Tools' },
 ]
 
-// Docs sidebar - top section (interactive tools)
+// Docs sidebar - top section
 export const docsNavLinksTop: { href: string; title: string }[] = [
   { href: '/whitepaper', title: 'Whitepaper' },
-  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
-  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
-  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
 ]
+
+// Docs sidebar - Interactive Tools as expandable section (used by DocsNavigation only)
+export const interactiveToolsNavItem: NavSection = {
+  title: 'Interactive Tools',
+  href: '/interactive-tools',
+  children: [
+    { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
+    { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
+    { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
+    { href: '/interactive-tools/hash', title: 'Hash Tool' },
+    { href: '/interactive-tools/address-decoder', title: 'Address Decoder' },
+    { href: '/interactive-tools/transaction-decoder', title: 'Transaction Decoder' },
+    { href: '/interactive-tools/fee-estimator', title: 'Fee Estimator' },
+    { href: '/interactive-tools/denominations-calculator', title: 'Denomination Calculator' },
+  ],
+}
 
 // Docs sidebar - bottom section (site utilities)
 export const docsNavLinksBottom: { href: string; title: string }[] = [
-  { href: '/interactive-tools', title: 'Interactive Tools' },
   { href: '/docs/glossary', title: 'Glossary' },
   { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
@@ -375,6 +387,10 @@ export const routeLabels: Record<string, string> = {
   terminal: 'CLI Terminal',
   'stack-lab': 'Stack Lab',
   'block-visualizer': 'Block Visualizer',
+  'address-decoder': 'Address Decoder',
+  'transaction-decoder': 'Transaction Decoder',
+  'fee-estimator': 'Fee Estimator',
+  'denominations-calculator': 'Denomination Calculator',
   whitepaper: 'Whitepaper',
   about: 'About BitcoinDev',
   feedback: 'Feedback',
