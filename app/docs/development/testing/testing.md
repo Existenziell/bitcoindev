@@ -1,12 +1,12 @@
 # Testing & Debugging Bitcoin Applications
 
-Testing Bitcoin applications requires special considerations due to the financial nature of the software and the complexity of the protocol. This guide covers testing strategies, debugging techniques, and best practices.
+Testing Bitcoin applications requires special considerations due to the financial nature of the software and the complexity of the protocol.
 
-## Testing Networks
+## Testing Network
 
 ### Regtest (Recommended for Development)
 
-Regtest provides a completely controlled environment where you can instantly generate blocks.
+Regtest provides a completely controlled environment where you can instantly generate blocks. For more on test networks, see [Testnets](/docs/development/testnets).
 
 **Setup:**
 
@@ -19,33 +19,6 @@ bitcoin-cli -regtest createwallet "test"
 
 # Generate initial blocks (need 100+ for spendable coins)
 bitcoin-cli -regtest -generate 101
-```
-
-**Advantages:**
-- Instant block generation
-- No network dependencies
-- Complete control over timing
-- Reproducible tests
-
-### Signet (Recommended for Integration Testing)
-
-Signet provides a more realistic testing environment with predictable block times.
-
-```bash
-# Start Bitcoin Core in signet mode
-bitcoind -signet -daemon
-
-# Check sync status
-bitcoin-cli -signet getblockchaininfo
-```
-
-### Testnet (Legacy Testing)
-
-Testnet mimics mainnet but with worthless coins.
-
-```bash
-bitcoind -testnet -daemon
-bitcoin-cli -testnet getblockchaininfo
 ```
 
 ---
@@ -542,31 +515,7 @@ jobs:
 
 ---
 
-## Best Practices
-
-### Testing Checklist
-
-1. **Unit Tests**: Test individual functions in isolation
-2. **Integration Tests**: Test component interactions on regtest
-3. **End-to-End Tests**: Test full workflows on signet/testnet
-4. **Edge Cases**: Test boundary conditions and error handling
-5. **Security Tests**: Test for common vulnerabilities
-
-### Common Pitfalls
-
-**Don't:**
-- Test with real Bitcoin (mainnet)
-- Hardcode test data that could change
-- Skip error handling tests
-- Ignore race conditions in async code
-
-**Do:**
-- Use regtest for fast iteration
-- Test both success and failure paths
-- Mock external dependencies
-- Clean up test state between runs
-
-### Test Organization
+## Test Organization
 
 ```
 tests/

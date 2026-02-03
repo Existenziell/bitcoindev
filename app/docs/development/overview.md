@@ -15,15 +15,11 @@ The reference implementation of Bitcoin is written in C++.
 - Performance-critical applications
 - Protocol-level changes
 - Consensus code
+- Maximum performance requirements
 
 **Key libraries:**
 - **libbitcoin**: Full-featured Bitcoin library
 - **libsecp256k1**: Optimized elliptic curve library (used by Bitcoin Core)
-
-**When to use:**
-- Contributing to Bitcoin Core
-- Building nodes or mining software
-- Maximum performance requirements
 
 ```cpp
 // Example: Creating a simple transaction hash
@@ -47,12 +43,6 @@ Increasingly popular for Bitcoin development due to memory safety and performanc
 - **rust-lightning (LDK)**: Lightning Development Kit
 - **bdk (Bitcoin Dev Kit)**: Modern wallet library
 - **rust-miniscript**: Policy to script compiler
-
-**When to use:**
-- New Bitcoin applications
-- Security-critical code
-- Modern wallet development
-- Lightning applications
 
 ```rust
 // Example: Creating a Bitcoin address
@@ -78,12 +68,6 @@ Excellent for scripting, prototyping, and learning.
 - **ecdsa**: Elliptic curve operations
 - **requests**: API interactions
 
-**When to use:**
-- Learning Bitcoin internals
-- Quick scripts and tools
-- Data analysis
-- API wrappers
-
 ```python
 # Example: Decode a raw transaction
 from bitcoin.core import CTransaction
@@ -101,18 +85,14 @@ Dominant in web applications and increasingly in Bitcoin tooling.
 - Browser extensions
 - Node.js backends
 - Frontend interfaces
+- Rapid development
+- Full-stack development
 
 **Key libraries:**
 - **bitcoinjs-lib**: Bitcoin library
 - **bip39/bip32**: Mnemonic and HD derivation
 - **noble-secp256k1**: Cryptographic primitives
 - **bolt11**: Lightning invoice encoding
-
-**When to use:**
-- Web applications
-- Browser-based wallets
-- Full-stack development
-- Rapid development
 
 ```typescript
 // Example: Generate a new address

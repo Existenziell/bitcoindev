@@ -1,4 +1,4 @@
-# Signet & Testnet Deep Dive
+# Test Networks
 
 Test networks are essential for Bitcoin development. Each test network serves a purpose:
 

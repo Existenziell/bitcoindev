@@ -1,4 +1,4 @@
-# Libraries & SDKs Reference
+# Libraries & SDKs
 
 This guide compares major Bitcoin libraries across languages and provides practical examples for common development tasks.
 

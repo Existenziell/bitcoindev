@@ -4550,7 +4550,7 @@
     "path": "/docs/development#programming-languages-in-bitcoin",
     "title": "Programming Languages in Bitcoin",
     "section": "development",
-    "body": "C++ (Bitcoin Core) The reference implementation of Bitcoin is written in C++. Used for: Bitcoin Core development Performance-critical applications Protocol-level changes Consensus code Key libraries: "
+    "body": "C++ (Bitcoin Core) The reference implementation of Bitcoin is written in C++. Used for: Bitcoin Core development Performance-critical applications Protocol-level changes Consensus code Maximum "
   },
   {
     "path": "/docs/development#development-approaches",
@@ -4670,13 +4670,13 @@
     "path": "/docs/development/testing",
     "title": "Testing & Debugging",
     "section": "development",
-    "body": "Testing & Debugging Bitcoin Applications Testing Bitcoin applications requires special considerations due to the financial nature of the software and the complexity of the protocol. This guide covers testing strategies, debugging techniques, and best practices. Testing Networks Regtest (Recommended for Development) Regtest provides a completely controlled environment where you can instantly generate blocks. Setup: Start Bitcoin Core in regtest mode bitcoind -regtest -daemon Create a wallet "
+    "body": "Testing & Debugging Bitcoin Applications Testing Bitcoin applications requires special considerations due to the financial nature of the software and the complexity of the protocol. Testing Network Regtest (Recommended for Development) Regtest provides a completely controlled environment where you can instantly generate blocks. For more on test networks, see Testnets. Setup: Start Bitcoin Core in regtest mode bitcoind -regtest -daemon Create a wallet bitcoin-cli -regtest createwallet \"test\" "
   },
   {
-    "path": "/docs/development/testing#testing-networks",
-    "title": "Testing Networks",
+    "path": "/docs/development/testing#testing-network",
+    "title": "Testing Network",
     "section": "development",
-    "body": "Regtest (Recommended for Development) Regtest provides a completely controlled environment where you can instantly generate blocks. Setup: Start Bitcoin Core in regtest mode bitcoind -regtest -daemon "
+    "body": "Regtest (Recommended for Development) Regtest provides a completely controlled environment where you can instantly generate blocks. For more on test networks, see Testnets. Setup: Start Bitcoin Core "
   },
   {
     "path": "/docs/development/testing#unit-testing-strategies",
@@ -4721,10 +4721,10 @@
     "body": "GitHub Actions Example name: Bitcoin Tests on: [push, pull_request] jobs: test: runs-on: ubuntu-latest steps: uses: actions/checkout@v3 name: Set up Python uses: actions/setup-python@v4 with: "
   },
   {
-    "path": "/docs/development/testing#best-practices",
-    "title": "Best Practices",
+    "path": "/docs/development/testing#test-organization",
+    "title": "Test Organization",
     "section": "development",
-    "body": "Testing Checklist Unit Tests: Test individual functions in isolation Integration Tests: Test component interactions on regtest End-to-End Tests: Test full workflows on signet/testnet Edge Cases: Test "
+    "body": "tests/ ├── unit/ │ ├── test_transactions.py │ ├── test_addresses.py │ └── test_scripts.py ├── integration/ │ ├── test_wallet.py │ ├── test_mempool.py │ └── test_mining.py ├── fixtures/ │ ├── "
   },
   {
     "path": "/docs/development/testing#related-topics",
@@ -4736,7 +4736,7 @@
     "path": "/docs/development/testnets",
     "title": "Test Networks",
     "section": "development",
-    "body": "Signet & Testnet Deep Dive Test networks are essential for Bitcoin development. Each test network serves a purpose: Regtest: Local development and unit testing Signet: Predictable integration testing Testnet: Real-world simulation before mainnet Start with regtest for fast iteration (complete control, automated testing), move to signet for integration testing (predictable timing), and use testnet for final validation (real network conditions, edge case discovery) before deploying to mainnet. ",
+    "body": "Test Networks Test networks are essential for Bitcoin development. Each test network serves a purpose: Regtest: Local development and unit testing Signet: Predictable integration testing Testnet: Real-world simulation before mainnet Start with regtest for fast iteration (complete control, automated testing), move to signet for integration testing (predictable timing), and use testnet for final validation (real network conditions, edge case discovery) before deploying to mainnet. Network ",
     "keywords": [
       "testnet",
       "test net",
@@ -4803,7 +4803,7 @@
     "path": "/docs/development/libraries",
     "title": "Libraries & SDKs",
     "section": "development",
-    "body": "Libraries & SDKs Reference This guide compares major Bitcoin libraries across languages and provides practical examples for common development tasks. Library Versions Code examples in this documentation are tested with the following library versions: - bitcoinjs-lib: v6.x (uses factory pattern for bip32/ecpair) - bip32: v4.x (requires tiny-secp256k1 via BIP32Factory) - rust-bitcoin: v0.31.x - BDK: v0.29.x - python-bitcoinlib: v0.12.x - bip32utils: v0.3.x (use BIP32Key.fromSeed() for seed-based "
+    "body": "Libraries & SDKs This guide compares major Bitcoin libraries across languages and provides practical examples for common development tasks. Library Versions Code examples in this documentation are tested with the following library versions: - bitcoinjs-lib: v6.x (uses factory pattern for bip32/ecpair) - bip32: v4.x (requires tiny-secp256k1 via BIP32Factory) - rust-bitcoin: v0.31.x - BDK: v0.29.x - python-bitcoinlib: v0.12.x - bip32utils: v0.3.x (use BIP32Key.fromSeed() for seed-based "
   },
   {
     "path": "/docs/development/libraries#library-overview",
