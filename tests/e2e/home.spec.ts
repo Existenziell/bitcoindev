@@ -17,7 +17,7 @@ test.describe('Home', () => {
 
   test('Explore BitcoinDev expands HorizontalNav', async ({ page }) => {
     await page.goto('/')
-    const toggle = page.getByRole('button', { name: /Explore BitcoinDev/i })
+    const toggle = page.getByRole('button').filter({ hasText: /Explore BitcoinDev/i })
     await expect(toggle).toBeVisible()
 
     await toggle.click()
