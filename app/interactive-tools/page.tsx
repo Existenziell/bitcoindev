@@ -11,6 +11,7 @@ import {
   AddressDecoderIcon,
   TransactionDecoderIcon,
   FeeEstimatorIcon,
+  ToolsIcon,
 } from '@/app/components/Icons'
 
 export const metadata: Metadata = {
@@ -73,6 +74,9 @@ export default function ToolsPage() {
   return (
     <DocsLayoutWrapper defaultSidebarCollapsed={true}>
       <div className="mb-8">
+        <div className="flex justify-center mb-3">
+          <ToolsIcon className="w-20 h-20" />
+        </div>
         <h1 className="heading-page text-center">Interactive Tools</h1>
         <p className="text-secondary text-center max-w-2xl mx-auto">
           Interactive tools for learning and working with Bitcoin. No installation required.
