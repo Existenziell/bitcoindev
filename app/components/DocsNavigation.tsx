@@ -16,7 +16,7 @@ const navRowClass =
   'flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
 const navRowActiveClass = '!border-btc border-l-4 bg-btc/5 dark:bg-btc/10'
 const navChevronClass =
-  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc'
+  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc dark:hover:text-btc'
 
 function matchesPath(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(href + '/')

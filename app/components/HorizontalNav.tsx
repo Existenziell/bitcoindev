@@ -2,15 +2,44 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { navItems, horizontalNavLinksBottom } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronDown, ChevronRight } from '@/app/components/Icons'
+import { cn } from '@/app/utils/cn'
+
+/** Same bordered row design as DocsNavigation */
+const CHILD_LIST_BORDER = 'border-l-2 border-gray-200 dark:border-gray-700 pl-2'
+const navRowClass =
+  'flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
+const navRowActiveClass = '!border-btc border-l-4 bg-btc/5 dark:bg-btc/10'
+const navChevronClass =
+  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc dark:hover:text-btc'
+
+function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default'): string {
+  const baseClasses = size === 'sm'
+    ? 'block text-sm py-1 leading-tight transition-colors'
+    : 'block py-1 leading-tight transition-colors'
+  const hover = 'hover:text-btc dark:hover:text-btc hover:no-underline'
+
+  if (isActive) {
+    return `${baseClasses} text-btc font-semibold hover:no-underline`
+  }
+
+  return size === 'sm'
+    ? `${baseClasses} text-secondary ${hover}`
+    : `${baseClasses} text-gray-700 dark:text-gray-300 ${hover}`
+}
 
 export default function HorizontalNav() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set()
   )
+
+  /** Active only for exact path (highlight single current item, not parent nodes) */
+  const isActive = (href: string) => pathname === href
 
   const toggleSection = (href: string) => {
     setExpandedSections(prev => toggleInSet(prev, href))
@@ -22,10 +51,12 @@ export default function HorizontalNav() {
         {/* Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full py-6 flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-btc transition-colors"
+          className="group w-full py-6 flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-btc dark:hover:text-btc transition-colors rounded-md"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? 'Collapse navigation' : 'Expand navigation'}
         >
           <span className="text-2xl">Explore BitcoinDev</span>
-          <ChevronDown className={`w-6 h-6 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-6 h-6 shrink-0 transition-colors transition-transform group-hover:text-btc ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {/* Tree Navigation */}
@@ -34,59 +65,75 @@ export default function HorizontalNav() {
             <div className="flex flex-row items-center justify-end gap-2 w-max ml-auto mb-3 mt-1">
               <button
                 onClick={() => setExpandedSections(new Set(navItems.map(item => item.href)))}
-                className="px-1.5 py-0.5 text-secondary text-xs rounded-md hover:text-btc transition-colors bg-gray-200 dark:bg-gray-700"
+                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-btc hover:text-btc dark:hover:text-btc transition-colors bg-gray-100 dark:bg-gray-800"
                 aria-label="Expand all sections"
                 title="Expand all"
               >
-                <span>Expand</span>
+                Expand
               </button>
               <button
                 onClick={() => setExpandedSections(new Set())}
-                className="px-1.5 py-0.5 text-secondary text-xs rounded-md hover:text-btc transition-colors bg-gray-200 dark:bg-gray-700"
+                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-btc hover:text-btc dark:hover:text-btc transition-colors bg-gray-100 dark:bg-gray-800"
                 aria-label="Collapse all sections"
                 title="Collapse all"
               >
-                <span>Collapse</span>
+                Collapse
               </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-8 gap-y-4">
               {navItems.map((section) => {
                 const hasChildren = section.children && section.children.length > 0
                 const isExpanded = expandedSections.has(section.href)
+                const sectionActive = isActive(section.href)
 
                 return (
                   <div key={section.href} className="mb-2">
-                    {/* Section Header */}
-                    <div className="flex items-center">
-                      {hasChildren && (
+                    {/* Section Header - bordered row style */}
+                    <div
+                      className={cn(
+                        navRowClass,
+                        sectionActive && navRowActiveClass
+                      )}
+                    >
+                      {hasChildren ? (
                         <button
+                          type="button"
                           onClick={() => toggleSection(section.href)}
-                          className="mr-1 p-1 text-gray-500 hover:text-btc transition-colors"
+                          className={navChevronClass}
                           aria-label={isExpanded ? 'Collapse section' : 'Expand section'}
                         >
                           <ChevronRight className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
                         </button>
+                      ) : (
+                        <span className="w-[22px] shrink-0" aria-hidden />
                       )}
-                      {!hasChildren && <span className="w-5" />}
                       <Link
                         href={section.href}
-                        className="font-medium text-gray-800 dark:text-gray-200 hover:text-btc transition-colors"
+                        className={cn('flex-1 min-w-0', getLinkClassName(sectionActive))}
                       >
                         {section.title}
                       </Link>
                     </div>
 
-                    {/* Children */}
+                    {/* Children - same border and row style as DocsNavigation */}
                     {hasChildren && isExpanded && (
-                      <ul className="ml-6 mt-1 space-y-1 border-l border-gray-200 dark:border-gray-700 pl-3">
+                      <ul className={cn('ml-6 mt-1 space-y-0', CHILD_LIST_BORDER)}>
                         {section.children!.map((child) => (
                           <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              className="text-sm text-secondary hover:text-btc transition-colors"
+                            <div
+                              className={cn(
+                                navRowClass,
+                                isActive(child.href) && navRowActiveClass,
+                                'py-0.5'
+                              )}
                             >
-                              {child.title}
-                            </Link>
+                              <Link
+                                href={child.href}
+                                className={cn('flex-1 min-w-0', getLinkClassName(isActive(child.href), 'sm'))}
+                              >
+                                {child.title}
+                              </Link>
+                            </div>
                           </li>
                         ))}
                       </ul>
@@ -96,14 +143,14 @@ export default function HorizontalNav() {
               })}
             </div>
 
-            {/* Quick Links Section - Prominent at the bottom */}
+            {/* Quick Links Section */}
             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
               <div className="flex flex-wrap justify-center gap-4">
                 {horizontalNavLinksBottom.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="btn-secondary-sm min-w-[9rem]"
+                    className="btn-secondary-sm min-w-[9rem] hover:no-underline"
                   >
                     {link.title}
                   </Link>
