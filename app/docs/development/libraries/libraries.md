@@ -11,8 +11,6 @@ This guide compares major Bitcoin libraries across languages and provides practi
 > - **python-bitcoinlib**: v0.12.x
 > - **bip32utils**: v0.3.x (use `BIP32Key.fromSeed()` for seed-based derivation)
 
-When using different versions, consult each library's migration guides for API changes.
-
 ## Library Overview
 
 ### By Language
@@ -430,87 +428,6 @@ func connectToLND() {
 
 ---
 
-## Common Tasks
-
-### Generate Address (All Languages)
-
-```typescript
-// JavaScript
-const { address } = bitcoin.payments.p2wpkh({ pubkey: publicKey });
-```
-
-```rust
-// Rust
-let address = Address::p2wpkh(&public_key, Network::Bitcoin)?;
-```
-
-```python
-# Python
-address = CBitcoinAddress.from_pubkey(public_key)
-```
-
-```go
-// Go
-addr, _ := btcutil.NewAddressWitnessPubKeyHash(pubKeyHash, &chaincfg.MainNetParams)
-```
-
-### Parse Transaction
-
-```typescript
-// JavaScript
-const tx = bitcoin.Transaction.fromHex(rawTxHex);
-console.log('TXID:', tx.getId());
-console.log('Inputs:', tx.ins.length);
-console.log('Outputs:', tx.outs.length);
-```
-
-```rust
-// Rust
-let tx: Transaction = deserialize(&hex::decode(raw_tx_hex)?)?;
-println!("TXID: {}", tx.txid());
-```
-
-```python
-# Python
-tx = CTransaction.deserialize(bytes.fromhex(raw_tx_hex))
-print(f"TXID: {tx.GetTxid().hex()}")
-```
-
-### Validate Address
-
-```typescript
-// JavaScript
-function isValidAddress(address: string): boolean {
-  try {
-    bitcoin.address.toOutputScript(address, bitcoin.networks.bitcoin);
-    return true;
-  } catch {
-    return false;
-  }
-}
-```
-
-```rust
-// Rust
-fn is_valid_address(addr_str: &str) -> bool {
-    Address::from_str(addr_str)
-        .map(|a| a.is_valid_for_network(Network::Bitcoin))
-        .unwrap_or(false)
-}
-```
-
-```python
-# Python
-def is_valid_address(address):
-    try:
-        CBitcoinAddress(address)
-        return True
-    except:
-        return False
-```
-
----
-
 ## Choosing a Library
 
 ### Decision Matrix
@@ -543,19 +460,6 @@ def is_valid_address(address):
 **python-bitcoinlib:**
 - Pros: Easy to learn, great for scripts
 - Cons: Slower, less complete Taproot support
-
----
-
-## Summary
-
-Each library has its strengths:
-
-- **bitcoinjs-lib**: Best for web and cross-platform
-- **rust-bitcoin/BDK**: Best for production applications
-- **python-bitcoinlib**: Best for learning and scripting
-- **btcd**: Best for Go infrastructure
-
-Choose based on your language preference, use case, and required features. For production wallets, consider BDK for its completeness; for web apps, bitcoinjs-lib remains the standard choice.
 
 ---
 

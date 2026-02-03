@@ -1,10 +1,8 @@
-# Node Types & Architecture
+# Node Types
 
 Bitcoin nodes come in different types, each with different capabilities, resource requirements, and trust models. Understanding node types helps you choose the right setup for your needs.
 
-## Node Types
-
-### Full Nodes
+## Full Nodes
 
 **Full nodes** download and validate the entire blockchain:
 
@@ -17,13 +15,12 @@ Characteristics:
 - Requires significant resources
 ```
 
-**Use cases**:
 - Maximum security
 - Privacy-sensitive applications
 - Contributing to network
 - Development and testing
 
-### Pruned Nodes
+## Pruned Nodes
 
 **Pruned nodes** validate everything but don't store full history:
 
@@ -36,12 +33,11 @@ Characteristics:
 - Can't serve historical data
 ```
 
-**Use cases**:
 - Limited storage space
 - Still want full validation
 - Don't need historical data
 
-### Archival Nodes
+## Archival Nodes
 
 **Archival nodes** store complete blockchain history:
 
@@ -53,13 +49,12 @@ Characteristics:
 - Useful for research/analysis
 ```
 
-**Use cases**:
 - Blockchain analysis
 - Historical data access
 - Research purposes
 - Public services
 
-### SPV (Simplified Payment Verification) Nodes
+## SPV (Simplified Payment Verification) Nodes
 
 **SPV nodes** download only block headers:
 
@@ -72,17 +67,27 @@ Characteristics:
 - Faster sync
 ```
 
-**Use cases**:
 - Mobile wallets
 - Lightweight clients
 - Limited resources
 - Quick setup
 
-### AssumeUTXO (Faster Initial Sync)
+## Comparison
+
+| Feature | Full Node | Pruned Node | SPV Node |
+|---------|-----------|-------------|----------|
+| **Storage** | ~600GB+ | ~2GB | ~50MB |
+| **Validation** | Complete | Complete | Partial |
+| **Privacy** | Maximum | Maximum | Reduced |
+| **Sync Time** | Days | Days | Minutes |
+| **Bandwidth** | High | High | Low |
+| **Security** | Maximum | Maximum | Reduced |
+
+## AssumeUTXO (Faster Initial Sync)
 
 **AssumeUTXO** (in [Bitcoin Core](https://github.com/bitcoin/bitcoin) 26+) allows a new node to **start from a snapshot** of the UTXO set at a recent block height instead of verifying every [block](/docs/bitcoin/blocks) from the genesis. The node downloads a signed snapshot (from a built-in or external source), loads the UTXO set, and then syncs only the **remaining** blocks to the chain tip. This can reduce **initial sync time** from days to hours. The node still performs full consensus validation for all blocks it downloads; the trust is only that the snapshot is correct at that height, and the [BIP](/docs/history/bips) process and built-in defaults are designed to minimize risk. Useful for [pruned](/docs/development/node-types#pruned-nodes) and [full](/docs/development/node-types#full-nodes) nodes that want to reach tip quickly, then optionally verify history in the background.
 
-### Block-Relay-Only Connections
+## Block-Relay-Only Connections
 
 **Block-relay-only** is a connection mode where the node does **not** exchange [transaction](/docs/bitcoin/transaction-lifecycle) ([inv](/docs/bitcoin/p2p-protocol), [mempool](/docs/mining/mempool)) data with that peer, only blocks and [compact blocks](/docs/bitcoin/blocks#compact-block-relay-bip-152). This reduces [privacy](/docs/wallets/privacy) leakage (peers cannot directly tie your [transactions](/docs/bitcoin/transaction-lifecycle) to your IP) and bandwidth. Bitcoin Core uses some block-relay-only [outbound](/docs/bitcoin/p2p-protocol) connections by default.
 
@@ -219,43 +224,6 @@ async function getNodeInfo() {
 }
 ```
 :::
-
----
-
-## Comparison
-
-| Feature | Full Node | Pruned Node | SPV Node |
-|---------|-----------|-------------|----------|
-| **Storage** | ~600GB+ | ~2GB | ~50MB |
-| **Validation** | Complete | Complete | Partial |
-| **Privacy** | Maximum | Maximum | Reduced |
-| **Sync Time** | Days | Days | Minutes |
-| **Bandwidth** | High | High | Low |
-| **Security** | Maximum | Maximum | Reduced |
-
----
-
-## Choosing a Node Type
-
-### Use Full Node If:
-
-- You need maximum security
-- Privacy is critical
-- You're developing Bitcoin software
-- You want to contribute to network
-
-### Use Pruned Node If:
-
-- Storage is limited
-- You still want full validation
-- You don't need historical data
-
-### Use SPV Node If:
-
-- You're on mobile device
-- Storage is very limited
-- You accept reduced privacy
-- You need quick setup
 
 ---
 

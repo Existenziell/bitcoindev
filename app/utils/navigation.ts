@@ -106,7 +106,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/development/testing', mdFile: 'app/docs/development/testing/testing.md', title: 'Testing & Debugging', section: 'development' },
   { path: '/docs/development/testnets', mdFile: 'app/docs/development/testnets/testnets.md', title: 'Test Networks', section: 'development' },
   { path: '/docs/development/libraries', mdFile: 'app/docs/development/libraries/libraries.md', title: 'Libraries & SDKs', section: 'development' },
-  { path: '/docs/development/node-types', mdFile: 'app/docs/development/node-types/node-types.md', title: 'Node Types & Architecture', section: 'development' },
+  { path: '/docs/development/node-types', mdFile: 'app/docs/development/node-types/node-types.md', title: 'Node Types', section: 'development' },
   { path: '/docs/development/bitcoin-core-internals', mdFile: 'app/docs/development/bitcoin-core-internals/bitcoin-core-internals.md', title: 'Bitcoin Core Internals', section: 'development' },
   { path: '/docs/development/resources', mdFile: 'app/docs/development/resources/resources.md', title: 'Developer Resources', section: 'development' },
 

@@ -4736,7 +4736,7 @@
     "path": "/docs/development/testnets",
     "title": "Test Networks",
     "section": "development",
-    "body": "Signet & Testnet Deep Dive Test networks are essential for Bitcoin development. This guide covers the differences between testnet, signet, and regtest, along with setup instructions and best practices. Network Comparison | Feature | Mainnet | Testnet | Signet | Regtest | |---------|---------|---------|--------|---------| | Real Value | Yes | No | No | No | | Block Time | 10 min | Variable | 10 min | Instant | | Difficulty | Dynamic | Dynamic | Fixed | Minimal | | Public | Yes | Yes | Yes | ",
+    "body": "Signet & Testnet Deep Dive Test networks are essential for Bitcoin development. Each test network serves a purpose: Regtest: Local development and unit testing Signet: Predictable integration testing Testnet: Real-world simulation before mainnet Start with regtest for fast iteration (complete control, automated testing), move to signet for integration testing (predictable timing), and use testnet for final validation (real network conditions, edge case discovery) before deploying to mainnet. ",
     "keywords": [
       "testnet",
       "test net",
@@ -4794,18 +4794,6 @@
     "body": "Testing RBF (Replace-By-Fee) On regtest 1. Create transaction with RBF enabled bitcoin-cli -regtest sendtoaddress 0.1 \"\" \"\" false true # replaceable=true 2. Get the txid TXID=$(bitcoin-cli -regtest "
   },
   {
-    "path": "/docs/development/testnets#best-practices",
-    "title": "Best Practices",
-    "section": "development",
-    "body": "Development Workflow Unit Tests → Regtest Fast iteration Complete control Automated testing Integration Tests → Signet More realistic environment Predictable timing Public network testing Final "
-  },
-  {
-    "path": "/docs/development/testnets#summary",
-    "title": "Summary",
-    "section": "development",
-    "body": "Each test network serves a purpose: Regtest: Local development and unit testing Signet: Predictable integration testing Testnet: Real-world simulation before mainnet Start with regtest for fast "
-  },
-  {
     "path": "/docs/development/testnets#related-topics",
     "title": "Related Topics",
     "section": "development",
@@ -4848,22 +4836,10 @@
     "body": "btcd/btcutil import ( \"github.com/btcsuite/btcd/btcec/v2\" \"github.com/btcsuite/btcd/btcutil\" \"github.com/btcsuite/btcd/chaincfg\" ) func generateAddress() { // Generate private key privateKey, _ := "
   },
   {
-    "path": "/docs/development/libraries#common-tasks",
-    "title": "Common Tasks",
-    "section": "development",
-    "body": "Generate Address (All Languages) // JavaScript const { address } = bitcoin.payments.p2wpkh({ pubkey: publicKey }); // Rust let address = Address::p2wpkh(&public_key, Network::Bitcoin)?; Python "
-  },
-  {
     "path": "/docs/development/libraries#choosing-a-library",
     "title": "Choosing a Library",
     "section": "development",
     "body": "Decision Matrix | Use Case | Recommended | |----------|-------------| | Web wallet | bitcoinjs-lib | | Mobile app (React Native) | bitcoinjs-lib | | Backend service | rust-bitcoin or btcd | | Wallet "
-  },
-  {
-    "path": "/docs/development/libraries#summary",
-    "title": "Summary",
-    "section": "development",
-    "body": "Each library has its strengths: bitcoinjs-lib: Best for web and cross-platform rust-bitcoin/BDK: Best for production applications python-bitcoinlib: Best for learning and scripting btcd: Best for Go "
   },
   {
     "path": "/docs/development/libraries#related-topics",
@@ -4873,21 +4849,33 @@
   },
   {
     "path": "/docs/development/node-types",
-    "title": "Node Types & Architecture",
-    "section": "development",
-    "body": "Node Types & Architecture Bitcoin nodes come in different types, each with different capabilities, resource requirements, and trust models. Understanding node types helps you choose the right setup for your needs. Node Types Full Nodes Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and privacy Requires significant resources Use cases: Maximum security "
-  },
-  {
-    "path": "/docs/development/node-types#node-types",
     "title": "Node Types",
     "section": "development",
-    "body": "Full Nodes Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum "
+    "body": "Node Types Bitcoin nodes come in different types, each with different capabilities, resource requirements, and trust models. Understanding node types helps you choose the right setup for your needs. Full Nodes Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and privacy Requires significant resources Maximum security Privacy-sensitive applications "
   },
   {
-    "path": "/docs/development/node-types#code-examples",
-    "title": "Code Examples",
+    "path": "/docs/development/node-types#full-nodes",
+    "title": "Full Nodes",
     "section": "development",
-    "body": "Checking Node Type :::code-group use serde_json::json; use reqwest; async fn get_node_info() -> Result> { let client = reqwest::Client::new(); let response = client .post(\"http://localhost:8332\") "
+    "body": "Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and "
+  },
+  {
+    "path": "/docs/development/node-types#pruned-nodes",
+    "title": "Pruned Nodes",
+    "section": "development",
+    "body": "Pruned nodes validate everything but don't store full history: Characteristics: Validates all blocks Stores only recent blocks (~2GB) Maintains UTXO set Good security, lower storage Can't serve "
+  },
+  {
+    "path": "/docs/development/node-types#archival-nodes",
+    "title": "Archival Nodes",
+    "section": "development",
+    "body": "Archival nodes store complete blockchain history: Characteristics: Full blockchain storage Can serve historical data Maximum storage requirements Useful for research/analysis Blockchain analysis "
+  },
+  {
+    "path": "/docs/development/node-types#spv-simplified-payment-verification-nodes",
+    "title": "SPV (Simplified Payment Verification) Nodes",
+    "section": "development",
+    "body": "SPV nodes download only block headers: Characteristics: Downloads ~80 bytes per block Minimal storage (~50MB) Relies on full nodes Less privacy Faster sync Mobile wallets Lightweight clients Limited "
   },
   {
     "path": "/docs/development/node-types#comparison",
@@ -4896,10 +4884,22 @@
     "body": "| Feature | Full Node | Pruned Node | SPV Node | |---------|-----------|-------------|----------| | Storage | 600GB+ | 2GB | ~50MB | | Validation | Complete | Complete | Partial | | Privacy | Maximum "
   },
   {
-    "path": "/docs/development/node-types#choosing-a-node-type",
-    "title": "Choosing a Node Type",
+    "path": "/docs/development/node-types#assumeutxo-faster-initial-sync",
+    "title": "AssumeUTXO (Faster Initial Sync)",
     "section": "development",
-    "body": "Use Full Node If: You need maximum security Privacy is critical You're developing Bitcoin software You want to contribute to network Use Pruned Node If: Storage is limited You still want full "
+    "body": "AssumeUTXO (in Bitcoin Core 26+) allows a new node to start from a snapshot of the UTXO set at a recent block height instead of verifying every block from the genesis. The node downloads a signed "
+  },
+  {
+    "path": "/docs/development/node-types#block-relay-only-connections",
+    "title": "Block-Relay-Only Connections",
+    "section": "development",
+    "body": "Block-relay-only is a connection mode where the node does not exchange transaction (inv, mempool) data with that peer, only blocks and compact blocks. This reduces privacy leakage (peers cannot "
+  },
+  {
+    "path": "/docs/development/node-types#code-examples",
+    "title": "Code Examples",
+    "section": "development",
+    "body": "Checking Node Type :::code-group use serde_json::json; use reqwest; async fn get_node_info() -> Result> { let client = reqwest::Client::new(); let response = client .post(\"http://localhost:8332\") "
   },
   {
     "path": "/docs/development/node-types#related-topics",

@@ -1,6 +1,12 @@
 # Signet & Testnet Deep Dive
 
-Test networks are essential for Bitcoin development. This guide covers the differences between testnet, signet, and regtest, along with setup instructions and best practices.
+Test networks are essential for Bitcoin development. Each test network serves a purpose:
+
+- **Regtest**: Local development and unit testing
+- **Signet**: Predictable integration testing
+- **Testnet**: Real-world simulation before mainnet
+
+Start with regtest for fast iteration (complete control, automated testing), move to signet for integration testing (predictable timing), and use testnet for final validation (real network conditions, edge case discovery) before deploying to mainnet.
 
 ## Network Comparison
 
@@ -544,62 +550,6 @@ def test_mempool_eviction(node):
     
     # Some low-fee txs may be evicted if mempool is full
 ```
-
----
-
-## Best Practices
-
-### Development Workflow
-
-```
-1. Unit Tests → Regtest
-   - Fast iteration
-   - Complete control
-   - Automated testing
-
-2. Integration Tests → Signet
-   - More realistic environment
-   - Predictable timing
-   - Public network testing
-
-3. Final Testing → Testnet
-   - Closest to mainnet
-   - Real network conditions
-   - Edge case discovery
-
-4. Production → Mainnet
-   - Start with small amounts
-   - Monitor closely
-   - Gradual rollout
-```
-
-### Common Mistakes
-
-```
-DON'T:
-✗ Test with mainnet funds
-✗ Assume testnet behavior matches mainnet exactly
-✗ Ignore network-specific address formats
-✗ Hardcode RPC ports
-
-DO:
-✓ Use appropriate network for each test stage
-✓ Handle network differences in code
-✓ Validate addresses for correct network
-✓ Configure networks via environment variables
-```
-
----
-
-## Summary
-
-Each test network serves a purpose:
-
-- **Regtest**: Local development and unit testing
-- **Signet**: Predictable integration testing
-- **Testnet**: Real-world simulation before mainnet
-
-Start with regtest for fast iteration, move to signet for integration testing, and use testnet for final validation before deploying to mainnet.
 
 ---
 
