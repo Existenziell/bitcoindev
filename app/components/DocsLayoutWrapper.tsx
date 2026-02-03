@@ -63,7 +63,7 @@ export default function DocsLayoutWrapper({
           <div
             className={cn(
               'hidden md:block md:flex-shrink-0 md:overflow-y-auto md:overflow-x-hidden md:mr-8 transition-[width] duration-200 ease-in-out',
-              isNavCollapsed ? 'md:w-10 md:self-start' : 'md:w-72 md:self-start'
+              isNavCollapsedState ? 'md:w-10 md:self-start' : 'md:w-72 md:self-start'
             )}
           >
             <DocsNavigation
@@ -76,7 +76,7 @@ export default function DocsLayoutWrapper({
             <div
               className={cn(
                 'mx-auto w-full transition-[max-width] duration-200 ease-in-out',
-                isNavCollapsed ? 'max-w-6xl' : 'max-w-4xl'
+                isNavCollapsedState ? 'max-w-6xl' : 'max-w-4xl'
               )}
             >
               {children}
