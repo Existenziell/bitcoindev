@@ -15,7 +15,7 @@ export default function FeedbackLayout({
   children: ReactNode
 }) {
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed>
+    <DocsLayoutWrapper>
       {children}
     </DocsLayoutWrapper>
   )

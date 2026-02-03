@@ -268,7 +268,6 @@ export const interactiveToolsNavItem: NavSection = {
 
 // Docs sidebar - bottom section (site utilities)
 export const docsNavLinksBottom: { href: string; title: string }[] = [
-  { href: '/docs/glossary', title: 'Glossary' },
   { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
 ]
@@ -367,6 +366,10 @@ export const navItems: NavSection[] = [
     title: 'Adoption',
     href: '/docs/adoption',
     children: docPages.filter(p => p.section === 'adoption' && p.path !== '/docs/adoption').map(p => ({ title: p.title, href: p.path })),
+  },
+  {
+    title: 'Glossary',
+    href: '/docs/glossary',
   },
 ]
 

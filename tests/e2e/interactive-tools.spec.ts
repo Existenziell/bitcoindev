@@ -5,9 +5,10 @@ test.describe('Interactive Tools', () => {
     await page.goto('/interactive-tools')
     await expect(page).toHaveTitle(/Interactive Tools|BitcoinDev/)
     await expect(page.getByRole('heading', { level: 1, name: /Interactive Tools/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Address Decoder/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Transaction Decoder/i })).toBeVisible()
-    await expect(page.getByRole('link', { name: /Fee Estimator/i })).toBeVisible()
+    // Tool cards only (sidebar also has these links)
+    await expect(page.locator('a.tool-card', { hasText: 'Address Decoder' })).toBeVisible()
+    await expect(page.locator('a.tool-card', { hasText: 'Transaction Decoder' })).toBeVisible()
+    await expect(page.locator('a.tool-card', { hasText: 'Fee Estimator' })).toBeVisible()
   })
 
   test('Address Decoder page loads', async ({ page }) => {

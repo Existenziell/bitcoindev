@@ -16,7 +16,7 @@ export default function AboutLayout({
   children: ReactNode
 }) {
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed>
+    <DocsLayoutWrapper>
       {children}
     </DocsLayoutWrapper>
   )

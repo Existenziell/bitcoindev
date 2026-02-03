@@ -6,6 +6,17 @@ import { usePathname } from 'next/navigation'
 import { navItems, docsNavLinksTop, docsNavLinksBottom, interactiveToolsNavItem } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronRight, PanelCollapseIcon, PanelExpandIcon } from '@/app/components/Icons'
+import { cn } from '@/app/utils/cn'
+
+/** Indentation for subsection (child) lists – clearly shows hierarchy */
+const CHILD_LIST_INDENT = 'ml-4'
+const CHILD_LIST_BORDER = 'border-l-2 border-gray-200 dark:border-gray-700 pl-2'
+
+const navRowClass =
+  'flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
+const navRowActiveClass = '!border-btc border-l-4 bg-btc/5 dark:bg-btc/10'
+const navChevronClass =
+  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc'
 
 function matchesPath(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(href + '/')
@@ -24,17 +35,18 @@ function findActiveSectionHref(pathname: string): string | null {
 }
 
 function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default'): string {
-  const baseClasses = size === 'sm' 
+  const baseClasses = size === 'sm'
     ? 'block text-sm py-1 leading-tight transition-colors'
     : 'block py-1 leading-tight transition-colors'
-  
+  const hover = 'hover:text-btc hover:no-underline'
+
   if (isActive) {
-    return `${baseClasses} text-btc font-semibold`
+    return `${baseClasses} text-btc font-semibold hover:no-underline`
   }
-  
+
   return size === 'sm'
-    ? `${baseClasses} text-secondary hover:text-btc hover:underline`
-    : `${baseClasses} text-gray-700 dark:text-gray-300 hover:text-btc hover:underline`
+    ? `${baseClasses} text-secondary ${hover}`
+    : `${baseClasses} text-gray-700 dark:text-gray-300 ${hover}`
 }
 
 interface DocsNavigationProps {
@@ -57,7 +69,11 @@ export default function DocsNavigation({
     return activeSection ? new Set([activeSection]) : new Set()
   })
 
-  const [isDocsExpanded, setIsDocsExpanded] = useState(true)
+  const [isDocsExpanded, setIsDocsExpanded] = useState(() => pathname.startsWith('/docs'))
+
+  useEffect(() => {
+    setIsDocsExpanded(pathname.startsWith('/docs'))
+  }, [pathname])
 
   useEffect(() => {
     if (activeSection) {
@@ -74,7 +90,8 @@ export default function DocsNavigation({
     }
   }, [activeSection])
 
-  const isActive = (href: string) => matchesPath(pathname, href)
+  /** Active only for exact path (highlight single current item, not parent nodes) */
+  const isActive = (href: string) => pathname === href
 
   const toggleSection = (href: string) => {
     setExpandedSections(prev => toggleInSet(prev, href))
@@ -82,48 +99,58 @@ export default function DocsNavigation({
 
   const isExpanded = (href: string) => expandedSections.has(href)
 
-  // Collapsed sidebar: only expand button (desktop sidebar only)
+  // Collapsed sidebar: expand trigger below (nav content hidden)
   if (isSidebarNarrow && onToggleSidebar) {
     return (
-      <nav className="w-full flex-shrink-0 sticky top-0">
+      <nav className="w-full flex flex-col">
         <button
+          type="button"
           onClick={onToggleSidebar}
-          className="btn-icon btn-icon-accent"
+          className="w-full flex items-center justify-center px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
           aria-label="Expand navigation"
           title="Expand sidebar"
         >
-          <PanelExpandIcon className="w-6 h-6 shrink-0" />
+          <PanelExpandIcon className="w-4 h-4 shrink-0 text-gray-500 dark:text-gray-400" />
         </button>
       </nav>
     )
   }
 
   return (
-    <nav className="w-full flex-shrink-0 sticky top-0 md:pr-8">
-      <div className="min-w-56">
-        {/* Collapse sidebar (desktop): at top of nav, reads as panel control */}
-        {onToggleSidebar && (
-          <button
-            onClick={onToggleSidebar}
-            className="btn-icon btn-icon-accent"
-            aria-label="Collapse sidebar"
-            title="Collapse sidebar"
-          >
-            <PanelCollapseIcon className="w-6 h-6 shrink-0" />
-          </button>
-        )}
+    <nav className="w-full flex-shrink-0 sticky top-0 flex flex-col">
+      {/* Collapse trigger above the nav */}
+      {onToggleSidebar && (
+        <button
+          type="button"
+          onClick={onToggleSidebar}
+          className="mb-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
+          aria-label="Collapse sidebar"
+          title="Collapse sidebar"
+        >
+          <PanelCollapseIcon className="w-4 h-4 shrink-0 text-gray-500 dark:text-gray-400" />
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Collapse</span>
+        </button>
+      )}
 
+      <div className="min-w-60">
         <div className="mb-2">
           <ul className="space-y-1">
             {docsNavLinksTop.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={getLinkClassName(isActive(link.href))}
-                  onClick={onLinkClick}
+                <div
+                  className={cn(
+                    navRowClass,
+                    isActive(link.href) && navRowActiveClass
+                  )}
                 >
-                  {link.title}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={cn('flex-1 min-w-0', getLinkClassName(isActive(link.href)))}
+                    onClick={onLinkClick}
+                  >
+                    {link.title}
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
@@ -131,10 +158,16 @@ export default function DocsNavigation({
 
         {/* Docs link - navigates to /docs overview page */}
         <div className="mb-1">
-          <div className="flex items-center gap-1.5 w-full text-left text-base mb-1">
+          <div
+            className={cn(
+              navRowClass,
+              isActive('/docs') && navRowActiveClass,
+              'text-base mb-1'
+            )}
+          >
             <button
               onClick={() => setIsDocsExpanded((v) => !v)}
-              className="flex-shrink-0 p-1 pl-0 text-gray-500 dark:text-gray-400 hover:text-btc transition-colors"
+              className={navChevronClass}
               aria-expanded={isDocsExpanded}
               aria-label={isDocsExpanded ? 'Collapse docs tree' : 'Expand docs tree'}
             >
@@ -146,11 +179,12 @@ export default function DocsNavigation({
             </button>
             <Link
               href="/docs"
-              className={`flex-1 transition-colors ${
+              className={cn(
+                'flex-1 min-w-0 transition-colors',
                 isActive('/docs')
-                  ? 'text-btc font-semibold'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-btc'
-              }`}
+                  ? 'text-btc font-semibold hover:no-underline'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-btc hover:no-underline'
+              )}
               onClick={onLinkClick}
             >
               Bitcoin Docs
@@ -158,7 +192,7 @@ export default function DocsNavigation({
           </div>
         </div>
         {isDocsExpanded && (
-          <ul className="space-y-1">
+          <ul className={cn(CHILD_LIST_INDENT, 'space-y-1 mt-1')}>
             {navItems.map((item) => {
               const itemActive = isActive(item.href)
               const hasChildren = item.children && item.children.length > 0
@@ -166,11 +200,16 @@ export default function DocsNavigation({
 
               return (
                 <li key={item.href}>
-                  <div className="flex items-center">
+                  <div
+                    className={cn(
+                      navRowClass,
+                      itemActive && navRowActiveClass
+                    )}
+                  >
                     {hasChildren ? (
                       <button
                         onClick={() => toggleSection(item.href)}
-                        className="mr-1 p-1 text-gray-500 hover:text-btc transition-colors"
+                        className={navChevronClass}
                         aria-label={expanded ? 'Collapse section' : 'Expand section'}
                       >
                         <ChevronRight
@@ -178,33 +217,36 @@ export default function DocsNavigation({
                         />
                       </button>
                     ) : (
-                      <span className="w-5 shrink-0" aria-hidden />
+                      <span className="w-[22px] shrink-0" aria-hidden />
                     )}
                     <Link
                       href={item.href}
-                      onClick={(_e) => {
-                        if (hasChildren && !expanded) {
-                          toggleSection(item.href)
-                        }
-                        onLinkClick?.()
-                      }}
-                      className={getLinkClassName(itemActive)}
+                      onClick={onLinkClick}
+                      className={cn('flex-1 min-w-0', getLinkClassName(itemActive))}
                     >
                       {item.title}
                     </Link>
                   </div>
                   {hasChildren && expanded && (
-                    <ul className="ml-7 mt-1 space-y-0">
+                    <ul className={cn(CHILD_LIST_INDENT, CHILD_LIST_BORDER, 'mt-1 space-y-0')}>
                       {item.children!.map((child) => (
-                          <li key={child.href}>
+                        <li key={child.href}>
+                          <div
+                            className={cn(
+                              navRowClass,
+                              isActive(child.href) && navRowActiveClass,
+                              'py-0.5'
+                            )}
+                          >
                             <Link
                               href={child.href}
-                              className={getLinkClassName(isActive(child.href), 'sm')}
+                              className={cn('flex-1 min-w-0', getLinkClassName(isActive(child.href), 'sm'))}
                               onClick={onLinkClick}
                             >
                               {child.title}
                             </Link>
-                          </li>
+                          </div>
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -216,10 +258,16 @@ export default function DocsNavigation({
 
         {/* Interactive Tools - expandable section */}
         <div className="mb-1 mt-2">
-          <div className="flex items-center gap-1.5 w-full text-left text-base mb-1">
+          <div
+            className={cn(
+              navRowClass,
+              isActive('/interactive-tools') && navRowActiveClass,
+              'text-base mb-1'
+            )}
+          >
             <button
               onClick={() => toggleSection('/interactive-tools')}
-              className="flex-shrink-0 p-1 pl-0 text-gray-500 dark:text-gray-400 hover:text-btc transition-colors"
+              className={navChevronClass}
               aria-expanded={isExpanded('/interactive-tools')}
               aria-label={isExpanded('/interactive-tools') ? 'Collapse Interactive Tools' : 'Expand Interactive Tools'}
             >
@@ -231,11 +279,12 @@ export default function DocsNavigation({
             </button>
             <Link
               href="/interactive-tools"
-              className={`flex-1 transition-colors ${
+              className={cn(
+                'flex-1 min-w-0 transition-colors',
                 isActive('/interactive-tools')
-                  ? 'text-btc font-semibold'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-btc'
-              }`}
+                  ? 'text-btc font-semibold hover:no-underline'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-btc hover:no-underline'
+              )}
               onClick={onLinkClick}
             >
               Interactive Tools
@@ -243,16 +292,24 @@ export default function DocsNavigation({
           </div>
         </div>
         {isExpanded('/interactive-tools') && interactiveToolsNavItem.children && (
-          <ul className="ml-7 mt-1 space-y-0 mb-2">
+          <ul className={cn(CHILD_LIST_INDENT, 'mt-1 space-y-0 mb-2')}>
             {interactiveToolsNavItem.children.map((child) => (
               <li key={child.href}>
-                <Link
-                  href={child.href}
-                  className={getLinkClassName(isActive(child.href), 'sm')}
-                  onClick={onLinkClick}
+                <div
+                  className={cn(
+                    navRowClass,
+                    isActive(child.href) && navRowActiveClass,
+                    'py-0.5'
+                  )}
                 >
-                  {child.title}
-                </Link>
+                  <Link
+                    href={child.href}
+                    className={cn('flex-1 min-w-0', getLinkClassName(isActive(child.href), 'sm'))}
+                    onClick={onLinkClick}
+                  >
+                    {child.title}
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
@@ -262,13 +319,20 @@ export default function DocsNavigation({
           <ul className="space-y-1">
             {docsNavLinksBottom.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={getLinkClassName(isActive(link.href))}
-                  onClick={onLinkClick}
+                <div
+                  className={cn(
+                    navRowClass,
+                    isActive(link.href) && navRowActiveClass
+                  )}
                 >
-                  {link.title}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={cn('flex-1 min-w-0', getLinkClassName(isActive(link.href)))}
+                    onClick={onLinkClick}
+                  >
+                    {link.title}
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
