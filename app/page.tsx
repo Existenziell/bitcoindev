@@ -5,14 +5,13 @@ import QuoteRotator from '@/app/components/QuoteRotator'
 import LiveStats from '@/app/components/LiveStats'
 import HorizontalNav from '@/app/components/HorizontalNav'
 import BitcoinHistoryBanner from '@/app/components/BitcoinHistoryBanner'
-import { ChevronRight, TerminalIcon, StackLabIcon } from '@/app/components/Icons'
+import { BookOpenIcon, ToolsIcon } from '@/app/components/Icons'
 import { ctaLinks } from '@/app/utils/navigation'
 
 // Map icons to CTA links by href
 const ctaIcons: Record<string, React.ReactNode> = {
-  '/docs/fundamentals': <ChevronRight />,
-  '/interactive-tools/terminal': <TerminalIcon />,
-  '/interactive-tools/stack-lab': <StackLabIcon />,
+  '/docs/fundamentals':  <BookOpenIcon />,
+  '/interactive-tools': <ToolsIcon />,
 }
 
 export default function Home() {
@@ -53,7 +52,7 @@ export default function Home() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={index === 0 ? 'btn-primary' : 'btn-secondary'}
+                  className={`${index === 0 ? 'btn-primary' : 'btn-secondary'} min-w-[200px]`}
                 >
                   {link.title}
                   {ctaIcons[link.href]}

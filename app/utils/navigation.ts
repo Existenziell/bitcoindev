@@ -243,8 +243,7 @@ export const sections: Record<string, { title: string; description: string }> = 
 // Home page CTA links
 export const ctaLinks: { href: string; title: string }[] = [
   { href: '/docs/fundamentals', title: 'Start Learning' },
-  { href: '/interactive-tools/terminal', title: 'Bitcoin CLI' },
-  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
+  { href: '/interactive-tools', title: 'Interactive Tools' },
 ]
 
 // Docs sidebar - top section (interactive tools)
@@ -265,8 +264,9 @@ export const docsNavLinksBottom: { href: string; title: string }[] = [
 
 // Horizontal nav - quick links at bottom
 export const horizontalNavLinksBottom: { href: string; title: string }[] = [
+  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
+  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
   { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
-  { href: '/interactive-tools', title: 'Interactive Tools' },
   { href: '/whitepaper', title: 'Whitepaper' },
   { href: '/about', title: 'About' },
 ]
