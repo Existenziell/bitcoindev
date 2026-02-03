@@ -155,6 +155,12 @@
         "identifier": "nicehash",
         "signatures": ["NiceHash", "NICEHASH", "nicehash", "nicehash.com", "NiceHash Pool", "NiceHash", "NiceHashSolo", "NiceHashMining/"],
         "icon": "nicehash.svg"
+      },
+      {
+        "name": "GDPool",
+        "identifier": "gdpool",
+        "signatures": ["GDPool", "GDP POOL", "gdpool", "gdpool.com", "GDPool Pool", "GDPool", "Lucky pool"],
+        "icon": "gdpool.svg"
       }
     ]
   }
