@@ -430,8 +430,6 @@ func connectToLND() {
 
 ## Choosing a Library
 
-### Decision Matrix
-
 | Use Case | Recommended |
 |----------|-------------|
 | Web wallet | bitcoinjs-lib |
