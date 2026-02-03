@@ -29,7 +29,7 @@ export default function AddressDecoderPage() {
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="e.g. bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq or 1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2"
+            placeholder="e.g. bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq"
             className="w-full h-24 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono text-sm"
             spellCheck={false}
           />
