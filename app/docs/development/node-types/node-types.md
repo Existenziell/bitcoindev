@@ -6,71 +6,40 @@ Bitcoin nodes come in different types, each with different capabilities, resourc
 
 **Full nodes** download and validate the entire blockchain:
 
-```text
-Characteristics:
 - Downloads ~600GB+ blockchain data
 - Validates all transactions and blocks
 - Maintains complete UTXO set
-- Maximum security and privacy
-- Requires significant resources
-```
-
-- Maximum security
-- Privacy-sensitive applications
-- Contributing to network
-- Development and testing
+- Maximum security and privacy; requires significant resources
+- Best for: security-critical and privacy-sensitive applications, contributing to the network, development and testing
 
 ## Pruned Nodes
 
 **Pruned nodes** validate everything but don't store full history:
 
-```text
-Characteristics:
 - Validates all blocks
 - Stores only recent blocks (~2GB)
 - Maintains UTXO set
-- Good security, lower storage
-- Can't serve historical data
-```
-
-- Limited storage space
-- Still want full validation
-- Don't need historical data
+- Good security, lower storage; can't serve historical data
+- Best for: limited storage, full validation without needing historical data
 
 ## Archival Nodes
 
 **Archival nodes** store complete blockchain history:
 
-```text
-Characteristics:
 - Full blockchain storage
 - Can serve historical data
 - Maximum storage requirements
-- Useful for research/analysis
-```
-
-- Blockchain analysis
-- Historical data access
-- Research purposes
-- Public services
+- Best for: blockchain analysis, historical data access, research, public services
 
 ## SPV (Simplified Payment Verification) Nodes
 
 **SPV nodes** download only block headers:
 
-```text
-Characteristics:
+
 - Downloads ~80 bytes per block
 - Minimal storage (~50MB)
-- Relies on full nodes
-- Less privacy
-- Faster sync
-```
-
-- Mobile wallets
-- Lightweight clients
-- Limited resources
-- Quick setup
+- Relies on full nodes; less privacy; faster sync
+- Best for: mobile wallets, lightweight clients, limited resources, quick setup
 
 ## Comparison
 

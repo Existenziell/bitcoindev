@@ -109,21 +109,15 @@ const { address } = bitcoin.payments.p2wpkh({
 Popular for infrastructure and server applications.
 
 **Used for:**
-- Lightning implementations (lnd)
-- Server infrastructure
-- APIs and backends
-- DevOps tooling
+- Lightning node development (e.g. lnd)
+- Backend services and server infrastructure
+- APIs and DevOps tooling
+- High-concurrency applications
 
 **Key libraries:**
 - **btcd**: Alternative full node implementation
 - **lnd**: Lightning Network Daemon
 - **btcutil**: Bitcoin utilities
-
-**When to use:**
-- Lightning node development
-- Backend services
-- Infrastructure tools
-- High-concurrency applications
 
 ```go
 // Example: Connect to lnd

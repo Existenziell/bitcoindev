@@ -4839,7 +4839,7 @@
     "path": "/docs/development/libraries#choosing-a-library",
     "title": "Choosing a Library",
     "section": "development",
-    "body": "Decision Matrix | Use Case | Recommended | |----------|-------------| | Web wallet | bitcoinjs-lib | | Mobile app (React Native) | bitcoinjs-lib | | Backend service | rust-bitcoin or btcd | | Wallet "
+    "body": "| Use Case | Recommended | |----------|-------------| | Web wallet | bitcoinjs-lib | | Mobile app (React Native) | bitcoinjs-lib | | Backend service | rust-bitcoin or btcd | | Wallet application | "
   },
   {
     "path": "/docs/development/libraries#related-topics",
@@ -4851,31 +4851,31 @@
     "path": "/docs/development/node-types",
     "title": "Node Types",
     "section": "development",
-    "body": "Node Types Bitcoin nodes come in different types, each with different capabilities, resource requirements, and trust models. Understanding node types helps you choose the right setup for your needs. Full Nodes Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and privacy Requires significant resources Maximum security Privacy-sensitive applications "
+    "body": "Node Types Bitcoin nodes come in different types, each with different capabilities, resource requirements, and trust models. Understanding node types helps you choose the right setup for your needs. Full Nodes Full nodes download and validate the entire blockchain: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and privacy; requires significant resources Best for: security-critical and privacy-sensitive applications, "
   },
   {
     "path": "/docs/development/node-types#full-nodes",
     "title": "Full Nodes",
     "section": "development",
-    "body": "Full nodes download and validate the entire blockchain: Characteristics: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and "
+    "body": "Full nodes download and validate the entire blockchain: Downloads ~600GB+ blockchain data Validates all transactions and blocks Maintains complete UTXO set Maximum security and privacy; requires "
   },
   {
     "path": "/docs/development/node-types#pruned-nodes",
     "title": "Pruned Nodes",
     "section": "development",
-    "body": "Pruned nodes validate everything but don't store full history: Characteristics: Validates all blocks Stores only recent blocks (~2GB) Maintains UTXO set Good security, lower storage Can't serve "
+    "body": "Pruned nodes validate everything but don't store full history: Validates all blocks Stores only recent blocks (~2GB) Maintains UTXO set Good security, lower storage; can't serve historical data Best "
   },
   {
     "path": "/docs/development/node-types#archival-nodes",
     "title": "Archival Nodes",
     "section": "development",
-    "body": "Archival nodes store complete blockchain history: Characteristics: Full blockchain storage Can serve historical data Maximum storage requirements Useful for research/analysis Blockchain analysis "
+    "body": "Archival nodes store complete blockchain history: Full blockchain storage Can serve historical data Maximum storage requirements Best for: blockchain analysis, historical data access, research, "
   },
   {
     "path": "/docs/development/node-types#spv-simplified-payment-verification-nodes",
     "title": "SPV (Simplified Payment Verification) Nodes",
     "section": "development",
-    "body": "SPV nodes download only block headers: Characteristics: Downloads ~80 bytes per block Minimal storage (~50MB) Relies on full nodes Less privacy Faster sync Mobile wallets Lightweight clients Limited "
+    "body": "SPV nodes download only block headers: Downloads ~80 bytes per block Minimal storage (~50MB) Relies on full nodes; less privacy; faster sync Best for: mobile wallets, lightweight clients, limited "
   },
   {
     "path": "/docs/development/node-types#comparison",
