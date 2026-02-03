@@ -21,7 +21,7 @@ When you spend bitcoin, the network executes both scripts together:
 [Unlocking script runs] --> [Locking script runs] --> [Stack ends with 1 = valid]
 ```
 
-Scripts execute on a stack (LIFO). They are intentionally not Turing-complete: no loops means every script terminates, preventing denial-of-service attacks. Fewer features also means fewer vulnerabilities. Build and run scripts in [Stack Lab](/stack-lab).
+Scripts execute on a stack (LIFO). They are intentionally not Turing-complete: no loops means every script terminates, preventing denial-of-service attacks. Fewer features also means fewer vulnerabilities. Build and run scripts in [Stack Lab](/interactive-tools/stack-lab).
 
 ---
 
@@ -97,7 +97,7 @@ Most common legacy type. Hides the public key until spending.
 | 6 | `OP_EQUALVERIFY` | `[sig, pubkey]` *(fails if hashes ≠)* |
 | 7 | `OP_CHECKSIG` | `[1]` ✅ |
 
-You can compute HASH160 and HASH256 in the [Hash tool](/tools/hash).
+You can compute HASH160 and HASH256 in the [Hash tool](/interactive-tools/hash).
 
 <div class="divider-subtle"></div>
 

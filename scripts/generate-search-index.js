@@ -128,36 +128,68 @@ const staticPages = [
     keywords: ['whitepaper'],
   },
   {
-    path: '/terminal',
+    path: '/interactive-tools/terminal',
     title: 'CLI Terminal',
-    section: 'terminal',
+    section: 'tools',
     body:
       'Bitcoin CLI Terminal. Run Bitcoin RPC commands in the browser. getblockchaininfo, getblockcount, getblock, getblockhash, getrawtransaction, getmempoolinfo, getnetworkinfo, help. Connected to a public Bitcoin node. No node setup required.',
     keywords: ['rpc', 'cli', 'terminal', 'bitcoin core', 'getblock', 'getblockchaininfo', 'getblockhash', 'getrawtransaction', 'bitcoin cli'],
   },
   {
-    path: '/stack-lab',
+    path: '/interactive-tools/stack-lab',
     title: 'Stack Lab',
-    section: 'stack-lab',
+    section: 'tools',
     body:
       'Stack Lab. Interactive Bitcoin Script playground. Build and execute locking and unlocking scripts. Drag and drop OP codes. Learn Bitcoin Script, P2PKH, multisig, hash locks. Script interpreter, stack visualization.',
     keywords: ['script', 'op codes', 'opcode', 'stack', 'script builder', 'interpreter', 'stacklab', 'stack lab', 'script lab', 'playground', 'bitcoin script'],
   },
   {
-    path: '/block-visualizer',
+    path: '/interactive-tools/block-visualizer',
     title: 'Block Visualizer',
-    section: 'block-visualizer',
+    section: 'tools',
     body:
       'Block Visualizer. Live Bitcoin blockchain visualization showing the latest block with transaction treemap. Explore transactions, fee rates, and block data in real-time. Interactive transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Click on transactions to view inputs and outputs.',
     keywords: ['visualizer', 'visualiser', 'block visualizer', 'block visualiser', 'blockchain visualization', 'transaction treemap', 'block explorer', 'blockexplorer', 'block data', 'blocks'],
   },
   {
-    path: '/tools/hash',
+    path: '/interactive-tools/hash',
     title: 'Hash Tool',
     section: 'tools',
     body:
       'Hash Tool. Compute SHA-256, HASH256 (double SHA-256), and HASH160 in the browser. Used in Bitcoin for block hashes, TXIDs, addresses, and script. No installation required.',
     keywords: ['hash', 'sha256', 'sha-256', 'hash256', 'hash160', 'ripemd160', 'double sha256', 'txid', 'address', 'calculator', 'hash calculator', 'sha256 calculator', 'hash256 calculator', 'hash160 calculator'],
+  },
+  {
+    path: '/interactive-tools/address-decoder',
+    title: 'Address Decoder',
+    section: 'tools',
+    body:
+      'Address Decoder. Decode and inspect Bitcoin addresses. See type (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), network, version byte or witness version, hash, and checksum. Base58Check and Bech32/Bech32m.',
+    keywords: ['address', 'decoder', 'address decoder', 'p2pkh', 'p2sh', 'p2wpkh', 'p2wsh', 'p2tr', 'base58', 'bech32', 'bech32m', 'decode address'],
+  },
+  {
+    path: '/interactive-tools/transaction-decoder',
+    title: 'Transaction Decoder',
+    section: 'tools',
+    body:
+      'Transaction Decoder. Decode raw Bitcoin transaction hex. See version, inputs (outpoint, scriptSig, sequence), outputs (value, scriptPubKey), locktime. Supports SegWit.',
+    keywords: ['transaction', 'decoder', 'transaction decoder', 'raw transaction', 'decode tx', 'hex', 'scriptSig', 'scriptPubKey', 'locktime'],
+  },
+  {
+    path: '/interactive-tools/fee-estimator',
+    title: 'Fee Estimator',
+    section: 'tools',
+    body:
+      'Fee Estimator. Estimate Bitcoin transaction fee from size (vBytes) and current network rate. See fee in sats and USD for 1-block and 6-block targets.',
+    keywords: ['fee', 'estimator', 'fee estimator', 'fee rate', 'sat/vB', 'vbytes', 'transaction fee', 'estimatesmartfee'],
+  },
+  {
+    path: '/interactive-tools/denominations-calculator',
+    title: 'Denomination Calculator',
+    section: 'tools',
+    body:
+      'Denomination Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.',
+    keywords: ['calculator', 'denomination calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations', 'bits', 'millibit'],
   },
   {
     path: '/about',

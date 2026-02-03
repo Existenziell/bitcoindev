@@ -1,6 +1,6 @@
 # Address Generation & Validation
 
-In the [UTXO model](/docs/fundamentals/utxos), coins are locked by **output scripts** (scriptPubKeys). Addresses are human-readable encodings of those scripts, so generating and validating addresses is how you turn [Bitcoin Script](/docs/bitcoin/script) into something users and APIs can use. This page covers the main address types (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), encoding (Base58Check, Bech32, Bech32m), and how to derive and validate them in code.
+In the [UTXO model](/docs/fundamentals/utxos), coins are locked by **output scripts** (scriptPubKeys). Addresses are human-readable encodings of those scripts, so generating and validating addresses is how you turn [Bitcoin Script](/docs/bitcoin/script) into something users and APIs can use. This page covers the main address types (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), encoding (Base58Check, Bech32, Bech32m), and how to derive and validate them in code. Decode and inspect addresses in the [Address Decoder](/interactive-tools/address-decoder) tool.
 
 ## Address Types Overview
 

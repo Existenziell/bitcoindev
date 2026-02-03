@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test'
+
+test.describe('Interactive Tools', () => {
+  test('list page loads with title and tool links', async ({ page }) => {
+    await page.goto('/interactive-tools')
+    await expect(page).toHaveTitle(/Interactive Tools|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Interactive Tools/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /Address Decoder/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /Transaction Decoder/i })).toBeVisible()
+    await expect(page.getByRole('link', { name: /Fee Estimator/i })).toBeVisible()
+  })
+
+  test('Address Decoder page loads', async ({ page }) => {
+    await page.goto('/interactive-tools/address-decoder')
+    await expect(page).toHaveTitle(/Address Decoder|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Address Decoder/i })).toBeVisible()
+  })
+
+  test('Transaction Decoder page loads', async ({ page }) => {
+    await page.goto('/interactive-tools/transaction-decoder')
+    await expect(page).toHaveTitle(/Transaction Decoder|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Transaction Decoder/i })).toBeVisible()
+  })
+
+  test('Fee Estimator page loads', async ({ page }) => {
+    await page.goto('/interactive-tools/fee-estimator')
+    await expect(page).toHaveTitle(/Fee Estimator|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Fee Estimator/i })).toBeVisible()
+  })
+
+  test('Denomination Calculator page loads', async ({ page }) => {
+    await page.goto('/interactive-tools/denominations-calculator')
+    await expect(page).toHaveTitle(/Denomination Calculator|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Denomination Calculator/i })).toBeVisible()
+  })
+})

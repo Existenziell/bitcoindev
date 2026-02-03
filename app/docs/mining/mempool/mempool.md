@@ -570,9 +570,9 @@ Common in DeFi on other chains, less relevant for Bitcoin's simpler transactions
 
 ## Mempool Tools and Resources
 
-> **Query the mempool yourself!** Try `getmempoolinfo` and `getrawmempool` in the [Bitcoin CLI Terminal](/terminal).
+> **Query the mempool yourself!** Try `getmempoolinfo` and `getrawmempool` in the [Bitcoin CLI Terminal](/interactive-tools/terminal).
 
-> **Explore visually!** See transactions flowing into blocks with our interactive [Block Visualizer](/block-visualizer).
+> **Explore visually!** See transactions flowing into blocks with our interactive [Block Visualizer](/interactive-tools/block-visualizer).
 
 ### Mempool Explorers
 

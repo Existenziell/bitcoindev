@@ -1,4 +1,4 @@
-# Tools & Resources
+# Interactive Tools
 
 This guide provides an overview of essential tools and resources for Bitcoin investors, from exchanges and wallets to blockchain explorers and educational materials. The focus is on reputable, well-established tools that can help you invest, manage, and learn about Bitcoin.
 

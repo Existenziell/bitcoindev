@@ -1,6 +1,6 @@
 # Address Types
 
-Bitcoin has evolved through several address formats, each offering different features, security properties, and transaction costs. Understanding these types is essential for wallet development.
+Bitcoin has evolved through several address formats, each offering different features, security properties, and transaction costs. Understanding these types is essential for wallet development. Decode and inspect any address in the [Address Decoder](/interactive-tools/address-decoder) tool.
 
 ## Overview
 

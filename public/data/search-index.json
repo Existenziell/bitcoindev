@@ -9,9 +9,9 @@
     ]
   },
   {
-    "path": "/terminal",
+    "path": "/interactive-tools/terminal",
     "title": "CLI Terminal",
-    "section": "terminal",
+    "section": "tools",
     "body": "Bitcoin CLI Terminal. Run Bitcoin RPC commands in the browser. getblockchaininfo, getblockcount, getblock, getblockhash, getrawtransaction, getmempoolinfo, getnetworkinfo, help. Connected to a public Bitcoin node. No node setup required.",
     "keywords": [
       "rpc",
@@ -26,9 +26,9 @@
     ]
   },
   {
-    "path": "/stack-lab",
+    "path": "/interactive-tools/stack-lab",
     "title": "Stack Lab",
-    "section": "stack-lab",
+    "section": "tools",
     "body": "Stack Lab. Interactive Bitcoin Script playground. Build and execute locking and unlocking scripts. Drag and drop OP codes. Learn Bitcoin Script, P2PKH, multisig, hash locks. Script interpreter, stack visualization.",
     "keywords": [
       "script",
@@ -45,9 +45,9 @@
     ]
   },
   {
-    "path": "/block-visualizer",
+    "path": "/interactive-tools/block-visualizer",
     "title": "Block Visualizer",
-    "section": "block-visualizer",
+    "section": "tools",
     "body": "Block Visualizer. Live Bitcoin blockchain visualization showing the latest block with transaction treemap. Explore transactions, fee rates, and block data in real-time. Interactive transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Click on transactions to view inputs and outputs.",
     "keywords": [
       "visualizer",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "path": "/tools/hash",
+    "path": "/interactive-tools/hash",
     "title": "Hash Tool",
     "section": "tools",
     "body": "Hash Tool. Compute SHA-256, HASH256 (double SHA-256), and HASH160 in the browser. Used in Bitcoin for block hashes, TXIDs, addresses, and script. No installation required.",
@@ -82,6 +82,78 @@
       "sha256 calculator",
       "hash256 calculator",
       "hash160 calculator"
+    ]
+  },
+  {
+    "path": "/interactive-tools/address-decoder",
+    "title": "Address Decoder",
+    "section": "tools",
+    "body": "Address Decoder. Decode and inspect Bitcoin addresses. See type (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), network, version byte or witness version, hash, and checksum. Base58Check and Bech32/Bech32m.",
+    "keywords": [
+      "address",
+      "decoder",
+      "address decoder",
+      "p2pkh",
+      "p2sh",
+      "p2wpkh",
+      "p2wsh",
+      "p2tr",
+      "base58",
+      "bech32",
+      "bech32m",
+      "decode address"
+    ]
+  },
+  {
+    "path": "/interactive-tools/transaction-decoder",
+    "title": "Transaction Decoder",
+    "section": "tools",
+    "body": "Transaction Decoder. Decode raw Bitcoin transaction hex. See version, inputs (outpoint, scriptSig, sequence), outputs (value, scriptPubKey), locktime. Supports SegWit.",
+    "keywords": [
+      "transaction",
+      "decoder",
+      "transaction decoder",
+      "raw transaction",
+      "decode tx",
+      "hex",
+      "scriptSig",
+      "scriptPubKey",
+      "locktime"
+    ]
+  },
+  {
+    "path": "/interactive-tools/fee-estimator",
+    "title": "Fee Estimator",
+    "section": "tools",
+    "body": "Fee Estimator. Estimate Bitcoin transaction fee from size (vBytes) and current network rate. See fee in sats and USD for 1-block and 6-block targets.",
+    "keywords": [
+      "fee",
+      "estimator",
+      "fee estimator",
+      "fee rate",
+      "sat/vB",
+      "vbytes",
+      "transaction fee",
+      "estimatesmartfee"
+    ]
+  },
+  {
+    "path": "/interactive-tools/denominations-calculator",
+    "title": "Denomination Calculator",
+    "section": "tools",
+    "body": "Denomination Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.",
+    "keywords": [
+      "calculator",
+      "denomination calculator",
+      "convert",
+      "sats",
+      "satoshis",
+      "btc",
+      "units",
+      "satoshi",
+      "denominations",
+      "bits",
+      "millibit"
     ]
   },
   {
@@ -1429,7 +1501,7 @@
     "path": "/docs/bitcoin/cryptography#resources",
     "title": "Resources",
     "section": "bitcoin",
-    "body": "Tools - Interactive tools (Stack Lab for script, Block Visualizer for blocks, Hash tool for SHA-256 / HASH256 / HASH160) Bitcoin Developer Guide - Transactions - Official documentation on transaction "
+    "body": "Interactive Tools - Stack Lab for script, Block Visualizer for blocks, Hash tool for SHA-256 / HASH256 / HASH160 Bitcoin Developer Guide - Transactions - Official documentation on transaction signing "
   },
   {
     "path": "/docs/bitcoin/consensus",
@@ -1573,7 +1645,7 @@
     "path": "/docs/bitcoin/transaction-structure#related",
     "title": "Related",
     "section": "bitcoin",
-    "body": "Transaction Lifecycle for states from creation to confirmation Transaction Construction for building transactions in code Script for scriptPubKey and ScriptSig formats Data Encoding for serialization "
+    "body": "Transaction Decoder — decode raw transaction hex in the browser Transaction Lifecycle for states from creation to confirmation Transaction Construction for building transactions in code Script for "
   },
   {
     "path": "/docs/bitcoin/script",
@@ -2469,7 +2541,7 @@
     "path": "/docs/bitcoin/data-encoding#related",
     "title": "Related",
     "section": "bitcoin",
-    "body": "Transaction Structure for input and output fields Script for script format Blocks for block format"
+    "body": "Transaction Decoder — decode raw transaction hex in the browser Transaction Structure for input and output fields Script for script format Blocks for block format"
   },
   {
     "path": "/docs/bitcoin/rpc",
@@ -3297,7 +3369,7 @@
     "path": "/docs/wallets/address-types",
     "title": "Address Types",
     "section": "wallets",
-    "body": "Address Types Bitcoin has evolved through several address formats, each offering different features, security properties, and transaction costs. Understanding these types is essential for wallet development. Overview | Type | Prefix | Example Start | Introduced | |------|--------|---------------|------------| | P2PKH | 1 | 1BvBMSEYstW... | 2009 (Genesis) | | P2SH | 3 | 3J98t1WpEZ7... | 2012 (BIP16) | | P2WPKH | bc1q | bc1qw508d6q... | 2017 (BIP141) | | P2WSH | bc1q | bc1qrp33g0q... | 2017 ",
+    "body": "Address Types Bitcoin has evolved through several address formats, each offering different features, security properties, and transaction costs. Understanding these types is essential for wallet development. Decode and inspect any address in the Address Decoder tool. Overview | Type | Prefix | Example Start | Introduced | |------|--------|---------------|------------| | P2PKH | 1 | 1BvBMSEYstW... | 2009 (Genesis) | | P2SH | 3 | 3J98t1WpEZ7... | 2012 (BIP16) | | P2WPKH | bc1q | bc1qw508d6q... | ",
     "keywords": [
       "p2pkh",
       "p2sh",
@@ -4995,7 +5067,7 @@
     "path": "/docs/development/resources#utilities",
     "title": "Utilities",
     "section": "development",
-    "body": "BitcoinDev Tools – CLI terminal, Stack Lab, Block Visualizer, Hash tool. Learn Me A Bitcoin – Tools – Hashing, keys, transaction builder, and more."
+    "body": "Interactive Tools – CLI terminal, Stack Lab, Block Visualizer, Hash tool. Learn Me A Bitcoin – Tools – Hashing, keys, transaction builder, and more."
   },
   {
     "path": "/docs/bitcoin-development",
@@ -5109,7 +5181,7 @@
     "path": "/docs/bitcoin-development/addresses",
     "title": "Address Generation",
     "section": "bitcoin-development",
-    "body": "Address Generation & Validation In the UTXO model, coins are locked by output scripts (scriptPubKeys). Addresses are human-readable encodings of those scripts, so generating and validating addresses is how you turn Bitcoin Script into something users and APIs can use. This page covers the main address types (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), encoding (Base58Check, Bech32, Bech32m), and how to derive and validate them in code. Address Types Overview Legacy Addresses (P2PKH) Format: Starts with "
+    "body": "Address Generation & Validation In the UTXO model, coins are locked by output scripts (scriptPubKeys). Addresses are human-readable encodings of those scripts, so generating and validating addresses is how you turn Bitcoin Script into something users and APIs can use. This page covers the main address types (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), encoding (Base58Check, Bech32, Bech32m), and how to derive and validate them in code. Decode and inspect addresses in the Address Decoder tool. Address "
   },
   {
     "path": "/docs/bitcoin-development/addresses#address-types-overview",
@@ -6962,13 +7034,13 @@
     "path": "/docs/investment/investment-strategy#related-topics",
     "title": "Related Topics",
     "section": "investment",
-    "body": "Risk Management - Understanding investment risks Tools & Resources - Where to execute your investment strategy Wallet Security & Self-Custody - Securing your Bitcoin holdings Understanding Market "
+    "body": "Risk Management - Understanding investment risks Interactive Tools - Where to execute your investment strategy Wallet Security & Self-Custody - Securing your Bitcoin holdings Understanding Market "
   },
   {
     "path": "/docs/investment/tools",
-    "title": "Tools & Resources",
+    "title": "Interactive Tools",
     "section": "investment",
-    "body": "Tools & Resources This guide provides an overview of essential tools and resources for Bitcoin investors, from exchanges and wallets to blockchain explorers and educational materials. The focus is on reputable, well-established tools that can help you invest, manage, and learn about Bitcoin. Exchanges Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understanding the different types of exchanges and their trade-offs is essential for making informed decisions. Centralized "
+    "body": "Interactive Tools This guide provides an overview of essential tools and resources for Bitcoin investors, from exchanges and wallets to blockchain explorers and educational materials. The focus is on reputable, well-established tools that can help you invest, manage, and learn about Bitcoin. Exchanges Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understanding the different types of exchanges and their trade-offs is essential for making informed decisions. Centralized "
   },
   {
     "path": "/docs/investment/tools#exchanges",
@@ -7106,7 +7178,7 @@
     "path": "/docs/investment/wallet-security#related-topics",
     "title": "Related Topics",
     "section": "investment",
-    "body": "Risk Management - Understanding investment risks, including custody risk Privacy - Privacy considerations for protecting your financial information Tools & Resources - Wallet tools and other helpful "
+    "body": "Risk Management - Understanding investment risks, including custody risk Privacy - Privacy considerations for protecting your financial information Interactive Tools - Wallet tools and other helpful "
   },
   {
     "path": "/docs/investment/privacy",

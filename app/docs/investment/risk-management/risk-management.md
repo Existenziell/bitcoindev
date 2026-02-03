@@ -175,6 +175,6 @@ Proper wallet security and self-custody practices are essential. Learn about [wa
 - [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
 - [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology
 - [Privacy](/docs/investment/privacy) - Privacy considerations and regulatory implications
-- [Tools & Resources](/docs/investment/tools) - Exchange selection and security considerations
+- [Interactive Tools](/docs/investment/tools) - Exchange selection and security considerations
 
 ---

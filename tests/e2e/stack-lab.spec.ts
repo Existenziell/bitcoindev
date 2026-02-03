@@ -2,21 +2,21 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Stack Lab', () => {
   test('page loads with title, heading, and subtitle', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page).toHaveTitle(/Stack Lab|B\+\+/)
     await expect(page.getByRole('heading', { level: 1, name: /Stack Lab/i })).toBeVisible()
     await expect(page.getByText('Interactive Bitcoin Script Playground')).toBeVisible()
   })
 
   test('Script Templates and workspace are visible after load', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
     await expect(page.getByRole('heading', { name: 'Unlocking Script' })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Locking Script', exact: true })).toBeVisible()
   })
 
   test('load Simple Addition template, Execute, and see success', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
 
     await page.getByRole('button', { name: /Simple Addition/i }).first().click()
@@ -28,7 +28,7 @@ test.describe('Stack Lab', () => {
   })
 
   test('Reset clears scripts and stack', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
 
     await page.getByRole('button', { name: /Simple Addition/i }).first().click()
@@ -42,7 +42,7 @@ test.describe('Stack Lab', () => {
   })
 
   test('Push Data: add value to Unlocking Script via modal', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
 
     await page.getByRole('button', { name: /Push Data/i }).first().click()
@@ -55,7 +55,7 @@ test.describe('Stack Lab', () => {
   })
 
   test('Step: load template and step through execution', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
 
     await page.getByRole('button', { name: /Simple Addition/i }).first().click()
@@ -72,7 +72,7 @@ test.describe('Stack Lab', () => {
   })
 
   test('Challenges tab shows challenge list and difficulty filters', async ({ page }) => {
-    await page.goto('/stack-lab')
+    await page.goto('/interactive-tools/stack-lab')
     await expect(page.getByText('Simple Addition').first()).toBeVisible({ timeout: 10000 })
 
     await page.getByRole('tab', { name: /Challenges/i }).click()

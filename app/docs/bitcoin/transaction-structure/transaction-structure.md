@@ -29,6 +29,7 @@ Each output creates a new UTXO: an amount and a scriptPubKey (locking script) th
 
 ## Related
 
+- [Transaction Decoder](/interactive-tools/transaction-decoder) — decode raw transaction hex in the browser
 - [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) for states from creation to confirmation
 - [Transaction Construction](/docs/bitcoin-development/transactions) for building transactions in code
 - [Script](/docs/bitcoin/script) for scriptPubKey and ScriptSig formats

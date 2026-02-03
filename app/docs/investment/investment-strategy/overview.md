@@ -356,7 +356,7 @@ DCA and HODLing work exceptionally well together:
 ## Related Topics
 
 - [Risk Management](/docs/investment/risk-management) - Understanding investment risks
-- [Tools & Resources](/docs/investment/tools) - Where to execute your investment strategy
+- [Interactive Tools](/docs/investment/tools) - Where to execute your investment strategy
 - [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
 - [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology
 - [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin's properties reward holding

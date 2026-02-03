@@ -2,7 +2,7 @@
 
 The [blockchain](/docs/fundamentals/blockchain) is an ordered chain of blocks; the [timechain](/docs/fundamentals/timechain) view emphasizes that ordering as a source of time and finality. Monitoring it lets your application react to new blocks, track confirmations, and handle reorgs. Whether you're waiting for payment confirmations, updating balances, or logging chain tip and mempool activity, you need a reliable way to subscribe to block and transaction events. Real-time monitoring allows you to detect new blocks instantly, track mining pools, analyze transactions, and monitor network activity.
 
-> **Explore the blockchain live!** Try RPC commands like `getblockchaininfo` and `getmempoolinfo` in the [Bitcoin CLI Terminal](/terminal).
+> **Explore the blockchain live!** Try RPC commands like `getblockchaininfo` and `getmempoolinfo` in the [Bitcoin CLI Terminal](/interactive-tools/terminal).
 
 ## ZMQ Notifications
 

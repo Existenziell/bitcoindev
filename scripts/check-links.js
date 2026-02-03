@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
  * Check markdown files for:
- * 1. Internal links: all /docs/* links point to valid pages
+ * 1. Internal links: all [text](/path) links point to valid pages (docs, interactive-tools, whitepaper, etc.)
  * 2. External links: optionally check that external URLs are accessible (use --check-external)
  *
+ * Valid internal paths = static routes (see staticPaths below) + doc pages from navigation.ts + md-content.json.
  * Run: node scripts/check-links.js [--check-external]
  */
 
@@ -35,8 +36,27 @@ try {
   // md-content.json might not exist, that's okay
 }
 
-// Combine valid paths (navigation.ts is source of truth, md-content.json is fallback)
-const allValidPaths = new Set([...validDocPaths, ...mdContentPaths])
+// Static routes (must match app/sitemap.ts staticPaths)
+const staticPaths = [
+  '/',
+  '/docs',
+  '/docs/glossary',
+  '/interactive-tools',
+  '/interactive-tools/terminal',
+  '/interactive-tools/stack-lab',
+  '/interactive-tools/block-visualizer',
+  '/interactive-tools/hash',
+  '/interactive-tools/address-decoder',
+  '/interactive-tools/transaction-decoder',
+  '/interactive-tools/fee-estimator',
+  '/interactive-tools/denominations-calculator',
+  '/whitepaper',
+  '/about',
+  '/feedback',
+]
+
+// Combine valid paths: static routes + doc pages (navigation.ts) + md-content as fallback
+const allValidPaths = new Set([...staticPaths, ...validDocPaths, ...mdContentPaths])
 
 // Find all .md files in app/
 function findMdFiles(dir, files = []) {
@@ -54,8 +74,8 @@ function findMdFiles(dir, files = []) {
 
 const mdFiles = findMdFiles(path.join(__dirname, '../app'))
 
-// Check internal doc links
-const internalLinkRe = /\]\((\/docs\/[^#\s)]+)(?:#[^\s)]+)?\)/g
+// Check internal links: [text](/path) or [text](/path#anchor). Captures path (no protocol).
+const internalLinkRe = /\]\((\/(?!\/)[^#\s)]*)(?:#[^\s)]+)?\)/g
 const internalLinks = new Map() // path -> [ { file, lineNum, line, fullLink } ]
 
 // Check external links (http/https)
@@ -178,9 +198,16 @@ async function checkExternalUrl(url, timeout = 10000, maxRedirects = 5) {
   })
 }
 
+// Normalize path for validation (strip trailing slash; paths in nav/sitemap have no trailing slash)
+function normalizePath(p) {
+  return p.replace(/\/+$/, '') || '/'
+}
+
 // Main function to run checks
 async function runChecks() {
-  const invalidInternalLinks = [...internalLinks.keys()].filter(p => !allValidPaths.has(p))
+  const invalidInternalLinks = [...internalLinks.keys()].filter(
+    (p) => !allValidPaths.has(normalizePath(p))
+  )
 
   let hasErrors = false
 

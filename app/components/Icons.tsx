@@ -1,16 +1,8 @@
 import type { SVGProps } from 'react'
+import { cn } from '@/app/utils/cn'
 
 interface IconProps extends SVGProps<SVGSVGElement> {
   className?: string
-}
-
-/**
- * Merge default className with passed className, ensuring both are applied.
- * Tailwind classes will properly override when needed (e.g., w-6 overrides w-4).
- */
-function mergeClassName(defaultClass: string, passedClass?: string): string {
-  if (!passedClass) return defaultClass
-  return `${defaultClass} ${passedClass}`.trim()
 }
 
 /**
@@ -26,7 +18,7 @@ function mergeClassName(defaultClass: string, passedClass?: string): string {
 export function ChevronUp({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -40,7 +32,7 @@ export function ChevronUp({ className, ...props }: IconProps) {
 export function ChevronRight({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -54,7 +46,7 @@ export function ChevronRight({ className, ...props }: IconProps) {
 export function ChevronDown({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -68,7 +60,7 @@ export function ChevronDown({ className, ...props }: IconProps) {
 export function ChevronLeft({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -87,7 +79,7 @@ export function ChevronLeft({ className, ...props }: IconProps) {
 export function PanelExpandIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4 transition-all duration-300 ease-in-out', className)}
+      className={cn('w-4 h-4 transition-all duration-300 ease-in-out', className)}
       viewBox="3 6 18 12"
       fill="none"
       stroke="currentColor"
@@ -105,7 +97,7 @@ export function PanelExpandIcon({ className, ...props }: IconProps) {
 export function PanelCollapseIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4 transition-all duration-300 ease-in-out', className)}
+      className={cn('w-4 h-4 transition-all duration-300 ease-in-out', className)}
       viewBox="3 5 18 14"
       fill="none"
       stroke="currentColor"
@@ -124,7 +116,7 @@ export function PanelCollapseIcon({ className, ...props }: IconProps) {
 export function XIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -147,7 +139,7 @@ export function XIcon({ className, ...props }: IconProps) {
 export function HomeIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -166,7 +158,7 @@ export function HomeIcon({ className, ...props }: IconProps) {
 export function SearchIcon({ className, title, ...props }: IconProps & { title?: string }) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -190,7 +182,7 @@ export function SearchIcon({ className, title, ...props }: IconProps & { title?:
 export function DownloadMarkdownIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-5 h-5', className)}
+      className={cn('w-5 h-5', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -209,7 +201,7 @@ export function DownloadMarkdownIcon({ className, ...props }: IconProps) {
 export function DownloadPDFIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-5 h-5', className)}
+      className={cn('w-5 h-5', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -228,7 +220,7 @@ export function DownloadPDFIcon({ className, ...props }: IconProps) {
 export function CopyIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -247,7 +239,7 @@ export function CopyIcon({ className, ...props }: IconProps) {
 export function ExternalLinkIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-3 h-3', className)}
+      className={cn('w-3 h-3', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -271,7 +263,7 @@ export function ExternalLinkIcon({ className, ...props }: IconProps) {
 export function DocumentIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -291,7 +283,7 @@ export function DocumentIcon({ className, ...props }: IconProps) {
 export function BookOpenIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -311,7 +303,7 @@ export function BookOpenIcon({ className, ...props }: IconProps) {
 export function UserIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -331,7 +323,7 @@ export function UserIcon({ className, ...props }: IconProps) {
 export function ToolsIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="currentColor"
       viewBox="0 0 100 100"
       {...props}
@@ -348,7 +340,7 @@ export function ToolsIcon({ className, ...props }: IconProps) {
 export function TerminalIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-5 h-5', className)}
+      className={cn('w-5 h-5', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -357,7 +349,7 @@ export function TerminalIcon({ className, ...props }: IconProps) {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth={2}
+        strokeWidth={1.5}
         d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
       />
     </svg>
@@ -367,10 +359,10 @@ export function TerminalIcon({ className, ...props }: IconProps) {
 export function StackLabIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.5}
+      strokeWidth={0.5}
       viewBox="0 0 32 32"
       {...props}
     >
@@ -396,7 +388,7 @@ export function StackLabIcon({ className, ...props }: IconProps) {
 export function BlockVisualizerIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="currentColor"
       viewBox="0 0 385.419 385.419"
       {...props}
@@ -412,7 +404,7 @@ export function BlockVisualizerIcon({ className, ...props }: IconProps) {
 export function HashIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
@@ -426,71 +418,59 @@ export function HashIcon({ className, ...props }: IconProps) {
   )
 }
 
-/** Address decoder tool icon (document with magnifier). */
+/** Address decoder tool icon (document with magnifier). From public/icons/address-decoder.svg */
 export function AddressDecoderIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
+      className={cn('w-4 h-4', className)}
+      viewBox="0 0 1024 1024"
+      fill="currentColor"
       {...props}
     >
-      <path d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4z" />
-      <path d="M4 10v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10" />
-      <circle cx="11" cy="15" r="2" />
-      <path d="m20 20-2-2" />
+      <path d="M175.157275 228.942249c0-35.462676 33.666774-64.311725 75.046207-64.311725l654.43092 0c13.499455 0 24.445762-9.377578 24.445762-20.944008 0-11.570523-10.946306-20.947078-24.445762-20.947078L250.208599 122.739439c-68.340481 0-123.93773 47.641043-123.93773 106.20281l0 0 0 568.525388c0 58.561767 55.597249 106.20281 123.93773 106.20281l678.871565 0L929.080164 293.249881l-678.871565 0C208.824049 293.249881 175.157275 264.400832 175.157275 228.942249L175.157275 228.942249zM880.192733 861.779362 250.208599 861.779362c-41.384549 0-75.051323-28.848025-75.051323-64.310701L175.157275 313.404919c20.847817 13.636578 46.862307 21.73707 75.051323 21.73707l629.985158 0L880.193757 861.779362 880.192733 861.779362zM880.192733 861.779362" />
+      <path d="M904.634402 206.443839 255.634168 206.443839c-13.498432 0-24.440645 9.380648-24.440645 20.947078 0 11.567453 10.942213 20.947078 24.440645 20.947078l649.000234 0c13.502525 0 24.445762-9.380648 24.445762-20.947078C929.07914 215.824487 918.132834 206.443839 904.634402 206.443839L904.634402 206.443839zM904.634402 206.443839" />
+      <path d="M242.748696 515.320629c0 11.571546 10.943236 20.948101 24.445762 20.948101l151.096277 0c13.502525 0 24.445762-9.377578 24.445762-20.948101 0-11.56643-10.943236-20.944008-24.445762-20.944008L267.194458 494.376621C253.691933 494.377644 242.748696 503.754199 242.748696 515.320629L242.748696 515.320629zM242.748696 515.320629" />
+      <path d="M418.289712 610.111528 267.194458 610.111528c-13.502525 0-24.445762 9.377578-24.445762 20.944008 0 11.570523 10.943236 20.947078 24.445762 20.947078l151.096277 0c13.502525 0 24.445762-9.377578 24.445762-20.947078C442.735473 619.489106 431.792237 610.111528 418.289712 610.111528L418.289712 610.111528zM418.289712 610.111528" />
+      <path d="M418.289712 721.012338 267.194458 721.012338c-13.502525 0-24.445762 9.380648-24.445762 20.947078 0 11.56643 10.943236 20.947078 24.445762 20.947078l151.096277 0c13.502525 0 24.445762-9.381671 24.445762-20.947078C442.735473 730.392986 431.792237 721.012338 418.289712 721.012338L418.289712 721.012338zM418.289712 721.012338" />
+      <path d="M770.046101 720.846562l-63.238276-63.240323c15.178701-19.524682 24.220634-44.057425 24.220634-70.707388 0-63.676252-51.615565-115.306142-115.319445-115.306142-63.678298 0-115.293863 51.629891-115.293863 115.306142 0 63.691601 51.615565 115.307166 115.293863 115.307166 26.656103 0 51.191916-9.041934 70.719668-24.221658l63.240323 63.240323c2.808976 2.809999 6.499018 4.227278 10.190083 4.227278s7.381108-1.417279 10.188037-4.227278C775.689634 735.594451 775.689634 726.475769 770.046101 720.846562L770.046101 720.846562zM529.243733 586.898851c0-47.685046 38.778188-86.476537 86.463234-86.476537 47.710628 0 86.488817 38.791491 86.488817 86.476537 0 47.698349-38.778188 86.476537-86.488817 86.476537C568.022944 673.375387 529.243733 634.597199 529.243733 586.898851L529.243733 586.898851zM529.243733 586.898851" />
     </svg>
   )
 }
 
-/** Transaction decoder tool icon (layers/list). */
+/** Transaction decoder tool icon (document with bars). From public/icons/transaction-decoder.svg */
 export function TransactionDecoderIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
+      className={cn('w-4 h-4', className)}
+      viewBox="0 0 1024 1024"
+      fill="currentColor"
       {...props}
     >
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6" />
-      <path d="M16 13H8" />
-      <path d="M16 17H8" />
-      <path d="M10 9H8" />
+      <path d="M1006.933333 1024h-546.133333c-10.24 0-17.066667-6.826667-17.066667-17.066667v-477.866666c0-3.413333 3.413333-10.24 3.413334-13.653334l273.066666-273.066666c3.413333 0 10.24-3.413333 13.653334-3.413334h273.066666c10.24 0 17.066667 6.826667 17.066667 17.066667v750.933333c0 10.24-6.826667 17.066667-17.066667 17.066667zM477.866667 989.866667h512V273.066667h-249.173334L477.866667 535.893333V989.866667z" />
+      <path d="M733.866667 546.133333h-273.066667c-10.24 0-17.066667-6.826667-17.066667-17.066666s6.826667-17.066667 17.066667-17.066667H716.8V256c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066666 17.066667v273.066667c0 10.24-6.826667 17.066667-17.066666 17.066666zM256 853.333333c-3.413333 0-10.24 0-13.653333-3.413333-6.826667-6.826667-6.826667-17.066667 0-23.893333L283.306667 785.066667H136.533333c-58.026667 0-102.4-44.373333-102.4-102.4v-153.6c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066667 17.066667V682.666667c0 37.546667 30.72 68.266667 68.266666 68.266666h187.733334c6.826667 0 13.653333 3.413333 17.066666 10.24 3.413333 6.826667 0 13.653333-3.413333 17.066667l-68.266667 68.266667c-3.413333 6.826667-10.24 6.826667-13.653333 6.826666z" />
+      <path d="M324.266667 785.066667c-3.413333 0-10.24 0-13.653334-3.413334l-68.266666-68.266666c-6.826667-6.826667-6.826667-17.066667 0-23.893334s17.066667-6.826667 23.893333 0l68.266667 68.266667c6.826667 6.826667 6.826667 17.066667 0 23.893333 0 3.413333-6.826667 3.413333-10.24 3.413334zM426.666667 443.733333c-10.24 0-17.066667-6.826667-17.066667-17.066666V17.066667c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066666 17.066667v409.6c0 10.24-6.826667 17.066667-17.066666 17.066666zM358.4 375.466667c-10.24 0-17.066667-6.826667-17.066667-17.066667V17.066667c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066667 17.066667v341.333333c0 10.24-6.826667 17.066667-17.066667 17.066667zM290.133333 375.466667c-10.24 0-17.066667-6.826667-17.066666-17.066667V17.066667c0-10.24 6.826667-17.066667 17.066666-17.066667s17.066667 6.826667 17.066667 17.066667v341.333333c0 10.24-6.826667 17.066667-17.066667 17.066667zM221.866667 443.733333c-10.24 0-17.066667-6.826667-17.066667-17.066666V17.066667c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066666 17.066667v409.6c0 10.24-6.826667 17.066667-17.066666 17.066666zM17.066667 443.733333c-10.24 0-17.066667-6.826667-17.066667-17.066666V17.066667C0 6.826667 6.826667 0 17.066667 0s17.066667 6.826667 17.066666 17.066667v409.6c0 10.24-6.826667 17.066667-17.066666 17.066666zM153.6 375.466667c-10.24 0-17.066667-6.826667-17.066667-17.066667V17.066667c0-10.24 6.826667-17.066667 17.066667-17.066667s17.066667 6.826667 17.066667 17.066667v341.333333c0 10.24-6.826667 17.066667-17.066667 17.066667zM85.333333 375.466667c-10.24 0-17.066667-6.826667-17.066666-17.066667V17.066667c0-10.24 6.826667-17.066667 17.066666-17.066667s17.066667 6.826667 17.066667 17.066667v341.333333c0 10.24-6.826667 17.066667-17.066667 17.066667z" />
+      <path d="M290.133333 426.666667m-17.066666 0a17.066667 17.066667 0 1 0 34.133333 0 17.066667 17.066667 0 1 0-34.133333 0Z" />
+      <path d="M358.4 426.666667m-17.066667 0a17.066667 17.066667 0 1 0 34.133334 0 17.066667 17.066667 0 1 0-34.133334 0Z" />
+      <path d="M85.333333 426.666667m-17.066666 0a17.066667 17.066667 0 1 0 34.133333 0 17.066667 17.066667 0 1 0-34.133333 0Z" />
+      <path d="M153.6 426.666667m-17.066667 0a17.066667 17.066667 0 1 0 34.133334 0 17.066667 17.066667 0 1 0-34.133334 0Z" />
     </svg>
   )
 }
 
-/** Fee estimator tool icon (gauge/speed). */
+/** Fee estimator tool icon (gauge/estimate). From public/icons/estimate-icon.svg */
 export function FeeEstimatorIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
+      className={cn('w-4 h-4', className)}
+      viewBox="0 0 107.69 122.88"
+      fill="currentColor"
+      fillRule="evenodd"
+      clipRule="evenodd"
       {...props}
     >
-      <path d="M12 2v4" />
-      <path d="m4.93 4.93 2.83 2.83" />
-      <path d="M2 12h4" />
-      <path d="m4.93 19.07 2.83-2.83" />
-      <path d="M12 18v4" />
-      <path d="m17.24 17.24 2.83-2.83" />
-      <path d="M18 12h4" />
-      <path d="m19.07 4.93-2.83 2.83" />
-      <circle cx="12" cy="12" r="4" />
+      <g>
+        <path d="M88.17,91.59c0-0.42,0-0.85,0-1.27c0-0.42,0-0.85,0.01-1.28c0.57-0.03,1.04-0.21,1.4-0.55 c0.36-0.33,0.55-0.73,0.59-1.2c0.04-0.53-0.13-0.99-0.5-1.4c-0.37-0.4-0.97-0.63-1.77-0.69c-0.76-0.06-1.35,0.08-1.78,0.42 c-0.43,0.34-0.7,0.79-0.79,1.38c-0.11,0.73,0.1,1.41,0.65,2.03c-0.2,0.68-0.4,1.36-0.6,2.04c-1.14-0.3-2.27-0.6-3.39-0.9 c-1.11-0.3-2.21-0.6-3.31-0.9c0.28-1.12,0.56-2.24,0.84-3.36c0.28-1.12,0.56-2.24,0.83-3.36c0.71,0.05,1.41,0.11,2.12,0.17 c-0.17,0.8-0.34,1.6-0.51,2.4c-0.17,0.8-0.34,1.6-0.51,2.4c0.7,0.19,1.4,0.37,2.11,0.56c-0.17-0.59-0.2-1.17-0.09-1.77 c0.1-0.56,0.3-1.08,0.57-1.54c0.27-0.46,0.63-0.87,1.06-1.24c0.86-0.72,1.87-1.04,3.03-0.94c0.97,0.08,1.81,0.46,2.54,1.16 c0.5,0.47,0.88,1.02,1.12,1.64c0.24,0.62,0.35,1.31,0.32,2.08c-0.03,0.61-0.14,1.16-0.32,1.65c-0.19,0.49-0.46,0.91-0.81,1.28 C90.27,91.12,89.33,91.52,88.17,91.59L88.17,91.59L88.17,91.59z M6.31,0h76.52c1.73,0,3.31,0.71,4.46,1.85 c0.04,0.04,0.08,0.08,0.11,0.13c1.07,1.13,1.74,2.66,1.74,4.33v63.18c-0.94-0.06-1.88-0.08-2.81-0.08c-0.32,0-0.64,0.01-0.96,0.01 V6.31c0-0.66-0.25-1.26-0.67-1.71l-0.08-0.07c-0.46-0.46-1.09-0.75-1.79-0.75H6.31c-0.7,0-1.33,0.28-1.79,0.74L4.51,4.52 C4.06,4.98,3.78,5.61,3.78,6.31v103.48c0,0.66,0.25,1.26,0.67,1.71l0.08,0.07c0.46,0.46,1.09,0.75,1.79,0.75h51.48v0.71 c0,1.05,0.1,2.07,0.29,3.06H6.31c-1.73,0-3.31-0.71-4.46-1.85c-0.04-0.04-0.08-0.08-0.11-0.13C0.66,112.98,0,111.46,0,109.79V6.31 C0,4.58,0.71,3,1.85,1.86l0.01-0.01C3.01,0.71,4.58,0,6.31,0L6.31,0z M67.1,19.3h2.18v11.76H67.1V19.3L67.1,19.3L67.1,19.3z M15.53,48.97h10.7c0.91,0,1.67,0.75,1.67,1.67v9.03c0,0.91-0.75,1.67-1.67,1.67h-10.7c-0.91,0-1.67-0.75-1.67-1.67v-9.03 C13.87,49.71,14.62,48.97,15.53,48.97L15.53,48.97L15.53,48.97z M15.53,91.88h10.7c0.91,0,1.67,0.75,1.67,1.67v9.03 c0,0.92-0.75,1.67-1.67,1.67h-10.7c-0.91,0-1.67-0.75-1.67-1.67v-9.03C13.87,92.63,14.62,91.88,15.53,91.88L15.53,91.88 L15.53,91.88L15.53,91.88z M15.53,70.42h10.7c0.91,0,1.67,0.75,1.67,1.67v9.03c0,0.91-0.75,1.67-1.67,1.67h-10.7 c-0.91,0-1.67-0.75-1.67-1.67v-9.03C13.87,71.17,14.62,70.42,15.53,70.42L15.53,70.42L15.53,70.42z M62.93,48.97h10.69 c0.91,0,1.66,0.75,1.66,1.67v9.03c0,0.91-0.75,1.67-1.66,1.67H62.93c-0.91,0-1.67-0.75-1.67-1.67v-9.03 C61.26,49.71,62.01,48.97,62.93,48.97L62.93,48.97L62.93,48.97z M62.93,70.42h10.69c0.47,0,0.9,0.2,1.21,0.52 c-5.62,1.57-10.49,4.31-13.56,8.16v-7.01C61.26,71.17,62.01,70.42,62.93,70.42L62.93,70.42L62.93,70.42z M39.23,48.97h10.7 c0.91,0,1.67,0.75,1.67,1.67v9.03c0,0.91-0.75,1.67-1.67,1.67h-10.7c-0.91,0-1.67-0.75-1.67-1.67v-9.03 C37.56,49.71,38.31,48.97,39.23,48.97L39.23,48.97L39.23,48.97z M39.23,91.88h10.7c0.91,0,1.67,0.75,1.67,1.67v9.03 c0,0.92-0.75,1.67-1.67,1.67h-10.7c-0.91,0-1.67-0.75-1.67-1.67v-9.03C37.56,92.63,38.31,91.88,39.23,91.88L39.23,91.88 L39.23,91.88z M39.23,70.42h10.7c0.91,0,1.67,0.75,1.67,1.67v9.03c0,0.91-0.75,1.67-1.67,1.67h-10.7c-0.91,0-1.67-0.75-1.67-1.67 v-9.03C37.56,71.17,38.31,70.42,39.23,70.42L39.23,70.42L39.23,70.42z M14.12,12.32h60.89c0.92,0,1.76,0.38,2.36,0.98 c0.05,0.05,0.09,0.1,0.14,0.15c0.52,0.59,0.84,1.37,0.84,2.21v19.03c0,0.92-0.37,1.75-0.98,2.36l-0.01,0.01 c-0.6,0.6-1.44,0.98-2.36,0.98H14.12c-0.92,0-1.76-0.38-2.36-0.98c-0.05-0.05-0.1-0.1-0.14-0.15c-0.52-0.59-0.84-1.37-0.84-2.21 V15.66c0-0.91,0.38-1.74,0.98-2.35l0.01-0.01C12.38,12.7,13.21,12.32,14.12,12.32L14.12,12.32z M74.58,16.1H14.56v18.16h60.02V16.1 L74.58,16.1z M106.7,108.08c0.64,1.08,0.99,2.22,0.99,3.4c0,6.29-9.73,11.39-21.73,11.39c-12,0-21.73-5.1-21.73-11.39 c0-1.18,0.35-2.33,0.99-3.4c2.76,4.63,11.01,7.99,20.74,7.99C95.7,116.07,103.94,112.72,106.7,108.08L106.7,108.08L106.7,108.08z M85.96,80.11c9.86,0,17.86,3.14,17.86,7c0,3.87-8,7-17.86,7S68.1,90.99,68.1,87.12C68.1,83.25,76.1,80.11,85.96,80.11L85.96,80.11 L85.96,80.11L85.96,80.11z M85.96,77.79c12,0,21.73,5.1,21.73,11.39c0,6.29-9.73,11.39-21.73,11.39 c-12-0.01-21.73-5.11-21.73-11.39C64.23,82.89,73.96,77.79,85.96,77.79L85.96,77.79L85.96,77.79z M106.77,96.77 c0.59,1.03,0.91,2.14,0.91,3.27c0,6.29-9.73,11.39-21.73,11.39c-12,0-21.73-5.1-21.73-11.39c0-1.14,0.32-2.23,0.91-3.27 c2.69,4.69,10.99,8.12,20.82,8.12C95.79,104.89,104.1,101.47,106.77,96.77L106.77,96.77L106.77,96.77L106.77,96.77z" />
+      </g>
     </svg>
   )
 }
@@ -499,7 +479,7 @@ export function FeeEstimatorIcon({ className, ...props }: IconProps) {
 export function CalculatorIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="currentColor"
       viewBox="0 0 535.5 535.5"
       {...props}
@@ -521,7 +501,7 @@ export function CalculatorIcon({ className, ...props }: IconProps) {
 export function InfoIcon({ className, ...props }: IconProps) {
   return (
     <svg
-      className={mergeClassName('w-4 h-4', className)}
+      className={cn('w-4 h-4', className)}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

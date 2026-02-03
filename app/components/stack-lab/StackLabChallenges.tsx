@@ -19,7 +19,7 @@ import {
   type TraceChallenge,
   type PredictValidChallenge,
   type ValidationResult,
-} from '@/app/stack-lab/challenges'
+} from '@/app/interactive-tools/stack-lab/challenges'
 
 const UNLOCKING_ID = 'challenge-unlocking-script'
 const LOCKING_ID = 'challenge-locking-script'

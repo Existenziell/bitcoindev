@@ -2,14 +2,14 @@
 
 This document provides a guide for interacting with your Bitcoin node using both curl and bitcoin-cli commands via RPC.
 
-> **Try it live!** Test these commands directly in the [Bitcoin CLI Terminal](/terminal). Connected to mainnet, no setup required.
+> **Try it live!** Test these commands directly in the [Bitcoin CLI Terminal](/interactive-tools/terminal). Connected to mainnet, no setup required.
 
 | Command | Purpose |
 |---------|---------|
 | `getblockchaininfo` | Chain tip, verification progress, network name |
 | `getblock` | Block data by hash or verbosity |
 | `getblockhash` | Block hash by height |
-| `getrawtransaction` | Transaction hex or JSON (requires `txindex=1` for non-wallet txs) |
+| `getrawtransaction` | Transaction hex or JSON (requires `txindex=1` for non-wallet txs). Decode raw hex in the [Transaction Decoder](/interactive-tools/transaction-decoder). |
 | `sendrawtransaction` | Broadcast a signed transaction |
 | `estimatesmartfee` | Fee rate estimate for a target confirmation block count |
 | `getmempoolinfo` | Mempool size and fee stats |

@@ -14,7 +14,7 @@ import StackLabCard from '@/app/components/stack-lab/StackLabCard'
 import StackLabChallenges from '@/app/components/stack-lab/StackLabChallenges'
 import { ScriptInterpreter, type StackItem, type ExecutionStep } from '@/app/utils/stackLabInterpreter'
 import { parseStackItem } from '@/app/utils/stackLabFormatters'
-import { ChevronDown } from '@/app/components/Icons'
+import { ChevronDown, StackLabIcon } from '@/app/components/Icons'
 
 function StackLabTabsAndContent({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams()
@@ -271,6 +271,9 @@ export default function StackLabPage() {
   if (!isMounted) {
     return (
       <>
+        <div className="flex justify-center mb-3">
+          <StackLabIcon className="w-20 h-20" />
+        </div>
         <h1 className="heading-page text-center">
           Stack Lab
         </h1>
@@ -284,6 +287,9 @@ export default function StackLabPage() {
 
   return (
     <>
+      <div className="flex justify-center mb-3">
+        <StackLabIcon className="w-20 h-20" />
+      </div>
       <h1 className="heading-page text-center">
         Stack Lab
       </h1>

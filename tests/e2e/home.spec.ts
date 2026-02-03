@@ -11,11 +11,11 @@ test.describe('Home', () => {
     )
     await expect(page.getByRole('link', { name: /Bitcoin CLI/i })).toHaveAttribute(
       'href',
-      '/terminal'
+      '/interactive-tools/terminal'
     )
     await expect(page.getByRole('link', { name: /Stack Lab/i }).first()).toHaveAttribute(
       'href',
-      '/stack-lab'
+      '/interactive-tools/stack-lab'
     )
   })
 

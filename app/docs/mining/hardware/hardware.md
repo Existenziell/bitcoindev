@@ -18,7 +18,7 @@ When [Satoshi](/docs/history/people#satoshi-nakamoto) launched Bitcoin, mining w
 
 **Why CPUs Work**
 
-SHA-256 (Bitcoin's hash function; try the [Hash tool](/tools/hash)) is computationally simple:
+SHA-256 (Bitcoin's hash function; try the [Hash tool](/interactive-tools/hash)) is computationally simple:
 - Bitwise operations (AND, OR, XOR)
 - 32-bit additions
 - No complex branching

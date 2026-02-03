@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import SecretOverlay, { playSecretSpeech } from '@/app/terminal/SecretOverlay'
-import { mysteriousMessages } from '@/app/terminal/secretConstants'
+import SecretOverlay, { playSecretSpeech } from '@/app/interactive-tools/terminal/SecretOverlay'
+import { mysteriousMessages } from '@/app/interactive-tools/terminal/secretConstants'
 
 vi.mock('canvas-confetti', () => ({
   default: vi.fn(),

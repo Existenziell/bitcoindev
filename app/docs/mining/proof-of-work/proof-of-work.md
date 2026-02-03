@@ -68,7 +68,7 @@ This means:
 2. Second SHA-256 hash of the first hash result
 3. Result must be below the network difficulty target
 
-Try it with the [Hash tool](/tools/hash).
+Try it with the [Hash tool](/interactive-tools/hash).
 
 ### SHA256D Implementation
 

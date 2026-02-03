@@ -220,9 +220,9 @@ body {
     @apply flex-1 py-5 text-lg bg-transparent border-0 border-none outline-none placeholder:text-gray-500 dark:placeholder:text-gray-400 text-gray-900 dark:text-gray-200 focus:ring-0 focus:border-0;
   }
 
-  /* Tools grid card */
+  /* Interactive tools grid card - accent left border, lift on hover */
   .tool-card {
-    @apply block p-5 rounded-lg hover:no-underline border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 hover:border-btc hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-colors;
+    @apply block p-5 rounded-xl hover:no-underline border border-gray-200 dark:border-gray-700 border-l-4 border-l-btc bg-white dark:bg-gray-800/60 hover:border-btc hover:bg-btc/5 dark:hover:bg-btc/10 hover:shadow-md dark:hover:shadow-black/20 transition-all duration-200;
   }
 
   /* Terminal input and submit */

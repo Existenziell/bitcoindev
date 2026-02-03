@@ -25,10 +25,10 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
 
 - **Documentation**: A Developer's Guide to Bitcoin
 - **Whitepaper**: Satoshi’s Bitcoin whitepaper.
-- **Bitcoin CLI Terminal**: Run Bitcoin Core RPC commands in the browser against a public mainnet node. No node setup. `/terminal`
-- **Stack Lab**: Interactive Bitcoin Script playground. Build and run locking/unlocking scripts in the browser; same model as on-chain validation. `/stack-lab`
-- **Block Visualizer**: Interactive block visualization with transaction treemap. Explore the latest Bitcoin block, click transactions to see inputs/outputs. `/block-visualizer`
-- **Denominations Calculator**: Convert between satoshis, bits, mBTC, BTC, and other units. `/docs/fundamentals/denominations`
+- **Bitcoin CLI Terminal**: Run Bitcoin Core RPC commands in the browser against a public mainnet node. No node setup. `/interactive-tools/terminal`
+- **Stack Lab**: Interactive Bitcoin Script playground. Build and run locking/unlocking scripts in the browser; same model as on-chain validation. `/interactive-tools/stack-lab`
+- **Block Visualizer**: Interactive block visualization with transaction treemap. Explore the latest Bitcoin block, click transactions to see inputs/outputs. `/interactive-tools/block-visualizer`
+- **Denominations Calculator**: Convert between satoshis, bits, mBTC, BTC, and other units. `/interactive-tools/denominations-calculator`
 - **Glossary**: Browse 200+ Bitcoin terms A–Z at `/docs/glossary`.
 
 ---

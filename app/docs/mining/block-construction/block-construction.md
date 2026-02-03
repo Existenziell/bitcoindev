@@ -867,7 +867,7 @@ Miners balance:
 ## Related Topics
 
 - [Mempool](/docs/mining/mempool) - Where transactions wait
-- [Block Visualizer](/block-visualizer) - See transactions flowing into blocks
+- [Block Visualizer](/interactive-tools/block-visualizer) - See transactions flowing into blocks
 - [Proof-of-Work](/docs/mining/proof-of-work) - Finding valid blocks
 - [Mining Economics](/docs/mining/economics) - Revenue and costs
 - [Mining Pools](/docs/mining/pools) - Collaborative mining

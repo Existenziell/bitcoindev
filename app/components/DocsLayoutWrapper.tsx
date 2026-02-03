@@ -18,7 +18,7 @@ interface DocsLayoutWrapperProps {
 }
 
 /**
- * Layout wrapper for /docs, /whitepaper, /terminal, /about, /stack-lab.
+ * Layout wrapper for /docs, /whitepaper, /interactive-tools/*, /about.
  * Header is in the root layout so it stays mounted across navigations (no logo flicker).
  */
 export default function DocsLayoutWrapper({

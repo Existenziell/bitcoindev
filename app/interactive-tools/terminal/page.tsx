@@ -2,13 +2,13 @@
 
 import { useState, useRef, useEffect, KeyboardEvent, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
-import { CopyIcon } from '@/app/components/Icons'
+import { CopyIcon, TerminalIcon } from '@/app/components/Icons'
 import copyToClipboard from '@/app/utils/copyToClipboard'
 import { bitcoinRpc } from '@/app/utils/bitcoinRpc'
 import { useMobileWarning } from '@/app/hooks/useMobileWarning'
 import MatrixAnimation from '@/app/components/MatrixAnimation'
-import SecretOverlay, { playSecretSpeech } from '@/app/terminal/SecretOverlay'
-import { SECRET_TRIGGERS, SYSTEM_ERROR_MESSAGES } from '@/app/terminal/secretConstants'
+import SecretOverlay, { playSecretSpeech } from '@/app/interactive-tools/terminal/SecretOverlay'
+import { SECRET_TRIGGERS, SYSTEM_ERROR_MESSAGES } from '@/app/interactive-tools/terminal/secretConstants'
 import {
   COMMANDS,
   parseCommand,
@@ -562,6 +562,9 @@ export default function TerminalPage() {
           onGoHome={() => router.push('/')}
         />
       )}
+        <div className="flex justify-center mb-3">
+          <TerminalIcon className="w-20 h-20" />
+        </div>
        <h1 className="heading-page text-center">
         Bitcoin CLI Terminal
       </h1>

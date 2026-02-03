@@ -28,7 +28,7 @@ Example:
 - Total fee: 2,500 satoshis (0.000025 BTC)
 ```
 
-For unit conversion (sats, BTC, etc.), see [Denominations](/docs/fundamentals/denominations) or the [Tools](/tools) hub.
+For unit conversion (sats, BTC, etc.), see [Denominations](/docs/fundamentals/denominations) or the [Interactive Tools](/interactive-tools) hub. Estimate fee from transaction size with the [Fee Estimator](/interactive-tools/fee-estimator).
 
 ### Virtual Size (vbytes)
 
@@ -393,7 +393,7 @@ Fees fluctuate based on:
 ## Related Topics
 
 - [Mempool](/docs/mining/mempool) - Where transactions wait
-- [Block Visualizer](/block-visualizer) - See transactions flowing into blocks
+- [Block Visualizer](/interactive-tools/block-visualizer) - See transactions flowing into blocks
 - [Block Construction](/docs/mining/block-construction) - How miners select transactions
 - [SegWit](/docs/bitcoin/segwit) - Lower fees through weight units
 - [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) - Transaction states

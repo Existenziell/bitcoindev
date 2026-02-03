@@ -28,6 +28,7 @@ This keeps small values (e.g. 1 input, 2 outputs) to one byte and allows larger 
 
 ## Related
 
+- [Transaction Decoder](/interactive-tools/transaction-decoder) — decode raw transaction hex in the browser
 - [Transaction Structure](/docs/bitcoin/transaction-structure) for input and output fields
 - [Script](/docs/bitcoin/script) for script format
 - [Blocks](/docs/bitcoin/blocks) for block format

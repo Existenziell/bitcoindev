@@ -26,7 +26,7 @@ export default function DenominationCalculator() {
   })()
 
   return (
-    <div className="my-6 max-w-md">
+    <div className="my-6">
       <div className="bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 p-4">
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <label htmlFor="denom-input" className="sr-only">

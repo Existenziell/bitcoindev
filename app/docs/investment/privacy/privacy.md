@@ -404,7 +404,7 @@ Privacy is especially important when:
 - [UTXO Model](/docs/fundamentals/utxos) - Understanding how UTXOs work
 - [Coin Selection](/docs/wallets/coin-selection) - Privacy-aware coin selection strategies
 - [Lightning Network](/docs/lightning) - Off-chain privacy benefits
-- [Tools for Investors](/docs/investment/tools) - Privacy-aware tools and resources
+- [Interactive Tools](/docs/investment/tools) - Privacy-aware tools and resources
 
 ---
 

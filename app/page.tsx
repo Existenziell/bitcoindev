@@ -11,8 +11,8 @@ import { ctaLinks } from '@/app/utils/navigation'
 // Map icons to CTA links by href
 const ctaIcons: Record<string, React.ReactNode> = {
   '/docs/fundamentals': <ChevronRight />,
-  '/terminal': <TerminalIcon />,
-  '/stack-lab': <StackLabIcon />,
+  '/interactive-tools/terminal': <TerminalIcon />,
+  '/interactive-tools/stack-lab': <StackLabIcon />,
 }
 
 export default function Home() {

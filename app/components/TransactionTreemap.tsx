@@ -477,7 +477,7 @@ export default function TransactionTreemap({
                 opacity={isHovered ? 0.9 : 0.8}
                 onMouseEnter={() => setHoveredTx(node.data)}
                 onMouseLeave={() => setHoveredTx(null)}
-                onClick={() => router.push(`/block-visualizer/tx/${node.data.txid}`)}
+                onClick={() => router.push(`/interactive-tools/block-visualizer/tx/${node.data.txid}`)}
                 className="cursor-pointer"
                 aria-label={`Transaction ${truncateHash(node.data.txid)} - Click to view details`}
               />

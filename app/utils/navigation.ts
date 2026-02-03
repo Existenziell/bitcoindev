@@ -151,7 +151,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment' },
   { path: '/docs/investment/risk-management', mdFile: 'app/docs/investment/risk-management/risk-management.md', title: 'Risk Management', section: 'investment' },
   { path: '/docs/investment/investment-strategy', mdFile: 'app/docs/investment/investment-strategy/overview.md', title: 'Investment Strategy', section: 'investment' },
-  { path: '/docs/investment/tools', mdFile: 'app/docs/investment/tools/tools.md', title: 'Tools & Resources', section: 'investment' },
+  { path: '/docs/investment/tools', mdFile: 'app/docs/investment/tools/tools.md', title: 'Interactive Tools', section: 'investment' },
   { path: '/docs/investment/wallet-security', mdFile: 'app/docs/investment/wallet-security/wallet-security.md', title: 'Wallet Security & Self-Custody', section: 'investment' },
   { path: '/docs/investment/privacy', mdFile: 'app/docs/investment/privacy/privacy.md', title: 'Privacy', section: 'investment' },
   { path: '/docs/investment/market-cycles', mdFile: 'app/docs/investment/market-cycles/market-cycles.md', title: 'Understanding Market Cycles', section: 'investment' },
@@ -243,21 +243,21 @@ export const sections: Record<string, { title: string; description: string }> = 
 // Home page CTA links
 export const ctaLinks: { href: string; title: string }[] = [
   { href: '/docs/fundamentals', title: 'Start Learning' },
-  { href: '/terminal', title: 'Bitcoin CLI' },
-  { href: '/stack-lab', title: 'Stack Lab' },
+  { href: '/interactive-tools/terminal', title: 'Bitcoin CLI' },
+  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
 ]
 
 // Docs sidebar - top section (interactive tools)
 export const docsNavLinksTop: { href: string; title: string }[] = [
   { href: '/whitepaper', title: 'Whitepaper' },
-  { href: '/terminal', title: 'CLI Terminal' },
-  { href: '/stack-lab', title: 'Stack Lab' },
-  { href: '/block-visualizer', title: 'Block Visualizer' },
+  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
+  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
+  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
 ]
 
 // Docs sidebar - bottom section (site utilities)
 export const docsNavLinksBottom: { href: string; title: string }[] = [
-  { href: '/tools', title: 'Tools' },
+  { href: '/interactive-tools', title: 'Interactive Tools' },
   { href: '/docs/glossary', title: 'Glossary' },
   { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
@@ -265,9 +265,9 @@ export const docsNavLinksBottom: { href: string; title: string }[] = [
 
 // Horizontal nav - quick links at bottom
 export const horizontalNavLinksBottom: { href: string; title: string }[] = [
+  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
+  { href: '/interactive-tools', title: 'Interactive Tools' },
   { href: '/whitepaper', title: 'Whitepaper' },
-  { href: '/block-visualizer', title: 'Block Visualizer' },
-  { href: '/tools', title: 'Tools' },
   { href: '/about', title: 'About' },
 ]
 
@@ -286,11 +286,11 @@ export const footerLinksExternal: { name: string; url: string }[] = [
 // Footer - Explore BitcoinDev section (right side)
 export const footerLinksExplore: { href: string; title: string }[] = [
   { href: '/docs', title: 'Search Docs' },
-  { href: '/tools', title: 'Tools' },
+  { href: '/interactive-tools', title: 'Interactive Tools' },
   { href: '/whitepaper', title: 'Whitepaper' },
-  { href: '/terminal', title: 'CLI Terminal' },
-  { href: '/stack-lab', title: 'Stack Lab' },
-  { href: '/block-visualizer', title: 'Block Visualizer' },
+  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
+  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
+  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
   { href: '/docs/glossary', title: 'Glossary' },
   { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
@@ -369,7 +369,8 @@ const docRouteLabels = Object.fromEntries(
   })
 )
 export const routeLabels: Record<string, string> = {
-  tools: 'Tools',
+  tools: 'Interactive Tools',
+  'interactive-tools': 'Interactive Tools',
   hash: 'Hash Tool',
   terminal: 'CLI Terminal',
   'stack-lab': 'Stack Lab',

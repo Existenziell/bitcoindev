@@ -28,7 +28,7 @@ The Merkle root is stored in the block header, providing a compact commitment to
 [Hash each transaction] --> [Pair and hash] --> [Repeat until one hash] --> [Merkle root in block header]
 ```
 
-The same double SHA-256 used in Merkle nodes can be tried in the [Hash tool](/tools/hash).
+The same double SHA-256 used in Merkle nodes can be tried in the [Hash tool](/interactive-tools/hash).
 
 ### Verification
 

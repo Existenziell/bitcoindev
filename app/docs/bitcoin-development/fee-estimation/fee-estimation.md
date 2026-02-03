@@ -7,7 +7,7 @@ When building [transactions](/docs/bitcoin-development/transactions), you need a
 - **Too low**: Transaction may sit in the mempool or be dropped; user waits or payment fails.
 - **Too high**: User overpays; acceptable for urgency, wasteful otherwise.
 
-Estimation is **heuristic**: the mempool changes constantly, and miners choose which transactions to include. There is no guarantee a given fee rate will confirm in N blocks; treat estimates as guidance.
+Estimation is **heuristic**: the mempool changes constantly, and miners choose which transactions to include. There is no guarantee a given fee rate will confirm in N blocks; treat estimates as guidance. Try the [Fee Estimator](/interactive-tools/fee-estimator) to estimate fee from vBytes and current network rate.
 
 ## Fee Rate Units
 

@@ -100,7 +100,7 @@ export default function LiveStats() {
     {
       label: 'Mempool Txs',
       value: mempoolInfo?.size ? formatNumber(mempoolInfo.size) : null,
-      href: '/block-visualizer',
+      href: '/interactive-tools/block-visualizer',
     },
     {
       label: 'Mempool Size',
@@ -120,7 +120,7 @@ export default function LiveStats() {
     {
       label: 'Sats/USD',
       value: satsPerUSD ? formatNumber(satsPerUSD) : null,
-      href: '/docs/fundamentals/denominations',
+      href: '/interactive-tools/denominations-calculator',
     },
   ]
 

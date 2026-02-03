@@ -10,14 +10,14 @@ test.describe('Terminal', () => {
   })
 
   test('page loads with heading, input, and Run button', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await expect(page.getByRole('heading', { level: 1, name: /Bitcoin CLI Terminal/i })).toBeVisible()
     await expect(page.getByPlaceholder(/enter command/i)).toBeVisible()
     await expect(page.getByRole('button', { name: 'Run' })).toBeVisible()
   })
 
   test('help shows Available commands', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('help')
     await page.getByRole('button', { name: 'Run' }).click()
     // "Available commands:" (with colon) is only in help output; startup log has "Type 'help' for available commands."
@@ -25,7 +25,7 @@ test.describe('Terminal', () => {
   })
 
   test('help getblockchaininfo shows Command and Description', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('help getblockchaininfo')
     await page.getByRole('button', { name: 'Run' }).click()
     await expect(page.getByText('Command: getblockchaininfo')).toBeVisible({ timeout: 10000 })
@@ -33,7 +33,7 @@ test.describe('Terminal', () => {
   })
 
   test('clear clears output', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('help')
     await page.getByRole('button', { name: 'Run' }).click()
     await expect(page.getByText('Available commands:')).toBeVisible({ timeout: 10000 })
@@ -45,7 +45,7 @@ test.describe('Terminal', () => {
   })
 
   test('unknown command shows error', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('foo')
     await page.getByRole('button', { name: 'Run' }).click()
     await expect(page.getByText(/unknown command/i)).toBeVisible({ timeout: 10000 })
@@ -54,14 +54,14 @@ test.describe('Terminal', () => {
   })
 
   test('getblockcount returns JSON number', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('getblockcount')
     await page.getByRole('button', { name: 'Run' }).click()
     await expect(page.locator('pre').filter({ hasText: /^\d+$/ })).toBeVisible({ timeout: 15000 })
   })
 
   test('secret trigger shows fake error then SECRET overlay', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('pizza')
     await page.getByRole('button', { name: 'Run' }).click()
 
@@ -78,7 +78,7 @@ test.describe('Terminal', () => {
   })
 
   test('Back to Terminal closes secret overlay', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('nakamoto')
     await page.getByRole('button', { name: 'Run' }).click()
 
@@ -95,7 +95,7 @@ test.describe('Terminal', () => {
   })
 
   test('Return Home navigates away from terminal', async ({ page }) => {
-    await page.goto('/terminal')
+    await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('secret')
     await page.getByRole('button', { name: 'Run' }).click()
 

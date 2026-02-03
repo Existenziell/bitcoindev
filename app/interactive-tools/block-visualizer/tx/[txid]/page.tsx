@@ -10,7 +10,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { txid } = await params
-  const url = `${SITE_URL}/block-visualizer/tx/${txid}`
+  const url = `${SITE_URL}/interactive-tools/block-visualizer/tx/${txid}`
   return {
     title: `Transaction ${txid.slice(0, 8)}... | BitcoinDev`,
     description: `Bitcoin transaction details including inputs, outputs, fees, and more.`,

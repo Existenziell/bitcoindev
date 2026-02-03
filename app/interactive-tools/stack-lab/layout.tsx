@@ -4,12 +4,12 @@ import { generatePageMetadata } from '@/app/utils/metadata'
 import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Bitcoin CLI Terminal',
-  description: 'Interactive Bitcoin CLI terminal for executing RPC commands on the Bitcoin network',
-  path: '/terminal',
+  title: 'Stack Lab',
+  description: 'Interactive Bitcoin Script playground with drag-and-drop OP codes and real-time stack visualization',
+  path: '/interactive-tools/stack-lab',
 })
 
-export default function TerminalLayout({
+export default function StackLabLayout({
   children,
 }: {
   children: ReactNode

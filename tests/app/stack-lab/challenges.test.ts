@@ -7,7 +7,7 @@ import {
   type MatchOutcomeChallenge,
   type TraceChallenge,
   type PredictValidChallenge,
-} from '@/app/stack-lab/challenges'
+} from '@/app/interactive-tools/stack-lab/challenges'
 
 function freshInterpreter() {
   return new ScriptInterpreter()

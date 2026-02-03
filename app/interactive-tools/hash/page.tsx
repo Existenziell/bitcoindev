@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
+import { HashIcon } from '@/app/components/Icons'
 import { sha256 } from '@noble/hashes/sha2.js'
 import { ripemd160 } from '@noble/hashes/legacy.js'
 
@@ -159,6 +160,9 @@ export default function HashToolPage() {
   return (
     <DocsLayoutWrapper defaultSidebarCollapsed={true}>
       <div className="mb-8">
+        <div className="flex justify-center mb-3">
+          <HashIcon className="w-20 h-20" />
+        </div>
         <h1 className="heading-page text-center">Hash Tool</h1>
         <p className="text-secondary text-center max-w-2xl mx-auto">
           Compute SHA-256, HASH256 (double SHA-256), HASH160 (RIPEMD-160 of SHA-256), raw RIPEMD-160,

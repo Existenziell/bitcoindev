@@ -20,5 +20,5 @@ Curated links to Bitcoin development tools, node software, hardware, explorers, 
 
 ## Utilities
 
-- **[BitcoinDev Tools](/tools)** – CLI terminal, Stack Lab, Block Visualizer, Hash tool.
+- **[Interactive Tools](/interactive-tools)** – CLI terminal, Stack Lab, Block Visualizer, Hash tool.
 - **[Learn Me A Bitcoin – Tools](https://learnmeabitcoin.com/tools)** – Hashing, keys, transaction builder, and more.
