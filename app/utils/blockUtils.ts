@@ -160,6 +160,36 @@ export function calculateTransactionFeeRate(tx: {
   return Math.round((tx.fee * 100000000) / tx.vsize)
 }
 
+/**
+ * Get transaction fee in BTC when it can be determined reliably.
+ * Returns the RPC `fee` when present and non-negative, or (inputs - outputs) only when
+ * every non-coinbase input has prevout data. Otherwise returns null (e.g. pruned node
+ * where fee/prevout are omitted).
+ */
+export function getTransactionFee(
+  vin: Array<{ prevout?: { value?: number }; coinbase?: string }> | undefined,
+  vout: Array<{ value?: number }> | undefined,
+  rpcFee?: number
+): number | null {
+  if (typeof rpcFee === 'number' && rpcFee >= 0) {
+    return rpcFee
+  }
+  if (!vin?.length || !vout?.length) return null
+  // Coinbase: no fee to show
+  if (vin[0].coinbase) return null
+  const totalInput = vin.reduce((sum, input) => {
+    if (input.prevout && typeof input.prevout.value === 'number') return sum + input.prevout.value
+    return sum
+  }, 0)
+  const totalOutput = vout.reduce((sum, o) => sum + (o.value ?? 0), 0)
+  // Only use computed fee if we had prevout for every input (no missing data)
+  const nonCoinbaseInputs = vin.filter((i) => !i.coinbase)
+  const inputsWithPrevout = vin.filter((i) => i.prevout && typeof i.prevout.value === 'number')
+  if (nonCoinbaseInputs.length !== inputsWithPrevout.length) return null
+  const fee = totalInput - totalOutput
+  return fee >= 0 ? fee : null
+}
+
 /** Max plausible BTC (supply cap). Values above this are treated as satoshis. */
 const MAX_PLAUSIBLE_BTC = 21e6
 

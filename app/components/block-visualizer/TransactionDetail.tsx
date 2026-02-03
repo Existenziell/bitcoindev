@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { bitcoinRpc } from '@/app/utils/bitcoinRpc'
-import { formatNumber } from '@/app/utils/formatting'
-import { truncateHash, formatBlockTimestamp } from '@/app/utils/blockUtils'
+import { formatNumber, formatPrice } from '@/app/utils/formatting'
+import { truncateHash, formatBlockTimestamp, getTransactionFee, calculateTransactionFeeRate } from '@/app/utils/blockUtils'
 import copyToClipboard from '@/app/utils/copyToClipboard'
 import { CopyIcon, ChevronLeft } from '@/app/components/Icons'
 import Link from 'next/link'
@@ -62,6 +62,14 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
   const [txData, setTxData] = useState<TransactionData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [btcPrice, setBtcPrice] = useState<number | null>(null)
+
+  useEffect(() => {
+    fetch('/api/btc-price')
+      .then((r) => r.json())
+      .then((data: { price?: number }) => setBtcPrice(data?.price ?? null))
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const fetchTransaction = async () => {
@@ -120,8 +128,11 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
 
   const totalInputValue = txData.vin.reduce((sum, input) => sum + (input.prevout?.value || 0), 0)
   const totalOutputValue = txData.vout.reduce((sum, output) => sum + output.value, 0)
-  const fee = txData.fee || (totalInputValue - totalOutputValue)
-  const feeRate = txData.vsize > 0 ? Math.round((fee * 100000000) / txData.vsize) : 0
+  const fee = getTransactionFee(txData.vin, txData.vout, txData.fee)
+  const feeRate =
+    fee != null && fee >= 0 && txData.vsize > 0
+      ? calculateTransactionFeeRate({ fee, vsize: txData.vsize })
+      : null
 
   return (
     <div className="space-y-2">
@@ -200,17 +211,31 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
             </div>
           </div>
 
-          <div>
+          <div
+            title={
+              fee == null
+                ? 'Fee not available when block undo data is missing (e.g. pruned node).'
+                : undefined
+            }
+          >
             <div className="text-secondary text-xs mb-0.5">Fee</div>
             <div className="text-gray-800 dark:text-gray-200 font-semibold text-sm">
-              {(fee * 100000000).toFixed(0)} sats
+              {fee != null
+                ? `${(fee * 100000000).toFixed(0)} sats${btcPrice != null ? ` (${formatPrice(fee * btcPrice)})` : ''}`
+                : '—'}
             </div>
           </div>
 
-          <div>
+          <div
+            title={
+              feeRate == null
+                ? 'Fee rate not available when block undo data is missing (e.g. pruned node).'
+                : undefined
+            }
+          >
             <div className="text-secondary text-xs mb-0.5">Fee Rate</div>
             <div className="text-gray-800 dark:text-gray-200 font-semibold text-sm">
-              {formatNumber(feeRate)} sat/vB
+              {feeRate != null ? `${formatNumber(feeRate)} sat/vB` : '—'}
             </div>
           </div>
 
