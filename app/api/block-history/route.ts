@@ -12,8 +12,6 @@ const POOL_DISTRIBUTION_WINDOW = 2016
 const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || ''
 /** Only used when blob is empty and we seed from RPC (avoid fetching entire chain). */
 const INITIAL_SEED_LIMIT = 100
-/** Number of blocks to fetch in parallel when filling gaps (reduces total time for large gaps). */
-const GAP_FILL_BATCH_SIZE = 15
 /** Max blocks to fill per POST so we stay under Vercel Hobby 10s limit. Rest is filled on later runs. */
 const GAP_FILL_MAX_PER_REQUEST = 8
 

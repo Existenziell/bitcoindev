@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { navItems, docsNavLinksBottom, horizontalNavLinksBottom } from '@/app/utils/navigation'
+import { navItems, horizontalNavLinksBottom } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronDown, ChevronRight } from '@/app/components/Icons'
 
