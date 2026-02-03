@@ -13,8 +13,7 @@ import FeedbackLink from '@/app/components/FeedbackLink'
 interface DocsLayoutWrapperProps {
   children: ReactNode
   showPageNavigation?: boolean
-  /** Sidebar starts collapsed on Terminal, Stack Lab, Whitepaper, About. Default false (expanded). */
-  defaultSidebarCollapsed?: boolean
+  isNavCollapsed?: boolean
 }
 
 /**
@@ -24,9 +23,9 @@ interface DocsLayoutWrapperProps {
 export default function DocsLayoutWrapper({
   children,
   showPageNavigation = false,
-  defaultSidebarCollapsed = false,
+  isNavCollapsed = false,
 }: DocsLayoutWrapperProps) {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(defaultSidebarCollapsed)
+  const [isNavCollapsedState, setIsNavCollapsedState] = useState(isNavCollapsed)
   const pathname = usePathname()
 
   // Show feedback link only on documentation pages, excluding glossary
@@ -34,7 +33,7 @@ export default function DocsLayoutWrapper({
     pathname.startsWith('/docs') && pathname !== '/docs/glossary'
 
   // Automatically collapse sidebar on screens smaller than lg (1024px) when resizing
-  // Only run this on /docs routes to avoid conflicting with defaultSidebarCollapsed on other pages
+  // Only run this on /docs routes to avoid conflicting with isNavCollapsed on other pages
   // Never expands automatically, only collapses on resize
   useEffect(() => {
     // Only apply auto-collapse behavior on /docs routes
@@ -45,7 +44,7 @@ export default function DocsLayoutWrapper({
     const handleResize = () => {
       // Only collapse if window is small, never expand automatically
       if (window.innerWidth < 1024) {
-        setIsSidebarCollapsed(true)
+        setIsNavCollapsedState(true)
       }
     }
 
@@ -64,12 +63,12 @@ export default function DocsLayoutWrapper({
           <div
             className={cn(
               'hidden md:block md:flex-shrink-0 md:overflow-y-auto md:overflow-x-hidden md:mr-8 transition-[width] duration-200 ease-in-out',
-              isSidebarCollapsed ? 'md:w-10 md:self-start' : 'md:w-72 md:self-start'
+              isNavCollapsed ? 'md:w-10 md:self-start' : 'md:w-72 md:self-start'
             )}
           >
             <DocsNavigation
-              isSidebarCollapsed={isSidebarCollapsed}
-              onToggleSidebar={() => setIsSidebarCollapsed((v) => !v)}
+              isNavCollapsed={isNavCollapsedState}
+              onToggleNav={() => setIsNavCollapsedState((v) => !v)}
             />
           </div>
           <div className="flex-1 min-w-0">
@@ -77,7 +76,7 @@ export default function DocsLayoutWrapper({
             <div
               className={cn(
                 'mx-auto w-full transition-[max-width] duration-200 ease-in-out',
-                isSidebarCollapsed ? 'max-w-6xl' : 'max-w-4xl'
+                isNavCollapsed ? 'max-w-6xl' : 'max-w-4xl'
               )}
             >
               {children}

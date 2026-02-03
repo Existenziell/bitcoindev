@@ -11,7 +11,7 @@ export default function TransactionDecoderPage() {
   const result = decodeRawTransaction(input)
 
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <TransactionDecoderIcon className="w-20 h-20" />

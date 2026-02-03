@@ -158,7 +158,7 @@ export default function HashToolPage() {
   } = getHashResults(input, inputMode)
 
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <HashIcon className="w-20 h-20" />

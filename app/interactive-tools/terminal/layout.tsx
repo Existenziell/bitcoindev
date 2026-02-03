@@ -15,7 +15,7 @@ export default function TerminalLayout({
   children: ReactNode
 }) {
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed>
+    <DocsLayoutWrapper isNavCollapsed={true}>
       {children}
     </DocsLayoutWrapper>
   )

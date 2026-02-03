@@ -50,17 +50,17 @@ function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default')
 }
 
 interface DocsNavigationProps {
-  isSidebarCollapsed?: boolean
-  onToggleSidebar?: () => void
+  isNavCollapsed?: boolean
+  onToggleNav?: () => void
   onLinkClick?: () => void
 }
 
 export default function DocsNavigation({
-  isSidebarCollapsed,
-  onToggleSidebar,
+  isNavCollapsed,
+  onToggleNav,
   onLinkClick,
 }: DocsNavigationProps) {
-  const isSidebarNarrow = isSidebarCollapsed === true && onToggleSidebar != null
+  const isNavNarrow = isNavCollapsed === true && onToggleNav != null
   const pathname = usePathname()
 
   const activeSection = useMemo(() => findActiveSectionHref(pathname), [pathname])
@@ -100,12 +100,12 @@ export default function DocsNavigation({
   const isExpanded = (href: string) => expandedSections.has(href)
 
   // Collapsed sidebar: expand trigger below (nav content hidden)
-  if (isSidebarNarrow && onToggleSidebar) {
+  if (isNavNarrow && onToggleNav) {
     return (
       <nav className="w-full flex flex-col">
         <button
           type="button"
-          onClick={onToggleSidebar}
+          onClick={onToggleNav}
           className="w-full flex items-center justify-center px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
           aria-label="Expand navigation"
           title="Expand sidebar"
@@ -119,10 +119,10 @@ export default function DocsNavigation({
   return (
     <nav className="w-full flex-shrink-0 sticky top-0 flex flex-col">
       {/* Collapse trigger above the nav */}
-      {onToggleSidebar && (
+      {onToggleNav && (
         <button
           type="button"
-          onClick={onToggleSidebar}
+          onClick={onToggleNav}
           className="mb-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
           aria-label="Collapse sidebar"
           title="Collapse sidebar"

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function MempoolPage() {
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper isNavCollapsed={true}>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <BlockVisualizerIcon className="w-20 h-20" />

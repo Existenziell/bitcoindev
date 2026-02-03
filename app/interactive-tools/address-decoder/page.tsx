@@ -11,7 +11,7 @@ export default function AddressDecoderPage() {
   const result = decodeAddress(input)
 
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <AddressDecoderIcon className="w-20 h-20" />

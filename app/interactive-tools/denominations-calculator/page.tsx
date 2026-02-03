@@ -7,7 +7,7 @@ import DenominationCalculator from '@/app/components/DenominationCalculator'
 
 export default function DenominationsCalculatorPage() {
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <CalculatorIcon className="w-20 h-20" />

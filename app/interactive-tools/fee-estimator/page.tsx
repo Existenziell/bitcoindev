@@ -77,7 +77,7 @@ export default function FeeEstimatorPage() {
       : null
 
   return (
-    <DocsLayoutWrapper defaultSidebarCollapsed={true}>
+    <DocsLayoutWrapper>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <FeeEstimatorIcon className="w-20 h-20" />
