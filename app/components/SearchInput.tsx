@@ -106,7 +106,7 @@ export function SearchInput(props: SearchInputProps) {
   if (isInputOnly) {
     const { placeholder } = props
     return (
-      <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 overflow-hidden focus-within:border-btc">
         <SearchInputRow
           value={query}
           onChange={setQuery}

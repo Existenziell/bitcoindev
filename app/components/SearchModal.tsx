@@ -43,7 +43,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   return (
     <div
-      className="modal-overlay flex items-start justify-center pt-[12vh] px-4"
+      className="modal-overlay flex items-start justify-center pt-[20vh] px-4"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
