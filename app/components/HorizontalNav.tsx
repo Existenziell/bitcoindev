@@ -94,12 +94,6 @@ export default function HorizontalNav() {
                   </div>
                 )
               })}
-              <Link
-                href={docsNavLinksBottom[0].href}
-                className="font-medium text-gray-800 dark:text-gray-200 hover:text-btc transition-colors pl-7"
-              >
-                {docsNavLinksBottom[0].title}
-              </Link>
             </div>
 
             {/* Quick Links Section - Prominent at the bottom */}

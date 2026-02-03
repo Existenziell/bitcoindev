@@ -426,6 +426,75 @@ export function HashIcon({ className, ...props }: IconProps) {
   )
 }
 
+/** Address decoder tool icon (document with magnifier). */
+export function AddressDecoderIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      className={mergeClassName('w-4 h-4', className)}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4z" />
+      <path d="M4 10v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10" />
+      <circle cx="11" cy="15" r="2" />
+      <path d="m20 20-2-2" />
+    </svg>
+  )
+}
+
+/** Transaction decoder tool icon (layers/list). */
+export function TransactionDecoderIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      className={mergeClassName('w-4 h-4', className)}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6" />
+      <path d="M16 13H8" />
+      <path d="M16 17H8" />
+      <path d="M10 9H8" />
+    </svg>
+  )
+}
+
+/** Fee estimator tool icon (gauge/speed). */
+export function FeeEstimatorIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      className={mergeClassName('w-4 h-4', className)}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M12 2v4" />
+      <path d="m4.93 4.93 2.83 2.83" />
+      <path d="M2 12h4" />
+      <path d="m4.93 19.07 2.83-2.83" />
+      <path d="M12 18v4" />
+      <path d="m17.24 17.24 2.83-2.83" />
+      <path d="M18 12h4" />
+      <path d="m19.07 4.93-2.83 2.83" />
+      <circle cx="12" cy="12" r="4" />
+    </svg>
+  )
+}
+
 /** Denominations / Calculator tool icon. */
 export function CalculatorIcon({ className, ...props }: IconProps) {
   return (

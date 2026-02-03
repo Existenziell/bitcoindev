@@ -285,7 +285,6 @@ export const footerLinksExternal: { name: string; url: string }[] = [
 
 // Footer - Explore BitcoinDev section (right side)
 export const footerLinksExplore: { href: string; title: string }[] = [
-  { href: '/docs/history', title: 'History' },
   { href: '/docs', title: 'Search Docs' },
   { href: '/tools', title: 'Tools' },
   { href: '/whitepaper', title: 'Whitepaper' },
