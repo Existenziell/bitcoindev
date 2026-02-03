@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import TransactionDetail from '@/app/components/TransactionDetail'
+import TransactionDetail from '@/app/components/block-visualizer/TransactionDetail'
 import Footer from '@/app/components/Footer'
 import { SITE_URL } from '@/app/utils/metadata'
 

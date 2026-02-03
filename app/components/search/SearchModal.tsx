@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { useSearch } from '@/app/hooks/useSearch'
-import { SearchInput } from '@/app/components/SearchInput'
+import { SearchInput } from '@/app/components/search/SearchInput'
 
 interface SearchModalProps {
   isOpen: boolean

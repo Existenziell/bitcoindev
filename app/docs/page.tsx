@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { generatePageMetadata } from '@/app/utils/metadata'
-import DocsSearch from '@/app/components/DocsSearch'
+import DocsSearch from '@/app/components/search/DocsSearch'
 import { navItems, sections } from '@/app/utils/navigation'
 
 export const metadata: Metadata = generatePageMetadata({

@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearch } from '@/app/contexts/SearchContext'
-import SearchModal from '@/app/components/SearchModal'
+import SearchModal from '@/app/components/search/SearchModal'
 
 /**
  * Wrapper component that renders the SearchModal using the shared context.

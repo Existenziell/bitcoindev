@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import BlockVisualizer from '@/app/components/BlockVisualizer'
+import BlockVisualizer from '@/app/components/block-visualizer/BlockVisualizer'
 import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { SITE_URL } from '@/app/utils/metadata'
 import { BlockVisualizerIcon } from '@/app/components/Icons'

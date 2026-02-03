@@ -12,7 +12,7 @@ import StickyBar from '@/app/components/StickyBar'
 import Notification from '@/app/components/Notification'
 import { StickyScrollProvider } from '@/app/contexts/StickyScrollContext'
 import { SearchProvider } from '@/app/contexts/SearchContext'
-import SearchModalWrapper from '@/app/components/SearchModalWrapper'
+import SearchModalWrapper from '@/app/components/search/SearchModalWrapper'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './utils/constants'
 
 const ubuntu = Ubuntu({

@@ -13,8 +13,8 @@ import {
   truncateHash,
 } from '@/app/utils/blockUtils'
 import { formatNumber, formatPrice } from '@/app/utils/formatting'
-import BlockHeader from '@/app/components/BlockHeader'
-import TransactionTreemap from '@/app/components/TransactionTreemap'
+import BlockHeader from '@/app/components/block-visualizer/BlockHeader'
+import TransactionTreemap from '@/app/components/block-visualizer/TransactionTreemap'
 import { ChevronLeft, ChevronRight } from '@/app/components/Icons'
 import { useMobileWarning } from '@/app/hooks/useMobileWarning'
 import poolsData from '@/public/data/pools.json'

@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { SearchResultItem } from '@/app/components/SearchResultItem'
-import { SearchResultsStatus } from '@/app/components/SearchResultsStatus'
+import { SearchResultItem } from '@/app/components/search/SearchResultItem'
+import { SearchResultsStatus } from '@/app/components/search/SearchResultsStatus'
 import { MIN_QUERY_LEN } from '@/app/utils/searchLogic'
 import { useSearch } from '@/app/hooks/useSearch'
 import { useKeyboardNavigation } from '@/app/hooks/useKeyboardNavigation'
-import { SearchInput } from '@/app/components/SearchInput'
+import { SearchInput } from '@/app/components/search/SearchInput'
 
 export default function DocsSearch() {
   const { query, setQuery, results, loading } = useSearch()
