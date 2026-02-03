@@ -21,6 +21,16 @@ jobs:
             echo "CRON_SECRET is not set. Add it in repo Settings > Secrets and variables > Actions."
             exit 1
           fi
-          curl -sSf -X POST \
-            -H "Authorization: Bearer $CRON_SECRET" \
-            "$URL/api/block-history"
+          # Retry on 504/503 (timeout or overload); max 3 attempts, 90s timeout per attempt
+          for attempt in 1 2 3; do
+            if curl -sSf --max-time 90 -X POST \
+              -H "Authorization: Bearer $CRON_SECRET" \
+              "$URL/api/block-history"; then
+              exit 0
+            fi
+            ret=$?
+            echo "Attempt $attempt failed (exit $ret). Retrying in 30s..."
+            sleep 30
+          done
+          echo "All attempts failed."
+          exit 22

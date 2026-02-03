@@ -14,9 +14,14 @@ const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || '
 const INITIAL_SEED_LIMIT = 100
 /** Number of blocks to fetch in parallel when filling gaps (reduces total time for large gaps). */
 const GAP_FILL_BATCH_SIZE = 15
+/** Max blocks to fill per POST so we stay under Vercel Hobby 10s limit. Rest is filled on later runs. */
+const GAP_FILL_MAX_PER_REQUEST = 8
 
 /** Revalidate cached response every 10 minutes. */
 export const revalidate = 600
+
+/** Allow up to 60s on Vercel Pro; on Hobby (10s) we rely on GAP_FILL_MAX_PER_REQUEST. */
+export const maxDuration = 60
 
 type RawBlock = {
   height: number
@@ -201,14 +206,46 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const chainInfo = await bitcoinRpcServer('getblockchaininfo')
-    const tipHeight = (chainInfo as { blocks: number }).blocks
-
-    console.log('[block-history] POST: new block at height', tipHeight)
-    const newBlock = await fetchBlockSnapshotAtHeight(tipHeight)
-
     let list = await readBlockHistoryFromBlob()
     if (list === null) list = []
+
+    // On Vercel Hobby we have ~10s; fill at most one batch per request so we don't time out.
+    // First: fill one batch of any internal gap (from a previous partial gap-fill).
+    for (let i = 0; i < list.length - 1; i++) {
+      const high = list[i].height
+      const low = list[i + 1].height
+      if (high - low <= 1) continue
+      const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, high - low - 1)
+      const heights = Array.from({ length: toFill }, (_, j) => high - 1 - j)
+      console.log('[block-history] POST: filling internal gap', high - 1, '..', heights[heights.length - 1], '(' + toFill, 'blocks)')
+      const batch = await Promise.all(
+        heights.map(async (h) => {
+          try {
+            return await fetchBlockSnapshotAtHeight(h)
+          } catch (e) {
+            console.error('[block-history] POST: fetch block', h, 'failed', e)
+            return null
+          }
+        })
+      )
+      const valid = batch.filter((s): s is BlockSnapshot => s !== null)
+      if (valid.length !== batch.length) {
+        return NextResponse.json(
+          { error: 'Failed to fetch some blocks; retry later' },
+          { status: 503 }
+        )
+      }
+      const updated = [...list.slice(0, i + 1), ...valid, ...list.slice(i + 1)]
+      await writeBlockHistoryToBlob(updated)
+      await writePoolDistributionToBlob(computePoolDistribution(updated))
+      console.log('[block-history] POST: filled internal gap, list length', updated.length)
+      return NextResponse.json({ blocks: updated })
+    }
+
+    const chainInfo = await bitcoinRpcServer('getblockchaininfo')
+    const tipHeight = (chainInfo as { blocks: number }).blocks
+    console.log('[block-history] POST: new block at height', tipHeight)
+    const newBlock = await fetchBlockSnapshotAtHeight(tipHeight)
 
     const topHeight = list[0]?.height ?? null
     if (topHeight !== null && newBlock.height === topHeight) {
@@ -217,40 +254,32 @@ export async function POST(request: NextRequest) {
     }
 
     if (list.length > 0 && newBlock.height > topHeight + 1) {
-      // Fill the entire gap so the stored list remains contiguous (no gaps). Fetch in parallel batches.
-      const gapSize = newBlock.height - topHeight - 1 // exclude tip (we already have newBlock)
-      console.log('[block-history] POST: gap (new', newBlock.height, ', top', topHeight, '), filling', gapSize, 'blocks from RPC')
-      const missingHeights: number[] = []
-      for (let h = newBlock.height - 1; h >= topHeight + 1; h--) {
-        missingHeights.push(h)
-      }
-      const missing: BlockSnapshot[] = []
-      for (let i = 0; i < missingHeights.length; i += GAP_FILL_BATCH_SIZE) {
-        const batch = missingHeights.slice(i, i + GAP_FILL_BATCH_SIZE)
-        const results = await Promise.all(
-          batch.map(async (h) => {
-            try {
-              return await fetchBlockSnapshotAtHeight(h)
-            } catch (e) {
-              console.error('[block-history] POST: fetch block', h, 'failed', e)
-              return null
-            }
-          })
+      // Gap at top: fill at most GAP_FILL_MAX_PER_REQUEST so we stay under 10s (Hobby).
+      const gapSize = newBlock.height - topHeight - 1
+      const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, gapSize)
+      const missingHeights = Array.from({ length: toFill }, (_, j) => newBlock.height - 1 - j)
+      console.log('[block-history] POST: gap at top (new', newBlock.height, ', top', topHeight, '), filling', toFill, 'of', gapSize, 'blocks')
+      const missing = await Promise.all(
+        missingHeights.map(async (h) => {
+          try {
+            return await fetchBlockSnapshotAtHeight(h)
+          } catch (e) {
+            console.error('[block-history] POST: fetch block', h, 'failed', e)
+            return null
+          }
+        })
+      )
+      const valid = missing.filter((s): s is BlockSnapshot => s !== null)
+      if (valid.length !== missingHeights.length) {
+        return NextResponse.json(
+          { error: 'Failed to fetch some blocks; retry later' },
+          { status: 503 }
         )
-        const valid = results.filter((s): s is BlockSnapshot => s !== null)
-        if (valid.length !== batch.length) {
-          console.error('[block-history] POST: gap-fill partial (got', missing.length + valid.length, 'of', missingHeights.length, '), not writing')
-          return NextResponse.json(
-            { error: 'Failed to fetch all missing blocks; retry later' },
-            { status: 503 }
-          )
-        }
-        missing.push(...valid)
       }
-      const updated = [newBlock, ...missing, ...list]
+      const updated = [newBlock, ...valid, ...list]
       await writeBlockHistoryToBlob(updated)
       await writePoolDistributionToBlob(computePoolDistribution(updated))
-      console.log('[block-history] POST: filled gap, prepended', 1 + missing.length, 'blocks, list length', updated.length)
+      console.log('[block-history] POST: filled gap batch, prepended', 1 + valid.length, 'blocks, list length', updated.length)
       return NextResponse.json({ blocks: updated })
     }
 
