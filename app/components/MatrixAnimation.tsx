@@ -28,6 +28,19 @@ export default function MatrixAnimation({ duration = 4000, onComplete }: MatrixA
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
+    // Detect theme from document (same as theme toggle / next-themes)
+    const getTheme = () => {
+      const isDark =
+        document.documentElement.classList.contains('dark') ||
+        document.body.classList.contains('dark') ||
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      return { isDark, charColor: isDark ? '#f2a900' : '#4ade80' }
+    }
+
+    // Set initial blend mode from theme (animate() will update each frame if theme toggles)
+    const { isDark } = getTheme()
+    canvas.style.mixBlendMode = isDark ? 'screen' : 'multiply'
+
     // Matrix characters
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
     const charArray = chars.split('')
@@ -40,15 +53,6 @@ export default function MatrixAnimation({ duration = 4000, onComplete }: MatrixA
     // Initialize drops
     for (let i = 0; i < columns; i++) {
       drops[i] = Math.random() * -100
-    }
-
-    // Detect theme from document
-    const getThemeColor = () => {
-      // Check if dark mode class is on html or body
-      const isDark = document.documentElement.classList.contains('dark') ||
-                     document.body.classList.contains('dark') ||
-                     window.matchMedia('(prefers-color-scheme: dark)').matches
-      return isDark ? '#f2a900' : '#4ade80' // Bitcoin orange for dark, green-400 for light
     }
 
     // Animation function
@@ -64,12 +68,15 @@ export default function MatrixAnimation({ duration = 4000, onComplete }: MatrixA
         return
       }
 
-      // Clear with slight fade for trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      const { isDark, charColor } = getTheme()
+      // Light mode: multiply blend so chars are visible on light bg; clear with white fade for trail.
+      // Dark mode: screen blend on dark bg; clear with black fade for trail.
+      canvas.style.mixBlendMode = isDark ? 'screen' : 'multiply'
+      ctx.fillStyle = isDark ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Set text properties - match terminal theme
-      ctx.fillStyle = getThemeColor()
+      ctx.fillStyle = charColor
       ctx.font = `${fontSize}px monospace`
 
       // Draw characters
@@ -107,7 +114,6 @@ export default function MatrixAnimation({ duration = 4000, onComplete }: MatrixA
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-50"
-      style={{ mixBlendMode: 'screen' }}
     />
   )
 }
