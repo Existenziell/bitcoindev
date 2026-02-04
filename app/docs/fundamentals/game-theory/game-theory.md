@@ -121,7 +121,7 @@ See [Incentive Structure](/docs/fundamentals/incentives#game-theory-and-nash-equ
 
 **Equilibrium**: Nodes validate honestly because invalid blocks harm the network (which nodes depend on), and self-verification provides direct value.
 
-See [Incentive Structure](/docs/fundamentals/incentives#game-theory-and-nash-equilibrium) for detailed analysis of the node game.
+See Incentive Structure for detailed analysis of the node game.
 
 ### The Fee Market Game
 

@@ -282,7 +282,7 @@ As Bitcoin infrastructure improves and adoption grows, these use cases will expa
 
 - [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin has value
 - [Lightning Network](/docs/lightning) - Fast, cheap payments
-- [Bitcoin as Investment](/docs/investment) - Investment strategies
+- Bitcoin as Investment - Investment strategies
 - [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin enables trustless transactions
 - [Decentralization](/docs/fundamentals/decentralization) - Why Bitcoin can't be stopped
 

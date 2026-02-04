@@ -475,5 +475,5 @@ console.log(`SHA256D hash: ${hash.toString('hex')}`);
 
 - [Bitcoin Mining](/docs/mining) - Mining architecture and concepts
 - [Mining Economics](/docs/mining/economics) - Rewards and profitability
-- [Difficulty Adjustment](/docs/mining/difficulty) - How difficulty adjusts over time
+- Difficulty Adjustment - How difficulty adjusts over time
 - [Block Construction](/docs/mining/block-construction) - How blocks are assembled

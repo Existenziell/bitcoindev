@@ -358,7 +358,7 @@ Only after thorough testing:
 
 ### Transaction Construction
 
-For detailed transaction construction guidance, see [Bitcoin Development](/docs/bitcoin-development):
+For detailed transaction construction guidance, see Bitcoin Development:
 - **Calculate fees properly**: Too low = stuck, too high = waste
 - **Handle dust**: Outputs below ~546 sats may be unspendable
 - **Sign correctly**: Verify signatures before broadcasting
@@ -390,7 +390,7 @@ Start small, use testnet, and build incrementally. The Bitcoin development commu
 
 ## Related Topics
 
-- [Bitcoin Development](/docs/bitcoin-development) - Practical development tasks including PSBT, transaction construction, address generation, key management, blockchain monitoring, and more
+- Bitcoin Development - Practical development tasks including PSBT, transaction construction, address generation, key management, blockchain monitoring, and more
 - [Wallet Development](/docs/wallets) - Building Bitcoin wallets
 - [Bitcoin Protocol](/docs/bitcoin) - Deep technical protocol documentation
 

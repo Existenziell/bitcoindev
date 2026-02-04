@@ -315,7 +315,7 @@ For a replacement to be accepted by [BIP 125](https://github.com/bitcoin/bips/bl
 
 ### Child Pays for Parent (CPFP)
 
-**CPFP** is used when you **cannot** replace the original (e.g., you are the **recipient** and don’t control the inputs, or the original is not RBF-signaling). You create a **child** [transaction](/docs/bitcoin/transaction-lifecycle) that spends an **output** of the stuck (parent) transaction and attach a high enough fee so that miners are willing to mine both parent and child together. Miners evaluate the **package** (parent + child) by the combined fee and combined size; a high-fee child makes the package profitable.
+**CPFP** is used when you **cannot** replace the original (e.g., you are the **recipient** and don’t control the inputs, or the original is not RBF-signaling). You create a **child** transaction that spends an **output** of the stuck (parent) transaction and attach a high enough fee so that miners are willing to mine both parent and child together. Miners evaluate the **package** (parent + child) by the combined fee and combined size; a high-fee child makes the package profitable.
 
 ```text
 Parent Transaction:

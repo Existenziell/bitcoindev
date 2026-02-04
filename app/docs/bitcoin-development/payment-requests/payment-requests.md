@@ -257,7 +257,7 @@ Encode the `bitcoin:` URI in a QR code so mobile wallets can scan it. Use a QR l
 
 - **Unconfirmed**: The [transaction](/docs/bitcoin/transaction-lifecycle) is in the [mempool](/docs/mining/mempool); it can be replaced ([RBF](/docs/bitcoin/transaction-fees)) or double-spent. Do not treat as final for high-value or physical goods unless you accept the risk.
 - **Confirmations**: Each block on top of the block that includes the tx adds one confirmation. Many applications wait for 1–6 confirmations before considering payment final. See [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle).
-- **Watching**: Use [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) (e.g. address watch, ZMQ, or API) to detect when a payment to your invoice address is included in a block and reaches the desired confirmation depth.
+- **Watching**: Use Blockchain Monitoring (e.g. address watch, ZMQ, or API) to detect when a payment to your invoice address is included in a block and reaches the desired confirmation depth.
 
 ## Refunds
 
@@ -268,7 +268,7 @@ Encode the `bitcoin:` URI in a QR code so mobile wallets can scan it. Use a QR l
 ## Related Topics
 
 - [Address Generation](/docs/bitcoin-development/addresses) - Generating unique addresses per invoice
-- [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) - Watching for incoming payments
-- [Price Tracking](/docs/bitcoin-development/price-tracking) - Converting fiat to satoshis for invoice amount
-- [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) - Confirmations and finality
+- Blockchain Monitoring - Watching for incoming payments
+- Price Tracking - Converting fiat to satoshis for invoice amount
+- Transaction Lifecycle - Confirmations and finality
 - [Transaction Fees](/docs/bitcoin/transaction-fees) - RBF and accepting unconfirmed payments

@@ -51,7 +51,7 @@ The **Ordinals protocol** assigns a unique, sequential number to each satoshi ba
 
 ### Consensus and Policy
 
-- Ordinals and inscriptions use existing [SegWit](/docs/bitcoin/segwit) and [Taproot](/docs/bitcoin/taproot) rules; they are **valid** under current consensus rules
+- Ordinals and inscriptions use existing SegWit and [Taproot](/docs/bitcoin/taproot) rules; they are **valid** under current consensus rules
 - Limits on data size (e.g., `-datacarriersize` for [OP_RETURN](/docs/controversies/op-return)) are **relay policy**, not consensus; witness-based inscriptions are subject to node policy (e.g., non-standard or size limits) in some configurations
 
 ### Debate
@@ -77,7 +77,7 @@ Views in the Bitcoin community vary:
 ## Related Topics
 
 - [OP_RETURN Debate](/docs/controversies/op-return) – Data on Bitcoin and blockspace use
-- [SegWit](/docs/bitcoin/segwit) – Witness discount and structure
+- SegWit – Witness discount and structure
 - [Transaction Fees](/docs/bitcoin/transaction-fees) – Fee market and fee estimation
 - [Mempool](/docs/mining/mempool) – How transactions are queued
 

@@ -33,4 +33,4 @@ Each output creates a new UTXO: an amount and a scriptPubKey (locking script) th
 - [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) for states from creation to confirmation
 - [Transaction Construction](/docs/bitcoin-development/transactions) for building transactions in code
 - [Script](/docs/bitcoin/script) for scriptPubKey and ScriptSig formats
-- [Data Encoding](/docs/bitcoin/data-encoding) for serialization details
+- Data Encoding for serialization details

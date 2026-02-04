@@ -77,7 +77,7 @@ psbt.signInput(inputIndex, keyPair); // uses default
 
 ## Signing Order in Multisig
 
-For M-of-N multisig, each of the M signers must sign the same [transaction](/docs/bitcoin-development/transactions) (or [PSBT](/docs/bitcoin-development/psbt)). Order does not matter for validity: any M signers can sign in any order. The resulting witness is a stack of M signatures (and possibly a script); the script verifies that M of N pubkeys signed. When using [PSBT](/docs/bitcoin-development/psbt), each signer adds their signature to the PSBT; the finalizer combines them into the correct witness order required by the script.
+For M-of-N multisig, each of the M signers must sign the same [transaction](/docs/bitcoin-development/transactions) (or PSBT). Order does not matter for validity: any M signers can sign in any order. The resulting witness is a stack of M signatures (and possibly a script); the script verifies that M of N pubkeys signed. When using PSBT, each signer adds their signature to the PSBT; the finalizer combines them into the correct witness order required by the script.
 
 :::code-group
 ```rust
@@ -205,13 +205,13 @@ const tx = psbt.finalizeAllInputs().extractTransaction();
 3. **Finalizer** combines partial signatures into the witness (and checks that required M-of-N are present).
 4. **Extract** the final transaction and broadcast.
 
-See [PSBT](/docs/bitcoin-development/psbt) for structure and [Transaction Construction](/docs/bitcoin-development/transactions) for building the underlying transaction.
+See PSBT for structure and [Transaction Construction](/docs/bitcoin-development/transactions) for building the underlying transaction.
 
 ## Related Topics
 
-- [Sighash Types](/docs/bitcoin/sighash-types) - Protocol definition of sighash types
-- [Transaction Construction](/docs/bitcoin-development/transactions) - Building and signing transactions
-- [PSBT](/docs/bitcoin-development/psbt) - Partially signed transactions and multi-party signing
+- Sighash Types - Protocol definition of sighash types
+- Transaction Construction - Building and signing transactions
+- PSBT - Partially signed transactions and multi-party signing
 - [Key Management](/docs/bitcoin-development/keys) - Private keys and signing
 - [Script Patterns](/docs/bitcoin-development/script-patterns) - Multisig and contract scripts
 - [Smart Contracts](/docs/wallets/smart-contracts) - When to use non-default sighash types

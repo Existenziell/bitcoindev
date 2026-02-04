@@ -231,7 +231,7 @@ While Bitcoin Core is the reference implementation, alternatives exist:
 
 ## Related Topics
 
-- [Test Networks](/docs/development/testnets) - Development environments
+- Test Networks - Development environments
 - [RPC Commands](/docs/bitcoin/rpc) - Interacting with Bitcoin Core
 - [Libraries & SDKs](/docs/development/libraries) - Development tools
 - [Hardware Evolution](/docs/mining/hardware) - How mining separated from nodes

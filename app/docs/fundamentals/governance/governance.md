@@ -138,7 +138,7 @@ Process:
 ## Related Topics
 
 - [BIPs](/docs/history/bips) - Bitcoin Improvement Proposals
-- [Forks](/docs/history/forks) - Protocol upgrades
+- Forks - Protocol upgrades
 - [Controversies](/docs/controversies) - Major debates
 
 ---

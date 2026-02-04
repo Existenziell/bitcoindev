@@ -214,6 +214,6 @@ Use the same unit (sat/vB) when [calculating total fee](/docs/bitcoin-developmen
 ## Related Topics
 
 - [Transaction Construction](/docs/bitcoin-development/transactions) - Using fee rate to set transaction fee
-- [Transaction Fees](/docs/bitcoin/transaction-fees) - Fee market and RBF/CPFP
+- Transaction Fees - Fee market and RBF/CPFP
 - [Mempool](/docs/mining/mempool) - How unconfirmed transactions are stored and selected
 - [Coin Selection](/docs/bitcoin-development/coin-selection) - Selecting UTXOs with effective value and fee in mind

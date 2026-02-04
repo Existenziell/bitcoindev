@@ -67,7 +67,7 @@ Mt. Gox launched as the first major Bitcoin exchange, eventually handling over 7
 
 - **Date**: August 15, 2010
 
-A critical consensus bug was discovered that allowed creation of 184 billion BTC from an integer overflow in output validation. The exploit was fixed with a soft fork, and the invalid [transaction](/docs/bitcoin/transaction-lifecycle) was removed from the blockchain. It remains one of the most serious early [protocol](/docs/bitcoin) bugs; the response showed the network could coordinate a timely fix.
+A critical consensus bug was discovered that allowed creation of 184 billion BTC from an integer overflow in output validation. The exploit was fixed with a soft fork, and the invalid [transaction](/docs/bitcoin/transaction-lifecycle) was removed from the blockchain. It remains one of the most serious early protocol bugs; the response showed the network could coordinate a timely fix.
 
 ---
 
@@ -132,7 +132,7 @@ Bitcoin crossed $1,000 for the first time during a rally driven by Chinese excha
 
 - **Date**: October 2013
 
-U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over Bitcoin’s use in illicit markets and over regulation. The [network](/docs/bitcoin/p2p-protocol) continued to operate; no [protocol](/docs/bitcoin) change was required.
+U.S. law enforcement shut down Silk Road and arrested its operator. The event fueled debate over Bitcoin’s use in illicit markets and over regulation. The [network](/docs/bitcoin/p2p-protocol) continued to operate; no protocol change was required.
 
 ---
 

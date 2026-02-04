@@ -91,14 +91,14 @@ The term highlights that Bitcoin *is* remarkable: digital scarcity without a cen
 - **"WAGMI"**: "We're all gonna make it," a community encouragement meme
 - **"NGMI"**: "Not gonna make it," used for those who don't understand Bitcoin
 
-See [The Bitcoin Protocol](/docs/bitcoin) for the technical foundation, and [Game Theory](/docs/fundamentals/game-theory) for why the system works.
+See The Bitcoin Protocol for the technical foundation, and Game Theory for why the system works.
 
 ---
 
 ## Related Topics
 
-- [Cypherpunk Philosophy](/docs/fundamentals/cypherpunk-philosophy) - The philosophical foundation behind Bitcoin
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin enables trustless transactions
-- [Game Theory](/docs/fundamentals/game-theory) - How strategic decision-making secures Bitcoin
-- [Bitcoin Adoption](/docs/adoption) - Real-world examples of Bitcoin adoption
-- [Problems Bitcoin Solved](/docs/fundamentals/problems) - The fundamental challenges Bitcoin addresses
+- Cypherpunk Philosophy - The philosophical foundation behind Bitcoin
+- Trust Model - How Bitcoin enables trustless transactions
+- Game Theory - How strategic decision-making secures Bitcoin
+- Bitcoin Adoption - Real-world examples of Bitcoin adoption
+- Problems Bitcoin Solved - The fundamental challenges Bitcoin addresses

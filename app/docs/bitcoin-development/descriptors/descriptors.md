@@ -29,7 +29,7 @@ wpkh([d34db33f/84h/0h/0h]xpub6D4BDPcP2GT577Vvch3R8wDkScZWzQzMMUm3PWbmWvVJrZwQY4V
 | `wpkh(key)` | Pay to witness public key hash (P2WPKH) |
 | `sh(script)` | Pay to script hash (P2SH); inner script can be `wpkh`, `wsh`, etc. |
 | `wsh(script)` | Pay to witness script hash (P2WSH) |
-| `tr(key)` or `tr(key, tree)` | [Taproot](/docs/bitcoin/taproot) output (key or key + script tree) |
+| `tr(key)` or `tr(key, tree)` | Taproot output (key or key + script tree) |
 | `multi(n, key1, key2, ...)` | M-of-N multisig (inside `sh` or `wsh`) |
 
 Key expressions can be: raw pubkey, xpub/xprv with path (e.g. `/0/*` for receive, `/1/*` for change), or a descriptor (for nested `sh(wsh(...))`).
@@ -192,19 +192,19 @@ async function deriveReceiveAddress(client, desc, index) {
 
 - **Watch-only wallets**: Export an xpub descriptor (no private keys); another app can derive addresses and watch the blockchain. See [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring).
 - **Backup and restore**: One descriptor string (with origin and path) tells any compatible wallet which script type and derivation to use.
-- **Hardware wallet interoperability**: Devices like COLDCARD export descriptors; software imports them for receive/change addresses and [PSBT](/docs/bitcoin-development/psbt) signing.
+- **Hardware wallet interoperability**: Devices like COLDCARD export descriptors; software imports them for receive/change addresses and PSBT signing.
 - **Scanning**: Bitcoin Core's `scantxoutset` accepts a descriptor to find UTXOs that match, without importing keys.
 
 ## Relation to Miniscript
 
-[Miniscript](/docs/bitcoin-development/miniscript) compiles policies to Script; the result is often wrapped in a descriptor (e.g. `wsh(miniscript_expression)` or Taproot). So: policy → Miniscript → Script → descriptor. Descriptors can also contain raw script (e.g. `raw(...)` in Core) or Miniscript fragments.
+Miniscript compiles policies to Script; the result is often wrapped in a descriptor (e.g. `wsh(miniscript_expression)` or Taproot). So: policy → Miniscript → Script → descriptor. Descriptors can also contain raw script (e.g. `raw(...)` in Core) or Miniscript fragments.
 
 ## Related Topics
 
 - [Key Management](/docs/bitcoin-development/keys) - HD keys and derivation paths
 - [Address Generation](/docs/bitcoin-development/addresses) - Address types and encoding
-- [Miniscript](/docs/bitcoin-development/miniscript) - Policy to script and descriptors
-- [PSBT](/docs/bitcoin-development/psbt) - Descriptors in PSBT global map and inputs
+- Miniscript - Policy to script and descriptors
+- PSBT - Descriptors in PSBT global map and inputs
 
 ## Resources
 

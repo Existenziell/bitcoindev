@@ -12,7 +12,7 @@ When a [transaction](/docs/bitcoin-development/transactions) is stuck in the [me
 
 ## RBF: Replace-by-Fee
 
-To allow RBF, the **original** transaction must signal replaceability: at least one input has `nSequence` &lt; `0xfffffffe` (e.g. `0xfffffffd`). Then you can broadcast a **replacement** that spends the same inputs, pays strictly higher fee (and higher fee rate), and obeys BIP 125 (no new unconfirmed inputs, no new outputs, no reduced output amounts). Full RBF (replace any unconfirmed tx) is a **policy** option on some nodes; see [Transaction Fees](/docs/bitcoin/transaction-fees).
+To allow RBF, the **original** transaction must signal replaceability: at least one input has `nSequence` &lt; `0xfffffffe` (e.g. `0xfffffffd`). Then you can broadcast a **replacement** that spends the same inputs, pays strictly higher fee (and higher fee rate), and obeys BIP 125 (no new unconfirmed inputs, no new outputs, no reduced output amounts). Full RBF (replace any unconfirmed tx) is a **policy** option on some nodes; see Transaction Fees.
 
 ### Enabling RBF on an Input
 
@@ -244,11 +244,11 @@ function createCPFPChild(
 
 ## Package Relay and Package RBF
 
-[Package relay](https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki) and **package RBF** allow nodes to accept and relay a **package** (e.g. parent + child) as a unit and, for package RBF, to replace a package with a new one. These are optional node policies (e.g. Bitcoin Core); they help [Lightning](/docs/lightning) and other L2 protocols fee-bump reliably. See [Transaction Fees](/docs/bitcoin/transaction-fees) for links to BIPs.
+[Package relay](https://github.com/bitcoin/bips/blob/master/bip-0329.mediawiki) and **package RBF** allow nodes to accept and relay a **package** (e.g. parent + child) as a unit and, for package RBF, to replace a package with a new one. These are optional node policies (e.g. Bitcoin Core); they help Lightning and other L2 protocols fee-bump reliably. See Transaction Fees for links to BIPs.
 
 ## Related Topics
 
-- [Transaction Fees](/docs/bitcoin/transaction-fees) - RBF/CPFP rules and fee market
+- Transaction Fees - RBF/CPFP rules and fee market
 - [Transaction Construction](/docs/bitcoin-development/transactions) - Building and signing transactions
-- [Mempool](/docs/mining/mempool) - How unconfirmed transactions are stored and selected
+- Mempool - How unconfirmed transactions are stored and selected
 - [Fee Estimation](/docs/bitcoin-development/fee-estimation) - Getting a target fee rate

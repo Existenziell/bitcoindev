@@ -105,14 +105,14 @@ Bitcoin Core is multi-threaded. The main `bitcoind` thread starts and shuts down
 
 **Validation and RPC**
 
-- **Script check (`b-scriptch.x`)**: Parallel threads that verify [Script](/docs/bitcoin/script) in block [transactions](/docs/bitcoin/transaction-lifecycle).
+- **Script check (`b-scriptch.x`)**: Parallel threads that verify [Script](/docs/bitcoin/script) in block transactions.
 - **HTTP (`b-http`, `b-httpworker.x`)**: Listens for and serves [JSON-RPC](/docs/bitcoin/rpc) and [REST](https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md) requests.
 - **Indexers (`b-txindex`, etc.)**: One thread per optional index (txindex, blockfilterindex, coinstatsindex) for background syncing.
 - **Scheduler (`b-scheduler`)**: Background tasks (e.g. dumping wallet, addrman, validation callbacks).
 
 **Network**
 
-- **Message handler (`b-msghand`)**: Most [P2P](/docs/bitcoin/p2p-protocol) and validation logic (sending/receiving messages, block/tx handling).
+- **Message handler (`b-msghand`)**: Most P2P and validation logic (sending/receiving messages, block/tx handling).
 - **Socket handler (`b-net`)**: Sends and receives raw bytes on the P2P port (default 8333).
 - **Connections (`b-opencon`, `b-addcon`)**: Opens new outbound connections and connections to added nodes.
 - **DNS seed (`b-dnsseed`)**: Fetches peer addresses from DNS seeds.
@@ -132,7 +132,7 @@ Used for:
 - **Block index** (`blocks/index/`): Block metadata and header tree (most-work chain, orphans). Not affected by `-blocksdir`.
 - **Wallets** (`wallets/`): Each wallet is a SQLite DB; the chainstate is in LevelDB, wallet logic uses both.
 - **Optional indexes** (in `indexes/`, created only if enabled):
-  - **txindex** (`-txindex=1`): Look up [transactions](/docs/bitcoin/transaction-lifecycle) by txid.
+  - **txindex** (`-txindex=1`): Look up transactions by txid.
   - **blockfilterindex=basic**: [BIP 158](https://github.com/bitcoin/bips/blob/master/bip-0158.mediawiki) compact block filters for [light clients](/docs/development/node-types#spv-simplified-payment-verification-nodes).
   - **coinstatsindex** (`-coinstatsindex=1`): Aggregated coin statistics used by `gettxoutsetinfo` and similar.
 

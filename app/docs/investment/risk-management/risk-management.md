@@ -151,7 +151,7 @@ The more you understand Bitcoin, the better equipped you are to make informed de
 
 ### Security
 
-Proper wallet security and self-custody practices are essential. Learn about [wallet security](/docs/investment/wallet-security) before storing significant amounts.
+Proper wallet security and self-custody practices are essential. Learn about wallet security before storing significant amounts.
 
 ---
 

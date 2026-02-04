@@ -548,7 +548,7 @@ A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as
 <!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### Meme
-In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, "don't trust, verify"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how Bitcoin functions as a meme and the cultural expressions that have emerged.
+In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, "don't trust, verify"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See Bitcoin, the Meme for how Bitcoin functions as a meme and the cultural expressions that have emerged.
 <!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### Miniscript
@@ -616,7 +616,7 @@ An opcode that marks a transaction output as provably unspendable, allowing data
 <!-- related: /docs/controversies/op-return -->
 
 ### Orange Pill
-A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The "orange pill" refers to the process of someone "waking up" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the "awakening" process. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how the orange pill process drives adoption and education.
+A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The "orange pill" refers to the process of someone "waking up" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the "awakening" process. See Bitcoin, the Meme for how the orange pill process drives adoption and education.
 <!-- related: /docs/fundamentals/bitcoin-meme -->
 
 ### OPCODE
@@ -748,7 +748,7 @@ A time lock that prevents a UTXO from being spent until a certain number of bloc
 The act of receiving valid blocks or transactions from peers and forwarding them to other connected nodes, which is how information propagates across the decentralized Bitcoin network. Nodes validate data before relaying to prevent spam and invalid data from spreading. Relay policies can differ between nodes (some may reject transactions below certain fee rates or with specific characteristics), but blocks that meet consensus rules are always relayed.
 
 ### RIPEMD-160
-A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte "pubkey hash" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short. The [Hash tool](/interactive-tools/hash) computes HASH160 and raw RIPEMD-160.
+A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte "pubkey hash" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short. The Hash tool computes HASH160 and raw RIPEMD-160.
 
 ### QR Code
 A scannable image often used in Bitcoin to represent a bitcoin address or a Lightning Network invoice. It allows for quick and easy transactions without manually entering long strings of characters.
@@ -778,7 +778,7 @@ A fungible token standard on Bitcoin, designed to create and manage tokens direc
 ## S
 
 ### Sat
-Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See [Denominations](/docs/fundamentals/denominations) for the full unit table and converter.
+Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter.
 
 ### Satoshi Nakamoto
 The pseudonymous creator of Bitcoin. He released the Bitcoin whitepaper in 2008 by mailing it to the Cypherpunk mailing list and mined the Genesis Block in 2009. Satoshi remained active until mid-2010, when he handed over control of Bitcoin's development to others and gradually disappeared. His identity remains unknown.
@@ -812,10 +812,10 @@ Segregated Witness (SegWit): a major protocol upgrade activated in August 2017 (
 <!-- related: /docs/bitcoin/segwit -->
 
 ### SHA-256
-A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect). You can compute SHA-256 and related hashes with the [Hash tool](/interactive-tools/hash).
+A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect). You can compute SHA-256 and related hashes with the Hash tool.
 
 ### SHA256D
-Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult. Try double SHA-256 in the [Hash tool](/interactive-tools/hash).
+Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult. Try double SHA-256 in the Hash tool.
 
 ### Schnorr Signature
 A digital signature scheme (BIP 340) introduced with Taproot that offers several advantages over the previously-used ECDSA. Schnorr signatures are mathematically simpler, provably secure under standard assumptions, and enable powerful features like signature aggregation (combining multiple signatures into one) and batch verification. With Schnorr, a transaction from a multisig wallet can look identical to a single-sig transaction on-chain, significantly improving privacy.

@@ -455,7 +455,7 @@ Wallets are essential for storing and managing your Bitcoin. For detailed inform
 
 ## Related Topics
 
-- [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
+- Wallet Security & Self-Custody - Securing your Bitcoin holdings
 - [Privacy](/docs/investment/privacy) - Privacy considerations and tools
 - [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
 - [Risk Management](/docs/investment/risk-management) - Understanding and managing investment risks

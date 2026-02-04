@@ -185,7 +185,7 @@ Bitcoin markets follow a predictable emotional cycle:
 
 **Focus on fundamentals:** Bitcoin's technology and properties haven't changed. Focus on fundamentals, not price.
 
-**Continue DCA:** [Dollar Cost Averaging](/docs/investment/investment-strategy) is particularly effective during bear markets.
+**Continue DCA:** Dollar Cost Averaging is particularly effective during bear markets.
 
 **Avoid panic selling:** Don't make emotional decisions. Stick to your long-term plan.
 

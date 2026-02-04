@@ -12,7 +12,7 @@ Covenants enable:
 
 - **Vaults**: Funds can only move to a “cooling-off” or recovery [script](/docs/bitcoin/script) first; direct spending is disallowed.
 - **Layered security**: e.g., “can only be sent to a 2-of-3 [multisig](/docs/wallets/multisig) or to a timelocked recovery path.”
-- **L2 and protocols**: Channel factories, [Lightning](/docs/lightning)-style constructs, and other protocols could use covenants to enforce on-chain structure.
+- **L2 and protocols**: Channel factories, Lightning-style constructs, and other protocols could use covenants to enforce on-chain structure.
 
 ---
 
@@ -26,7 +26,7 @@ Covenants enable:
 
 **OP_CTV** (or **OP_CHECKTEMPLATEVERIFY**) commits to a **hash of a specific spending transaction template**. The script would specify the exact inputs (by outpoint) and outputs (scriptPubKey + amount) of the *only* transaction that can spend the UTXO. This is a **one-step** covenant: the *next* spend is fully fixed; you cannot recursively chain OP_CTV in arbitrarily complex ways without further opcodes.
 
-Use cases: vaults with a single recovery path, [Lightning](/docs/lightning) [anchor](/docs/lightning/anchor-outputs) or channel-like structures where the on-chain spend must match a known template, and congestion-control or batch-spend patterns.
+Use cases: vaults with a single recovery path, Lightning [anchor](/docs/lightning/anchor-outputs) or channel-like structures where the on-chain spend must match a known template, and congestion-control or batch-spend patterns.
 
 - **BIP**: [BIP 119](https://github.com/bitcoin/bips/blob/master/bip-0119.mediawiki) (OP_CTV / CheckTemplateVerify)
 
@@ -34,7 +34,7 @@ Use cases: vaults with a single recovery path, [Lightning](/docs/lightning) [anc
 
 **SIGHASH_ANYPREVOUT** (APO) is a sighash flag that would allow a [signature](/docs/bitcoin/cryptography) to be valid when the signed input comes from *any* outpoint (or from a set of allowed ones), rather than a single outpoint. That makes signatures **reusable** across different [transactions](/docs/bitcoin/transaction-lifecycle) that share the same structure (e.g., same outputs), which can be used to build covenant-like behavior: the signer effectively agrees to “this spend is only valid if the rest of the tx looks like X,” and the script can enforce that the signer only signs such shapes.
 
-APO is particularly relevant for [Lightning](/docs/lightning) and channel designs: commitment and [HTLC](/docs/lightning/routing/htlc) transactions could use a more flexible signing model. It is also a building block for [vaults](/docs/wallets/smart-contracts) and other covenant patterns.
+APO is particularly relevant for Lightning and channel designs: commitment and [HTLC](/docs/lightning/routing/htlc) transactions could use a more flexible signing model. It is also a building block for [vaults](/docs/wallets/smart-contracts) and other covenant patterns.
 
 - **BIP / spec**: See [Bitcoin Optech](https://bitcoinops.org/) and the [bitcoin-dev](https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev) mailing list for current APO and “APO as covenant” proposals.
 
@@ -78,9 +78,9 @@ Implementations (e.g., [Miniscript](/docs/bitcoin-development/miniscript)) and h
 ## Related Topics
 
 - [Smart Contracts](/docs/wallets/smart-contracts) - Covenant-like patterns and Miniscript
-- [Miniscript](/docs/bitcoin-development/miniscript) - Policy and script; future covenant targets
+- Miniscript - Policy and script; future covenant targets
 - [Sighash Types](/docs/bitcoin/sighash-types) - How signing commits to transaction parts; APO extends this
-- [Lightning](/docs/lightning) - Potential use of covenants / APO
+- Lightning - Potential use of covenants / APO
 - [Governance](/docs/fundamentals/governance) - How opcodes and soft forks are proposed and adopted
 
 ---

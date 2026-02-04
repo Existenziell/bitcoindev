@@ -93,10 +93,10 @@ function findMdFiles(dir, files = []) {
 
 const mdFiles = findMdFiles(path.join(projectRoot, 'app'))
 
-// Check internal links: [text](/path) or [text](/path#anchor). Captures path (no protocol).
-const internalLinkRe = /\]\((\/(?!\/)[^#\s)]*)(?:#[^\s)]+)?\)/g
+// Check internal links: [text](/path) or [text](/path#anchor). Full match = full link for duplicate detection; group 2 = path.
+const internalLinkRe = /\[([^\]]*)\]\((\/(?!\/)[^#\s)]*)(?:#[^\s)]+)?\)/g
 const internalLinks = new Map() // path -> [ { file, lineNum, line, fullLink } ]
-const bySourceFile = new Map() // normalized file path -> [ { targetPath, targetNormalized, lineNum } ]
+const bySourceFile = new Map() // normalized file path -> [ { targetPath, targetNormalized, lineNum, fullLink } ]
 
 // Check external links (http/https)
 const externalLinkRe = /\]\((https?:\/\/[^\s)]+)\)/g
@@ -110,7 +110,7 @@ for (const file of mdFiles) {
     let m
     internalLinkRe.lastIndex = 0
     while ((m = internalLinkRe.exec(lines[i])) !== null) {
-      const linkPath = m[1]
+      const linkPath = m[2]
       if (!internalLinks.has(linkPath)) internalLinks.set(linkPath, [])
       internalLinks.get(linkPath).push({
         file,
@@ -122,6 +122,7 @@ for (const file of mdFiles) {
         targetPath: linkPath,
         targetNormalized: normalizePath(linkPath),
         lineNum: i + 1,
+        fullLink: m[0],
       })
     }
 
@@ -260,7 +261,8 @@ function runInternalAnalysis(maxLinksThreshold) {
     const links = outboundByPath.get(page.path) || []
     const file = absPath
     const targetCounts = new Map()
-    for (const { targetPath, targetNormalized, lineNum } of links) {
+    const fullLinkCounts = new Map()
+    for (const { targetPath, targetNormalized, lineNum, fullLink } of links) {
       if (!allValidPaths.has(targetNormalized)) {
         broken.push({ sourcePath: page.path, targetPath: targetNormalized, lineNum, file })
       }
@@ -268,10 +270,14 @@ function runInternalAnalysis(maxLinksThreshold) {
         selfLinks.push({ sourcePath: page.path, targetPath: targetNormalized, lineNum, file })
       }
       targetCounts.set(targetNormalized, (targetCounts.get(targetNormalized) || 0) + 1)
+      fullLinkCounts.set(fullLink, (fullLinkCounts.get(fullLink) || 0) + 1)
     }
     const dups = []
-    for (const [targetNormalized, count] of targetCounts) {
-      if (count > 1) dups.push({ targetNormalized, count })
+    for (const [fullLink, count] of fullLinkCounts) {
+      if (count > 1) {
+        const first = links.find((l) => l.fullLink === fullLink)
+        dups.push({ fullLink, targetNormalized: first.targetNormalized, count })
+      }
     }
     if (dups.length > 0) duplicateByPage.set(page.path, dups)
   }
@@ -422,62 +428,75 @@ async function runChecks() {
     console.log(JSON.stringify(report, null, 2))
     process.exit(hasErrors ? 1 : 0)
   }
-  const duplicateCount = [...analysis.duplicateByPage.values()].reduce((sum, dups) => sum + dups.length, 0)
+  const duplicateExtraCount = [...analysis.duplicateByPage.values()].reduce(
+    (sum, dups) => sum + dups.reduce((s, d) => s + (d.count - 1), 0),
+    0
+  )
+  const duplicateLinkCount = [...analysis.duplicateByPage.values()].reduce(
+    (sum, dups) => sum + dups.length,
+    0
+  )
   const notUsefulTotal =
-    analysis.broken.length + analysis.selfLinks.length + duplicateCount
+    analysis.broken.length + analysis.selfLinks.length + duplicateExtraCount
 
-  console.log('=== Internal links analysis ===')
-  console.log(`Not useful links: ${notUsefulTotal}\n\n`)
-  console.log(`Broken (target not a valid path): ${analysis.broken.length}`)
+  const green = '\x1b[32m'
+  const red = '\x1b[31m'
+  const reset = '\x1b[0m'
+  const checkLine = (pass, label, count) => {
+    const icon = pass ? '✓' : '✗'
+    const color = pass ? green : red
+    console.log(`  ${color}${icon}${reset} ${label}: ${count}`)
+  }
+
+  console.log('=== Internal links analysis ===\n')
+
+  checkLine(analysis.broken.length === 0, 'Broken (target not a valid path)', analysis.broken.length)
   if (analysis.broken.length > 0) {
     analysis.broken.forEach((b) =>
-      console.log(`  ${b.sourcePath} -> ${b.targetPath}  ${relFile(b.file)}:${b.lineNum}`)
+      console.log(`    ${b.sourcePath} -> ${b.targetPath}  ${relFile(b.file)}:${b.lineNum}`)
     )
   }
-  console.log(`\nSelf-links (page links to itself): ${analysis.selfLinks.length}`)
+  checkLine(analysis.selfLinks.length === 0, 'Self-links (page links to itself)', analysis.selfLinks.length)
   if (analysis.selfLinks.length > 0) {
-    analysis.selfLinks.forEach((s) => console.log(`  ${s.sourcePath}  ${relFile(s.file)}:${s.lineNum}`))
+    analysis.selfLinks.forEach((s) => console.log(`    ${s.sourcePath}  ${relFile(s.file)}:${s.lineNum}`))
   }
-  console.log(`\nDuplicate on same page (same target linked more than once): ${duplicateCount}`)
+  checkLine(duplicateLinkCount === 0, 'Links that appear more than once on the same page', duplicateLinkCount)
+  if (duplicateExtraCount > 0) {
+    console.log(`  Extra occurrence(s): ${duplicateExtraCount}`)
+  }
   if (analysis.duplicateByPage.size > 0) {
     for (const [pagePath, dups] of analysis.duplicateByPage) {
-      dups.forEach((d) => console.log(`  ${pagePath}  -> ${d.targetNormalized}  (${d.count}x)`))
+      dups.forEach((d) => {
+        console.log(`    ${pagePath}  ${d.fullLink}  (${d.count}×)  -> ${d.targetNormalized}`)
+      })
     }
   }
-  console.log(`\nPages with too many links: ${analysis.tooManyLinks.length}`)
+  checkLine(analysis.tooManyLinks.length === 0, 'Pages with too many links', analysis.tooManyLinks.length)
   if (analysis.tooManyLinks.length > 0) {
     analysis.tooManyLinks.forEach((t) =>
-      console.log(`  ${t.count}  ${t.path}  (${t.title})`)
+      console.log(`    ${t.count}  ${t.path}  (${t.title})`)
     )
   }
-  console.log(`\nPages with no links: ${analysis.noLinks.length}`)
+  checkLine(analysis.noLinks.length === 0, 'Pages with no links', analysis.noLinks.length)
   if (analysis.noLinks.length > 0) {
-    analysis.noLinks.forEach((n) => console.log(`  ${n.path}  (${n.title})`))
+    analysis.noLinks.forEach((n) => console.log(`    ${n.path}  (${n.title})`))
   }
-  console.log(`\nOrphan pages (no other page links to them): ${analysis.orphans.length}`)
+  checkLine(analysis.orphans.length === 0, 'Orphan pages (no other page links to them)', analysis.orphans.length)
   if (analysis.orphans.length > 0) {
-    analysis.orphans.forEach((o) => console.log(`  ${o.path}  (${o.title})`))
+    analysis.orphans.forEach((o) => console.log(`    ${o.path}  (${o.title})`))
   }
-  console.log('')
 
+  checkLine(invalidInternalLinks.length === 0, 'Invalid internal links (non-existent target)', invalidInternalLinks.length)
+  if (checkExternal) {
+    checkLine(brokenExternalLinks.length === 0, 'Broken external links (not accessible)', brokenExternalLinks.length)
+  }
+
+  console.log('\n--- Summary ---')
   if (hasErrors) {
+    console.log(`${red}Some checks failed.${reset}\n`)
     process.exit(1)
   }
-
-  // Success messages
-  const messages = []
-  if (internalLinks.size > 0) {
-    messages.push(`✓ All ${internalLinks.size} internal link(s) point to valid pages`)
-  }
-  if (checkExternal && externalLinks.size > 0) {
-    messages.push(`✓ All ${externalLinks.size} external link(s) are accessible`)
-  }
-
-  if (messages.length > 0) {
-    console.log('OK: ' + messages.join(', '))
-  } else {
-    console.log('OK: No links found to check')
-  }
+  console.log(`${green}All checks passed.${reset}\n`)
   process.exit(0)
 }
 

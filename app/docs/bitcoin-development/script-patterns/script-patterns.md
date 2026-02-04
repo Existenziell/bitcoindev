@@ -237,7 +237,7 @@ function createHashLockScript(hash) {
 
 ## Miniscript
 
-[Miniscript](/docs/bitcoin-development/miniscript) is a structured language for expressing spending *policies* that compiles to [Bitcoin Script](/docs/bitcoin/script). Instead of writing raw [OP codes](/docs/bitcoin/op-codes) directly, you define *what* must hold (e.g., "2-of-3 keys" or "key A and after block N") and tools produce correct, analyzable Script.
+Miniscript is a structured language for expressing spending *policies* that compiles to Bitcoin Script. Instead of writing raw [OP codes](/docs/bitcoin/op-codes) directly, you define *what* must hold (e.g., "2-of-3 keys" or "key A and after block N") and tools produce correct, analyzable Script.
 
 ### Policy vs. Script
 
@@ -258,7 +258,7 @@ Miniscript uses composable **fragments** (`pk`, `thresh`, `and`, `or`, `after`, 
 - **Contracts**: [Vaults](/docs/wallets/smart-contracts), [Atomic Swaps](/docs/advanced/atomic-swaps)-style hashlocks, and [Taproot](/docs/bitcoin/taproot) script trees.
 - **Protocols**: [Lightning](/docs/lightning), [DLCs](/docs/advanced/dlcs), and other [smart contract](/docs/wallets/smart-contracts) templates.
 
-See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification, fragment set, and Tapscript support.
+See Miniscript for the full specification, fragment set, and Tapscript support.
 
 ---
 
@@ -276,9 +276,9 @@ See [Miniscript](/docs/bitcoin-development/miniscript) for the full specificatio
 
 ## Related Topics
 
-- [Bitcoin Script](/docs/bitcoin/script) - Script system
+- Bitcoin Script - Script system
 - [OP Codes](/docs/bitcoin/op-codes) - Available operations
-- [Miniscript](/docs/bitcoin-development/miniscript) - Policy-to-script compiler
+- Miniscript - Policy-to-script compiler
 - [Smart Contracts](/docs/wallets/smart-contracts) - Contract patterns
 
 ---

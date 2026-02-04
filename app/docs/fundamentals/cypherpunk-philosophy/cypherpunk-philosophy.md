@@ -90,7 +90,7 @@ Cypherpunks saw censorship as a fundamental threat to freedom. Bitcoin's design 
 
 ### The Cypherpunk Mailing List
 
-In 1992, three mathematicians ([Eric Hughes](/docs/history/people#eric-hughes), [Timothy C. May](/docs/history/people#timothy-c-may), and John Gilmore) founded the **cypherpunk mailing list**. This became the central forum for discussing cryptography, privacy, and digital cash. The mailing list included:
+In 1992, three mathematicians (Eric Hughes, [Timothy C. May](/docs/history/people#timothy-c-may), and John Gilmore) founded the **cypherpunk mailing list**. This became the central forum for discussing cryptography, privacy, and digital cash. The mailing list included:
 - Cryptographers working on privacy technologies
 - Activists concerned about government surveillance
 - Entrepreneurs building digital cash systems
@@ -104,7 +104,7 @@ The mailing list was where many foundational ideas were discussed, including:
 
 ### The Crypto Anarchist Manifesto
 
-In 1992, [Timothy C. May](/docs/history/people#timothy-c-may) published "The Crypto Anarchist Manifesto," which outlined a vision of cryptography enabling:
+In 1992, Timothy C. May published "The Crypto Anarchist Manifesto," which outlined a vision of cryptography enabling:
 - Anonymous transactions
 - Untraceable digital cash
 - Private communication
@@ -197,7 +197,7 @@ This transparency is essential for trust in code rather than trust in institutio
 
 ### Trust Model
 
-Bitcoin's [trust model](/docs/fundamentals/trust-model) directly implements the cypherpunk principle of "trust code, not people." Instead of trusting banks or governments, Bitcoin users trust:
+Bitcoin's trust model directly implements the cypherpunk principle of "trust code, not people." Instead of trusting banks or governments, Bitcoin users trust:
 - Cryptographic proof (mathematics)
 - Open-source code (transparency)
 - Economic incentives (game theory)
@@ -206,7 +206,7 @@ This minimizes trust in institutions and maximizes trust in verifiable systems.
 
 ### Decentralization
 
-Bitcoin's [decentralization](/docs/fundamentals/decentralization) addresses the cypherpunk concern about central control. By distributing control across thousands of nodes, Bitcoin prevents:
+Bitcoin's decentralization addresses the cypherpunk concern about central control. By distributing control across thousands of nodes, Bitcoin prevents:
 - Single points of failure
 - Censorship
 - Manipulation

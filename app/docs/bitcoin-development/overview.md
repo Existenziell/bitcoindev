@@ -159,7 +159,7 @@ Standardized, human-readable strings (BIP 380/386) that describe which output sc
 ## Related Topics
 
 - [Setup & Infrastructure](/docs/development) - Setup, testing, libraries, node architecture
-- [Wallet Development](/docs/wallets) - HD wallets, coin selection, multisig
+- Wallet Development - HD wallets, coin selection, multisig
 - [Bitcoin Protocol](/docs/bitcoin) - Script system, RPC, transaction structure
 - [UTXO Model](/docs/fundamentals/utxos) - Understanding UTXOs for transaction building
 

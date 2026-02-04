@@ -593,7 +593,7 @@ Standard BOLT11 invoices should only be paid once. For reusable or dynamic payme
 
 - Use Keysend (no invoice needed)
 - Use LNURL-pay (dynamic invoice generation)
-- Use [Offers (BOLT12)](/docs/lightning/bolt12-offers) (when supported by your node and payees)
+- Use Offers (BOLT12) (when supported by your node and payees)
 
 ### Fallback Addresses
 
@@ -633,7 +633,7 @@ BOLT11 invoices provide:
 
 ## Related Topics
 
-- [Offers (BOLT12)](/docs/lightning/bolt12-offers) - Offers, invoice requests, and reusable payment flows
+- Offers (BOLT12) - Offers, invoice requests, and reusable payment flows
 - [Multi-Part Payments](/docs/lightning/routing/mpp) - Splitting large payments
 - [Channels](/docs/lightning/channels) - Where payments flow
 - [HTLCs](/docs/lightning/routing/htlc) - Payment mechanism

@@ -515,6 +515,6 @@ See [Mining Pools](/docs/mining/pools) for detailed information on pool operatio
 
 - [Bitcoin Mining](/docs/mining) - Mining architecture and concepts
 - [Proof-of-Work Mechanism](/docs/mining/proof-of-work) - How mining works
-- [Difficulty Adjustment](/docs/mining/difficulty) - How difficulty affects profitability
-- [Mining Pools](/docs/mining/pools) - Pool operations and payout schemes
+- Difficulty Adjustment - How difficulty affects profitability
+- Mining Pools - Pool operations and payout schemes
 - [Hardware Evolution](/docs/mining/hardware) - Mining hardware efficiency

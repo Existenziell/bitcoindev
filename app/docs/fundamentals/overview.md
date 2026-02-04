@@ -43,7 +43,7 @@ Bitcoin consists of several key components that work together to create a decent
 | [Consensus](/docs/bitcoin/consensus) | Nodes agree on transaction history via proof-of-work; no central coordinator |
 | [Script](/docs/bitcoin/script) | Spending conditions; multisig, timelocks, smart contracts |
 | [OP Codes](/docs/bitcoin/op-codes) | Instruction set for Script; validation and program execution |
-| [Blocks](/docs/bitcoin/blocks) | Units of the ledger; Merkle trees for efficient verification |
+| Blocks | Units of the ledger; Merkle trees for efficient verification |
 | [Subsidy](/docs/bitcoin/subsidy) | Fixed supply; predictable monetary policy toward 21 million |
 
 ```text
@@ -160,4 +160,4 @@ Dive deeper into the core concepts that make Bitcoin work:
 - [Monetary Properties](/docs/fundamentals/monetary-properties) - The economic characteristics of Bitcoin
 - [Incentive Structure](/docs/fundamentals/incentives) - How economic incentives shape Bitcoin's security
 - [Governance & Evolution](/docs/fundamentals/governance) - How Bitcoin evolves through rough consensus and the BIP process
-- [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) - How Bitcoin functions as a powerful idea that spreads through culture
+- Bitcoin, the Meme - How Bitcoin functions as a powerful idea that spreads through culture

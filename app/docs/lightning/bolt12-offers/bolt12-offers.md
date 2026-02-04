@@ -24,7 +24,7 @@ An **offer** is a signed, self-describing payment request that:
 - May fix an **amount** or allow **any amount**
 - Can specify **metadata** (description, chain, etc.)
 - Can require **features** the payer must support
-- Does **not** include a [payment hash](/docs/lightning/routing/htlc) or [invoice](/docs/lightning/invoices); those are created only when the payee generates an invoice in response to an **invoice request**
+- Does **not** include a [payment hash](/docs/lightning/routing/htlc) or invoice; those are created only when the payee generates an invoice in response to an **invoice request**
 
 ### Offer String (BOLT12)
 
@@ -53,13 +53,13 @@ The **payee** responds with a BOLT12 **invoice** (or a BOLT11 invoice if that’
 
 ## Keysend and Spontaneous Payments
 
-**Keysend** (BOLT11-era) allows sending to a node [public key](/docs/bitcoin/cryptography) without a pre-made [invoice](/docs/lightning/invoices): the payer chooses the [payment hash](/docs/lightning/routing/htlc) (and preimage) and the recipient must accept it. BOLT12 **offers** and **invoice requests** provide a more structured way to do “spontaneous” or “push” payments: the payer fetches an invoice (or an “any amount” invoice) from the payee via the offer protocol, so the payee controls the [payment hash](/docs/lightning/routing/htlc) and metadata. This can reduce probing and improve [privacy](/docs/wallets/privacy).
+**Keysend** (BOLT11-era) allows sending to a node public key without a pre-made invoice: the payer chooses the payment hash (and preimage) and the recipient must accept it. BOLT12 **offers** and **invoice requests** provide a more structured way to do “spontaneous” or “push” payments: the payer fetches an invoice (or an “any amount” invoice) from the payee via the offer protocol, so the payee controls the payment hash and metadata. This can reduce probing and improve [privacy](/docs/wallets/privacy).
 
 ---
 
 ## Recurring and Subscription Payments
 
-Because offers can be **reusable**, a payee can publish one offer that generates a new [invoice](/docs/lightning/invoices) for each payment. Examples:
+Because offers can be **reusable**, a payee can publish one offer that generates a new invoice for each payment. Examples:
 
 - **Subscriptions**: Same offer each period; payer sends an invoice request with the period’s amount (or the offer specifies it), payee returns an invoice, payer pays.
 - **Donations / any-amount**: Offer with “any amount”; payer sends desired amount in the invoice request; payee returns an invoice for that amount.
@@ -74,7 +74,7 @@ BOLT12 defines **refund** flow: the payee can issue a **refund** (a kind of offe
 
 ## Blinded Paths and Privacy
 
-To request an [invoice](/docs/lightning/invoices) from an offer, the payer must reach the payee. BOLT12 can use **blinded paths** (onion-routed, [blinded](/docs/lightning/onion) identifiers) so that the payer does not need to know the payee’s direct node id or IP. The offer can contain a blinded path to the payee, improving [privacy](/docs/wallets/privacy).
+To request an invoice from an offer, the payer must reach the payee. BOLT12 can use **blinded paths** (onion-routed, [blinded](/docs/lightning/onion) identifiers) so that the payer does not need to know the payee’s direct node id or IP. The offer can contain a blinded path to the payee, improving privacy.
 
 ---
 

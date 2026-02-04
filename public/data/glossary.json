@@ -850,7 +850,7 @@
       {
         "term": "Meme",
         "slug": "meme",
-        "definition": "In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, \"don't trust, verify\"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how Bitcoin functions as a meme and the cultural expressions that have emerged.",
+        "definition": "In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, \"don't trust, verify\"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See Bitcoin, the Meme for how Bitcoin functions as a meme and the cultural expressions that have emerged.",
         "relatedArticle": "/docs/fundamentals/bitcoin-meme"
       },
       {
@@ -954,7 +954,7 @@
       {
         "term": "Orange Pill",
         "slug": "orange-pill",
-        "definition": "A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The \"orange pill\" refers to the process of someone \"waking up\" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the \"awakening\" process. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how the orange pill process drives adoption and education.",
+        "definition": "A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The \"orange pill\" refers to the process of someone \"waking up\" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the \"awakening\" process. See Bitcoin, the Meme for how the orange pill process drives adoption and education.",
         "relatedArticle": "/docs/fundamentals/bitcoin-meme"
       },
       {
@@ -1156,7 +1156,7 @@
       {
         "term": "RIPEMD-160",
         "slug": "ripemd-160",
-        "definition": "A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte \"pubkey hash\" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short. The [Hash tool](/interactive-tools/hash) computes HASH160 and raw RIPEMD-160."
+        "definition": "A cryptographic hash function that produces a 160-bit (20-byte) output, used in Bitcoin address generation to create shorter addresses while maintaining security. The standard address derivation applies SHA-256 to the public key first, then RIPEMD-160 to that result, producing the 20-byte \"pubkey hash\" that forms the core of an address. This HASH160 operation (SHA256 + RIPEMD160) provides 160-bit security while keeping addresses reasonably short. The Hash tool computes HASH160 and raw RIPEMD-160."
       },
       {
         "term": "QR Code",
@@ -1203,7 +1203,7 @@
       {
         "term": "Sat",
         "slug": "sat",
-        "definition": "Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See [Denominations](/docs/fundamentals/denominations) for the full unit table and converter."
+        "definition": "Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter."
       },
       {
         "term": "Satoshi Nakamoto",
@@ -1256,12 +1256,12 @@
       {
         "term": "SHA-256",
         "slug": "sha-256",
-        "definition": "A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect). You can compute SHA-256 and related hashes with the [Hash tool](/interactive-tools/hash)."
+        "definition": "A cryptographic hash function from the SHA-2 family that produces a 256-bit (32-byte) output, used extensively in Bitcoin for proof-of-work, transaction IDs, and block hashing. SHA-256 provides strong security properties: it's computationally infeasible to find an input that produces a specific hash (preimage resistance), to find two different inputs with the same hash (collision resistance), and small input changes completely change the output (avalanche effect). You can compute SHA-256 and related hashes with the Hash tool."
       },
       {
         "term": "SHA256D",
         "slug": "sha256d",
-        "definition": "Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult. Try double SHA-256 in the [Hash tool](/interactive-tools/hash)."
+        "definition": "Double SHA-256 hashing used throughout Bitcoin, where data is hashed twice in succession: `SHA256(SHA256(data))`. Block headers, transaction IDs, and merkle tree nodes all use SHA256D. This construction provides defense in depth: even if vulnerabilities were discovered in single SHA-256, attacking double-hashed values would remain difficult. Try double SHA-256 in the Hash tool."
       },
       {
         "term": "Schnorr Signature",

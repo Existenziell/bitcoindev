@@ -1219,7 +1219,7 @@ For how Taproot uses Schnorr and MuSig in practice, see [Taproot](/docs/bitcoin/
 
 ### Relation to Taproot
 
-Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends need only one Schnorr signature; script-path spends reveal one branch of a Merkle tree and still use Schnorr in Tapscript. That way, complex contracts can look identical to simple single-sig payments. For MAST, script paths, and address format, see [Taproot](/docs/bitcoin/taproot).
+Taproot (BIPs 341, 342) uses Schnorr for all P2TR signatures. Key-path spends need only one Schnorr signature; script-path spends reveal one branch of a Merkle tree and still use Schnorr in Tapscript. That way, complex contracts can look identical to simple single-sig payments. For MAST, script paths, and address format, see Taproot.
 
 ### Resources
 
@@ -1666,7 +1666,7 @@ Bitcoin's security relies on these assumptions holding true:
 
 ## Resources
 
-- **[Interactive Tools](/interactive-tools)** - Stack Lab for script, Block Visualizer for blocks, [Hash tool](/interactive-tools/hash) for SHA-256 / HASH256 / HASH160
+- **[Interactive Tools](/interactive-tools)** - Stack Lab for script, Block Visualizer for blocks, Hash tool for SHA-256 / HASH256 / HASH160
 - **[Bitcoin Developer Guide - Transactions](https://developer.bitcoin.org/devguide/transactions.html)** - Official documentation on transaction signing
 - **[Learn Me a Bitcoin](https://learnmeabitcoin.com)** - Visual explanations of Bitcoin cryptography
 - **[BIP-340: Schnorr Signatures](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki)** - Schnorr signature specification

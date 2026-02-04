@@ -43,7 +43,7 @@ So `SIGHASH_ALL | SIGHASH_ANYONECANPAY` means “commit to all outputs and to th
 - All inputs (or only the current one if `ANYONECANPAY` is set): outpoint, [script](/docs/bitcoin/script) (or scriptCode for [SegWit](/docs/bitcoin/segwit)), sequence
 - All outputs: value and scriptPubKey
 
-The signer commits to the whole [transaction](/docs/bitcoin/transaction-lifecycle) (or to all outputs and only this input with `ANYONECANPAY`). Changing any committed part invalidates the signature. For [SegWit](/docs/bitcoin/segwit) and [Taproot](/docs/bitcoin/taproot), the default used in most wallets is `SIGHASH_DEFAULT`, which is treated like `SIGHASH_ALL` (see below).
+The signer commits to the whole transaction (or to all outputs and only this input with `ANYONECANPAY`). Changing any committed part invalidates the signature. For SegWit and [Taproot](/docs/bitcoin/taproot), the default used in most wallets is `SIGHASH_DEFAULT`, which is treated like `SIGHASH_ALL` (see below).
 
 ### SIGHASH_NONE (0x02)
 
@@ -65,7 +65,7 @@ This is a **flag** OR’d with `ALL`, `NONE`, or `SINGLE`:
 
 ## SIGHASH_DEFAULT (0x00) and Taproot
 
-For [Taproot](/docs/bitcoin/taproot) (and commonly for SegWit v0), the value **0x00** is used to mean **default** behavior: it is interpreted as **SIGHASH_ALL** (commit to all inputs and outputs). The extra byte is omitted in the signature encoding when the type is default, so the signature is 64 bytes for [Schnorr](/docs/bitcoin/cryptography#schnorr-signatures) rather than 65.
+For Taproot (and commonly for SegWit v0), the value **0x00** is used to mean **default** behavior: it is interpreted as **SIGHASH_ALL** (commit to all inputs and outputs). The extra byte is omitted in the signature encoding when the type is default, so the signature is 64 bytes for [Schnorr](/docs/bitcoin/cryptography#schnorr-signatures) rather than 65.
 
 ---
 
@@ -83,8 +83,8 @@ For [Taproot](/docs/bitcoin/taproot) (and commonly for SegWit v0), the value **0
 
 ## Use Cases
 
-- **Normal payments**: SIGHASH_ALL or SIGHASH_DEFAULT. Full commitment to the [transaction](/docs/bitcoin/transaction-lifecycle).
-- **[RBF](/docs/bitcoin/transaction-fees#replace-by-fee-rbf-and-bip-125)**: Same; the replacement is a new [transaction](/docs/bitcoin/transaction-lifecycle) with new signatures. Sighash types do not change.
+- **Normal payments**: SIGHASH_ALL or SIGHASH_DEFAULT. Full commitment to the transaction.
+- **RBF**: Same; the replacement is a new transaction with new signatures. Sighash types do not change.
 - **[CoinJoin](/docs/wallets/privacy)**: SIGHASH_ALL | SIGHASH_ANYONECANPAY so each participant signs only their input and agrees to the common outputs.
 - **Contract / [Covenant](/docs/advanced/covenants) designs**: SIGHASH_NONE, SIGHASH_SINGLE, or ANYONECANPAY can be used so that the signer does not commit to all outputs or all inputs. Proposed **SIGHASH_ANYPREVOUT** would allow reusing a signature across [transactions](/docs/bitcoin/transaction-lifecycle) with different outpoints, enabling more flexible [covenants](/docs/advanced/covenants) and [Lightning](/docs/lightning)-style protocols.
 
@@ -96,7 +96,7 @@ For [Taproot](/docs/bitcoin/taproot) (and commonly for SegWit v0), the value **0
 - [Transaction Lifecycle](/docs/bitcoin/transaction-lifecycle) - States of a transaction
 - [Transaction Fees](/docs/bitcoin/transaction-fees) - RBF and fee bumping
 - [Covenants](/docs/advanced/covenants) - SIGHASH_ANYPREVOUT and covenant designs
-- [Taproot](/docs/bitcoin/taproot) - SIGHASH_DEFAULT and Schnorr
+- Taproot - SIGHASH_DEFAULT and Schnorr
 
 ---
 

@@ -78,7 +78,7 @@ The more you learn, the better equipped you'll be to make informed investment de
 
 ## Related Topics
 
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - Economic characteristics of Bitcoin
+- Monetary Properties - Economic characteristics of Bitcoin
 - [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
 - [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
 - [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology

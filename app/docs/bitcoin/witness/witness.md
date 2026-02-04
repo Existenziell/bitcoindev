@@ -14,7 +14,7 @@ In a SegWit or [Taproot](/docs/bitcoin/taproot) transaction, each input can have
 
 ## Related
 
-- [SegWit](/docs/bitcoin/segwit) for the upgrade and structure
-- [Taproot](/docs/bitcoin/taproot) for Taproot witness and script paths
+- SegWit for the upgrade and structure
+- Taproot for Taproot witness and script paths
 - [Transaction Malleability](/docs/bitcoin/transaction-malleability) for why witness was separated
 - [Transaction Structure](/docs/bitcoin/transaction-structure) for input and output field layout

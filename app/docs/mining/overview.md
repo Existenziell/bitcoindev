@@ -341,7 +341,7 @@ Unlike traditional payment systems with central authorities, Bitcoin's mining is
 
 ### Monetary Policy Enforcement
 
-Mining enforces Bitcoin's fixed [supply schedule](/docs/history/halvings). The protocol rules embedded in mining software ensure that:
+Mining enforces Bitcoin's fixed supply schedule. The protocol rules embedded in mining software ensure that:
 - Only ~21 million bitcoin will ever exist
 - Block rewards halve every 210,000 blocks
 - No entity can create bitcoin outside the rules
@@ -373,6 +373,6 @@ Modern Bitcoin mining is dominated by:
 - [Difficulty Adjustment](/docs/mining/difficulty) - How difficulty adjusts to maintain block times
 - [Mining Economics](/docs/mining/economics) - Block rewards, fees, and profitability
 - [Block Construction](/docs/mining/block-construction) - How miners build blocks
-- [Mining Pools](/docs/mining/pools) - Collaborative mining operations
-- [Mining Attacks](/docs/mining/attacks) - Mining-specific attack vectors
+- Mining Pools - Collaborative mining operations
+- Mining Attacks - Mining-specific attack vectors
 - [Network Attacks & Security](/docs/mining/network-attacks) - Network-layer security threats

@@ -64,6 +64,6 @@ Understanding Ordinals highlights two recurring themes in Bitcoin:
 
 ## See Also
 
-- [Ordinals & Inscriptions](/docs/advanced/ordinals-inscriptions) – Technical overview
+- Ordinals & Inscriptions – Technical overview
 - [OP_RETURN Debate](/docs/controversies/op-return) – Data on Bitcoin and policy limits
 - [Transaction Fees](/docs/bitcoin/transaction-fees) – Fee market and fee estimation

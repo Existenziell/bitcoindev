@@ -274,7 +274,7 @@ Privacy-aware selection (e.g. avoiding linking transactions, preferring smaller 
 ## Implementation Considerations
 
 - **Iterative approach:** Estimate fee from initial selection, then select UTXOs, then recalculate fee from actual size; adjust (e.g. add input or drop change) if needed.
-- **Fee rate targets:** Use [Fee Estimation](/docs/bitcoin-development/fee-estimation) for sat/vB; common bands include low (1–5), medium (5–10), high (10–50), urgent (50+).
+- **Fee rate targets:** Use Fee Estimation for sat/vB; common bands include low (1–5), medium (5–10), high (10–50), urgent (50+).
 - **Validation:** Before finalizing, verify UTXOs are still unspent, balance is sufficient, and fee rate meets target.
 
 ## Best Practices
@@ -282,7 +282,7 @@ Privacy-aware selection (e.g. avoiding linking transactions, preferring smaller 
 - Prefer SegWit UTXOs (smaller size, lower fees).
 - Minimize number of inputs when fee is high.
 - Avoid creating dust change outputs.
-- Consider privacy when choosing a strategy (see [Privacy Techniques](/docs/wallets/privacy)).
+- Consider privacy when choosing a strategy (see Privacy Techniques).
 
 ## Common Issues
 
@@ -292,13 +292,13 @@ Privacy-aware selection (e.g. avoiding linking transactions, preferring smaller 
 
 ## Integration with Transaction Building
 
-Use the selected UTXOs as inputs and amounts in your [transaction](/docs/bitcoin-development/transactions): one output for the payment, and one for change (if any). Fee = sum(inputs) - sum(outputs). Get the fee rate from [Fee Estimation](/docs/bitcoin-development/fee-estimation).
+Use the selected UTXOs as inputs and amounts in your transaction: one output for the payment, and one for change (if any). Fee = sum(inputs) - sum(outputs). Get the fee rate from Fee Estimation.
 
 ## Related Topics
 
 - [Transaction Construction](/docs/bitcoin-development/transactions) - Building the transaction from selected UTXOs
-- [Fee Estimation](/docs/bitcoin-development/fee-estimation) - Getting fee rate (sat/vB)
+- Fee Estimation - Getting fee rate (sat/vB)
 - [Transaction Fees](/docs/bitcoin/transaction-fees) - Fee market and dust
 - [UTXO Model](/docs/fundamentals/utxos) - What UTXOs are and how they are spent
 - [Wallet Development](/docs/wallets) - HD wallets, address types, transaction creation
-- [Privacy Techniques](/docs/wallets/privacy) - Privacy-aware coin selection and wallet design
+- Privacy Techniques - Privacy-aware coin selection and wallet design

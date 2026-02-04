@@ -202,7 +202,7 @@ As Bitcoin mining technology improves and energy infrastructure evolves, the opp
 
 ## Related Topics
 
-- [Energy Consumption](/docs/controversies/energy-consumption) - The broader energy debate
+- Energy Consumption - The broader energy debate
 - [Proof-of-Work](/docs/mining/proof-of-work) - How Bitcoin mining works
 - [Mining Economics](/docs/mining/economics) - The economics of Bitcoin mining
 - [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin has value

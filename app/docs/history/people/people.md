@@ -275,7 +275,7 @@ His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-
 
 **Contribution:** SegWit (BIP 141), Taproot (BIP 340-342), libsecp256k1
 
-Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of [SegWit](/docs/bitcoin/segwit) (BIP 141), activated in 2017, which separated signature data from transaction data in the block structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, MAST, and improved privacy and flexibility for smart contracts.
+Pieter Wuille is a Belgian software engineer and one of the most influential Bitcoin protocol developers. He is the primary author of SegWit (BIP 141), activated in 2017, which separated signature data from transaction data in the block structure, fixing [transaction malleability](/docs/bitcoin/transaction-malleability) and enabling second-layer protocols. He also co-designed [Taproot](/docs/bitcoin/taproot) (BIPs 340, 341, 342), Bitcoin's 2021 upgrade that introduced Schnorr signatures, MAST, and improved privacy and flexibility for smart contracts.
 
 Wuille created and maintains libsecp256k1, the cryptographic library used by Bitcoin Core for [elliptic curve](/docs/bitcoin/cryptography) operations, faster and more secure than generic crypto libraries. His work has shaped the security, scalability, and expressiveness of the Bitcoin protocol. He is a co-founder of Blockstream and remains an active Bitcoin Core contributor.
 
@@ -289,7 +289,7 @@ Wuille created and maintains libsecp256k1, the cryptographic library used by Bit
 
 **Contribution:** Bitcoin Core developer, Blockstream co-founder, CoinJoin, Confidential Transactions, Sidechains
 
-Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on CoinJoin (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the [blocksize wars](/docs/controversies/blocksize-wars), arguing for Layer 2 scaling and against raising the block size limit. His advocacy for SegWit and for a conservative, decentralization-focused approach to scaling helped shape Bitcoin's current direction.
+Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on CoinJoin (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the blocksize wars, arguing for Layer 2 scaling and against raising the block size limit. His advocacy for SegWit and for a conservative, decentralization-focused approach to scaling helped shape Bitcoin's current direction.
 
 [More](https://en.wikipedia.org/wiki/Gregory_Maxwell)
 
@@ -334,7 +334,7 @@ In 2017, after it was revealed he had not held significant Bitcoin despite years
 
 **Contribution:** Early investor, "Bitcoin Jesus," Bitcoin Cash advocate
 
-Roger Ver is an early Bitcoin investor and promoter who became known as "Bitcoin Jesus" for his advocacy and funding of Bitcoin-related projects and businesses. He was an outspoken supporter of increasing Bitcoin's block size and, during the [blocksize wars](/docs/controversies/blocksize-wars), backed alternative implementations and the hard fork that created Bitcoin Cash (BCH) in August 2017. His shift from promoting Bitcoin (BTC) to Bitcoin Cash made him a polarizing figure. Understanding his role is part of understanding the scaling debate, the philosophy of on-chain vs. Layer 2 scaling, and the fact that Bitcoin has no single leader: divergent views can lead to forks rather than forced changes to the main chain.
+Roger Ver is an early Bitcoin investor and promoter who became known as "Bitcoin Jesus" for his advocacy and funding of Bitcoin-related projects and businesses. He was an outspoken supporter of increasing Bitcoin's block size and, during the blocksize wars, backed alternative implementations and the hard fork that created Bitcoin Cash (BCH) in August 2017. His shift from promoting Bitcoin (BTC) to Bitcoin Cash made him a polarizing figure. Understanding his role is part of understanding the scaling debate, the philosophy of on-chain vs. Layer 2 scaling, and the fact that Bitcoin has no single leader: divergent views can lead to forks rather than forced changes to the main chain.
 
 [More](https://en.wikipedia.org/wiki/Roger_Ver)
 

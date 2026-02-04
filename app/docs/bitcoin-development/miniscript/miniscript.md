@@ -1,6 +1,6 @@
 # Miniscript
 
-**Miniscript** is a structured language for writing [Bitcoin Script](/docs/bitcoin/script) that is easier to analyze, compose, and reason about than raw Script. It maps to a well-defined subset of Script and provides guarantees about spending conditions, costs, and the number and type of signatures required. It sits on top of [Bitcoin Script](/docs/bitcoin/script) and the same [smart contract](/docs/wallets/smart-contracts) spending conditions, giving you a policy language that compiles to correct Script.
+**Miniscript** is a structured language for writing Bitcoin Script that is easier to analyze, compose, and reason about than raw Script. It maps to a well-defined subset of Script and provides guarantees about spending conditions, costs, and the number and type of signatures required. It sits on top of [Bitcoin Script](/docs/bitcoin/script) and the same [smart contract](/docs/wallets/smart-contracts) spending conditions, giving you a policy language that compiles to correct Script.
 
 ## Why Miniscript?
 
@@ -171,7 +171,7 @@ console.log(policyToDescriptor(policy));
 
 ## Taproot and Miniscript
 
-[Taproot](/docs/bitcoin/taproot) and [Tapscript](/docs/bitcoin/script) add:
+Taproot and [Tapscript](/docs/bitcoin/script) add:
 
 - **Schnorr** and `OP_CHECKSIGADD`
 - New rules and limits (e.g., 32-byte x-only [pubkeys](/docs/bitcoin/cryptography))
@@ -191,11 +191,11 @@ Miniscript has been extended (see [BIP 382](https://github.com/bitcoin/bips/blob
 
 ## Related Topics
 
-- [Bitcoin Script](/docs/bitcoin/script) - Script system
+- Bitcoin Script - Script system
 - [Output Descriptors](/docs/bitcoin-development/descriptors) - Miniscript compiles to descriptors
 - [Script Patterns](/docs/bitcoin-development/script-patterns) - Common patterns and Miniscript
 - [Smart Contracts](/docs/wallets/smart-contracts) - Contract patterns and Miniscript
-- [Taproot](/docs/bitcoin/taproot) - Tapscript and Miniscript
+- Taproot - Tapscript and Miniscript
 - [Covenants](/docs/advanced/covenants) - Proposed opcodes and policy
 
 ---

@@ -299,13 +299,13 @@ Benefits:
 
 ## Miniscript
 
-[Miniscript](/docs/bitcoin-development/miniscript) is a structured language for expressing spending *policies* that compiles to [Bitcoin Script](/docs/bitcoin/script). You describe *what* must hold (e.g., 2-of-3 keys, or "key A and after block N") and tools produce correct, analyzable Script. This simplifies multisig, [timelocks](/docs/bitcoin/timelocks), vaults, and [Taproot](/docs/bitcoin/taproot) script trees. See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification and use in wallets and protocols.
+Miniscript is a structured language for expressing spending *policies* that compiles to [Bitcoin Script](/docs/bitcoin/script). You describe *what* must hold (e.g., 2-of-3 keys, or "key A and after block N") and tools produce correct, analyzable Script. This simplifies multisig, [timelocks](/docs/bitcoin/timelocks), vaults, and [Taproot](/docs/bitcoin/taproot) script trees. See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification and use in wallets and protocols.
 
 ---
 
 ## Covenants (Proposed)
 
-[Covenants](/docs/advanced/covenants) are a *proposed* type of contract that would restrict how outputs can be spent in *future* [transactions](/docs/bitcoin/transaction-lifecycle), for example, "this UTXO may only be spent to addresses of type X" or "funds must pass through a timelocked recovery path." Proposals such as **OP_CAT**, **OP_CTV** (CheckTemplateVerify), and **SIGHASH_ANYPREVOUT** aim to enable covenant-like behavior. None are in consensus today; see [Covenants](/docs/advanced/covenants) for the design space and BIPs.
+Covenants are a *proposed* type of contract that would restrict how outputs can be spent in *future* [transactions](/docs/bitcoin/transaction-lifecycle), for example, "this UTXO may only be spent to addresses of type X" or "funds must pass through a timelocked recovery path." Proposals such as **OP_CAT**, **OP_CTV** (CheckTemplateVerify), and **SIGHASH_ANYPREVOUT** aim to enable covenant-like behavior. None are in consensus today; see [Covenants](/docs/advanced/covenants) for the design space and BIPs.
 
 ---
 
@@ -347,10 +347,10 @@ Benefits:
 
 ## Related Topics
 
-- [Bitcoin Script](/docs/bitcoin/script) - Script system
+- Bitcoin Script - Script system
 - [OP Codes](/docs/bitcoin/op-codes) - Available operations
-- [Miniscript](/docs/bitcoin-development/miniscript) - Policy-to-script compiler
-- [Covenants](/docs/advanced/covenants) - Proposed output-spend constraints
+- Miniscript - Policy-to-script compiler
+- Covenants - Proposed output-spend constraints
 - [Timelocks](/docs/bitcoin/timelocks) - Time-based conditions
 - [Multisig](/docs/wallets/multisig) - Multi-signature wallets
 - [Atomic Swaps](/docs/advanced/atomic-swaps) - Cross-chain contracts

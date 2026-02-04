@@ -284,10 +284,10 @@ To receive payments or [route](/docs/lightning/routing-fees) effectively, you ne
 
 ### How It Works
 
-- **Splice-in**: You add an extra input (and possibly output) to a new **funding [transaction](/docs/bitcoin/transaction-lifecycle)** that spends the existing 2-of-2 multisig UTXO and creates a **new** 2-of-2 with a larger (or smaller) amount. Both parties sign; the channel capacity is updated on confirmation.
-- **Splice-out**: Part of the channel [balance](#channel-capacity-and-liquidity) is sent to an address (yours or your peer’s) in the splice [transaction](/docs/bitcoin/transaction-lifecycle), reducing the new 2-of-2 amount.
+- **Splice-in**: You add an extra input (and possibly output) to a new **funding transaction** that spends the existing 2-of-2 multisig UTXO and creates a **new** 2-of-2 with a larger (or smaller) amount. Both parties sign; the channel capacity is updated on confirmation.
+- **Splice-out**: Part of the channel [balance](#channel-capacity-and-liquidity) is sent to an address (yours or your peer’s) in the splice transaction, reducing the new 2-of-2 amount.
 
-Splicing is **dual-funded** in the sense that the splice [transaction](/docs/bitcoin/transaction-lifecycle) is cooperatively built; typically it also uses [anchor outputs](/docs/lightning/anchor-outputs) or similar so fee bumping works.
+Splicing is **dual-funded** in the sense that the splice transaction is cooperatively built; typically it also uses [anchor outputs](/docs/lightning/anchor-outputs) or similar so fee bumping works.
 
 ### Why Use Splicing
 
@@ -380,5 +380,5 @@ Payment channels enable:
 ## Related Topics
 
 - [Routing Fees](/docs/lightning/routing-fees), [HTLCs](/docs/lightning/routing/htlc), and [Multi-Part Payments](/docs/lightning/routing/mpp) - How payments route through channels
-- [Watchtowers](/docs/lightning/watchtowers) - Third-party channel monitoring
+- Watchtowers - Third-party channel monitoring
 - [Anchor Outputs](/docs/lightning/anchor-outputs) - Modern channel format for fee bumping and splicing
