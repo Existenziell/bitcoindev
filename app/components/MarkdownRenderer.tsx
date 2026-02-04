@@ -18,7 +18,7 @@ const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), 
   ssr: false,
   loading: () => <div className="mermaid-diagram my-4 min-h-[120px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 animate-pulse" aria-hidden />,
 })
-import { ChevronDown } from '@/app/components/Icons'
+import { ChevronDown, LinkIcon } from '@/app/components/Icons'
 import ExternalLink from '@/app/components/ExternalLink'
 import { generateSlug } from '@/scripts/lib/slug'
 
@@ -239,11 +239,28 @@ const createHeading = (level: number) => {
     const { node: _node, ...htmlProps } = props
 
     const Tag = `h${level}` as keyof React.JSX.IntrinsicElements
-    return (
+    const heading = (
       <Tag id={id} {...htmlProps}>
         {children}
       </Tag>
     )
+
+    if (level === 2) {
+      return (
+        <span className="group relative block">
+          <Link
+            href={`#${id}`}
+            className="absolute left-0 top-[0.5em] -translate-x-full pr-2 opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            aria-label="Link to section"
+          >
+            <LinkIcon className="w-5 h-5" />
+          </Link>
+          {heading}
+        </span>
+      )
+    }
+
+    return heading
   }
   HeadingComponent.displayName = `Heading${level}`
   return HeadingComponent

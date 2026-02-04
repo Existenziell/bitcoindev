@@ -418,6 +418,24 @@ export function HashIcon({ className, ...props }: IconProps) {
   )
 }
 
+/** Chain link icon for “link to this section” (heading anchors). */
+export function LinkIcon({ className, ...props }: IconProps) {
+  return (
+    <svg
+      className={cn('w-4 h-4', className)}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+    </svg>
+  )
+}
+
 /** Address decoder tool icon (document with magnifier). From public/icons/address-decoder.svg */
 export function AddressDecoderIcon({ className, ...props }: IconProps) {
   return (
