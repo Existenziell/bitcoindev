@@ -5,8 +5,9 @@ import DocsSearch from '@/app/components/search/DocsSearch'
 import { navItems, sections } from '@/app/utils/navigation'
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Documentation',
-  description: 'Explore the BitcoinDev documentation. Learn about fundamentals, protocol details, development guides, Lightning Network, and more.',
+  title: 'Bitcoin Development Documentation',
+  description:
+    'Bitcoin development documentation for developers. Open source guides on fundamentals, protocol, wallets, Lightning, and more.',
   path: '/docs',
 })
 

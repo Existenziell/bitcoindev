@@ -8,7 +8,7 @@ Bitcoin, where money meets math.
 
 ---
 
-<img src="/images/docs/do-something.gif" alt="C'mon, do something..." class="doc-img" />
+<img src="/images/docs/do-something.gif" alt="C'mon, do something..." class="doc-img" width="400" height="400" />
 
 ### Simple Core Narratives
 

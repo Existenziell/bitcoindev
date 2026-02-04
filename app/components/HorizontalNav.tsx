@@ -33,7 +33,7 @@ function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default')
 
 export default function HorizontalNav() {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set()
   )

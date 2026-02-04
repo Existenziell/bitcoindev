@@ -601,17 +601,17 @@ main > div > div > h1:first-child {
   @apply border-t border-gray-300 dark:border-gray-600 my-6 opacity-30;
 }
 
-/* Doc images: full width on mobile, max-w-md on desktop, with shadow */
+/* Doc images: responsive, preserve aspect ratio, no distortion */
 .markdown-content .doc-img {
-  @apply w-full md:max-w-xl rounded-sm mt-4 mb-2 shadow-md;
+  @apply w-full md:max-w-xl h-auto rounded-sm mt-4 mb-2 shadow-md object-contain;
 }
 
 .markdown-content .doc-img-people {
-  @apply w-full md:max-w-sm rounded-sm shadow-md mb-4;
+  @apply w-full md:max-w-sm h-auto rounded-sm shadow-md mb-4 object-contain;
 }
 
 .markdown-content .doc-img-big {
-  @apply w-full rounded-sm mt-4 mb-2 shadow-md;
+  @apply w-full max-w-4xl h-auto rounded-sm mt-4 mb-2 shadow-md object-contain;
 }
 
 /* Image legends (captions) */

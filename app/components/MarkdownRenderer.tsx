@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
 import { visit } from 'unist-util-visit'
+import Image from 'next/image'
 import Link from 'next/link'
 import CodeBlock, { MultiLanguageCodeBlock } from '@/app/components/CodeBlock'
 import DenominationCalculator from '@/app/components/DenominationCalculator'
@@ -451,11 +452,29 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         </pre>
       )
     },
-    img: ({ src, alt, ...props }: any) => (
-      // Markdown images: src/alt are dynamic; next/image requires known dimensions or unoptimized
-      // eslint-disable-next-line @next/next/no-img-element -- dynamic markdown content
-      <img src={src} alt={alt} className="max-w-full h-auto my-4" {...props} />
-    ),
+    img: ({ src, alt, className, width, height, ...props }: any) => {
+      const cn = typeof className === 'string' ? className : Array.isArray(className) ? className.join(' ') : ''
+      const isDocImage =
+        typeof src === 'string' && src.startsWith('/images/') && /doc-img|doc-img-big|doc-img-people/.test(cn)
+      const w = width != null ? Number(width) : isDocImage ? (cn.includes('doc-img-people') ? 400 : 800) : undefined
+      const h = height != null ? Number(height) : isDocImage ? (cn.includes('doc-img-people') ? 400 : 450) : undefined
+      if (isDocImage && w != null && h != null) {
+        return (
+          <Image
+            src={src}
+            alt={alt ?? ''}
+            width={w}
+            height={h}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+            className={`my-4 ${cn}`}
+          />
+        )
+      }
+      return (
+        // eslint-disable-next-line @next/next/no-img-element -- dynamic markdown content, non-doc images
+        <img src={src} alt={alt} className="max-w-full h-auto my-4" width={width} height={height} {...props} />
+      )
+    },
   }), [codeGroupMap, videoGroupMap, mermaidDiagramMap])
 
   return (

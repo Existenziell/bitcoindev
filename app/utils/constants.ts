@@ -23,5 +23,6 @@ export const SITE_NAME = 'BitcoinDev'
 /** Canonical site URL (used in metadata, sitemap, OG, canonical links). */
 export const SITE_URL = 'https://bitcoindev.info'
 
-/** Site description. */
-export const SITE_DESCRIPTION = "A developer's guide to Bitcoin. Open knowledge. Open source. With CLI terminal, StackLab, Block Visualizer, and code examples. No ads. No tracking. Always free."
+/** Site description (≤155 chars for meta description / ~1000px). */
+export const SITE_DESCRIPTION =
+  'Bitcoin development guide for Bitcoin developers. Open source. CLI terminal, Stack Lab, Block Visualizer. No ads. Always free.'

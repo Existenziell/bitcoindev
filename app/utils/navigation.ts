@@ -20,6 +20,8 @@ export interface DocPage {
   mdFile: string
   title: string
   section: string
+  /** Optional per-page meta description; falls back to section description then title + suffix. */
+  description?: string
 }
 
 export interface NavSection {
@@ -29,7 +31,7 @@ export interface NavSection {
 }
 
 export const docPages: DocPage[] = [
-  { path: '/docs/fundamentals', mdFile: 'app/docs/fundamentals/overview.md', title: 'Bitcoin Fundamentals', section: 'fundamentals' },
+  { path: '/docs/fundamentals', mdFile: 'app/docs/fundamentals/overview.md', title: 'Bitcoin Fundamentals', section: 'fundamentals', description: 'What Bitcoin is, why it matters, and the problems it solves. Core concepts for Bitcoin developers.' },
   { path: '/docs/fundamentals/problems', mdFile: 'app/docs/fundamentals/problems/problems.md', title: 'Problems Bitcoin Solved', section: 'fundamentals' },
   { path: '/docs/fundamentals/cypherpunk-philosophy', mdFile: 'app/docs/fundamentals/cypherpunk-philosophy/cypherpunk-philosophy.md', title: 'Cypherpunk Philosophy', section: 'fundamentals' },
   { path: '/docs/fundamentals/blockchain', mdFile: 'app/docs/fundamentals/blockchain/blockchain.md', title: 'The Blockchain', section: 'fundamentals' },
@@ -44,13 +46,13 @@ export const docPages: DocPage[] = [
   { path: '/docs/fundamentals/governance', mdFile: 'app/docs/fundamentals/governance/governance.md', title: 'Governance & Evolution', section: 'fundamentals' },
   { path: '/docs/fundamentals/bitcoin-meme', mdFile: 'app/docs/fundamentals/bitcoin-meme/bitcoin-meme.md', title: 'Bitcoin, the Meme', section: 'fundamentals' },
 
-  { path: '/docs/history', mdFile: 'app/docs/history/overview.md', title: 'Bitcoin History', section: 'history' },
+  { path: '/docs/history', mdFile: 'app/docs/history/overview.md', title: 'Bitcoin History', section: 'history', description: "Bitcoin's history from the Genesis Block to halvings, forks, BIPs, and key people." },
   { path: '/docs/history/people', mdFile: 'app/docs/history/people/people.md', title: 'People', section: 'history' },
   { path: '/docs/history/halvings', mdFile: 'app/docs/history/halvings.md', title: 'Halvings', section: 'history' },
   { path: '/docs/history/forks', mdFile: 'app/docs/history/forks.md', title: 'Forks', section: 'history' },
   { path: '/docs/history/bips', mdFile: 'app/docs/history/bips.md', title: 'BIPs', section: 'history' },
 
-  { path: '/docs/bitcoin', mdFile: 'app/docs/bitcoin/overview.md', title: 'The Bitcoin Protocol', section: 'bitcoin' },
+  { path: '/docs/bitcoin', mdFile: 'app/docs/bitcoin/overview.md', title: 'The Bitcoin Protocol', section: 'bitcoin', description: 'Technical documentation of the Bitcoin protocol: cryptography, consensus, script, SegWit, Taproot, RPC.' },
   { path: '/docs/bitcoin/cryptography', mdFile: 'app/docs/bitcoin/cryptography/cryptography.md', title: 'Cryptography', section: 'bitcoin' },
   { path: '/docs/bitcoin/consensus', mdFile: 'app/docs/bitcoin/consensus/consensus.md', title: 'Consensus Mechanism', section: 'bitcoin' },
   { path: '/docs/bitcoin/transaction-structure', mdFile: 'app/docs/bitcoin/transaction-structure/transaction-structure.md', title: 'Transaction Structure', section: 'bitcoin' },
@@ -72,7 +74,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/bitcoin/data-encoding', mdFile: 'app/docs/bitcoin/data-encoding/data-encoding.md', title: 'Data Encoding', section: 'bitcoin' },
   { path: '/docs/bitcoin/rpc', mdFile: 'app/docs/bitcoin/rpc/rpc.md', title: 'RPC Commands', section: 'bitcoin' },
 
-  { path: '/docs/mining', mdFile: 'app/docs/mining/overview.md', title: 'Mining', section: 'mining' },
+  { path: '/docs/mining', mdFile: 'app/docs/mining/overview.md', title: 'Mining', section: 'mining', description: 'Proof-of-work, block construction, pool mining, and the economics that secure the Bitcoin network.' },
   { path: '/docs/mining/proof-of-work', mdFile: 'app/docs/mining/proof-of-work/proof-of-work.md', title: 'Proof-of-Work', section: 'mining' },
   { path: '/docs/mining/difficulty', mdFile: 'app/docs/mining/difficulty/difficulty.md', title: 'Difficulty Adjustment', section: 'mining' },
   { path: '/docs/mining/mempool', mdFile: 'app/docs/mining/mempool/mempool.md', title: 'Mempool', section: 'mining' },
@@ -83,7 +85,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/mining/attacks', mdFile: 'app/docs/mining/attacks/attacks.md', title: 'Mining Attacks', section: 'mining' },
   { path: '/docs/mining/network-attacks', mdFile: 'app/docs/mining/network-attacks/network-attacks.md', title: 'Network Attacks & Security', section: 'mining' },
 
-  { path: '/docs/wallets', mdFile: 'app/docs/wallets/overview.md', title: 'Wallet Development', section: 'wallets' },
+  { path: '/docs/wallets', mdFile: 'app/docs/wallets/overview.md', title: 'Wallet Development', section: 'wallets', description: 'Build Bitcoin wallets: coin selection, multisig, privacy, smart contracts, transaction construction.' },
   { path: '/docs/wallets/hd-wallets', mdFile: 'app/docs/wallets/hd-wallets/hd-wallets.md', title: 'HD Wallets', section: 'wallets' },
   { path: '/docs/wallets/address-types', mdFile: 'app/docs/wallets/address-types/address-types.md', title: 'Address Types', section: 'wallets' },
   { path: '/docs/wallets/transactions', mdFile: 'app/docs/wallets/transactions/transactions.md', title: 'Transaction Creation', section: 'wallets' },
@@ -91,7 +93,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/wallets/multisig', mdFile: 'app/docs/wallets/multisig/multisig.md', title: 'Multisig', section: 'wallets' },
   { path: '/docs/wallets/smart-contracts', mdFile: 'app/docs/wallets/smart-contracts/smart-contracts.md', title: 'Smart Contracts & Advanced Scripting', section: 'wallets' },
 
-  { path: '/docs/lightning', mdFile: 'app/docs/lightning/overview.md', title: 'Lightning Network', section: 'lightning' },
+  { path: '/docs/lightning', mdFile: 'app/docs/lightning/overview.md', title: 'Lightning Network', section: 'lightning', description: 'Lightning Network protocol: channels, routing, HTLCs, BOLT11/BOLT12, onion routing.' },
   { path: '/docs/lightning/channels', mdFile: 'app/docs/lightning/channels/channels.md', title: 'Channels', section: 'lightning' },
   { path: '/docs/lightning/routing/htlc', mdFile: 'app/docs/lightning/routing/htlc.md', title: 'HTLCs', section: 'lightning' },
   { path: '/docs/lightning/routing-fees', mdFile: 'app/docs/lightning/routing-fees/routing-fees.md', title: 'Routing Fees', section: 'lightning' },
@@ -103,7 +105,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/lightning/anchor-outputs', mdFile: 'app/docs/lightning/anchor-outputs/anchor-outputs.md', title: 'Anchor Outputs', section: 'lightning' },
   { path: '/docs/lightning/resources', mdFile: 'app/docs/lightning/resources/resources.md', title: 'Lightning Resources', section: 'lightning' },
 
-  { path: '/docs/development', mdFile: 'app/docs/development/overview.md', title: 'Setup & Infrastructure', section: 'development' },
+  { path: '/docs/development', mdFile: 'app/docs/development/overview.md', title: 'Setup & Infrastructure', section: 'development', description: 'Bitcoin development setup: installation, testing, testnets, libraries, node types, Bitcoin Core internals.' },
   { path: '/docs/development/install-bitcoin', mdFile: 'app/docs/development/install-bitcoin/install-bitcoin.md', title: 'Installing Bitcoin', section: 'development' },
   { path: '/docs/development/testing', mdFile: 'app/docs/development/testing/testing.md', title: 'Testing & Debugging', section: 'development' },
   { path: '/docs/development/testnets', mdFile: 'app/docs/development/testnets/testnets.md', title: 'Test Networks', section: 'development' },
@@ -112,7 +114,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/development/bitcoin-core-internals', mdFile: 'app/docs/development/bitcoin-core-internals/bitcoin-core-internals.md', title: 'Bitcoin Core Internals', section: 'development' },
   { path: '/docs/development/resources', mdFile: 'app/docs/development/resources/resources.md', title: 'Developer Resources', section: 'development' },
 
-  { path: '/docs/bitcoin-development', mdFile: 'app/docs/bitcoin-development/overview.md', title: 'Bitcoin Development', section: 'bitcoin-development' },
+  { path: '/docs/bitcoin-development', mdFile: 'app/docs/bitcoin-development/overview.md', title: 'Bitcoin Development', section: 'bitcoin-development', description: 'Practical Bitcoin development: PSBT, transactions, keys, addresses, fee estimation, coin selection, descriptors.' },
   { path: '/docs/bitcoin-development/keys', mdFile: 'app/docs/bitcoin-development/keys/keys.md', title: 'Key Management', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/addresses', mdFile: 'app/docs/bitcoin-development/addresses/addresses.md', title: 'Address Generation', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/fee-estimation', mdFile: 'app/docs/bitcoin-development/fee-estimation/fee-estimation.md', title: 'Fee Estimation', section: 'bitcoin-development' },
@@ -128,7 +130,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/bitcoin-development/miniscript', mdFile: 'app/docs/bitcoin-development/miniscript/miniscript.md', title: 'Miniscript', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/descriptors', mdFile: 'app/docs/bitcoin-development/descriptors/descriptors.md', title: 'Output Descriptors', section: 'bitcoin-development' },
 
-  { path: '/docs/controversies', mdFile: 'app/docs/controversies/overview.md', title: 'Controversies', section: 'controversies' },
+  { path: '/docs/controversies', mdFile: 'app/docs/controversies/overview.md', title: 'Controversies', section: 'controversies', description: "Major debates that shaped Bitcoin: blocksize wars, ordinals, energy, regulation, and key events." },
   { path: '/docs/controversies/blocksize-wars', mdFile: 'app/docs/controversies/blocksize-wars/blocksize-wars.md', title: 'Blocksize Wars', section: 'controversies' },
   { path: '/docs/controversies/op-return', mdFile: 'app/docs/controversies/op-return/debate.md', title: 'OP_RETURN Debate', section: 'controversies' },
   { path: '/docs/controversies/ordinals', mdFile: 'app/docs/controversies/ordinals/ordinals.md', title: 'Ordinals and Inscriptions', section: 'controversies' },
@@ -138,7 +140,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/controversies/mt-gox', mdFile: 'app/docs/controversies/mt-gox/mt-gox.md', title: 'Mt. Gox Collapse', section: 'controversies' },
   { path: '/docs/controversies/craig-wright', mdFile: 'app/docs/controversies/craig-wright/craig-wright.md', title: 'Craig Wright', section: 'controversies' },
 
-  { path: '/docs/advanced', mdFile: 'app/docs/advanced/overview.md', title: 'Advanced Topics', section: 'advanced' },
+  { path: '/docs/advanced', mdFile: 'app/docs/advanced/overview.md', title: 'Advanced Topics', section: 'advanced', description: 'Advanced Bitcoin: atomic swaps, DLCs, sidechains, statechains, covenants, trampoline routing.' },
   { path: '/docs/advanced/sidechains', mdFile: 'app/docs/advanced/sidechains/sidechains.md', title: 'Sidechains & Layer 2', section: 'advanced' },
   { path: '/docs/advanced/atomic-swaps', mdFile: 'app/docs/advanced/atomic-swaps/atomic-swaps.md', title: 'Atomic Swaps', section: 'advanced' },
   { path: '/docs/advanced/dlcs', mdFile: 'app/docs/advanced/dlcs/dlcs.md', title: 'Discreet Log Contracts', section: 'advanced' },
@@ -149,7 +151,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/advanced/trampoline-routing', mdFile: 'app/docs/advanced/trampoline-routing/trampoline-routing.md', title: 'Trampoline Routing', section: 'advanced' },
   { path: '/docs/advanced/covenants', mdFile: 'app/docs/advanced/covenants/covenants.md', title: 'Covenants', section: 'advanced' },
 
-  { path: '/docs/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment' },
+  { path: '/docs/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment', description: 'Investment strategies, risk management, wallet security, self-custody, and market cycles.' },
   { path: '/docs/investment/risk-management', mdFile: 'app/docs/investment/risk-management/risk-management.md', title: 'Risk Management', section: 'investment' },
   { path: '/docs/investment/investment-strategy', mdFile: 'app/docs/investment/investment-strategy/overview.md', title: 'Investment Strategy', section: 'investment' },
   { path: '/docs/investment/tools', mdFile: 'app/docs/investment/tools/tools.md', title: 'Interactive Tools', section: 'investment' },
@@ -157,7 +159,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/investment/privacy', mdFile: 'app/docs/investment/privacy/privacy.md', title: 'Privacy', section: 'investment' },
   { path: '/docs/investment/market-cycles', mdFile: 'app/docs/investment/market-cycles/market-cycles.md', title: 'Understanding Market Cycles', section: 'investment' },
 
-  { path: '/docs/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption' },
+  { path: '/docs/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption', description: 'Real-world Bitcoin adoption: stranded energy, financial inclusion, use cases, and outlook.' },
   { path: '/docs/adoption/stranded-energy', mdFile: 'app/docs/adoption/stranded-energy/stranded-energy.md', title: 'Stranded Energy and Flared Gas', section: 'adoption' },
   { path: '/docs/adoption/rural-communities', mdFile: 'app/docs/adoption/rural-communities/rural-communities.md', title: 'Rural Communities and Financial Inclusion', section: 'adoption' },
   { path: '/docs/adoption/use-cases', mdFile: 'app/docs/adoption/use-cases/use-cases.md', title: 'Bitcoin Use Cases', section: 'adoption' },
@@ -241,10 +243,10 @@ export const sections: Record<string, { title: string; description: string }> = 
   },
 }
 
-// Home page CTA links
+// Home page CTA links (anchor text varied from footer/nav for SEO)
 export const ctaLinks: { href: string; title: string }[] = [
   { href: '/docs/fundamentals', title: 'Start Learning' },
-  { href: '/interactive-tools', title: 'Interactive Tools' },
+  { href: '/interactive-tools', title: 'Bitcoin Dev Tools' },
 ]
 
 // Docs sidebar - top section
@@ -297,13 +299,13 @@ export const footerLinksExternal: { name: string; url: string }[] = [
 
 // Footer - Explore BitcoinDev section (right side)
 export const footerLinksExplore: { href: string; title: string }[] = [
-  { href: '/docs', title: 'Search Docs' },
-  { href: '/interactive-tools', title: 'Interactive Tools' },
-  { href: '/whitepaper', title: 'Whitepaper' },
+  { href: '/docs', title: 'Documentation' },
+  { href: '/interactive-tools', title: 'All interactive tools' },
+  { href: '/whitepaper', title: 'Bitcoin whitepaper' },
   { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
   { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
   { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
-  { href: '/docs/glossary', title: 'Glossary' },
+  { href: '/docs/glossary', title: 'Bitcoin glossary' },
   { href: '/about', title: 'About' },
   { href: '/feedback', title: 'Feedback' },
 ]

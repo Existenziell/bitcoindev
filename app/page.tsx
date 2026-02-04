@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '@/app/components/Footer'
@@ -7,6 +8,14 @@ import HorizontalNav from '@/app/components/HorizontalNav'
 import BitcoinHistoryBanner from '@/app/components/BitcoinHistoryBanner'
 import { BookOpenIcon, ToolsIcon } from '@/app/components/Icons'
 import { ctaLinks } from '@/app/utils/navigation'
+import { generatePageMetadata } from '@/app/utils/metadata'
+
+export const metadata: Metadata = generatePageMetadata({
+  title: 'Bitcoin Development & Developer Guide | BitcoinDev',
+  description:
+    'Bitcoin development guide for developers. Open source documentation, CLI terminal, Stack Lab, Block Visualizer. No ads. Always free.',
+  path: '/',
+})
 
 // Map icons to CTA links by href
 const ctaIcons: Record<string, React.ReactNode> = {
@@ -40,13 +49,13 @@ export default function Home() {
 
         <div className="container-content py-8 md:py-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="heading-page mb-1">
+            <h1 className="heading-page mb-1">
               A Developer&apos;s Guide to Bitcoin
-            </h2>
+            </h1>
             <p className="text-secondary mb-6">
               Open source and always free.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               {ctaLinks.map((link, index) => (
                 <Link
                   key={link.href}
@@ -57,6 +66,21 @@ export default function Home() {
                   {ctaIcons[link.href]}
                 </Link>
               ))}
+            </div>
+            <div className="text-left max-w-2xl mx-auto space-y-4 text-secondary leading-relaxed mb-4">
+              <p>
+                BitcoinDev is a Bitcoin resource for anyone (developers, beginners, and curious non-devs alike) who wants to understand how Bitcoin works.
+                I want to share my enthusiasm for Bitcoin and my own experience wandering down the rabbit hole (and the &quot;aha&quot; moments along the way) so more people can get up to speed with less friction.
+              </p>
+              <p>
+                I created BitcoinDev to offer free and open source documentation that goes from Bitcoin 
+                fundamentals to advanced protocol details, whether you&apos;re a developer or completely new to Bitcoin.
+                The site includes interactive tools you can use in the browser: a CLI terminal for Bitcoin RPC commands, Stack Lab for Bitcoin Script, 
+                a block visualizer, and utilities for hashes, addresses, and transactions.
+              </p>
+              <p>
+                All content is open source, free, and will always remain so. No ads, no paywalls, no tracking. Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
+              </p>
             </div>
           </div>
         </div>

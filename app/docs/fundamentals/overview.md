@@ -1,4 +1,4 @@
-# What is Bitcoin?
+# What is Bitcoin? An Introduction
 
 Bitcoin is a decentralized digital currency and payment system that operates without a central authority or intermediary. It was created in 2009 by an anonymous person or group using the pseudonym [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), who first described the system in the [Bitcoin whitepaper](/whitepaper) published on October 31, 2008.
 
@@ -12,7 +12,7 @@ Stay curious and keep learning 🧡
 **bitcoin** (lowercase) or **BTC** refers to the currency unit.
 
 
-> **Note:** Throughout this documentation, "Bitcoin" refers specifically to **BTC (Bitcoin Core)**, the original and longest-running Bitcoin network. While other networks like Bitcoin Cash (BCH) and Bitcoin SV (BSV) share Bitcoin's history up to their respective fork points, they are separate networks with different consensus rules. This documentation focuses exclusively on Bitcoin (BTC).  
+> **Note:** Throughout this documentation, "Bitcoin" refers specifically to BTC (Bitcoin Core), the original and longest-running Bitcoin network. While other networks like Bitcoin Cash (BCH) and Bitcoin SV (BSV) share Bitcoin's history up to their respective fork points, they are separate networks with different consensus rules. This documentation focuses exclusively on Bitcoin (BTC).  
 >   
 > **Be aware:** The website bitcoin.com promotes Bitcoin Cash (BCH), not Bitcoin (BTC). Despite its name, it is not the official Bitcoin website and does not represent the Bitcoin (BTC) network.
 
@@ -26,25 +26,25 @@ Bitcoin consists of several key components that work together to create a decent
 
 **Cryptography:** The mathematical foundation of Bitcoin. [Elliptic curve cryptography](/docs/bitcoin/cryptography) enables unforgeable digital signatures, while hash functions provide data integrity and mining security.
 
-**Consensus Mechanism:** Bitcoin's [consensus mechanism](/docs/bitcoin/consensus) allows thousands of nodes worldwide to agree on a single transaction history without central coordination, using proof-of-work and economic incentives.
+Consensus Mechanism: Bitcoin's [consensus mechanism](/docs/bitcoin/consensus) allows thousands of nodes worldwide to agree on a single transaction history without central coordination, using proof-of-work and economic incentives.
 
 **Script:** [Bitcoin Script](/docs/bitcoin/script) is a simple programming language that defines spending conditions, enabling features like multi-signature wallets and time-locked transactions.
 
-**OP Codes:** The [instruction set](/docs/bitcoin/op-codes) that powers Bitcoin Script, with each opcode performing specific operations for transaction validation and program execution.
+OP Codes: The [instruction set](/docs/bitcoin/op-codes) that powers Bitcoin Script, with each opcode performing specific operations for transaction validation and program execution.
 
-**Block Structure:** [Blocks](/docs/bitcoin/blocks) are the fundamental units of Bitcoin's ledger, organizing transactions and enabling efficient verification through Merkle trees.
+Block Structure: [Blocks](/docs/bitcoin/blocks) are the fundamental units of Bitcoin's ledger, organizing transactions and enabling efficient verification through Merkle trees.
 
-**Economic Rules:** The [subsidy equation](/docs/bitcoin/subsidy) mathematically guarantees Bitcoin's fixed supply, creating a predictable monetary policy that approaches 21 million coins.
+Economic Rules: The [subsidy equation](/docs/bitcoin/subsidy) mathematically guarantees Bitcoin's fixed supply, creating a predictable monetary policy that approaches 21 million coins.
 
 | Component | Purpose |
 |-----------|---------|
-| [Blockchain](/docs/fundamentals/blockchain) | Distributed ledger; cryptographically linked blocks; immutable, verifiable history |
-| [Cryptography](/docs/bitcoin/cryptography) | Digital signatures, hashes; ownership and integrity without trust |
-| [Consensus](/docs/bitcoin/consensus) | Nodes agree on transaction history via proof-of-work; no central coordinator |
-| [Script](/docs/bitcoin/script) | Spending conditions; multisig, timelocks, smart contracts |
-| [OP Codes](/docs/bitcoin/op-codes) | Instruction set for Script; validation and program execution |
+| [Ledger and blocks](/docs/fundamentals/blockchain) | Cryptographically linked blocks; immutable, verifiable history |
+| [Protocol cryptography](/docs/bitcoin/cryptography) | Digital signatures, hashes; ownership and integrity without trust |
+| [Consensus mechanism](/docs/bitcoin/consensus) | Nodes agree on transaction history via proof-of-work; no central coordinator |
+| [Bitcoin Script](/docs/bitcoin/script) | Spending conditions; multisig, timelocks, smart contracts |
+| [Instruction set](/docs/bitcoin/op-codes) | OP codes for Script; validation and program execution |
 | Blocks | Units of the ledger; Merkle trees for efficient verification |
-| [Subsidy](/docs/bitcoin/subsidy) | Fixed supply; predictable monetary policy toward 21 million |
+| [Subsidy equation](/docs/bitcoin/subsidy) | Fixed supply; predictable monetary policy toward 21 million |
 
 ```text
 [User / Wallet] --> [Transaction] --> [Mempool] --> [Miner] --> [Block] --> [Chain]
@@ -93,7 +93,7 @@ Bitcoin represents something unprecedented: **Element Zero**, consisting only of
 Bitcoin is **deflationary money with absolute scarcity**. Only 21 million bitcoin will ever exist, a fixed supply that cannot be inflated, diluted, or manipulated.
 
 This scarcity will produce conditions of human interaction never before seen in monetary history:
-- **Abundance through deflation**: As productivity increases, the value of saved bitcoin grows
+- Abundance through deflation: As productivity increases, the value of saved bitcoin grows
 - **Long-term thinking**: Sound money encourages saving and investment over consumption
 - **True price discovery**: Without monetary manipulation, markets can function honestly
 

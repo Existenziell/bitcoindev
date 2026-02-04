@@ -4,7 +4,7 @@ This document explains how blocks propagate through the Bitcoin network, includi
 
 ## Block Structure
 
-<img src="/images/docs/bitcoin-block-overview.jpg" alt="Bitcoin Block Structure" class="doc-img-big" />
+<img src="/images/docs/bitcoin-block-overview.jpg" alt="Bitcoin Block Structure" class="doc-img-big" width="800" height="450" />
 <p class="doc-img-legend">Bitcoin Block Structure</p>
 
 A Bitcoin block consists of:

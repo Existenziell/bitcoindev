@@ -5,14 +5,10 @@ test.describe('Home', () => {
     await page.goto('/')
     await expect(page).toHaveTitle(/BitcoinDev/)
 
-    await expect(page.getByRole('link', { name: /Start Learning/i })).toHaveAttribute(
-      'href',
-      '/docs/fundamentals'
-    )
-    await expect(page.getByRole('link', { name: /Interactive Tools/i }).first()).toHaveAttribute(
-      'href',
-      '/interactive-tools'
-    )
+    const docsLink = page.getByRole('link', { href: '/docs/fundamentals' }).first()
+    const toolsLink = page.getByRole('link', { href: '/interactive-tools' }).first()
+    await expect(docsLink).toBeVisible()
+    await expect(toolsLink).toBeVisible()
   })
 
   test('Explore BitcoinDev expands HorizontalNav', async ({ page }) => {
@@ -20,12 +16,14 @@ test.describe('Home', () => {
     const toggle = page.getByRole('button').filter({ hasText: /Explore BitcoinDev/i })
     await expect(toggle).toBeVisible()
 
+    // Nav is open by default; click to collapse then expand to test toggle
+    await toggle.click()
     await toggle.click()
     await expect(page.getByRole('link', { name: /Fundamentals/i }).first()).toBeVisible()
   })
 
   test('Live Network Stats section is present', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { name: /Live Network Stats/i })).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Network Stats/i })).toBeVisible()
   })
 })

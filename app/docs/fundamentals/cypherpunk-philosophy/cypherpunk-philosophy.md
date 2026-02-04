@@ -23,7 +23,7 @@ The cypherpunk movement emerged in the late 1980s and early 1990s, as the intern
 
 ### Privacy Through Cryptography
 
-<img src="/images/docs/cypherpunk.webp" alt="Cypherpunk Manifesto" class="doc-img" />
+<img src="/images/docs/cypherpunk.webp" alt="Cypherpunk Manifesto" class="doc-img" width="600" height="800" />
 <p class="doc-img-legend">The Cypherpunk Manifesto</p>
 
 Cypherpunks believe that privacy is essential for an open society, but it cannot be granted by governments or corporations; it must be **enforced through mathematics**. As [Eric Hughes](/docs/history/people#eric-hughes) wrote in "A Cypherpunk's Manifesto" (1993):

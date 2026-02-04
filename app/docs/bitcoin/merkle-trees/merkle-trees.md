@@ -2,7 +2,7 @@
 
 Merkle trees are a fundamental data structure in Bitcoin that enable efficient verification of transaction inclusion in blocks. They provide cryptographic proof that specific transactions are part of a block without downloading the entire block. The structure is named after [Ralph Merkle](/docs/history/people#ralph-merkle), who invented it in 1979; Satoshi cited the concept in the Bitcoin whitepaper.
 
-<img src="/images/docs/merkle-tree.png" alt="Merkle Tree Structure" class="doc-img-big" />
+<img src="/images/docs/merkle-tree.png" alt="Merkle Tree Structure" class="doc-img-big" width="800" height="450" />
 <p class="doc-img-legend">Merkle Tree Structure</p>
 
 A **Merkle tree** (also called a hash tree) is a binary tree where:

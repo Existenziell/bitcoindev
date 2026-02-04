@@ -44,11 +44,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  // Get section description for overview pages
   const sectionInfo = sections[page.section]
-  const description = sectionInfo
-    ? sectionInfo.description
-    : `${page.title} - Bitcoin development documentation`
+  const description =
+    page.description ??
+    (sectionInfo ? sectionInfo.description : `${page.title} - Bitcoin development documentation`)
 
   return generatePageMetadata({
     title: page.title,
