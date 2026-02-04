@@ -57,7 +57,7 @@ export default function AboutPage() {
             others too superficial. I created BitcoinDev to bridge that gap, providing accessible documentation that covers
             everything from fundamental concepts to advanced protocol details.
             This site is open source, free, and will always remain so. No ads,
-            no paywalls, no tracking. Just pure Bitcoin knowledge for anyone
+            no paywalls, <Link href="/privacy" className="hover:text-btc transition-colors no-underline hover:underline">no tracking</Link>. Just pure Bitcoin knowledge for anyone
             who wants to learn.
           </p>
           <p className="text-gray-800 dark:text-gray-200 leading-7">
