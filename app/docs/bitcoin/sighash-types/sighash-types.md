@@ -65,7 +65,7 @@ This is a **flag** OR’d with `ALL`, `NONE`, or `SINGLE`:
 
 ## SIGHASH_DEFAULT (0x00) and Taproot
 
-For [Taproot](/docs/bitcoin/taproot) (and commonly for [SegWit](/docs/bitcoin/segwit) v0), the value **0x00** is used to mean **default** behavior: it is interpreted as **SIGHASH_ALL** (commit to all inputs and outputs). The extra byte is omitted in the signature encoding when the type is default, so the signature is 64 bytes for [Schnorr](/docs/bitcoin/cryptography#schnorr-signatures) rather than 65.
+For [Taproot](/docs/bitcoin/taproot) (and commonly for SegWit v0), the value **0x00** is used to mean **default** behavior: it is interpreted as **SIGHASH_ALL** (commit to all inputs and outputs). The extra byte is omitted in the signature encoding when the type is default, so the signature is 64 bytes for [Schnorr](/docs/bitcoin/cryptography#schnorr-signatures) rather than 65.
 
 ---
 

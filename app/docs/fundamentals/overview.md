@@ -54,7 +54,7 @@ Bitcoin consists of several key components that work together to create a decent
 
 ## How Bitcoin works
 
-At a high level: you hold private keys that control addresses. To send bitcoin you build a transaction that spends UTXOs and creates new outputs. The transaction is broadcast to the network and sits in the mempool until miners include it in a block. Each new block adds a confirmation; more confirmations mean stronger finality. The [blockchain](/docs/fundamentals/blockchain) is the shared ledger that everyone can verify.
+At a high level: you hold private keys that control addresses. To send bitcoin you build a transaction that spends UTXOs and creates new outputs. The transaction is broadcast to the network and sits in the mempool until miners include it in a block. Each new block adds a confirmation; more confirmations mean stronger finality. The blockchain is the shared ledger that everyone can verify.
 
 ---
 

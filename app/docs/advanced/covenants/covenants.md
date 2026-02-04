@@ -5,7 +5,7 @@
 No covenant opcodes are in consensus today. This page describes the design space and main proposals. A **covenant** restricts the *shape* or *destination* of the transaction that spends an output:
 
 - **Shape**: e.g., “the spending transaction must have exactly N outputs” or “the first output must be to this script.”
-- **Destination**: e.g., “outputs may only go to [addresses](/docs/wallets/address-types) of type P2WPKH” or “only to this prespecified [script](/docs/bitcoin/script).”
+- **Destination**: e.g., “outputs may only go to [addresses](/docs/wallets/address-types) of type P2WPKH” or “only to this prespecified script.”
 - **Recursion**: Some designs allow outputs that are *again* covenant-constrained, creating multi-step flows (vaults, [Lightning](/docs/lightning)-like channels, etc.).
 
 Covenants enable:
@@ -24,7 +24,7 @@ Covenants enable:
 
 ### OP_CTV (CheckTemplateVerify)
 
-**OP_CTV** (or **OP_CHECKTEMPLATEVERIFY**) commits to a **hash of a specific spending transaction template**. The [script](/docs/bitcoin/script) would specify the exact inputs (by outpoint) and outputs (scriptPubKey + amount) of the *only* transaction that can spend the UTXO. This is a **one-step** covenant: the *next* spend is fully fixed; you cannot recursively chain OP_CTV in arbitrarily complex ways without further opcodes.
+**OP_CTV** (or **OP_CHECKTEMPLATEVERIFY**) commits to a **hash of a specific spending transaction template**. The script would specify the exact inputs (by outpoint) and outputs (scriptPubKey + amount) of the *only* transaction that can spend the UTXO. This is a **one-step** covenant: the *next* spend is fully fixed; you cannot recursively chain OP_CTV in arbitrarily complex ways without further opcodes.
 
 Use cases: vaults with a single recovery path, [Lightning](/docs/lightning) [anchor](/docs/lightning/anchor-outputs) or channel-like structures where the on-chain spend must match a known template, and congestion-control or batch-spend patterns.
 
@@ -32,15 +32,15 @@ Use cases: vaults with a single recovery path, [Lightning](/docs/lightning) [anc
 
 ### SIGHASH_ANYPREVOUT (APO)
 
-**SIGHASH_ANYPREVOUT** (APO) is a sighash flag that would allow a [signature](/docs/bitcoin/cryptography) to be valid when the signed input comes from *any* outpoint (or from a set of allowed ones), rather than a single outpoint. That makes signatures **reusable** across different [transactions](/docs/bitcoin/transaction-lifecycle) that share the same structure (e.g., same outputs), which can be used to build covenant-like behavior: the signer effectively agrees to “this spend is only valid if the rest of the tx looks like X,” and the [script](/docs/bitcoin/script) can enforce that the signer only signs such shapes.
+**SIGHASH_ANYPREVOUT** (APO) is a sighash flag that would allow a [signature](/docs/bitcoin/cryptography) to be valid when the signed input comes from *any* outpoint (or from a set of allowed ones), rather than a single outpoint. That makes signatures **reusable** across different [transactions](/docs/bitcoin/transaction-lifecycle) that share the same structure (e.g., same outputs), which can be used to build covenant-like behavior: the signer effectively agrees to “this spend is only valid if the rest of the tx looks like X,” and the script can enforce that the signer only signs such shapes.
 
-APO is particularly relevant for [Lightning](/docs/lightning) and [channel](/docs/lightning/channels) designs: commitment and [HTLC](/docs/lightning/routing/htlc) transactions could use a more flexible signing model. It is also a building block for [vaults](/docs/wallets/smart-contracts) and other covenant patterns.
+APO is particularly relevant for [Lightning](/docs/lightning) and channel designs: commitment and [HTLC](/docs/lightning/routing/htlc) transactions could use a more flexible signing model. It is also a building block for [vaults](/docs/wallets/smart-contracts) and other covenant patterns.
 
 - **BIP / spec**: See [Bitcoin Optech](https://bitcoinops.org/) and the [bitcoin-dev](https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev) mailing list for current APO and “APO as covenant” proposals.
 
 ### Other and Combined
 
-Other ideas (e.g., **OP_TXHASH**, **OP_TX**, or limited forms of **OP_CAT**) aim to expose part of the spending [transaction](/docs/bitcoin/transaction-lifecycle) to [script](/docs/bitcoin/script) so it can be constrained. Some designs combine:
+Other ideas (e.g., **OP_TXHASH**, **OP_TX**, or limited forms of **OP_CAT**) aim to expose part of the spending transaction to script so it can be constrained. Some designs combine:
 
 - **OP_CTV** for “exactly this next spend,” and
 - **APO** or similar for “this signature is valid for any prevout with this structure,”
@@ -51,8 +51,8 @@ to get both one-off templates and more flexible, multi-step covenant flows.
 
 ## Risks and Trade-offs
 
-- **Recursion and complexity**: Covenants that can chain arbitrarily may make [scripts](/docs/bitcoin/script) harder to reason about, audit, and fee-estimate. Proposals often limit recursion or the power of the opcode.
-- **Fungibility and censorship**: Very strict covenants could create outputs that are distinguishable and easier to blacklist or to treat differently in [mempool](/docs/mining/mempool) or [mining](/docs/mining) policy.
+- **Recursion and complexity**: Covenants that can chain arbitrarily may make scripts harder to reason about, audit, and fee-estimate. Proposals often limit recursion or the power of the opcode.
+- **Fungibility and censorship**: Very strict covenants could create outputs that are distinguishable and easier to blacklist or to treat differently in [mempool](/docs/mining/mempool) or mining policy.
 - **Consensus and consensus risk**: New opcodes require soft fork and careful consensus review. The community weighs benefits (vaults, L2, etc.) against added complexity and risk.
 
 ---

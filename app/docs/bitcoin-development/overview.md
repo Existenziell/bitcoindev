@@ -1,6 +1,6 @@
 # Bitcoin Development
 
-This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In [Bitcoin Fundamentals](/docs/fundamentals) you learned how Bitcoin works conceptually: the [UTXO model](/docs/fundamentals/utxos), the [blockchain](/docs/fundamentals/blockchain), the [trust model](/docs/fundamentals/trust-model), and [incentives](/docs/fundamentals/incentives). Here we turn those ideas into implementation. Keys prove ownership, addresses encode spending conditions, transactions move UTXOs, and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the chain. These guides focus on hands-on implementation: constructing transactions, managing keys, generating addresses, working with PSBTs, monitoring the blockchain, and more.
+This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In [Bitcoin Fundamentals](/docs/fundamentals) you learned how Bitcoin works conceptually: the [UTXO model](/docs/fundamentals/utxos), the blockchain, the trust model, and incentives. Here we turn those ideas into implementation. Keys prove ownership, addresses encode spending conditions, transactions move UTXOs, and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the chain. These guides focus on hands-on implementation: constructing transactions, managing keys, generating addresses, working with PSBTs, monitoring the blockchain, and more.
 
 ---
 
@@ -28,7 +28,7 @@ Generate and validate Bitcoin addresses for different address types (P2PKH, P2SH
 
 ### [Fee Estimation](/docs/bitcoin-development/fee-estimation)
 
-Get a fee rate (sat/vB) from your node (e.g. `estimatesmartfee`) or from external APIs so you can set transaction fees appropriately. Integrates with [Transaction Construction](/docs/bitcoin-development/transactions) and [Coin Selection](/docs/bitcoin-development/coin-selection).
+Get a fee rate (sat/vB) from your node (e.g. `estimatesmartfee`) or from external APIs so you can set transaction fees appropriately. Integrates with Transaction Construction and Coin Selection (see below).
 
 **Key topics:**
 - Node RPC (estimatesmartfee)
@@ -37,7 +37,7 @@ Get a fee rate (sat/vB) from your node (e.g. `estimatesmartfee`) or from externa
 
 ### [Coin Selection](/docs/bitcoin-development/coin-selection)
 
-Choose which UTXOs to spend so that total input value covers the payment plus fees. Implementation-focused: effective value, fee budget, and change handling. For algorithms and privacy strategies, see [Wallet Development](/docs/wallets) coin selection.
+Choose which UTXOs to spend so that total input value covers the payment plus fees. Implementation-focused: effective value, fee budget, and change handling. For algorithms and privacy strategies, see [Wallet Development](/docs/wallets).
 
 **Key topics:**
 - Effective value and input size
@@ -56,7 +56,7 @@ Build Bitcoin transactions from scratch, understanding inputs, outputs, fees, an
 
 ### [Signing & Sighash](/docs/bitcoin-development/signing)
 
-Choose and use sighash types in code, multisig signing order, and how signing fits into [PSBT](/docs/bitcoin-development/psbt) workflows. For the protocol definition of sighash types, see [Sighash Types](/docs/bitcoin/sighash-types).
+Choose and use sighash types in code, multisig signing order, and how signing fits into PSBT workflows. For the protocol definition of sighash types, see [Sighash Types](/docs/bitcoin/sighash-types).
 
 **Key topics:**
 - Sighash types in practice (ALL, ANYONECANPAY)
@@ -88,7 +88,7 @@ When a transaction is stuck in the mempool, increase the effective fee using Rep
 
 ### [Payment Requests](/docs/bitcoin-development/payment-requests)
 
-Request and receive Bitcoin payments: BIP 21 `bitcoin:` URIs, QR codes, verifying payment, and handling refunds. Use with [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) to detect incoming payments and [Price Tracking](/docs/bitcoin-development/price-tracking) for fiat amounts on invoices.
+Request and receive Bitcoin payments: BIP 21 `bitcoin:` URIs, QR codes, verifying payment, and handling refunds. Use with Blockchain Monitoring to detect incoming payments and Price Tracking for fiat amounts on invoices.
 
 **Key topics:**
 - BIP 21 bitcoin: URI (generate and parse)
@@ -147,7 +147,7 @@ Structured policy language that compiles to Bitcoin Script. Express spending con
 
 ### [Output Descriptors](/docs/bitcoin-development/descriptors)
 
-Standardized, human-readable strings (BIP 380/386) that describe which output scripts and addresses a wallet can derive. Essential for watch-only wallets, backup/restore, and interoperability with hardware wallets and [PSBT](/docs/bitcoin-development/psbt). Complements [Miniscript](/docs/bitcoin-development/miniscript) (policies compile to descriptors).
+Standardized, human-readable strings (BIP 380/386) that describe which output scripts and addresses a wallet can derive. Essential for watch-only wallets, backup/restore, and interoperability with hardware wallets and PSBT. Complements Miniscript (policies compile to descriptors).
 
 **Key topics:**
 - Script and key expressions (wpkh, wsh, tr, xpub, paths)
