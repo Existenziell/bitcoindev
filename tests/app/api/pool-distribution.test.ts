@@ -89,8 +89,12 @@ describe('pool-distribution API route', () => {
   it('returns empty object when list throws', async () => {
     vi.mocked(vercelBlob.list).mockRejectedValueOnce(new Error('Blob error'))
 
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+
     const response = await GET()
     const data = await response.json()
+
+    consoleError.mockRestore()
 
     expect(response.status).toBe(200)
     expect(data).toEqual({})

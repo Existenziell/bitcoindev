@@ -148,9 +148,15 @@ describe('block-history API route', () => {
       vi.mocked(vercelBlob.list).mockRejectedValueOnce(new Error('Blob list failed'))
       vi.mocked(bitcoinRpcServer).mockRejectedValueOnce(new Error('RPC failed'))
 
+      const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
       const request = new NextRequest('http://localhost/api/block-history')
       const response = await GET(request)
       const data = await response.json()
+
+      logSpy.mockRestore()
+      errorSpy.mockRestore()
 
       expect(response.status).toBe(500)
       expect(data.error).toBeDefined()
