@@ -37,7 +37,6 @@ export default function BitcoinHistoryBanner() {
       >
         <div className="container-content">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-4">
-            {/* Bitcoin Icon */}
             <div className="flex-shrink-0" aria-hidden="true">
               <Image
                 src="/icons/bitcoin.png"
@@ -48,7 +47,6 @@ export default function BitcoinHistoryBanner() {
               />
             </div>
             
-            {/* Content */}
             <div className="flex-1">
               <h3 className="text-xl md:text-2xl font-bold text-btc mb-2">
                 Happy {event.eventName}!

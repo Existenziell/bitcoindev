@@ -259,7 +259,6 @@ export default function BlockVisualizer() {
 
   return (
     <div className="relative">
-      {/* Mobile Warning Modal – shown first on mobile, before blocks load */}
       {showMobileWarning && !mobileWarningDismissed && (
         <div className="modal-overlay flex items-center justify-center p-4">
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
@@ -319,7 +318,6 @@ export default function BlockVisualizer() {
 
       {blockData && (
         <>
-      {/* New block mined notification */}
       {showNewBlockNotification && newBlockHeight !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl border-2 border-btc max-w-md w-full mx-4 animate-scaleIn">
@@ -355,7 +353,6 @@ export default function BlockVisualizer() {
         </div>
       )}
 
-      {/* Previous blocks overview */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
         <h2 className="heading-section-muted">Previous blocks</h2>

@@ -29,7 +29,6 @@ export default function PageNavigation() {
 
   return (
     <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
-      {/* Previous Page */}
       <div className="flex-1">
         {previousPage ? (
           <Link
@@ -44,7 +43,6 @@ export default function PageNavigation() {
         )}
       </div>
 
-      {/* scrollToTop - Centered */}
       <div className="flex-1 flex justify-center">
         <span
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -54,7 +52,6 @@ export default function PageNavigation() {
         </span>
       </div>
 
-      {/* Next Page */}
       <div className="flex-1 flex justify-end">
         {nextPage ? (
           <Link

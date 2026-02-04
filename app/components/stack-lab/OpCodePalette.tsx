@@ -63,7 +63,6 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
         <InfoTooltip content="Drag OP codes from here to the script builders. OP codes are the instructions that Bitcoin Script uses to manipulate the stack and execute logic." />
       </div>
       
-      {/* Search */}
       <div className="mb-3">
         <input
           type="text"
@@ -74,7 +73,6 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
         />
       </div>
 
-      {/* Category filter */}
       <div className="mb-3 flex flex-wrap gap-2">
         <button
           onClick={() => setSelectedCategory(null)}
@@ -105,7 +103,6 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
         ))}
       </div>
 
-      {/* Add Data button */}
       {onAddData && (
         <button
           onClick={onAddData}
@@ -115,7 +112,6 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
         </button>
       )}
 
-      {/* OP Codes grid */}
       <div className="flex-1 overflow-y-auto">
         {selectedCategory ? (
           <div>

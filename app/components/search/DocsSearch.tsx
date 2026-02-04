@@ -41,7 +41,6 @@ export default function DocsSearch() {
           inputRef={inputRef}
         />
       </div>
-      {/* Search Results */}
       {(() => {
         const status = (
           <SearchResultsStatus

@@ -41,7 +41,6 @@ function StackLabTabsAndContent({ children }: { children: ReactNode }) {
 
   return (
     <>
-      {/* Main tab bar: pill / segmented style */}
       <div className="flex justify-center mb-6">
         <div
           className="inline-flex rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-200/60 dark:bg-gray-800/60 p-1"
@@ -306,7 +305,6 @@ export default function StackLabPage() {
           Interactive Bitcoin Script Playground
         </p>
         <div className="space-y-2 pb-12">
-          {/* Flow Explanation */}
           <StackLabCard>
             <button
               onClick={() => setIsFlowExplanationExpanded(!isFlowExplanationExpanded)}
@@ -339,19 +337,15 @@ export default function StackLabPage() {
             )}
           </StackLabCard>
 
-          {/* Templates */}
           <ScriptTemplates onLoadTemplate={handleLoadTemplate} />
 
-          {/* Main workspace */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-            {/* Left: OP Code Palette */}
             <div className="lg:col-span-1">
               <div className="sticky top-4">
                 <OpCodePalette onAddData={() => handleAddData('unlocking')} />
               </div>
             </div>
 
-            {/* Center: Script Builders */}
             <div className="lg:col-span-1">
               <div className="sticky top-4 space-y-2">
                 <ScriptBuilder
@@ -371,12 +365,10 @@ export default function StackLabPage() {
               </div>
             </div>
 
-            {/* Right: Stack Visualization */}
             <div className="lg:col-span-1">
               <div className="sticky top-4 space-y-2">
                 <StackVisualization stack={stack} />
                 
-                {/* Execution Controls */}
                 <div className="flex justify-center w-full">
                   <ExecutionControls
                     onExecute={handleExecute}
@@ -390,7 +382,6 @@ export default function StackLabPage() {
                   />
                 </div>
 
-                {/* Execution Log */}
                 {executionSteps.length > 0 && (
                   <ExecutionLog 
                     steps={executionResult !== undefined
@@ -418,7 +409,6 @@ export default function StackLabPage() {
         </StackLabTabsAndContent>
       </Suspense>
 
-      {/* Mobile Warning Modal */}
       {showMobileWarning && !mobileWarningDismissed && (
         <div className="modal-overlay flex items-center justify-center p-4">
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
@@ -446,7 +436,6 @@ export default function StackLabPage() {
         </div>
       )}
 
-      {/* Data Input Modal */}
       {showDataModal && (
         <div className="modal-overlay flex items-center justify-center" onClick={() => setShowDataModal(false)}>
           <div className="modal-card mx-4" onClick={(e) => e.stopPropagation()}>

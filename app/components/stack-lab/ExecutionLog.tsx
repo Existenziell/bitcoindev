@@ -37,7 +37,6 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
         <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Execution Log</h3>
         <InfoTooltip content="The execution log shows each step of script execution, including the stack state before and after each operation. Use the Step button to execute one operation at a time." />
       </div>
-      {/* Execution Summary */}
       {executionResult && (
         <div className={`mb-3 p-3 rounded border ${
           executionResult.success
@@ -64,7 +63,6 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
         </div>
       )}
 
-      {/* Error Summary */}
       {hasErrors && !executionResult && (
         <div className="mb-3 p-3 rounded border bg-yellow-100/80 dark:bg-yellow-900/20 border-yellow-400 dark:border-yellow-700/50">
           <div className="text-sm font-semibold text-yellow-700 dark:text-yellow-400">

@@ -5,12 +5,10 @@ import ExternalLink from '@/app/components/ExternalLink'
 export default function WhitepaperPage() {
   return (
     <div>
-      {/* Title */}
       <div className="text-center mb-6">
         <h1 className="heading-page text-center">
           Bitcoin Whitepaper
         </h1>
-          {/* History */}
           <p className="text-center text-sm text-secondary max-w-lg mx-auto leading-relaxed">
             Satoshi Nakamoto announced the whitepaper on the{' '}
             <ExternalLink href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html" className="text-btc hover:underline">
@@ -24,7 +22,6 @@ export default function WhitepaperPage() {
           </p>
       </div>
 
-        {/* Download Button */}
         <div className="flex flex-col items-center mb-6">
         <a
           href="/data/bitcoin.pdf"
@@ -37,7 +34,6 @@ export default function WhitepaperPage() {
         </a>
       </div>
 
-      {/* Whitepaper Image */}
       <div className="relative aspect-[3/4] w-full max-w-xl mx-auto mb-8 rounded-md overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
         <Image
           src="/images/whitepaper.jpg"

@@ -35,7 +35,6 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
               )}
               {isFirst && firstCrumb?.label === 'Home' ? (
                 <>
-                  {/* Logo - shown on desktop with transition */}
                   <Link
                     href={firstCrumb.href}
                     className={`hidden md:flex items-center justify-center h-[42px] hover:opacity-80 transition-all duration-200 absolute ${
@@ -53,7 +52,6 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                       className="opacity-80 dark:invert"
                     />
                   </Link>
-                  {/* Logo - shown on mobile when sticky, with transition */}
                   <Link
                     href={firstCrumb.href}
                     className={`md:hidden flex items-center justify-center h-[42px] hover:opacity-80 transition-all duration-200 absolute ${
@@ -71,7 +69,6 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                       className="opacity-80 dark:invert"
                     />
                   </Link>
-                  {/* Text link - shown on mobile, hidden on desktop when logo is active, with transition */}
                   <Link
                     href={firstCrumb.href}
                     className={`md:hidden flex items-center h-[42px] hover:text-btc hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${
@@ -80,7 +77,6 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                   >
                     {firstCrumb.label}
                   </Link>
-                  {/* Text link for desktop - transitions out when logo appears */}
                   <Link
                     href={firstCrumb.href}
                     className={`hidden md:flex items-center h-[42px] hover:text-btc hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${

@@ -118,7 +118,6 @@ export default function DocsNavigation({
 
   return (
     <nav className="w-full flex-shrink-0 sticky top-0 flex flex-col">
-      {/* Collapse trigger above the nav */}
       {onToggleNav && (
         <button
           type="button"
@@ -156,7 +155,6 @@ export default function DocsNavigation({
           </ul>
         </div>
 
-        {/* Docs link - navigates to /docs overview page */}
         <div className="mb-1">
           <div
             className={cn(
@@ -256,7 +254,6 @@ export default function DocsNavigation({
           </ul>
         )}
 
-        {/* Interactive Tools - expandable section */}
         <div className="mb-1 mt-2">
           <div
             className={cn(

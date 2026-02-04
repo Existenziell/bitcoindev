@@ -409,7 +409,6 @@ export default function TransactionTreemap({
 
   return (
     <div ref={containerRef} className="relative w-full">
-      {/* Size Metric Selector */}
       {showMetricSelector && (
         <div className="mb-4 flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-2">
@@ -481,7 +480,6 @@ export default function TransactionTreemap({
                 className="cursor-pointer"
                 aria-label={`Transaction ${truncateHash(node.data.txid)} - Click to view details`}
               />
-              {/* Show txid if rectangle is large enough */}
               {rectWidth > 60 && rectHeight > 20 && (
                 <text
                   x={rectWidth / 2}
@@ -499,7 +497,6 @@ export default function TransactionTreemap({
         })}
       </svg>
 
-      {/* Tooltip — only show after fly-in animation has finished */}
       {hoveredTx && !shouldHideForFlyIn && (
         <div
           className="absolute z-10 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 shadow-lg border border-gray-700 pointer-events-none"

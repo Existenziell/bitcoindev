@@ -543,7 +543,6 @@ export default function TerminalPage() {
               setShowSecretOverlay(true)
             }}
           />
-          {/* Invisible overlay blocks nav and page interaction during Matrix animation */}
           <div
             className="fixed inset-0 z-50 pointer-events-auto"
             aria-hidden

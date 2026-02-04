@@ -125,7 +125,6 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
 
   return (
     <div className="glossary-accordion glossary-content">
-      {/* Letter navigation */}
       <div className="mb-8 pb-4 border-b border-gray-300 dark:border-gray-700">
         <div className="flex flex-wrap items-center text-sm">
           {sections.map((section) => (
@@ -142,12 +141,10 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
       </div>
       {sections.map((section) => (
         <div key={section.slug} className="mb-8">
-          {/* Section letter header */}
           <h2 id={section.slug}>
             {section.letter === '0-9' ? '#' : section.letter}
           </h2>
 
-          {/* Entries as collapsible details elements */}
           <div className="space-y-2">
             {section.entries.map((entry) => (
               <details
@@ -161,7 +158,6 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
                 }}
               >
                 <summary className="glossary-summary">
-                  {/* Chevron icon */}
                   <ChevronRight className="w-4 h-4 text-secondary transition-transform duration-200 group-open:rotate-90 flex-shrink-0" />
                   <h3 className="">
                     {entry.term}

@@ -136,7 +136,6 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
 
   return (
     <div className="space-y-2">
-      {/* Header */}
       <div className="flex items-center gap-4 mb-6">
         <Link
           href="/interactive-tools/block-visualizer"
@@ -148,7 +147,6 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
         <h1 className="heading-page mb-0">Transaction Details</h1>
       </div>
 
-      {/* Transaction Overview */}
       <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
         <h2 className="text-lg font-bold text-btc mb-3">Overview</h2>
         <div className="flex flex-wrap justify-between gap-6 text-sm">
@@ -248,9 +246,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
         </div>
       </div>
 
-      {/* Inputs and Outputs - Two column layout on large screens */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-        {/* Inputs */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-bold text-btc">
@@ -321,7 +317,6 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
           </div>
         </div>
 
-        {/* Outputs */}
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
             <h2 className="text-lg font-bold text-btc">

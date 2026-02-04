@@ -48,7 +48,6 @@ export default function HorizontalNav() {
   return (
     <div className="border-y border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
       <div className="container-content">
-        {/* Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="group w-full py-6 flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-btc dark:hover:text-btc transition-colors rounded-md"
@@ -59,7 +58,6 @@ export default function HorizontalNav() {
           <ChevronDown className={`w-6 h-6 shrink-0 transition-colors transition-transform group-hover:text-btc ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
-        {/* Tree Navigation */}
         {isOpen && (
           <div className="pb-6 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-row items-center justify-end gap-2 w-max ml-auto mb-3 mt-1">
@@ -88,7 +86,6 @@ export default function HorizontalNav() {
 
                 return (
                   <div key={section.href} className="mb-2">
-                    {/* Section Header - bordered row style */}
                     <div
                       className={cn(
                         navRowClass,
@@ -115,7 +112,6 @@ export default function HorizontalNav() {
                       </Link>
                     </div>
 
-                    {/* Children - same border and row style as DocsNavigation */}
                     {hasChildren && isExpanded && (
                       <ul className={cn('ml-6 mt-1 space-y-0', CHILD_LIST_BORDER)}>
                         {section.children!.map((child) => (
@@ -143,7 +139,6 @@ export default function HorizontalNav() {
               })}
             </div>
 
-            {/* Quick Links Section */}
             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
               <div className="flex flex-wrap justify-center gap-4">
                 {horizontalNavLinksBottom.map((link) => (

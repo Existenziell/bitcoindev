@@ -27,10 +27,8 @@ export default function StackVisualization({ stack }: StackVisualizationProps) {
       ) : (
         <div className="flex-1 overflow-y-auto">
           <div className="space-y-1">
-            {/* Top indicator */}
             <div className="text-xs text-gray-500 mb-2 px-2">Top ↓</div>
             
-            {/* Stack items (reversed to show top first) */}
             {[...stack].reverse().map((item, index) => {
               const actualIndex = stack.length - 1 - index
               const isTop = actualIndex === stack.length - 1
@@ -67,13 +65,11 @@ export default function StackVisualization({ stack }: StackVisualizationProps) {
               )
             })}
             
-            {/* Bottom indicator */}
             <div className="text-xs text-gray-500 mt-2 px-2">Bottom ↑</div>
           </div>
         </div>
       )}
       
-      {/* Stack info */}
       <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-700 text-xs text-gray-500">
         {itemCount(stack.length)}
       </div>

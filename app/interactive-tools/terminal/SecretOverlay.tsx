@@ -109,7 +109,6 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden page-bg min-h-dvh animate-fadeIn">
-      {/* Animated background effect */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-btc/20 via-transparent to-btc/20 animate-pulse" />
       </div>

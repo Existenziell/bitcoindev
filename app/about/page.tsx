@@ -7,7 +7,6 @@ const NPUB_ADDRESS = 'npub1v7vslj3ewmdlqpzh3ta3glut80xg4vendfyvkypulydsqfmgc6kq9
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero Section */}
       <div className="text-center mb-12">
         <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-full overflow-hidden border-2 border-gray-300 dark:border-gray-700">
           <Image
@@ -28,7 +27,6 @@ export default function AboutPage() {
         <p className="text-sm md:text-base text-secondary mb-2">Giving back to the Bitcoin community</p>
       </div>
 
-      {/* About Section */}
       <section className="mb-12">
         <div className="">
           <h2 className="heading-section-accent">
@@ -49,7 +47,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission Section */}
       <section className="mb-12">
         <div className="">
           <h2 className="heading-section-accent">
@@ -69,7 +66,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Support Section */}
       <section className="mb-12">
         <div className="">
           <h2 className="heading-section-accent">
@@ -80,7 +76,6 @@ export default function AboutPage() {
             <br />
             Thank you for your support! 🧡
           </p>
-          {/* Lightning Network via Nostr */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-200">
               Lightning (Zap me on Nostr ⚡)
