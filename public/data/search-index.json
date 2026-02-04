@@ -746,13 +746,28 @@
     "path": "/docs/bitcoin/consensus",
     "title": "Consensus Mechanism",
     "section": "bitcoin",
-    "body": "Consensus Mechanism"
+    "body": "Consensus Mechanism consensus proof of work pow nakamoto consensus",
+    "keywords": [
+      "consensus",
+      "proof of work",
+      "pow",
+      "nakamoto consensus"
+    ]
   },
   {
     "path": "/docs/bitcoin/transaction-structure",
     "title": "Transaction Structure",
     "section": "bitcoin",
-    "body": "Transaction Structure"
+    "body": "Transaction Structure transaction structure txid vout vin outpoint scriptPubKey scriptSig",
+    "keywords": [
+      "transaction structure",
+      "txid",
+      "vout",
+      "vin",
+      "outpoint",
+      "scriptPubKey",
+      "scriptSig"
+    ]
   },
   {
     "path": "/docs/bitcoin/transaction-lifecycle",
@@ -790,19 +805,40 @@
     "path": "/docs/bitcoin/timelocks",
     "title": "Timelocks",
     "section": "bitcoin",
-    "body": "Timelocks"
+    "body": "Timelocks timelock nlocktime nsequence locktime sequence cltv csv",
+    "keywords": [
+      "timelock",
+      "nlocktime",
+      "nsequence",
+      "locktime",
+      "sequence",
+      "cltv",
+      "csv"
+    ]
   },
   {
     "path": "/docs/bitcoin/sighash-types",
     "title": "Sighash Types",
     "section": "bitcoin",
-    "body": "Sighash Types"
+    "body": "Sighash Types sighash sighash type SIGHASH_ALL SIGHASH_NONE SIGHASH_SINGLE SIGHASH_ANYONECANPAY",
+    "keywords": [
+      "sighash",
+      "sighash type",
+      "SIGHASH_ALL",
+      "SIGHASH_NONE",
+      "SIGHASH_SINGLE",
+      "SIGHASH_ANYONECANPAY"
+    ]
   },
   {
     "path": "/docs/bitcoin/merkle-trees",
     "title": "Merkle Trees",
     "section": "bitcoin",
-    "body": "Merkle Trees"
+    "body": "Merkle Trees merkle root merkle tree",
+    "keywords": [
+      "merkle root",
+      "merkle tree"
+    ]
   },
   {
     "path": "/docs/bitcoin/blocks",
@@ -814,7 +850,12 @@
     "path": "/docs/bitcoin/coinbase-transaction",
     "title": "Coinbase Transaction",
     "section": "bitcoin",
-    "body": "Coinbase Transaction"
+    "body": "Coinbase Transaction coinbase coinbase transaction block reward",
+    "keywords": [
+      "coinbase",
+      "coinbase transaction",
+      "block reward"
+    ]
   },
   {
     "path": "/docs/bitcoin/subsidy",
@@ -826,13 +867,27 @@
     "path": "/docs/bitcoin/transaction-fees",
     "title": "Transaction Fees",
     "section": "bitcoin",
-    "body": "Transaction Fees"
+    "body": "Transaction Fees transaction fees fee rate sat/vB vbytes rbf cpfp replace-by-fee",
+    "keywords": [
+      "transaction fees",
+      "fee rate",
+      "sat/vB",
+      "vbytes",
+      "rbf",
+      "cpfp",
+      "replace-by-fee"
+    ]
   },
   {
     "path": "/docs/bitcoin/transaction-malleability",
     "title": "Transaction Malleability",
     "section": "bitcoin",
-    "body": "Transaction Malleability"
+    "body": "Transaction Malleability malleability transaction malleability malleable",
+    "keywords": [
+      "malleability",
+      "transaction malleability",
+      "malleable"
+    ]
   },
   {
     "path": "/docs/bitcoin/segwit",
@@ -849,7 +904,12 @@
     "path": "/docs/bitcoin/witness",
     "title": "Witness",
     "section": "bitcoin",
-    "body": "Witness"
+    "body": "Witness witness witness data segwit witness",
+    "keywords": [
+      "witness",
+      "witness data",
+      "segwit witness"
+    ]
   },
   {
     "path": "/docs/bitcoin/taproot",
@@ -868,13 +928,25 @@
     "path": "/docs/bitcoin/p2p-protocol",
     "title": "P2P Network Protocol",
     "section": "bitcoin",
-    "body": "P2P Network Protocol"
+    "body": "P2P Network Protocol p2p peer-to-peer network protocol",
+    "keywords": [
+      "p2p",
+      "peer-to-peer",
+      "network protocol"
+    ]
   },
   {
     "path": "/docs/bitcoin/data-encoding",
     "title": "Data Encoding",
     "section": "bitcoin",
-    "body": "Data Encoding"
+    "body": "Data Encoding data encoding base58 bech32 serialization compact size",
+    "keywords": [
+      "data encoding",
+      "base58",
+      "bech32",
+      "serialization",
+      "compact size"
+    ]
   },
   {
     "path": "/docs/bitcoin/rpc",
@@ -898,7 +970,13 @@
     "path": "/docs/mining/proof-of-work",
     "title": "Proof-of-Work",
     "section": "mining",
-    "body": "Proof-of-Work"
+    "body": "Proof-of-Work proof of work pow hashing difficulty",
+    "keywords": [
+      "proof of work",
+      "pow",
+      "hashing",
+      "difficulty"
+    ]
   },
   {
     "path": "/docs/mining/difficulty",
@@ -939,7 +1017,13 @@
     "path": "/docs/mining/hardware",
     "title": "Hardware Evolution",
     "section": "mining",
-    "body": "Hardware Evolution"
+    "body": "Hardware Evolution asic asics mining hardware gpu mining",
+    "keywords": [
+      "asic",
+      "asics",
+      "mining hardware",
+      "gpu mining"
+    ]
   },
   {
     "path": "/docs/mining/attacks",
@@ -991,25 +1075,49 @@
     "path": "/docs/wallets/transactions",
     "title": "Transaction Creation",
     "section": "wallets",
-    "body": "Transaction Creation"
+    "body": "Transaction Creation transaction creation rbf coin selection build transaction",
+    "keywords": [
+      "transaction creation",
+      "rbf",
+      "coin selection",
+      "build transaction"
+    ]
   },
   {
     "path": "/docs/wallets/privacy",
     "title": "Privacy Techniques",
     "section": "wallets",
-    "body": "Privacy Techniques"
+    "body": "Privacy Techniques payjoin p2ep",
+    "keywords": [
+      "payjoin",
+      "p2ep"
+    ]
   },
   {
     "path": "/docs/wallets/multisig",
     "title": "Multisig",
     "section": "wallets",
-    "body": "Multisig"
+    "body": "Multisig multisig multisignature 2-of-2 2-of-3 m-of-n",
+    "keywords": [
+      "multisig",
+      "multisignature",
+      "2-of-2",
+      "2-of-3",
+      "m-of-n"
+    ]
   },
   {
     "path": "/docs/wallets/smart-contracts",
     "title": "Smart Contracts & Advanced Scripting",
     "section": "wallets",
-    "body": "Smart Contracts & Advanced Scripting"
+    "body": "Smart Contracts & Advanced Scripting smart contract smart contracts miniscript covenant vault",
+    "keywords": [
+      "smart contract",
+      "smart contracts",
+      "miniscript",
+      "covenant",
+      "vault"
+    ]
   },
   {
     "path": "/docs/lightning",
@@ -1048,13 +1156,29 @@
     "path": "/docs/lightning/routing-fees",
     "title": "Routing Fees",
     "section": "lightning",
-    "body": "Routing Fees"
+    "body": "Routing Fees routing fee base fee ppm fee formula millisatoshis msat htlc fee",
+    "keywords": [
+      "routing fee",
+      "base fee",
+      "ppm",
+      "fee formula",
+      "millisatoshis",
+      "msat",
+      "htlc fee"
+    ]
   },
   {
     "path": "/docs/lightning/routing/mpp",
     "title": "Multi-Part Payments",
     "section": "lightning",
-    "body": "Multi-Part Payments"
+    "body": "Multi-Part Payments mpp multi-part payments multipart payment splitting split payment",
+    "keywords": [
+      "mpp",
+      "multi-part payments",
+      "multipart",
+      "payment splitting",
+      "split payment"
+    ]
   },
   {
     "path": "/docs/lightning/invoices",
@@ -1095,13 +1219,23 @@
     "path": "/docs/lightning/watchtowers",
     "title": "Watchtowers",
     "section": "lightning",
-    "body": "Watchtowers"
+    "body": "Watchtowers watchtower watchtowers",
+    "keywords": [
+      "watchtower",
+      "watchtowers"
+    ]
   },
   {
     "path": "/docs/lightning/anchor-outputs",
     "title": "Anchor Outputs",
     "section": "lightning",
-    "body": "Anchor Outputs"
+    "body": "Anchor Outputs anchor output anchor outputs anchor cpfp",
+    "keywords": [
+      "anchor output",
+      "anchor outputs",
+      "anchor",
+      "cpfp"
+    ]
   },
   {
     "path": "/docs/lightning/resources",
@@ -1150,13 +1284,24 @@
     "path": "/docs/development/node-types",
     "title": "Node Types",
     "section": "development",
-    "body": "Node Types"
+    "body": "Node Types full node pruned archival spv node type",
+    "keywords": [
+      "full node",
+      "pruned",
+      "archival",
+      "spv",
+      "node type"
+    ]
   },
   {
     "path": "/docs/development/bitcoin-core-internals",
     "title": "Bitcoin Core Internals",
     "section": "development",
-    "body": "Bitcoin Core Internals"
+    "body": "Bitcoin Core Internals bitcoin core core internals",
+    "keywords": [
+      "bitcoin core",
+      "core internals"
+    ]
   },
   {
     "path": "/docs/development/resources",
@@ -1174,7 +1319,13 @@
     "path": "/docs/bitcoin-development/keys",
     "title": "Key Management",
     "section": "bitcoin-development",
-    "body": "Key Management"
+    "body": "Key Management key management private key wif wallet import format",
+    "keywords": [
+      "key management",
+      "private key",
+      "wif",
+      "wallet import format"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/addresses",
@@ -1186,13 +1337,23 @@
     "path": "/docs/bitcoin-development/fee-estimation",
     "title": "Fee Estimation",
     "section": "bitcoin-development",
-    "body": "Fee Estimation"
+    "body": "Fee Estimation fee estimation estimatesmartfee fee rate",
+    "keywords": [
+      "fee estimation",
+      "estimatesmartfee",
+      "fee rate"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/coin-selection",
     "title": "Coin Selection",
     "section": "bitcoin-development",
-    "body": "Coin Selection"
+    "body": "Coin Selection coin selection utxo selection coin selection algorithm",
+    "keywords": [
+      "coin selection",
+      "utxo selection",
+      "coin selection algorithm"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/transactions",
@@ -1204,7 +1365,12 @@
     "path": "/docs/bitcoin-development/signing",
     "title": "Signing & Sighash",
     "section": "bitcoin-development",
-    "body": "Signing & Sighash"
+    "body": "Signing & Sighash signing sighash sign transaction",
+    "keywords": [
+      "signing",
+      "sighash",
+      "sign transaction"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/psbt",
@@ -1221,7 +1387,15 @@
     "path": "/docs/bitcoin-development/fee-bumping",
     "title": "Fee Bumping",
     "section": "bitcoin-development",
-    "body": "Fee Bumping"
+    "body": "Fee Bumping fee bumping rbf cpfp replace-by-fee child pays for parent bip125",
+    "keywords": [
+      "fee bumping",
+      "rbf",
+      "cpfp",
+      "replace-by-fee",
+      "child pays for parent",
+      "bip125"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/payment-requests",
@@ -1251,13 +1425,25 @@
     "path": "/docs/bitcoin-development/miniscript",
     "title": "Miniscript",
     "section": "bitcoin-development",
-    "body": "Miniscript"
+    "body": "Miniscript miniscript policy script policy miniscript policy",
+    "keywords": [
+      "miniscript",
+      "policy",
+      "script policy",
+      "miniscript policy"
+    ]
   },
   {
     "path": "/docs/bitcoin-development/descriptors",
     "title": "Output Descriptors",
     "section": "bitcoin-development",
-    "body": "Output Descriptors"
+    "body": "Output Descriptors descriptor output descriptor bip380 bip386",
+    "keywords": [
+      "descriptor",
+      "output descriptor",
+      "bip380",
+      "bip386"
+    ]
   },
   {
     "path": "/docs/controversies",
@@ -1275,13 +1461,23 @@
     "path": "/docs/controversies/op-return",
     "title": "OP_RETURN Debate",
     "section": "controversies",
-    "body": "OP_RETURN Debate"
+    "body": "OP_RETURN Debate OP_RETURN op return data embedding",
+    "keywords": [
+      "OP_RETURN",
+      "op return",
+      "data embedding"
+    ]
   },
   {
     "path": "/docs/controversies/ordinals",
     "title": "Ordinals and Inscriptions",
     "section": "controversies",
-    "body": "Ordinals and Inscriptions"
+    "body": "Ordinals and Inscriptions ordinals inscriptions inscription",
+    "keywords": [
+      "ordinals",
+      "inscriptions",
+      "inscription"
+    ]
   },
   {
     "path": "/docs/controversies/energy-consumption",
@@ -1323,55 +1519,107 @@
     "path": "/docs/advanced/sidechains",
     "title": "Sidechains & Layer 2",
     "section": "advanced",
-    "body": "Sidechains & Layer 2"
+    "body": "Sidechains & Layer 2 sidechain sidechains layer 2 l2",
+    "keywords": [
+      "sidechain",
+      "sidechains",
+      "layer 2",
+      "l2"
+    ]
   },
   {
     "path": "/docs/advanced/atomic-swaps",
     "title": "Atomic Swaps",
     "section": "advanced",
-    "body": "Atomic Swaps"
+    "body": "Atomic Swaps atomic swap atomic swaps htlc trustless exchange",
+    "keywords": [
+      "atomic swap",
+      "atomic swaps",
+      "htlc",
+      "trustless exchange"
+    ]
   },
   {
     "path": "/docs/advanced/dlcs",
     "title": "Discreet Log Contracts",
     "section": "advanced",
-    "body": "Discreet Log Contracts"
+    "body": "Discreet Log Contracts dlc dlcs discreet log contract",
+    "keywords": [
+      "dlc",
+      "dlcs",
+      "discreet log contract"
+    ]
   },
   {
     "path": "/docs/advanced/statechains",
     "title": "Statechains",
     "section": "advanced",
-    "body": "Statechains"
+    "body": "Statechains statechain statechains",
+    "keywords": [
+      "statechain",
+      "statechains"
+    ]
   },
   {
     "path": "/docs/advanced/ordinals-inscriptions",
     "title": "Ordinals & Inscriptions",
     "section": "advanced",
-    "body": "Ordinals & Inscriptions"
+    "body": "Ordinals & Inscriptions ordinals inscriptions inscription",
+    "keywords": [
+      "ordinals",
+      "inscriptions",
+      "inscription"
+    ]
   },
   {
     "path": "/docs/advanced/bloom-filters",
     "title": "Bloom Filters",
     "section": "advanced",
-    "body": "Bloom Filters"
+    "body": "Bloom Filters bloom filter bloom filters spv compact block filter",
+    "keywords": [
+      "bloom filter",
+      "bloom filters",
+      "spv",
+      "compact block filter"
+    ]
   },
   {
     "path": "/docs/advanced/zero-conf-channels",
     "title": "Zero-Conf Channels",
     "section": "advanced",
-    "body": "Zero-Conf Channels"
+    "body": "Zero-Conf Channels zero-conf zero conf turbo channel turbo channels",
+    "keywords": [
+      "zero-conf",
+      "zero conf",
+      "turbo channel",
+      "turbo channels"
+    ]
   },
   {
     "path": "/docs/advanced/trampoline-routing",
     "title": "Trampoline Routing",
     "section": "advanced",
-    "body": "Trampoline Routing"
+    "body": "Trampoline Routing trampoline trampoline routing lightweight client",
+    "keywords": [
+      "trampoline",
+      "trampoline routing",
+      "lightweight client"
+    ]
   },
   {
     "path": "/docs/advanced/covenants",
     "title": "Covenants",
     "section": "advanced",
-    "body": "Covenants"
+    "body": "Covenants covenant covenants OP_CTV OP_CAT SIGHASH_ANYPREVOUT APO checktemplateverify",
+    "keywords": [
+      "covenant",
+      "covenants",
+      "OP_CTV",
+      "OP_CAT",
+      "SIGHASH_ANYPREVOUT",
+      "APO",
+      "checktemplateverify"
+    ]
   },
   {
     "path": "/docs/investment",
