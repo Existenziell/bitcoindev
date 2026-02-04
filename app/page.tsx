@@ -38,7 +38,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Start Learning CTA */}
         <div className="container-content py-8 md:py-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="heading-page mb-1">
@@ -62,13 +61,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bitcoin History Banner */}
         <BitcoinHistoryBanner />
 
-        {/* Horizontal Navigation */}
         <HorizontalNav />
 
-        {/* Live Stats */}
         <LiveStats />
       </div>
 
