@@ -1,6 +1,6 @@
 # The OP_RETURN Debate: Bitcoin as Database vs. Financial Network
 
-An analysis of the ongoing debate about OP_RETURN, carrier size limits, and Bitcoin's fundamental purpose. `OP_RETURN` is a Bitcoin Script opcode that creates **provably unspendable outputs**. When executed, it immediately terminates script execution and marks the transaction as invalid.
+An analysis of the ongoing debate about OP_RETURN, carrier size limits, and Bitcoin's fundamental purpose. `OP_RETURN` is a [Bitcoin Script](/docs/bitcoin/script) opcode that creates **provably unspendable outputs**. When executed, it immediately terminates script execution and marks the transaction as invalid.
 
 **Script Pattern:**
 ```

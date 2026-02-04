@@ -444,20 +444,17 @@ async function runChecks() {
       dups.forEach((d) => console.log(`  ${pagePath}  -> ${d.targetNormalized}  (${d.count}x)`))
     }
   }
-  console.log('\n--- Pages with too many links ---\n')
-  console.log(`Pages with too many links: ${analysis.tooManyLinks.length}`)
+  console.log(`\nPages with too many links: ${analysis.tooManyLinks.length}`)
   if (analysis.tooManyLinks.length > 0) {
     analysis.tooManyLinks.forEach((t) =>
       console.log(`  ${t.count}  ${t.path}  (${t.title})`)
     )
   }
-  console.log('\n--- Pages with no links ---\n')
-  console.log(`Pages with no links: ${analysis.noLinks.length}`)
+  console.log(`\nPages with no links: ${analysis.noLinks.length}`)
   if (analysis.noLinks.length > 0) {
     analysis.noLinks.forEach((n) => console.log(`  ${n.path}  (${n.title})`))
   }
-  console.log('\n--- Orphan pages (no other page links to them) ---\n')
-  console.log(`Orphan pages: ${analysis.orphans.length}`)
+  console.log(`\nOrphan pages (no other page links to them): ${analysis.orphans.length}`)
   if (analysis.orphans.length > 0) {
     analysis.orphans.forEach((o) => console.log(`  ${o.path}  (${o.title})`))
   }

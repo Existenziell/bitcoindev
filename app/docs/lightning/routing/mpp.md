@@ -1,6 +1,6 @@
 # Multi-Part Payments (MPP)
 
-Multi-Part Payments allow splitting a single payment across multiple routes. This enables larger payments and improves success rates by utilizing multiple channels.
+Multi-Part Payments allow splitting a single payment across multiple [routes](/docs/lightning/routing-fees). This enables larger payments and improves success rates by utilizing multiple [channels](/docs/lightning/channels).
 Instead of sending one large payment through a single route, MPP splits the payment into multiple smaller parts that can take different routes.
 
 ### Example
