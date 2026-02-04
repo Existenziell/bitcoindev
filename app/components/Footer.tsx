@@ -54,7 +54,7 @@ export default function Footer() {
             Made with <span className='text-btc' aria-hidden='true'>&#9829;</span> by Chris
           </Link>
           <span aria-hidden='true' className='hidden md:inline'>|</span>
-          <span>Open source · No ads · No tracking</span>
+          <span>Open source · No ads · <Link href="/privacy" className="hover:text-btc transition-colors no-underline hover:underline">No tracking</Link></span>
           <span aria-hidden='true' className='hidden md:inline'>|</span>
           <span>© {new Date().getFullYear()} BitcoinDev</span>
         </div>

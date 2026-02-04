@@ -300,13 +300,14 @@ export const footerLinksExternal: { name: string; url: string }[] = [
 // Footer - Explore BitcoinDev section (right side)
 export const footerLinksExplore: { href: string; title: string }[] = [
   { href: '/docs', title: 'Documentation' },
-  { href: '/interactive-tools', title: 'All interactive tools' },
-  { href: '/whitepaper', title: 'Bitcoin whitepaper' },
+  { href: '/interactive-tools', title: 'Interactive tools' },
+  { href: '/whitepaper', title: 'Bitcoin Whitepaper' },
   { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
   { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
   { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
-  { href: '/docs/glossary', title: 'Bitcoin glossary' },
+  { href: '/docs/glossary', title: 'Bitcoin Glossary' },
   { href: '/about', title: 'About' },
+  { href: '/privacy', title: 'Privacy Policy' },
   { href: '/feedback', title: 'Feedback' },
 ]
 

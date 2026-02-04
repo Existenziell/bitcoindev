@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/interactive-tools/denominations-calculator',
     '/whitepaper',
     '/about',
+    '/privacy',
     '/feedback',
   ]
 
