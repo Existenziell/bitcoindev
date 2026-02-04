@@ -119,6 +119,8 @@ Integrate Bitcoin price data into your applications using various APIs and servi
 
 ## Advanced Topics
 
+See [Advanced Topics](/docs/advanced) for covenants, sidechains, trampoline routing, and more. In this section:
+
 ### [Mining Pools](/docs/mining/pools)
 
 Pool setup, monitoring, Stratum protocol, share validation, and pool architecture are covered in the Mining section.

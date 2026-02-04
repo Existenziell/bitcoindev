@@ -398,6 +398,8 @@ Start small, use testnet, and build incrementally. The Bitcoin development commu
 
 ## Resources
 
+See [Developer Resources](/docs/development/resources) for more curated links. Key external references:
+
 - [Bitcoin Developer Mailing List](https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev)
 - [Bitcoin Stack Exchange](https://bitcoin.stackexchange.com/)
 - [Bitcoin Optech](https://bitcoinops.org/) - Technical newsletter

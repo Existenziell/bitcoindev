@@ -325,7 +325,7 @@ See [Mining Pools](/docs/mining/pools) for detailed information on pool operatio
 | **Block Reward** | Currently 3.125 BTC per block (after 2024 halving) |
 | **Difficulty** | Adjusts every 2016 blocks to maintain ~10 minute block times |
 | **Hash Rate** | Measure of mining power (network: ~700 EH/s) |
-| **Coinbase Transaction** | Special transaction that creates new bitcoin as block reward |
+| **[Coinbase Transaction](/docs/bitcoin/coinbase-transaction)** | Special transaction that creates new bitcoin as block reward |
 
 ---
 

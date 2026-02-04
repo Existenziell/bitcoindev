@@ -258,6 +258,8 @@ lncli listpeers
 
 ## Resources
 
+See [Lightning Resources](/docs/lightning/resources) for more curated links. External references:
+
 - [BOLT Specifications](https://github.com/lightning/bolts) - Protocol specifications
 - [LND Documentation](https://docs.lightning.engineering/)
 - [Core Lightning Documentation](https://docs.corelightning.org/)

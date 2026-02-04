@@ -1,6 +1,6 @@
 # Denominations
 
-Bitcoin is highly divisible: one bitcoin (BTC) equals 100 million of the smallest on-chain unit, the satoshi (sat). This design supports both large transfers and tiny amounts, and it scales as the nominal value of each unit changes over time. Common units include satoshis for small amounts, bits (µBTC, or one millionth of a BTC) for everyday thinking, and millibits (mBTC) or whole BTC for larger sums. Understanding how these units relate helps when reading fees, block rewards, and prices across wallets and Lightning apps. More tools: [Interactive Tools](/interactive-tools) hub.
+Bitcoin is highly divisible: one bitcoin (BTC) equals 100 million of the smallest on-chain unit, the satoshi (sat). This design supports both large transfers and tiny amounts, and it scales as the nominal value of each unit changes over time. Common units include satoshis for small amounts, bits (µBTC, or one millionth of a BTC) for everyday thinking, and millibits (mBTC) or whole BTC for larger sums. Understanding how these units relate helps when reading fees, block rewards, and prices across wallets and Lightning apps. For definitions of Bitcoin terms, see the [Glossary](/docs/glossary). More tools: [Interactive Tools](/interactive-tools) hub.
 
 ## Calculator
 
