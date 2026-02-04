@@ -267,7 +267,7 @@ const createHeading = (level: number) => {
 }
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  // Memoize mermaid/code/video group and denomination calculator parsing (expensive)
+  // Memoize mermaid/code/video group and denominations calculator parsing (expensive)
   const { processedContent, codeGroupMap, videoGroupMap, mermaidDiagramMap } = useMemo(() => {
     const { processedContent: afterMermaid, mermaidDiagrams } = parseMermaidDiagrams(content)
     const { processedContent: afterCode, codeGroups } = parseCodeGroups(afterMermaid)

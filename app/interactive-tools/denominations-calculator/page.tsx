@@ -11,10 +11,11 @@ export default function DenominationsCalculatorPage() {
         <div className="flex justify-center mb-3">
           <CalculatorIcon className="w-20 h-20" />
         </div>
-        <h1 className="heading-page text-center">Denomination Calculator</h1>
+        <h1 className="heading-page text-center">Denominations Calculator</h1>
         <p className="text-secondary text-center">
-          Convert between satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and other units. See the full
-          reference table in <Link href="/docs/fundamentals/denominations" className="text-btc hover:underline">Denominations</Link>.
+          Convert between satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and other units. 
+          This is a useful tool for visualizing the different Bitcoin denominations and their relationships.
+          See the full reference table in <Link href="/docs/fundamentals/denominations" className="text-btc hover:underline">Denominations</Link>.
         </p>
       </div>
 

@@ -29,9 +29,9 @@ test.describe('Interactive Tools', () => {
     await expect(page.getByRole('heading', { level: 1, name: /Fee Estimator/i })).toBeVisible()
   })
 
-  test('Denomination Calculator page loads', async ({ page }) => {
+  test('Denominations Calculator page loads', async ({ page }) => {
     await page.goto('/interactive-tools/denominations-calculator')
-    await expect(page).toHaveTitle(/Denomination Calculator|BitcoinDev/)
-    await expect(page.getByRole('heading', { level: 1, name: /Denomination Calculator/i })).toBeVisible()
+    await expect(page).toHaveTitle(/Denominations Calculator|BitcoinDev/)
+    await expect(page.getByRole('heading', { level: 1, name: /Denominations Calculator/i })).toBeVisible()
   })
 })

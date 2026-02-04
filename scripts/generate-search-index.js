@@ -128,7 +128,7 @@ const pathKeywords = {
   '/docs/history/bips': ['bip', 'bips', 'bitcoin improvement proposal', 'bitcoin improvement proposals'],
   '/docs/development/testnets': ['testnet', 'test net', 'testnet3', 'regtest', 'signet'],
   '/docs/development/node-types': ['full node', 'pruned', 'archival', 'spv', 'node type'],
-  '/docs/fundamentals/denominations': ['calculator', 'denomination calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations'],
+  '/docs/fundamentals/denominations': ['calculator', 'denominations calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations'],
   '/docs/bitcoin/sighash-types': ['sighash', 'sighash type', 'SIGHASH_ALL', 'SIGHASH_NONE', 'SIGHASH_SINGLE', 'SIGHASH_ANYONECANPAY'],
   '/docs/bitcoin/timelocks': ['timelock', 'nlocktime', 'nsequence', 'locktime', 'sequence', 'cltv', 'csv'],
   '/docs/bitcoin/merkle-trees': ['merkle root', 'merkle tree'],
@@ -224,11 +224,11 @@ const staticPages = [
   },
   {
     path: '/interactive-tools/denominations-calculator',
-    title: 'Denomination Calculator',
+    title: 'Denominations Calculator',
     section: 'tools',
     body:
-      'Denomination Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.',
-    keywords: ['calculator', 'denomination calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations', 'bits', 'millibit'],
+      'Denominations Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.',
+    keywords: ['calculator', 'denominations calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations', 'bits', 'millibit'],
   },
   {
     path: '/about',

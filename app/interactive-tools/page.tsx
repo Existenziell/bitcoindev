@@ -16,12 +16,12 @@ import {
 export const metadata: Metadata = {
   title: 'Interactive Tools | BitcoinDev',
   description:
-    'Interactive Bitcoin tools: CLI terminal, Stack Lab, Block Visualizer, Hash tool, Address Decoder, Transaction Decoder, Fee Estimator, and denomination converter.',
+    'Interactive Bitcoin tools: CLI terminal, Stack Lab, Block Visualizer, Hash tool, Address Decoder, Transaction Decoder, Fee Estimator, and denominations calculator.',
   alternates: { canonical: `${SITE_URL}/interactive-tools` },
   openGraph: {
     title: 'Interactive Tools | BitcoinDev',
     description:
-      'Interactive Bitcoin tools: CLI terminal, Stack Lab, Block Visualizer, Address Decoder, Transaction Decoder, Fee Estimator, denomination converter.',
+      'Interactive Bitcoin tools: CLI terminal, Stack Lab, Block Visualizer, Address Decoder, Transaction Decoder, Fee Estimator, denominations calculator.',
     url: `${SITE_URL}/interactive-tools`,
   },
 }
@@ -30,7 +30,7 @@ const tools = [
   {
     href: '/interactive-tools/terminal',
     title: 'CLI Terminal',
-    description: 'Run Bitcoin RPC in the browser. getblock, getrawtransaction, and more.',
+    description: 'Run Bitcoin RPC in the browser via the Bitcoin Core RPC interface.',
   },
   {
     href: '/interactive-tools/stack-lab',
@@ -50,7 +50,7 @@ const tools = [
   {
     href: '/interactive-tools/address-decoder',
     title: 'Address Decoder',
-    description: 'Decode addresses. Type, version, hash, checksum. Base58Check and Bech32.',
+    description: 'Decode addresses to see version, hash, checksum, address type, ...',
   },
   {
     href: '/interactive-tools/transaction-decoder',
@@ -64,8 +64,8 @@ const tools = [
   },
   {
     href: '/interactive-tools/denominations-calculator',
-    title: 'Denomination Calculator',
-    description: 'Convert between sats, BTC, and other units. Visualize the size of different units.',
+    title: 'Denominations',
+    description: 'Convert between denominations to visualize the different units.',
   },
 ]
 
@@ -82,9 +82,9 @@ export default function ToolsPage() {
         </p>
       </div>
 
-      <ul className="flex flex-wrap gap-4 justify-center max-w-5xl mx-auto">
+      <ul className="flex flex-wrap gap-4 justify-center max-w-6xl mx-auto">
         {tools.map((tool) => (
-          <li key={tool.href} className="min-w-[260px] flex-[1_1_260px] max-w-[340px]">
+          <li key={tool.href} className="w-[280px] shrink-0">
             <Link
               href={tool.href}
               className="tool-card block h-full"

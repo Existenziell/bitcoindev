@@ -139,12 +139,12 @@
   },
   {
     "path": "/interactive-tools/denominations-calculator",
-    "title": "Denomination Calculator",
+    "title": "Denominations Calculator",
     "section": "tools",
-    "body": "Denomination Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.",
+    "body": "Denominations Calculator. Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.",
     "keywords": [
       "calculator",
-      "denomination calculator",
+      "denominations calculator",
       "convert",
       "sats",
       "satoshis",
@@ -649,10 +649,10 @@
     "path": "/docs/fundamentals/denominations",
     "title": "Denominations",
     "section": "fundamentals",
-    "body": "Denominations calculator denomination calculator convert sats satoshis btc units satoshi denominations",
+    "body": "Denominations calculator denominations calculator convert sats satoshis btc units satoshi denominations",
     "keywords": [
       "calculator",
-      "denomination calculator",
+      "denominations calculator",
       "convert",
       "sats",
       "satoshis",

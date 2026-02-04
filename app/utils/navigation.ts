@@ -266,7 +266,7 @@ export const interactiveToolsNavItem: NavSection = {
     { href: '/interactive-tools/address-decoder', title: 'Address Decoder' },
     { href: '/interactive-tools/transaction-decoder', title: 'Transaction Decoder' },
     { href: '/interactive-tools/fee-estimator', title: 'Fee Estimator' },
-    { href: '/interactive-tools/denominations-calculator', title: 'Denomination Calculator' },
+    { href: '/interactive-tools/denominations-calculator', title: 'Denominations Calculator' },
   ],
 }
 
@@ -401,7 +401,7 @@ export const routeLabels: Record<string, string> = {
   'address-decoder': 'Address Decoder',
   'transaction-decoder': 'Transaction Decoder',
   'fee-estimator': 'Fee Estimator',
-  'denominations-calculator': 'Denomination Calculator',
+  'denominations-calculator': 'Denominations Calculator',
   whitepaper: 'Whitepaper',
   about: 'About BitcoinDev',
   feedback: 'Feedback',
