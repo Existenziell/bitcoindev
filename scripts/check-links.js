@@ -337,7 +337,7 @@ function runInternalAnalysis(maxLinksThreshold) {
 
   const orphans = docPages
     .filter((p) => {
-      if (p.path === '/' || p.path === '/docs') return false
+      if (p.path === '/' || p.path === '/docs' || p.path === '/docs/glossary') return false
       return (inboundCount.get(p.path) || 0) === 0
     })
     .map((p) => ({ path: p.path, title: p.title }))
