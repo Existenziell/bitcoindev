@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="text-left max-w-2xl mx-auto space-y-4 text-secondary leading-relaxed mb-4">
               <p>
-                BitcoinDev is a Bitcoin resource for anyone (developers, beginners, and curious non-devs alike) who wants to understand how Bitcoin works.
+                BitcoinDev is a Bitcoin resource for anyone who wants to learn about Bitcoin, developers, beginners, and curious non-devs alike.
                 I want to share my enthusiasm for Bitcoin and my own experience wandering down the rabbit hole (and the &quot;aha&quot; moments along the way) so more people can get up to speed with less friction.
               </p>
               <p>
