@@ -28,11 +28,11 @@ Bitcoin consists of several key components that work together to create a decent
 
 Consensus Mechanism: Bitcoin's [consensus mechanism](/docs/bitcoin/consensus) allows thousands of nodes worldwide to agree on a single transaction history without central coordination, using proof-of-work and economic incentives.
 
-**Script:** [Bitcoin Script](/docs/bitcoin/script) is a simple programming language that defines spending conditions, enabling features like multi-signature wallets and time-locked transactions.
+**Script:** Bitcoin Script is a simple programming language that defines spending conditions, enabling features like multi-signature wallets and time-locked transactions.
 
 OP Codes: The [instruction set](/docs/bitcoin/op-codes) that powers Bitcoin Script, with each opcode performing specific operations for transaction validation and program execution.
 
-Block Structure: [Blocks](/docs/bitcoin/blocks) are the fundamental units of Bitcoin's ledger, organizing transactions and enabling efficient verification through Merkle trees.
+Block Structure: Blocks are the fundamental units of Bitcoin's ledger, organizing transactions and enabling efficient verification through Merkle trees.
 
 Economic Rules: The [subsidy equation](/docs/bitcoin/subsidy) mathematically guarantees Bitcoin's fixed supply, creating a predictable monetary policy that approaches 21 million coins.
 
@@ -43,7 +43,7 @@ Economic Rules: The [subsidy equation](/docs/bitcoin/subsidy) mathematically gua
 | [Consensus mechanism](/docs/bitcoin/consensus) | Nodes agree on transaction history via proof-of-work; no central coordinator |
 | [Bitcoin Script](/docs/bitcoin/script) | Spending conditions; multisig, timelocks, smart contracts |
 | [Instruction set](/docs/bitcoin/op-codes) | OP codes for Script; validation and program execution |
-| Blocks | Units of the ledger; Merkle trees for efficient verification |
+| [Blocks](/docs/bitcoin/blocks) | Units of the ledger; Merkle trees for efficient verification |
 | [Subsidy equation](/docs/bitcoin/subsidy) | Fixed supply; predictable monetary policy toward 21 million |
 
 ```text
