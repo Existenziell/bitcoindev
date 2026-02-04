@@ -336,7 +336,31 @@ Mitigated by:
 
 **Tor** is an anonymity network that routes traffic through volunteer relays so that observers cannot see who is talking to whom. Satoshi cited Tor (with Gnutella) as an example of a resilient pure P2P network.
 
-Running a Bitcoin node or wallet over Tor hides a user's IP from peers and mitigates some network-level surveillance and eclipse risks. Many nodes support Tor (e.g. via `.onion` addresses). Lightning's [onion routing](/docs/lightning/onion) is inspired by Tor's design.
+Running a Bitcoin node or wallet over Tor hides a user's IP from peers and mitigates some network-level surveillance and [eclipse](#eclipse-attacks) risks. Many nodes support Tor (e.g. via `.onion` addresses). Lightning's [onion routing](/docs/lightning/onion) is inspired by Tor's design.
+
+### Running Bitcoin Core over Tor
+
+Bitcoin Core can route P2P traffic through Tor. Install and run Tor (e.g. the Tor service or Tor Browser), then use the **proxy** option so that outbound connections go through Tor:
+
+```bash
+# Tor typically listens on 9050 (service) or 9150 (Tor Browser)
+bitcoind -proxy=127.0.0.1:9050
+```
+
+In `bitcoin.conf`:
+
+```ini
+proxy=127.0.0.1:9050
+```
+
+To also **advertise an onion address** and accept incoming connections over Tor, set `listenonion=1` (Bitcoin Core will create a hidden service if Tor is configured with ControlPort and cookie authentication). Use **onlynet=onion** if you want the node to connect only to `.onion` peers (Tor-only mode).
+
+### Trade-offs
+
+- **Benefits:** IP hidden from peers and passive observers; reduces eclipse and network-level surveillance.
+- **Costs:** Higher latency and often slower initial block sync; Tor relay capacity can be a bottleneck.
+
+See [Bitcoin Core Tor documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/tor.md) and the [Tor Project](https://www.torproject.org/) for setup details.
 
 ---
 

@@ -172,6 +172,10 @@ bitcoin-cli getmempoolinfo
 bitcoin-cli stop
 ```
 
+### Running over Tor
+
+You can route your node's P2P traffic through [Tor](https://www.torproject.org/) to hide your IP from peers and reduce network-level surveillance and eclipse risks. See [Tor and Bitcoin](/docs/bitcoin/p2p-protocol#tor-and-bitcoin) for configuration (`-proxy`, `listenonion`, trade-offs) and links to Bitcoin Core and Tor documentation.
+
 ---
 
 ## Development Setup

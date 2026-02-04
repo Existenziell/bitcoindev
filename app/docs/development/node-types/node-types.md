@@ -52,6 +52,8 @@ Bitcoin nodes come in different types, each with different capabilities, resourc
 | **Bandwidth** | High | High | Low |
 | **Security** | Maximum | Maximum | Reduced |
 
+Full and pruned nodes can be run over [Tor](/docs/bitcoin/p2p-protocol#tor-and-bitcoin) for IP privacy and eclipse mitigation.
+
 ## AssumeUTXO (Faster Initial Sync)
 
 **AssumeUTXO** (in [Bitcoin Core](https://github.com/bitcoin/bitcoin) 26+) allows a new node to **start from a snapshot** of the UTXO set at a recent block height instead of verifying every [block](/docs/bitcoin/blocks) from the genesis. The node downloads a signed snapshot (from a built-in or external source), loads the UTXO set, and then syncs only the **remaining** blocks to the chain tip. This can reduce **initial sync time** from days to hours. The node still performs full consensus validation for all blocks it downloads; the trust is only that the snapshot is correct at that height, and the [BIP](/docs/history/bips) process and built-in defaults are designed to minimize risk. Useful for [pruned](#pruned-nodes) and [full](#full-nodes) nodes that want to reach tip quickly, then optionally verify history in the background.
