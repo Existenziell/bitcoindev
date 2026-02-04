@@ -74,7 +74,7 @@ export default function Home() {
               </p>
               <p>
                 I created BitcoinDev to offer free and open source documentation that goes from Bitcoin 
-                fundamentals to advanced protocol details, whether you&apos;re a developer or completely new to Bitcoin.
+                fundamentals to advanced protocol details.
                 The site includes interactive tools you can use in the browser: a CLI terminal for Bitcoin RPC commands, Stack Lab for Bitcoin Script, 
                 a block visualizer, and utilities for hashes, addresses, and transactions.
               </p>
