@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest'
-import { generatePageMetadata, SITE_URL, DEFAULT_OG_IMAGE } from '@/app/utils/metadata'
+import {
+  generatePageMetadata,
+  getSiteStructuredData,
+  getDocPageStructuredData,
+  SITE_URL,
+  DEFAULT_OG_IMAGE,
+} from '@/app/utils/metadata'
 
 describe('generatePageMetadata', () => {
   it('returns fullTitle as "Title | BitcoinDev"', () => {
@@ -37,5 +43,59 @@ describe('generatePageMetadata', () => {
   it('sets twitter.card to summary_large_image', () => {
     const meta = generatePageMetadata({ title: 'T', description: 'D' })
     expect(meta.twitter?.card).toBe('summary_large_image')
+  })
+})
+
+describe('getSiteStructuredData', () => {
+  it('returns JSON string with WebSite and Organization', () => {
+    const json = getSiteStructuredData()
+    const data = JSON.parse(json)
+    expect(Array.isArray(data)).toBe(true)
+    expect(data).toHaveLength(2)
+    expect(data[0]['@type']).toBe('WebSite')
+    expect(data[0].name).toBe('BitcoinDev')
+    expect(data[0].url).toBe(SITE_URL)
+    expect(data[1]['@type']).toBe('Organization')
+    expect(data[1].name).toBe('BitcoinDev')
+  })
+
+  it('includes schema.org context', () => {
+    const json = getSiteStructuredData()
+    const data = JSON.parse(json)
+    expect(data[0]['@context']).toBe('https://schema.org')
+    expect(data[0].publisher?.logo?.url).toContain(SITE_URL)
+  })
+})
+
+describe('getDocPageStructuredData', () => {
+  it('returns JSON string with BreadcrumbList and Article', () => {
+    const breadcrumbs = [
+      { label: 'Docs', href: '/docs' },
+      { label: 'Bitcoin', href: '/docs/bitcoin' },
+    ]
+    const json = getDocPageStructuredData('/docs/bitcoin', 'Bitcoin', 'About Bitcoin', breadcrumbs)
+    const data = JSON.parse(json)
+    expect(data).toHaveLength(2)
+    expect(data[0]['@type']).toBe('BreadcrumbList')
+    expect(data[1]['@type']).toBe('Article')
+    expect(data[1].headline).toBe('Bitcoin')
+    expect(data[1].url).toBe(`${SITE_URL}/docs/bitcoin`)
+  })
+
+  it('maps breadcrumb href to full URL when relative', () => {
+    const breadcrumbs = [{ label: 'Home', href: '/docs' }]
+    const json = getDocPageStructuredData('/docs', 'Docs', 'Desc', breadcrumbs)
+    const data = JSON.parse(json)
+    const item = data[0].itemListElement[0]
+    expect(item.item).toBe(`${SITE_URL}/docs`)
+    expect(item.position).toBe(1)
+    expect(item.name).toBe('Home')
+  })
+
+  it('keeps absolute href as-is in breadcrumb item', () => {
+    const breadcrumbs = [{ label: 'External', href: 'https://example.com/page' }]
+    const json = getDocPageStructuredData('/docs', 'Doc', 'D', breadcrumbs)
+    const data = JSON.parse(json)
+    expect(data[0].itemListElement[0].item).toBe('https://example.com/page')
   })
 })
