@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { SITE_URL } from '@/app/utils/metadata'
 import {
   TerminalIcon,
@@ -72,13 +71,13 @@ const tools = [
 
 export default function ToolsPage() {
   return (
-    <DocsLayoutWrapper>
+    <>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <ToolsIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Interactive Tools</h1>
-        <p className="text-secondary text-center max-w-2xl mx-auto">
+        <p className="text-secondary text-center">
           Interactive tools for learning and working with Bitcoin. No installation required.
         </p>
       </div>
@@ -106,6 +105,6 @@ export default function ToolsPage() {
           </li>
         ))}
       </ul>
-    </DocsLayoutWrapper>
+    </>
   )
 }

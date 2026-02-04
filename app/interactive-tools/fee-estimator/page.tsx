@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { FeeEstimatorIcon } from '@/app/components/Icons'
 import { bitcoinRpc } from '@/app/utils/bitcoinRpc'
 import { parseVBytes, toSatPerVb } from '@/app/utils/feeEstimator'
@@ -77,13 +76,13 @@ export default function FeeEstimatorPage() {
       : null
 
   return (
-    <DocsLayoutWrapper>
+    <>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <FeeEstimatorIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Fee Estimator</h1>
-        <p className="text-secondary text-center max-w-2xl mx-auto">
+        <p className="text-secondary text-center">
           Estimate transaction fee from size (vBytes) and current network fee rate. Rates are fetched from a public
           node (estimatesmartfee). A typical one-input, two-output P2WPKH spend is about 140 vBytes.
         </p>
@@ -172,6 +171,6 @@ export default function FeeEstimatorPage() {
           heuristic; confirmation time is not guaranteed.
         </p>
       </div>
-    </DocsLayoutWrapper>
+    </>
   )
 }

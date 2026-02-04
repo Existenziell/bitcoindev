@@ -115,7 +115,7 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
       </div>
 
       <div className="relative z-10 flex min-h-full items-center justify-center px-4 py-6 sm:py-8">
-        <div className="max-w-2xl mx-auto w-full text-center space-y-5 sm:space-y-6 md:space-y-8">
+        <div className="w-full text-center space-y-5 sm:space-y-6 md:space-y-8">
         <h1 className="heading-page text-5xl sm:text-6xl md:text-8xl font-bold relative">
           <span className="absolute inset-0 text-btc/30 blur-sm animate-pulse">
             SECRET

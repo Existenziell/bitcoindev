@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { HashIcon } from '@/app/components/Icons'
 import { sha256 } from '@noble/hashes/sha2.js'
 import { ripemd160 } from '@noble/hashes/legacy.js'
@@ -158,13 +157,13 @@ export default function HashToolPage() {
   } = getHashResults(input, inputMode)
 
   return (
-    <DocsLayoutWrapper>
+    <>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <HashIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Hash Tool</h1>
-        <p className="text-secondary text-center max-w-2xl mx-auto">
+        <p className="text-secondary text-center">
           Compute SHA-256, HASH256 (double SHA-256), HASH160 (RIPEMD-160 of SHA-256), raw RIPEMD-160,
           and Base58Check checksum. Used in Bitcoin for block hashes, TXIDs, addresses, and script.
         </p>
@@ -267,6 +266,6 @@ export default function HashToolPage() {
           </div>
         </div>
       </div>
-    </DocsLayoutWrapper>
+    </>
   )
 }

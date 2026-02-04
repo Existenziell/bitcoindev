@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { generatePageMetadata } from '@/app/utils/metadata'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Stack Lab',
@@ -14,9 +13,5 @@ export default function StackLabLayout({
 }: {
   children: ReactNode
 }) {
-  return (
-    <DocsLayoutWrapper isNavCollapsed={true}>
-      {children}
-    </DocsLayoutWrapper>
-  )
+  return <>{children}</>
 }

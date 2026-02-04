@@ -568,7 +568,7 @@ export default function TerminalPage() {
        <h1 className="heading-page text-center">
         Bitcoin CLI Terminal
       </h1>
-      <p className="text-secondary text-center mb-8 max-w-2xl mx-auto">
+      <p className="text-secondary text-center mb-8">
         Interactive Bitcoin RPC playground
       </p>
 
@@ -664,7 +664,7 @@ export default function TerminalPage() {
           </form>
       </div>
 
-      <p className="text-sm text-gray-600 dark:text-gray-400 text-center mt-12 max-w-2xl mx-auto">
+      <p className="text-sm text-gray-600 dark:text-gray-400 text-center mt-12">
         This emulates <code className="code-inline text-xs">bitcoin-cli</code>.<br />Commands are sent as JSON-RPC to a public mainnet node.<br />Only read-only RPC methods are available.<br />Tab autocomplete is available.
       </p>
 

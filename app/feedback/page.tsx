@@ -9,7 +9,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzkeedd'
 
 function FeedbackForm() {
   return (
-    <div className="max-w-xl mx-auto text-center pb-20">
+    <div className="text-center pb-20">
       <h1 className="heading-page-hero">Feedback</h1>
       <p className="text-gray-800 dark:text-gray-200 leading-7">
         Your feedback would mean a lot to me.
@@ -72,7 +72,7 @@ function FeedbackContent() {
 
   if (thanks) {
     return (
-      <div className="max-w-xl mx-auto text-center">
+      <div className="text-center">
         <h1 className="heading-page-hero">Thank you</h1>
         <p className="text-gray-800 dark:text-gray-200 leading-7 mb-6">
           Your feedback helps us improve BitcoinDev. We appreciate you taking the time to share your thoughts.

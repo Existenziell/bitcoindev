@@ -277,7 +277,7 @@ export default function StackLabPage() {
         <h1 className="heading-page text-center">
           Stack Lab
         </h1>
-        <p className="text-secondary text-center mb-8 max-w-2xl mx-auto">
+        <p className="text-secondary text-center mb-8">
           Interactive Bitcoin Script Playground
         </p>
         <div className="text-center text-secondary">Loading...</div>
@@ -302,7 +302,7 @@ export default function StackLabPage() {
         modifiers={[]}
         
       >
-        <p className="text-secondary text-center mb-4 max-w-2xl mx-auto">
+        <p className="text-secondary text-center mb-4">
           Interactive Bitcoin Script Playground
         </p>
         <div className="space-y-2 pb-12">

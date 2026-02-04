@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { AddressDecoderIcon } from '@/app/components/Icons'
 import { decodeAddress } from '@/app/utils/addressDecoder'
 
@@ -11,13 +10,13 @@ export default function AddressDecoderPage() {
   const result = decodeAddress(input)
 
   return (
-    <DocsLayoutWrapper>
+    <>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <AddressDecoderIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Address Decoder</h1>
-        <p className="text-secondary text-center max-w-2xl mx-auto">
+        <p className="text-secondary text-center">
           Decode and inspect Bitcoin addresses. See address type (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), network, version
           byte or witness version, hash, and checksum. Supports Base58Check and Bech32/Bech32m.
         </p>
@@ -98,6 +97,6 @@ export default function AddressDecoderPage() {
           for how addresses map to scripts.
         </p>
       </div>
-    </DocsLayoutWrapper>
+    </>
   )
 }

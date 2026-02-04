@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
 import { TransactionDecoderIcon } from '@/app/components/Icons'
 import { decodeRawTransaction } from '@/app/utils/transactionDecoder'
 
@@ -11,13 +10,13 @@ export default function TransactionDecoderPage() {
   const result = decodeRawTransaction(input)
 
   return (
-    <DocsLayoutWrapper>
+    <>
       <div className="mb-8">
         <div className="flex justify-center mb-3">
           <TransactionDecoderIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Transaction Decoder</h1>
-        <p className="text-secondary text-center max-w-2xl mx-auto">
+        <p className="text-secondary text-center">
           Paste raw transaction hex to decode version, inputs (outpoint, scriptSig, sequence), outputs (value,
           scriptPubKey), and locktime. Supports SegWit transactions. Get raw hex from{' '}
           <Link href="/interactive-tools/terminal" className="text-btc hover:underline">getrawtransaction</Link> or block explorers.
@@ -101,6 +100,6 @@ export default function TransactionDecoderPage() {
           <code>getrawtransaction &lt;txid&gt;</code>.
         </p>
       </div>
-    </DocsLayoutWrapper>
+    </>
   )
 }
