@@ -281,4 +281,4 @@ Attack:
 
 ## Resources
 
-- [Bitcoin Network Security](https://en.bitcoin.it/wiki/Network_security)
+- [Bitcoin Wiki – Network](https://en.bitcoin.it/wiki/Network)

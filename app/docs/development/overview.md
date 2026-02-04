@@ -256,8 +256,8 @@ More controlled test network with consistent block production.
 - Better for development
 
 **Getting coins:**
-- [signet.bc-2.jp/](https://signet.bc-2.jp/)
 - [alt.signetfaucet.com/](https://alt.signetfaucet.com/)
+- [signetfaucet.bublina.eu.org/](https://signetfaucet.bublina.eu.org/)
 
 ### Regtest
 

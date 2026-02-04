@@ -171,5 +171,5 @@ For more details on script types and their evolution, see [Script System](/docs/
 
 - [Bitcoin BIPs Repository](https://github.com/bitcoin/bips)
 - [Bitcoin Core Release Notes](https://bitcoincore.org/en/releases/)
-- [Bitcoin Wiki - Forks](https://en.bitcoin.it/wiki/Forks)
+- [Bitcoin Wiki - List of Bitcoin splits](https://en.bitcoin.it/wiki/List_of_Bitcoin_splits)
 - [UASF (User-Activated Soft Fork) History](https://en.bitcoin.it/wiki/UASF)

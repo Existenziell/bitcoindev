@@ -3,11 +3,12 @@
  * Check markdown files: validate internal links, run internal link analysis, optionally check external URLs.
  *
  * - Internal link analysis: check for broken links, report self-links, duplicate targets per page, pages with too many links, no links, orphans (informational; does not fail).
- * - External links: only checked when --check-external is passed.
+ * - External links: only checked when --external is passed.
  *
- * Run: node scripts/check-links.js [--check-external] [--json]
- *   --check-external  Check that external URLs are accessible.
+ * Run: node scripts/check-links.js [--external] [--json] [--concurrency=N]
+ *   --external  Check that external URLs are accessible.
  *   --json            Output analysis as JSON and exit (no human-readable report).
+ *   --concurrency=N   Max concurrent external URL checks (default: 8).
  */
 
 const fs = require('fs')
@@ -19,8 +20,12 @@ const { parseDocPages } = require('./lib/parse-doc-pages')
 
 // Parse command line arguments
 const args = process.argv.slice(2)
-const checkExternal = args.includes('--check-external')
+const checkExternal = args.includes('--external')
 const outputJson = args.includes('--json')
+const concurrencyArg = args.find((a) => a.startsWith('--concurrency='))
+const externalConcurrency = concurrencyArg
+  ? Math.max(1, parseInt(concurrencyArg.replace('--concurrency=', ''), 10) || 8)
+  : 8
 const maxLinks = 25
 
 const projectRoot = path.join(__dirname, '..')
@@ -102,6 +107,21 @@ const bySourceFile = new Map() // normalized file path -> [ { targetPath, target
 const externalLinkRe = /\]\((https?:\/\/[^\s)]+)\)/g
 const externalLinks = new Map() // url -> [ { file, lineNum, line, fullLink } ]
 
+// Hosts to skip in external check (assumed to work; often block or throttle bots)
+const externalCheckExcludedHosts = new Set([
+  'www.coinbase.com',
+  'coinbase.com',
+  'www.kraken.com',
+  'kraken.com'
+])
+function isExcludedFromExternalCheck(url) {
+  try {
+    return externalCheckExcludedHosts.has(new URL(url).hostname)
+  } catch {
+    return false
+  }
+}
+
 for (const file of mdFiles) {
   const content = fs.readFileSync(file, 'utf-8')
   const lines = content.split('\n')
@@ -145,7 +165,7 @@ for (const file of mdFiles) {
 }
 
 // Function to check if an external URL is accessible
-async function checkExternalUrl(url, timeout = 10000, maxRedirects = 5) {
+async function checkExternalUrl(url, timeout = 5000, maxRedirects = 5) {
   return new Promise((resolve) => {
     let redirectCount = 0
     let triedHead = false
@@ -226,6 +246,27 @@ async function checkExternalUrl(url, timeout = 10000, maxRedirects = 5) {
 
     checkUrl(url)
   })
+}
+
+/**
+ * Run async tasks with at most `concurrency` in flight. Returns results in original order.
+ * @param {Array<T>} items
+ * @param {number} concurrency
+ * @param {(item: T) => Promise<R>} fn
+ * @returns {Promise<R[]>}
+ */
+async function runWithConcurrency(items, concurrency, fn) {
+  const results = new Array(items.length)
+  let index = 0
+  async function worker() {
+    while (index < items.length) {
+      const i = index++
+      results[i] = await fn(items[i])
+    }
+  }
+  const workerCount = Math.min(concurrency, items.length)
+  await Promise.all(Array.from({ length: workerCount }, () => worker()))
+  return results
 }
 
 function relFile(filePath) {
@@ -330,21 +371,29 @@ async function runChecks() {
   // Check external links if requested
   let brokenExternalLinks = []
   if (checkExternal && externalLinks.size > 0) {
-    const uniqueUrls = [...externalLinks.keys()]
-    console.log(`Checking ${uniqueUrls.length} external link(s)...\n`)
+    const uniqueUrls = [...externalLinks.keys()].filter((url) => !isExcludedFromExternalCheck(url))
+    const total = uniqueUrls.length
+    const excludedCount = externalLinks.size - total
+    if (excludedCount > 0) {
+      console.log(`Skipping ${excludedCount} excluded host(s). `)
+    }
+    console.log(`Checking ${total} external link(s) (concurrency: ${externalConcurrency})...\n`)
 
-    // Check URLs with a small delay between each to be respectful
-    for (let i = 0; i < uniqueUrls.length; i++) {
-      const url = uniqueUrls[i]
+    const items = uniqueUrls.map((url) => ({ url, occurrences: externalLinks.get(url) }))
+    const results = await runWithConcurrency(
+      items,
+      externalConcurrency,
+      async ({ url }) => checkExternalUrl(url)
+    )
+
+    for (let i = 0; i < results.length; i++) {
+      const { url, occurrences } = items[i]
+      const result = results[i]
       const current = i + 1
-      const total = uniqueUrls.length
-      const occurrences = externalLinks.get(url)
       const source = occurrences[0]
       const sourceInfo = `${path.relative(process.cwd(), source.file)}:${source.lineNum}`
 
       process.stdout.write(`[${current}/${total}] ${url}\n  -> ${sourceInfo} ... `)
-      const result = await checkExternalUrl(url)
-
       if (result.success) {
         const statusInfo = result.statusCode != null ? `HTTP ${result.statusCode}` : 'OK'
         console.log(`\x1b[32m${statusInfo}\x1b[0m`)
@@ -355,13 +404,8 @@ async function runChecks() {
         console.log(`\x1b[31mFAIL: ${failInfo}\x1b[0m`)
         brokenExternalLinks.push({ url, result, occurrences })
       }
-
-      // Small delay between checks (except for the last one)
-      if (i < uniqueUrls.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 100))
-      }
     }
-    if (uniqueUrls.length > 0) {
+    if (total > 0) {
       console.log('')
     }
   }

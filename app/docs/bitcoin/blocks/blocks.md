@@ -716,4 +716,4 @@ Bitcoin's block propagation mechanism is designed to be:
 
 - **[mempool.space](https://mempool.space)**: Real-time block explorer and mempool visualization
 - **[BIP 152: Compact Block Relay](https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki)**: Compact blocks specification
-- **[Bitcoin Core P2P documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/p2p.md)**: Network protocol details
+- **[Bitcoin Core P2P documentation](https://developer.bitcoin.org/reference/p2p_networking.html)**: Network protocol details

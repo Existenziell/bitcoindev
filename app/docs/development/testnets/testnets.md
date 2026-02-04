@@ -56,7 +56,7 @@ bitcoin-cli -testnet getblockcount
 Get free testnet coins:
 
 - [coinfaucet.eu](https://coinfaucet.eu/en/btc-testnet/)
-- [testnet-faucet.com](https://testnet-faucet.com/btc-testnet/)
+- [testnet.help](https://testnet.help/en/btcfaucet/testnet)
 - [bitcoinfaucet.uo1.net](https://bitcoinfaucet.uo1.net/)
 
 ### Testnet Explorers
@@ -115,8 +115,8 @@ bitcoin-cli -signet getnetworkinfo
 
 ### Signet Faucets
 
-- [signet.bc-2.jp](https://signet.bc-2.jp/)
 - [alt.signetfaucet.com](https://alt.signetfaucet.com/)
+- [signetfaucet.bublina.eu.org](https://signetfaucet.bublina.eu.org/)
 - [signetfaucet.bublina.eu.org](https://signetfaucet.bublina.eu.org/)
 
 ### Signet Explorer

@@ -87,4 +87,4 @@ Views in the Bitcoin community vary:
 
 - [Ordinals Handbook](https://docs.ordinals.com/) – Official Ordinals documentation
 - [BRC-20 Spec](https://domo-2.gitbook.io/brc-20-experiment/) – BRC-20 experiment description
-- [Runes](https://runes.network/) – Runes protocol overview
+- [Runes](https://docs.ordinals.com/runes.html) – Runes protocol overview

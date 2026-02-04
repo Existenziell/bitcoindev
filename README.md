@@ -109,7 +109,7 @@ npm run dev    # → http://localhost:3000
 | `npm run test:e2e` | Playwright E2E |
 | `npm run test:e2e:ui` | Playwright UI |
 | `npm run lint` | ESLint |
-| `npm run check:links` | Validate internal links and run analysis (self-links, duplicates, orphans, etc.); optional `--check-external`, `--json` |
+| `npm run check:links` | Validate internal links and run analysis (self-links, duplicates, orphans, etc.); optional `--external`, `--json` |
 | `npm run analyze` | Bundle analysis |
 
 ## Testing

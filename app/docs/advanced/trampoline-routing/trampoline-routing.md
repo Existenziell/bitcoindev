@@ -341,5 +341,5 @@ Trampoline routing provides:
 ## Resources
 
 - [Trampoline Routing Proposal](https://github.com/lightning/bolts/pull/829)
-- [ACINQ Trampoline Blog](https://medium.com/@ACINQ/introducing-phoenix-5c5cc76c7f9e)
+- [Trampoline routing (lightning-dev)](https://lists.linuxfoundation.org/pipermail/lightning-dev/2020-December/002928.html)
 - [Phoenix Wallet](https://phoenix.acinq.co/) - Trampoline-based wallet

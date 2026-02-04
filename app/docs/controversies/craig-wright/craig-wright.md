@@ -193,4 +193,4 @@ Craig Wright is not Satoshi Nakamoto. A UK High Court has ruled it. The cryptogr
 
 - [COPA v. Wright Judgment](https://www.judiciary.uk/judgments/copa-v-wright/) - The full UK court ruling
 - [Wizsec: Wright's Fake Documents](https://blog.wizsec.jp/2018/02/kleiman-v-craig-wright-bitcoins.html) - Detailed forensic analysis
-- [stopcraigwright.com](https://stopcraigwright.com/) - Community documentation of Wright's claims
+- [Craig Wright (Wikipedia)](https://en.wikipedia.org/wiki/Craig_Steven_Wright) - Overview of Wright and Satoshi claims

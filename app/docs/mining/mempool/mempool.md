@@ -578,7 +578,7 @@ Common in DeFi on other chains, less relevant for Bitcoin's simpler transactions
 
 - **[mempool.space](https://mempool.space)**: Beautiful visualization of mempool and fee estimates
 - **[jochen-hoenicke.de/queue](https://jochen-hoenicke.de/queue/)**: Historical mempool data
-- **[mempoolexplorer.com](https://mempoolexplorer.com)**: Detailed mempool analytics
+- **[blockstream.info](https://blockstream.info/)**: Mempool and block explorer
 
 ### What You Can Learn
 
@@ -663,4 +663,4 @@ Understanding the mempool helps you:
 ## Resources
 
 - [mempool.space](https://mempool.space) - Real-time mempool visualization
-- [Bitcoin Core mempool documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/policy/mempool-limits.md) - Technical details
+- [Bitcoin Core mempool documentation](https://github.com/bitcoin/bitcoin/tree/master/doc/policy) - Policy and mempool docs

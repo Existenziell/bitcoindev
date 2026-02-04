@@ -17,7 +17,7 @@ Curated links to Lightning Network tools, LSPs, dashboards, and routing/liquidit
 ## Routing & Liquidity
 
 - **[Channel liquidity](https://github.com/lightning/bolts/blob/master/02-peer-protocol.md)** – BOLT 2 defines channel and liquidity semantics.
-- **[Submarine Swaps](https://docs.lightning.engineering/lightning-network-tools/submarine-swaps)** – On-chain to Lightning and back.
+- **[Submarine Swaps](https://docs.lightning.engineering/the-lightning-network/lightning-overview/understanding-submarine-swaps)** – On-chain to Lightning and back.
 
 ## Learning & Development
 

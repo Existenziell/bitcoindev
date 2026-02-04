@@ -892,4 +892,4 @@ Honest mining is almost always more profitable than attacking.
 ## Resources
 
 - [Selfish Mining Paper](https://www.cs.cornell.edu/~ie53/publications/btcProcFC.pdf) - Original academic analysis
-- [Bitcoin Security Model](https://nakamotoinstitute.org/library/security-model/) - Complete overview
+- [Nakamoto Institute Library](https://nakamotoinstitute.org/library/) - Bitcoin and security model resources

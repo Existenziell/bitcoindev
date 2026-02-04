@@ -60,7 +60,7 @@ May's writings foresaw many developments: anonymous digital currencies, reputati
 
 John Gilmore is a computer scientist, entrepreneur, and civil-liberties advocate who co-founded the cypherpunk mailing list with Eric Hughes and Timothy C. May in 1992. The list became the main forum where ideas that would eventually produce Bitcoin, including David Chaum's eCash, Adam Back's Hashcash, and Nick Szabo's Bit Gold, were debated. Gilmore also co-founded the Electronic Frontier Foundation (EFF) and Cygnus Solutions; his work on open systems and crypto advocacy helped create the culture in which Satoshi Nakamoto would later publish the Bitcoin whitepaper.
 
-[More](https://en.wikipedia.org/wiki/John_Gilmore_(activist))
+[More](https://en.wikipedia.org/wiki/John_Gilmore_%28activist%29)
 
 ---
 
@@ -184,7 +184,7 @@ Finney was diagnosed with ALS (Lou Gehrig's disease) in 2009 and continued contr
 
 The "Finney attack" in Bitcoin is named after him: a type of double-spend attack he described where a miner pre-mines a transaction and quickly broadcasts a conflicting one.
 
-[More](https://en.wikipedia.org/wiki/Hal_Finney_(computer_scientist))
+[More](https://en.wikipedia.org/wiki/Hal_Finney_%28computer_scientist%29)
 
 ---
 
@@ -215,8 +215,6 @@ Some have speculated that Sassaman was involved in Bitcoin's creation due to his
 Martti Malmi (known online as Sirius) was one of Bitcoin's first contributors after Satoshi Nakamoto and Hal Finney. He began collaborating with Satoshi in 2009, helping to run and design bitcoin.org, implement an early, simple exchange, and build the first Bitcoin forum. Malmi wrote much of the early, user-facing infrastructure that allowed new users to learn about and obtain Bitcoin.
 
 His work bridged the gap between Satoshi's protocol and the broader world: he made the project accessible, documented it, and created spaces for discussion. Malmi has described his communication with Satoshi as frequent and substantive during 2009–2010. He stepped back from active development in 2011. His contributions, though less celebrated than those of the protocol designers, were essential to Bitcoin's earliest adoption and community formation.
-
-[More](https://en.wikipedia.org/wiki/Martti_Malmi)
 
 ---
 
@@ -264,9 +262,6 @@ Wladimir van der Laan is a software developer who served as the lead maintainer 
 
 His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-source project with many regular contributors. Van der Laan emphasized process, review, and conservative change, values that have come to define Bitcoin's development culture. He stepped down as lead maintainer in 2021; the role has since been shared among several maintainers in a further decentralization of project stewardship.
 
-[More](https://en.wikipedia.org/wiki/Wladimir_van_der_Laan)
-
-
 ---
 
 ## Pieter Wuille
@@ -279,8 +274,6 @@ Pieter Wuille is a Belgian software engineer and one of the most influential Bit
 
 Wuille created and maintains libsecp256k1, the cryptographic library used by Bitcoin Core for [elliptic curve](/docs/bitcoin/cryptography) operations, faster and more secure than generic crypto libraries. His work has shaped the security, scalability, and expressiveness of the Bitcoin protocol. He is a co-founder of Blockstream and remains an active Bitcoin Core contributor.
 
-[More](https://en.wikipedia.org/wiki/Pieter_Wuille)
-
 ---
 
 ## Gregory Maxwell
@@ -290,8 +283,6 @@ Wuille created and maintains libsecp256k1, the cryptographic library used by Bit
 **Contribution:** Bitcoin Core developer, Blockstream co-founder, CoinJoin, Confidential Transactions, Sidechains
 
 Gregory Maxwell (Greg) is a Bitcoin Core developer and one of the most influential protocol and privacy researchers in Bitcoin. He co-founded Blockstream in 2014 and has authored or co-authored numerous BIPs and designs, including work on CoinJoin (which improved the blind-signature-based mixers that preceded it), Confidential Transactions (CT), and the sidechain concept. He was a central voice in the blocksize wars, arguing for Layer 2 scaling and against raising the block size limit. His advocacy for SegWit and for a conservative, decentralization-focused approach to scaling helped shape Bitcoin's current direction.
-
-[More](https://en.wikipedia.org/wiki/Gregory_Maxwell)
 
 ---
 
