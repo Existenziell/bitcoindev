@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useDroppable } from '@dnd-kit/core'
-import { StackItem } from '@/app/utils/stackLabInterpreter'
-import { formatStackItem, itemCount, parseStackItem } from '@/app/utils/stackLabFormatters'
+import { StackItem, isKnownOpCode } from '@/app/utils/stackLabInterpreter'
+import { formatStackItem, formatScriptItemForBuilder, itemCount, parseStackItem } from '@/app/utils/stackLabFormatters'
 import InfoTooltip from '@/app/components/stack-lab/InfoTooltip'
 import StackLabCard from '@/app/components/stack-lab/StackLabCard'
 import { XIcon } from '@/app/components/Icons'
@@ -16,6 +16,11 @@ interface ScriptBuilderProps {
   onEdit?: (index: number, newValue: string | StackItem) => void
   /** When true, script is displayed only (no drop, remove, or edit). */
   readOnly?: boolean
+}
+
+function isPushData(item: string | StackItem): boolean {
+  if (typeof item !== 'string') return true // number, boolean, Uint8Array = push data
+  return !isKnownOpCode(item)
 }
 
 function ScriptItem({ 
@@ -31,13 +36,12 @@ function ScriptItem({
 }) {
   const [isEditing, setIsEditing] = useState(false)
   const [editValue, setEditValue] = useState('')
+  const isEditable = isPushData(item)
 
   const handleEdit = () => {
-    if (typeof item === 'string' || typeof item === 'number') {
-      // Set to original value when starting to edit
-      setEditValue(String(item))
-      setIsEditing(true)
-    }
+    if (!isEditable) return
+    setEditValue(formatStackItem(item))
+    setIsEditing(true)
   }
 
   const handleSave = () => {
@@ -57,8 +61,7 @@ function ScriptItem({
   }
 
   const handleCancel = () => {
-    // Reset edit value to original item value and exit edit mode
-    setEditValue(typeof item === 'string' || typeof item === 'number' ? String(item) : '')
+    setEditValue(formatStackItem(item))
     setIsEditing(false)
   }
   if (isEditing) {
@@ -119,11 +122,11 @@ function ScriptItem({
   return (
     <div className="panel-base-hover flex items-center gap-2 group">
       <div 
-        className="flex-1 font-mono text-sm text-gray-800 dark:text-gray-200 cursor-text"
-        onClick={handleEdit}
-        title="Click to edit"
+        className={`flex-1 font-mono text-sm text-gray-800 dark:text-gray-200 ${isEditable ? 'cursor-text' : 'cursor-default'}`}
+        onClick={isEditable ? handleEdit : undefined}
+        title={isEditable ? 'Click to edit' : undefined}
       >
-        {formatStackItem(item)}
+        {formatScriptItemForBuilder(item)}
       </div>
       <button
         onClick={(e) => {
@@ -201,7 +204,7 @@ export default function ScriptBuilder({
                 className="panel-base flex items-center gap-2"
               >
                 <div className="flex-1 font-mono text-sm text-gray-800 dark:text-gray-200">
-                  {formatStackItem(item)}
+                  {formatScriptItemForBuilder(item)}
                 </div>
               </div>
             ))}

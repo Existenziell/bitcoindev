@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import {
   bytesToHex,
   formatStackItem,
+  formatScriptItemForBuilder,
   formatStackForLog,
   getItemType,
   itemCount,
@@ -43,6 +44,39 @@ describe('formatStackItem', () => {
     const arr = new Uint8Array([0xab, 0xcd, 0xef])
     expect(formatStackItem(arr)).toMatch(/^0x[\da-f]+$/)
     expect(formatStackItem(arr)).toBe('0xabcdef')
+  })
+})
+
+describe('formatScriptItemForBuilder', () => {
+  it('shows opcodes as-is', () => {
+    expect(formatScriptItemForBuilder('OP_DUP')).toBe('OP_DUP')
+    expect(formatScriptItemForBuilder('OP_ADD')).toBe('OP_ADD')
+  })
+
+  it('wraps number push data as Pushdata(n)', () => {
+    expect(formatScriptItemForBuilder(42)).toBe('Pushdata(42)')
+  })
+
+  it('wraps boolean push data as Pushdata(...)', () => {
+    expect(formatScriptItemForBuilder(true)).toBe('Pushdata(true)')
+    expect(formatScriptItemForBuilder(false)).toBe('Pushdata(false)')
+  })
+
+  it('wraps hex string push data as Pushdata(0x...)', () => {
+    expect(formatScriptItemForBuilder('0xdeadbeef')).toBe('Pushdata(0xdeadbeef)')
+  })
+
+  it('wraps non-hex string push data as Pushdata("...")', () => {
+    expect(formatScriptItemForBuilder('hello')).toBe('Pushdata("hello")')
+  })
+
+  it('escapes quotes in quoted push data', () => {
+    expect(formatScriptItemForBuilder('say "hi"')).toBe('Pushdata("say \\"hi\\"")')
+  })
+
+  it('wraps Uint8Array as Pushdata(0x...)', () => {
+    const arr = new Uint8Array([0xab, 0xcd])
+    expect(formatScriptItemForBuilder(arr)).toBe('Pushdata(0xabcd)')
   })
 })
 

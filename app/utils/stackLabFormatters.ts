@@ -3,6 +3,7 @@
  */
 
 import type { StackItem } from '@/app/utils/stackLabInterpreter'
+import { isKnownOpCode } from '@/app/utils/stackLabInterpreter'
 
 /**
  * Convert bytes to hex string (without "0x" prefix).
@@ -48,6 +49,23 @@ export function formatStackItem(
     return `0x${hex}${item.length > uint8MaxBytes ? '...' : ''}`
   }
   return String(item)
+}
+
+/**
+ * Format a script item for display in the script builder: opcodes as-is,
+ * push data wrapped as Pushdata(...).
+ */
+export function formatScriptItemForBuilder(item: string | StackItem, opts: FormatStackItemOpts = {}): string {
+  if (typeof item === 'string' && isKnownOpCode(item)) {
+    return item
+  }
+  const inner = formatStackItem(item as StackItem, opts)
+  // Quote non-hex string data so it's unambiguous
+  if (typeof item === 'string' && !item.startsWith('0x')) {
+    const escaped = inner.replace(/\\/g, '\\\\').replace(/"/g, '\\"')
+    return `Pushdata("${escaped}")`
+  }
+  return `Pushdata(${inner})`
 }
 
 /**

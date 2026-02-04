@@ -1092,4 +1092,14 @@ export const OP_CODES: OpCode[] = [
   { name: 'OP_RETURN', hex: '0x6a', category: 'Control Flow', description: 'Mark output unspendable', enabled: true },
 ]
 
+const KNOWN_OPCODE_NAMES = new Set([
+  ...OP_CODES.map((o) => o.name),
+  'OP_FALSE', // alias for OP_0
+  'OP_TRUE',  // alias for OP_1
+])
+
+export function isKnownOpCode(name: string): boolean {
+  return KNOWN_OPCODE_NAMES.has(name.toUpperCase())
+}
+
 export const OP_CODE_CATEGORIES = ['Push', 'Stack', 'Arithmetic', 'Comparison', 'Cryptographic', 'Control Flow']
