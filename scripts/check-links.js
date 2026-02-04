@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Check markdown files for:
- * 1. Internal links: all [text](/path) links point to valid pages (docs, interactive-tools, whitepaper, etc.)
- * 2. External links: optionally check that external URLs are accessible (use --check-external)
+ * Check markdown files: validate internal links, run internal link analysis, optionally check external URLs.
  *
- * Valid internal paths = static routes (see staticPaths below) + doc pages from navigation.ts + md-content.json.
- * Run: node scripts/check-links.js [--check-external]
+ * - Internal link analysis: check for broken links, report self-links, duplicate targets per page, pages with too many links, no links, orphans (informational; does not fail).
+ * - External links: only checked when --check-external is passed.
+ *
+ * Run: node scripts/check-links.js [--check-external] [--json]
+ *   --check-external  Check that external URLs are accessible.
+ *   --json            Output analysis as JSON and exit (no human-readable report).
  */
 
 const fs = require('fs')
@@ -16,10 +18,15 @@ const { URL } = require('url')
 const { parseDocPages } = require('./lib/parse-doc-pages')
 
 // Parse command line arguments
-const checkExternal = process.argv.includes('--check-external')
+const args = process.argv.slice(2)
+const checkExternal = args.includes('--check-external')
+const outputJson = args.includes('--json')
+const maxLinks = 25
+
+const projectRoot = path.join(__dirname, '..')
 
 // Load valid doc pages from navigation.ts
-const navigationPath = path.join(__dirname, '../app/utils/navigation.ts')
+const navigationPath = path.join(projectRoot, 'app/utils/navigation.ts')
 const navigationContent = fs.readFileSync(navigationPath, 'utf-8')
 const docPages = parseDocPages(navigationContent)
 const validDocPaths = new Set(docPages.map(p => p.path))
@@ -27,7 +34,7 @@ const validDocPaths = new Set(docPages.map(p => p.path))
 // Also check md-content.json if it exists (for build-time validation)
 let mdContentPaths = new Set()
 try {
-  const mdContentPath = path.join(__dirname, '../public/data/md-content.json')
+  const mdContentPath = path.join(projectRoot, 'public/data/md-content.json')
   if (fs.existsSync(mdContentPath)) {
     const mdContent = JSON.parse(fs.readFileSync(mdContentPath, 'utf-8'))
     mdContentPaths = new Set(Object.keys(mdContent))
@@ -58,6 +65,18 @@ const staticPaths = [
 // Combine valid paths: static routes + doc pages (navigation.ts) + md-content as fallback
 const allValidPaths = new Set([...staticPaths, ...validDocPaths, ...mdContentPaths])
 
+// Normalize path for validation (strip trailing slash; paths in nav/sitemap have no trailing slash)
+function normalizePath(p) {
+  return p.replace(/\/+$/, '') || '/'
+}
+
+// file (absolute, normalized) -> { path, title, section } for doc pages only
+const fileToPage = new Map()
+for (const page of docPages) {
+  const absPath = path.normalize(path.join(projectRoot, page.mdFile))
+  fileToPage.set(absPath, { path: page.path, title: page.title, section: page.section })
+}
+
 // Find all .md files in app/
 function findMdFiles(dir, files = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true })
@@ -72,11 +91,12 @@ function findMdFiles(dir, files = []) {
   return files
 }
 
-const mdFiles = findMdFiles(path.join(__dirname, '../app'))
+const mdFiles = findMdFiles(path.join(projectRoot, 'app'))
 
 // Check internal links: [text](/path) or [text](/path#anchor). Captures path (no protocol).
 const internalLinkRe = /\]\((\/(?!\/)[^#\s)]*)(?:#[^\s)]+)?\)/g
 const internalLinks = new Map() // path -> [ { file, lineNum, line, fullLink } ]
+const bySourceFile = new Map() // normalized file path -> [ { targetPath, targetNormalized, lineNum } ]
 
 // Check external links (http/https)
 const externalLinkRe = /\]\((https?:\/\/[^\s)]+)\)/g
@@ -85,6 +105,7 @@ const externalLinks = new Map() // url -> [ { file, lineNum, line, fullLink } ]
 for (const file of mdFiles) {
   const content = fs.readFileSync(file, 'utf-8')
   const lines = content.split('\n')
+  const sourceLinks = []
   for (let i = 0; i < lines.length; i++) {
     let m
     internalLinkRe.lastIndex = 0
@@ -96,6 +117,11 @@ for (const file of mdFiles) {
         lineNum: i + 1,
         line: lines[i].trim(),
         fullLink: m[0]
+      })
+      sourceLinks.push({
+        targetPath: linkPath,
+        targetNormalized: normalizePath(linkPath),
+        lineNum: i + 1,
       })
     }
 
@@ -111,6 +137,9 @@ for (const file of mdFiles) {
         fullLink: m[0]
       })
     }
+  }
+  if (sourceLinks.length > 0) {
+    bySourceFile.set(path.normalize(file), sourceLinks)
   }
 }
 
@@ -198,9 +227,90 @@ async function checkExternalUrl(url, timeout = 10000, maxRedirects = 5) {
   })
 }
 
-// Normalize path for validation (strip trailing slash; paths in nav/sitemap have no trailing slash)
-function normalizePath(p) {
-  return p.replace(/\/+$/, '') || '/'
+function relFile(filePath) {
+  return path.relative(process.cwd(), filePath)
+}
+
+/**
+ * Run internal link analysis (doc pages only). Returns report object matching analyze-internal-links shape.
+ */
+function runInternalAnalysis(maxLinksThreshold) {
+  const outboundByPath = new Map()
+  const inboundCount = new Map()
+
+  for (const page of docPages) {
+    const absPath = path.normalize(path.join(projectRoot, page.mdFile))
+    const links = bySourceFile.get(absPath) || []
+    outboundByPath.set(page.path, links)
+    const seenTargets = new Set()
+    for (const { targetNormalized } of links) {
+      if (!seenTargets.has(targetNormalized)) {
+        seenTargets.add(targetNormalized)
+        inboundCount.set(targetNormalized, (inboundCount.get(targetNormalized) || 0) + 1)
+      }
+    }
+  }
+
+  const broken = []
+  const selfLinks = []
+  const duplicateByPage = new Map()
+
+  for (const page of docPages) {
+    const absPath = path.normalize(path.join(projectRoot, page.mdFile))
+    const links = outboundByPath.get(page.path) || []
+    const file = absPath
+    const targetCounts = new Map()
+    for (const { targetPath, targetNormalized, lineNum } of links) {
+      if (!allValidPaths.has(targetNormalized)) {
+        broken.push({ sourcePath: page.path, targetPath: targetNormalized, lineNum, file })
+      }
+      if (targetNormalized === page.path) {
+        selfLinks.push({ sourcePath: page.path, targetPath: targetNormalized, lineNum, file })
+      }
+      targetCounts.set(targetNormalized, (targetCounts.get(targetNormalized) || 0) + 1)
+    }
+    const dups = []
+    for (const [targetNormalized, count] of targetCounts) {
+      if (count > 1) dups.push({ targetNormalized, count })
+    }
+    if (dups.length > 0) duplicateByPage.set(page.path, dups)
+  }
+
+  const tooManyLinks = []
+  const noLinks = []
+  for (const page of docPages) {
+    const links = outboundByPath.get(page.path) || []
+    if (links.length > maxLinksThreshold) {
+      tooManyLinks.push({ path: page.path, title: page.title, count: links.length })
+    }
+    if (links.length === 0) {
+      noLinks.push({ path: page.path, title: page.title })
+    }
+  }
+
+  const orphans = docPages
+    .filter((p) => {
+      if (p.path === '/' || p.path === '/docs') return false
+      return (inboundCount.get(p.path) || 0) === 0
+    })
+    .map((p) => ({ path: p.path, title: p.title }))
+
+  return {
+    maxLinksThreshold,
+    linksPerPage: docPages.map((p) => ({
+      path: p.path,
+      title: p.title,
+      section: p.section,
+      outboundCount: (outboundByPath.get(p.path) || []).length,
+      inboundCount: inboundCount.get(p.path) || 0,
+    })),
+    broken,
+    selfLinks,
+    duplicateByPage,
+    tooManyLinks,
+    noLinks,
+    orphans,
+  }
 }
 
 // Main function to run checks
@@ -283,6 +393,75 @@ async function runChecks() {
       console.error('')
     }
   }
+
+  // Internal link analysis (informational; does not set hasErrors)
+  const analysis = runInternalAnalysis(maxLinks)
+  if (outputJson) {
+    const report = {
+      maxLinksThreshold: analysis.maxLinksThreshold,
+      linksPerPage: analysis.linksPerPage,
+      broken: analysis.broken.map((b) => ({
+        sourcePath: b.sourcePath,
+        targetPath: b.targetPath,
+        lineNum: b.lineNum,
+        file: relFile(b.file),
+      })),
+      selfLinks: analysis.selfLinks.map((s) => ({
+        sourcePath: s.sourcePath,
+        lineNum: s.lineNum,
+        file: relFile(s.file),
+      })),
+      duplicateOnPage: [...analysis.duplicateByPage.entries()].map(([pagePath, dups]) => ({
+        pagePath,
+        duplicates: dups,
+      })),
+      tooManyLinks: analysis.tooManyLinks.map((t) => ({ path: t.path, title: t.title, count: t.count })),
+      noLinks: analysis.noLinks.map((n) => ({ path: n.path, title: n.title })),
+      orphans: analysis.orphans.map((o) => ({ path: o.path, title: o.title })),
+    }
+    console.log(JSON.stringify(report, null, 2))
+    process.exit(hasErrors ? 1 : 0)
+  }
+  const duplicateCount = [...analysis.duplicateByPage.values()].reduce((sum, dups) => sum + dups.length, 0)
+  const notUsefulTotal =
+    analysis.broken.length + analysis.selfLinks.length + duplicateCount
+
+  console.log('=== Internal links analysis ===')
+  console.log(`Not useful links: ${notUsefulTotal}\n\n`)
+  console.log(`Broken (target not a valid path): ${analysis.broken.length}`)
+  if (analysis.broken.length > 0) {
+    analysis.broken.forEach((b) =>
+      console.log(`  ${b.sourcePath} -> ${b.targetPath}  ${relFile(b.file)}:${b.lineNum}`)
+    )
+  }
+  console.log(`\nSelf-links (page links to itself): ${analysis.selfLinks.length}`)
+  if (analysis.selfLinks.length > 0) {
+    analysis.selfLinks.forEach((s) => console.log(`  ${s.sourcePath}  ${relFile(s.file)}:${s.lineNum}`))
+  }
+  console.log(`\nDuplicate on same page (same target linked more than once): ${duplicateCount}`)
+  if (analysis.duplicateByPage.size > 0) {
+    for (const [pagePath, dups] of analysis.duplicateByPage) {
+      dups.forEach((d) => console.log(`  ${pagePath}  -> ${d.targetNormalized}  (${d.count}x)`))
+    }
+  }
+  console.log('\n--- Pages with too many links ---\n')
+  console.log(`Pages with too many links: ${analysis.tooManyLinks.length}`)
+  if (analysis.tooManyLinks.length > 0) {
+    analysis.tooManyLinks.forEach((t) =>
+      console.log(`  ${t.count}  ${t.path}  (${t.title})`)
+    )
+  }
+  console.log('\n--- Pages with no links ---\n')
+  console.log(`Pages with no links: ${analysis.noLinks.length}`)
+  if (analysis.noLinks.length > 0) {
+    analysis.noLinks.forEach((n) => console.log(`  ${n.path}  (${n.title})`))
+  }
+  console.log('\n--- Orphan pages (no other page links to them) ---\n')
+  console.log(`Orphan pages: ${analysis.orphans.length}`)
+  if (analysis.orphans.length > 0) {
+    analysis.orphans.forEach((o) => console.log(`  ${o.path}  (${o.title})`))
+  }
+  console.log('')
 
   if (hasErrors) {
     process.exit(1)

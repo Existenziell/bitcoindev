@@ -575,10 +575,10 @@ The `9` field encodes supported features:
 
 ## BOLT12 and Offers
 
-[BOLT12](/docs/lightning/bolt12-offers) extends the Lightning payment model with **offers** and **invoice requests**. Unlike BOLT11, where the payee creates an [invoice](/docs/lightning/invoices) when they want to be paid, BOLT12 **offers** are static, reusable descriptors that payers use to **request** an [invoice](/docs/lightning/invoices) from the payee. Benefits include:
+[BOLT12](/docs/lightning/bolt12-offers) extends the Lightning payment model with **offers** and **invoice requests**. Unlike BOLT11, where the payee creates an invoice when they want to be paid, BOLT12 **offers** are static, reusable descriptors that payers use to **request** an invoice from the payee. Benefits include:
 
-- **Reusable offers**: One offer can yield many [invoices](/docs/lightning/invoices) (e.g., subscriptions, donations, any-amount).
-- **Payee offline at creation**: The offer can be published (e.g., on a website); the payee only needs to be online when the payer sends an **invoice request** and the payee returns an [invoice](/docs/lightning/invoices).
+- **Reusable offers**: One offer can yield many invoices (e.g., subscriptions, donations, any-amount).
+- **Payee offline at creation**: The offer can be published (e.g., on a website); the payee only needs to be online when the payer sends an **invoice request** and the payee returns an invoice.
 - **Keysend-style flows**: Structured alternative to keysend where the payee still controls the [payment hash](/docs/lightning/routing/htlc) and amount via the invoice they generate.
 
 Support varies: [Core Lightning](https://github.com/ElementsProject/lightning) and [LDK](https://github.com/lightningdevkit/rust-lightning) have BOLT12 support; [LND](https://github.com/lightningnetwork/lnd) and others are adding it. See [Offers (BOLT12)](/docs/lightning/bolt12-offers) for details.
@@ -589,10 +589,10 @@ Support varies: [Core Lightning](https://github.com/ElementsProject/lightning) a
 
 ### Reusable Invoices
 
-Standard BOLT11 [invoices](/docs/lightning/invoices) should only be paid once. For reusable or dynamic payments:
+Standard BOLT11 invoices should only be paid once. For reusable or dynamic payments:
 
-- Use Keysend (no [invoice](/docs/lightning/invoices) needed)
-- Use LNURL-pay (dynamic [invoice](/docs/lightning/invoices) generation)
+- Use Keysend (no invoice needed)
+- Use LNURL-pay (dynamic invoice generation)
 - Use [Offers (BOLT12)](/docs/lightning/bolt12-offers) (when supported by your node and payees)
 
 ### Fallback Addresses

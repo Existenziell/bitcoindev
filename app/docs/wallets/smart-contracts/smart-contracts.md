@@ -299,7 +299,7 @@ Benefits:
 
 ## Miniscript
 
-[Miniscript](/docs/bitcoin-development/miniscript) is a structured language for expressing spending *policies* that compiles to [Bitcoin Script](/docs/bitcoin/script). You describe *what* must hold (e.g., 2-of-3 keys, or "key A and after block N") and tools produce correct, analyzable Script. This simplifies multisig, [timelocks](/docs/bitcoin/timelocks), [vaults](/docs/wallets/smart-contracts), and [Taproot](/docs/bitcoin/taproot) script trees. See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification and use in wallets and protocols.
+[Miniscript](/docs/bitcoin-development/miniscript) is a structured language for expressing spending *policies* that compiles to [Bitcoin Script](/docs/bitcoin/script). You describe *what* must hold (e.g., 2-of-3 keys, or "key A and after block N") and tools produce correct, analyzable Script. This simplifies multisig, [timelocks](/docs/bitcoin/timelocks), vaults, and [Taproot](/docs/bitcoin/taproot) script trees. See [Miniscript](/docs/bitcoin-development/miniscript) for the full specification and use in wallets and protocols.
 
 ---
 
