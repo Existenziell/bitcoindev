@@ -128,16 +128,14 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
       {/* Letter navigation */}
       <div className="mb-8 pb-4 border-b border-gray-300 dark:border-gray-700">
         <div className="flex flex-wrap items-center text-sm">
-          {sections
-            .filter((section) => section.letter !== '0-9')
-            .map((section) => (
+          {sections.map((section) => (
             <a
               key={section.slug}
               href={`#${section.slug}`}
               onClick={(e) => handleLetterClick(section.slug, e)}
               className="btn-icon btn-icon-accent btn-icon-bordered btn-icon-lg"
             >
-              {section.letter}
+              {section.letter === '0-9' ? '#' : section.letter}
             </a>
           ))}
         </div>
@@ -146,7 +144,7 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
         <div key={section.slug} className="mb-8">
           {/* Section letter header */}
           <h2 id={section.slug}>
-            {section.letter}
+            {section.letter === '0-9' ? '#' : section.letter}
           </h2>
 
           {/* Entries as collapsible details elements */}

@@ -1,3 +1,5 @@
+import glossaryData from '@/public/data/glossary.json'
+
 /**
  * Single source of truth for all navigation and link data.
  * 
@@ -370,6 +372,10 @@ export const navItems: NavSection[] = [
   {
     title: 'Glossary',
     href: '/docs/glossary',
+    children: glossaryData.map((section) => ({
+      title: section.letter === '0-9' ? '#' : section.letter,
+      href: `/docs/glossary#${section.slug}`,
+    })),
   },
 ]
 
