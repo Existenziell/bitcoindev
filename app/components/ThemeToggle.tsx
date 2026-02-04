@@ -28,7 +28,7 @@ export default function ThemeToggle() {
         onClick={() => setTheme('light')}
         className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
           theme === 'light'
-            ? 'bg-btc text-gray-900'
+            ? 'bg-accent text-gray-900'
             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
         }`}
         aria-label="Light theme"
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
         onClick={() => setTheme('dark')}
         className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
           theme === 'dark'
-            ? 'bg-btc text-gray-900'
+            ? 'bg-accent text-gray-900'
             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
         }`}
         aria-label="Dark theme"
@@ -78,7 +78,7 @@ export default function ThemeToggle() {
         onClick={() => setTheme('system')}
         className={`px-3 py-1.5 text-xs font-medium rounded transition-colors ${
           theme === 'system'
-            ? 'bg-btc text-gray-900'
+            ? 'bg-accent text-gray-900'
             : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
         }`}
         aria-label="System theme"

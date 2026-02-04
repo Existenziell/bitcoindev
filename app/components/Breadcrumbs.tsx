@@ -71,7 +71,7 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                   </Link>
                   <Link
                     href={firstCrumb.href}
-                    className={`md:hidden flex items-center h-[42px] hover:text-btc hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${
+                    className={`md:hidden flex items-center h-[42px] hover:text-accent hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${
                       showLogoInsteadOfHome ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
                     }`}
                   >
@@ -79,7 +79,7 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                   </Link>
                   <Link
                     href={firstCrumb.href}
-                    className={`hidden md:flex items-center h-[42px] hover:text-btc hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${
+                    className={`hidden md:flex items-center h-[42px] hover:text-accent hover:underline transition-all duration-200 text-gray-700 dark:text-gray-400 ${
                       showLogoInsteadOfHome 
                         ? 'opacity-0 scale-95 pointer-events-none' 
                         : 'opacity-100 scale-100'
@@ -93,7 +93,7 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
               ) : (
                 <Link
                   href={crumb.href}
-                  className="hover:text-btc hover:underline transition-colors text-gray-700 dark:text-gray-400 whitespace-nowrap max-w-[150px] md:max-w-none truncate"
+                  className="hover:text-accent hover:underline transition-colors text-gray-700 dark:text-gray-400 whitespace-nowrap max-w-[150px] md:max-w-none truncate"
                 >
                   {crumb.label}
                 </Link>

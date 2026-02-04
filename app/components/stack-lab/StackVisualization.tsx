@@ -40,7 +40,7 @@ export default function StackVisualization({ stack }: StackVisualizationProps) {
                   className={`
                     px-3 py-2 rounded border
                     ${isTop 
-                      ? 'bg-btc/20 border-btc/50 text-btc' 
+                      ? 'bg-accent/20 border-accent/50 text-accent' 
                       : 'bg-gray-200/60 dark:bg-gray-800/50 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                     }
                     transition-colors
@@ -56,7 +56,7 @@ export default function StackVisualization({ stack }: StackVisualizationProps) {
                       </div>
                     </div>
                     {isTop && (
-                      <div className="ml-2 text-xs text-btc font-semibold">
+                      <div className="ml-2 text-xs text-accent font-semibold">
                         TOP
                       </div>
                     )}

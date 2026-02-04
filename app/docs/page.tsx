@@ -32,9 +32,9 @@ export default function DocsOverviewPage() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="group flex flex-col gap-1 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 hover:border-btc hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:no-underline"
+                  className="group flex flex-col gap-1 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 hover:border-accent hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:no-underline"
                 >
-                  <span className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-btc transition-colors">
+                  <span className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-accent transition-colors">
                     {item.title}
                   </span>
                   {description && (

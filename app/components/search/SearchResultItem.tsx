@@ -18,7 +18,7 @@ export interface SearchResultItemProps {
   sectionLabel?: string
   /** Optional class for snippet (e.g. "truncate" for modal, "line-clamp-2" for panel) */
   snippetClassName?: string
-  /** Optional class for title (e.g. "transition-colors ... group-hover:text-btc" for panel) */
+  /** Optional class for title (e.g. "transition-colors ... group-hover:text-accent" for panel) */
   titleClassName?: string
 }
 

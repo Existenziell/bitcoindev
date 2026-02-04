@@ -67,15 +67,15 @@ export default function DocsSearch() {
               refTarget="a"
               linkClassName={`block p-3 rounded-lg border transition-colors group no-underline hover:no-underline ${
                 i === selectedIndex
-                  ? 'bg-btc/20 dark:bg-btc/25 border-btc'
-                  : 'bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-btc'
+                  ? 'bg-accent/20 dark:bg-accent/25 border-accent'
+                  : 'bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-accent'
               }`}
               iconClassName={`flex-shrink-0 w-5 h-5 transition-colors ${
-                i === selectedIndex ? 'text-btc' : 'text-gray-400 dark:text-gray-500 group-hover:text-btc'
+                i === selectedIndex ? 'text-accent' : 'text-gray-400 dark:text-gray-500 group-hover:text-accent'
               }`}
               snippetClassName="line-clamp-2"
               titleClassName={`transition-colors ${
-                i === selectedIndex ? 'text-btc' : 'text-gray-900 dark:text-gray-200 group-hover:text-btc'
+                i === selectedIndex ? 'text-accent' : 'text-gray-900 dark:text-gray-200 group-hover:text-accent'
               }`}
             />
           ))}

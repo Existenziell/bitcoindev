@@ -82,7 +82,7 @@ describe('ThemeToggle', () => {
     render(<ThemeToggle />)
 
     const darkButton = await screen.findByLabelText('Dark theme')
-    expect(darkButton.className).toContain('bg-btc')
+    expect(darkButton.className).toContain('bg-accent')
   })
 
   it('does not highlight inactive themes', async () => {
@@ -94,6 +94,6 @@ describe('ThemeToggle', () => {
     render(<ThemeToggle />)
 
     const darkButton = await screen.findByLabelText('Dark theme')
-    expect(darkButton.className).not.toContain('bg-btc')
+    expect(darkButton.className).not.toContain('bg-accent')
   })
 })

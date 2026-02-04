@@ -53,7 +53,7 @@ function StackLabTabsAndContent({ children }: { children: ReactNode }) {
             onClick={() => handleTabChange('sandbox')}
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors ${
               activeTab === 'sandbox'
-                ? 'bg-btc text-gray-900 shadow-sm'
+                ? 'bg-accent text-gray-900 shadow-sm'
                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
@@ -66,7 +66,7 @@ function StackLabTabsAndContent({ children }: { children: ReactNode }) {
             onClick={() => handleTabChange('challenges')}
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors ${
               activeTab === 'challenges'
-                ? 'bg-btc text-gray-900 shadow-sm'
+                ? 'bg-accent text-gray-900 shadow-sm'
                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >

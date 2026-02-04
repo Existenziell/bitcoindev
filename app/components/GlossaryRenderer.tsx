@@ -36,22 +36,22 @@ function DefinitionRenderer({ content }: { content: string }) {
         p: ({ children }) => <p className="mb-4 leading-7 last:mb-0">{children}</p>,
         a: ({ href, children }) => {
           if (href?.startsWith('/')) {
-            return <Link href={href} className="text-btc hover:underline">{children}</Link>
+            return <Link href={href} className="text-accent hover:underline">{children}</Link>
           }
           if (href?.startsWith('#')) {
-            return <a href={href} className="text-btc hover:underline">{children}</a>
+            return <a href={href} className="text-accent hover:underline">{children}</a>
           }
           if (href) {
             return (
-              <ExternalLink href={href} className="text-btc hover:underline">
+              <ExternalLink href={href} className="text-accent hover:underline">
                 {children}
               </ExternalLink>
             )
           }
-          return <a href={href ?? '#'} className="text-btc hover:underline">{children}</a>
+          return <a href={href ?? '#'} className="text-accent hover:underline">{children}</a>
         },
         code: ({ children }) => (
-          <code className="bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-btc">
+          <code className="bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-accent">
             {children}
           </code>
         ),
@@ -170,7 +170,7 @@ export default function GlossaryRenderer({ sections }: GlossaryRendererProps) {
                     <p className="mt-3 text-sm">
                       <Link
                         href={entry.relatedArticle}
-                        className="text-btc hover:underline inline-flex items-center gap-1"
+                        className="text-accent hover:underline inline-flex items-center gap-1"
                       >
                         {docPages.find((p) => p.path === entry.relatedArticle)?.title ?? 'Related article'}
                         <ChevronRight className="w-3.5 h-3.5" />

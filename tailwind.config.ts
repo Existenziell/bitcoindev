@@ -9,7 +9,7 @@ const config: Config = {
         'gradient-linear': 'linear-gradient(to right, var(--tw-gradient-stops))',
       },
       colors: {
-        btc: '#f2a900',
+        accent: '#f2a900',
       },
       keyframes: {
         fadeIn: {

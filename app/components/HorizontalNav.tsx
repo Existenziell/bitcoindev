@@ -12,18 +12,18 @@ import { cn } from '@/app/utils/cn'
 const CHILD_LIST_BORDER = 'border-l-2 border-gray-200 dark:border-gray-700 pl-2'
 const navRowClass =
   'flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
-const navRowActiveClass = '!border-btc border-l-4 bg-btc/5 dark:bg-btc/10'
+const navRowActiveClass = '!border-accent border-l-4 bg-accent/5 dark:bg-accent/10'
 const navChevronClass =
-  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc dark:hover:text-btc'
+  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-accent hover:text-accent dark:hover:text-accent'
 
 function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default'): string {
   const baseClasses = size === 'sm'
     ? 'block text-sm py-1 leading-tight transition-colors'
     : 'block py-1 leading-tight transition-colors'
-  const hover = 'hover:text-btc dark:hover:text-btc hover:no-underline'
+  const hover = 'hover:text-accent dark:hover:text-accent hover:no-underline'
 
   if (isActive) {
-    return `${baseClasses} text-btc font-semibold hover:no-underline`
+    return `${baseClasses} text-accent font-semibold hover:no-underline`
   }
 
   return size === 'sm'
@@ -50,12 +50,12 @@ export default function HorizontalNav() {
       <div className="container-content">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="group w-full py-6 flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-btc dark:hover:text-btc transition-colors rounded-md"
+          className="group w-full py-6 flex items-center justify-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors rounded-md"
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Collapse navigation' : 'Expand navigation'}
         >
           <span className="text-2xl">Explore BitcoinDev</span>
-          <ChevronDown className={`w-6 h-6 shrink-0 transition-colors transition-transform group-hover:text-btc ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-6 h-6 shrink-0 transition-colors transition-transform group-hover:text-accent ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
@@ -63,7 +63,7 @@ export default function HorizontalNav() {
             <div className="flex flex-row items-center justify-end gap-2 w-max ml-auto mb-3 mt-1">
               <button
                 onClick={() => setExpandedSections(new Set(navItems.map(item => item.href)))}
-                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-btc hover:text-btc dark:hover:text-btc transition-colors bg-gray-100 dark:bg-gray-800"
+                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800"
                 aria-label="Expand all sections"
                 title="Expand all"
               >
@@ -71,7 +71,7 @@ export default function HorizontalNav() {
               </button>
               <button
                 onClick={() => setExpandedSections(new Set())}
-                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-btc hover:text-btc dark:hover:text-btc transition-colors bg-gray-100 dark:bg-gray-800"
+                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800"
                 aria-label="Collapse all sections"
                 title="Collapse all"
               >

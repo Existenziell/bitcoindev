@@ -85,7 +85,7 @@ export default function PoolDistributionChart() {
             <span className="w-32 shrink-0 text-gray-700 dark:text-gray-300">{name}</span>
             <div className="flex-1 min-w-0 h-4 bg-gray-200 dark:bg-gray-700 rounded overflow-hidden">
               <div
-                className="h-full bg-btc rounded"
+                className="h-full bg-accent rounded"
                 style={{ width: `${(pct / maxPct) * 100}%` }}
                 aria-hidden
               />

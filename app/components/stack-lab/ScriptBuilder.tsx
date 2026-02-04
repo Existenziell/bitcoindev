@@ -66,7 +66,7 @@ function ScriptItem({
   }
   if (isEditing) {
     return (
-      <div className="flex items-center gap-2 px-3 py-2 bg-gray-200 dark:bg-gray-800 border border-btc rounded">
+      <div className="flex items-center gap-2 px-3 py-2 bg-gray-200 dark:bg-gray-800 border border-accent rounded">
         <input
           type="text"
           value={editValue}
@@ -99,7 +99,7 @@ function ScriptItem({
             handleSave()
           }}
           onMouseDown={(e) => e.preventDefault()}
-          className="px-2 py-1 bg-btc text-gray-900 text-xs font-semibold rounded hover:bg-btc/80 transition-colors"
+          className="px-2 py-1 bg-accent text-gray-900 text-xs font-semibold rounded hover:bg-accent/80 transition-colors"
         >
           Save
         </button>
@@ -177,7 +177,7 @@ export default function ScriptBuilder({
           ${readOnly
             ? 'border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-800/30 cursor-default'
             : isOver
-              ? 'border-btc bg-btc/10'
+              ? 'border-accent bg-accent/10'
               : 'border-gray-300 dark:border-gray-700 bg-gray-100/50 dark:bg-gray-800/30'
           }
           transition-colors

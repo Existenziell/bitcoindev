@@ -23,7 +23,7 @@ export default function CopyAddressButton({
     <button
       type="button"
       onClick={handleCopy}
-      className="hidden md:inline-flex items-center justify-center p-2 rounded-md bg-btc hover:bg-btc/90 text-gray-900 transition-colors shrink-0"
+      className="hidden md:inline-flex items-center justify-center p-2 rounded-md bg-accent hover:bg-accent/90 text-gray-900 transition-colors shrink-0"
       aria-label={ariaLabel}
     >
       <CopyIcon />

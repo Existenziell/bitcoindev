@@ -90,14 +90,14 @@ export default function ToolsPage() {
               className="tool-card block h-full"
             >
               <div className="flex items-center gap-3 mb-2">
-                {tool.href === '/interactive-tools/terminal' && <TerminalIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/stack-lab' && <StackLabIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/block-visualizer' && <BlockVisualizerIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/hash' && <HashIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/address-decoder' && <AddressDecoderIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/transaction-decoder' && <TransactionDecoderIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/fee-estimator' && <FeeEstimatorIcon className="w-6 h-6 shrink-0 text-btc" />}
-                {tool.href === '/interactive-tools/denominations-calculator' && <CalculatorIcon className="w-6 h-6 shrink-0 text-btc" />}
+                {tool.href === '/interactive-tools/terminal' && <TerminalIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/stack-lab' && <StackLabIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/block-visualizer' && <BlockVisualizerIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/hash' && <HashIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/address-decoder' && <AddressDecoderIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/transaction-decoder' && <TransactionDecoderIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/fee-estimator' && <FeeEstimatorIcon className="w-6 h-6 shrink-0 text-accent" />}
+                {tool.href === '/interactive-tools/denominations-calculator' && <CalculatorIcon className="w-6 h-6 shrink-0 text-accent" />}
                 <h2 className="text-lg font-semibold">{tool.title}</h2>
               </div>
               <p className="text-secondary text-sm">{tool.description}</p>

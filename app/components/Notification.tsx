@@ -108,7 +108,7 @@ export default function Notification() {
         ${state.exiting ? 'animate-toast-out' : 'animate-toast-in'}
         ${isError
           ? 'bg-red-50 dark:bg-red-950/90 text-red-700 dark:text-red-300 ring-red-200 dark:ring-red-800'
-          : 'bg-btc text-gray-900 ring-amber-800/30 dark:ring-amber-600/40'
+          : 'bg-accent text-gray-900 ring-amber-800/30 dark:ring-amber-600/40'
         }
       `}
     >

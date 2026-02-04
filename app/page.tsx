@@ -79,7 +79,7 @@ export default function Home() {
                 a block visualizer, and utilities for hashes, addresses, and transactions.
               </p>
               <p>
-                All content is open source, free, and will always remain so. No ads, no paywalls, <Link href="/privacy" className="hover:text-btc transition-colors no-underline hover:underline">no tracking</Link>. Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
+                All content is open source, free, and will always remain so. No ads, no paywalls, <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">no tracking</Link>. Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
               </p>
             </div>
           </div>

@@ -39,7 +39,7 @@ export default function FeedbackLink() {
     >
       <Link
         href="/feedback"
-        className="block bg-btc text-gray-900 hover:bg-btc/90 transition-all hover:no-underline shadow-lg rounded-b-md rotate-90 py-4 px-6 hover:-ml-[20px]"
+        className="block bg-accent text-gray-900 hover:bg-accent/90 transition-all hover:no-underline shadow-lg rounded-b-md rotate-90 py-4 px-6 hover:-ml-[20px]"
         aria-label="Feedback"
       >
         Feedback

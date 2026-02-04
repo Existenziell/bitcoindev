@@ -295,7 +295,7 @@ export default function BlockVisualizer() {
       {loading && !blockData && (
         <div className="w-full flex items-center justify-start py-12">
           <div className="text-center">
-            <div className="animate-pulse text-btc text-lg mb-2">Loading block template...</div>
+            <div className="animate-pulse text-accent text-lg mb-2">Loading block template...</div>
             <div className="text-secondary text-sm">Fetching mempool from node</div>
           </div>
         </div>
@@ -320,11 +320,11 @@ export default function BlockVisualizer() {
         <>
       {showNewBlockNotification && newBlockHeight !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl border-2 border-btc max-w-md w-full mx-4 animate-scaleIn">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl border-2 border-accent max-w-md w-full mx-4 animate-scaleIn">
             <div className="text-center">
               <div className="mb-6 flex justify-center">
                 <div className="relative">
-                  <div className="w-20 h-20 bg-btc rounded-lg shadow-lg animate-bounce flex items-center justify-center">
+                  <div className="w-20 h-20 bg-accent rounded-lg shadow-lg animate-bounce flex items-center justify-center">
                     <svg
                       className="w-12 h-12 text-white"
                       fill="none"
@@ -340,10 +340,10 @@ export default function BlockVisualizer() {
                       />
                     </svg>
                   </div>
-                  <div className="absolute inset-0 w-20 h-20 bg-btc rounded-lg opacity-20 animate-ping" />
+                  <div className="absolute inset-0 w-20 h-20 bg-accent rounded-lg opacity-20 animate-ping" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-btc mb-2">New Block Mined!</h3>
+              <h3 className="text-2xl font-bold text-accent mb-2">New Block Mined!</h3>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-1">
                 Block #{newBlockHeight.toLocaleString()}
               </p>
@@ -365,7 +365,7 @@ export default function BlockVisualizer() {
               )
             }
             disabled={isLoadingBlockHistory}
-            className="text-sm text-btc hover:text-btc/80 hover:no-underline underline-offset-2 disabled:opacity-50 disabled:no-underline"
+            className="text-sm text-accent hover:text-accent/80 hover:no-underline underline-offset-2 disabled:opacity-50 disabled:no-underline"
           >
             {isLoadingBlockHistory ? 'Loading…' : 'Load more'}
           </button>
@@ -377,7 +377,7 @@ export default function BlockVisualizer() {
             <button
               type="button"
               onClick={() => fetchBlockHistory(null)}
-              className="text-btc hover:text-btc/80 underline underline-offset-2"
+              className="text-accent hover:text-accent/80 underline underline-offset-2"
             >
               Retry
             </button>
@@ -403,7 +403,7 @@ export default function BlockVisualizer() {
             {[...previousBlocks].reverse().map((snap) => (
               <div key={snap.hash} className="flex-shrink-0 flex flex-col gap-1">
                 <div className="flex items-baseline justify-between gap-2 min-w-0">
-                  <span className="text-btc text-base font-medium truncate">{formatNumber(snap.height)}</span>
+                  <span className="text-accent text-base font-medium truncate">{formatNumber(snap.height)}</span>
                 </div>
                 <div
                   className="block-card"

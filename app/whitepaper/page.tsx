@@ -11,12 +11,12 @@ export default function WhitepaperPage() {
         </h1>
           <p className="text-center text-sm text-secondary max-w-lg mx-auto leading-relaxed">
             Satoshi Nakamoto announced the whitepaper on the{' '}
-            <ExternalLink href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html" className="text-btc hover:underline">
+            <ExternalLink href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html" className="text-accent hover:underline">
               cryptography mailing list
             </ExternalLink>
             {' '}on October 31, 2008.
             The Bitcoin network launched on January 3, 2009, when Satoshi mined the{' '}
-            <ExternalLink href="https://www.blockchain.com/explorer/blocks/btc/0" className="text-btc hover:underline">
+            <ExternalLink href="https://www.blockchain.com/explorer/blocks/btc/0" className="text-accent hover:underline">
               Genesis Block
             </ExternalLink>.
           </p>

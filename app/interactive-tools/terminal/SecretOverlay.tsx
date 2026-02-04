@@ -110,13 +110,13 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto overflow-x-hidden page-bg min-h-dvh animate-fadeIn">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-btc/20 via-transparent to-btc/20 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-transparent to-accent/20 animate-pulse" />
       </div>
 
       <div className="relative z-10 flex min-h-full items-center justify-center px-4 py-6 sm:py-8">
         <div className="w-full text-center space-y-5 sm:space-y-6 md:space-y-8">
         <h1 className="heading-page text-5xl sm:text-6xl md:text-8xl font-bold relative">
-          <span className="absolute inset-0 text-btc/30 blur-sm animate-pulse">
+          <span className="absolute inset-0 text-accent/30 blur-sm animate-pulse">
             SECRET
           </span>
         </h1>
@@ -126,7 +126,7 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
             {randomMessage || 'Loading...'}
           </p>
 
-          <div className="border-t border-b border-btc/30 py-6 space-y-4">
+          <div className="border-t border-b border-accent/30 py-6 space-y-4">
             <p className="text-lg text-gray-600 dark:text-gray-400 font-mono">
               You have discovered a hidden path.
             </p>
@@ -139,7 +139,7 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
           </div>
 
           <div className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm">
-            <p className="text-btc font-semibold">Don&apos;t trust, verify.</p>
+            <p className="text-accent font-semibold">Don&apos;t trust, verify.</p>
           </div>
         </div>
 

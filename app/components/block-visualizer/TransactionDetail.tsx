@@ -105,7 +105,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
     return (
       <div className="w-full flex items-center justify-center py-12">
         <div className="text-center">
-          <div className="animate-pulse text-btc text-lg mb-2">Loading transaction...</div>
+          <div className="animate-pulse text-accent text-lg mb-2">Loading transaction...</div>
           <div className="text-secondary text-sm">Fetching transaction data</div>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
       <div className="flex items-center gap-4 mb-6">
         <Link
           href="/interactive-tools/block-visualizer"
-          className="p-2 text-secondary hover:text-btc hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all"
+          className="p-2 text-secondary hover:text-accent hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-all"
           aria-label="Back to block visualizer"
         >
           <ChevronLeft className="w-8 h-8" />
@@ -148,7 +148,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
-        <h2 className="text-lg font-bold text-btc mb-3">Overview</h2>
+        <h2 className="text-lg font-bold text-accent mb-3">Overview</h2>
         <div className="flex flex-wrap justify-between gap-6 text-sm">
           <div className="md:col-span-2">
             <div className="text-secondary text-xs mb-0.5">Transaction ID</div>
@@ -158,7 +158,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
               </code>
               <button
                 onClick={() => handleCopy(txData.txid, 'Transaction ID')}
-                className="p-0.5 text-secondary hover:text-btc transition-colors"
+                className="p-0.5 text-secondary hover:text-accent transition-colors"
                 aria-label="Copy transaction ID"
               >
                 <CopyIcon className="w-3 h-3" />
@@ -175,7 +175,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
                 </code>
                 <button
                   onClick={() => handleCopy(txData.blockhash!, 'Block hash')}
-                  className="p-0.5 text-secondary hover:text-btc transition-colors"
+                  className="p-0.5 text-secondary hover:text-accent transition-colors"
                   aria-label="Copy block hash"
                 >
                   <CopyIcon className="w-3 h-3" />
@@ -249,7 +249,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-btc">
+            <h2 className="text-lg font-bold text-accent">
               Inputs ({txData.vin.length})
             </h2>
             <div className="text-sm text-secondary">
@@ -271,7 +271,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
                       </code>
                       <button
                         onClick={() => handleCopy(input.txid, 'Previous TXID')}
-                        className="p-0.5 text-secondary hover:text-btc transition-colors"
+                        className="p-0.5 text-secondary hover:text-accent transition-colors"
                         aria-label="Copy previous transaction ID"
                       >
                         <CopyIcon className="w-3 h-3" />
@@ -295,7 +295,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
                             </code>
                             <button
                               onClick={() => handleCopy(input.prevout!.scriptPubKey.address!, 'Address')}
-                              className="p-0.5 text-secondary hover:text-btc transition-colors shrink-0"
+                              className="p-0.5 text-secondary hover:text-accent transition-colors shrink-0"
                               aria-label="Copy address"
                             >
                               <CopyIcon className="w-3 h-3" />
@@ -319,7 +319,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
 
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-lg font-bold text-btc">
+            <h2 className="text-lg font-bold text-accent">
               Outputs ({txData.vout.length})
             </h2>
             <div className="text-sm text-secondary">
@@ -354,7 +354,7 @@ export default function TransactionDetail({ txid }: TransactionDetailProps) {
                         </code>
                         <button
                           onClick={() => handleCopy(output.scriptPubKey.address!, 'Address')}
-                          className="p-0.5 text-secondary hover:text-btc transition-colors shrink-0"
+                          className="p-0.5 text-secondary hover:text-accent transition-colors shrink-0"
                           aria-label="Copy address"
                         >
                           <CopyIcon className="w-3 h-3" />

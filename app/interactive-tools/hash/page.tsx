@@ -178,7 +178,7 @@ export default function HashToolPage() {
               onClick={() => setInputMode('text')}
               className={`px-3 py-1.5 rounded border text-sm ${
                 inputMode === 'text'
-                  ? 'border-btc bg-btc/10 text-btc'
+                  ? 'border-accent bg-accent/10 text-accent'
                   : 'border-gray-300 dark:border-gray-600 text-secondary'
               }`}
             >
@@ -189,7 +189,7 @@ export default function HashToolPage() {
               onClick={() => setInputMode('hex')}
               className={`px-3 py-1.5 rounded border text-sm ${
                 inputMode === 'hex'
-                  ? 'border-btc bg-btc/10 text-btc'
+                  ? 'border-accent bg-accent/10 text-accent'
                   : 'border-gray-300 dark:border-gray-600 text-secondary'
               }`}
             >
@@ -200,7 +200,7 @@ export default function HashToolPage() {
               onClick={() => setInputMode('bech32')}
               className={`px-3 py-1.5 rounded border text-sm ${
                 inputMode === 'bech32'
-                  ? 'border-btc bg-btc/10 text-btc'
+                  ? 'border-accent bg-accent/10 text-accent'
                   : 'border-gray-300 dark:border-gray-600 text-secondary'
               }`}
             >

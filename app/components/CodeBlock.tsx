@@ -173,7 +173,7 @@ export function MultiLanguageCodeBlock({ languages }: MultiLanguageCodeBlockProp
               aria-controls={`code-block-${lang}`}
               className={`px-3 py-1 text-xs font-mono tracking-wider rounded transition-colors ${
                 selectedLang === lang
-                  ? 'bg-btc text-gray-900 font-semibold'
+                  ? 'bg-accent text-gray-900 font-semibold'
                   : 'text-secondary hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700'
               }`}
             >

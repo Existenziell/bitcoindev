@@ -14,9 +14,9 @@ const CHILD_LIST_BORDER = 'border-l-2 border-gray-200 dark:border-gray-700 pl-2'
 
 const navRowClass =
   'flex items-center gap-2.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
-const navRowActiveClass = '!border-btc border-l-4 bg-btc/5 dark:bg-btc/10'
+const navRowActiveClass = '!border-accent border-l-4 bg-accent/5 dark:bg-accent/10'
 const navChevronClass =
-  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-btc hover:text-btc dark:hover:text-btc'
+  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-accent hover:text-accent dark:hover:text-accent'
 
 function matchesPath(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(href + '/')
@@ -38,10 +38,10 @@ function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default')
   const baseClasses = size === 'sm'
     ? 'block text-sm py-1 leading-tight transition-colors'
     : 'block py-1 leading-tight transition-colors'
-  const hover = 'hover:text-btc hover:no-underline'
+  const hover = 'hover:text-accent hover:no-underline'
 
   if (isActive) {
-    return `${baseClasses} text-btc font-semibold hover:no-underline`
+    return `${baseClasses} text-accent font-semibold hover:no-underline`
   }
 
   return size === 'sm'
@@ -106,7 +106,7 @@ export default function DocsNavigation({
         <button
           type="button"
           onClick={onToggleNav}
-          className="w-full flex items-center justify-center px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
+          className="w-full flex items-center justify-center px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors"
           aria-label="Expand navigation"
           title="Expand sidebar"
         >
@@ -122,7 +122,7 @@ export default function DocsNavigation({
         <button
           type="button"
           onClick={onToggleNav}
-          className="mb-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-btc transition-colors"
+          className="mb-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors"
           aria-label="Collapse sidebar"
           title="Collapse sidebar"
         >
@@ -180,8 +180,8 @@ export default function DocsNavigation({
               className={cn(
                 'flex-1 min-w-0 transition-colors',
                 isActive('/docs')
-                  ? 'text-btc font-semibold hover:no-underline'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-btc hover:no-underline'
+                  ? 'text-accent font-semibold hover:no-underline'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-accent hover:no-underline'
               )}
               onClick={onLinkClick}
             >
@@ -279,8 +279,8 @@ export default function DocsNavigation({
               className={cn(
                 'flex-1 min-w-0 transition-colors',
                 isActive('/interactive-tools')
-                  ? 'text-btc font-semibold hover:no-underline'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-btc hover:no-underline'
+                  ? 'text-accent font-semibold hover:no-underline'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-accent hover:no-underline'
               )}
               onClick={onLinkClick}
             >

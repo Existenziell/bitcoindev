@@ -27,7 +27,7 @@ function DraggableOpCode({ opCode }: { opCode: OpCode }) {
       className={`
         px-2 py-1.5 rounded border cursor-grab active:cursor-grabbing
         ${opCode.enabled
-          ? 'bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-600 hover:border-btc hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200'
+          ? 'bg-gray-200 dark:bg-gray-800 border-gray-400 dark:border-gray-600 hover:border-accent hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200'
           : 'bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-800 text-gray-500 dark:text-gray-600 cursor-not-allowed opacity-50'
         }
         ${isDragging ? 'opacity-0 pointer-events-none' : ''}
@@ -79,7 +79,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
           className={`
             px-2 py-1 text-xs rounded border
             ${!selectedCategory
-              ? 'bg-btc/20 border-btc text-btc'
+              ? 'bg-accent/20 border-accent text-accent'
               : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-600'
             }
           `}
@@ -93,7 +93,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
             className={`
               px-2 py-1 text-xs rounded border
               ${selectedCategory === category
-                ? 'bg-btc/20 border-btc text-btc'
+                ? 'bg-accent/20 border-accent text-accent'
                 : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-600'
               }
             `}

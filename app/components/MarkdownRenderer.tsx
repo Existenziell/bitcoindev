@@ -184,7 +184,7 @@ function YouTubeEmbed({
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
-        className="text-btc hover:underline inline-flex items-center gap-1.5 cursor-pointer bg-transparent border-none p-0 font-inherit text-left"
+        className="text-accent hover:underline inline-flex items-center gap-1.5 cursor-pointer bg-transparent border-none p-0 font-inherit text-left"
       >
         <ChevronDown
           className={`w-4 h-4 shrink-0 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}

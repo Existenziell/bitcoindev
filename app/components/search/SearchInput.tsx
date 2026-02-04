@@ -106,7 +106,7 @@ export function SearchInput(props: SearchInputProps) {
   if (isInputOnly) {
     const { placeholder } = props
     return (
-      <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 overflow-hidden focus-within:border-btc dark:focus-within:border-btc">
+      <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 overflow-hidden focus-within:border-accent dark:focus-within:border-accent">
         <SearchInputRow
           value={query}
           onChange={setQuery}
@@ -149,7 +149,7 @@ export function SearchInput(props: SearchInputProps) {
                 refTarget="li"
                 linkClassName={`flex gap-3 px-4 py-2.5 text-left transition-colors no-underline hover:no-underline block w-full min-w-0 ${
                   i === selectedIndex
-                    ? 'bg-btc/20 dark:bg-btc/25 text-gray-900 dark:text-gray-200'
+                    ? 'bg-accent/20 dark:bg-accent/25 text-gray-900 dark:text-gray-200'
                     : 'text-gray-800 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
                 iconClassName="w-5 h-5 mt-0.5 text-gray-500 dark:text-gray-400"

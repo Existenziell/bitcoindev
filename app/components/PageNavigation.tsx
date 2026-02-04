@@ -15,7 +15,7 @@ export default function PageNavigation() {
       <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-center">
         <span
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="cursor-pointer inline-flex items-center justify-center gap-2 text-btc transition-all"
+          className="cursor-pointer inline-flex items-center justify-center gap-2 text-accent transition-all"
         >
           <ChevronUp className="w-8 h-8 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" />
         </span>
@@ -33,7 +33,7 @@ export default function PageNavigation() {
         {previousPage ? (
           <Link
             href={previousPage.href}
-            className="inline-flex items-center gap-2 text-btc transition-all group no-underline hover:no-underline"
+            className="inline-flex items-center gap-2 text-accent transition-all group no-underline hover:no-underline"
           >
             <ChevronLeft className="w-8 h-8 rounded group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors" />
             <span className="hidden md:inline">{previousPage.title}</span>
@@ -46,7 +46,7 @@ export default function PageNavigation() {
       <div className="flex-1 flex justify-center">
         <span
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="cursor-pointer inline-flex items-center justify-center gap-2 text-btc transition-all"
+          className="cursor-pointer inline-flex items-center justify-center gap-2 text-accent transition-all"
         >
           <ChevronUp className="w-8 h-8 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" />
         </span>
@@ -56,7 +56,7 @@ export default function PageNavigation() {
         {nextPage ? (
           <Link
             href={nextPage.href}
-            className="inline-flex items-center gap-2 text-btc transition-all group no-underline hover:no-underline"
+            className="inline-flex items-center gap-2 text-accent transition-all group no-underline hover:no-underline"
           >
             <span className="hidden md:inline">{nextPage.title}</span>
             <ChevronRight className="w-8 h-8 rounded group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors" />

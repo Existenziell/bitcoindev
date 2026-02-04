@@ -33,7 +33,7 @@ function FeedbackForm() {
 
         <div>
           <label htmlFor="feedback-message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Message <span className="text-btc" aria-hidden="true">*</span>
+            Message <span className="text-accent" aria-hidden="true">*</span>
           </label>
           <textarea
             id="feedback-message"

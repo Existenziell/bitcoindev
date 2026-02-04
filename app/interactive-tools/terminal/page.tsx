@@ -593,13 +593,13 @@ export default function TerminalPage() {
             {output.map((line, i) => (
             <div key={i} className={line.type === 'log' ? 'mb-0.5' : 'mb-1 md:mb-2'}>
               {line.type === 'logo' && (
-                <pre className="text-btc whitespace-pre text-[10px] md:text-sm">{line.content}</pre>
+                <pre className="text-accent whitespace-pre text-[10px] md:text-sm">{line.content}</pre>
               )}
               {line.type === 'log' && (
                 <div className="text-green-500 dark:text-gray-300 text-[10px] md:text-xs">{line.content}</div>
               )}
               {line.type === 'command' && (
-                <div className="text-green-400 dark:text-btc">{line.content}</div>
+                <div className="text-green-400 dark:text-accent">{line.content}</div>
               )}
               {line.type === 'result' && (
                 <pre className="text-green-400 dark:text-emerald-300 whitespace-pre-wrap break-all">{line.content}</pre>
@@ -636,7 +636,7 @@ export default function TerminalPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="bg-black dark:bg-gray-900 border-t border-green-800 dark:border-gray-800 p-2 md:p-4 flex items-center gap-1 md:gap-2 flex-shrink-0">
-            <span className="text-green-400 dark:text-btc font-mono text-xs md:text-sm">$</span>
+            <span className="text-green-400 dark:text-accent font-mono text-xs md:text-sm">$</span>
             <span className="text-green-500 dark:text-gray-300 font-mono text-xs md:text-sm hidden sm:inline">bitcoin-cli</span>
             <input
               ref={inputRef}

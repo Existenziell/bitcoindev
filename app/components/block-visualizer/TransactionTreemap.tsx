@@ -506,7 +506,7 @@ export default function TransactionTreemap({
             maxWidth: '300px',
           }}
         >
-          <div className="font-semibold mb-2 text-btc">Transaction Details</div>
+          <div className="font-semibold mb-2 text-accent">Transaction Details</div>
           <div className="space-y-1">
             <div>
               <span className="text-gray-400">TXID:</span>{' '}

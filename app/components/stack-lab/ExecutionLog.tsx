@@ -84,7 +84,7 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
               className={`
                 p-3 rounded border text-sm
                 ${isCurrent
-                  ? 'bg-btc/20 border-btc/50'
+                  ? 'bg-accent/20 border-accent/50'
                   : step.success
                     ? 'bg-gray-200/60 dark:bg-gray-800/50 border-gray-300 dark:border-gray-700'
                     : 'bg-red-100/80 dark:bg-red-900/20 border-red-400 dark:border-red-700/50'
@@ -107,7 +107,7 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
                   </div>
                 </div>
                 {isCurrent && (
-                  <div className="text-xs text-btc font-semibold">Current</div>
+                  <div className="text-xs text-accent font-semibold">Current</div>
                 )}
               </div>
             </div>

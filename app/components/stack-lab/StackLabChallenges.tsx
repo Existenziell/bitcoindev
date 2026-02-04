@@ -380,7 +380,7 @@ export default function StackLabChallenges() {
           onClick={() => handleDifficultyChange(d)}
           className={`px-5 py-2.5 text-sm font-medium border-b-2 -mb-px capitalize ${
             selectedDifficulty === d
-              ? 'border-btc text-gray-900 dark:text-gray-100'
+              ? 'border-accent text-gray-900 dark:text-gray-100'
               : 'btn-tab'
           }`}
         >
@@ -510,7 +510,7 @@ export default function StackLabChallenges() {
                   <button
                     type="button"
                     onClick={() => setPredictValidAnswer(true)}
-                    className={`btn-primary-sm ${predictValidAnswer === true ? 'ring-2 ring-offset-2 ring-btc' : 'opacity-80'}`}
+                    className={`btn-primary-sm ${predictValidAnswer === true ? 'ring-2 ring-offset-2 ring-accent' : 'opacity-80'}`}
                   >
                     Yes
                   </button>
@@ -531,7 +531,7 @@ export default function StackLabChallenges() {
                       onClick={() => setSelectedTraceOption(i)}
                       className={`w-full text-left px-3 py-2 rounded border font-mono text-sm ${
                         selectedTraceOption === i
-                          ? 'border-btc bg-btc/10 text-gray-900 dark:text-gray-100'
+                          ? 'border-accent bg-accent/10 text-gray-900 dark:text-gray-100'
                           : 'border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600'
                       }`}
                     >

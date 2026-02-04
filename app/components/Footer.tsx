@@ -18,7 +18,7 @@ export default function Footer() {
                 <li key={resource.name} className='text-center'>
                   <ExternalLink
                     href={resource.url}
-                    className='text-sm text-secondary hover:text-btc transition-colors no-underline hover:underline'
+                    className='text-sm text-secondary hover:text-accent transition-colors no-underline hover:underline'
                   >
                     {resource.name}
                   </ExternalLink>
@@ -36,7 +36,7 @@ export default function Footer() {
                 <li key={link.href} className='text-center'>
                   <Link
                     href={link.href}
-                    className='text-sm text-secondary hover:text-btc transition-colors no-underline hover:underline'
+                    className='text-sm text-secondary hover:text-accent transition-colors no-underline hover:underline'
                   >
                     {link.title}
                   </Link>
@@ -49,12 +49,12 @@ export default function Footer() {
         <div className='footer-bar'>
           <Link
             href='/about'
-            className='hover:text-btc transition-colors no-underline hover:underline'
+            className='hover:text-accent transition-colors no-underline hover:underline'
           >
-            Made with <span className='text-btc' aria-hidden='true'>&#9829;</span> by Chris
+            Made with <span className='text-accent' aria-hidden='true'>&#9829;</span> by Chris
           </Link>
           <span aria-hidden='true' className='hidden md:inline'>|</span>
-          <span>Open source · No ads · <Link href="/privacy" className="hover:text-btc transition-colors no-underline hover:underline">No tracking</Link></span>
+          <span>Open source · No ads · <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">No tracking</Link></span>
           <span aria-hidden='true' className='hidden md:inline'>|</span>
           <span>© {new Date().getFullYear()} BitcoinDev</span>
         </div>

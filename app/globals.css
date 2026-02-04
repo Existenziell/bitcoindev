@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --btc: #f2a900;
+  --accent: #f2a900;
   --form-control-color: #f2a900;
 }
 
 ::selection {
-  background: var(--btc);
+  background: var(--accent);
   color: rgb(39 39 42);
 }
 
@@ -36,11 +36,11 @@ body {
 
   /* Button Styles */
   .btn-primary {
-    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-btc text-gray-900 font-semibold rounded-md hover:bg-btc/90 transition-colors hover:no-underline;
+    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-accent text-gray-900 font-semibold rounded-md hover:bg-accent/90 transition-colors hover:no-underline;
   }
 
   .btn-primary-sm {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-btc hover:bg-btc/90 text-gray-900 font-semibold rounded-md transition-colors;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent hover:bg-accent/90 text-gray-900 font-semibold rounded-md transition-colors;
   }
 
   .btn-secondary {
@@ -89,7 +89,7 @@ body {
   }
 
   .heading-section-accent {
-    @apply text-2xl md:text-3xl font-bold mb-4 text-btc;
+    @apply text-2xl md:text-3xl font-bold mb-4 text-accent;
   }
 
   .heading-section-sm {
@@ -138,17 +138,17 @@ body {
 
   /* Form input base - gray panel, focus border */
   .input-panel {
-    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 focus:outline-none focus:border-btc;
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 focus:outline-none focus:border-accent;
   }
 
   /* Form input base - white/gray-800, focus ring */
   .input-panel-ring {
-    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-btc focus:border-transparent;
+    @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
   }
 
   /* Icon button - header/nav, copy, download; shared hover/focus */
   .btn-icon {
-    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-btc focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 hover:no-underline;
+    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 hover:no-underline;
   }
 
   .btn-icon-sm {
@@ -164,7 +164,7 @@ body {
   }
 
   .btn-icon-accent {
-    @apply hover:text-btc dark:hover:text-btc;
+    @apply hover:text-accent dark:hover:text-accent;
   }
 
   /* Tab (unselected) - transparent border, muted text, border + text on hover */
@@ -179,7 +179,7 @@ body {
 
   /* Gray panel with hover accent */
   .panel-base-hover {
-    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 hover:border-btc hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors;
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 hover:border-accent hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors;
   }
 
   /* Footer top bar - border, flex layout */
@@ -204,7 +204,7 @@ body {
 
   /* Block visualizer scroll arrows - add left-0 or right-0 and gradient */
   .block-nav-arrow {
-    @apply absolute top-0 bottom-8 z-10 flex items-center justify-center w-10 text-secondary hover:text-btc transition-colors;
+    @apply absolute top-0 bottom-8 z-10 flex items-center justify-center w-10 text-secondary hover:text-accent transition-colors;
   }
 
   .block-nav-arrow-left {
@@ -222,7 +222,7 @@ body {
 
   /* Interactive tools grid card - accent left border, lift on hover */
   .tool-card {
-    @apply block p-5 rounded-xl hover:no-underline border border-gray-200 dark:border-gray-700 border-l-4 border-l-btc bg-white dark:bg-gray-800/60 hover:border-btc hover:bg-btc/5 dark:hover:bg-btc/10 hover:shadow-md dark:hover:shadow-black/20 transition-all duration-200;
+    @apply block p-5 rounded-xl hover:no-underline border border-gray-200 dark:border-gray-700 border-l-4 border-l-accent bg-white dark:bg-gray-800/60 hover:border-accent hover:bg-accent/5 dark:hover:bg-accent/10 hover:shadow-md dark:hover:shadow-black/20 transition-all duration-200;
   }
 
   /* Terminal input and submit */
@@ -231,7 +231,7 @@ body {
   }
 
   .terminal-submit {
-    @apply px-2 md:px-3 py-1 bg-green-600 dark:bg-btc text-white dark:text-gray-900 font-mono text-xs md:text-sm rounded hover:bg-green-500 dark:hover:bg-btc/80 disabled:opacity-50;
+    @apply px-2 md:px-3 py-1 bg-green-600 dark:bg-accent text-white dark:text-gray-900 font-mono text-xs md:text-sm rounded hover:bg-green-500 dark:hover:bg-accent/80 disabled:opacity-50;
   }
 
   /* Success badge (emerald) */
@@ -417,7 +417,7 @@ main > div > div > h1:first-child {
 }
 
 .markdown-content blockquote {
-  @apply border-l-4 border-btc pl-4 my-4 text-gray-600 dark:text-gray-300;
+  @apply border-l-4 border-accent pl-4 my-4 text-gray-600 dark:text-gray-300;
 }
 
 .markdown-content code {
@@ -425,7 +425,7 @@ main > div > div > h1:first-child {
 }
 
 .markdown-content .inline-code {
-  @apply bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-btc;
+  @apply bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono text-accent;
 }
 
 .markdown-content pre {
@@ -589,7 +589,7 @@ main > div > div > h1:first-child {
 }
 
 .markdown-content a {
-  @apply text-btc hover:underline;
+  @apply text-accent hover:underline;
 }
 
 .markdown-content hr {
@@ -709,7 +709,7 @@ main > div > div > h1:first-child {
 * Glossary Styles
 */
 .glossary-content h2 {
-  @apply text-2xl sm:text-3xl font-bold mt-12 mb-6 text-btc border-b-2 border-btc pb-3;
+  @apply text-2xl sm:text-3xl font-bold mt-12 mb-6 text-accent border-b-2 border-accent pb-3;
 }
 
 .glossary-content h2:first-of-type {
@@ -759,7 +759,7 @@ main > div > div > h1:first-child {
 /* Highlight the active/targeted entry */
 .glossary-entry:target > .glossary-summary,
 .glossary-entry[open] > .glossary-summary {
-  @apply bg-btc/10 dark:bg-btc/20;
+  @apply bg-accent/10 dark:bg-accent/20;
 }
 
 /*
