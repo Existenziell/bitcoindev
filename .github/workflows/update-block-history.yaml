@@ -1,4 +1,5 @@
-# Append latest block(s) to block-history blob every 6 hours.
+# Update block-history and pool-distribution in Vercel Blob every 6 hours.
+# Only this workflow writes to blob; the Next.js app is read-only.
 
 name: Update block history
 
@@ -11,26 +12,21 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Append latest block to block-history
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update block history (write to blob)
         env:
-          APP_URL: ${{ vars.BLOCK_HISTORY_APP_URL }}
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-        run: |
-          URL="${APP_URL:-https://bitcoindev.info}"
-          if [ -z "$CRON_SECRET" ]; then
-            echo "CRON_SECRET is not set. Add it in repo Settings > Secrets and variables > Actions."
-            exit 1
-          fi
-          # Retry on 504/503 (timeout or overload); max 3 attempts, 90s timeout per attempt
-          for attempt in 1 2 3; do
-            if curl -sSf --max-time 90 -X POST \
-              -H "Authorization: Bearer $CRON_SECRET" \
-              "$URL/api/block-history"; then
-              exit 0
-            fi
-            ret=$?
-            echo "Attempt $attempt failed (exit $ret). Retrying in 30s..."
-            sleep 30
-          done
-          echo "All attempts failed."
-          exit 22
+          BLOCK_HISTORY_BLOB_URL: ${{ vars.BLOCK_HISTORY_BLOB_URL }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          BITCOIN_RPC_URL: ${{ vars.BITCOIN_RPC_URL }}
+        run: npx tsx scripts/update-block-history.ts

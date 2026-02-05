@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import CopyAddressButton from '@/app/about/CopyAddressButton'
+import { DownloadMarkdownIcon } from '@/app/components/Icons'
 
 const NPUB_ADDRESS = 'npub1v7vslj3ewmdlqpzh3ta3glut80xg4vendfyvkypulydsqfmgc6kq90w3he'
 
@@ -54,9 +55,12 @@ export default function AboutPage() {
           </h2>
           <p className="text-gray-800 dark:text-gray-200 leading-7 mb-4">
             Bitcoin education is fragmented. Some resources are too technical,
-            others too superficial. I created BitcoinDev to bridge that gap, providing accessible documentation that covers
-            everything from fundamental concepts to advanced protocol details.
-            This site is open source, free, and will always remain so. No ads,
+            others too superficial. I created BitcoinDev to bridge that gap, providing accessible documentation that covers everything from fundamental concepts to advanced protocol details.
+            Download markdown{' '}
+            <span className="inline-block align-middle text-secondary opacity-70" aria-hidden title="Reference: download markdown">
+              <DownloadMarkdownIcon className="w-4 h-4" />
+            </span>
+            {' '}is available for every docs page. This site is open source, free, and will always remain so. No ads,
             no paywalls, <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">no tracking</Link>. Just pure Bitcoin knowledge for anyone
             who wants to learn.
           </p>

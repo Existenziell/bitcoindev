@@ -6,7 +6,7 @@ import QuoteRotator from '@/app/components/QuoteRotator'
 import LiveStats from '@/app/components/LiveStats'
 import HorizontalNav from '@/app/components/HorizontalNav'
 import BitcoinHistoryBanner from '@/app/components/BitcoinHistoryBanner'
-import { BookOpenIcon, ToolsIcon } from '@/app/components/Icons'
+import { BookOpenIcon, ToolsIcon, DownloadMarkdownIcon } from '@/app/components/Icons'
 import { ctaLinks } from '@/app/utils/navigation'
 import { generatePageMetadata } from '@/app/utils/metadata'
 
@@ -79,7 +79,13 @@ export default function Home() {
                 a block visualizer, and utilities for hashes, addresses, and transactions.
               </p>
               <p>
-                All content is open source, free, and will always remain so. No ads, no paywalls, <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">no tracking</Link>. Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
+                All content is open source, free, and will always remain so. Download markdown{' '}
+                <span className="inline-block align-middle text-secondary opacity-70" aria-hidden title="Reference: download markdown">
+                  <DownloadMarkdownIcon className="w-4 h-4" />
+                </span>
+                {' '}is available for every docs page.
+                No ads, no paywalls, <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">no tracking</Link>. 
+                Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
               </p>
             </div>
           </div>
