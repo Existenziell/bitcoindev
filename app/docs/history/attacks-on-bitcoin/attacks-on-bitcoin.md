@@ -55,7 +55,7 @@ These events were attacks on **services** holding Bitcoin (exchanges, hot wallet
 
 The protocol has resisted attacks that could have broken consensus or stolen coins on-chain:
 
-- **No successful 51% or double-spend on mainnet**: There is no documented case of a chain reorg used to steal funds on Bitcoin mainnet. Waiting for confirmations and the economic cost of attacking make such attacks irrational. See [Mining Attacks](/docs/mining/attacks) for the theory and probabilities.
-- **No successful large-scale network attack**: Eclipse, Sybil, and other P2P attacks are understood and mitigated by design; see [Network Attacks & Security](/docs/mining/network-attacks) for how nodes defend against them.
+- **No successful 51% or double-spend on mainnet**: There is no documented case of a chain reorg used to steal funds on Bitcoin mainnet. Waiting for confirmations and the economic cost of attacking make such attacks irrational.
+- **No successful large-scale network attack**: Eclipse, Sybil, and other P2P attacks are understood and mitigated by design.
 
 Every major protocol bug has been fixed; every custody failure has underscored the importance of self-custody and sound security. Bitcoin's design (decentralized, open, and incentive-aligned) has so far kept the network secure.
