@@ -1,13 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import { AddressDecoderIcon } from '@/app/components/Icons'
 import { decodeAddress } from '@/app/utils/addressDecoder'
 
+const EXAMPLE_ADDRESSES = [
+  '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2', // P2PKH
+  '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy', // P2SH
+  'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq', // P2WPKH
+  'bc1q60yj2xn6lg876zshc30evnvryl57389m4dv850', // P2WSH
+  'bc1p5cyxnuxmeuwuvkwfem96lqzszd02n6xdcjrs20cac6yqjjwudpxqkedrcr', // P2TR
+]
+
 export default function AddressDecoderPage() {
   const [input, setInput] = useState('')
+  const exampleIndexRef = useRef(-1)
   const result = decodeAddress(input)
+
+  const pasteExample = useCallback(() => {
+    exampleIndexRef.current = (exampleIndexRef.current + 1) % EXAMPLE_ADDRESSES.length
+    const example = EXAMPLE_ADDRESSES[exampleIndexRef.current]
+    setInput(example)
+  }, [])
 
   return (
     <>
@@ -22,9 +37,18 @@ export default function AddressDecoderPage() {
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-4xl mx-auto space-y-6">
         <div>
-          <label className="block text-sm font-medium mb-2">Bitcoin address</label>
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <label className="text-sm font-medium">Bitcoin address</label>
+            <button
+              type="button"
+              onClick={pasteExample}
+              className="text-sm text-accent hover:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded"
+            >
+              Paste example
+            </button>
+          </div>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -56,19 +80,19 @@ export default function AddressDecoderPage() {
                   const hrpLen = result.bech32!.hrp.length
                   const segments = [
                     { label: 'HRP (human-readable part)', start: 0, end: hrpLen, className: 'bg-amber-200 dark:bg-amber-900/50' },
-                    { label: 'Separator', start: hrpLen, end: hrpLen + 1, className: 'bg-zinc-300 dark:bg-zinc-600' },
-                    { label: 'Witness version', start: hrpLen + 1, end: hrpLen + 2, className: 'bg-sky-200 dark:bg-sky-900/50' },
+                    { label: 'Separator', start: hrpLen, end: hrpLen + 1, className: 'bg-stone-400 dark:bg-stone-500' },
+                    { label: 'Witness version', start: hrpLen + 1, end: hrpLen + 2, className: 'bg-indigo-200 dark:bg-indigo-800/70' },
                     { label: 'Data', start: hrpLen + 2, end: Math.max(trimmed.length - 6, hrpLen + 2), className: 'bg-emerald-200 dark:bg-emerald-900/50' },
                     { label: 'Checksum', start: Math.max(trimmed.length - 6, hrpLen + 2), end: trimmed.length, className: 'bg-violet-200 dark:bg-violet-900/50' },
                   ]
                   return (
                     <div className="w-full space-y-3">
-                      <div className="font-mono text-lg break-all leading-loose py-1">
+                      <div className="font-mono text-lg break-all leading-loose py-2">
                         {segments.map((seg) =>
                           seg.end > seg.start ? (
                             <span
                               key={seg.label}
-                              className={`px-1.5 py-0.5 rounded ${seg.className}`}
+                              className={`px-2.5 py-1.5 rounded ${seg.className}`}
                               title={`${seg.label}`}
                             >
                               {trimmed.slice(seg.start, seg.end)}
@@ -78,41 +102,47 @@ export default function AddressDecoderPage() {
                       </div>
                       <div className="flex flex-wrap gap-x-5 gap-y-2 text-base text-secondary">
                         <span><span className="inline-block w-4 h-4 rounded bg-amber-200 dark:bg-amber-900/50 align-middle mr-2" /> HRP (human-readable part)</span>
-                        <span><span className="inline-block w-4 h-4 rounded bg-zinc-300 dark:bg-zinc-600 align-middle mr-2" /> Separator</span>
-                        <span><span className="inline-block w-4 h-4 rounded bg-sky-200 dark:bg-sky-900/50 align-middle mr-2" /> Witness version</span>
+                        <span><span className="inline-block w-4 h-4 rounded bg-stone-400 dark:bg-stone-500 align-middle mr-2" /> Separator</span>
+                        <span><span className="inline-block w-4 h-4 rounded bg-indigo-200 dark:bg-indigo-800/70 align-middle mr-2" /> Witness version</span>
                         <span><span className="inline-block w-4 h-4 rounded bg-emerald-200 dark:bg-emerald-900/50 align-middle mr-2" /> Data</span>
                         <span><span className="inline-block w-4 h-4 rounded bg-violet-200 dark:bg-violet-900/50 align-middle mr-2" /> Checksum</span>
                       </div>
                     </div>
                   )
                 })()}
-                {result.base58 && (
-                  <div className="w-full space-y-3">
-                    <div
-                      className="flex w-full gap-0.5 h-12 rounded overflow-hidden"
-                      role="img"
-                      aria-label="Address byte structure: version, payload, checksum"
-                    >
-                      <div
-                        className="flex-[1] min-w-0 bg-amber-200 dark:bg-amber-900/50"
-                        title="Version (1 byte)"
-                      />
-                      <div
-                        className="flex-[20] min-w-0 bg-emerald-200 dark:bg-emerald-900/50"
-                        title={`Payload (${result.base58.payloadLength} bytes)`}
-                      />
-                      <div
-                        className="flex-[4] min-w-0 bg-violet-200 dark:bg-violet-900/50"
-                        title="Checksum (4 bytes)"
-                      />
+                {result.base58 && (() => {
+                  const trimmed = input.trim()
+                  // Base58Check: version (1 byte → 1 char), payload (20 bytes), checksum (4 bytes → 6 chars)
+                  const versionEnd = 1
+                  const checksumStart = Math.max(trimmed.length - 6, versionEnd)
+                  const segments = [
+                    { label: 'Version (1 byte)', start: 0, end: versionEnd, className: 'bg-amber-200 dark:bg-amber-900/50' },
+                    { label: result.type === 'p2pkh' ? 'Public key hash' : result.type === 'p2sh' ? 'Redeem script hash' : 'Payload', start: versionEnd, end: checksumStart, className: 'bg-emerald-200 dark:bg-emerald-900/50' },
+                    { label: 'Checksum (4 bytes)', start: checksumStart, end: trimmed.length, className: 'bg-violet-200 dark:bg-violet-900/50' },
+                  ]
+                  return (
+                    <div className="w-full space-y-3">
+                      <div className="font-mono text-lg break-all leading-loose py-2">
+                        {segments.map((seg) =>
+                          seg.end > seg.start ? (
+                            <span
+                              key={seg.label}
+                              className={`px-2.5 py-1.5 rounded ${seg.className}`}
+                              title={`${seg.label}`}
+                            >
+                              {trimmed.slice(seg.start, seg.end)}
+                            </span>
+                          ) : null
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-x-5 gap-y-2 text-base text-secondary">
+                        <span><span className="inline-block w-4 h-4 rounded bg-amber-200 dark:bg-amber-900/50 align-middle mr-2" /> Version (1 byte)</span>
+                        <span><span className="inline-block w-4 h-4 rounded bg-emerald-200 dark:bg-emerald-900/50 align-middle mr-2" /> {result.type === 'p2pkh' ? 'Public key hash' : result.type === 'p2sh' ? 'Redeem script hash' : 'Payload'} ({result.base58.payloadLength} bytes)</span>
+                        <span><span className="inline-block w-4 h-4 rounded bg-violet-200 dark:bg-violet-900/50 align-middle mr-2" /> Checksum (4 bytes)</span>
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-x-5 gap-y-2 text-base text-secondary">
-                      <span><span className="inline-block w-4 h-4 rounded-sm bg-amber-200 dark:bg-amber-900/50 align-middle mr-2" /> Version (1 byte)</span>
-                      <span><span className="inline-block w-4 h-4 rounded-sm bg-emerald-200 dark:bg-emerald-900/50 align-middle mr-2" /> Hash ({result.base58.payloadLength} bytes)</span>
-                      <span><span className="inline-block w-4 h-4 rounded-sm bg-violet-200 dark:bg-violet-900/50 align-middle mr-2" /> Checksum (4 bytes)</span>
-                    </div>
-                  </div>
-                )}
+                  )
+                })()}
               </div>
             )}
 
@@ -147,11 +177,14 @@ export default function AddressDecoderPage() {
                 </div>
                 <div className="space-y-1 text-sm">
                   <div>
-                    <span className="text-secondary">Payload ({result.base58.payloadLength} bytes raw):</span>{' '}
-                    <code className="break-all">{result.base58.payloadHex || '—'}</code>
-                  </div>
-                  <div>
-                    <span className="text-secondary">Hex:</span>{' '}
+                    <span className="text-secondary">
+                      {result.type === 'p2pkh'
+                        ? 'Public key hash'
+                        : result.type === 'p2sh'
+                          ? 'Redeem script hash'
+                          : 'Payload'}
+                      {' '}({result.base58.payloadLength} bytes):
+                    </span>{' '}
                     <code className="break-all">{result.base58.payloadHex || '—'}</code>
                   </div>
                 </div>
@@ -176,11 +209,16 @@ export default function AddressDecoderPage() {
                 </div>
                 <div className="space-y-1 text-sm">
                   <div>
-                    <span className="text-secondary">Data ({result.bech32.dataLength} bytes raw):</span>{' '}
-                    <code className="break-all">{result.bech32.dataHex || '—'}</code>
-                  </div>
-                  <div>
-                    <span className="text-secondary">Hex:</span>{' '}
+                    <span className="text-secondary">
+                      {result.type === 'p2wpkh'
+                        ? 'Public key hash'
+                        : result.type === 'p2wsh'
+                          ? 'Script hash'
+                          : result.type === 'p2tr'
+                            ? 'X-only public key'
+                            : 'Witness program'}
+                      {' '}({result.bech32.dataLength} bytes):
+                    </span>{' '}
                     <code className="break-all">{result.bech32.dataHex || '—'}</code>
                   </div>
                 </div>
