@@ -60,7 +60,7 @@ export default function BitcoinHistoryBanner() {
               {event.link && (
                 <Link
                   href={event.link}
-                  className="inline-flex items-center gap-1 text-accent hover:text-accent/80 font-medium transition-colors text-sm md:text-base"
+                  className="link inline-flex items-center gap-1 font-medium text-sm md:text-base"
                 >
                   Learn more
                   <ChevronRight className="w-4 h-4" />

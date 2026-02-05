@@ -61,6 +61,20 @@ body {
     @apply text-gray-600 dark:text-gray-400;
   }
 
+  /* Content links: same text color, dotted underline, solid on hover */
+  .link {
+    @apply text-inherit underline underline-offset-2 decoration-dotted hover:decoration-solid transition-colors;
+  }
+
+  .link-muted {
+    @apply text-gray-600 dark:text-gray-400 no-underline hover:underline underline-offset-2 transition-colors;
+  }
+
+  /* Incognito link: no underline, accent on hover */
+  .link-incognito {
+    @apply text-inherit no-underline hover:no-underline hover:text-accent transition-colors;
+  }
+
   /* Container */
   .container-content {
     @apply container mx-auto px-4 md:px-8;
@@ -589,7 +603,7 @@ main > div > div > h1:first-child {
 }
 
 .markdown-content a {
-  @apply text-accent hover:underline;
+  @apply link;
 }
 
 .markdown-content hr {

@@ -84,7 +84,7 @@ export default function Home() {
                   <DownloadMarkdownIcon className="w-4 h-4" />
                 </span>
                 {' '}is available for every docs page.
-                No ads, no paywalls, <Link href="/privacy" className="hover:text-accent transition-colors no-underline hover:underline">no tracking</Link>. 
+                No ads, no paywalls, <Link href="/privacy" className="link">no tracking</Link>. 
                 Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
               </p>
             </div>

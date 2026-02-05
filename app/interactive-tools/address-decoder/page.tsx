@@ -92,8 +92,8 @@ export default function AddressDecoderPage() {
         )}
 
         <p className="text-secondary text-sm">
-          See <Link href="/docs/wallets/address-types" className="text-accent hover:underline">Address Types</Link> and{' '}
-          <Link href="/docs/bitcoin-development/addresses" className="text-accent hover:underline">Address Generation</Link>{' '}
+          See <Link href="/docs/wallets/address-types" className="link">Address Types</Link> and{' '}
+          <Link href="/docs/bitcoin-development/addresses" className="link">Address Generation</Link>{' '}
           for how addresses map to scripts.
         </p>
       </div>

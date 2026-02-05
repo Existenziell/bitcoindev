@@ -77,8 +77,8 @@ function FeedbackContent() {
         <p className="text-gray-800 dark:text-gray-200 leading-7 mb-6">
           Your feedback helps us improve BitcoinDev. We appreciate you taking the time to share your thoughts.
         </p>
-        <Link href="/" className="btn-primary">
-          Back to home
+        <Link href="/" className="link-incognito">
+          ← Back to Genesis
         </Link>
       </div>
     )

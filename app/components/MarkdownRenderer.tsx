@@ -20,6 +20,7 @@ const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), 
 })
 import { ChevronDown, LinkIcon } from '@/app/components/Icons'
 import ExternalLink from '@/app/components/ExternalLink'
+import { cn } from '@/app/utils/cn'
 import { generateSlug } from '@/scripts/lib/slug'
 
 interface MarkdownRendererProps {
@@ -184,7 +185,7 @@ function YouTubeEmbed({
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
-        className="text-accent hover:underline inline-flex items-center gap-1.5 cursor-pointer bg-transparent border-none p-0 font-inherit text-left"
+        className="link inline-flex items-center gap-1.5 cursor-pointer bg-transparent border-none p-0 font-inherit text-left"
       >
         <ChevronDown
           className={`w-4 h-4 shrink-0 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
@@ -405,20 +406,20 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       }
       if (href?.startsWith('/')) {
         return (
-          <Link href={href} {...props}>
+          <Link href={href} {...props} className={cn('link', props.className)}>
             {children}
           </Link>
         )
       }
       if (href?.startsWith('#')) {
         return (
-          <a href={href} {...props}>
+          <a href={href} {...props} className={cn('link', props.className)}>
             {children}
           </a>
         )
       }
       return (
-        <ExternalLink href={href} className={props.className}>
+        <ExternalLink href={href} className={cn('link', props.className)}>
           {children}
         </ExternalLink>
       )

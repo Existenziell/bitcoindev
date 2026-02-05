@@ -80,7 +80,7 @@ export default function PrivacyPage() {
             href="https://vercel.com/docs/analytics/privacy-policy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent hover:underline"
+            className="link"
           >
             Vercel Analytics Privacy and Compliance
           </a>
@@ -89,8 +89,8 @@ export default function PrivacyPage() {
       </section>
 
       <p className="text-secondary text-sm">
-        <Link href="/" className="text-accent hover:underline">
-          ← Back to home
+        <Link href="/" className="link-incognito">
+          ← Back to Genesis
         </Link>
       </p>
     </div>

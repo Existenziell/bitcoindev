@@ -19,7 +19,7 @@ export default function TransactionDecoderPage() {
         <p className="text-secondary text-center">
           Paste raw transaction hex to decode version, inputs (outpoint, scriptSig, sequence), outputs (value,
           scriptPubKey), and locktime. Supports SegWit transactions. Get raw hex from{' '}
-          <Link href="/interactive-tools/terminal" className="text-accent hover:underline">getrawtransaction</Link> or block explorers.
+          <Link href="/interactive-tools/terminal" className="link">getrawtransaction</Link> or block explorers.
         </p>
       </div>
 
@@ -94,9 +94,9 @@ export default function TransactionDecoderPage() {
         )}
 
         <p className="text-secondary text-sm">
-          See <Link href="/docs/bitcoin/transaction-structure" className="text-accent hover:underline">Transaction Structure</Link> and{' '}
-          <Link href="/docs/bitcoin/data-encoding" className="text-accent hover:underline">Data Encoding</Link>. Use the{' '}
-          <Link href="/interactive-tools/terminal" className="text-accent hover:underline">CLI Terminal</Link> to fetch raw hex with{' '}
+          See <Link href="/docs/bitcoin/transaction-structure" className="link">Transaction Structure</Link> and{' '}
+          <Link href="/docs/bitcoin/data-encoding" className="link">Data Encoding</Link>. Use the{' '}
+          <Link href="/interactive-tools/terminal" className="link">CLI Terminal</Link> to fetch raw hex with{' '}
           <code>getrawtransaction &lt;txid&gt;</code>.
         </p>
       </div>

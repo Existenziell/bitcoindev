@@ -166,8 +166,8 @@ export default function FeeEstimatorPage() {
         )}
 
         <p className="text-secondary text-sm">
-          See <Link href="/docs/bitcoin-development/fee-estimation" className="text-accent hover:underline">Fee Estimation</Link> and{' '}
-          <Link href="/docs/bitcoin/transaction-fees" className="text-accent hover:underline">Transaction Fees</Link>. Rates are
+          See <Link href="/docs/bitcoin-development/fee-estimation" className="link">Fee Estimation</Link> and{' '}
+          <Link href="/docs/bitcoin/transaction-fees" className="link">Transaction Fees</Link>. Rates are
           heuristic; confirmation time is not guaranteed.
         </p>
       </div>
