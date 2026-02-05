@@ -723,6 +723,12 @@
     ]
   },
   {
+    "path": "/docs/history/attacks-on-bitcoin",
+    "title": "Attacks on Bitcoin",
+    "section": "history",
+    "body": "Attacks on Bitcoin"
+  },
+  {
     "path": "/docs/bitcoin",
     "title": "The Bitcoin Protocol",
     "section": "bitcoin",

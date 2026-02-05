@@ -228,3 +228,9 @@ The SEC approved the first spot Bitcoin ETFs in the United States, opening Bitco
 - **Significance**: Last new Bitcoin will be created
 
 After this date, no new Bitcoin will be created through block rewards. Miners will rely entirely on transaction fees for income.
+
+---
+
+## See Also
+
+- [Attacks on Bitcoin](/docs/history/attacks-on-bitcoin) – Protocol bugs, exchange hacks, and how the network has resisted attacks.

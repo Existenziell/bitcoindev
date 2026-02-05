@@ -51,6 +51,7 @@ export const docPages: DocPage[] = [
   { path: '/docs/history/halvings', mdFile: 'app/docs/history/halvings.md', title: 'Halvings', section: 'history' },
   { path: '/docs/history/forks', mdFile: 'app/docs/history/forks.md', title: 'Forks', section: 'history' },
   { path: '/docs/history/bips', mdFile: 'app/docs/history/bips.md', title: 'BIPs', section: 'history' },
+  { path: '/docs/history/attacks-on-bitcoin', mdFile: 'app/docs/history/attacks-on-bitcoin/attacks-on-bitcoin.md', title: 'Attacks on Bitcoin', section: 'history' },
 
   { path: '/docs/bitcoin', mdFile: 'app/docs/bitcoin/overview.md', title: 'The Bitcoin Protocol', section: 'bitcoin', description: 'Technical documentation of the Bitcoin protocol: cryptography, consensus, script, SegWit, Taproot, RPC.' },
   { path: '/docs/bitcoin/cryptography', mdFile: 'app/docs/bitcoin/cryptography/cryptography.md', title: 'Cryptography', section: 'bitcoin' },

@@ -136,7 +136,7 @@ See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how these ideas spr
 
 ### The Threat
 
-Bitcoin is under **constant attack** from the most sophisticated entities on this planet:
+Bitcoin is under [**constant attack**](/docs/history/attacks-on-bitcoin) from the most sophisticated entities on this planet:
 - Intelligence agencies (NSA, KGB, Mossad, and countless others)
 - Central banks protecting their monopoly on money
 - Governments seeking to maintain financial control
