@@ -354,6 +354,7 @@ export default function BlockVisualizer() {
       )}
 
       <div className="space-y-2">
+        <div className="flex flex-col gap-1">
         <div className="flex items-center justify-between">
         <h2 className="heading-section-muted">Previous blocks</h2>
         <div className="flex items-center gap-2">
@@ -370,6 +371,8 @@ export default function BlockVisualizer() {
             {isLoadingBlockHistory ? 'Loading…' : 'Load more'}
           </button>
         </div>
+        </div>
+        <p className="text-secondary text-sm">Historic block data (updated every 6 hours).</p>
         </div>
         {blockHistoryError ? (
           <div className="py-4 flex flex-col items-center justify-center gap-2 text-secondary text-sm">

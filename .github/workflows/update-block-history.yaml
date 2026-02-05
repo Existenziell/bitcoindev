@@ -1,10 +1,10 @@
-# Append latest block(s) to block-history blob every 5 minutes.
+# Append latest block(s) to block-history blob every 6 hours.
 
 name: Update block history
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
