@@ -1,6 +1,6 @@
 # Attacks on Bitcoin
 
-Bitcoin has faced protocol bugs, exchange hacks, and constant pressure from attackers. This page lists significant **attack-related events**: incidents that targeted the protocol or services holding Bitcoin. The important distinction: the **Bitcoin protocol** has never been successfully broken—no inflation, no stolen coins via consensus failure. Attacks that have succeeded targeted **custody** (exchanges, hot wallets), not the network or its rules.
+Bitcoin has faced protocol bugs, exchange hacks, and constant pressure from attackers. This page lists significant **attack-related events**: incidents that targeted the protocol or services holding Bitcoin. The important distinction: the **Bitcoin protocol** has never been successfully broken: no inflation, no stolen coins via consensus failure. Attacks that have succeeded targeted **custody** (exchanges, hot wallets), not the network or its rules.
 
 For the theory behind mining and network attacks, see [Mining Attacks](/docs/mining/attacks) and [Network Attacks & Security](/docs/mining/network-attacks).
 
@@ -16,13 +16,13 @@ These events involved bugs or stress on the Bitcoin protocol itself. In each cas
 - **What happened**: An integer overflow in output validation allowed a single transaction to create 184 billion BTC. The invalid transaction was mined and briefly accepted.
 - **Response**: The network coordinated a [hard fork](/docs/history/forks) to tighten validation rules; the invalid transaction was removed from the chain. One of the most serious early protocol bugs; the response showed the community could coordinate a timely fix.
 
-### BerkeleyDB Chain Split (March 11–12, 2013)
+### BerkeleyDB Chain Split (March 11-12, 2013)
 
 - **Block**: 225,430
 - **What happened**: An accidental chain split occurred when older nodes (Bitcoin Core 0.7) hit a database lock limit and rejected blocks that newer nodes (0.8) accepted. Different parts of the network temporarily followed different chains.
 - **Response**: Resolved within hours as nodes upgraded. No theft; consensus was restored. Documented in the [fork history](/docs/history/forks) as the "BerkeleyDB Fork."
 
-### CVE-2018-17144 – Inflation Bug (September 2018)
+### CVE-2018-17144 (Inflation Bug) (September 2018)
 
 - **Affected**: Bitcoin Core 0.14.0 through 0.16.2
 - **What happened**: A critical bug allowed creation of extra coins in a specific double-spend scenario (duplicate inputs in a transaction). A malicious miner could have exploited it to inflate the supply.
@@ -58,4 +58,4 @@ The protocol has resisted attacks that could have broken consensus or stolen coi
 - **No successful 51% or double-spend on mainnet**: There is no documented case of a chain reorg used to steal funds on Bitcoin mainnet. Waiting for confirmations and the economic cost of attacking make such attacks irrational. See [Mining Attacks](/docs/mining/attacks) for the theory and probabilities.
 - **No successful large-scale network attack**: Eclipse, Sybil, and other P2P attacks are understood and mitigated by design; see [Network Attacks & Security](/docs/mining/network-attacks) for how nodes defend against them.
 
-Every major protocol bug has been fixed; every custody failure has underscored the importance of self-custody and sound security. Bitcoin's design—decentralized, open, and incentive-aligned—has so far kept the network secure.
+Every major protocol bug has been fixed; every custody failure has underscored the importance of self-custody and sound security. Bitcoin's design (decentralized, open, and incentive-aligned) has so far kept the network secure.
