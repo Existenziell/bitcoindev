@@ -26,7 +26,7 @@ jobs:
 
       - name: Update block history (write to blob)
         env:
-          BLOCK_HISTORY_BLOB_URL: ${{ vars.BLOCK_HISTORY_BLOB_URL }}
+          BLOCK_HISTORY_BLOB_URL: ${{ secrets.BLOCK_HISTORY_BLOB_URL }}
           BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           BITCOIN_RPC_URL: ${{ vars.BITCOIN_RPC_URL }}
         run: npx tsx scripts/update-block-history.ts
