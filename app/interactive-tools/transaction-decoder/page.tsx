@@ -53,6 +53,66 @@ export default function TransactionDecoderPage() {
               </span>
             </div>
 
+            {result.segments && result.segments.length > 0 && (
+              <div className="w-full">
+                <h2 className="font-semibold text-lg mb-3">Transaction structure</h2>
+                <div
+                  className="flex w-full gap-0.5 h-12 rounded overflow-hidden min-w-0"
+                  role="img"
+                  aria-label="Transaction byte structure"
+                >
+                  {result.segments.map((seg) => {
+                    const len = seg.end - seg.start
+                    const colorClass =
+                      seg.label === 'Version'
+                        ? 'bg-amber-200 dark:bg-amber-900/50'
+                        : seg.label === 'SegWit marker'
+                          ? 'bg-zinc-300 dark:bg-zinc-600'
+                          : seg.label === 'Inputs'
+                            ? 'bg-sky-200 dark:bg-sky-900/50'
+                            : seg.label === 'Outputs'
+                              ? 'bg-emerald-200 dark:bg-emerald-900/50'
+                              : seg.label === 'Witness'
+                                ? 'bg-violet-200 dark:bg-violet-900/50'
+                                : 'bg-slate-300 dark:bg-slate-600'
+                    return (
+                      <div
+                        key={seg.label}
+                        className={`min-w-[2px] ${colorClass}`}
+                        style={{ flex: `${len} 1 0` }}
+                        title={`${seg.label} (${len} bytes)`}
+                      />
+                    )
+                  })}
+                </div>
+                <div className="flex flex-wrap gap-x-5 gap-y-2 text-base text-secondary mt-2">
+                  {result.segments.map((seg) => {
+                    const colorClass =
+                      seg.label === 'Version'
+                        ? 'bg-amber-200 dark:bg-amber-900/50'
+                        : seg.label === 'SegWit marker'
+                          ? 'bg-zinc-300 dark:bg-zinc-600'
+                          : seg.label === 'Inputs'
+                            ? 'bg-sky-200 dark:bg-sky-900/50'
+                            : seg.label === 'Outputs'
+                              ? 'bg-emerald-200 dark:bg-emerald-900/50'
+                              : seg.label === 'Witness'
+                                ? 'bg-violet-200 dark:bg-violet-900/50'
+                                : 'bg-slate-300 dark:bg-slate-600'
+                    return (
+                      <span key={seg.label}>
+                        <span
+                          className={`inline-block w-4 h-4 rounded-sm align-middle mr-2 ${colorClass}`}
+                          aria-hidden
+                        />
+                        {seg.label}
+                      </span>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+
             <div>
               <h2 className="font-semibold mb-2">Inputs ({result.inputs.length})</h2>
               <ul className="space-y-3">

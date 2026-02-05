@@ -66,6 +66,12 @@ export interface DecodedOutput {
   scriptPubKeyLength: number
 }
 
+export interface TxSegment {
+  label: string
+  start: number
+  end: number
+}
+
 export interface DecodedTx {
   version: number
   segwit: boolean
@@ -73,6 +79,7 @@ export interface DecodedTx {
   outputs: DecodedOutput[]
   locktime: number
   rawHexLength: number
+  segments?: TxSegment[]
   error?: string
 }
 
@@ -121,6 +128,7 @@ export function decodeRawTransaction(hex: string): DecodedTx {
 
   const inCount = readVarInt(bytes, pos)
   pos = inCount.next
+  const inputsStart = pos
   const inputs: DecodedInput[] = []
   for (let i = 0; i < inCount.value; i++) {
     if (pos + 36 > bytes.length) {
@@ -166,9 +174,11 @@ export function decodeRawTransaction(hex: string): DecodedTx {
       sequence,
     })
   }
+  const inputsEnd = pos
 
   const outCount = readVarInt(bytes, pos)
   pos = outCount.next
+  const outputsStart = pos
   const outputs: DecodedOutput[] = []
   for (let j = 0; j < outCount.value; j++) {
     if (pos + 8 > bytes.length) {
@@ -207,19 +217,70 @@ export function decodeRawTransaction(hex: string): DecodedTx {
       scriptPubKeyLength: scriptLen.value,
     })
   }
+  const outputsEnd = pos
 
-  if (pos + 4 > bytes.length) {
-    return {
-      version,
-      segwit,
-      inputs,
-      outputs,
-      locktime: 0,
-      rawHexLength: bytes.length * 2,
-      error: 'Not enough bytes for locktime',
+  let locktime: number
+  let witnessStart: number
+  let witnessEnd: number
+
+  if (segwit) {
+    witnessStart = pos
+    for (let i = 0; i < inCount.value; i++) {
+      const stackCount = readVarInt(bytes, pos)
+      pos = stackCount.next
+      for (let k = 0; k < stackCount.value; k++) {
+        const itemLen = readVarInt(bytes, pos)
+        pos = itemLen.next
+        if (pos + itemLen.value > bytes.length) {
+          return {
+            version,
+            segwit,
+            inputs,
+            outputs,
+            locktime: 0,
+            rawHexLength: bytes.length * 2,
+            error: 'Witness data extends past end',
+          }
+        }
+        pos += itemLen.value
+      }
     }
+    witnessEnd = pos
+    if (pos + 4 > bytes.length) {
+      return {
+        version,
+        segwit,
+        inputs,
+        outputs,
+        locktime: 0,
+        rawHexLength: bytes.length * 2,
+        error: 'Not enough bytes for locktime',
+      }
+    }
+    locktime = readU32LE(bytes, bytes.length - 4)
+  } else {
+    if (pos + 4 > bytes.length) {
+      return {
+        version,
+        segwit,
+        inputs,
+        outputs,
+        locktime: 0,
+        rawHexLength: bytes.length * 2,
+        error: 'Not enough bytes for locktime',
+      }
+    }
+    locktime = readU32LE(bytes, pos)
   }
-  const locktime = readU32LE(bytes, pos)
+
+  const segments: TxSegment[] = [
+    { label: 'Version', start: 0, end: 4 },
+    ...(segwit ? [{ label: 'SegWit marker', start: 4, end: 6 }] as TxSegment[] : []),
+    { label: 'Inputs', start: inputsStart, end: inputsEnd },
+    { label: 'Outputs', start: outputsStart, end: outputsEnd },
+    ...(segwit ? [{ label: 'Witness', start: witnessStart!, end: witnessEnd! }] as TxSegment[] : []),
+    { label: 'Locktime', start: bytes.length - 4, end: bytes.length },
+  ]
 
   return {
     version,
@@ -228,5 +289,6 @@ export function decodeRawTransaction(hex: string): DecodedTx {
     outputs,
     locktime,
     rawHexLength: bytes.length * 2,
+    segments,
   }
 }
