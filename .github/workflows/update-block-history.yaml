@@ -37,6 +37,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: update block-history and pool-distribution"
+            git commit -m "chore: update block data"
             git push
           fi
