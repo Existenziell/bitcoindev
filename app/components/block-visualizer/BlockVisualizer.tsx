@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import {
   BlockSnapshot,
   formatBlockSize,
@@ -43,14 +42,39 @@ function getRelativeTime(timestamp: number): string {
   return `${hours}:${String(remainderMins).padStart(2, '0')} ago`
 }
 
+function MinerWithIcon({
+  miner,
+  minerName,
+  className = '',
+}: {
+  miner?: string
+  minerName?: string
+  className?: string
+}) {
+  const displayName = minerName ?? miner ?? '—'
+  return (
+    <div className={`flex items-center gap-1.5 ${className}`.trim()}>
+      <span className="text-gray-800 dark:text-gray-200 text-xs truncate min-w-0" style={{ fontWeight: 400 }}>
+        {displayName}
+      </span>
+      <Image
+        src={getPoolIconSrc(miner)}
+        alt=""
+        title={minerName ?? miner ?? 'Unknown'}
+        width={14}
+        height={14}
+        className="w-3.5 h-3.5 flex-shrink-0"
+      />
+    </div>
+  )
+}
+
 export default function BlockVisualizer() {
-  const router = useRouter()
   const [blocks, setBlocks] = useState<BlockSnapshot[]>([])
   const [centerIndex, setCenterIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [btcPrice, setBtcPrice] = useState<number | null>(null)
-  const [navigatingToTx, setNavigatingToTx] = useState(false)
 
   const fetchBlockHistory = useCallback(async (beforeHeight: number | null = null) => {
     setLoading(true)
@@ -100,32 +124,6 @@ export default function BlockVisualizer() {
     setCenterIndex((i) => Math.max(i - 1, 0))
   }, [])
 
-  const handleCenterBlockClick = useCallback(
-    async (blockHash: string) => {
-      if (navigatingToTx) return
-      setNavigatingToTx(true)
-      try {
-        const res = await fetch('/api/bitcoin-rpc', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ method: 'getblock', params: [blockHash, 2] }),
-        })
-        const data = await res.json()
-        const block = data?.result as { tx?: Array<{ txid?: string }> } | undefined
-        const firstTxid = block?.tx?.[0]?.txid
-        if (typeof firstTxid === 'string' && firstTxid.length === 64) {
-          router.push(`/interactive-tools/block-visualizer/tx/${firstTxid}`)
-          return
-        }
-      } catch {
-        // ignore
-      } finally {
-        setNavigatingToTx(false)
-      }
-    },
-    [navigatingToTx, router]
-  )
-
   if (loading && blocks.length === 0) {
     return (
       <div className="w-full flex items-center justify-center py-12">
@@ -161,6 +159,8 @@ export default function BlockVisualizer() {
 
   const SLOTS = 6
   const slotIndices = Array.from({ length: SLOTS }, (_, i) => centerIndex - 2 + i)
+  const navButtonClass =
+    'flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors'
 
   return (
     <div className="relative flex flex-col items-center">
@@ -169,7 +169,7 @@ export default function BlockVisualizer() {
           type="button"
           onClick={goOlder}
           disabled={centerIndex >= blocks.length - 1}
-          className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors"
+          className={navButtonClass}
           aria-label="Move to older block"
         >
           <ChevronDown className="w-6 h-6" />
@@ -178,7 +178,7 @@ export default function BlockVisualizer() {
           type="button"
           onClick={goNewer}
           disabled={centerIndex <= 0}
-          className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors"
+          className={navButtonClass}
           aria-label="Move to newer block"
         >
           <ChevronUp className="w-6 h-6" />
@@ -210,23 +210,9 @@ export default function BlockVisualizer() {
             <div key={slotIdx} className={slotClasses}>
               {block ? (
                 <div
-                  role={isCenter ? 'button' : undefined}
-                  tabIndex={isCenter ? 0 : undefined}
-                  onClick={isCenter ? () => handleCenterBlockClick(block.hash) : undefined}
-                  onKeyDown={
-                    isCenter
-                      ? (e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault()
-                            handleCenterBlockClick(block.hash)
-                          }
-                        }
-                      : undefined
-                  }
                   className={`
                     w-full aspect-square rounded border bg-white dark:bg-gray-800 overflow-hidden flex flex-col
-                    ${isCenter ? 'border-accent ring-2 ring-accent/30 shadow-lg cursor-pointer hover:ring-accent/50' : 'border-gray-200 dark:border-gray-700'}
-                    ${isCenter && navigatingToTx ? 'opacity-70 pointer-events-none' : ''}
+                    ${isCenter ? 'border-accent ring-2 ring-accent/30 shadow-lg' : 'border-gray-200 dark:border-gray-700'}
                   `}
                 >
                   {showTip && (
@@ -245,7 +231,6 @@ export default function BlockVisualizer() {
                           href={`https://mempool.space/block/${block.hash}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
                           className="font-mono text-secondary text-xs hover:text-accent transition-colors inline-flex items-center gap-1 min-w-0"
                         >
                           <span className="truncate">{truncateHash(block.hash)}</span>
@@ -263,34 +248,14 @@ export default function BlockVisualizer() {
                         <div>
                           Range: {block.feeSpanMin} – {block.feeSpanMax} sat/vB
                         </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-gray-800 dark:text-gray-200 text-xs truncate min-w-0" style={{ fontWeight: 400 }}>{block.minerName ?? block.miner ?? '—'}</span>
-                          <Image
-                            src={getPoolIconSrc(block.miner)}
-                            alt=""
-                            title={block.minerName ?? block.miner ?? 'Unknown'}
-                            width={14}
-                            height={14}
-                            className="w-3.5 h-3.5 flex-shrink-0"
-                          />
-                        </div>
+                        <MinerWithIcon miner={block.miner} minerName={block.minerName} />
                       </div>
                     </div>
                   ) : (
                     <div className="p-2 flex flex-col justify-center flex-1 min-h-0 text-center gap-1">
                       <span className="text-accent font-semibold text-base">{formatNumber(block.height)}</span>
                       <span className="text-secondary text-xs">{getRelativeTime(block.timestamp)}</span>
-                      <div className="flex items-center justify-center gap-1.5">
-                        <span className="text-gray-800 dark:text-gray-200 text-xs truncate min-w-0" style={{ fontWeight: 400 }}>{block.minerName ?? block.miner ?? '—'}</span>
-                        <Image
-                          src={getPoolIconSrc(block.miner)}
-                          alt=""
-                          title={block.minerName ?? block.miner ?? 'Unknown'}
-                          width={14}
-                          height={14}
-                          className="w-3.5 h-3.5 flex-shrink-0"
-                        />
-                      </div>
+                      <MinerWithIcon miner={block.miner} minerName={block.minerName} className="justify-center" />
                     </div>
                   )}
                 </div>

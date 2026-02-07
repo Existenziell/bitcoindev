@@ -397,8 +397,12 @@ export function formatBlockTimestamp(timestamp: number): string {
 
 /**
  * Truncate hash for display (first 8...last 8 characters).
+ * Returns fallback when hash is undefined/null (e.g. coinbase inputs have no txid).
  */
-export function truncateHash(hash: string, startLength = 8, endLength = 8): string {
+export function truncateHash(hash: string | undefined | null, startLength = 8, endLength = 8): string {
+  if (hash == null || typeof hash !== 'string') {
+    return '—'
+  }
   if (hash.length <= startLength + endLength) {
     return hash
   }

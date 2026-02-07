@@ -1,7 +1,6 @@
 'use client'
 
 import { useMemo, useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 import { hierarchy, treemap } from 'd3-hierarchy'
 import { scaleSequential } from 'd3-scale'
 import { interpolateRgb } from 'd3-interpolate'
@@ -73,7 +72,6 @@ export default function TransactionTreemap({
   showLegend = true,
   hideLegendDuringFlyIn = false,
 }: TransactionTreemapProps) {
-  const router = useRouter()
   const [hoveredTx, setHoveredTx] = useState<ProcessedTransaction | null>(null)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const [containerWidth, setContainerWidth] = useState(800)
@@ -476,9 +474,8 @@ export default function TransactionTreemap({
                 opacity={isHovered ? 0.9 : 0.8}
                 onMouseEnter={() => setHoveredTx(node.data)}
                 onMouseLeave={() => setHoveredTx(null)}
-                onClick={() => router.push(`/interactive-tools/block-visualizer/tx/${node.data.txid}`)}
-                className="cursor-pointer"
-                aria-label={`Transaction ${truncateHash(node.data.txid)} - Click to view details`}
+                className="cursor-default"
+                aria-label={`Transaction ${truncateHash(node.data.txid)}`}
               />
               {rectWidth > 60 && rectHeight > 20 && (
                 <text
