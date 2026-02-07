@@ -13,8 +13,10 @@ import { processBlockData, buildBlockSnapshot, type BlockSnapshot } from '../app
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const BLOCK_HISTORY_PATH = path.join(DATA_DIR, 'block-history.json')
 const POOL_DISTRIBUTION_PATH = path.join(DATA_DIR, 'pool-distribution.json')
-const POOL_DISTRIBUTION_WINDOW = 2016
-const TARGET_BLOCK_COUNT = 2016
+/** Keep only this many blocks (newest). Enough for 6-hour schedule to fill gaps. */
+const TARGET_BLOCK_COUNT = 1000
+/** Pool distribution is computed from the same window we keep. */
+const POOL_DISTRIBUTION_WINDOW = TARGET_BLOCK_COUNT
 const BOOTSTRAP_BLOCKS = 100
 // Max blocks to fetch per run (gap fill + new tip). GitHub Actions job limit is 6h; runtime is
 // dominated by RPC latency. 288 = 2 days of blocks (~6/h) so we can catch up after missed runs.
@@ -134,10 +136,11 @@ async function runWithConcurrency<T, R>(
 
 async function writeData(list: BlockSnapshot[]): Promise<void> {
   await fs.promises.mkdir(DATA_DIR, { recursive: true })
-  await fs.promises.writeFile(BLOCK_HISTORY_PATH, JSON.stringify(list))
+  const toPersist = list.slice(0, TARGET_BLOCK_COUNT)
+  await fs.promises.writeFile(BLOCK_HISTORY_PATH, JSON.stringify(toPersist))
   await fs.promises.writeFile(
     POOL_DISTRIBUTION_PATH,
-    JSON.stringify(computePoolDistribution(list))
+    JSON.stringify(computePoolDistribution(toPersist))
   )
 }
 

@@ -95,7 +95,7 @@ export default function PoolDistributionChart() {
         ))}
       </div>
     </div>
-    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 italic">Distribution for last 2016 blocks, updated every 6 hours.</p>
+    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 italic">Distribution for last 1000 blocks, updated every 6 hours.</p>
     </>
   )
 }
