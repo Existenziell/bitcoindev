@@ -34,12 +34,29 @@ function getPoolIconSrc(miner?: string): string {
 
 function getRelativeTime(timestamp: number): string {
   const secs = Math.floor(Date.now() / 1000 - timestamp)
-  if (secs < 60) return `${secs}s ago`
+  if (secs < 60) return secs <= 1 ? '1 second ago' : `${secs} seconds ago`
   const mins = Math.floor(secs / 60)
-  if (mins < 60) return `${mins}:${String(secs % 60).padStart(2, '0')} ago`
+  if (mins < 60) return mins <= 1 ? '1 minute ago' : `${mins} minutes ago`
   const hours = Math.floor(mins / 60)
   const remainderMins = mins % 60
-  return `${hours}:${String(remainderMins).padStart(2, '0')} ago`
+  if (hours < 24) {
+    if (remainderMins === 0) return hours === 1 ? '1 hour ago' : `${hours} hours ago`
+    const h = hours === 1 ? '1 hour' : `${hours} hours`
+    const m = remainderMins === 1 ? '1 min' : `${remainderMins} min`
+    return `${h} ${m} ago`
+  }
+  const days = Math.floor(hours / 24)
+  const remainderHours = hours % 24
+  if (days < 7) {
+    if (remainderHours === 0) return days === 1 ? '1 day ago' : `${days} days ago`
+    const d = days === 1 ? '1 day' : `${days} days`
+    const h = remainderHours === 1 ? '1 hr' : `${remainderHours} hr`
+    return `${d} ${h} ago`
+  }
+  const weeks = Math.floor(days / 7)
+  if (weeks < 4) return weeks === 1 ? '1 week ago' : `${weeks} weeks ago`
+  const months = Math.floor(days / 30)
+  return months <= 1 ? '1 month ago' : `${months} months ago`
 }
 
 function MinerWithIcon({
@@ -75,6 +92,11 @@ export default function BlockVisualizer() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [btcPrice, setBtcPrice] = useState<number | null>(null)
+  const [minHeight, setMinHeight] = useState<number | null>(null)
+  const [maxHeight, setMaxHeight] = useState<number | null>(null)
+  const [jumpInput, setJumpInput] = useState('')
+  const [jumpMessage, setJumpMessage] = useState<string | null>(null)
+  const [jumpLoading, setJumpLoading] = useState(false)
   const isFetchingMoreRef = useRef(false)
   const noMoreBlocksRef = useRef(false)
   const blocksRef = useRef(blocks)
@@ -99,6 +121,8 @@ export default function BlockVisualizer() {
       const data = await res.json()
       const list = Array.isArray(data?.blocks) ? data.blocks : []
       setBlocks(list)
+      if (typeof data?.minHeight === 'number') setMinHeight(data.minHeight)
+      if (typeof data?.maxHeight === 'number') setMaxHeight(data.maxHeight)
       if (list.length > 0 && beforeHeight == null) {
         setCenterIndex(0)
       }
@@ -161,6 +185,56 @@ export default function BlockVisualizer() {
     setCenterIndex((i) => Math.max(i - 1, 0))
   }, [])
 
+  const handleJumpToBlock = useCallback(async () => {
+    setJumpMessage(null)
+    const raw = jumpInput.trim()
+    const height = raw === '' ? NaN : parseInt(raw, 10)
+    if (Number.isNaN(height) || height < 0 || height > 1e7) {
+      setJumpMessage('Enter a valid block height (0 – 10,000,000).')
+      return
+    }
+    if (minHeight != null && height < minHeight) {
+      setJumpMessage(`Block ${formatNumber(height)} is below the oldest block we have (${formatNumber(minHeight)}).`)
+      return
+    }
+    if (maxHeight != null && height > maxHeight) {
+      setJumpMessage(`Block ${formatNumber(height)} is above the newest block we have (${formatNumber(maxHeight)}).`)
+      return
+    }
+    const idx = blocks.findIndex((b) => b.height === height)
+    if (idx !== -1) {
+      setCenterIndex(idx)
+      return
+    }
+    setJumpLoading(true)
+    try {
+      const res = await fetch(
+        `/api/block-history?limit=${BLOCK_LIST_LIMIT}&height=${height}`,
+        { cache: 'no-store' }
+      )
+      if (!res.ok) {
+        setJumpMessage('Failed to load block.')
+        return
+      }
+      const data = await res.json()
+      const list = Array.isArray(data?.blocks) ? data.blocks : []
+      const foundIdx = list.findIndex((b: BlockSnapshot) => b.height === height)
+      if (list.length === 0 || foundIdx === -1) {
+        setJumpMessage('Block not in history.')
+        return
+      }
+      if (typeof data?.minHeight === 'number') setMinHeight(data.minHeight)
+      if (typeof data?.maxHeight === 'number') setMaxHeight(data.maxHeight)
+      noMoreBlocksRef.current = false
+      setBlocks(list)
+      setCenterIndex(foundIdx)
+    } catch {
+      setJumpMessage('Failed to load block.')
+    } finally {
+      setJumpLoading(false)
+    }
+  }, [jumpInput, minHeight, maxHeight, blocks])
+
   if (loading && blocks.length === 0) {
     return (
       <div className="w-full flex items-center justify-center py-12">
@@ -200,31 +274,32 @@ export default function BlockVisualizer() {
     'flex items-center justify-center w-12 h-12 min-w-12 min-h-12 flex-shrink-0 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors'
 
   return (
-    <div className="relative flex flex-col xl:flex-row items-center gap-2">
-      <div className="flex flex-row items-center justify-center gap-2 mb-2 xl:mb-0 xl:contents">
-        <button
-          type="button"
-          onClick={goOlder}
-          disabled={centerIndex >= blocks.length - 1}
-          className={`${navButtonClass} xl:order-2`}
-          aria-label="Move to older block"
-        >
-          <ChevronDown className="w-6 h-6 xl:hidden" />
-          <ChevronRight className="w-6 h-6 hidden xl:block" />
-        </button>
-        <button
-          type="button"
-          onClick={goNewer}
-          disabled={centerIndex <= 0}
-          className={`${navButtonClass} xl:order-0`}
-          aria-label="Move to newer block"
-        >
-          <ChevronUp className="w-6 h-6 xl:hidden" />
-          <ChevronLeft className="w-6 h-6 hidden xl:block" />
-        </button>
-      </div>
-
-      <div className="block-stack-container w-32 flex flex-col xl:flex-row xl:w-auto xl:flex-nowrap items-center gap-1 xl:gap-2 py-1 xl:order-1">
+    <div className="relative flex flex-col gap-2 w-full items-center">
+      {/* Row 1: nav + block chain (horizontal on xl, vertical on mobile) */}
+      <div className="flex flex-col xl:flex-row items-center justify-center gap-2 order-1 xl:order-0 w-full">
+        <div className="flex flex-row items-center justify-center gap-2 mb-2 xl:mb-0 xl:contents">
+          <button
+            type="button"
+            onClick={goOlder}
+            disabled={centerIndex >= blocks.length - 1}
+            className={`${navButtonClass} xl:order-2`}
+            aria-label="Move to older block"
+          >
+            <ChevronDown className="w-6 h-6 xl:hidden" />
+            <ChevronRight className="w-6 h-6 hidden xl:block" />
+          </button>
+          <button
+            type="button"
+            onClick={goNewer}
+            disabled={centerIndex <= 0}
+            className={`${navButtonClass} xl:order-0`}
+            aria-label="Move to newer block"
+          >
+            <ChevronUp className="w-6 h-6 xl:hidden" />
+            <ChevronLeft className="w-6 h-6 hidden xl:block" />
+          </button>
+        </div>
+        <div className="block-stack-container w-32 flex flex-col xl:flex-row xl:w-auto xl:flex-nowrap items-center gap-1 xl:gap-2 py-1 xl:order-1">
         {slotIndices.map((blockIdx, slotIdx) => {
           const block = blockIdx >= 0 && blockIdx < blocks.length ? blocks[blockIdx] : null
           const isCenter = slotIdx === 3
@@ -296,7 +371,7 @@ export default function BlockVisualizer() {
                         </div>
                         <div>
                           Coinbase: {block.subsidyPlusFeesBTC.toFixed(4)} BTC
-                          {btcPrice != null && ` (${formatPrice(block.subsidyPlusFeesBTC * btcPrice)} USD)`}
+                          {btcPrice != null && ` (${formatPrice(block.subsidyPlusFeesBTC * btcPrice)})`}
                         </div>
                         <MinerWithIcon miner={block.miner} minerName={block.minerName} />
                       </div>
@@ -317,6 +392,56 @@ export default function BlockVisualizer() {
             </div>
           )
         })}
+        </div>
+      </div>
+
+      {/* Row 2: Jump to block */}
+      <div className="flex w-full flex-col items-center justify-center gap-2 order-1 mt-8">
+        {minHeight != null && maxHeight != null && (
+          <p className="text-secondary text-xs">
+            Available blocks: {formatNumber(minHeight)} – {formatNumber(maxHeight)}
+          </p>
+        )}
+        <div className="flex flex-row items-center gap-2 flex-wrap justify-center">
+          <label htmlFor="jump-block-height" className="text-secondary text-sm sr-only">
+            Block height
+          </label>
+          <input
+            id="jump-block-height"
+            type="number"
+            min={0}
+            max={10000000}
+            placeholder="Block height"
+            value={jumpInput}
+            onChange={(e) => setJumpInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleJumpToBlock()}
+            className="w-28 px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            disabled={loading || jumpLoading}
+            aria-label="Block height"
+            aria-describedby={jumpMessage ? 'jump-message' : undefined}
+          />
+          <button
+            type="button"
+            onClick={handleJumpToBlock}
+            disabled={loading || jumpLoading}
+            className="px-3 py-1.5 text-sm rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 transition-colors"
+          >
+            {jumpLoading ? 'Loading…' : 'Go'}
+          </button>
+        </div>
+        {jumpMessage != null && (
+          <p id="jump-message" className="text-secondary text-xs text-center" role="status">
+            {jumpMessage}
+          </p>
+        )}
+        <button
+          type="button"
+          onClick={() => fetchBlockHistory(null)}
+          disabled={loading}
+          className="text-xs text-accent hover:underline disabled:opacity-40 transition-opacity"
+        >
+          Jump to tip
+        </button>
       </div>
     </div>
   )

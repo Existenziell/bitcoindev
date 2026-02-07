@@ -80,11 +80,31 @@ export async function GET(request: NextRequest) {
     )
     const beforeHeightParam = searchParams.get('beforeHeight')
     const beforeHeight = beforeHeightParam ? parseInt(beforeHeightParam, 10) : null
+    const heightParam = searchParams.get('height')
+    const height = heightParam != null && heightParam !== '' ? parseInt(heightParam, 10) : null
 
     const list = await readBlockHistoryFromBlob()
-    const blocks = paginate(list ?? [], limit, beforeHeight)
-    console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', beforeHeight=', beforeHeight, ')')
-    return NextResponse.json({ blocks })
+    const fullList = list ?? []
+
+    const minHeight = fullList.length > 0 ? fullList[fullList.length - 1].height : null
+    const maxHeight = fullList.length > 0 ? fullList[0].height : null
+
+    let blocks: BlockSnapshot[]
+    if (height != null && !Number.isNaN(height)) {
+      const i = fullList.findIndex((b) => b.height === height)
+      if (i === -1) {
+        blocks = []
+      } else {
+        const start = Math.max(0, i - Math.floor(limit / 2))
+        blocks = fullList.slice(start, start + limit)
+      }
+      console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', height=', height, ')')
+    } else {
+      blocks = paginate(fullList, limit, beforeHeight)
+      console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', beforeHeight=', beforeHeight, ')')
+    }
+
+    return NextResponse.json({ blocks, minHeight, maxHeight })
   } catch (err) {
     console.error('Block history API error:', err)
     return NextResponse.json(
