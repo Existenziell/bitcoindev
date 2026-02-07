@@ -17,6 +17,8 @@ const POOL_DISTRIBUTION_WINDOW = 2016
 // Max blocks to fetch per run (gap fill + new tip). GitHub Actions job limit is 6h; runtime is
 // dominated by RPC latency. 288 = 2 days of blocks (~6/h) so we can catch up after missed runs.
 const GAP_FILL_MAX_PER_REQUEST = 288
+// Limit concurrent RPC calls to avoid 504s from the public node.
+const RPC_CONCURRENCY = 10
 
 const BITCOIN_RPC_URL = 'https://bitcoin-rpc.publicnode.com'
 const BLOCK_HISTORY_BLOB_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim()
@@ -85,6 +87,25 @@ async function fetchBlockSnapshotAtHeight(height: number): Promise<BlockSnapshot
   return buildBlockSnapshot(processBlockData(raw))
 }
 
+async function runWithConcurrency<T, R>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results: R[] = new Array(items.length)
+  let index = 0
+  async function worker(): Promise<void> {
+    while (index < items.length) {
+      const i = index++
+      results[i] = await fn(items[i])
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, items.length) }, () => worker())
+  )
+  return results
+}
+
 async function main(): Promise<void> {
   if (!process.env.BLOB_READ_WRITE_TOKEN?.trim()) {
     console.error('BLOB_READ_WRITE_TOKEN is required')
@@ -112,15 +133,17 @@ async function main(): Promise<void> {
     const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, gapSize)
     const missingHeights = Array.from({ length: toFill }, (_, j) => newBlock.height - 1 - j)
     console.log('Gap at top (new', newBlock.height, ', top', topHeight, '), filling', toFill, 'of', gapSize)
-    const missing = await Promise.all(
-      missingHeights.map(async (h) => {
+    const missing = await runWithConcurrency(
+      missingHeights,
+      RPC_CONCURRENCY,
+      async (h) => {
         try {
           return await fetchBlockSnapshotAtHeight(h)
         } catch (e) {
           console.error('Fetch block', h, 'failed', e)
           return null
         }
-      })
+      }
     )
     const valid = missing.filter((s): s is BlockSnapshot => s !== null)
     if (valid.length !== missingHeights.length) {
@@ -149,15 +172,17 @@ async function main(): Promise<void> {
       const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, high - low - 1)
       const heights = Array.from({ length: toFill }, (_, j) => high - 1 - j)
       console.log('Filling internal gap', high - 1, '..', heights[heights.length - 1], '(' + toFill, 'blocks)')
-      const batch = await Promise.all(
-        heights.map(async (h) => {
+      const batch = await runWithConcurrency(
+        heights,
+        RPC_CONCURRENCY,
+        async (h) => {
           try {
             return await fetchBlockSnapshotAtHeight(h)
           } catch (e) {
             console.error('Fetch block', h, 'failed', e)
             return null
           }
-        })
+        }
       )
       const valid = batch.filter((s): s is BlockSnapshot => s !== null)
       if (valid.length !== batch.length) {
