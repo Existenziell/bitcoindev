@@ -1,26 +1,20 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { GET } from '@/app/api/pool-distribution/route'
 
-vi.mock('@vercel/blob', () => ({
-  list: vi.fn(),
+const readFileMock = vi.hoisted(() => vi.fn())
+vi.mock('fs', () => ({
+  promises: {
+    readFile: readFileMock,
+  },
 }))
 
-import * as vercelBlob from '@vercel/blob'
-
 describe('pool-distribution API route', () => {
-  const originalFetch = global.fetch
-
   beforeEach(() => {
-    vi.mocked(vercelBlob.list).mockReset()
-    global.fetch = vi.fn()
+    readFileMock.mockReset()
   })
 
-  afterEach(() => {
-    global.fetch = originalFetch
-  })
-
-  it('returns empty object when no blob found', async () => {
-    vi.mocked(vercelBlob.list).mockResolvedValue({ blobs: [] })
+  it('returns empty object when file is missing', async () => {
+    readFileMock.mockRejectedValueOnce(new Error('ENOENT'))
 
     const response = await GET()
     const data = await response.json()
@@ -29,10 +23,8 @@ describe('pool-distribution API route', () => {
     expect(data).toEqual({})
   })
 
-  it('returns empty object when blob has no url', async () => {
-    vi.mocked(vercelBlob.list).mockResolvedValue({
-      blobs: [{ pathname: 'pool-distribution.json', url: null }],
-    })
+  it('returns empty object when file content is null', async () => {
+    readFileMock.mockResolvedValueOnce(JSON.stringify(null))
 
     const response = await GET()
     const data = await response.json()
@@ -41,11 +33,8 @@ describe('pool-distribution API route', () => {
     expect(data).toEqual({})
   })
 
-  it('returns empty object when fetch to blob url fails', async () => {
-    vi.mocked(vercelBlob.list).mockResolvedValue({
-      blobs: [{ pathname: 'pool-distribution.json', url: 'https://blob.example/pool.json' }],
-    })
-    ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({ ok: false })
+  it('returns empty object when file content is array', async () => {
+    readFileMock.mockResolvedValueOnce(JSON.stringify([]))
 
     const response = await GET()
     const data = await response.json()
@@ -54,30 +43,9 @@ describe('pool-distribution API route', () => {
     expect(data).toEqual({})
   })
 
-  it('returns empty object when response is null or array', async () => {
-    vi.mocked(vercelBlob.list).mockResolvedValue({
-      blobs: [{ pathname: 'pool-distribution.json', url: 'https://blob.example/pool.json' }],
-    })
-    ;(global.fetch as ReturnType<typeof vi.fn>)
-      .mockResolvedValueOnce({ ok: true, json: async () => null })
-      .mockResolvedValueOnce({ ok: true, json: async () => [] })
-
-    const res1 = await GET()
-    expect(await res1.json()).toEqual({})
-
-    const res2 = await GET()
-    expect(await res2.json()).toEqual({})
-  })
-
-  it('returns pool distribution when blob returns valid object', async () => {
+  it('returns pool distribution when file contains valid object', async () => {
     const distribution = { antpool: 18.5, foundryusa: 15.2, others: 66.3 }
-    vi.mocked(vercelBlob.list).mockResolvedValue({
-      blobs: [{ pathname: 'pool-distribution.json', url: 'https://blob.example/pool.json' }],
-    })
-    ;(global.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
-      ok: true,
-      json: async () => distribution,
-    })
+    readFileMock.mockResolvedValueOnce(JSON.stringify(distribution))
 
     const response = await GET()
     const data = await response.json()
@@ -86,15 +54,11 @@ describe('pool-distribution API route', () => {
     expect(data).toEqual(distribution)
   })
 
-  it('returns empty object when list throws', async () => {
-    vi.mocked(vercelBlob.list).mockRejectedValueOnce(new Error('Blob error'))
-
-    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+  it('returns empty object when readFile throws', async () => {
+    readFileMock.mockRejectedValueOnce(new Error('EACCES'))
 
     const response = await GET()
     const data = await response.json()
-
-    consoleError.mockRestore()
 
     expect(response.status).toBe(200)
     expect(data).toEqual({})

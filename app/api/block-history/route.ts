@@ -1,60 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { list } from '@vercel/blob'
+import * as fs from 'fs'
+import * as path from 'path'
 import type { BlockSnapshot } from '@/app/utils/blockUtils'
 import { DEFAULT_LIMIT, MAX_LIMIT } from '@/app/utils/constants'
 
-const BLOCK_HISTORY_BLOB_PATH = 'block-history.json'
-/** Optional public URL to read block-history from. When set, avoids list() and saves advanced ops. */
-const BLOCK_HISTORY_PUBLIC_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim() || ''
+const BLOCK_HISTORY_PATH = path.join(process.cwd(), 'public', 'data', 'block-history.json')
 
 /** Revalidate cached response every 10 minutes. */
 export const revalidate = 600
 
-/** Read block history from optional public URL. Returns null if not set or fetch fails. */
-async function readBlockHistoryFromPublicUrl(): Promise<BlockSnapshot[] | null> {
-  if (!BLOCK_HISTORY_PUBLIC_URL) return null
+/** Read block history from local file. Returns null if not found or parse fails. */
+async function readBlockHistoryFromFile(): Promise<BlockSnapshot[] | null> {
   try {
-    const res = await fetch(BLOCK_HISTORY_PUBLIC_URL, { cache: 'no-store' })
-    if (!res.ok) return null
-    const data = await res.json()
+    const raw = await fs.promises.readFile(BLOCK_HISTORY_PATH, 'utf-8')
+    const data = JSON.parse(raw)
     const parsed = Array.isArray(data) ? data : Array.isArray(data?.blocks) ? data.blocks : null
     if (!parsed || parsed.length === 0) return null
-    console.log('[block-history] Read from public URL:', parsed.length, 'blocks')
     return parsed as BlockSnapshot[]
-  } catch (err) {
-    console.log('[block-history] readBlockHistoryFromPublicUrl error:', err)
-    return null
-  }
-}
-
-/** Read block history from Blob (or public URL when set). Returns null if not found or parse fails. */
-async function readBlockHistoryFromBlob(): Promise<BlockSnapshot[] | null> {
-  if (BLOCK_HISTORY_PUBLIC_URL) {
-    const fromUrl = await readBlockHistoryFromPublicUrl()
-    if (fromUrl !== null) return fromUrl
-  }
-  try {
-    const { blobs } = await list({ prefix: BLOCK_HISTORY_BLOB_PATH })
-    const blob = blobs.find((b) => b.pathname === BLOCK_HISTORY_BLOB_PATH) ?? blobs[0]
-    if (!blob?.url) {
-      console.log('[block-history] Blob not found or no url')
-      return null
-    }
-    const res = await fetch(blob.url, { cache: 'no-store' })
-    if (!res.ok) {
-      console.log('[block-history] Blob fetch failed:', res.status)
-      return null
-    }
-    const data = await res.json()
-    const parsed = Array.isArray(data) ? data : Array.isArray(data?.blocks) ? data.blocks : null
-    if (!parsed || parsed.length === 0) {
-      console.log('[block-history] Blob empty or invalid')
-      return null
-    }
-    console.log('[block-history] Read from Blob:', parsed.length, 'blocks')
-    return parsed as BlockSnapshot[]
-  } catch (err) {
-    console.log('[block-history] readBlockHistoryFromBlob error:', err)
+  } catch {
     return null
   }
 }
@@ -69,7 +32,7 @@ function paginate(blocks: BlockSnapshot[], limit: number, beforeHeight: number |
 }
 
 /**
- * GET only. This app never writes to blob; the GitHub workflow scripts/update-block-history.ts does.
+ * GET only. Block data is written by scripts/update-block-history.ts (run by GitHub workflow or locally).
  */
 export async function GET(request: NextRequest) {
   try {
@@ -83,7 +46,7 @@ export async function GET(request: NextRequest) {
     const heightParam = searchParams.get('height')
     const height = heightParam != null && heightParam !== '' ? parseInt(heightParam, 10) : null
 
-    const list = await readBlockHistoryFromBlob()
+    const list = await readBlockHistoryFromFile()
     const fullList = list ?? []
 
     const minHeight = fullList.length > 0 ? fullList[fullList.length - 1].height : null

@@ -47,7 +47,7 @@ Interactive Bitcoin Script playground. Unlocking script runs first (pushes data 
 
 ### Block Visualizer
 
-Interactive block visualization showing the latest Bitcoin block as a transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Hover for details, click to explore inputs, outputs, and transaction flow. Connects to mainnet via PublicNode.
+Interactive block visualization showing the latest Bitcoin block as a transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Hover for details, click to explore inputs, outputs, and transaction flow. Block and pool-distribution data live in `public/data/` and are updated by a scheduled GitHub workflow (or by running the update script locally).
 
 ### Denominations Calculator
 
@@ -111,6 +111,7 @@ npm run dev    # → http://localhost:3000
 | `npm run lint` | ESLint |
 | `npm run check:links` | Validate internal links and run analysis (self-links, duplicates, orphans, etc.); optional `--external`, `--json` |
 | `npm run analyze` | Bundle analysis |
+| `npx tsx scripts/update-block-history.ts` | Update block-history and pool-distribution (writes to `public/data/`; used by Block Visualizer and pool chart). Run locally or let the GitHub workflow run it every 6 hours. |
 
 ## Testing
 
