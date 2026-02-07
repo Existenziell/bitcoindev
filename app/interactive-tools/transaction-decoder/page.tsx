@@ -55,7 +55,7 @@ export default function TransactionDecoderPage() {
             className="w-full h-32 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono text-sm"
             spellCheck={false}
           />
-          <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">{result.error}</div>
+          <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">{input.trim() ? result.error : ''}</div>
         </div>
 
         {input.trim() && !result.error && (

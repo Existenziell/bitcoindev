@@ -415,7 +415,7 @@ export default function BlockVisualizer() {
             value={jumpInput}
             onChange={(e) => setJumpInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleJumpToBlock()}
-            className="w-28 px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="input-no-spinner w-28 px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
             disabled={loading || jumpLoading}
             aria-label="Block height"
             aria-describedby={jumpMessage ? 'jump-message' : undefined}
