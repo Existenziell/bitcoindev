@@ -22,7 +22,7 @@ export default function MempoolPage() {
           <BlockVisualizerIcon className="w-20 h-20" />
         </div>
         <h1 className="heading-page text-center">Block Visualizer (beta)</h1>
-        <p className="text-secondary text-center mb-2">
+        <p className="text-secondary text-center mb-10 block">
           Explore the latest Bitcoin blocks and their transactions.<br />
           Observing <span className="font-semibold">Bitcoin mainnet</span> via PublicNode.
           Blocks update every 6 hours.

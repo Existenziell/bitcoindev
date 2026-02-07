@@ -227,6 +227,16 @@ body {
     -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%, black 100%);
   }
 
+  .block-stack-fade-left {
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+  }
+
+  .block-stack-fade-right {
+    mask-image: linear-gradient(to left, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 20%, black 100%);
+  }
+
   /* Block visualizer scroll arrows - add left-0 or right-0 and gradient */
   .block-nav-arrow {
     @apply absolute top-0 bottom-8 z-10 flex items-center justify-center w-10 text-secondary hover:text-accent transition-colors;

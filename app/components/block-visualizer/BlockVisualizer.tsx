@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import {
   BlockSnapshot,
@@ -9,7 +9,7 @@ import {
   truncateHash,
 } from '@/app/utils/blockUtils'
 import { formatNumber, formatPrice } from '@/app/utils/formatting'
-import { ChevronUp, ChevronDown, ExternalLinkIcon } from '@/app/components/Icons'
+import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
 import poolsData from '@/public/data/pools.json'
 
 const BLOCK_LIST_LIMIT = 20
@@ -75,8 +75,13 @@ export default function BlockVisualizer() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [btcPrice, setBtcPrice] = useState<number | null>(null)
+  const isFetchingMoreRef = useRef(false)
+  const noMoreBlocksRef = useRef(false)
+  const blocksRef = useRef(blocks)
+  blocksRef.current = blocks
 
   const fetchBlockHistory = useCallback(async (beforeHeight: number | null = null) => {
+    if (beforeHeight == null) noMoreBlocksRef.current = false
     setLoading(true)
     setError(null)
     try {
@@ -105,9 +110,41 @@ export default function BlockVisualizer() {
     }
   }, [])
 
+  const fetchMoreBlocks = useCallback(async () => {
+    if (isFetchingMoreRef.current || noMoreBlocksRef.current) return
+    const blocksNow = blocksRef.current
+    if (blocksNow.length === 0) return
+    const lastHeight = blocksNow[blocksNow.length - 1].height
+    isFetchingMoreRef.current = true
+    try {
+      const res = await fetch(
+        `/api/block-history?limit=${BLOCK_LIST_LIMIT}&beforeHeight=${lastHeight}`,
+        { cache: 'no-store' }
+      )
+      if (!res.ok) return
+      const data = await res.json()
+      const list = Array.isArray(data?.blocks) ? data.blocks : []
+      if (list.length === 0) noMoreBlocksRef.current = true
+      else setBlocks((b) => [...b, ...list])
+    } finally {
+      isFetchingMoreRef.current = false
+    }
+  }, [])
+
   useEffect(() => {
     fetchBlockHistory(null)
   }, [fetchBlockHistory])
+
+  useEffect(() => {
+    if (
+      blocks.length > 0 &&
+      centerIndex >= blocks.length - 4 &&
+      !isFetchingMoreRef.current &&
+      !noMoreBlocksRef.current
+    ) {
+      fetchMoreBlocks()
+    }
+  }, [blocks.length, centerIndex, fetchMoreBlocks])
 
   useEffect(() => {
     fetch('/api/btc-price')
@@ -157,51 +194,55 @@ export default function BlockVisualizer() {
     )
   }
 
-  const SLOTS = 6
-  const slotIndices = Array.from({ length: SLOTS }, (_, i) => centerIndex - 2 + i)
+  const SLOTS = 7
+  const slotIndices = Array.from({ length: SLOTS }, (_, i) => centerIndex - 3 + i)
   const navButtonClass =
-    'flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors'
+    'flex items-center justify-center w-12 h-12 min-w-12 min-h-12 flex-shrink-0 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 disabled:pointer-events-none transition-colors'
 
   return (
-    <div className="relative flex flex-col items-center">
-      <div className="flex flex-row items-center justify-center gap-2 mb-2">
+    <div className="relative flex flex-col xl:flex-row items-center gap-2">
+      <div className="flex flex-row items-center justify-center gap-2 mb-2 xl:mb-0 xl:contents">
         <button
           type="button"
           onClick={goOlder}
           disabled={centerIndex >= blocks.length - 1}
-          className={navButtonClass}
+          className={`${navButtonClass} xl:order-2`}
           aria-label="Move to older block"
         >
-          <ChevronDown className="w-6 h-6" />
+          <ChevronDown className="w-6 h-6 xl:hidden" />
+          <ChevronRight className="w-6 h-6 hidden xl:block" />
         </button>
         <button
           type="button"
           onClick={goNewer}
           disabled={centerIndex <= 0}
-          className={navButtonClass}
+          className={`${navButtonClass} xl:order-0`}
           aria-label="Move to newer block"
         >
-          <ChevronUp className="w-6 h-6" />
+          <ChevronUp className="w-6 h-6 xl:hidden" />
+          <ChevronLeft className="w-6 h-6 hidden xl:block" />
         </button>
       </div>
 
-      <div className="block-stack-container w-32 flex flex-col items-center gap-1 py-1">
+      <div className="block-stack-container w-32 flex flex-col xl:flex-row xl:w-auto xl:flex-nowrap items-center gap-1 xl:gap-2 py-1 xl:order-1">
         {slotIndices.map((blockIdx, slotIdx) => {
           const block = blockIdx >= 0 && blockIdx < blocks.length ? blocks[blockIdx] : null
-          const isCenter = slotIdx === 2
-          const isNeighbor = slotIdx === 1 || slotIdx === 3
+          const isCenter = slotIdx === 3
+          const isNeighbor = slotIdx === 2 || slotIdx === 4
           const isTop = slotIdx === 0
           const isBottom = slotIdx === SLOTS - 1
+          const isExtraLeftSlot = slotIdx === 0
           const showTip = blockIdx === 0 && block != null
 
           const slotClasses = [
             'block-stack-slot flex flex-col items-center transition-none flex-shrink-0',
+            isExtraLeftSlot && 'hidden xl:flex',
             isCenter && 'block-stack-slot-center w-[218px] scale-110 z-10',
             isNeighbor && !isCenter && 'block-stack-slot-neighbor w-36 scale-105 z-[1]',
             !isCenter && !isNeighbor && !isBottom && 'w-32 scale-100',
             isBottom && !isCenter && 'w-32 scale-90',
-            isTop && 'block-stack-fade-top',
-            isBottom && 'block-stack-fade-bottom -mt-2.5',
+            isTop && 'block-stack-fade-top xl:block-stack-fade-left',
+            isBottom && 'block-stack-fade-bottom -mt-2.5 xl:mt-0 xl:-ml-2.5 xl:block-stack-fade-right',
           ]
             .filter(Boolean)
             .join(' ')
