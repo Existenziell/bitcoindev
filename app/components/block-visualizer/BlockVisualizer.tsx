@@ -112,6 +112,8 @@ export default function BlockVisualizer() {
   const noMoreBlocksRef = useRef(false)
   const blocksRef = useRef(blocks)
   blocksRef.current = blocks
+  const touchStartY = useRef<number | null>(null)
+  const SWIPE_THRESHOLD_PX = 50
 
   const fetchBlockHistory = useCallback(async (beforeHeight: number | null = null) => {
     if (beforeHeight == null) noMoreBlocksRef.current = false
@@ -195,6 +197,42 @@ export default function BlockVisualizer() {
   const goNewer = useCallback(() => {
     setCenterIndex((i) => Math.max(i - 1, 0))
   }, [])
+
+  // Keyboard: left/right on desktop, up/down on mobile (don’t steal focus from inputs)
+  useEffect(() => {
+    const isMobile = () => window.matchMedia('(max-width: 1279px)').matches
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as Node
+      if (
+        target instanceof HTMLInputElement ||
+        target instanceof HTMLTextAreaElement ||
+        target instanceof HTMLSelectElement ||
+        (target instanceof HTMLElement && target.isContentEditable)
+      ) {
+        return
+      }
+      const mobile = isMobile()
+      if (mobile) {
+        if (e.key === 'ArrowUp') {
+          e.preventDefault()
+          goNewer()
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault()
+          goOlder()
+        }
+      } else {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault()
+          goNewer()
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault()
+          goOlder()
+        }
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [goNewer, goOlder])
 
   const handleJumpToBlock = useCallback(async () => {
     setJumpMessage(null)
@@ -310,7 +348,23 @@ export default function BlockVisualizer() {
             <ChevronLeft className="w-6 h-6 hidden xl:block" />
           </button>
         </div>
-        <div className="block-stack-container w-32 flex flex-col xl:flex-row xl:w-auto xl:flex-nowrap items-center gap-1 xl:gap-2 py-1 xl:order-1">
+        <div
+          className="block-stack-container w-32 flex flex-col xl:flex-row xl:w-auto xl:flex-nowrap items-center gap-1 xl:gap-2 py-1 xl:order-1 touch-pan-y"
+          onTouchStart={(e) => {
+            if (e.changedTouches.length === 1) {
+              touchStartY.current = e.changedTouches[0].clientY
+            }
+          }}
+          onTouchEnd={(e) => {
+            if (e.changedTouches.length !== 1 || touchStartY.current == null) return
+            const endY = e.changedTouches[0].clientY
+            const delta = touchStartY.current - endY
+            touchStartY.current = null
+            if (Math.abs(delta) < SWIPE_THRESHOLD_PX) return
+            if (delta > 0) goOlder()
+            else goNewer()
+          }}
+        >
         {slotIndices.map((blockIdx, slotIdx) => {
           const block = blockIdx >= 0 && blockIdx < blocks.length ? blocks[blockIdx] : null
           const isCenter = slotIdx === 3
