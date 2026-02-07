@@ -14,7 +14,9 @@ import { processBlockData, buildBlockSnapshot, type BlockSnapshot } from '../app
 const BLOCK_HISTORY_BLOB_PATH = 'block-history.json'
 const POOL_DISTRIBUTION_BLOB_PATH = 'pool-distribution.json'
 const POOL_DISTRIBUTION_WINDOW = 2016
-const GAP_FILL_MAX_PER_REQUEST = 8
+// Max blocks to fetch per run (gap fill + new tip). GitHub Actions job limit is 6h; runtime is
+// dominated by RPC latency. 288 = 2 days of blocks (~6/h) so we can catch up after missed runs.
+const GAP_FILL_MAX_PER_REQUEST = 288
 const INITIAL_SEED_LIMIT = 100
 
 const BITCOIN_RPC_URL = process.env.BITCOIN_RPC_URL?.trim() || 'https://bitcoin-rpc.publicnode.com'
