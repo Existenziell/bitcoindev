@@ -3,7 +3,7 @@
  * Update block-history and pool-distribution in Vercel Blob. Intended to be run only
  * from GitHub Actions; the Next.js app never writes to blob.
  *
- * Requires: BLOCK_HISTORY_BLOB_URL, BLOB_READ_WRITE_TOKEN. Optional: BITCOIN_RPC_URL.
+ * Requires: BLOCK_HISTORY_BLOB_URL, BLOB_READ_WRITE_TOKEN.
  *
  * Usage: npx tsx scripts/update-block-history.ts
  */
@@ -18,7 +18,7 @@ const POOL_DISTRIBUTION_WINDOW = 2016
 // dominated by RPC latency. 288 = 2 days of blocks (~6/h) so we can catch up after missed runs.
 const GAP_FILL_MAX_PER_REQUEST = 288
 
-const BITCOIN_RPC_URL = process.env.BITCOIN_RPC_URL?.trim() || 'https://bitcoin-rpc.publicnode.com'
+const BITCOIN_RPC_URL = 'https://bitcoin-rpc.publicnode.com'
 const BLOCK_HISTORY_BLOB_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim()
 
 type RawBlock = {
