@@ -10,6 +10,7 @@ import {
 } from '@/app/utils/blockUtils'
 import { formatNumber, formatPrice } from '@/app/utils/formatting'
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
+import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 import poolsData from '@/public/data/pools.json'
 
 const BLOCK_LIST_LIMIT = 20
@@ -30,6 +31,16 @@ function getPoolIconSrc(miner?: string): string {
   const norm = miner.toLowerCase().replace(/[^a-z0-9]/g, '')
   const filename = POOL_ICON_MAP[norm] ?? 'default.svg'
   return `/icons/pools/${filename}`
+}
+
+function formatAverageBlockTime(secondsPerBlock: number): string {
+  if (secondsPerBlock < 60) {
+    return `${Math.round(secondsPerBlock)}s`
+  }
+  const mins = Math.floor(secondsPerBlock / 60)
+  const secs = Math.round(secondsPerBlock % 60)
+  if (secs === 0) return `~${mins} min`
+  return `${mins}m ${secs}s`
 }
 
 function getRelativeTime(timestamp: number): string {
@@ -430,6 +441,17 @@ export default function BlockVisualizer() {
             Available blocks: {formatNumber(minHeight)} – {formatNumber(maxHeight)}
           </p>
         )}
+        {blocks.length >= 2 && (() => {
+          const newest = blocks[0].timestamp
+          const oldest = blocks[blocks.length - 1].timestamp
+          const spanSec = newest - oldest
+          const avgSec = spanSec / (blocks.length - 1)
+          return (
+            <p className="text-secondary text-xs mt-0.5">
+              Average block time (last {formatNumber(blocks.length)} blocks): {formatAverageBlockTime(avgSec)}
+            </p>
+          )
+        })()}
         {jumpMessage != null && (
           <p id="jump-message" className="text-secondary text-xs text-center" role="status">
             {jumpMessage}
@@ -443,6 +465,10 @@ export default function BlockVisualizer() {
         >
           Jump to tip
         </button>
+        <div className="w-full max-w-2xl mt-12">
+          <h2 className="heading-section-sm -mb-3">Pool distribution:</h2>
+          <PoolDistributionChart />
+        </div>
       </div>
     </div>
   )
