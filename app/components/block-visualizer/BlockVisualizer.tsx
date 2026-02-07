@@ -396,12 +396,8 @@ export default function BlockVisualizer() {
       </div>
 
       {/* Row 2: Jump to block */}
-      <div className="flex w-full flex-col items-center justify-center gap-2 order-1 mt-8">
-        {minHeight != null && maxHeight != null && (
-          <p className="text-secondary text-xs">
-            Available blocks: {formatNumber(minHeight)} – {formatNumber(maxHeight)}
-          </p>
-        )}
+      <div className="flex w-full flex-col items-center justify-center gap-1 order-1 mt-8">
+        <h2 className="heading-section-sm">Jump to block</h2>
         <div className="flex flex-row items-center gap-2 flex-wrap justify-center">
           <label htmlFor="jump-block-height" className="text-secondary text-sm sr-only">
             Block height
@@ -429,6 +425,11 @@ export default function BlockVisualizer() {
             {jumpLoading ? 'Loading…' : 'Go'}
           </button>
         </div>
+        {minHeight != null && maxHeight != null && (
+          <p className="text-secondary text-xs mt-1">
+            Available blocks: {formatNumber(minHeight)} – {formatNumber(maxHeight)}
+          </p>
+        )}
         {jumpMessage != null && (
           <p id="jump-message" className="text-secondary text-xs text-center" role="status">
             {jumpMessage}
