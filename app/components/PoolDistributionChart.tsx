@@ -75,10 +75,8 @@ export default function PoolDistributionChart() {
   const maxPct = Math.max(...displayEntries.map((e) => e.pct), 1)
 
   return (
-    <div className="my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
-      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-        Data updated every 6 hours
-      </p>
+    <>
+    <div className="mt-4 mb-1 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
       <div className="space-y-2" role="list" aria-label="Pool hashrate distribution">
         {displayEntries.map(({ id, name, pct }) => (
           <div key={id} className="flex items-center gap-3 text-sm" role="listitem">
@@ -97,5 +95,7 @@ export default function PoolDistributionChart() {
         ))}
       </div>
     </div>
+    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 italic">Distribution for last 2016 blocks, updated every 6 hours.</p>
+    </>
   )
 }
