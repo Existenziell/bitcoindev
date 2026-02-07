@@ -17,7 +17,6 @@ const POOL_DISTRIBUTION_WINDOW = 2016
 // Max blocks to fetch per run (gap fill + new tip). GitHub Actions job limit is 6h; runtime is
 // dominated by RPC latency. 288 = 2 days of blocks (~6/h) so we can catch up after missed runs.
 const GAP_FILL_MAX_PER_REQUEST = 288
-const INITIAL_SEED_LIMIT = 100
 
 const BITCOIN_RPC_URL = process.env.BITCOIN_RPC_URL?.trim() || 'https://bitcoin-rpc.publicnode.com'
 const BLOCK_HISTORY_BLOB_URL = process.env.BLOCK_HISTORY_BLOB_URL?.trim()
@@ -86,27 +85,6 @@ async function fetchBlockSnapshotAtHeight(height: number): Promise<BlockSnapshot
   return buildBlockSnapshot(processBlockData(raw))
 }
 
-async function seedFromRpc(): Promise<BlockSnapshot[]> {
-  const chainInfo = (await rpc('getblockchaininfo')) as { blocks: number }
-  const tipHeight = chainInfo.blocks
-  const startHeight = Math.max(0, tipHeight - INITIAL_SEED_LIMIT + 1)
-  const heights = Array.from({ length: tipHeight - startHeight + 1 }, (_, i) => tipHeight - i)
-
-  const hashes = await Promise.all(heights.map((h) => rpc('getblockhash', [h]) as Promise<string>))
-  const blocksRaw = await Promise.all(
-    hashes.map((hash) => rpc('getblock', [hash, 3]) as Promise<RawBlock>)
-  )
-
-  const blocks: BlockSnapshot[] = blocksRaw
-    .map((raw) => {
-      if (!raw?.height) return null
-      return buildBlockSnapshot(processBlockData(raw))
-    })
-    .filter((s): s is BlockSnapshot => Boolean(s))
-
-  return blocks
-}
-
 async function main(): Promise<void> {
   if (!process.env.BLOB_READ_WRITE_TOKEN?.trim()) {
     console.error('BLOB_READ_WRITE_TOKEN is required')
@@ -119,57 +97,17 @@ async function main(): Promise<void> {
 
   let list = await fetchCurrentBlocks()
   if (list.length === 0) {
-    console.log('No existing block history; seeding from RPC...')
-    list = await seedFromRpc()
-  }
-
-  // Fill one batch of any internal gap
-  for (let i = 0; i < list.length - 1; i++) {
-    const high = list[i].height
-    const low = list[i + 1].height
-    if (high - low <= 1) continue
-    const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, high - low - 1)
-    const heights = Array.from({ length: toFill }, (_, j) => high - 1 - j)
-    console.log('Filling internal gap', high - 1, '..', heights[heights.length - 1], '(' + toFill, 'blocks)')
-    const batch = await Promise.all(
-      heights.map(async (h) => {
-        try {
-          return await fetchBlockSnapshotAtHeight(h)
-        } catch (e) {
-          console.error('Fetch block', h, 'failed', e)
-          return null
-        }
-      })
-    )
-    const valid = batch.filter((s): s is BlockSnapshot => s !== null)
-    if (valid.length !== batch.length) {
-      console.error('Failed to fetch some blocks; retry later')
-      process.exit(1)
-    }
-    list = [...list.slice(0, i + 1), ...valid, ...list.slice(i + 1)]
-    await put(BLOCK_HISTORY_BLOB_PATH, JSON.stringify(list), {
-      access: 'public',
-      addRandomSuffix: false,
-    })
-    await put(POOL_DISTRIBUTION_BLOB_PATH, JSON.stringify(computePoolDistribution(list)), {
-      access: 'public',
-      addRandomSuffix: false,
-    })
-    console.log('Filled internal gap, list length', list.length)
-    return
+    console.error('No existing block history at BLOCK_HISTORY_BLOB_URL; cannot update')
+    process.exit(1)
   }
 
   const chainInfo = (await rpc('getblockchaininfo')) as { blocks: number }
   const tipHeight = chainInfo.blocks
-  const newBlock = await fetchBlockSnapshotAtHeight(tipHeight)
-
   const topHeight = list[0]?.height ?? null
-  if (topHeight !== null && newBlock.height === topHeight) {
-    console.log('Idempotent: block', newBlock.height, 'already in list')
-    return
-  }
 
-  if (list.length > 0 && newBlock.height > topHeight + 1) {
+  // Prioritize gap at tip: always catch up to latest blocks first
+  if (tipHeight > topHeight) {
+    const newBlock = await fetchBlockSnapshotAtHeight(tipHeight)
     const gapSize = newBlock.height - topHeight - 1
     const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, gapSize)
     const missingHeights = Array.from({ length: toFill }, (_, j) => newBlock.height - 1 - j)
@@ -190,10 +128,61 @@ async function main(): Promise<void> {
       process.exit(1)
     }
     list = [newBlock, ...valid, ...list]
-  } else {
-    list = [newBlock, ...list]
+    await put(BLOCK_HISTORY_BLOB_PATH, JSON.stringify(list), {
+      access: 'public',
+      addRandomSuffix: false,
+    })
+    await put(POOL_DISTRIBUTION_BLOB_PATH, JSON.stringify(computePoolDistribution(list)), {
+      access: 'public',
+      addRandomSuffix: false,
+    })
+    console.log('Updated block-history:', list.length, 'blocks')
+    return
   }
 
+  if (topHeight !== null && tipHeight === topHeight) {
+    // Up to date at tip; fill one batch of any internal gap
+    for (let i = 0; i < list.length - 1; i++) {
+      const high = list[i].height
+      const low = list[i + 1].height
+      if (high - low <= 1) continue
+      const toFill = Math.min(GAP_FILL_MAX_PER_REQUEST, high - low - 1)
+      const heights = Array.from({ length: toFill }, (_, j) => high - 1 - j)
+      console.log('Filling internal gap', high - 1, '..', heights[heights.length - 1], '(' + toFill, 'blocks)')
+      const batch = await Promise.all(
+        heights.map(async (h) => {
+          try {
+            return await fetchBlockSnapshotAtHeight(h)
+          } catch (e) {
+            console.error('Fetch block', h, 'failed', e)
+            return null
+          }
+        })
+      )
+      const valid = batch.filter((s): s is BlockSnapshot => s !== null)
+      if (valid.length !== batch.length) {
+        console.error('Failed to fetch some blocks; retry later')
+        process.exit(1)
+      }
+      list = [...list.slice(0, i + 1), ...valid, ...list.slice(i + 1)]
+      await put(BLOCK_HISTORY_BLOB_PATH, JSON.stringify(list), {
+        access: 'public',
+        addRandomSuffix: false,
+      })
+      await put(POOL_DISTRIBUTION_BLOB_PATH, JSON.stringify(computePoolDistribution(list)), {
+        access: 'public',
+        addRandomSuffix: false,
+      })
+      console.log('Filled internal gap, list length', list.length)
+      return
+    }
+    console.log('Idempotent: block', topHeight, 'already in list')
+    return
+  }
+
+  // List exists but tip is ahead by exactly 1 (no gap): just add the new tip block
+  const newBlock = await fetchBlockSnapshotAtHeight(tipHeight)
+  list = [newBlock, ...list]
   await put(BLOCK_HISTORY_BLOB_PATH, JSON.stringify(list), {
     access: 'public',
     addRandomSuffix: false,
