@@ -216,6 +216,17 @@ body {
     @apply relative flex-shrink-0 w-44 h-44 overflow-hidden rounded-none border border-gray-200 dark:border-gray-700 bg-gradient-to-b from-cyan-500/10 to-purple-500/10 dark:from-cyan-500/20 dark:to-purple-500/20 p-3 text-sm;
   }
 
+  /* Top/bottom blocks fade slightly towards the end of the chain */
+  .block-stack-fade-top {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+  }
+
+  .block-stack-fade-bottom {
+    mask-image: linear-gradient(to top, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%, black 100%);
+  }
+
   /* Block visualizer scroll arrows - add left-0 or right-0 and gradient */
   .block-nav-arrow {
     @apply absolute top-0 bottom-8 z-10 flex items-center justify-center w-10 text-secondary hover:text-accent transition-colors;

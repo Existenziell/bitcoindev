@@ -77,7 +77,7 @@ export default function PoolDistributionChart() {
   return (
     <div className="my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
       <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-        Data from the last 2016 blocks
+        Data updated every 6 hours
       </p>
       <div className="space-y-2" role="list" aria-label="Pool hashrate distribution">
         {displayEntries.map(({ id, name, pct }) => (
