@@ -237,7 +237,7 @@ export default function BlockVisualizer() {
           const slotClasses = [
             'block-stack-slot flex flex-col items-center transition-none flex-shrink-0',
             isExtraLeftSlot && 'hidden xl:flex',
-            isCenter && 'block-stack-slot-center w-[218px] scale-110 z-10',
+            isCenter && 'block-stack-slot-center w-[265px] scale-110 z-10',
             isNeighbor && !isCenter && 'block-stack-slot-neighbor w-36 scale-105 z-[1]',
             !isCenter && !isNeighbor && !isBottom && 'w-32 scale-100',
             isBottom && !isCenter && 'w-32 scale-90',
@@ -265,7 +265,7 @@ export default function BlockVisualizer() {
                     <div className="p-2 space-y-1.5 flex-1 min-h-0 overflow-auto">
                       <div className="flex flex-col gap-0.5">
                         <div className="flex flex-row items-baseline justify-between gap-2">
-                          <span className={`${showTip ? 'mt-0' : 'mt-4'} text-accent font-semibold text-base mb-2`}>{formatNumber(block.height)}</span>
+                          <span className={`${showTip ? 'mt-0' : 'mt-2'} text-accent font-semibold text-base mb-2`}>{formatNumber(block.height)}</span>
                           <span className="text-secondary text-xs shrink-0">{getRelativeTime(block.timestamp)}</span>
                         </div>
                         <a
@@ -288,6 +288,15 @@ export default function BlockVisualizer() {
                         </div>
                         <div>
                           Range: {block.feeSpanMin} – {block.feeSpanMax} sat/vB
+                        </div>
+                        <div>Median: {block.medianFeeRate} sat/vB</div>
+                        <div>
+                          Volume: {block.totalValueBTC.toFixed(4)} BTC
+                          {btcPrice != null && ` (${formatPrice(block.totalValueBTC * btcPrice)})`}
+                        </div>
+                        <div>
+                          Coinbase: {block.subsidyPlusFeesBTC.toFixed(4)} BTC
+                          {btcPrice != null && ` (${formatPrice(block.subsidyPlusFeesBTC * btcPrice)} USD)`}
                         </div>
                         <MinerWithIcon miner={block.miner} minerName={block.minerName} />
                       </div>
