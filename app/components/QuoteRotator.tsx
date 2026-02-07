@@ -78,7 +78,7 @@ function QuoteRotator() {
           setQuote(getNextQuote())
           setIsVisible(true)
         }, 500)
-      }, 8000)
+      }, 6000)
     }, delayMs)
     return () => {
       clearTimeout(timeoutId)
