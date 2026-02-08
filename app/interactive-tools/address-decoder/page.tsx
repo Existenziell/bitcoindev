@@ -122,7 +122,7 @@ export default function AddressDecoderPage() {
                   ]
                   return (
                     <div className="w-full space-y-3">
-                      <div className="font-mono text-lg break-all leading-loose py-2">
+                      <div className="font-mono break-all leading-loose py-2">
                         {segments.map((seg) =>
                           seg.end > seg.start ? (
                             <span
