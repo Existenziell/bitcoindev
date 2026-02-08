@@ -251,7 +251,7 @@ const createHeading = (level: number) => {
         <span className="group relative block">
           <Link
             href={`#${id}`}
-            className="absolute left-0 top-[0.5em] -translate-x-full pr-2 opacity-0 transition-opacity group-hover:opacity-100 focus:opacity-100 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            className="hidden md:block absolute left-0 top-[0.5em] -translate-x-full pr-2 opacity-0 transition-opacity md:group-hover:opacity-100 focus:opacity-100 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             aria-label="Link to section"
           >
             <LinkIcon className="w-5 h-5" />
