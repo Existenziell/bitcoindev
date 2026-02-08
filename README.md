@@ -10,6 +10,10 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
   - [Bitcoin CLI Terminal](#bitcoin-cli-terminal)
   - [Stack Lab](#stack-lab)
   - [Block Visualizer](#block-visualizer)
+  - [Hash Tool](#hash-tool)
+  - [Address Decoder](#address-decoder)
+  - [Transaction Decoder](#transaction-decoder)
+  - [Fee Estimator](#fee-estimator)
   - [Denominations Calculator](#denominations-calculator)
 - [Code snippets](#code-snippets)
 - [Search](#search)
@@ -28,6 +32,10 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
 - **Bitcoin CLI Terminal**: Run Bitcoin Core RPC commands in the browser against a public mainnet node. No node setup. `/interactive-tools/terminal`
 - **Stack Lab**: Interactive Bitcoin Script playground. Build and run locking/unlocking scripts in the browser; same model as on-chain validation. `/interactive-tools/stack-lab`
 - **Block Visualizer**: Interactive block visualization with transaction treemap. Explore the latest Bitcoin block, click transactions to see inputs/outputs. `/interactive-tools/block-visualizer`
+- **Hash Tool**: SHA-256, HASH256, HASH160, RIPEMD-160, and Base58Check checksum. For block hashes, TXIDs, and addresses. `/interactive-tools/hash`
+- **Address Decoder**: Decode addresses to see type (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), network, version/hash/checksum. Base58Check and Bech32/Bech32m. `/interactive-tools/address-decoder`
+- **Transaction Decoder**: Paste raw tx hex to see version, inputs, outputs, locktime, and structure. `/interactive-tools/transaction-decoder`
+- **Fee Estimator**: Estimate fee from vBytes and current rate (sats and USD). `/interactive-tools/fee-estimator`
 - **Denominations Calculator**: Convert between satoshis, bits, mBTC, BTC, and other units. `/interactive-tools/denominations-calculator`
 - **Glossary**: Browse 200+ Bitcoin terms A–Z at `/docs/glossary`.
 
@@ -35,7 +43,7 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
 
 ## Interactive Tools
 
-The site includes **Bitcoin CLI Terminal**, **Stack Lab**, **Block Visualizer**, and a **Denominations Calculator**. They let you run commands, build scripts, explore blocks, and convert units in the browser, without the need for a local node, IDE, or extra setup. Use them to try concepts as you read, debug your mental model, or prepare for real tooling.
+The site includes **Bitcoin CLI Terminal**, **Stack Lab**, **Block Visualizer**, **Hash Tool**, **Address Decoder**, **Transaction Decoder**, **Fee Estimator**, and **Denominations Calculator**. They let you run commands, build scripts, explore blocks, hash data, decode addresses and transactions, estimate fees, and convert units in the browser, without the need for a local node, IDE, or extra setup. Use them to try concepts as you read, debug your mental model, or prepare for real tooling.
 
 ### Bitcoin CLI Terminal
 
@@ -48,6 +56,22 @@ Interactive Bitcoin Script playground. Unlocking script runs first (pushes data 
 ### Block Visualizer
 
 Interactive block visualization showing the latest Bitcoin block as a transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Hover for details, click to explore inputs, outputs, and transaction flow. Block and pool-distribution data live in `public/data/` and are updated by a scheduled GitHub workflow (or by running the update script locally).
+
+### Hash Tool
+
+Compute SHA-256, HASH256 (double SHA-256), HASH160 (RIPEMD-160 of SHA-256), raw RIPEMD-160, and Base58Check checksum. Input can be text, hex, or Bech32. Used in Bitcoin for block hashes, TXIDs, addresses, and script.
+
+### Address Decoder
+
+Decode and inspect Bitcoin addresses. See address type (P2PKH, P2SH, P2WPKH, P2WSH, P2TR), network, version byte or witness version, hash, and checksum. Supports Base58Check and Bech32/Bech32m. Shows address structure and script template.
+
+### Transaction Decoder
+
+Paste raw transaction hex to decode version, inputs (outpoint, scriptSig, sequence), outputs (value, scriptPubKey), and locktime. Supports SegWit. Shows transaction structure and byte layout. Get raw hex from the CLI Terminal (`getrawtransaction`) or block explorers.
+
+### Fee Estimator
+
+Estimate transaction fee from size (vBytes) and current network fee rate. Rates are fetched from a public node (`estimatesmartfee`). Typical one-input, two-output P2WPKH spend is about 140 vBytes. Shows estimated fee in sats and USD for 1-block and 6-block targets.
 
 ### Denominations Calculator
 
