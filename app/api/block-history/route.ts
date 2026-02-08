@@ -22,7 +22,7 @@ async function readBlockHistoryFromFile(): Promise<BlockSnapshot[] | null> {
   }
 }
 
-/** Apply limit and beforeHeight to full list; return paginated slice. */
+/** Apply limit and beforeHeight to full list; return paginated slice (older blocks). */
 function paginate(blocks: BlockSnapshot[], limit: number, beforeHeight: number | null): BlockSnapshot[] {
   if (beforeHeight !== null && !Number.isNaN(beforeHeight)) {
     const filtered = blocks.filter((b) => b.height < beforeHeight)
@@ -31,18 +31,27 @@ function paginate(blocks: BlockSnapshot[], limit: number, beforeHeight: number |
   return blocks.slice(0, limit)
 }
 
+/** Return the next `limit` blocks after afterHeight in chain order (newest of that range first). */
+function paginateNewer(blocks: BlockSnapshot[], limit: number, afterHeight: number): BlockSnapshot[] {
+  const filtered = blocks.filter((b) => b.height > afterHeight)
+  return filtered.slice(-limit)
+}
+
 /**
  * GET only. Block data is written by scripts/update-block-history.ts (run by GitHub workflow or locally).
  */
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
+    const all = searchParams.get('all') === 'true'
     const limit = Math.min(
       Math.max(1, parseInt(searchParams.get('limit') ?? String(DEFAULT_LIMIT), 10) || DEFAULT_LIMIT),
       MAX_LIMIT
     )
     const beforeHeightParam = searchParams.get('beforeHeight')
     const beforeHeight = beforeHeightParam ? parseInt(beforeHeightParam, 10) : null
+    const afterHeightParam = searchParams.get('afterHeight')
+    const afterHeight = afterHeightParam ? parseInt(afterHeightParam, 10) : null
     const heightParam = searchParams.get('height')
     const height = heightParam != null && heightParam !== '' ? parseInt(heightParam, 10) : null
 
@@ -53,7 +62,10 @@ export async function GET(request: NextRequest) {
     const maxHeight = fullList.length > 0 ? fullList[0].height : null
 
     let blocks: BlockSnapshot[]
-    if (height != null && !Number.isNaN(height)) {
+    if (all) {
+      blocks = fullList
+      console.log('[block-history] GET returning all', blocks.length, 'blocks')
+    } else if (height != null && !Number.isNaN(height)) {
       const i = fullList.findIndex((b) => b.height === height)
       if (i === -1) {
         blocks = []
@@ -62,6 +74,9 @@ export async function GET(request: NextRequest) {
         blocks = fullList.slice(start, start + limit)
       }
       console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', height=', height, ')')
+    } else if (afterHeight != null && !Number.isNaN(afterHeight)) {
+      blocks = paginateNewer(fullList, limit, afterHeight)
+      console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', afterHeight=', afterHeight, ')')
     } else {
       blocks = paginate(fullList, limit, beforeHeight)
       console.log('[block-history] GET returning', blocks.length, 'blocks (limit=', limit, ', beforeHeight=', beforeHeight, ')')

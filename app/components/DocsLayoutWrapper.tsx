@@ -28,6 +28,11 @@ export default function DocsLayoutWrapper({
   const [isNavCollapsedState, setIsNavCollapsedState] = useState(isNavCollapsed)
   const pathname = usePathname()
 
+  // Sync local state when isNavCollapsed prop changes (e.g. on navigation to/from interactive tools)
+  useEffect(() => {
+    setIsNavCollapsedState(isNavCollapsed)
+  }, [isNavCollapsed])
+
   // Show feedback link only on documentation pages, excluding glossary
   const shouldShowFeedbackLink = 
     pathname.startsWith('/docs') && pathname !== '/docs/glossary'

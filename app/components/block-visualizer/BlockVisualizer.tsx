@@ -13,7 +13,6 @@ import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ExternalLinkIcon } f
 import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 import poolsData from '@/public/data/pools.json'
 
-const BLOCK_LIST_LIMIT = 20
 
 /** Build identifier -> icon filename map from pools.json. */
 const POOL_ICON_MAP: Record<string, string> = (() => {
@@ -107,24 +106,16 @@ export default function BlockVisualizer() {
   const [maxHeight, setMaxHeight] = useState<number | null>(null)
   const [jumpInput, setJumpInput] = useState('')
   const [jumpMessage, setJumpMessage] = useState<string | null>(null)
-  const [jumpLoading, setJumpLoading] = useState(false)
-  const isFetchingMoreRef = useRef(false)
-  const noMoreBlocksRef = useRef(false)
   const blocksRef = useRef(blocks)
   blocksRef.current = blocks
   const touchStartY = useRef<number | null>(null)
   const SWIPE_THRESHOLD_PX = 50
 
-  const fetchBlockHistory = useCallback(async (beforeHeight: number | null = null) => {
-    if (beforeHeight == null) noMoreBlocksRef.current = false
+  const fetchBlockHistory = useCallback(async () => {
     setLoading(true)
     setError(null)
     try {
-      const url =
-        beforeHeight != null
-          ? `/api/block-history?limit=${BLOCK_LIST_LIMIT}&beforeHeight=${beforeHeight}`
-          : `/api/block-history?limit=${BLOCK_LIST_LIMIT}`
-      const res = await fetch(url, { cache: 'no-store' })
+      const res = await fetch('/api/block-history?all=true', { cache: 'no-store' })
       if (!res.ok) {
         const errBody = await res.json().catch(() => ({}))
         setError((errBody as { error?: string }).error ?? `Failed to load (${res.status})`)
@@ -136,9 +127,7 @@ export default function BlockVisualizer() {
       setBlocks(list)
       if (typeof data?.minHeight === 'number') setMinHeight(data.minHeight)
       if (typeof data?.maxHeight === 'number') setMaxHeight(data.maxHeight)
-      if (list.length > 0 && beforeHeight == null) {
-        setCenterIndex(0)
-      }
+      if (list.length > 0) setCenterIndex(0)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load blocks')
       setBlocks([])
@@ -147,41 +136,9 @@ export default function BlockVisualizer() {
     }
   }, [])
 
-  const fetchMoreBlocks = useCallback(async () => {
-    if (isFetchingMoreRef.current || noMoreBlocksRef.current) return
-    const blocksNow = blocksRef.current
-    if (blocksNow.length === 0) return
-    const lastHeight = blocksNow[blocksNow.length - 1].height
-    isFetchingMoreRef.current = true
-    try {
-      const res = await fetch(
-        `/api/block-history?limit=${BLOCK_LIST_LIMIT}&beforeHeight=${lastHeight}`,
-        { cache: 'no-store' }
-      )
-      if (!res.ok) return
-      const data = await res.json()
-      const list = Array.isArray(data?.blocks) ? data.blocks : []
-      if (list.length === 0) noMoreBlocksRef.current = true
-      else setBlocks((b) => [...b, ...list])
-    } finally {
-      isFetchingMoreRef.current = false
-    }
-  }, [])
-
   useEffect(() => {
-    fetchBlockHistory(null)
+    fetchBlockHistory()
   }, [fetchBlockHistory])
-
-  useEffect(() => {
-    if (
-      blocks.length > 0 &&
-      centerIndex >= blocks.length - 4 &&
-      !isFetchingMoreRef.current &&
-      !noMoreBlocksRef.current
-    ) {
-      fetchMoreBlocks()
-    }
-  }, [blocks.length, centerIndex, fetchMoreBlocks])
 
   useEffect(() => {
     fetch('/api/btc-price')
@@ -234,7 +191,7 @@ export default function BlockVisualizer() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [goNewer, goOlder])
 
-  const handleJumpToBlock = useCallback(async () => {
+  const handleJumpToBlock = useCallback(() => {
     setJumpMessage(null)
     const raw = jumpInput.trim()
     const height = raw === '' ? NaN : parseInt(raw, 10)
@@ -253,34 +210,8 @@ export default function BlockVisualizer() {
     const idx = blocks.findIndex((b) => b.height === height)
     if (idx !== -1) {
       setCenterIndex(idx)
-      return
-    }
-    setJumpLoading(true)
-    try {
-      const res = await fetch(
-        `/api/block-history?limit=${BLOCK_LIST_LIMIT}&height=${height}`,
-        { cache: 'no-store' }
-      )
-      if (!res.ok) {
-        setJumpMessage('Failed to load block.')
-        return
-      }
-      const data = await res.json()
-      const list = Array.isArray(data?.blocks) ? data.blocks : []
-      const foundIdx = list.findIndex((b: BlockSnapshot) => b.height === height)
-      if (list.length === 0 || foundIdx === -1) {
-        setJumpMessage('Block not in history.')
-        return
-      }
-      if (typeof data?.minHeight === 'number') setMinHeight(data.minHeight)
-      if (typeof data?.maxHeight === 'number') setMaxHeight(data.maxHeight)
-      noMoreBlocksRef.current = false
-      setBlocks(list)
-      setCenterIndex(foundIdx)
-    } catch {
-      setJumpMessage('Failed to load block.')
-    } finally {
-      setJumpLoading(false)
+    } else {
+      setJumpMessage('Block not in history.')
     }
   }, [jumpInput, minHeight, maxHeight, blocks])
 
@@ -301,7 +232,7 @@ export default function BlockVisualizer() {
         <div className="text-center">
           <div className="text-red-600 dark:text-red-400 text-lg mb-2">Error</div>
           <div className="text-secondary text-sm mb-4">{error}</div>
-          <button onClick={() => fetchBlockHistory(null)} className="btn-primary">
+          <button onClick={() => fetchBlockHistory()} className="btn-primary">
             Retry
           </button>
         </div>
@@ -372,7 +303,7 @@ export default function BlockVisualizer() {
           const isTop = slotIdx === 0
           const isBottom = slotIdx === SLOTS - 1
           const isExtraLeftSlot = slotIdx === 0
-          const showTip = blockIdx === 0 && block != null
+          const showTip = block != null && maxHeight != null && block.height === maxHeight
 
           const slotClasses = [
             'block-stack-slot flex flex-col items-center transition-none flex-shrink-0',
@@ -477,17 +408,17 @@ export default function BlockVisualizer() {
             onChange={(e) => setJumpInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleJumpToBlock()}
             className="input-no-spinner w-28 px-2 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-            disabled={loading || jumpLoading}
+            disabled={loading}
             aria-label="Block height"
             aria-describedby={jumpMessage ? 'jump-message' : undefined}
           />
           <button
             type="button"
             onClick={handleJumpToBlock}
-            disabled={loading || jumpLoading}
+            disabled={loading}
             className="px-3 py-1.5 text-sm rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary hover:text-accent hover:border-accent disabled:opacity-40 transition-colors"
           >
-            {jumpLoading ? 'Loading…' : 'Go'}
+            Go
           </button>
         </div>
         {minHeight != null && maxHeight != null && (
@@ -513,7 +444,7 @@ export default function BlockVisualizer() {
         )}
         <button
           type="button"
-          onClick={() => fetchBlockHistory(null)}
+          onClick={() => setCenterIndex(0)}
           disabled={loading}
           className="text-xs text-accent hover:underline disabled:opacity-40 transition-opacity"
         >
