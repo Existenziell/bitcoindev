@@ -29,6 +29,7 @@ export default function Header() {
                 alt="BitcoinDev Logo"
                 fill
                 sizes="100px"
+                loading="eager"
                 className="opacity-75 dark:invert hover:opacity-100 transition-opacity duration-200 object-contain"
               />
             </Link>
