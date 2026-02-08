@@ -12,7 +12,7 @@ That line does two things: it **timestamped** the block (proof it wasn’t pre-m
 
 In the raw block data, the message appears as readable text in the coinbase input. The hex dump below shows the block bytes; the right-hand column is the ASCII interpretation, where the headline is visible.
 
-<img src="/images/docs/genesis-block.jpg" alt="Genesis block hex dump showing The Times headline in the coinbase data" class="doc-img-big" width="800" height="450" />
+<img src="/images/docs/genesis-block.jpg" alt="Genesis block hex dump showing The Times headline in the coinbase data" class="doc-img" width="928" height="484" />
 <p class="doc-img-legend">Genesis block data: the coinbase message visible in the hex dump (right column)</p>
 
 ## Technical Details
