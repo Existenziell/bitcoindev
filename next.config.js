@@ -47,17 +47,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
-  async redirects() {
-    return [
-      { source: '/tools', destination: '/interactive-tools', permanent: true },
-      { source: '/tools/:path*', destination: '/interactive-tools/:path*', permanent: true },
-      { source: '/terminal', destination: '/interactive-tools/terminal', permanent: true },
-      { source: '/stack-lab', destination: '/interactive-tools/stack-lab', permanent: true },
-      { source: '/block-visualizer', destination: '/interactive-tools/block-visualizer', permanent: true },
-      { source: '/block-visualizer/tx/:path*', destination: '/interactive-tools/block-visualizer/tx/:path*', permanent: true },
-    ]
-  },
-
   async headers() {
     return [
       {
