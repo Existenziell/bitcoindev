@@ -64,6 +64,7 @@ body {
   }
   .input-no-spinner {
     -moz-appearance: textfield;
+    appearance: textfield;
   }
 
   /* Text Utilities */
@@ -291,7 +292,7 @@ body {
 
   /* Info tooltip popover */
   .info-tooltip {
-    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 absolute right-0 top-6 w-64 p-3 shadow-lg text-xs text-gray-700 dark:text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10;
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded absolute right-0 top-6 w-64 p-3 shadow-lg text-xs text-gray-700 dark:text-gray-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10;
   }
 
   /* Mobile nav toggle button */
