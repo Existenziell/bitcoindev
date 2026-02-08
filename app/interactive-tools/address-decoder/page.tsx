@@ -74,7 +74,7 @@ export default function AddressDecoderPage() {
 
             {(result.bech32 || result.base58) && (
               <div className="w-full">
-                <h2 className="font-semibold text-lg mb-3">Address structure</h2>
+                <h2 className="heading-section">Address structure</h2>
                 {result.bech32 && (() => {
                   const trimmed = input.trim()
                   const hrpLen = result.bech32!.hrp.length
