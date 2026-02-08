@@ -55,7 +55,7 @@ export default function HorizontalNav() {
           aria-label={isOpen ? 'Collapse navigation' : 'Expand navigation'}
         >
           <span className="text-2xl">Explore BitcoinDev</span>
-          <ChevronDown className={`w-6 h-6 shrink-0 transition-colors transition-transform group-hover:text-accent ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-6 h-6 shrink-0 transition-all group-hover:text-accent ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
@@ -113,14 +113,23 @@ export default function HorizontalNav() {
                     </div>
 
                     {hasChildren && isExpanded && (
-                      <ul className={cn('ml-6 mt-1 space-y-0', CHILD_LIST_BORDER)}>
+                      <ul
+                        className={cn(
+                          'ml-6 mt-1',
+                          CHILD_LIST_BORDER,
+                          section.href === '/docs/glossary'
+                            ? 'flex flex-row flex-wrap gap-x-2 gap-y-1'
+                            : 'space-y-0'
+                        )}
+                      >
                         {section.children!.map((child) => (
                           <li key={child.href}>
                             <div
                               className={cn(
                                 navRowClass,
                                 isActive(child.href) && navRowActiveClass,
-                                'py-0.5'
+                                'py-0.5',
+                                section.href === '/docs/glossary' && 'w-auto'
                               )}
                             >
                               <Link
