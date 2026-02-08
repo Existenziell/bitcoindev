@@ -50,6 +50,7 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                         alt="BitcoinDev Logo"
                         fill
                         sizes="42px"
+                        loading="eager"
                         className="opacity-80 dark:invert object-contain"
                       />
                     </span>
@@ -69,6 +70,7 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                         alt="BitcoinDev Logo"
                         fill
                         sizes="42px"
+                        loading="eager"
                         className="opacity-80 dark:invert object-contain"
                       />
                     </span>
