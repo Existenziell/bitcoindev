@@ -36,19 +36,31 @@ body {
 
   /* Button Styles */
   .btn-primary {
-    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-accent text-gray-900 font-semibold rounded-md hover:bg-accent/90 transition-colors hover:no-underline;
+    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-accent text-gray-900 font-semibold rounded-md
+      transition-all duration-200 ease-out
+      hover:no-underline hover:brightness-110 hover:shadow-md hover:shadow-accent/25 hover:scale-[1.02]
+      active:scale-[0.98] active:shadow-sm;
   }
 
   .btn-primary-sm {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent hover:bg-accent/90 text-gray-900 font-semibold rounded-md transition-colors;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-accent text-gray-900 font-semibold rounded-md
+      transition-all duration-200 ease-out
+      hover:brightness-110 hover:shadow-md hover:shadow-accent/25 hover:scale-[1.02]
+      active:scale-[0.98] active:shadow-sm;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 font-semibold rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:no-underline;
+    @apply inline-flex items-center gap-2 justify-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 font-semibold rounded-md
+      transition-all duration-200 ease-out
+      hover:no-underline hover:bg-gray-300 dark:hover:bg-gray-600 hover:shadow-md hover:shadow-gray-400/15 dark:hover:shadow-black/30 hover:scale-[1.02]
+      active:scale-[0.98] active:shadow-sm;
   }
 
   .btn-secondary-sm {
-    @apply inline-flex items-center gap-2 justify-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors hover:no-underline;
+    @apply inline-flex items-center gap-2 justify-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-200 font-medium rounded-md
+      transition-all duration-200 ease-out
+      hover:bg-gray-300 dark:hover:bg-gray-600 hover:shadow-md hover:shadow-gray-400/15 dark:hover:shadow-black/30 hover:scale-[1.02]
+      active:scale-[0.98] active:shadow-sm;
   }
 
   /* Disabled button/control state */
@@ -202,12 +214,17 @@ body {
 
   /* Nav pill - small pill button (HorizontalNav) */
   .nav-pill {
-    @apply px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800;
+    @apply px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary bg-gray-100 dark:bg-gray-800
+      transition-all duration-200 ease-out
+      hover:border-accent hover:text-accent dark:hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700;
   }
 
   /* Button pill - nav/action pill with hover bg (DocsNavigation) */
   .btn-pill {
-    @apply rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors;
+    @apply rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800
+      transition-all duration-200 ease-out
+      hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent hover:shadow-sm
+      active:scale-[0.98];
   }
 
   /* Border separator - top border for sections */
@@ -217,7 +234,11 @@ body {
 
   /* Icon button - header/nav, copy, download; shared hover/focus */
   .btn-icon {
-    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 hover:no-underline;
+    @apply inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400
+      transition-all duration-200 ease-out
+      hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110
+      active:scale-95
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-gray-200 dark:focus-visible:ring-offset-gray-800 hover:no-underline;
   }
 
   .btn-icon-sm {
@@ -248,7 +269,9 @@ body {
 
   /* Gray panel with hover accent */
   .panel-base-hover {
-    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200 hover:border-accent hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors;
+    @apply bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded text-gray-800 dark:text-gray-200
+      transition-all duration-200 ease-out
+      hover:border-accent hover:bg-gray-300 dark:hover:bg-gray-700 hover:shadow-sm;
   }
 
   /* Footer top bar - border, flex layout */
