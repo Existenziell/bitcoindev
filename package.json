@@ -25,7 +25,8 @@
     "check:links": "node scripts/check-links.js",
     "generate:md": "node scripts/generate-md-content.js",
     "generate:search": "node scripts/generate-search-index.js",
-    "generate:all": "npm run generate:md && npm run generate:search && npm run check:links"
+    "generate:all": "npm run generate:md && npm run generate:search && npm run check:links",
+    "update:blocks": "npx tsx scripts/update-block-history.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
