@@ -17,9 +17,10 @@ export default function TransactionDecoderPage() {
   const exampleIndexRef = useRef(-1)
   const result = decodeRawTransaction(input)
 
-  const pasteExample = useCallback(() => {
+  const pasteExample = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     exampleIndexRef.current = (exampleIndexRef.current + 1) % EXAMPLE_TX_HEX.length
     setInput(EXAMPLE_TX_HEX[exampleIndexRef.current])
+    e.currentTarget.blur()
   }, [])
 
   return (
@@ -52,7 +53,7 @@ export default function TransactionDecoderPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="0100000001..."
-            className="input-mono h-32"
+            className="input-mono h-32 text-xs"
             spellCheck={false}
           />
           <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">{input.trim() ? result.error : ''}</div>
