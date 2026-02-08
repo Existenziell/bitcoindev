@@ -59,11 +59,11 @@ export default function HorizontalNav() {
         </button>
 
         {isOpen && (
-          <div className="pb-6 border-t border-gray-200 dark:border-gray-700">
+          <div className="border-separator pb-6">
             <div className="flex flex-row items-center justify-end gap-2 w-max ml-auto mb-3 mt-1">
               <button
                 onClick={() => setExpandedSections(new Set(navItems.map(item => item.href)))}
-                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800"
+                className="nav-pill"
                 aria-label="Expand all sections"
                 title="Expand all"
               >
@@ -71,7 +71,7 @@ export default function HorizontalNav() {
               </button>
               <button
                 onClick={() => setExpandedSections(new Set())}
-                className="px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800"
+                className="nav-pill"
                 aria-label="Collapse all sections"
                 title="Collapse all"
               >
@@ -139,7 +139,7 @@ export default function HorizontalNav() {
               })}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="border-separator mt-8 pt-6">
               <div className="flex flex-wrap justify-center gap-4">
                 {horizontalNavLinksBottom.map((link) => (
                   <Link

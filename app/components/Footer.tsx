@@ -6,7 +6,7 @@ import ExternalLink from '@/app/components/ExternalLink'
 
 export default function Footer() {
   return (
-    <footer className='border-t border-gray-200 dark:border-gray-700 bg-gray-100/80 dark:bg-gray-800/50 overflow-hidden mt-8'>
+    <footer className='border-separator bg-gray-100/80 dark:bg-gray-800/50 overflow-hidden mt-8'>
       <div className='container-content pt-8 pb-4'>
         <div className='grid grid-cols-[1fr_auto_1fr] md:flex md:flex-row md:items-start gap-8 mb-8 relative'>
           <nav aria-label='External resources' className='w-full md:flex-1'>

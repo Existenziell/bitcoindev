@@ -80,7 +80,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
             px-2 py-1 text-xs rounded border
             ${!selectedCategory
               ? 'bg-accent/20 border-accent text-accent'
-              : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-600'
+              : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-secondary hover:border-gray-400 dark:hover:border-gray-600'
             }
           `}
         >
@@ -94,7 +94,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
               px-2 py-1 text-xs rounded border
               ${selectedCategory === category
                 ? 'bg-accent/20 border-accent text-accent'
-                : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-600'
+                : 'bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-secondary hover:border-gray-400 dark:hover:border-gray-600'
               }
             `}
           >
@@ -115,7 +115,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
       <div className="flex-1 overflow-y-auto">
         {selectedCategory ? (
           <div>
-            <h4 className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2 uppercase">
+            <h4 className="text-xs font-semibold text-secondary mb-2 uppercase">
               {selectedCategory}
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -132,7 +132,7 @@ export default function OpCodePalette({ onAddData }: OpCodePaletteProps) {
               
               return (
                 <div key={category}>
-                  <h4 className="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2 uppercase">
+                  <h4 className="text-xs font-semibold text-secondary mb-2 uppercase">
                     {category}
                   </h4>
                   <div className="flex flex-wrap gap-2">

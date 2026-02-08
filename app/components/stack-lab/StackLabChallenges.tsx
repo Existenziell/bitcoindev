@@ -403,7 +403,7 @@ export default function StackLabChallenges() {
         {difficultyTabBar}
         <div className="flex flex-col items-center gap-1">
           {totalInDifficulty > 0 && (
-            <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-center text-secondary">
               Progress: <span className="font-medium text-emerald-600 dark:text-emerald-400">{solvedInDifficulty}</span> of {totalInDifficulty} solved
             </p>
           )}
@@ -438,7 +438,7 @@ export default function StackLabChallenges() {
                     </span>
                   )}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mb-2">
+                <div className="text-sm text-secondary line-clamp-2 mb-2">
                   {c.description}
                 </div>
               </button>
@@ -476,7 +476,7 @@ export default function StackLabChallenges() {
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
             {selectedChallenge.title}
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{selectedChallenge.description}</p>
+          <p className="text-sm text-secondary">{selectedChallenge.description}</p>
         </StackLabCard>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start">
@@ -606,7 +606,7 @@ export default function StackLabChallenges() {
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
             {c.title}
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{c.description}</p>
+          <p className="text-sm text-secondary">{c.description}</p>
           <p className="text-sm text-gray-500 dark:text-gray-500 mt-3">
             This challenge type is not yet implemented.
           </p>
@@ -636,7 +636,7 @@ export default function StackLabChallenges() {
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
             {selectedChallenge.title}
           </h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{selectedChallenge.description}</p>
+          <p className="text-sm text-secondary">{selectedChallenge.description}</p>
         </StackLabCard>
 
         <DndContext
@@ -749,7 +749,7 @@ export default function StackLabChallenges() {
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
               Push Data to {dataModalTarget === 'unlocking' ? 'Unlocking' : 'Locking'} Script
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm text-secondary mb-4">
               Enter a number or hex string (e.g., 42, 0x1234, &quot;hello&quot;)
             </p>
             <input

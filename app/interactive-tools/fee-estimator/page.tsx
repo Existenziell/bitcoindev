@@ -96,7 +96,7 @@ export default function FeeEstimatorPage() {
             value={vbytesInput}
             onChange={(e) => setVbytesInput(e.target.value)}
             placeholder="140"
-            className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono"
+            className="input-mono"
           />
           {vbytesInput.trim() && vbytes === null && (
             <p className="text-red-500 text-sm mt-1">Enter a number between 1 and 1,000,000</p>
@@ -111,7 +111,7 @@ export default function FeeEstimatorPage() {
         )}
 
         {!feeRates.loading && !feeRates.error && vbytes != null && (
-          <div className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/50 space-y-4">
+          <div className="content-box-muted space-y-4">
             {(feeRates.satPerVb1 === 1 && feeRates.satPerVb6 === 1) && (
               <p className="text-amber-600 dark:text-amber-500 text-sm">
                 The node returned 1 sat/vB for both targets; it may be a default when fee data is limited.

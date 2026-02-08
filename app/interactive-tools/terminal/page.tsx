@@ -663,17 +663,17 @@ export default function TerminalPage() {
           </form>
       </div>
 
-      <p className="text-sm text-gray-600 dark:text-gray-400 text-center mt-12">
+      <p className="text-sm text-secondary text-center mt-12">
         This emulates <code className="code-inline text-xs">bitcoin-cli</code>.<br />Commands are sent as JSON-RPC to a public mainnet node.<br />Only read-only RPC methods are available.<br />Tab autocomplete is available.
       </p>
 
       {showMobileWarning && !mobileWarningDismissed && (
         <div className="modal-overlay flex items-center justify-center p-4">
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-sm text-secondary mb-6">
               Bitcoin CLI Terminal is not optimized for small screens. The terminal interface and keyboard shortcuts (Tab autocomplete, arrow keys for history) work best on desktop or tablet devices with larger screens.
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-sm text-secondary mb-6">
               You can still use the terminal on mobile, but the experience may be limited. For the best experience, please use a desktop or tablet.
             </p>
             <div className="flex flex-col gap-3">

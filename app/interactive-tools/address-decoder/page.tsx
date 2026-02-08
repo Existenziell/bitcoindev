@@ -53,14 +53,14 @@ export default function AddressDecoderPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="e.g. bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq"
-            className="w-full h-24 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono text-sm"
+            className="input-mono h-24"
             spellCheck={false}
           />
           <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">{input.trim() ? result.error : ''}</div>
         </div>
 
         {input.trim() && (
-          <div className="space-y-4 rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/50">
+          <div className="content-box-muted space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="font-semibold">Type:</span>
               <span className="font-mono text-sm uppercase">{result.type}</span>

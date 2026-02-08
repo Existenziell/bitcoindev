@@ -54,7 +54,7 @@ function StackLabTabsAndContent({ children }: { children: ReactNode }) {
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors ${
               activeTab === 'sandbox'
                 ? 'bg-accent text-gray-900 shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                : 'text-secondary hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             Sandbox
@@ -67,7 +67,7 @@ function StackLabTabsAndContent({ children }: { children: ReactNode }) {
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors ${
               activeTab === 'challenges'
                 ? 'bg-accent text-gray-900 shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                : 'text-secondary hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             Challenges
@@ -322,7 +322,7 @@ export default function StackLabPage() {
             {isFlowExplanationExpanded && (
               <div className="mt-3 space-y-4">
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-sm text-secondary leading-relaxed">
                     <strong className="text-gray-600 dark:text-gray-300">1. Build Scripts:</strong><br />Drag OP codes from the palette to the Unlocking Script (runs first) and Locking Script (runs second). 
                     You can also push data (numbers, hex strings) using the &quot;+ Push Data&quot; button or load an example template.
                     <br />
@@ -412,10 +412,10 @@ export default function StackLabPage() {
       {showMobileWarning && !mobileWarningDismissed && (
         <div className="modal-overlay flex items-center justify-center p-4">
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-sm text-secondary mb-6">
               Stack Lab is not optimized for small screens. The drag-and-drop interface and layout work best on desktop or tablet devices with larger screens.
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-sm text-secondary mb-6">
               You can still use Stack Lab on mobile, but the experience may be limited. For the best experience, please use a desktop or tablet.
             </p>
             <div className="flex flex-col gap-3">
@@ -442,7 +442,7 @@ export default function StackLabPage() {
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
               Push Data to {dataModalTarget === 'unlocking' ? 'Unlocking' : 'Locking'} Script
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm text-secondary mb-4">
               Enter a number or hex string (e.g., 42, 0x1234, &quot;hello&quot;)
             </p>
             <input

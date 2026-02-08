@@ -52,14 +52,14 @@ export default function TransactionDecoderPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="0100000001..."
-            className="w-full h-32 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono text-sm"
+            className="input-mono h-32"
             spellCheck={false}
           />
           <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">{input.trim() ? result.error : ''}</div>
         </div>
 
         {input.trim() && !result.error && (
-          <div className="space-y-4 rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/50">
+          <div className="content-box-muted space-y-4">
             <div className="flex flex-wrap gap-4 text-sm">
               <span>
                 <span className="text-secondary">Version:</span> <code>{result.version}</code>

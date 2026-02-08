@@ -106,7 +106,7 @@ export default function DocsNavigation({
         <button
           type="button"
           onClick={onToggleNav}
-          className="w-full flex items-center justify-center px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors"
+          className="btn-pill w-full flex items-center justify-center px-4 py-3"
           aria-label="Expand navigation"
           title="Expand sidebar"
         >
@@ -122,7 +122,7 @@ export default function DocsNavigation({
         <button
           type="button"
           onClick={onToggleNav}
-          className="mb-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors"
+          className="btn-pill mb-3 w-full flex items-center justify-center gap-2 py-2.5"
           aria-label="Collapse sidebar"
           title="Collapse sidebar"
         >

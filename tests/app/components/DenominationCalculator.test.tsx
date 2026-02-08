@@ -11,10 +11,10 @@ describe('DenominationCalculator', () => {
     expect(screen.getByLabelText('Unit to convert from')).toBeInTheDocument()
   })
 
-  it('shows placeholder message when no value entered', () => {
+  it('shows placeholder when no value entered', () => {
     render(<DenominationCalculator />)
 
-    expect(screen.getByText('Enter an amount')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Enter amount')).toBeInTheDocument()
   })
 
   it('converts BTC to other units', async () => {
@@ -24,8 +24,7 @@ describe('DenominationCalculator', () => {
     const input = screen.getByLabelText('Amount to convert')
     await user.type(input, '1')
 
-    // Should show converted values
-    expect(screen.queryByText('Enter an amount')).not.toBeInTheDocument()
+    // Should show converted values (no placeholder-only state)
     // Check for the Satoshi result value (100,000,000 sats = 1 BTC)
     expect(screen.getByText('100,000,000')).toBeInTheDocument()
   })
@@ -82,14 +81,14 @@ describe('DenominationCalculator', () => {
     const input = screen.getByLabelText('Amount to convert')
     await user.type(input, 'abc')
 
-    // Should show "Enter an amount" when input is invalid
-    expect(screen.getByText('Enter an amount')).toBeInTheDocument()
+    // Invalid input: no conversion results shown
+    expect(screen.queryByText('100,000,000')).not.toBeInTheDocument()
   })
 
   it('handles empty input', () => {
     render(<DenominationCalculator />)
 
-    expect(screen.getByText('Enter an amount')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Enter amount')).toBeInTheDocument()
   })
 
   it('displays all unit options in select', () => {

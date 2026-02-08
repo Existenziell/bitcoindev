@@ -156,6 +156,11 @@ body {
     @apply rounded-lg p-6 max-w-md w-full bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700;
   }
 
+  /* Panel card - content panels (calculator, stack lab cards, etc.) */
+  .panel-card {
+    @apply bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 p-4;
+  }
+
   /* Inline code badge - for displaying code/keyboard shortcuts inline */
   .code-inline {
     @apply font-mono bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm text-gray-900 dark:text-gray-300;
@@ -169,6 +174,45 @@ body {
   /* Form input base - white/gray-800, focus ring */
   .input-panel-ring {
     @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent;
+  }
+
+  /* Form input with standard padding (use with min-w-* as needed) */
+  .input-panel-ring-input {
+    @apply input-panel-ring px-3 py-2;
+  }
+
+  /* Monospace textarea/input - decoder tools, hash tool */
+  .input-mono {
+    @apply w-full px-3 py-2 text-sm rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono;
+  }
+
+  /* Content/result box - rounded border, subtle bg, padding */
+  .content-box {
+    @apply rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900/50;
+  }
+
+  .content-box-muted {
+    @apply rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/50;
+  }
+
+  /* Monospace output block - hash tool outputs */
+  .output-mono {
+    @apply block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded;
+  }
+
+  /* Nav pill - small pill button (HorizontalNav) */
+  .nav-pill {
+    @apply px-2 py-1 text-xs rounded-md border border-gray-300 dark:border-gray-600 text-secondary hover:border-accent hover:text-accent dark:hover:text-accent transition-colors bg-gray-100 dark:bg-gray-800;
+  }
+
+  /* Button pill - nav/action pill with hover bg (DocsNavigation) */
+  .btn-pill {
+    @apply rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 hover:border-accent transition-colors;
+  }
+
+  /* Border separator - top border for sections */
+  .border-separator {
+    @apply border-t border-gray-200 dark:border-gray-700;
   }
 
   /* Icon button - header/nav, copy, download; shared hover/focus */

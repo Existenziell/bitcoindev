@@ -13,7 +13,7 @@ export default function StackLabCard({ children, className, flex = false }: Stac
   return (
     <div
       className={cn(
-        'bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 p-4',
+        'panel-card',
         flex && 'h-full flex flex-col',
         className
       )}

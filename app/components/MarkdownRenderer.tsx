@@ -16,7 +16,7 @@ import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 
 const MermaidDiagram = dynamic(() => import('@/app/components/MermaidDiagram'), {
   ssr: false,
-  loading: () => <div className="mermaid-diagram my-4 min-h-[120px] rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 animate-pulse" aria-hidden />,
+  loading: () => <div className="mermaid-diagram content-box my-4 min-h-[120px] animate-pulse" aria-hidden />,
 })
 import { ChevronDown, LinkIcon } from '@/app/components/Icons'
 import ExternalLink from '@/app/components/ExternalLink'

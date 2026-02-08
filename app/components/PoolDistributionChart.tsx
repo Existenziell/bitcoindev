@@ -46,7 +46,7 @@ export default function PoolDistributionChart() {
 
   if (loading) {
     return (
-      <div className="my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4 min-h-[200px] flex items-center justify-center">
+      <div className="content-box my-4 min-h-[200px] flex items-center justify-center">
         <span className="text-gray-500 dark:text-gray-400">Loading pool distribution…</span>
       </div>
     )
@@ -54,7 +54,7 @@ export default function PoolDistributionChart() {
 
   if (error || !distribution || Object.keys(distribution).length === 0) {
     return (
-      <div className="my-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
+      <div className="content-box my-4">
         <p className="text-gray-500 dark:text-gray-400">Pool distribution unavailable.</p>
       </div>
     )
@@ -76,7 +76,7 @@ export default function PoolDistributionChart() {
 
   return (
     <>
-    <div className="mt-4 mb-1 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 p-4">
+    <div className="content-box mt-4 mb-1">
       <div className="space-y-2" role="list" aria-label="Pool hashrate distribution">
         {displayEntries.map(({ id, name, pct }) => (
           <div key={id} className="flex items-center gap-3 text-sm" role="listitem">

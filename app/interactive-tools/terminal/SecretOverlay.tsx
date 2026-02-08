@@ -127,7 +127,7 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
           </p>
 
           <div className="border-t border-b border-accent/30 py-6 space-y-4">
-            <p className="text-lg text-gray-600 dark:text-gray-400 font-mono">
+            <p className="text-lg text-secondary font-mono">
               You have discovered a hidden path.
             </p>
             <p className="text-base text-gray-500 dark:text-gray-500 font-mono">
@@ -138,7 +138,7 @@ export default function SecretOverlay({ visible, onClose, onGoHome }: SecretOver
             </p>
           </div>
 
-          <div className="space-y-2 text-gray-600 dark:text-gray-400 font-mono text-sm">
+          <div className="space-y-2 text-secondary font-mono text-sm">
             <p className="text-accent font-semibold">Don&apos;t trust, verify.</p>
           </div>
         </div>

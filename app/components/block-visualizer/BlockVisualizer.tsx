@@ -349,7 +349,7 @@ export default function BlockVisualizer() {
                           <ExternalLinkIcon className="w-3 h-3 shrink-0 text-current opacity-70" aria-hidden />
                         </a>
                       </div>
-                      <div className="border-t border-gray-200 dark:border-gray-700 pt-1.5 mt-1 space-y-0.5 text-xs text-secondary">
+                      <div className="border-separator pt-1.5 mt-1 space-y-0.5 text-xs text-secondary">
                         <div>Tx: {formatNumber(block.txCount)}</div>
                         <div>Size: {formatBlockSize(block.size)}</div>
                         <div>Weight: {formatBlockWeight(block.weight ?? 0)}</div>

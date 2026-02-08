@@ -121,7 +121,7 @@ export default function ScriptTemplates({ onLoadTemplate }: ScriptTemplatesProps
               <div className="font-semibold text-gray-800 dark:text-gray-200 text-xs mb-0.5">
                 {template.name}
               </div>
-              <div className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+              <div className="text-xs text-secondary line-clamp-2">
                 {template.description}
               </div>
             </button>

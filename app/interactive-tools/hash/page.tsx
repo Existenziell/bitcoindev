@@ -217,7 +217,7 @@ export default function HashToolPage() {
                   ? 'Enter hex (e.g. 01000000…)'
                   : 'Bech32 data or full address (e.g. bc1q…)'
             }
-            className="w-full h-24 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 font-mono text-sm"
+            className="input-mono h-24"
             spellCheck={false}
           />
           <div className="min-h-[1.25rem] mt-1 text-red-500 text-sm">
@@ -228,7 +228,7 @@ export default function HashToolPage() {
         <div className="space-y-4">
           <div>
             <label className="block font-bold text-secondary mb-1">SHA-256</label>
-            <output className="block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+            <output className="output-mono">
               {sha256Result || '—'}
             </output>
           </div>
@@ -236,7 +236,7 @@ export default function HashToolPage() {
             <label className="block font-bold text-secondary mb-1">
               HASH256 (double SHA-256)
             </label>
-            <output className="block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+            <output className="output-mono">
               {hash256Result || '—'}
             </output>
           </div>
@@ -244,7 +244,7 @@ export default function HashToolPage() {
             <label className="block font-bold text-secondary mb-1">
               HASH160 (RIPEMD-160(SHA-256))
             </label>
-            <output className="block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+            <output className="output-mono">
               {hash160Result || '—'}
             </output>
           </div>
@@ -252,7 +252,7 @@ export default function HashToolPage() {
             <label className="block font-bold text-secondary mb-1">
               RIPEMD-160 (raw)
             </label>
-            <output className="block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+            <output className="output-mono">
               {ripemd160Result || '—'}
             </output>
           </div>
@@ -260,7 +260,7 @@ export default function HashToolPage() {
             <label className="block font-bold text-secondary mb-1">
               Base58Check checksum (first 4 bytes of HASH256)
             </label>
-            <output className="block font-mono text-sm break-all bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+            <output className="output-mono">
               {checksumResult || '—'}
             </output>
           </div>

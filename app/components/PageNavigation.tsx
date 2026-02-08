@@ -12,7 +12,7 @@ export default function PageNavigation() {
 
   if (isGlossaryPage) {
     return (
-      <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-center">
+      <div className="border-separator mt-12 pt-6 flex justify-center">
         <span
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="cursor-pointer inline-flex items-center justify-center gap-2 text-accent transition-all"
@@ -28,7 +28,7 @@ export default function PageNavigation() {
   }
 
   return (
-    <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center">
+    <div className="border-separator mt-12 pt-6 flex justify-between items-center">
       <div className="flex-1">
         {previousPage ? (
           <Link

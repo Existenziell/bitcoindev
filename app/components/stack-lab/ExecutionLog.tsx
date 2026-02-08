@@ -56,7 +56,7 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
             </div>
           )}
           {executionResult.success && steps.length > 0 && (
-            <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+            <div className="text-xs text-secondary mt-1">
               Final stack contains a truthy value
             </div>
           )}
@@ -101,7 +101,7 @@ export default function ExecutionLog({ steps, currentStep, executionResult }: Ex
                       Error: {step.error}
                     </div>
                   )}
-                  <div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                  <div className="text-xs text-secondary space-y-1">
                     <div>Before: {formatStackForLog(step.stackBefore)}</div>
                     <div>After: {formatStackForLog(step.stackAfter)}</div>
                   </div>
