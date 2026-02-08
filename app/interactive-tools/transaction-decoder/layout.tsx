@@ -1,13 +1,11 @@
-import type { Metadata } from 'next'
-import { SITE_URL } from '@/app/utils/metadata'
+import { createToolLayout } from '@/app/utils/toolLayout'
 
-export const metadata: Metadata = {
-  title: 'Transaction Decoder | BitcoinDev',
+const { metadata: toolMetadata, ToolLayout } = createToolLayout({
+  title: 'Transaction Decoder',
   description:
     'Decode raw Bitcoin transaction hex. See version, inputs (outpoint, scriptSig, sequence), outputs (value, scriptPubKey), and locktime. Supports SegWit.',
-  alternates: { canonical: `${SITE_URL}/interactive-tools/transaction-decoder` },
-}
+  path: 'transaction-decoder',
+})
 
-export default function TransactionDecoderLayout({ children }: { children: React.ReactNode }) {
-  return children
-}
+export const metadata = toolMetadata
+export default ToolLayout

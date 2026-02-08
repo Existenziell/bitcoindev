@@ -3,7 +3,7 @@
 import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { SITE_URL } from '@/app/utils/metadata'
+import { SITE_URL } from '@/app/utils/constants'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzkeedd'
 

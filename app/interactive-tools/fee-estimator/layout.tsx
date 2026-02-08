@@ -1,13 +1,11 @@
-import type { Metadata } from 'next'
-import { SITE_URL } from '@/app/utils/metadata'
+import { createToolLayout } from '@/app/utils/toolLayout'
 
-export const metadata: Metadata = {
-  title: 'Fee Estimator | BitcoinDev',
+const { metadata: toolMetadata, ToolLayout } = createToolLayout({
+  title: 'Fee Estimator',
   description:
     'Estimate Bitcoin transaction fee from size (vBytes) and current network rate. See fee in sats and USD for 1-block and 6-block targets.',
-  alternates: { canonical: `${SITE_URL}/interactive-tools/fee-estimator` },
-}
+  path: 'fee-estimator',
+})
 
-export default function FeeEstimatorLayout({ children }: { children: React.ReactNode }) {
-  return children
-}
+export const metadata = toolMetadata
+export default ToolLayout

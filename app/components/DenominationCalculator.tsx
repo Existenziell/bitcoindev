@@ -39,7 +39,7 @@ export default function DenominationCalculator() {
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder="Enter amount"
-            className="input-panel px-3 py-2 min-w-[10rem]"
+            className="input-panel-ring px-3 py-2 min-w-[10rem]"
             aria-label="Amount to convert"
           />
           <label htmlFor="denom-unit" className="sr-only">
@@ -49,7 +49,7 @@ export default function DenominationCalculator() {
             id="denom-unit"
             value={fromUnit}
             onChange={(e) => setFromUnit(e.target.value)}
-            className="input-panel px-3 py-2 min-w-[8rem]"
+            className="input-panel-ring px-3 py-2 min-w-[8rem]"
             aria-label="Unit to convert from"
           >
             {UNITS.map((u) => (

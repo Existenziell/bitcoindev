@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { docPages } from '@/app/utils/navigation'
-import { SITE_URL } from '@/app/utils/metadata'
+import { SITE_URL } from '@/app/utils/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

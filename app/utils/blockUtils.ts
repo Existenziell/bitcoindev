@@ -4,6 +4,7 @@
  */
 
 import poolsData from '@/public/data/pools.json'
+import { formatBytes } from '@/app/utils/formatting'
 
 export interface ProcessedTransaction {
   txid: string
@@ -354,16 +355,10 @@ export function processMempoolBlockData(
 }
 
 /**
- * Format block size for display.
+ * Format block size for display (delegates to formatBytes with 2 decimal places for MB).
  */
 export function formatBlockSize(bytes: number): string {
-  if (bytes >= 1e6) {
-    return `${(bytes / 1e6).toFixed(2)} MB`
-  }
-  if (bytes >= 1e3) {
-    return `${(bytes / 1e3).toFixed(0)} KB`
-  }
-  return `${bytes} B`
+  return formatBytes(bytes, { mbDecimals: 2 })
 }
 
 /**

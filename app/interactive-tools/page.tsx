@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/app/utils/metadata'
+import { SITE_URL } from '@/app/utils/constants'
 import {
   TerminalIcon,
   StackLabIcon,

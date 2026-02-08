@@ -8,6 +8,7 @@
 
 import * as fs from 'fs'
 import * as path from 'path'
+import { BITCOIN_RPC_URL } from '../app/utils/constants'
 import { processBlockData, buildBlockSnapshot, type BlockSnapshot } from '../app/utils/blockUtils'
 
 const DATA_DIR = path.join(process.cwd(), 'public', 'data')
@@ -23,8 +24,6 @@ const BOOTSTRAP_BLOCKS = 100
 const GAP_FILL_MAX_PER_REQUEST = 288
 // Limit concurrent RPC calls to avoid 504s from the public node.
 const RPC_CONCURRENCY = 10
-
-const BITCOIN_RPC_URL = 'https://bitcoin-rpc.publicnode.com'
 
 type RawBlock = {
   height: number

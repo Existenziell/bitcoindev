@@ -1,7 +1,0 @@
-# robots.txt for bitcoindev.info
-
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://bitcoindev.info/sitemap/sitemap.xml

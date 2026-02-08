@@ -1,12 +1,10 @@
-import type { Metadata } from 'next'
-import { SITE_URL } from '@/app/utils/metadata'
+import { createToolLayout } from '@/app/utils/toolLayout'
 
-export const metadata: Metadata = {
-  title: 'Hash Tool | BitcoinDev',
+const { metadata: toolMetadata, ToolLayout } = createToolLayout({
+  title: 'Hash Tool',
   description: 'Compute SHA-256, HASH256, and HASH160. Used in Bitcoin for block hashes, TXIDs, addresses, and script.',
-  alternates: { canonical: `${SITE_URL}/interactive-tools/hash` },
-}
+  path: 'hash',
+})
 
-export default function HashToolLayout({ children }: { children: React.ReactNode }) {
-  return children
-}
+export const metadata = toolMetadata
+export default ToolLayout

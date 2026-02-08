@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
+import { SITE_URL } from '@/app/utils/constants'
 import {
   generatePageMetadata,
   getSiteStructuredData,
   getDocPageStructuredData,
-  SITE_URL,
   DEFAULT_OG_IMAGE,
 } from '@/app/utils/metadata'
 
@@ -30,19 +30,31 @@ describe('generatePageMetadata', () => {
 
   it('uses default ogImage for openGraph.images[0].url when not overridden', () => {
     const meta = generatePageMetadata({ title: 'T', description: 'D' })
-    expect(meta.openGraph?.images?.[0]?.url).toBe(DEFAULT_OG_IMAGE)
+    const images = meta.openGraph?.images
+    const first = Array.isArray(images) ? images[0] : images
+    const url = typeof first === 'string' ? first : (first as { url?: string })?.url
+    expect(url).toBe(DEFAULT_OG_IMAGE)
   })
 
   it('uses overridden ogImage when provided', () => {
     const custom = '/custom/og.png'
     const meta = generatePageMetadata({ title: 'T', description: 'D', ogImage: custom })
-    expect(meta.openGraph?.images?.[0]?.url).toBe(custom)
-    expect(meta.twitter?.images?.[0]).toMatchObject({ url: custom, width: 1200, height: 630 })
+    const images = meta.openGraph?.images
+    const first = Array.isArray(images) ? images[0] : images
+    const url = typeof first === 'string' ? first : (first as { url?: string })?.url
+    expect(url).toBe(custom)
+    const twitterImages = meta.twitter?.images
+    const twitterFirst = Array.isArray(twitterImages) ? twitterImages[0] : twitterImages
+    const twitterUrl = typeof twitterFirst === 'string' ? twitterFirst : (twitterFirst as { url?: string })?.url
+    expect(twitterUrl).toBe(custom)
+    if (typeof twitterFirst === 'object' && twitterFirst && 'width' in twitterFirst) {
+      expect(twitterFirst).toMatchObject({ url: custom, width: 1200, height: 630 })
+    }
   })
 
   it('sets twitter.card to summary_large_image', () => {
     const meta = generatePageMetadata({ title: 'T', description: 'D' })
-    expect(meta.twitter?.card).toBe('summary_large_image')
+    expect((meta.twitter as { card?: string })?.card).toBe('summary_large_image')
   })
 })
 

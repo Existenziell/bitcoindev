@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import BlockVisualizer from '@/app/components/block-visualizer/BlockVisualizer'
-import { SITE_URL } from '@/app/utils/metadata'
+import { SITE_URL } from '@/app/utils/constants'
 import { BlockVisualizerIcon } from '@/app/components/Icons'
 
 export const metadata: Metadata = {

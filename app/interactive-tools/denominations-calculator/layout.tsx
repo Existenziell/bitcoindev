@@ -1,13 +1,11 @@
-import type { Metadata } from 'next'
-import { SITE_URL } from '@/app/utils/metadata'
+import { createToolLayout } from '@/app/utils/toolLayout'
 
-export const metadata: Metadata = {
-  title: 'Denominations Calculator | BitcoinDev',
+const { metadata: toolMetadata, ToolLayout } = createToolLayout({
+  title: 'Denominations Calculator',
   description:
     'Convert between Bitcoin units: satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and more. Interactive calculator with live conversion.',
-  alternates: { canonical: `${SITE_URL}/interactive-tools/denominations-calculator` },
-}
+  path: 'denominations-calculator',
+})
 
-export default function DenominationsCalculatorLayout({ children }: { children: React.ReactNode }) {
-  return children
-}
+export const metadata = toolMetadata
+export default ToolLayout

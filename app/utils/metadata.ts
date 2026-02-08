@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './constants'
 
-// Re-export for consumers that import from metadata (layout, sitemap, etc.)
-export { SITE_URL }
-
 // Site and OG config
 export const DEFAULT_OG_IMAGE = '/images/og/og.png'
 export const OG_LOGO = '/icons/logo/logo.png'

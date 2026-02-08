@@ -32,12 +32,19 @@ export function formatDifficulty(diff: number): string {
   return formatNumber(Math.round(diff))
 }
 
+export interface FormatBytesOptions {
+  /** Decimal places for MB (e.g. block size uses 2, mempool uses 1). Default 1. */
+  mbDecimals?: number
+}
+
 /**
- * Formats bytes with appropriate units (B, KB, MB)
+ * Formats bytes with appropriate units (B, KB, MB).
+ * Used for block size, mempool size, and other byte displays.
  */
-export function formatBytes(bytes: number): string {
+export function formatBytes(bytes: number, options: FormatBytesOptions = {}): string {
+  const { mbDecimals = 1 } = options
   if (bytes >= 1e6) {
-    return `${(bytes / 1e6).toFixed(1)} MB`
+    return `${(bytes / 1e6).toFixed(mbDecimals)} MB`
   }
   if (bytes >= 1e3) {
     return `${(bytes / 1e3).toFixed(0)} KB`
