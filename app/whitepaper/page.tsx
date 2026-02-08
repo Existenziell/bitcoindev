@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { DownloadPDFIcon } from '@/app/components/Icons'
 import ExternalLink from '@/app/components/ExternalLink'
 
@@ -16,9 +17,9 @@ export default function WhitepaperPage() {
             </ExternalLink>
             {' '}on October 31, 2008.
             The Bitcoin network launched on January 3, 2009, when Satoshi mined the{' '}
-            <ExternalLink href="https://www.blockchain.com/explorer/blocks/btc/0" className="link">
+            <Link href="/docs/history/genesis-block" className="link">
               Genesis Block
-            </ExternalLink>.
+            </Link>.
           </p>
       </div>
 

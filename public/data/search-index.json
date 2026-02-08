@@ -426,18 +426,6 @@
   },
   {
     "path": "/docs/history",
-    "title": "Genesis Block",
-    "section": "history",
-    "body": "Genesis Block launch 2009 block 0 january 3",
-    "keywords": [
-      "launch",
-      "2009",
-      "block 0",
-      "january 3"
-    ]
-  },
-  {
-    "path": "/docs/history",
     "title": "First Bitcoin Transaction",
     "section": "history",
     "body": "First Bitcoin Transaction hal finney 10 btc january 12 2009",
@@ -691,6 +679,23 @@
     "title": "Bitcoin History",
     "section": "history",
     "body": "Bitcoin History"
+  },
+  {
+    "path": "/docs/history/genesis-block",
+    "title": "Genesis Block",
+    "section": "history",
+    "body": "Genesis Block genesis block block 0 launch 2009 january 3 coinbase times headline satoshi unspendable",
+    "keywords": [
+      "genesis block",
+      "block 0",
+      "launch",
+      "2009",
+      "january 3",
+      "coinbase",
+      "times headline",
+      "satoshi",
+      "unspendable"
+    ]
   },
   {
     "path": "/docs/history/people",

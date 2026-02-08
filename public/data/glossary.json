@@ -596,7 +596,7 @@
         "term": "Genesis Block",
         "slug": "genesis-block",
         "definition": "The first block in the Bitcoin blockchain (block height 0), created by Satoshi Nakamoto on January 3, 2009. The coinbase transaction famously includes the text \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks,\" both proving the block wasn't pre-mined before that date and commenting on the financial system Bitcoin aimed to provide an alternative to. The genesis block is hardcoded into Bitcoin software as the starting point of the chain, and its 50 BTC reward is unspendable due to a quirk in the original code.",
-        "relatedArticle": "/docs/bitcoin/blocks"
+        "relatedArticle": "/docs/history/genesis-block"
       },
       {
         "term": "Gossip Protocol",

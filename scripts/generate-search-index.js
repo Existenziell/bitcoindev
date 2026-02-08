@@ -125,6 +125,7 @@ const pathKeywords = {
   '/docs/bitcoin-development/coin-selection': ['coin selection', 'utxo selection', 'coin selection algorithm'],
   '/docs/bitcoin-development/signing': ['signing', 'sighash', 'sign transaction'],
   '/docs/bitcoin-development/miniscript': ['miniscript', 'policy', 'script policy', 'miniscript policy'],
+  '/docs/history/genesis-block': ['genesis block', 'block 0', 'launch', '2009', 'january 3', 'coinbase', 'times headline', 'satoshi', 'unspendable'],
   '/docs/history/bips': ['bip', 'bips', 'bitcoin improvement proposal', 'bitcoin improvement proposals'],
   '/docs/development/testnets': ['testnet', 'test net', 'testnet3', 'regtest', 'signet'],
   '/docs/development/node-types': ['full node', 'pruned', 'archival', 'spv', 'node type'],
@@ -281,9 +282,9 @@ for (const p of searchPeople) {
 }
 
 // Events/milestones: path points to doc that describes the event. Body = title + keywords.
+// Note: Genesis Block has its own doc page (/docs/history/genesis-block), so it's indexed via docPages + pathKeywords only.
 const searchEvents = [
   { path: '/docs/history', title: 'Bitcoin Whitepaper Published', section: 'history', keywords: ['whitepaper', '2008', 'satoshi', 'october 31'] },
-  { path: '/docs/history', title: 'Genesis Block', section: 'history', keywords: ['launch', '2009', 'block 0', 'january 3'] },
   { path: '/docs/history', title: 'First Bitcoin Transaction', section: 'history', keywords: ['hal finney', '10 btc', 'january 12 2009'] },
   { path: '/docs/history', title: 'Pizza Day', section: 'history', keywords: ['first commercial', '2010', '10000 btc', 'laszlo hanyecz', 'may 22'] },
   { path: '/docs/history', title: 'First Exchange Rate', section: 'history', keywords: ['2009', 'exchange rate'] },

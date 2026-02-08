@@ -23,7 +23,7 @@ Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing th
 - **Block Reward**: 50 BTC
 - **Creator**: Satoshi Nakamoto
 
-The Genesis Block was mined by Satoshi Nakamoto, marking the birth of the Bitcoin network. The block contains a hidden message in its coinbase transaction: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks": a reference to a headline from The Times newspaper, highlighting Bitcoin's purpose as an alternative to the traditional financial system.
+Satoshi Nakamoto mined the [Genesis Block](/docs/history/genesis-block), marking the birth of the Bitcoin network. The block’s coinbase transaction embeds the headline "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks," linking Bitcoin’s launch to the financial crisis and its purpose as an alternative to the traditional system.
 
 ### First Transaction
 

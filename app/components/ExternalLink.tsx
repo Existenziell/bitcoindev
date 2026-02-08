@@ -13,7 +13,8 @@ interface ExternalLinkProps {
 }
 
 /**
- * External link with icon that expands on hover. Use for target="_blank" links.
+ * External link with icon shown on hover. Use for target="_blank" links.
+ * Icon uses fixed space and opacity transition only to avoid layout shift / flicker.
  */
 export default function ExternalLink({ href, children, className = '', iconClassName = 'ml-0.5', 'aria-label': ariaLabel }: ExternalLinkProps) {
   return (
@@ -25,7 +26,7 @@ export default function ExternalLink({ href, children, className = '', iconClass
       aria-label={ariaLabel}
     >
       {children}
-      <span className={`inline-block w-0 group-hover:w-3 overflow-hidden transition-all duration-200 ${iconClassName}`}>
+      <span className={`inline-flex w-3 shrink-0 justify-center ${iconClassName}`}>
         <ExternalLinkIcon className="opacity-0 group-hover:opacity-70 transition-opacity duration-200" />
       </span>
     </a>
