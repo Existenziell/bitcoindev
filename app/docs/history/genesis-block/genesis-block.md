@@ -1,6 +1,6 @@
 # Genesis Block
 
-The **Genesis Block** is block height 0: the first block in the Bitcoin blockchain and the moment the network went live. It was mined by [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto) on **January 3, 2009**, with a block reward of 50 BTC.
+The Genesis Block is block height 0: the first block in the Bitcoin blockchain and the moment the network went live. It was mined by [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto) on **January 3, 2009**, with a block reward of 50 BTC.
 
 ## The Coinbase Message
 
