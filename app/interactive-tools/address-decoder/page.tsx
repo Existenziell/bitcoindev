@@ -18,10 +18,11 @@ export default function AddressDecoderPage() {
   const exampleIndexRef = useRef(-1)
   const result = decodeAddress(input)
 
-  const pasteExample = useCallback(() => {
+  const pasteExample = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     exampleIndexRef.current = (exampleIndexRef.current + 1) % EXAMPLE_ADDRESSES.length
     const example = EXAMPLE_ADDRESSES[exampleIndexRef.current]
     setInput(example)
+    e.currentTarget.blur()
   }, [])
 
   return (
