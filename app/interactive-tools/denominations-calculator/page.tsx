@@ -19,7 +19,7 @@ export default function DenominationsCalculatorPage() {
         </p>
       </div>
 
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-md mx-auto">
         <DenominationCalculator />
       </div>
     </>

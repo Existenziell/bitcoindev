@@ -27,8 +27,8 @@ export default function DenominationCalculator() {
 
   return (
     <div className="my-6">
-      <div className="bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 p-4">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
+      <div className="bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 p-4 max-w-md">
+        <div className="flex flex-wrap items-center gap-3">
           <label htmlFor="denom-input" className="sr-only">
             Amount
           </label>
@@ -59,11 +59,8 @@ export default function DenominationCalculator() {
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-y-2 text-sm">
-          {results === null ? (
-            <span className="text-gray-500 dark:text-gray-400">Enter an amount</span>
-          ) : (
-            results.map((item) =>
+        <div className={`flex flex-col gap-y-2 text-sm ${results ? 'mt-4' : ''}`}>
+            {results && results.map((item) =>  
               item.type === 'separator' ? (
                 <div
                   key={`sep-${fromUnit}`}
@@ -76,8 +73,7 @@ export default function DenominationCalculator() {
                   <span className="font-mono text-gray-800 dark:text-gray-200 tabular-nums">{item.formatted}</span>
                 </div>
               )
-            )
-          )}
+            )}
         </div>
       </div>
     </div>
