@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import BlockVisualizer from '@/app/components/block-visualizer/BlockVisualizer'
 import { SITE_URL } from '@/app/utils/constants'
 import { BlockVisualizerIcon } from '@/app/components/Icons'
+import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 
 export const metadata: Metadata = {
   title: 'Block Visualizer | BitcoinDev',
@@ -30,6 +31,9 @@ export default function MempoolPage() {
       </div>
 
       <BlockVisualizer />
+      <div className="w-full mx-auto mt-16">
+        <PoolDistributionChart />
+      </div>  
     </>
   )
 }

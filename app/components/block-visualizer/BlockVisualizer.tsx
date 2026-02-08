@@ -10,7 +10,6 @@ import {
 } from '@/app/utils/blockUtils'
 import { formatNumber, formatPrice } from '@/app/utils/formatting'
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight, ExternalLinkIcon } from '@/app/components/Icons'
-import PoolDistributionChart from '@/app/components/PoolDistributionChart'
 import poolsData from '@/public/data/pools.json'
 
 
@@ -450,10 +449,6 @@ export default function BlockVisualizer() {
         >
           Jump to tip
         </button>
-        <div className="w-full max-w-2xl mt-12">
-          <h2 className="heading-section-sm -mb-3">Pool distribution:</h2>
-          <PoolDistributionChart />
-        </div>
       </div>
     </div>
   )

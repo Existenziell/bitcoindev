@@ -55,7 +55,7 @@ Interactive Bitcoin Script playground. Unlocking script runs first (pushes data 
 
 ### Block Visualizer
 
-Interactive block visualization showing the latest Bitcoin block as a transaction treemap. Each rectangle represents a transaction, sized by vBytes, value, or fee. Hover for details, click to explore inputs, outputs, and transaction flow. Block and pool-distribution data live in `public/data/` and are updated by a scheduled GitHub workflow (or by running the update script locally).
+Interactive block visualization showing the latest Bitcoin block as a transaction treemap. Block and pool-distribution data live in `public/data/` and are updated by a scheduled GitHub workflow (or by running the update script locally).
 
 ### Hash Tool
 
