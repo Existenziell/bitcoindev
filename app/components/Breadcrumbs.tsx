@@ -37,37 +37,41 @@ export default function Breadcrumbs({ isSticky = false }: BreadcrumbsProps) {
                 <>
                   <Link
                     href={firstCrumb.href}
-                    className={`hidden md:flex items-center justify-center h-[42px] hover:opacity-80 transition-all duration-200 absolute ${
+                    className={`hidden md:flex items-center justify-center h-[42px] w-[42px] hover:opacity-80 transition-all duration-200 absolute ${
                       showLogoInsteadOfHome 
                         ? 'opacity-100 scale-100' 
                         : 'opacity-0 scale-95 pointer-events-none'
                     }`}
                     aria-label="BitcoinDev Home"
                   >
-                    <Image
-                      src="/icons/logo/logo.png"
-                      alt="BitcoinDev Logo"
-                      width={42}
-                      height={42}
-                      className="opacity-80 dark:invert"
-                    />
+                    <span className="relative block w-full h-full">
+                      <Image
+                        src="/icons/logo/logo.png"
+                        alt="BitcoinDev Logo"
+                        fill
+                        sizes="42px"
+                        className="opacity-80 dark:invert object-contain"
+                      />
+                    </span>
                   </Link>
                   <Link
                     href={firstCrumb.href}
-                    className={`md:hidden flex items-center justify-center h-[42px] hover:opacity-80 transition-all duration-200 absolute ${
+                    className={`md:hidden flex items-center justify-center h-[42px] w-[42px] hover:opacity-80 transition-all duration-200 absolute ${
                       showLogoInsteadOfHome 
                         ? 'opacity-100 scale-100' 
                         : 'opacity-0 scale-95 pointer-events-none'
                     }`}
                     aria-label="BitcoinDev Home"
                   >
-                    <Image
-                      src="/icons/logo/logo.png"
-                      alt="BitcoinDev Logo"
-                      width={42}
-                      height={42}
-                      className="opacity-80 dark:invert"
-                    />
+                    <span className="relative block w-full h-full">
+                      <Image
+                        src="/icons/logo/logo.png"
+                        alt="BitcoinDev Logo"
+                        fill
+                        sizes="42px"
+                        className="opacity-80 dark:invert object-contain"
+                      />
+                    </span>
                   </Link>
                   <Link
                     href={firstCrumb.href}

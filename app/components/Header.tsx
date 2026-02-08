@@ -21,15 +21,15 @@ export default function Header() {
   return (
     <>
       <header ref={headerRef} className="page-bg relative">
-        <div className="container-content py-4">
+        <div className="container-content">
           <div className="flex justify-between items-center relative">
-            <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label="BitcoinDev Home">
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0 w-[100px] h-[100px] relative" aria-label="BitcoinDev Home">
               <Image
                 src="/icons/logo/logo.png"
                 alt="BitcoinDev Logo"
-                width={100}
-                height={100}
-                className="opacity-75 dark:invert hover:opacity-100 transition-opacity duration-200"
+                fill
+                sizes="100px"
+                className="opacity-75 dark:invert hover:opacity-100 transition-opacity duration-200 object-contain"
               />
             </Link>
             <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
