@@ -176,10 +176,10 @@ export default function HashToolPage() {
             <button
               type="button"
               onClick={() => setInputMode('text')}
-              className={`px-3 py-1.5 rounded border text-sm ${
+              className={`px-3 py-1.5 rounded border text-sm transition-colors ${
                 inputMode === 'text'
                   ? 'border-accent bg-accent/10 text-accent'
-                  : 'border-gray-300 dark:border-gray-600 text-secondary'
+                  : 'border-gray-300 dark:border-gray-600 text-secondary hover:border-accent/70 hover:bg-accent/5 dark:hover:bg-accent/10 hover:text-accent'
               }`}
             >
               Text
@@ -187,10 +187,10 @@ export default function HashToolPage() {
             <button
               type="button"
               onClick={() => setInputMode('hex')}
-              className={`px-3 py-1.5 rounded border text-sm ${
+              className={`px-3 py-1.5 rounded border text-sm transition-colors ${
                 inputMode === 'hex'
                   ? 'border-accent bg-accent/10 text-accent'
-                  : 'border-gray-300 dark:border-gray-600 text-secondary'
+                  : 'border-gray-300 dark:border-gray-600 text-secondary hover:border-accent/70 hover:bg-accent/5 dark:hover:bg-accent/10 hover:text-accent'
               }`}
             >
               Hex
@@ -198,10 +198,10 @@ export default function HashToolPage() {
             <button
               type="button"
               onClick={() => setInputMode('bech32')}
-              className={`px-3 py-1.5 rounded border text-sm ${
+              className={`px-3 py-1.5 rounded border text-sm transition-colors ${
                 inputMode === 'bech32'
                   ? 'border-accent bg-accent/10 text-accent'
-                  : 'border-gray-300 dark:border-gray-600 text-secondary'
+                  : 'border-gray-300 dark:border-gray-600 text-secondary hover:border-accent/70 hover:bg-accent/5 dark:hover:bg-accent/10 hover:text-accent'
               }`}
             >
               Bech32
