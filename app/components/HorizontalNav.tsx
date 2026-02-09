@@ -8,29 +8,6 @@ import { toggleInSet } from '@/app/utils/setUtils'
 import { ChevronBarCollapseIcon, ChevronBarExpandIcon, ChevronRight } from '@/app/components/Icons'
 import { cn } from '@/app/utils/cn'
 
-/** Same bordered row design as DocsNavigation */
-const CHILD_LIST_BORDER = 'border-l-2 border-gray-200 dark:border-gray-700 pl-2'
-const navRowClass =
-  'flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors group/row hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500'
-const navRowActiveClass = '!border-accent border-l-4 bg-accent/5 dark:bg-accent/10'
-const navChevronClass =
-  'flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-accent hover:text-accent dark:hover:text-accent'
-
-function getLinkClassName(isActive: boolean, size: 'default' | 'sm' = 'default'): string {
-  const baseClasses = size === 'sm'
-    ? 'block text-sm py-1 leading-tight transition-colors'
-    : 'block py-1 leading-tight transition-colors'
-  const hover = 'hover:text-accent dark:hover:text-accent hover:no-underline'
-
-  if (isActive) {
-    return `${baseClasses} text-accent font-semibold hover:no-underline`
-  }
-
-  return size === 'sm'
-    ? `${baseClasses} text-secondary ${hover}`
-    : `${baseClasses} text-gray-700 dark:text-gray-300 ${hover}`
-}
-
 export default function HorizontalNav() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(true)
@@ -89,15 +66,15 @@ export default function HorizontalNav() {
                     <div key={section.href} className="mb-2">
                       <div
                         className={cn(
-                          navRowClass,
-                          sectionActive && navRowActiveClass
+                          'nav-row',
+                          sectionActive && 'nav-row-active'
                         )}
                       >
                         {hasChildren ? (
                           <button
                             type="button"
                             onClick={() => toggleSection(section.href)}
-                            className={navChevronClass}
+                            className="nav-chevron-btn"
                             aria-label={isExpanded ? 'Collapse section' : 'Expand section'}
                           >
                             <ChevronRight className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
@@ -107,7 +84,7 @@ export default function HorizontalNav() {
                         )}
                         <Link
                           href={section.href}
-                          className={cn('flex-1 min-w-0', getLinkClassName(sectionActive))}
+                          className={cn('flex-1 min-w-0 nav-link', sectionActive && 'nav-link-active')}
                         >
                           {section.title}
                         </Link>
@@ -116,8 +93,7 @@ export default function HorizontalNav() {
                       {hasChildren && isExpanded && (
                         <ul
                           className={cn(
-                            'ml-6 mt-1',
-                            CHILD_LIST_BORDER,
+                            'ml-6 mt-1 nav-child-list-border',
                             section.href === '/docs/glossary'
                               ? 'flex flex-row flex-wrap gap-x-2 gap-y-1'
                               : 'space-y-0'
@@ -127,15 +103,14 @@ export default function HorizontalNav() {
                             <li key={child.href}>
                               <div
                                 className={cn(
-                                  navRowClass,
-                                  isActive(child.href) && navRowActiveClass,
-                                  'py-0.5',
+                                  'nav-row py-0.5',
+                                  isActive(child.href) && 'nav-row-active',
                                   section.href === '/docs/glossary' && 'w-auto'
                                 )}
                               >
                                 <Link
                                   href={child.href}
-                                  className={cn('flex-1 min-w-0', getLinkClassName(isActive(child.href), 'sm'))}
+                                  className={cn('flex-1 min-w-0 nav-link-sm', isActive(child.href) && 'nav-link-active')}
                                 >
                                   {child.title}
                                 </Link>
@@ -151,17 +126,19 @@ export default function HorizontalNav() {
               <div className="flex flex-row items-center justify-end gap-2 w-max ml-auto mb-1 pt-2">
                 <button
                   onClick={() => setExpandedSections(new Set(navItems.map(item => item.href)))}
-                  className="nav-pill"
+                  className={cn("nav-pill", expandedSections.size === navItems.length ? 'opacity-50 cursor-default' : '')}
                   aria-label="Expand all sections"
                   title="Expand all"
+                  disabled={expandedSections.size === navItems.length}
                 >
                   Expand all
                 </button>
                 <button
                   onClick={() => setExpandedSections(new Set())}
-                  className="nav-pill"
+                  className={cn("nav-pill", expandedSections.size === 0 ? 'opacity-50 cursor-default' : '')}
                   aria-label="Collapse all sections"
                   title="Collapse all"
+                  disabled={expandedSections.size === 0}
                 >
                   Collapse all
                 </button>

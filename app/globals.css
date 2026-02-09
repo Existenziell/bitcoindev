@@ -219,6 +219,35 @@ body {
       hover:border-accent hover:text-accent dark:hover:text-accent hover:bg-gray-200 dark:hover:bg-gray-700;
   }
 
+  /* Horizontal nav / docs nav row – bordered row, hover, optional active */
+  .nav-row {
+    @apply flex items-center gap-1.5 w-full rounded-r-md border-l-4 border-transparent pl-2 pr-2 py-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500;
+  }
+
+  .nav-row-active {
+    @apply !border-accent border-l-4 bg-accent/5 dark:bg-accent/10;
+  }
+
+  .nav-child-list-border {
+    @apply border-l-2 border-gray-200 dark:border-gray-700 pl-2;
+  }
+
+  .nav-chevron-btn {
+    @apply flex-shrink-0 p-1.5 rounded border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 transition-colors hover:border-accent hover:text-accent dark:hover:text-accent;
+  }
+
+  .nav-link {
+    @apply block py-1 leading-tight transition-colors text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent hover:no-underline;
+  }
+
+  .nav-link-sm {
+    @apply block text-sm py-1 leading-tight transition-colors text-secondary hover:text-accent dark:hover:text-accent hover:no-underline;
+  }
+
+  .nav-link-active {
+    @apply text-accent font-semibold hover:no-underline;
+  }
+
   /* Button pill - nav/action pill with hover bg (DocsNavigation) */
   .btn-pill {
     @apply rounded-md border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800
