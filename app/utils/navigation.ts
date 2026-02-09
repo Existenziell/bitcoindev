@@ -301,16 +301,14 @@ export const footerLinksExternal: { name: string; url: string }[] = [
 
 // Footer - Explore BitcoinDev section (right side)
 export const footerLinksExplore: { href: string; title: string }[] = [
-  { href: '/docs', title: 'Documentation' },
-  { href: '/interactive-tools', title: 'Interactive tools' },
-  { href: '/whitepaper', title: 'Bitcoin Whitepaper' },
-  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
-  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
-  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
-  { href: '/docs/glossary', title: 'Bitcoin Glossary' },
-  { href: '/about', title: 'About' },
-  { href: '/privacy', title: 'Privacy Policy' },
-  { href: '/feedback', title: 'Feedback' },
+  { href: '/docs', title: 'Search Docs' },
+  { href: '/docs/history', title: 'Bitcoin History' },
+  { href: '/docs/bitcoin', title: 'Bitcoin Protocol' },
+  { href: '/docs/bitcoin-development', title: 'Bitcoin Development' },
+  { href: '/docs/mining', title: 'Bitcoin Mining' },
+  { href: '/docs/adoption', title: 'Bitcoin Adoption' },
+  { href: '/docs/controversies', title: 'Controversies' },
+  { href: '/docs/glossary', title: 'Glossary' },
 ]
 
 export const navItems: NavSection[] = [

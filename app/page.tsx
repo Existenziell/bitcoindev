@@ -53,6 +53,7 @@ export default function Home() {
               A Developer&apos;s Guide to Bitcoin
             </h1>
             <p className="text-secondary mb-6">
+              Bitcoin education for everyone.
               Open source and always free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -84,7 +85,7 @@ export default function Home() {
                   <DownloadMarkdownIcon className="w-4 h-4" />
                 </span>
                 {' '}is available for every docs page.
-                No ads, no paywalls, <Link href="/privacy" className="link">no tracking</Link>. 
+                No ads, no paywalls, <Link href="/privacy" className="link-incognito">no tracking</Link>. 
                 Just pure Bitcoin knowledge for anyone who wants to learn and build on Bitcoin.
               </p>
             </div>

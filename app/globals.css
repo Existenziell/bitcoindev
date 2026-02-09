@@ -279,6 +279,11 @@ body {
     @apply w-full border-t border-gray-200 dark:border-gray-700 pt-4 flex flex-col md:flex-row items-center justify-center gap-y-1 md:gap-x-4 md:gap-y-0 text-sm text-secondary;
   }
 
+  /* Footer logo link - focus ring for accessibility */
+  .footer-logo-link {
+    @apply rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-gray-100 dark:focus-visible:ring-offset-gray-800;
+  }
+
   /* Code block pre - hljs container (add rounded-b-lg border-t-0 for CodeBlock, rounded-lg mb-4 for MarkdownRenderer) */
   .code-block-pre {
     @apply hljs bg-gray-100 dark:bg-gray-900 p-4 overflow-x-auto border border-gray-300 dark:border-gray-700;
