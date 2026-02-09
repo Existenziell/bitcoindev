@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navItems, horizontalNavLinksBottom } from '@/app/utils/navigation'
 import { toggleInSet } from '@/app/utils/setUtils'
-import { ChevronBarCollapseIcon, ChevronBarExpandIcon, ChevronDown, ChevronRight } from '@/app/components/Icons'
+import { ChevronBarCollapseIcon, ChevronBarExpandIcon, ChevronRight } from '@/app/components/Icons'
 import { cn } from '@/app/utils/cn'
 
 /** Same bordered row design as DocsNavigation */
