@@ -84,7 +84,7 @@ export default function ToolsPage() {
 
       <ul className="flex flex-wrap gap-4 justify-center max-w-6xl mx-auto">
         {tools.map((tool) => (
-          <li key={tool.href} className="w-[280px] shrink-0">
+          <li key={tool.href} className="w-full sm:w-[320px] shrink-0">
             <Link
               href={tool.href}
               className="tool-card block h-full"
