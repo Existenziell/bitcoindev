@@ -245,7 +245,7 @@ export const sections: Record<string, { title: string; description: string }> = 
   },
 }
 
-// Home page CTA links (anchor text varied from footer/nav for SEO)
+// Home page CTA links
 export const ctaLinks: { href: string; title: string }[] = [
   { href: '/docs/fundamentals', title: 'Start Learning' },
   { href: '/interactive-tools', title: 'Bitcoin Dev Tools' },
