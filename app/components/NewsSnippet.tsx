@@ -19,9 +19,9 @@ export default async function NewsSnippet() {
   return (
     <div className="container-content pb-8 md:pb-12">
       <div className="max-w-3xl mx-auto">
-        <h3 className="heading-section-muted text-center mb-4">
+        <h2 className="heading-section-muted text-center mb-4">
           Latest Bitcoin News
-        </h3>
+        </h2>
         <ul className="space-y-3">
           {items.map((item) => (
             <li key={item.id}>
