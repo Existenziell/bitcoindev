@@ -70,15 +70,14 @@ export default function HorizontalNav() {
                     isInteractiveTools && toolsItem?.children && toolsItem.children.length > 0
 
                   return (
-                  <section key={group.href} aria-labelledby={`horizontal-nav-${group.href.slice(1).replace(/\//g, '-')}`}>
-                    <h3
-                      id={`horizontal-nav-${group.href.slice(1).replace(/\//g, '-')}`}
+                  <section key={group.href} aria-label={group.title}>
+                    <div
                       className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3"
                     >
                       <Link href={group.href} className="hover:text-accent">
                         {group.title}
                       </Link>
-                    </h3>
+                    </div>
                     <ul
                       className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-3 list-none p-0 m-0"
                       aria-label={`${group.title} sections`}
