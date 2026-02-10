@@ -326,7 +326,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
-    p: ({ children, ...props }: any) => {
+    p: ({ node: _node, children, ...props }: any) => {
       const childrenArray = React.Children.toArray(children)
 
       // Check for standalone tx-binary-map.png image
@@ -392,7 +392,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
 
       return <p {...props}>{children}</p>
     },
-    a: ({ href, children, ...props }: any) => {
+    a: ({ node: _node, href, children, ...props }: any) => {
       if (href && typeof href === 'string' && (href.includes('youtube.com') || href.includes('youtu.be'))) {
         const videoId = getYouTubeVideoId(href)
         if (videoId) {
@@ -424,7 +424,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         </ExternalLink>
       )
     },
-    code: ({ inline, className, children, ...props }: any) => {
+    code: ({ node: _node, inline, className, children, ...props }: any) => {
       if (inline) {
         return (
           <code className="inline-code" {...props}>
@@ -439,7 +439,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         </code>
       )
     },
-    pre: ({ children, ...props }: any) => {
+    pre: ({ node: _node, children, ...props }: any) => {
       // react-markdown puts code inside pre
       const codeElement = React.Children.toArray(children)[0]
 
@@ -470,7 +470,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         </pre>
       )
     },
-    img: ({ src, alt, className, width, height, ...props }: any) => {
+    img: ({ node: _node, src, alt, className, width, height, ...props }: any) => {
       const cn = typeof className === 'string' ? className : Array.isArray(className) ? className.join(' ') : ''
       const isDocImage =
         typeof src === 'string' && src.startsWith('/images/') && /doc-img|doc-img-big|doc-img-people/.test(cn)
