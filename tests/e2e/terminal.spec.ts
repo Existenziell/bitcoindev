@@ -57,7 +57,10 @@ test.describe('Terminal', () => {
     await page.goto('/interactive-tools/terminal')
     await page.getByPlaceholder(/enter command/i).fill('getblockcount')
     await page.getByRole('button', { name: 'Run' }).click()
-    await expect(page.locator('pre').filter({ hasText: /^\d+$/ })).toBeVisible({ timeout: 15000 })
+    // Wait for RPC to finish (Loading... disappears) so we don't race with the async response
+    await expect(page.getByText('Loading...')).toBeHidden({ timeout: 20000 })
+    // Result is a pre containing only digits (optionally with trailing whitespace)
+    await expect(page.locator('pre').filter({ hasText: /^\d+\s*$/ })).toBeVisible({ timeout: 10000 })
   })
 
   test('secret trigger shows fake error then SECRET overlay', async ({ page }) => {
