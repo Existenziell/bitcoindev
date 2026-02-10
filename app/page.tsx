@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Footer from '@/app/components/Footer'
 import QuoteRotator from '@/app/components/QuoteRotator'
 import LiveStats from '@/app/components/LiveStats'
+import NewsSnippet from '@/app/components/NewsSnippet'
 import HorizontalNav from '@/app/components/HorizontalNav'
 import BitcoinHistoryBanner from '@/app/components/BitcoinHistoryBanner'
 import { BookOpenIcon, ToolsIcon, DownloadMarkdownIcon } from '@/app/components/Icons'
@@ -97,6 +98,8 @@ export default function Home() {
         <HorizontalNav />
 
         <LiveStats />
+
+        <NewsSnippet />
       </div>
 
       <Footer />

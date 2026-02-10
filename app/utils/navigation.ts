@@ -254,6 +254,7 @@ export const ctaLinks: { href: string; title: string }[] = [
 // Docs sidebar - top section
 export const docsNavLinksTop: { href: string; title: string }[] = [
   { href: '/whitepaper', title: 'Whitepaper' },
+  { href: '/news', title: 'News' },
 ]
 
 // Docs sidebar - Interactive Tools as expandable section (used by DocsNavigation only)
@@ -284,6 +285,7 @@ export const horizontalNavLinksBottom: { href: string; title: string }[] = [
   { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
   { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
   { href: '/whitepaper', title: 'Whitepaper' },
+   { href: '/news', title: 'News' },
   { href: '/about', title: 'About' },
 ]
 
@@ -404,6 +406,7 @@ export const routeLabels: Record<string, string> = {
   'denominations-calculator': 'Denominations Calculator',
   whitepaper: 'Whitepaper',
   about: 'About BitcoinDev',
+  news: 'News',
   feedback: 'Feedback',
   docs: 'Documentation',
   ...docRouteLabels,

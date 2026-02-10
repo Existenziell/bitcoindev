@@ -51,6 +51,7 @@ export default function Footer() {
             </Link>
             <nav aria-label='Site info' className='flex flex-col gap-y-1 text-center'>
               <Link href='/about' className='text-sm link-muted'>About</Link>
+              <Link href='/news' className='text-sm link-muted'>News</Link>
               <Link href='/privacy' className='text-sm link-muted'>Privacy Policy</Link>
               <Link href='/feedback' className='text-sm link-muted'>Feedback</Link>
             </nav>
