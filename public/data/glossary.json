@@ -29,7 +29,7 @@
         "term": "Air-Gapped",
         "slug": "air-gapped",
         "definition": "A computer or device that has never been connected to the internet, providing the highest level of security for Bitcoin wallets. Air-gapped systems cannot be attacked remotely, making them ideal for generating private keys, creating transactions, and signing them offline. The transaction is then transferred to an internet-connected device for broadcasting. This approach eliminates the risk of malware, network attacks, and key theft through online means.",
-        "relatedArticle": "/docs/investment/wallet-security"
+        "relatedArticle": "/philosophy/investment/wallet-security"
       },
       {
         "term": "Absolute Time Lock",
@@ -130,7 +130,7 @@
         "term": "Blockchain",
         "slug": "blockchain",
         "definition": "A distributed, append-only ledger of all Bitcoin transactions maintained by thousands of independent nodes worldwide.\nBlocks are cryptographically linked in chronological order, making historical data tamper-evident and immutable. Altering any past transaction would require re-mining all subsequent blocks, which becomes computationally infeasible as more blocks are added.",
-        "relatedArticle": "/docs/fundamentals/blockchain"
+        "relatedArticle": "/philosophy/fundamentals/blockchain"
       },
       {
         "term": "Block Header",
@@ -178,7 +178,7 @@
         "term": "BIP",
         "slug": "bip",
         "definition": "Bitcoin Improvement Proposal (BIP): a design document that proposes changes, additions, or informational content for the Bitcoin ecosystem, following a structured process for community review. BIPs are categorized as Standards Track (protocol changes), Informational, or Process documents. Notable examples include BIP 16 (P2SH), BIP 32 (HD wallets), BIP 39 (mnemonic seeds), BIP 141 (SegWit), and BIP 341 (Taproot).",
-        "relatedArticle": "/docs/history/bips"
+        "relatedArticle": "/philosophy/history/bips"
       },
       {
         "term": "Bitcoin Client",
@@ -219,7 +219,7 @@
       {
         "term": "BTC",
         "slug": "btc",
-        "definition": "The ticker symbol for bitcoin, representing the asset in trading pairs. It's also sometimes used as shorthand for the Bitcoin Core software. See [Denominations](/docs/fundamentals/denominations) for the full unit table and converter.\n\n---"
+        "definition": "The ticker symbol for bitcoin, representing the asset in trading pairs. It's also sometimes used as shorthand for the Bitcoin Core software. See [Denominations](/philosophy/fundamentals/denominations) for the full unit table and converter.\n\n---"
       }
     ]
   },
@@ -328,7 +328,7 @@
         "term": "Cold Storage Wallet",
         "slug": "cold-storage-wallet",
         "definition": "An offline Bitcoin wallet that isn't connected to the internet, providing enhanced security against hacking and theft. Typically used for long-term storage, it keeps private keys isolated from potential online threats. Hardware wallets and paper wallets are common forms of cold storage.",
-        "relatedArticle": "/docs/investment/wallet-security"
+        "relatedArticle": "/philosophy/investment/wallet-security"
       },
       {
         "term": "Covenants",
@@ -356,7 +356,7 @@
         "term": "Cypherpunks",
         "slug": "cypherpunks",
         "definition": "Activists who advocate for using cryptography to protect privacy and personal freedom. They were members of the now-defunct Cypherpunk mailing list, active in the 1990s. Their work laid the foundation for privacy-preserving technologies like Bitcoin.",
-        "relatedArticle": "/docs/fundamentals/cypherpunk-philosophy"
+        "relatedArticle": "/philosophy/fundamentals/cypherpunk-philosophy"
       },
       {
         "term": "Channel",
@@ -404,7 +404,7 @@
         "term": "DCA",
         "slug": "dca",
         "definition": "Dollar-Cost Averaging (DCA): a strategy where a fixed amount of money is used to buy bitcoin at regular intervals, smoothing out volatility by ignoring short-term price movements.",
-        "relatedArticle": "/docs/investment/investment-strategy"
+        "relatedArticle": "/philosophy/investment/investment-strategy"
       },
       {
         "term": "DEX",
@@ -415,7 +415,7 @@
         "term": "Decentralization",
         "slug": "decentralization",
         "definition": "The distribution of control, decision-making, and infrastructure across many independent participants rather than a single central authority.\nBitcoin achieves this through open-source code that anyone can audit, distributed mining across thousands of operations worldwide, and permissionless node operation that lets anyone verify the blockchain. This architecture means no government, company, or individual can unilaterally change the rules, censor transactions, or shut down the network.",
-        "relatedArticle": "/docs/fundamentals/decentralization"
+        "relatedArticle": "/philosophy/fundamentals/decentralization"
       },
       {
         "term": "Derivation Path",
@@ -596,7 +596,7 @@
         "term": "Genesis Block",
         "slug": "genesis-block",
         "definition": "The first block in the Bitcoin blockchain (block height 0), created by Satoshi Nakamoto on January 3, 2009. The coinbase transaction famously includes the text \"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks,\" both proving the block wasn't pre-mined before that date and commenting on the financial system Bitcoin aimed to provide an alternative to. The genesis block is hardcoded into Bitcoin software as the starting point of the chain, and its 50 BTC reward is unspendable due to a quirk in the original code.",
-        "relatedArticle": "/docs/history/genesis-block"
+        "relatedArticle": "/philosophy/history/genesis-block"
       },
       {
         "term": "Gossip Protocol",
@@ -618,7 +618,7 @@
         "term": "Halving",
         "slug": "halving",
         "definition": "An event that occurs every 210,000 blocks (approximately every four years) where the block reward paid to miners is cut in half, reducing Bitcoin's inflation rate.\nThis mechanism is central to Bitcoin's monetary policy, creating a predictable and diminishing supply schedule that asymptotically approaches the 21 million cap. The most recent halving in April 2024 reduced the block reward from 6.25 to 3.125 BTC.",
-        "relatedArticle": "/docs/history/halvings"
+        "relatedArticle": "/philosophy/history/halvings"
       },
       {
         "term": "Hash",
@@ -634,7 +634,7 @@
         "term": "Hard Fork",
         "slug": "hard-fork",
         "definition": "A protocol change that loosens consensus rules, making previously invalid blocks or transactions valid, which is not backward-compatible. Nodes that don't upgrade will reject new blocks as invalid, potentially creating a permanent chain split where two incompatible networks exist. Hard forks are controversial in Bitcoin because they risk splitting the network and are generally avoided in favor of soft forks, which maintain backward compatibility.",
-        "relatedArticle": "/docs/history/forks"
+        "relatedArticle": "/philosophy/history/forks"
       },
       {
         "term": "HD Wallet",
@@ -646,13 +646,13 @@
         "term": "Hardware Wallet",
         "slug": "hardware-wallet",
         "definition": "A physical device used to store private keys securely offline, providing protection from online hacks or malware. Hardware wallets are a form of cold storage and are widely used by Bitcoin holders for long-term storage, ensuring that their private keys remain safe from unauthorized access. Private keys never leave the device, and transactions are signed on the device itself, making them secure even when connected to compromised computers.",
-        "relatedArticle": "/docs/investment/wallet-security"
+        "relatedArticle": "/philosophy/investment/wallet-security"
       },
       {
         "term": "Hot Wallet",
         "slug": "hot-wallet",
         "definition": "A Bitcoin wallet that is connected to the internet, such as mobile apps, desktop software, or web wallets. Hot wallets are convenient for frequent transactions and daily use but are more vulnerable to hacking, malware, and online attacks since private keys are stored on internet-connected devices. Best practice is to use hot wallets only for small amounts and keep significant holdings in cold storage wallets or hardware wallets.",
-        "relatedArticle": "/docs/investment/wallet-security"
+        "relatedArticle": "/philosophy/investment/wallet-security"
       },
       {
         "term": "HODL",
@@ -844,14 +844,14 @@
       {
         "term": "Magic Internet Money",
         "slug": "magic-internet-money",
-        "definition": "A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as self-deprecating humor) and critics (as dismissal). The phrase acknowledges Bitcoin's seemingly impossible nature (digital scarcity without a central issuer, global transfers without intermediaries) while hinting at its power. Despite the humorous framing, Bitcoin represents serious technology: cryptography, proof-of-work, and game-theoretic security. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how memes function in Bitcoin culture.",
-        "relatedArticle": "/docs/fundamentals/bitcoin-meme"
+        "definition": "A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as self-deprecating humor) and critics (as dismissal). The phrase acknowledges Bitcoin's seemingly impossible nature (digital scarcity without a central issuer, global transfers without intermediaries) while hinting at its power. Despite the humorous framing, Bitcoin represents serious technology: cryptography, proof-of-work, and game-theoretic security. See [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) for how memes function in Bitcoin culture.",
+        "relatedArticle": "/philosophy/fundamentals/bitcoin-meme"
       },
       {
         "term": "Meme",
         "slug": "meme",
         "definition": "In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, \"don't trust, verify\"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See Bitcoin, the Meme for how Bitcoin functions as a meme and the cultural expressions that have emerged.",
-        "relatedArticle": "/docs/fundamentals/bitcoin-meme"
+        "relatedArticle": "/philosophy/fundamentals/bitcoin-meme"
       },
       {
         "term": "Miniscript",
@@ -949,13 +949,13 @@
         "term": "OP_RETURN",
         "slug": "op-return",
         "definition": "An opcode that marks a transaction output as provably unspendable, allowing data to be embedded in transactions without bloating the UTXO set. Since OP_RETURN outputs can never be spent, nodes can safely discard them rather than tracking them forever. This provides a way to store small amounts of data (up to 80 bytes per output) on the blockchain for timestamping, asset protocols, or other applications.",
-        "relatedArticle": "/docs/controversies/op-return"
+        "relatedArticle": "/philosophy/controversies/op-return"
       },
       {
         "term": "Orange Pill",
         "slug": "orange-pill",
         "definition": "A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The \"orange pill\" refers to the process of someone \"waking up\" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the \"awakening\" process. See Bitcoin, the Meme for how the orange pill process drives adoption and education.",
-        "relatedArticle": "/docs/fundamentals/bitcoin-meme"
+        "relatedArticle": "/philosophy/fundamentals/bitcoin-meme"
       },
       {
         "term": "OPCODE",
@@ -1014,7 +1014,7 @@
         "term": "Paper Wallet",
         "slug": "paper-wallet",
         "definition": "A physical document that contains a Bitcoin private key and its corresponding public address, usually in the form of a QR code. It allows users to store bitcoin offline, providing cold storage. While paper wallets offer strong protection against online hacks, they are vulnerable to physical damage or loss, and improper handling can expose the private key, compromising the funds.",
-        "relatedArticle": "/docs/investment/wallet-security"
+        "relatedArticle": "/philosophy/investment/wallet-security"
       },
       {
         "term": "Payjoin",
@@ -1203,7 +1203,7 @@
       {
         "term": "Sat",
         "slug": "sat",
-        "definition": "Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter."
+        "definition": "Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/philosophy/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter."
       },
       {
         "term": "Satoshi Nakamoto",
@@ -1287,7 +1287,7 @@
         "term": "Soft Fork",
         "slug": "soft-fork",
         "definition": "A backward-compatible protocol change that tightens consensus rules, making some previously valid transactions or blocks now invalid. Non-upgraded nodes continue accepting new blocks but may not understand new features (they see transactions as \"anyone can spend\" but observe miners not spending them). Examples include SegWit (BIP 141) and Taproot (BIP 341). Because soft forks don't force the network to split, they're Bitcoin's preferred upgrade mechanism.",
-        "relatedArticle": "/docs/history/forks"
+        "relatedArticle": "/philosophy/history/forks"
       },
       {
         "term": "Sidechain",
@@ -1420,7 +1420,7 @@
         "term": "UTXO",
         "slug": "utxo",
         "definition": "Unspent Transaction Output (UTXO): a transaction output that hasn't been spent yet, representing the actual \"coins\" in Bitcoin's accounting model.\nUnlike account-based systems (like bank accounts), Bitcoin tracks ownership through discrete UTXOs. Each is either entirely unspent or entirely consumed when used as an input. When you \"have 1 BTC\", you actually possess one or more UTXOs that sum to that amount. Spending requires consuming entire UTXOs and creating new ones, including change outputs when the input exceeds the payment.",
-        "relatedArticle": "/docs/fundamentals/utxos"
+        "relatedArticle": "/philosophy/fundamentals/utxos"
       },
       {
         "term": "UTXO Set",

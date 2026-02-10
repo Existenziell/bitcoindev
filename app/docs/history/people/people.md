@@ -258,7 +258,7 @@ The "Bitcoin pizza" has become a celebrated moment in Bitcoin's history (May 22 
 
 **Contribution:** Bitcoin Core lead maintainer (2014-2021)
 
-Wladimir van der Laan is a software developer who served as the lead maintainer of Bitcoin Core from 2014 to 2021. He took over the role from Gavin Andresen during a turbulent period that included the [blocksize wars](/docs/controversies/blocksize-wars), the intense debate over whether to increase Bitcoin's block size limit. Van der Laan maintained the Bitcoin Core repository, integrated contributions from a growing developer community, and shepherded the project through the activation of [SegWit](/docs/bitcoin/segwit) in 2017.
+Wladimir van der Laan is a software developer who served as the lead maintainer of Bitcoin Core from 2014 to 2021. He took over the role from Gavin Andresen during a turbulent period that included the [blocksize wars](/philosophy/controversies/blocksize-wars), the intense debate over whether to increase Bitcoin's block size limit. Van der Laan maintained the Bitcoin Core repository, integrated contributions from a growing developer community, and shepherded the project through the activation of [SegWit](/docs/bitcoin/segwit) in 2017.
 
 His tenure saw Bitcoin Core evolve from a smaller team into a distributed, open-source project with many regular contributors. Van der Laan emphasized process, review, and conservative change, values that have come to define Bitcoin's development culture. He stepped down as lead maintainer in 2021; the role has since been shared among several maintainers in a further decentralization of project stewardship.
 

@@ -112,7 +112,7 @@ Atomic swaps use hash time-locked contracts (HTLCs).
         expect(typeof entry.slug).toBe('string')
         expect(typeof entry.definition).toBe('string')
         if (entry.relatedArticle !== undefined) {
-          expect(entry.relatedArticle).toMatch(/^\/docs\//)
+          expect(entry.relatedArticle).toMatch(/^\/(docs|philosophy)\//)
         }
       }
     }

@@ -17,7 +17,7 @@ export default function WhitepaperPage() {
             </ExternalLink>
             {' '}on October 31, 2008.
             The Bitcoin network launched on January 3, 2009, when Satoshi mined the{' '}
-            <Link href="/docs/history/genesis-block" className="link">
+            <Link href="/philosophy/history/genesis-block" className="link">
               Genesis Block
             </Link>.
           </p>

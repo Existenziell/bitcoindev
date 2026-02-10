@@ -66,7 +66,7 @@ The elegant solution combines cryptographic proof (making fraud detectable) with
 
 ### Proof-of-Work: Digital Gold Mining
 
-The concept of proof-of-work predates Bitcoin. In 1997, **[Adam Back](/docs/history/people#adam-back)** invented [Hashcash](https://en.wikipedia.org/wiki/Hashcash), a proof-of-work system designed to combat email spam. The sender had to perform computational work to send an email: trivial for legitimate users, but prohibitively expensive for spammers sending millions of messages. Satoshi Nakamoto cited Hashcash in the [Bitcoin whitepaper](/whitepaper) and adapted its core mechanism for blockchain consensus.
+The concept of proof-of-work predates Bitcoin. In 1997, **[Adam Back](/philosophy/history/people#adam-back)** invented [Hashcash](https://en.wikipedia.org/wiki/Hashcash), a proof-of-work system designed to combat email spam. The sender had to perform computational work to send an email: trivial for legitimate users, but prohibitively expensive for spammers sending millions of messages. Satoshi Nakamoto cited Hashcash in the [Bitcoin whitepaper](/whitepaper) and adapted its core mechanism for blockchain consensus.
 
 The intuition behind proof-of-work mirrors **gold mining**. When someone presents you with a gold bar, you don't need to watch them mine it. The gold itself is proof that work was done. Gold cannot be created cheaply; its existence demonstrates that someone expended real resources (time, labor, equipment) to extract it from the earth. This is **implicit proof of work**.
 
@@ -80,7 +80,7 @@ Bitcoin mining works the same way. When a miner presents a valid block hash, the
 | Scarcity | Geological limits | Protocol-enforced supply cap |
 | Cost | Energy, equipment, labor | Energy, ASICs, facilities |
 
-This "unforgeable costliness" (a term coined by [Nick Szabo](/docs/history/people#nick-szabo)) is what gives both gold and bitcoin their monetary properties. The work cannot be faked, and the result can be easily verified by anyone.
+This "unforgeable costliness" (a term coined by [Nick Szabo](/philosophy/history/people#nick-szabo)) is what gives both gold and bitcoin their monetary properties. The work cannot be faked, and the result can be easily verified by anyone.
 
 ### How PoW Creates Consensus
 
@@ -178,7 +178,7 @@ Bitcoin's security is fundamentally economic. Miners receive block rewards + fee
 | **Temporary fork** | Two blocks found simultaneously | Next block determines winner |
 | **Stale block** | Valid block orphaned by longer chain | Transactions return to mempool |
 
-These situations are normal and resolve automatically. The longest chain rule ensures eventual consistency without human intervention: a critical property for a trustless system. Protocol upgrades that change consensus rules are deployed via [soft forks](/docs/history/forks) (tightening rules) or [hard forks](/docs/history/forks) (loosening rules); see [Forks](/docs/history/forks) for Bitcoin's upgrade history.
+These situations are normal and resolve automatically. The longest chain rule ensures eventual consistency without human intervention: a critical property for a trustless system. Protocol upgrades that change consensus rules are deployed via [soft forks](/philosophy/history/forks) (tightening rules) or [hard forks](/philosophy/history/forks) (loosening rules); see [Forks](/philosophy/history/forks) for Bitcoin's upgrade history.
 
 ---
 

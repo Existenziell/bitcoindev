@@ -26,7 +26,7 @@ The cypherpunk movement emerged in the late 1980s and early 1990s, as the intern
 <img src="/images/docs/cypherpunk.webp" alt="Cypherpunk Manifesto" class="doc-img" width="600" height="800" />
 <p class="doc-img-legend">The Cypherpunk Manifesto</p>
 
-Cypherpunks believe that privacy is essential for an open society, but it cannot be granted by governments or corporations; it must be **enforced through mathematics**. As [Eric Hughes](/docs/history/people#eric-hughes) wrote in "A Cypherpunk's Manifesto" (1993):
+Cypherpunks believe that privacy is essential for an open society, but it cannot be granted by governments or corporations; it must be **enforced through mathematics**. As [Eric Hughes](/philosophy/history/people#eric-hughes) wrote in "A Cypherpunk's Manifesto" (1993):
 
 > "Privacy is necessary for an open society in the electronic age. Privacy is not secrecy. A private matter is something one doesn't want the whole world to know, but a secret matter is something one doesn't want anybody to know. Privacy is the power to selectively reveal oneself to the world."
 
@@ -46,7 +46,7 @@ Bitcoin implements this through:
 - **Consensus rules**: Enforced by code, not by vote or decree
 - **No trusted third parties**: The protocol itself provides security
 
-This connects directly to Bitcoin's [trust model](/docs/fundamentals/trust-model), which minimizes trust in institutions and maximizes trust in cryptographic proof.
+This connects directly to Bitcoin's [trust model](/philosophy/fundamentals/trust-model), which minimizes trust in institutions and maximizes trust in cryptographic proof.
 
 ### Decentralization and Avoiding Central Control
 
@@ -56,7 +56,7 @@ Cypherpunks recognized that **centralized systems create single points of failur
 - Manipulated
 - Surveilled
 
-Bitcoin's [decentralization](/docs/fundamentals/decentralization) directly addresses this concern:
+Bitcoin's [decentralization](/philosophy/fundamentals/decentralization) directly addresses this concern:
 - **No central authority**: No company, government, or individual controls Bitcoin
 - **Distributed network**: Thousands of nodes worldwide
 - **Permissionless**: Anyone can participate without approval
@@ -90,7 +90,7 @@ Cypherpunks saw censorship as a fundamental threat to freedom. Bitcoin's design 
 
 ### The Cypherpunk Mailing List
 
-In 1992, three mathematicians (Eric Hughes, [Timothy C. May](/docs/history/people#timothy-c-may), and John Gilmore) founded the **cypherpunk mailing list**. This became the central forum for discussing cryptography, privacy, and digital cash. The mailing list included:
+In 1992, three mathematicians (Eric Hughes, [Timothy C. May](/philosophy/history/people#timothy-c-may), and John Gilmore) founded the **cypherpunk mailing list**. This became the central forum for discussing cryptography, privacy, and digital cash. The mailing list included:
 - Cryptographers working on privacy technologies
 - Activists concerned about government surveillance
 - Entrepreneurs building digital cash systems
@@ -137,19 +137,19 @@ Eric Hughes co-founded the cypherpunk mailing list and wrote "A Cypherpunk's Man
 
 ### David Chaum
 
-[David Chaum](/docs/history/people#david-chaum) is often called the "godfather of cryptocurrency." In 1982, he published "Blind Signatures for Untraceable Payments," introducing the concept of anonymous digital cash. His work directly inspired the cypherpunk movement and later cryptocurrency development.
+[David Chaum](/philosophy/history/people#david-chaum) is often called the "godfather of cryptocurrency." In 1982, he published "Blind Signatures for Untraceable Payments," introducing the concept of anonymous digital cash. His work directly inspired the cypherpunk movement and later cryptocurrency development.
 
 ### Adam Back
 
-[Adam Back](/docs/history/people#adam-back) invented Hashcash (1997), a proof-of-work system that became a critical component of Bitcoin. Satoshi Nakamoto cited Hashcash in the [Bitcoin whitepaper](/whitepaper), and Bitcoin's mining algorithm is essentially Hashcash applied to transaction validation.
+[Adam Back](/philosophy/history/people#adam-back) invented Hashcash (1997), a proof-of-work system that became a critical component of Bitcoin. Satoshi Nakamoto cited Hashcash in the [Bitcoin whitepaper](/whitepaper), and Bitcoin's mining algorithm is essentially Hashcash applied to transaction validation.
 
 ### Nick Szabo
 
-[Nick Szabo](/docs/history/people#nick-szabo) designed Bit Gold (1998), often called the direct precursor to Bitcoin. He also coined the term "smart contracts" in 1994. His intellectual contributions to the conceptual foundations of cryptocurrency are undeniable.
+[Nick Szabo](/philosophy/history/people#nick-szabo) designed Bit Gold (1998), often called the direct precursor to Bitcoin. He also coined the term "smart contracts" in 1994. His intellectual contributions to the conceptual foundations of cryptocurrency are undeniable.
 
 ### Wei Dai
 
-[Wei Dai](/docs/history/people#wei-dai) proposed b-money (1998), a theoretical system for anonymous, distributed electronic cash. Satoshi Nakamoto cited b-money in the Bitcoin whitepaper and personally emailed Wei Dai before Bitcoin's launch.
+[Wei Dai](/philosophy/history/people#wei-dai) proposed b-money (1998), a theoretical system for anonymous, distributed electronic cash. Satoshi Nakamoto cited b-money in the Bitcoin whitepaper and personally emailed Wei Dai before Bitcoin's launch.
 
 ---
 
@@ -214,7 +214,7 @@ Bitcoin's decentralization addresses the cypherpunk concern about central contro
 
 ### Problems Bitcoin Solved
 
-The [problems Bitcoin solved](/docs/fundamentals/problems) were precisely the problems that cypherpunks had been trying to solve for decades:
+The [problems Bitcoin solved](/philosophy/fundamentals/problems) were precisely the problems that cypherpunks had been trying to solve for decades:
 - **Trust in third parties**: Cypherpunks wanted to eliminate intermediaries
 - **Censorship**: Cypherpunks wanted uncensorable transactions
 - **Privacy**: Cypherpunks wanted private but verifiable payments
@@ -295,7 +295,7 @@ Bitcoin is not just a technology; it's the practical implementation of a decades
 
 ## Related Topics
 
-- [People in Bitcoin](/docs/history/people) - Learn about the cypherpunk figures who influenced Bitcoin
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin implements "trust code, not people"
-- [Decentralization](/docs/fundamentals/decentralization) - How Bitcoin avoids central control
-- [Problems Bitcoin Solved](/docs/fundamentals/problems) - The problems cypherpunks wanted to solve
+- [People in Bitcoin](/philosophy/history/people) - Learn about the cypherpunk figures who influenced Bitcoin
+- [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin implements "trust code, not people"
+- [Decentralization](/philosophy/fundamentals/decentralization) - How Bitcoin avoids central control
+- [Problems Bitcoin Solved](/philosophy/fundamentals/problems) - The problems cypherpunks wanted to solve

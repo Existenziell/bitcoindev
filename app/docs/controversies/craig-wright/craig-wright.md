@@ -38,7 +38,7 @@ Initial excitement quickly faded as researchers found problems with the "evidenc
 
 ### 2016: The Failed Proof
 
-In May 2016, Wright came forward publicly, claiming to be Satoshi in interviews with the BBC and The Economist. He demonstrated a signature verification to several prominent Bitcoin figures, including [Gavin Andresen](/docs/history/people#gavin-andresen) (an early Bitcoin developer).
+In May 2016, Wright came forward publicly, claiming to be Satoshi in interviews with the BBC and The Economist. He demonstrated a signature verification to several prominent Bitcoin figures, including [Gavin Andresen](/philosophy/history/people#gavin-andresen) (an early Bitcoin developer).
 
 **The problem**: Wright's "proof" was quickly debunked. He had used a signature that was already publicly available on the blockchain, not a new signature proving key access. It was a sleight of hand, not cryptographic proof.
 
@@ -183,9 +183,9 @@ Craig Wright is not Satoshi Nakamoto. A UK High Court has ruled it. The cryptogr
 
 ## Related Topics
 
-- [Mt. Gox Collapse](/docs/controversies/mt-gox) - Exchange disaster that shaped Bitcoin culture
-- [Blocksize Wars](/docs/controversies/blocksize-wars) - The scaling debate that led to Bitcoin Cash
-- [OP_RETURN Debate](/docs/controversies/op-return) - Data storage controversy
+- [Mt. Gox Collapse](/philosophy/controversies/mt-gox) - Exchange disaster that shaped Bitcoin culture
+- [Blocksize Wars](/philosophy/controversies/blocksize-wars) - The scaling debate that led to Bitcoin Cash
+- [OP_RETURN Debate](/philosophy/controversies/op-return) - Data storage controversy
 
 ---
 

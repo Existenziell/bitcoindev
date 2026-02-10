@@ -1,6 +1,6 @@
 # Bitcoin Price Tracking
 
-Bitcoin amounts are usually stored and transmitted in [satoshis](/docs/fundamentals/denominations); for user-facing apps you often need to show equivalent value in fiat or other units. Price feeds power balance displays, conversion inputs, and fee estimation in familiar currencies. This guide covers integrating price APIs, handling rate limits, and caching.
+Bitcoin amounts are usually stored and transmitted in [satoshis](/philosophy/fundamentals/denominations); for user-facing apps you often need to show equivalent value in fiat or other units. Price feeds power balance displays, conversion inputs, and fee estimation in familiar currencies. This guide covers integrating price APIs, handling rate limits, and caching.
 
 ## API Providers
 

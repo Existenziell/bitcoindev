@@ -47,6 +47,15 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
 
+  async redirects() {
+    // Philosophy content moved from /docs/ to /philosophy/; keep old URLs working
+    const philosophySections = ['fundamentals', 'history', 'controversies', 'investment', 'adoption']
+    return philosophySections.flatMap((section) => [
+      { source: `/docs/${section}`, destination: `/philosophy/${section}`, permanent: true },
+      { source: `/docs/${section}/:path*`, destination: `/philosophy/${section}/:path*`, permanent: true },
+    ])
+  },
+
   async headers() {
     return [
       {

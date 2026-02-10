@@ -776,7 +776,7 @@ OP_ENDIF
 ## Related Topics
 
 - [Script System](/docs/bitcoin/script): How Bitcoin Script works
-- [OP_RETURN Debate](/docs/controversies/op-return): Controversy about data storage
+- [OP_RETURN Debate](/philosophy/controversies/op-return): Controversy about data storage
 - Taproot - Schnorr signatures and Tapscript
 
 ---

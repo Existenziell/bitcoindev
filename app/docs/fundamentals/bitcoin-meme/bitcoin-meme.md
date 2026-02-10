@@ -2,7 +2,7 @@
 
 Bitcoin is more than code and cryptography. It's a **meme** in the original sense: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border.
 
-As described in [Bitcoin Fundamentals](/docs/fundamentals#the-idea), Bitcoin embodies the idea that a fixed set of rules can exist around which entire societies can be built, rules that no government, corporation, or individual can change. Once the concept of sound, digital, decentralized money enters someone's mind, it cannot be unseen.
+As described in [Bitcoin Fundamentals](/philosophy/fundamentals#the-idea), Bitcoin embodies the idea that a fixed set of rules can exist around which entire societies can be built, rules that no government, corporation, or individual can change. Once the concept of sound, digital, decentralized money enters someone's mind, it cannot be unseen.
 
 Bitcoin, where money meets math.
 
@@ -19,7 +19,7 @@ Bitcoin's fundamental concepts are easy to understand and share:
 - **Not your keys, not your coins**: The importance of self-custody
 - **Decentralization**: No single point of control or failure
 
-These simple narratives compress complex technical concepts into shareable ideas. See [Monetary Properties](/docs/fundamentals/monetary-properties) for the economic foundation, and [Trust Model](/docs/fundamentals/trust-model) for how verification replaces trust.
+These simple narratives compress complex technical concepts into shareable ideas. See [Monetary Properties](/philosophy/fundamentals/monetary-properties) for the economic foundation, and [Trust Model](/philosophy/fundamentals/trust-model) for how verification replaces trust.
 
 ### Clear Villains
 
@@ -30,7 +30,7 @@ Memes spread faster when they have clear antagonists. Bitcoin's memetic power is
 - **Centralization**: Single points of failure in traditional systems
 - **Counterfeiting**: The impossibility of creating fake bitcoin
 
-These villains make Bitcoin's value proposition immediately understandable. See [Problems Bitcoin Solved](/docs/fundamentals/problems) for how Bitcoin addresses these issues.
+These villains make Bitcoin's value proposition immediately understandable. See [Problems Bitcoin Solved](/philosophy/fundamentals/problems) for how Bitcoin addresses these issues.
 
 ### Visible Success
 
@@ -41,11 +41,11 @@ Bitcoin's memetic strength is reinforced by observable success:
 - **Adoption growth**: Millions of users, thousands of merchants, nation-state adoption
 - **Security record**: Never hacked, despite constant attacks
 
-These visible metrics provide proof that the idea works. See [Bitcoin History](/docs/history) for the full story of Bitcoin's growth.
+These visible metrics provide proof that the idea works. See [Bitcoin History](/philosophy/history) for the full story of Bitcoin's growth.
 
 ### Philosophical Foundation
 
-Bitcoin's memetic power is rooted in [Cypherpunk Philosophy](/docs/fundamentals/cypherpunk-philosophy): the belief that privacy and freedom can be achieved through cryptography and decentralized systems. This philosophical foundation gives Bitcoin meaning beyond mere technology.
+Bitcoin's memetic power is rooted in [Cypherpunk Philosophy](/philosophy/fundamentals/cypherpunk-philosophy): the belief that privacy and freedom can be achieved through cryptography and decentralized systems. This philosophical foundation gives Bitcoin meaning beyond mere technology.
 
 ---
 
@@ -59,7 +59,7 @@ The orange pill journey typically follows a pattern:
 
 1. **Skepticism**: Initial dismissal ("it's a scam," "it has no value," "it's just for criminals")
 2. **Curiosity**: First exposure to Bitcoin's properties (fixed supply, decentralization, censorship resistance)
-3. **Investigation**: Deep dive into [Bitcoin Fundamentals](/docs/fundamentals), [The Bitcoin Protocol](/docs/bitcoin), and [Game Theory](/docs/fundamentals/game-theory)
+3. **Investigation**: Deep dive into [Bitcoin Fundamentals](/philosophy/fundamentals), [The Bitcoin Protocol](/docs/bitcoin), and [Game Theory](/philosophy/fundamentals/game-theory)
 4. **Understanding**: Recognition of Bitcoin's unique properties and potential
 5. **Adoption**: Personal use, investment, or advocacy
 
@@ -69,7 +69,7 @@ This journey often begins with a meme, a conversation, or a moment of curiosity,
 
 The orange pill is powerful because it's a meme that leads to education. Someone might first encounter Bitcoin through a joke or meme, but the orange pill process encourages them to learn the fundamentals, understand the technology, and appreciate the economic and social implications.
 
-See [Bitcoin Adoption](/docs/adoption) for real-world examples of people and communities who have taken the orange pill, and [Bitcoin as Investment](/docs/investment) for how understanding drives investment decisions.
+See [Bitcoin Adoption](/philosophy/adoption) for real-world examples of people and communities who have taken the orange pill, and [Bitcoin as Investment](/philosophy/investment) for how understanding drives investment decisions.
 
 ---
 
@@ -81,7 +81,7 @@ Bitcoin culture has produced numerous memes that serve multiple functions: they'
 
 **Magic Internet Money** is a satirical term that acknowledges Bitcoin's seemingly impossible nature while hinting at its power. It's used both by Bitcoiners (self-deprecating humor) and critics (dismissal), but the meme has been embraced by the community.
 
-The term highlights that Bitcoin *is* remarkable: digital scarcity without a central issuer, global transfers without intermediaries, and value storage without physical form. Behind the meme is serious technology: [cryptography](/docs/bitcoin/cryptography), [proof-of-work](/docs/mining/proof-of-work), and [game theory](/docs/fundamentals/game-theory).
+The term highlights that Bitcoin *is* remarkable: digital scarcity without a central issuer, global transfers without intermediaries, and value storage without physical form. Behind the meme is serious technology: [cryptography](/docs/bitcoin/cryptography), [proof-of-work](/docs/mining/proof-of-work), and [game theory](/philosophy/fundamentals/game-theory).
 
 ### Other Common Memes
 

@@ -1036,7 +1036,7 @@ console.log(`Signature valid: ${isValid}`);
 
 ## Schnorr Signatures
 
-**Schnorr signatures** (BIP 340) are Bitcoin's signature scheme for Taproot (P2TR) outputs, activated in November 2021 (block 709,632). [Pieter Wuille](/docs/history/people#pieter-wuille) was a key designer of BIP 340.
+**Schnorr signatures** (BIP 340) are Bitcoin's signature scheme for Taproot (P2TR) outputs, activated in November 2021 (block 709,632). [Pieter Wuille](/philosophy/history/people#pieter-wuille) was a key designer of BIP 340.
 
 ### Why Schnorr in Bitcoin?
 

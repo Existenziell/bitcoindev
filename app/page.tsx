@@ -20,7 +20,7 @@ export const metadata: Metadata = generatePageMetadata({
 
 // Map icons to CTA links by href
 const ctaIcons: Record<string, React.ReactNode> = {
-  '/docs/fundamentals':  <BookOpenIcon />,
+  '/philosophy/fundamentals': <BookOpenIcon />,
   '/interactive-tools': <ToolsIcon />,
 }
 

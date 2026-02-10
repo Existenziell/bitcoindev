@@ -250,9 +250,9 @@ While self-custody is generally recommended, custodial services may make sense f
 
 ## Related Topics
 
-- [Risk Management](/docs/investment/risk-management) - Understanding investment risks, including custody risk
-- [Privacy](/docs/investment/privacy) - Privacy considerations for protecting your financial information
-- [Interactive Tools](/docs/investment/tools) - Wallet tools and other helpful resources
+- [Risk Management](/philosophy/investment/risk-management) - Understanding investment risks, including custody risk
+- [Privacy](/philosophy/investment/privacy) - Privacy considerations for protecting your financial information
+- [Interactive Tools](/philosophy/investment/tools) - Wallet tools and other helpful resources
 - [Wallet Development](/docs/wallets) - Technical wallet development (for developers)
 - [Key Management](/docs/bitcoin-development/keys) - Technical key management (for developers)
 

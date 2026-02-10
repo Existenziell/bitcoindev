@@ -16,7 +16,7 @@ Consider a solo miner with 0.001% of total network hashrate:
 
 This variance is unacceptable for anyone running mining as a business.
 
-[Incentives](/docs/fundamentals/incentives) and proof-of-work make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine hash rate and share rewards proportionally. 
+[Incentives](/philosophy/fundamentals/incentives) and proof-of-work make mining secure but very competitive; difficulty is so high that solo mining is rarely profitable. Pools let you combine hash rate and share rewards proportionally. 
 
 ### Pool Solution
 
@@ -708,7 +708,7 @@ Modern replacement addressing Stratum v1's issues:
 - **Job negotiation**: Miners can propose their own block templates
 - **Encryption**: Communication is encrypted and authenticated
 - **Efficiency**: Binary protocol (not JSON), less bandwidth
-- **[Decentralization](/docs/fundamentals/decentralization)**: Miners regain some sovereignty
+- **[Decentralization](/philosophy/fundamentals/decentralization)**: Miners regain some sovereignty
 
 ```
 Traditional (Stratum v1):

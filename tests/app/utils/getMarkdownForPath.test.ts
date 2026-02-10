@@ -3,7 +3,7 @@ import { getMarkdownForPath } from '@/app/utils/getMarkdownForPath'
 
 const mockMap: Record<string, { content: string; filename: string }> = {
   '/docs/bitcoin/script': { content: '# Bitcoin Script\n', filename: 'script.md' },
-  '/docs/fundamentals': { content: '# Fundamentals\n', filename: 'overview.md' },
+  '/philosophy/fundamentals': { content: '# Fundamentals\n', filename: 'overview.md' },
 }
 
 describe('getMarkdownForPath', () => {

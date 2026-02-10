@@ -1,6 +1,6 @@
 # Bitcoin Development
 
-This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In [Bitcoin Fundamentals](/docs/fundamentals) you learned how Bitcoin works conceptually: the [UTXO model](/docs/fundamentals/utxos), the blockchain, the trust model, and incentives. Here we turn those ideas into implementation. Keys prove ownership, addresses encode spending conditions, transactions move UTXOs, and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the chain. These guides focus on hands-on implementation: constructing transactions, managing keys, generating addresses, working with PSBTs, monitoring the blockchain, and more.
+This section covers practical Bitcoin development tasks, the building blocks you'll use when creating Bitcoin applications. In [Bitcoin Fundamentals](/philosophy/fundamentals) you learned how Bitcoin works conceptually: the [UTXO model](/philosophy/fundamentals/utxos), the blockchain, the trust model, and incentives. Here we turn those ideas into implementation. Keys prove ownership, addresses encode spending conditions, transactions move UTXOs, and tools like PSBTs coordinate signing while monitoring keeps your app in sync with the chain. These guides focus on hands-on implementation: constructing transactions, managing keys, generating addresses, working with PSBTs, monitoring the blockchain, and more.
 
 ---
 
@@ -161,7 +161,7 @@ Standardized, human-readable strings (BIP 380/386) that describe which output sc
 - [Setup & Infrastructure](/docs/development) - Setup, testing, libraries, node architecture
 - Wallet Development - HD wallets, coin selection, multisig
 - [Bitcoin Protocol](/docs/bitcoin) - Script system, RPC, transaction structure
-- [UTXO Model](/docs/fundamentals/utxos) - Understanding UTXOs for transaction building
+- [UTXO Model](/philosophy/fundamentals/utxos) - Understanding UTXOs for transaction building
 
 ---
 

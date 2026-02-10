@@ -28,7 +28,7 @@ This section covers advanced, experimental, and specialized Bitcoin topics that 
 
 - **[Covenants](/docs/advanced/covenants)** - Proposed opcodes (OP_CTV, SIGHASH_ANYPREVOUT) that would constrain how outputs can be spent
 
-For how Bitcoin evolves through rough consensus and the BIP process, see [Governance & Evolution](/docs/fundamentals/governance).
+For how Bitcoin evolves through rough consensus and the BIP process, see [Governance & Evolution](/philosophy/fundamentals/governance).
 
 ---
 
@@ -52,4 +52,4 @@ Always verify current implementation status and security considerations before u
 - [Wallets](/docs/wallets) - Privacy techniques and smart contracts
 - [Setup & Infrastructure](/docs/development) - Setup and infrastructure for Bitcoin development
 - [Bitcoin Development](/docs/bitcoin-development) - Practical development tasks
-- [Bitcoin Adoption](/docs/adoption) - Adoption and outlook (protocol evolution, Layer 2, ecosystem trends)
+- [Bitcoin Adoption](/philosophy/adoption) - Adoption and outlook (protocol evolution, Layer 2, ecosystem trends)

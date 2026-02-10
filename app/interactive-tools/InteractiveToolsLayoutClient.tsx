@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import type { ReactNode } from 'react'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
+import LayoutWrapper from '@/app/components/LayoutWrapper'
 
 const COLLAPSED_NAV_PATHS = [
   '/interactive-tools/terminal',
@@ -21,8 +21,8 @@ export default function InteractiveToolsLayoutClient({
   )
 
   return (
-    <DocsLayoutWrapper isNavCollapsed={isNavCollapsed}>
+    <LayoutWrapper isNavCollapsed={isNavCollapsed}>
       {children}
-    </DocsLayoutWrapper>
+    </LayoutWrapper>
   )
 }

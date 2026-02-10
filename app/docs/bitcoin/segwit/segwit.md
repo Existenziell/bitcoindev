@@ -1,6 +1,6 @@
 # Segregated Witness (SegWit)
 
-Segregated Witness (SegWit) is a major Bitcoin protocol upgrade activated in August 2017 (block 481,824). It separates signature (witness) data from transaction data, fixing transaction malleability and effectively increasing block capacity. SegWit was designed primarily by [Pieter Wuille](/docs/history/people#pieter-wuille) (BIP 141). **SegWit** separates the [witness](/docs/bitcoin/witness) (signature data) from the transaction body, storing it in a separate structure. This fundamental change enables:
+Segregated Witness (SegWit) is a major Bitcoin protocol upgrade activated in August 2017 (block 481,824). It separates signature (witness) data from transaction data, fixing transaction malleability and effectively increasing block capacity. SegWit was designed primarily by [Pieter Wuille](/philosophy/history/people#pieter-wuille) (BIP 141). **SegWit** separates the [witness](/docs/bitcoin/witness) (signature data) from the transaction body, storing it in a separate structure. This fundamental change enables:
 
 - **Malleability fix**: Transaction IDs can no longer be changed after signing
 - **Capacity increase**: Effective block size up to ~4 MB (from 1 MB)

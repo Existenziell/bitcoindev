@@ -16,19 +16,19 @@ Understanding Bitcoin's technical foundations is essential, but seeing how Bitco
 - **Economic Freedom**: People in high-inflation countries are preserving wealth and accessing global markets
 - **Humanitarian Aid**: Non-profits are using Bitcoin to deliver aid directly to those in need, bypassing corrupt intermediaries
 
-These use cases demonstrate Bitcoin's unique properties in action: [censorship resistance](/docs/fundamentals/trust-model), [portability](/docs/fundamentals/monetary-properties), [verifiability](/docs/bitcoin/cryptography), and [decentralization](/docs/fundamentals/decentralization).
+These use cases demonstrate Bitcoin's unique properties in action: [censorship resistance](/philosophy/fundamentals/trust-model), [portability](/philosophy/fundamentals/monetary-properties), [verifiability](/docs/bitcoin/cryptography), and [decentralization](/philosophy/fundamentals/decentralization).
 
 | Topic | Description | Link |
 |-------|--------------|------|
-| Stranded energy & flared gas | Mining with otherwise wasted energy | [Stranded Energy](/docs/adoption/stranded-energy) |
-| Rural communities | Financial inclusion without banks | [Rural Communities](/docs/adoption/rural-communities) |
-| Use cases | Remittances, savings, corporate adoption, aid | [Use Cases](/docs/adoption/use-cases) |
+| Stranded energy & flared gas | Mining with otherwise wasted energy | [Stranded Energy](/philosophy/adoption/stranded-energy) |
+| Rural communities | Financial inclusion without banks | [Rural Communities](/philosophy/adoption/rural-communities) |
+| Use cases | Remittances, savings, corporate adoption, aid | [Use Cases](/philosophy/adoption/use-cases) |
 
 ---
 
 ## Adoption Stories
 
-### [Stranded Energy and Flared Gas](/docs/adoption/stranded-energy)
+### [Stranded Energy and Flared Gas](/philosophy/adoption/stranded-energy)
 
 Bitcoin mining is uniquely suited to use energy that would otherwise be wasted. Oil fields flare natural gas because it's not economical to transport. Hydroelectric plants curtail excess generation when demand is low. Wind and solar farms produce energy that can't be stored or transmitted.
 
@@ -39,7 +39,7 @@ Bitcoin miners can operate anywhere, turn on and off instantly, and monetize ene
 - Hydroelectric plants using excess capacity for mining
 - Wind farms monetizing curtailed generation
 
-### [Rural Communities and Financial Inclusion](/docs/adoption/rural-communities)
+### [Rural Communities and Financial Inclusion](/philosophy/adoption/rural-communities)
 
 Billions of people lack access to traditional banking. Bitcoin, combined with the Lightning Network, enables financial services without banks:
 
@@ -50,7 +50,7 @@ Billions of people lack access to traditional banking. Bitcoin, combined with th
 
 From El Salvador's national adoption to African communities using Bitcoin for remittances, real people are using Bitcoin to solve real problems.
 
-### [Other Use Cases](/docs/adoption/use-cases)
+### [Other Use Cases](/philosophy/adoption/use-cases)
 
 Bitcoin adoption spans individuals, businesses, and nations:
 
@@ -79,12 +79,12 @@ We're still in the early stages of this cycle. Each new use case strengthens Bit
 
 ## Related Topics
 
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin has value
-- [Energy Consumption](/docs/controversies/energy-consumption) - The energy debate
+- [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin has value
+- [Energy Consumption](/philosophy/controversies/energy-consumption) - The energy debate
 - [Lightning Network](/docs/lightning) - Fast, cheap payments
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin enables trustless transactions
-- [Decentralization](/docs/fundamentals/decentralization) - Why Bitcoin can't be stopped
-- [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) - How ideas and culture drive adoption
+- [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin enables trustless transactions
+- [Decentralization](/philosophy/fundamentals/decentralization) - Why Bitcoin can't be stopped
+- [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) - How ideas and culture drive adoption
 
 ---
 

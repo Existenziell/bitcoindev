@@ -798,7 +798,7 @@ Isolating a node from the real network.
 
 ## Finney Attack
 
-Named after [Hal Finney](/docs/history/people#hal-finney), this is a race between broadcasting blocks and transactions.
+Named after [Hal Finney](/philosophy/history/people#hal-finney), this is a race between broadcasting blocks and transactions.
 
 ### How It Works
 
@@ -840,7 +840,7 @@ Attack Bitcoin not for profit, but for destruction.
 ### Defense
 
 - **Sheer scale**: 500+ EH/s is hard to match
-- **[Decentralization](/docs/fundamentals/decentralization)**: No single point of attack
+- **[Decentralization](/philosophy/fundamentals/decentralization)**: No single point of attack
 - **Adaptability**: Network can respond (emergency difficulty adjustment, algorithm change)
 - **Resilience**: Bitcoin has survived many attacks and attempts
 

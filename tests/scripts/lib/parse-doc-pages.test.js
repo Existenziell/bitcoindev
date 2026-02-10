@@ -33,8 +33,8 @@ describe('parseDocPages', () => {
     }
   })
 
-  it('includes /docs/fundamentals', () => {
-    expect(parsed.some((p) => p.path === '/docs/fundamentals')).toBe(true)
+  it('includes /philosophy/fundamentals', () => {
+    expect(parsed.some((p) => p.path === '/philosophy/fundamentals')).toBe(true)
   })
 
   it('includes /docs/bitcoin/script', () => {

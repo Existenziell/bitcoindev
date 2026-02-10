@@ -20,7 +20,7 @@ For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-ins
 - Bitcoin exists to be **sound money** and peer-to-peer cash. Storing images, JSON, or token metadata is not monetary use and **crowds out** normal transactions.
 - Inscription-heavy activity has driven [mempool](/docs/mining/mempool) congestion and higher fee rates, especially in 2023–2024, making cheap on-chain payments harder.
 - Full node and IBD costs (bandwidth, storage) increase for data many consider non‑monetary.
-- BRC-20 and similar tokens depend on **off-chain indexers**; they are not enforced by consensus and add complexity and [trust](/docs/fundamentals/trust-model) outside the protocol.
+- BRC-20 and similar tokens depend on **off-chain indexers**; they are not enforced by consensus and add complexity and [trust](/philosophy/fundamentals/trust-model) outside the protocol.
 
 **Proposals:**
 
@@ -40,7 +40,7 @@ For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-ins
 
 ## Relation to Other Disputes
 
-- **[OP_RETURN debate](/docs/controversies/op-return)**: OP_RETURN stores data in the base [transaction](/docs/bitcoin/transaction-lifecycle) and has explicit policy limits (e.g. `-datacarriersize`). Inscriptions use **witness** data, which is discounted and prunable; the limits and levers are different, but the underlying question is the same: how much non‑monetary data should Bitcoin carry?
+- **[OP_RETURN debate](/philosophy/controversies/op-return)**: OP_RETURN stores data in the base [transaction](/docs/bitcoin/transaction-lifecycle) and has explicit policy limits (e.g. `-datacarriersize`). Inscriptions use **witness** data, which is discounted and prunable; the limits and levers are different, but the underlying question is the same: how much non‑monetary data should Bitcoin carry?
 - **Blocksize wars**: Then, the fight was over **how much** capacity (bigger blocks vs Layer 2). With Ordinals, the fight is over **what** uses that capacity, only “money” or any fee‑paying use.
 
 ---
@@ -65,5 +65,5 @@ Understanding Ordinals highlights two recurring themes in Bitcoin:
 ## See Also
 
 - Ordinals & Inscriptions – Technical overview
-- [OP_RETURN Debate](/docs/controversies/op-return) – Data on Bitcoin and policy limits
+- [OP_RETURN Debate](/philosophy/controversies/op-return) – Data on Bitcoin and policy limits
 - [Transaction Fees](/docs/bitcoin/transaction-fees) – Fee market and fee estimation

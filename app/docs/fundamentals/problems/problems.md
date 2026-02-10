@@ -9,7 +9,7 @@ Before Bitcoin, decentralized digital currency faced seemingly insurmountable pr
 - **No central authority:** Traditional systems rely on banks/servers to coordinate
 - **Network unreliability:** Nodes fail, messages get lost, partitions occur
 - **Byzantine failures:** Some participants may be malicious or send conflicting information
-- **Timing:** No synchronized clocks or central time source to order events (see [Bitcoin as Timechain](/docs/fundamentals/timechain) for how this is solved)
+- **Timing:** No synchronized clocks or central time source to order events (see [Bitcoin as Timechain](/philosophy/fundamentals/timechain) for how this is solved)
 
 | Problem | Traditional approach | Bitcoin |
 |---------|----------------------|--------|
@@ -121,4 +121,4 @@ Previous digital currency attempts required central authority and couldn't preve
 
 ## The Philosophical Foundation
 
-The problems Bitcoin solved were precisely the problems that [cypherpunk philosophy](/docs/fundamentals/cypherpunk-philosophy) had been trying to address for decades. Cypherpunks believed that cryptography could enable individual freedom by eliminating the need to trust institutions. Bitcoin was the first system to successfully implement these cypherpunk ideals, creating a practical solution to problems that had been identified but not solved for over 20 years.
+The problems Bitcoin solved were precisely the problems that [cypherpunk philosophy](/philosophy/fundamentals/cypherpunk-philosophy) had been trying to address for decades. Cypherpunks believed that cryptography could enable individual freedom by eliminating the need to trust institutions. Bitcoin was the first system to successfully implement these cypherpunk ideals, creating a practical solution to problems that had been identified but not solved for over 20 years.

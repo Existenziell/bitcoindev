@@ -39,7 +39,7 @@ On **January 10, 2024**, the SEC approved 11 spot Bitcoin ETF applications (incl
 - Improved custody and surveillance arrangements proposed by issuers
 - Long-standing demand from institutional and retail investors
 
-The approval is a major [milestone](/docs/history) for Bitcoin’s integration with traditional finance: Bitcoin ETF is now a standard term, and billions of dollars have flowed into these products.
+The approval is a major [milestone](/philosophy/history) for Bitcoin’s integration with traditional finance: Bitcoin ETF is now a standard term, and billions of dollars have flowed into these products.
 
 ---
 
@@ -54,5 +54,5 @@ The approval is a major [milestone](/docs/history) for Bitcoin’s integration w
 ## See Also
 
 - Bitcoin ETF – Glossary definition
-- [Historical Milestones](/docs/history) – 2024 Spot Bitcoin ETFs
+- [Historical Milestones](/philosophy/history) – 2024 Spot Bitcoin ETFs
 - Not Your Keys, Not Your Coins – Self-custody

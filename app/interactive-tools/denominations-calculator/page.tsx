@@ -15,7 +15,7 @@ export default function DenominationsCalculatorPage() {
         <p className="text-secondary text-center">
           Convert between satoshis (sats), BTC, bits (µBTC), millibits (mBTC), and other units. 
           This is a useful tool for visualizing the different Bitcoin denominations and their relationships.
-          See the full reference table in <Link href="/docs/fundamentals/denominations" className="link">Denominations</Link>.
+          See the full reference table in <Link href="/philosophy/fundamentals/denominations" className="link">Denominations</Link>.
         </p>
       </div>
 

@@ -6,12 +6,11 @@ import { docPages, getBreadcrumbsForPath, sections } from '@/app/utils/navigatio
 import { generatePageMetadata, getDocPageStructuredData } from '@/app/utils/metadata'
 import mdContent from '@/public/data/md-content.json'
 
-// Generate static params for doc pages under /docs/ only (philosophy has its own route)
 export async function generateStaticParams() {
   return docPages
-    .filter((page) => page.path.startsWith('/docs/') && page.path !== '/docs/glossary')
+    .filter((page) => page.path.startsWith('/philosophy/'))
     .map((page) => {
-      const slug = page.path.replace(/^\/docs\//, '').split('/').filter(Boolean)
+      const slug = page.path.replace(/^\/philosophy\//, '').split('/').filter(Boolean)
       return { slug }
     })
 }
@@ -22,29 +21,22 @@ interface PageProps {
   }>
 }
 
-// Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  // Handle case where slug might be undefined or empty
   if (!slug || !Array.isArray(slug) || slug.length === 0) {
-    return {
-      title: 'Page Not Found | BitcoinDev',
-    }
+    return { title: 'Page Not Found | BitcoinDev' }
   }
 
-  const path = `/docs/${slug.join('/')}`
-  const page = docPages.find(p => p.path === path)
-
+  const path = `/philosophy/${slug.join('/')}`
+  const page = docPages.find((p) => p.path === path)
   if (!page) {
-    return {
-      title: 'Page Not Found | BitcoinDev',
-    }
+    return { title: 'Page Not Found | BitcoinDev' }
   }
 
   const sectionInfo = sections[page.section]
   const description =
     page.description ??
-    (sectionInfo ? sectionInfo.description : `${page.title} - Bitcoin development documentation`)
+    (sectionInfo ? sectionInfo.description : `${page.title} - Bitcoin philosophy and context`)
 
   return generatePageMetadata({
     title: page.title,
@@ -53,17 +45,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-export default async function DocPage({ params }: PageProps) {
+export default async function PhilosophyDocPage({ params }: PageProps) {
   const { slug } = await params
-  // Handle case where slug might be undefined or empty
   if (!slug || !Array.isArray(slug) || slug.length === 0) {
     notFound()
   }
 
-  // Reconstruct the path from slug segments
-  const path = `/docs/${slug.join('/')}`
-
-  // Look up content from md-content.json (same source as /api/download-md)
+  const path = `/philosophy/${slug.join('/')}`
   const entry = (mdContent as Record<string, { content: string }>)[path]
   if (!entry?.content) {
     notFound()
@@ -74,7 +62,7 @@ export default async function DocPage({ params }: PageProps) {
   const description = sectionInfo
     ? sectionInfo.description
     : page
-      ? `${page.title} - Bitcoin development documentation`
+      ? `${page.title} - Bitcoin philosophy and context`
       : ''
   const breadcrumbs = getBreadcrumbsForPath(path)
   const docStructuredData = getDocPageStructuredData(

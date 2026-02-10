@@ -190,7 +190,7 @@ While Bitcoin does consume significant energy, it's important to view this consu
 
 - [Proof-of-Work](/docs/mining/proof-of-work) - How Bitcoin's consensus mechanism works
 - [Mining Economics](/docs/mining/economics) - Economic incentives in Bitcoin mining
-- [Blocksize Wars](/docs/controversies/blocksize-wars) - Another major Bitcoin controversy
+- [Blocksize Wars](/philosophy/controversies/blocksize-wars) - Another major Bitcoin controversy
 
 ---
 

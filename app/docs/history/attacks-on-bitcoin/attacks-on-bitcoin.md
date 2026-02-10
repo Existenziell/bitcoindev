@@ -14,13 +14,13 @@ These events involved bugs or stress on the Bitcoin protocol itself. In each cas
 
 - **Block**: 74,638
 - **What happened**: An integer overflow in output validation allowed a single transaction to create 184 billion BTC. The invalid transaction was mined and briefly accepted.
-- **Response**: The network coordinated a [hard fork](/docs/history/forks) to tighten validation rules; the invalid transaction was removed from the chain. One of the most serious early protocol bugs; the response showed the community could coordinate a timely fix.
+- **Response**: The network coordinated a [hard fork](/philosophy/history/forks) to tighten validation rules; the invalid transaction was removed from the chain. One of the most serious early protocol bugs; the response showed the community could coordinate a timely fix.
 
 ### BerkeleyDB Chain Split (March 11-12, 2013)
 
 - **Block**: 225,430
 - **What happened**: An accidental chain split occurred when older nodes (Bitcoin Core 0.7) hit a database lock limit and rejected blocks that newer nodes (0.8) accepted. Different parts of the network temporarily followed different chains.
-- **Response**: Resolved within hours as nodes upgraded. No theft; consensus was restored. Documented in the [fork history](/docs/history/forks) as the "BerkeleyDB Fork."
+- **Response**: Resolved within hours as nodes upgraded. No theft; consensus was restored. Documented in the [fork history](/philosophy/history/forks) as the "BerkeleyDB Fork."
 
 ### CVE-2018-17144 (Inflation Bug) (September 2018)
 
@@ -37,12 +37,12 @@ These events were attacks on **services** holding Bitcoin (exchanges, hot wallet
 ### Mt. Gox First Hack (2011)
 
 - **What happened**: Approximately 25,000 BTC were stolen from Mt. Gox. The incident was not widely disclosed at the time.
-- **Context**: This was an early warning sign before the [Mt. Gox collapse](/docs/controversies/mt-gox) in 2014.
+- **Context**: This was an early warning sign before the [Mt. Gox collapse](/philosophy/controversies/mt-gox) in 2014.
 
 ### Mt. Gox Collapse (February 2014)
 
 - **What happened**: Mt. Gox, then the world's largest Bitcoin exchange, suspended withdrawals and declared bankruptcy. Approximately 850,000 BTC were lost to theft and operational failures (customer funds and exchange reserves).
-- **Impact**: The collapse entrenched "not your keys, not your coins" as a core lesson. See the full account: [Mt. Gox](/docs/controversies/mt-gox).
+- **Impact**: The collapse entrenched "not your keys, not your coins" as a core lesson. See the full account: [Mt. Gox](/philosophy/controversies/mt-gox).
 
 ### Bitfinex Hack (August 2016)
 

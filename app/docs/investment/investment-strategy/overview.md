@@ -339,7 +339,7 @@ While HODLing is generally recommended, there are legitimate reasons to sell:
 
 **Not having a plan:** HODLing without a clear plan or time horizon makes it harder to stick with the strategy.
 
-**Ignoring security:** HODLing means you'll hold Bitcoin for a long time. Proper [wallet security](/docs/investment/wallet-security) is essential.
+**Ignoring security:** HODLing means you'll hold Bitcoin for a long time. Proper [wallet security](/philosophy/investment/wallet-security) is essential.
 
 ---
 
@@ -355,11 +355,11 @@ DCA and HODLing work exceptionally well together:
 
 ## Related Topics
 
-- [Risk Management](/docs/investment/risk-management) - Understanding investment risks
-- [Interactive Tools](/docs/investment/tools) - Where to execute your investment strategy
-- [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
-- [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin's properties reward holding
+- [Risk Management](/philosophy/investment/risk-management) - Understanding investment risks
+- [Interactive Tools](/philosophy/investment/tools) - Where to execute your investment strategy
+- [Wallet Security & Self-Custody](/philosophy/investment/wallet-security) - Securing your Bitcoin holdings
+- [Understanding Market Cycles](/philosophy/investment/market-cycles) - Navigating volatility and market psychology
+- [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin's properties reward holding
 
 ---
 

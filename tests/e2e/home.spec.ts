@@ -5,7 +5,7 @@ test.describe('Home', () => {
     await page.goto('/')
     await expect(page).toHaveTitle(/BitcoinDev/)
 
-    const docsLink = page.getByRole('link', { href: '/docs/fundamentals' }).first()
+    const docsLink = page.getByRole('link', { href: '/philosophy/fundamentals' }).first()
     const toolsLink = page.getByRole('link', { href: '/interactive-tools' }).first()
     await expect(docsLink).toBeVisible()
     await expect(toolsLink).toBeVisible()

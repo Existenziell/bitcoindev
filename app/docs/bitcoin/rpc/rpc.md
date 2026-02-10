@@ -627,7 +627,7 @@ watch -n 30 'btc getindexinfo | jq ".txindex.best_block_height"'
 
 ### 9. UTXO Set Information
 
-The [UTXO Set](/docs/fundamentals/utxos#the-utxo-set) is the complete database of all unspent transaction outputs. These commands allow you to query information about it.
+The [UTXO Set](/philosophy/fundamentals/utxos#the-utxo-set) is the complete database of all unspent transaction outputs. These commands allow you to query information about it.
 
 ```bash
 # Get UTXO set statistics (can be slow)

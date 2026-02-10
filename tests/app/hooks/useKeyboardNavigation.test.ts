@@ -10,7 +10,7 @@ interface TestItem {
 describe('useKeyboardNavigation', () => {
   const mockItems: TestItem[] = [
     { path: '/docs/bitcoin', title: 'Bitcoin Protocol' },
-    { path: '/docs/fundamentals', title: 'Fundamentals' },
+    { path: '/philosophy/fundamentals', title: 'Fundamentals' },
     { path: '/docs/mining', title: 'Mining' },
   ]
 

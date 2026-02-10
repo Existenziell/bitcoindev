@@ -16,7 +16,7 @@ Bitcoin's trust model differs fundamentally from traditional finance. Instead of
 
 ## What "Trustless" Really Means
 
-You trust **mathematics and code** rather than **people and institutions**. This principle comes directly from [cypherpunk philosophy](/docs/fundamentals/cypherpunk-philosophy), which advocates for "trust code, not people":
+You trust **mathematics and code** rather than **people and institutions**. This principle comes directly from [cypherpunk philosophy](/philosophy/fundamentals/cypherpunk-philosophy), which advocates for "trust code, not people":
 
 - **Cryptographic proof:** Digital signatures prove ownership; hash functions secure the blockchain
 - **Economic incentives:** Miners profit from honest behavior; attacks are prohibitively expensive
@@ -39,7 +39,7 @@ Banks, payment processors, governments, other users, miners (economically incent
 
 #### The Immaculate Conception: Why Satoshi's Anonymity Matters
 
-Bitcoin's creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), remains anonymous and disappeared from the project in 2010. This is not a bug; it's a feature. The "immaculate conception" refers to the idea that **not knowing who created Bitcoin is actually beneficial** for the network's trust model.
+Bitcoin's creator, [Satoshi Nakamoto](/philosophy/history/people#satoshi-nakamoto), remains anonymous and disappeared from the project in 2010. This is not a bug; it's a feature. The "immaculate conception" refers to the idea that **not knowing who created Bitcoin is actually beneficial** for the network's trust model.
 
 **Why anonymity strengthens Bitcoin:**
 

@@ -116,8 +116,8 @@ Features:
 
 - [Lightning Network](/docs/lightning) - Payment channel network
 - [Statechains](/docs/advanced/statechains) - Alternative approach
-- [Governance](/docs/fundamentals/governance) - How Bitcoin evolves
-- [Bitcoin Adoption](/docs/adoption) - Adoption and outlook (Layer 2, sidechains, ecosystem trends)
+- [Governance](/philosophy/fundamentals/governance) - How Bitcoin evolves
+- [Bitcoin Adoption](/philosophy/adoption) - Adoption and outlook (Layer 2, sidechains, ecosystem trends)
 
 ---
 

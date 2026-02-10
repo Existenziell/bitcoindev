@@ -25,7 +25,7 @@ const TOOL_PATHS = new Set([
   '/interactive-tools/transaction-decoder',
   '/interactive-tools/fee-estimator',
   '/interactive-tools/denominations-calculator',
-  '/docs/fundamentals/denominations',
+  '/philosophy/fundamentals/denominations',
 ])
 
 const TOOL_ICON_BY_PATH: Record<string, React.ComponentType<IconComponentProps>> = {
@@ -37,7 +37,7 @@ const TOOL_ICON_BY_PATH: Record<string, React.ComponentType<IconComponentProps>>
   '/interactive-tools/transaction-decoder': TransactionDecoderIcon,
   '/interactive-tools/fee-estimator': FeeEstimatorIcon,
   '/interactive-tools/denominations-calculator': CalculatorIcon,
-  '/docs/fundamentals/denominations': CalculatorIcon,
+  '/philosophy/fundamentals/denominations': CalculatorIcon,
 }
 
 export function isTool(path: string): boolean {
@@ -45,7 +45,7 @@ export function isTool(path: string): boolean {
 }
 
 export function getSearchResultIcon(path: string): React.ComponentType<IconComponentProps> {
-  if (path.startsWith('/docs/history/people#')) return UserIcon
+  if (path.startsWith('/philosophy/history/people#')) return UserIcon
   const toolIcon = TOOL_ICON_BY_PATH[path]
   if (toolIcon) return toolIcon
   return DocumentIcon
@@ -56,7 +56,7 @@ export function getSearchResultSectionLabel(
   section: string,
   sectionTitle: (id: string) => string
 ): string {
-  if (path.startsWith('/docs/history/people#')) return 'People'
+  if (path.startsWith('/philosophy/history/people#')) return 'People'
   if (isTool(path)) return 'Tool'
   return sectionTitle(section)
 }
@@ -70,7 +70,7 @@ interface SearchResultIconProps extends IconComponentProps {
  * Use in SearchModal and DocsSearch for consistent result icons.
  */
 export function SearchResultIcon({ path, className, ...props }: SearchResultIconProps) {
-  if (path.startsWith('/docs/history/people#')) return <UserIcon className={className} {...props} />
+  if (path.startsWith('/philosophy/history/people#')) return <UserIcon className={className} {...props} />
   if (path === '/interactive-tools/terminal') return <TerminalIcon className={className} {...props} />
   if (path === '/interactive-tools/stack-lab') return <StackLabIcon className={className} {...props} />
   if (path === '/interactive-tools/block-visualizer') return <BlockVisualizerIcon className={className} {...props} />
@@ -79,6 +79,6 @@ export function SearchResultIcon({ path, className, ...props }: SearchResultIcon
   if (path === '/interactive-tools/transaction-decoder') return <TransactionDecoderIcon className={className} {...props} />
   if (path === '/interactive-tools/fee-estimator') return <FeeEstimatorIcon className={className} {...props} />
   if (path === '/interactive-tools/denominations-calculator') return <CalculatorIcon className={className} {...props} />
-  if (path === '/docs/fundamentals/denominations') return <CalculatorIcon className={className} {...props} />
+  if (path === '/philosophy/fundamentals/denominations') return <CalculatorIcon className={className} {...props} />
   return <BookOpenIcon className={className} {...props} />
 }

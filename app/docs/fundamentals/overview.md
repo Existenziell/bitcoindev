@@ -1,6 +1,6 @@
 # What is Bitcoin? An Introduction
 
-Bitcoin is a decentralized digital currency and payment system that operates without a central authority or intermediary. It was created in 2009 by an anonymous person or group using the pseudonym [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), who first described the system in the [Bitcoin whitepaper](/whitepaper) published on October 31, 2008.
+Bitcoin is a decentralized digital currency and payment system that operates without a central authority or intermediary. It was created in 2009 by an anonymous person or group using the pseudonym [Satoshi Nakamoto](/philosophy/history/people#satoshi-nakamoto), who first described the system in the [Bitcoin whitepaper](/whitepaper) published on October 31, 2008.
 
 While this definition captures Bitcoin's technical foundation, Bitcoin is multifaceted. As you go down the Bitcoin rabbit hole, you'll discover that Bitcoin represents something unprecedented in human history. Bitcoin has a way of enticing you to learn more about related topics: economics, game theory, cryptography, monetary history, and the nature of trust itself.
 
@@ -22,7 +22,7 @@ Stay curious and keep learning 🧡
 
 Bitcoin consists of several key components that work together to create a decentralized monetary system:
 
-**Blockchain:** The [distributed ledger](/docs/fundamentals/blockchain) that records all transactions in cryptographically linked blocks, creating an immutable history that all network participants can verify.
+**Blockchain:** The [distributed ledger](/philosophy/fundamentals/blockchain) that records all transactions in cryptographically linked blocks, creating an immutable history that all network participants can verify.
 
 **Cryptography:** The mathematical foundation of Bitcoin. [Elliptic curve cryptography](/docs/bitcoin/cryptography) enables unforgeable digital signatures, while hash functions provide data integrity and mining security.
 
@@ -38,7 +38,7 @@ Economic Rules: The [subsidy equation](/docs/bitcoin/subsidy) mathematically gua
 
 | Component | Purpose |
 |-----------|---------|
-| [Ledger and blocks](/docs/fundamentals/blockchain) | Cryptographically linked blocks; immutable, verifiable history |
+| [Ledger and blocks](/philosophy/fundamentals/blockchain) | Cryptographically linked blocks; immutable, verifiable history |
 | [Protocol cryptography](/docs/bitcoin/cryptography) | Digital signatures, hashes; ownership and integrity without trust |
 | [Consensus mechanism](/docs/bitcoin/consensus) | Nodes agree on transaction history via proof-of-work; no central coordinator |
 | [Bitcoin Script](/docs/bitcoin/script) | Spending conditions; multisig, timelocks, smart contracts |
@@ -67,7 +67,7 @@ At a high level: you hold private keys that control addresses. To send bitcoin y
 - Requires significant computational resources
 
 ### UTXO Model
-- [Unspent Transaction Outputs](/docs/fundamentals/utxos) - The fundamental accounting model of Bitcoin
+- [Unspent Transaction Outputs](/philosophy/fundamentals/utxos) - The fundamental accounting model of Bitcoin
 - Each transaction consumes and creates UTXOs
 - Enables parallel transaction processing
 - Clear ownership model
@@ -132,11 +132,11 @@ It unlocks the **true power of human cooperation**: voluntary exchange based on 
 
 Once the concept of sound, digital, decentralized money enters someone's mind, it cannot be unseen. It spreads from person to person, generation to generation, border to border.
 
-See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how these ideas spread and the cultural memes that have emerged.
+See [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) for how these ideas spread and the cultural memes that have emerged.
 
 ### The Threat
 
-Bitcoin is under [**constant attack**](/docs/history/attacks-on-bitcoin) from the most sophisticated entities on this planet:
+Bitcoin is under [**constant attack**](/philosophy/history/attacks-on-bitcoin) from the most sophisticated entities on this planet:
 - Intelligence agencies (NSA, KGB, Mossad, and countless others)
 - Central banks protecting their monopoly on money
 - Governments seeking to maintain financial control
@@ -154,10 +154,10 @@ Bitcoin cannot be hacked. It can only be adopted.
 
 Dive deeper into the core concepts that make Bitcoin work:
 
-- [Bitcoin as Timechain](/docs/fundamentals/timechain) - How Bitcoin solves timing in decentralized networks
-- [UTXO Model](/docs/fundamentals/utxos) - How Bitcoin tracks ownership through unspent transaction outputs
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin minimizes trust requirements
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - The economic characteristics of Bitcoin
-- [Incentive Structure](/docs/fundamentals/incentives) - How economic incentives shape Bitcoin's security
-- [Governance & Evolution](/docs/fundamentals/governance) - How Bitcoin evolves through rough consensus and the BIP process
+- [Bitcoin as Timechain](/philosophy/fundamentals/timechain) - How Bitcoin solves timing in decentralized networks
+- [UTXO Model](/philosophy/fundamentals/utxos) - How Bitcoin tracks ownership through unspent transaction outputs
+- [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin minimizes trust requirements
+- [Monetary Properties](/philosophy/fundamentals/monetary-properties) - The economic characteristics of Bitcoin
+- [Incentive Structure](/philosophy/fundamentals/incentives) - How economic incentives shape Bitcoin's security
+- [Governance & Evolution](/philosophy/fundamentals/governance) - How Bitcoin evolves through rough consensus and the BIP process
 - Bitcoin, the Meme - How Bitcoin functions as a powerful idea that spreads through culture

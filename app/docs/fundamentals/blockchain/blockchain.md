@@ -149,7 +149,7 @@ The chain structure provides security through:
 
 ### Timechain
 
-The blockchain structure enables Bitcoin's [timechain](/docs/fundamentals/timechain) property:
+The blockchain structure enables Bitcoin's [timechain](/philosophy/fundamentals/timechain) property:
 - Blocks form an ordered sequence (temporal ordering)
 - The chain structure ensures this ordering is immutable
 - Block height provides a reliable time reference

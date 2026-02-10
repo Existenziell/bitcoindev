@@ -48,7 +48,7 @@ Outputs:
 
 ### Famous Coinbase Messages
 
-- **Genesis Block**: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" — see [Genesis Block](/docs/history/genesis-block) for context and a view of the raw block data.
+- **Genesis Block**: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" — see [Genesis Block](/philosophy/history/genesis-block) for context and a view of the raw block data.
 - **Block 629999** (pre-halving): "NYTimes 09/Apr/2020 With $2.3T Injection, Fed's Plan Far Exceeds 2008 Rescue"
 
 ### Coinbase Maturity

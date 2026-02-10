@@ -1,12 +1,12 @@
 # Transaction Construction
 
-Building a transaction is the direct application of the [UTXO model](/docs/fundamentals/utxos): you select unspent outputs as inputs, create new outputs (recipient and change), and sign to prove ownership. The [transaction lifecycle](/docs/bitcoin/transaction-lifecycle) (create, sign, broadcast, mempool, confirmed) is what your code drives; fee choice ties into the [incentive structure](/docs/fundamentals/incentives) of the network. This guide covers the complete process from UTXO selection to broadcasting.
+Building a transaction is the direct application of the [UTXO model](/philosophy/fundamentals/utxos): you select unspent outputs as inputs, create new outputs (recipient and change), and sign to prove ownership. The [transaction lifecycle](/docs/bitcoin/transaction-lifecycle) (create, sign, broadcast, mempool, confirmed) is what your code drives; fee choice ties into the [incentive structure](/philosophy/fundamentals/incentives) of the network. This guide covers the complete process from UTXO selection to broadcasting.
 
 ## Transaction Lifecycle
 
 Understanding the complete lifecycle of a transaction helps contextualize the construction process:
 
-1. **Creation**: User constructs a transaction specifying inputs ([UTXOs](/docs/fundamentals/utxos) to spend) and outputs (recipient addresses and amounts)
+1. **Creation**: User constructs a transaction specifying inputs ([UTXOs](/philosophy/fundamentals/utxos) to spend) and outputs (recipient addresses and amounts)
 2. **Signing**: User signs the transaction with their private key, proving ownership of the inputs
 3. **Broadcasting**: Signed transaction is sent to the network
 4. **Mempool**: Transaction waits in the mempool (memory pool) of unconfirmed transactions

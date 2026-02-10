@@ -46,30 +46,30 @@ These debates are often heated because the stakes are high. Bitcoin is real mone
 
 ### Protocol Debates
 
-[**The Blocksize Wars (2015-2017)**](/docs/controversies/blocksize-wars)
+[**The Blocksize Wars (2015-2017)**](/philosophy/controversies/blocksize-wars)
 The defining battle over Bitcoin's scaling approach. Big blockers wanted larger blocks for more transactions; small blockers prioritized decentralization and layer-2 solutions. The outcome: Bitcoin kept small blocks, SegWit activated, and Bitcoin Cash forked off.
 
-[**The OP_RETURN Debate**](/docs/controversies/op-return)
+[**The OP_RETURN Debate**](/philosophy/controversies/op-return)
 An ongoing controversy about data storage on Bitcoin. Should Bitcoin allow arbitrary data in transactions? The 2024 Bitcoin Core v30 changes reignited debates about Bitcoin's purpose: is it purely money, or a platform for broader applications?
 
-[**Ordinals and Inscriptions**](/docs/controversies/ordinals)
+[**Ordinals and Inscriptions**](/philosophy/controversies/ordinals)
 Since 2023, Ordinals and inscriptions (data attached to satoshis via witness) have divided the community: critics call them spam that raises fees and distorts Bitcoin’s purpose; supporters argue they are legitimate, fee-paying use of blockspace and that censoring them conflicts with permissionlessness.
 
 ### External Challenges
 
-[**Energy Consumption**](/docs/controversies/energy-consumption)
+[**Energy Consumption**](/philosophy/controversies/energy-consumption)
 Critics claim Bitcoin wastes energy; supporters argue it's the most efficient use of energy ever invented. This debate touches on environmental concerns, the nature of value, and whether proof-of-work is a feature or a bug.
 
-[**Bitcoin and criminal use**](/docs/controversies/criminal-use)
+[**Bitcoin and criminal use**](/philosophy/controversies/criminal-use)
 Critics claim Bitcoin is the currency of choice for criminals. In reality, Bitcoin is just money. What people do with it is their responsibility. The vast majority of illicit financial activity occurs in US dollars and the traditional banking system.
 
-[**Bitcoin ETF rejections (2017–2023)**](/docs/controversies/etf-rejections)
+[**Bitcoin ETF rejections (2017–2023)**](/philosophy/controversies/etf-rejections)
 The SEC repeatedly rejected or delayed spot Bitcoin ETF applications, citing manipulation, custody, and market maturity. A court ruling in the Grayscale case and political pressure helped pave the way for the January 2024 approvals.
 
 ### Historical Events
 
-[**Mt. Gox Collapse (2014)**](/docs/controversies/mt-gox)
+[**Mt. Gox Collapse (2014)**](/philosophy/controversies/mt-gox)
 The catastrophic failure of the world's largest Bitcoin exchange. 850,000 BTC lost. The event that made "not your keys, not your coins" a community mantra and shaped how we think about custody and trust.
 
-[**Craig Wright / "Faketoshi"**](/docs/controversies/craig-wright)
+[**Craig Wright / "Faketoshi"**](/philosophy/controversies/craig-wright)
 The ongoing saga of a man claiming to be Satoshi Nakamoto. Failed cryptographic proofs, forged documents, and legal battles culminated in a 2024 UK court ruling definitively stating Wright is not Satoshi.

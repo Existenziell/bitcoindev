@@ -17,7 +17,7 @@ vi.mock('@/app/utils/errorHandling')
 describe('useSearch', () => {
   const mockIndex: IndexEntry[] = [
     { path: '/docs/bitcoin', title: 'Bitcoin Protocol', section: 'bitcoin', body: 'Bitcoin overview' },
-    { path: '/docs/fundamentals', title: 'Fundamentals', section: 'fundamentals', body: 'Fundamentals content' },
+    { path: '/philosophy/fundamentals', title: 'Fundamentals', section: 'fundamentals', body: 'Fundamentals content' },
   ]
 
   beforeEach(() => {

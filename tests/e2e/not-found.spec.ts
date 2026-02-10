@@ -7,7 +7,7 @@ test.describe('404 Not Found', () => {
     await expect(page.getByRole('link', { name: /Back to Genesis/i })).toHaveAttribute('href', '/')
     await expect(page.getByRole('link', { name: /Start Learning/i })).toHaveAttribute(
       'href',
-      '/docs/fundamentals'
+      '/philosophy/fundamentals'
     )
   })
 

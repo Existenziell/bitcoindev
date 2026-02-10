@@ -127,13 +127,13 @@ type Row = SearchResult & { rank: number }
 
 /**
  * Deduplicate results by removing overview pages when specific child results exist.
- * For example, if we have results for specific people, remove the /docs/history/people overview page.
+ * For example, if we have results for specific people, remove the /philosophy/history/people overview page.
  * Also: if we have results for a doc page and for section(s) of that page (path#fragment), drop the page-level result.
  */
 function deduplicateResults(rows: Row[]): Row[] {
   const _resultPaths = new Set(rows.map(r => r.path))
   const filtered: Row[] = []
-  const overviewPagesToCheck = ['/docs/history/people']
+  const overviewPagesToCheck = ['/philosophy/history/people']
 
   for (const row of rows) {
     // Check if this is an overview page that should be excluded
@@ -141,9 +141,9 @@ function deduplicateResults(rows: Row[]): Row[] {
     for (const overviewPath of overviewPagesToCheck) {
       if (row.path === overviewPath) {
         // Check if we have specific child results
-        if (overviewPath === '/docs/history/people') {
+        if (overviewPath === '/philosophy/history/people') {
           const hasSpecificPeople = rows.some(r =>
-            r.path.startsWith('/docs/history/people#') && r.path !== overviewPath
+            r.path.startsWith('/philosophy/history/people#') && r.path !== overviewPath
           )
           if (hasSpecificPeople) {
             shouldExclude = true
@@ -256,7 +256,7 @@ export function search(
       if (row.rank >= HIGH_RANK_THRESHOLD) {
         highRankCount++
       }
-      if (rec.path.startsWith('/docs/history/people#')) {
+      if (rec.path.startsWith('/philosophy/history/people#')) {
         peopleRows.push(row)
       } else {
         pageRows.push(row)

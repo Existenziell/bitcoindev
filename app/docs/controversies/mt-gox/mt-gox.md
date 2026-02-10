@@ -163,9 +163,9 @@ When you hear Bitcoiners say "not your keys, not your coins," they're speaking t
 
 ## Related Topics
 
-- [Blocksize Wars](/docs/controversies/blocksize-wars) - Another major Bitcoin controversy
-- [Energy Consumption](/docs/controversies/energy-consumption) - The energy debate
-- [OP_RETURN Debate](/docs/controversies/op-return) - Data storage on Bitcoin
+- [Blocksize Wars](/philosophy/controversies/blocksize-wars) - Another major Bitcoin controversy
+- [Energy Consumption](/philosophy/controversies/energy-consumption) - The energy debate
+- [OP_RETURN Debate](/philosophy/controversies/op-return) - Data storage on Bitcoin
 
 ---
 

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test'
 test.describe('Download .md', () => {
   test('API returns 200 and markdown for valid doc path', async ({ request }) => {
     const resp = await request.get(
-      '/api/download-md?path=' + encodeURIComponent('/docs/fundamentals')
+      '/api/download-md?path=' + encodeURIComponent('/philosophy/fundamentals')
     )
     expect(resp.ok()).toBeTruthy()
     const ct = resp.headers()['content-type'] ?? ''

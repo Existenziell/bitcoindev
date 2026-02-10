@@ -34,7 +34,7 @@ export default function NotFound() {
               <span>Back to Genesis</span>
             </Link>
             <Link
-              href="/docs/fundamentals"
+              href="/philosophy/fundamentals"
               className="btn-secondary"
             >
               Start Learning

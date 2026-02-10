@@ -16,7 +16,7 @@ The analogy runs deeper:
 | New gold enters circulation through mining | New bitcoin enters circulation through mining |
 | Anyone can mine (permissionless) | Anyone can mine (permissionless) |
 
-This parallel was intentional. [Satoshi Nakamoto](/docs/history/people) designed Bitcoin to be "digital gold": a scarce, hard money that requires real-world cost to produce, preventing arbitrary inflation.
+This parallel was intentional. [Satoshi Nakamoto](/philosophy/history/people) designed Bitcoin to be "digital gold": a scarce, hard money that requires real-world cost to produce, preventing arbitrary inflation.
 
 ---
 
@@ -24,7 +24,7 @@ This parallel was intentional. [Satoshi Nakamoto](/docs/history/people) designed
 
 Mining serves two critical functions:
 1. **Transaction Processing**: Validating and confirming transactions
-2. **Currency Issuance**: Creating new bitcoin according to the predetermined [supply schedule](/docs/history/halvings)
+2. **Currency Issuance**: Creating new bitcoin according to the predetermined [supply schedule](/philosophy/history/halvings)
 
 ---
 
@@ -337,7 +337,7 @@ Mining provides Bitcoin's security through proof-of-work. To attack the network,
 
 ### Decentralization
 
-Unlike traditional payment systems with central authorities, Bitcoin's mining is permissionless. Anyone with hardware and electricity can participate, contributing to the network's [decentralization](/docs/fundamentals/decentralization).
+Unlike traditional payment systems with central authorities, Bitcoin's mining is permissionless. Anyone with hardware and electricity can participate, contributing to the network's [decentralization](/philosophy/fundamentals/decentralization).
 
 ### Monetary Policy Enforcement
 

@@ -14,17 +14,17 @@ vi.mock('@/app/utils/navigation', () => ({
   navItems: [
     {
       title: 'Fundamentals',
-      href: '/docs/fundamentals',
-      children: [{ title: 'Overview', href: '/docs/fundamentals' }],
+      href: '/philosophy/fundamentals',
+      children: [{ title: 'Overview', href: '/philosophy/fundamentals' }],
     },
   ],
-  downloadablePaths: new Set(['/docs/fundamentals']),
-  routeLabels: { '/docs/fundamentals': 'Fundamentals' },
+  downloadablePaths: new Set(['/philosophy/fundamentals']),
+  routeLabels: { '/philosophy/fundamentals': 'Fundamentals' },
 }))
 
 vi.mock('@/app/utils/docNavigationState', () => ({
   getFlattenedPages: vi.fn(() => [
-    { title: 'Fundamentals', href: '/docs/fundamentals' },
+    { title: 'Fundamentals', href: '/philosophy/fundamentals' },
   ]),
   pathnameToDocNavigationState: vi.fn(),
 }))
@@ -35,7 +35,7 @@ describe('useDocNavigation', () => {
   })
 
   it('calls pathnameToDocNavigationState with current pathname', () => {
-    const mockPathname = '/docs/fundamentals'
+    const mockPathname = '/philosophy/fundamentals'
     const mockState = {
       pathname: mockPathname,
       breadcrumbs: [],
@@ -64,7 +64,7 @@ describe('useDocNavigation', () => {
 
   it('updates when pathname changes', () => {
     const mockState1 = {
-      pathname: '/docs/fundamentals',
+      pathname: '/philosophy/fundamentals',
       breadcrumbs: [],
       previousPage: null,
       nextPage: null,
@@ -81,12 +81,12 @@ describe('useDocNavigation', () => {
       isMainSectionPage: false,
     }
 
-    ;(usePathname as any).mockReturnValue('/docs/fundamentals')
+    ;(usePathname as any).mockReturnValue('/philosophy/fundamentals')
     ;(pathnameToDocNavigationState as any).mockReturnValue(mockState1)
 
     const { result, rerender } = renderHook(() => useDocNavigation())
 
-    expect(result.current.pathname).toBe('/docs/fundamentals')
+    expect(result.current.pathname).toBe('/philosophy/fundamentals')
 
     ;(usePathname as any).mockReturnValue('/docs/bitcoin')
     ;(pathnameToDocNavigationState as any).mockReturnValue(mockState2)
@@ -97,7 +97,7 @@ describe('useDocNavigation', () => {
   })
 
   it('memoizes result based on pathname', () => {
-    const mockPathname = '/docs/fundamentals'
+    const mockPathname = '/philosophy/fundamentals'
     const mockState = {
       pathname: mockPathname,
       breadcrumbs: [],

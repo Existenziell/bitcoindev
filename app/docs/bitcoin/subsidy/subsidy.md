@@ -4,7 +4,7 @@ The Bitcoin block subsidy is the amount of new Bitcoin created with each block. 
 
 ## Block Reward
 
-The block reward is what the miner receives for mining a valid block: the **block subsidy** (new bitcoin created) plus the [transaction fees](/docs/bitcoin/transaction-fees) from all transactions included in the block. Over time, the subsidy shrinks ([halving](/docs/history/halvings) every 210,000 blocks) and fees will make up a larger share of miner revenue.
+The block reward is what the miner receives for mining a valid block: the **block subsidy** (new bitcoin created) plus the [transaction fees](/docs/bitcoin/transaction-fees) from all transactions included in the block. Over time, the subsidy shrinks ([halving](/philosophy/history/halvings) every 210,000 blocks) and fees will make up a larger share of miner revenue.
 
 ## The Equation
 

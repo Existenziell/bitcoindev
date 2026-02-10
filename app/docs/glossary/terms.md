@@ -16,7 +16,7 @@ The maximum supply of Bitcoin that will ever exist, enforced by the protocol's c
 
 ### Air-Gapped
 A computer or device that has never been connected to the internet, providing the highest level of security for Bitcoin wallets. Air-gapped systems cannot be attacked remotely, making them ideal for generating private keys, creating transactions, and signing them offline. The transaction is then transferred to an internet-connected device for broadcasting. This approach eliminates the risk of malware, network attacks, and key theft through online means.
-<!-- related: /docs/investment/wallet-security -->
+<!-- related: /philosophy/investment/wallet-security -->
 
 ### Absolute Time Lock
 A time lock that prevents a transaction from being spent until a specific block height or Unix timestamp is reached, implemented using the OP_CHECKLOCKTIMEVERIFY (CLTV) opcode. Unlike relative time locks, absolute locks reference a fixed point in time rather than being relative to when the UTXO was created.
@@ -82,7 +82,7 @@ A collection of transactions grouped together and permanently added to the block
 
 ### Blockchain
 A distributed, append-only ledger of all Bitcoin transactions maintained by thousands of independent nodes worldwide.
-<!-- related: /docs/fundamentals/blockchain -->
+<!-- related: /philosophy/fundamentals/blockchain -->
 Blocks are cryptographically linked in chronological order, making historical data tamper-evident and immutable. Altering any past transaction would require re-mining all subsequent blocks, which becomes computationally infeasible as more blocks are added.
 
 ### Block Header
@@ -115,7 +115,7 @@ Basis of Lightning Technology (BOLT): the technical specifications that define t
 
 ### BIP
 Bitcoin Improvement Proposal (BIP): a design document that proposes changes, additions, or informational content for the Bitcoin ecosystem, following a structured process for community review. BIPs are categorized as Standards Track (protocol changes), Informational, or Process documents. Notable examples include BIP 16 (P2SH), BIP 32 (HD wallets), BIP 39 (mnemonic seeds), BIP 141 (SegWit), and BIP 341 (Taproot).
-<!-- related: /docs/history/bips -->
+<!-- related: /philosophy/history/bips -->
 
 ### Bitcoin Client
 Software that enables users to send and receive bitcoin. Bitcoin Core is the most widely used and trusted client, though others exist with varying features.
@@ -140,7 +140,7 @@ The new bitcoin that miners receive as part of the block reward for successfully
 Experimental, fungible tokens on Bitcoin created using ordinal inscriptions, similar to Ethereum's ERC-20 tokens. They are an inefficient use of Bitcoin's block space, often leading to higher transaction fees and network congestion.
 
 ### BTC
-The ticker symbol for bitcoin, representing the asset in trading pairs. It's also sometimes used as shorthand for the Bitcoin Core software. See [Denominations](/docs/fundamentals/denominations) for the full unit table and converter.
+The ticker symbol for bitcoin, representing the asset in trading pairs. It's also sometimes used as shorthand for the Bitcoin Core software. See [Denominations](/philosophy/fundamentals/denominations) for the full unit table and converter.
 
 ---
 
@@ -212,7 +212,7 @@ A variable-length encoding (VarInt) used in Bitcoin serialization for lengths an
 
 ### Cold Storage Wallet
 An offline Bitcoin wallet that isn't connected to the internet, providing enhanced security against hacking and theft. Typically used for long-term storage, it keeps private keys isolated from potential online threats. Hardware wallets and paper wallets are common forms of cold storage.
-<!-- related: /docs/investment/wallet-security -->
+<!-- related: /philosophy/investment/wallet-security -->
 
 ### Covenants
 A proposed type of smart contract that allows users to set conditions or restrictions on how their bitcoin can be spent after the initial transaction. By embedding specific rules, covenants can add layers of control over future transactions, useful for applications like vaults or multi-stage payments.
@@ -230,7 +230,7 @@ The use of complex mathematics to secure data. Bitcoin relies on cryptographic t
 
 ### Cypherpunks
 Activists who advocate for using cryptography to protect privacy and personal freedom. They were members of the now-defunct Cypherpunk mailing list, active in the 1990s. Their work laid the foundation for privacy-preserving technologies like Bitcoin.
-<!-- related: /docs/fundamentals/cypherpunk-philosophy -->
+<!-- related: /philosophy/fundamentals/cypherpunk-philosophy -->
 
 ### Channel
 A payment channel between two Lightning Network nodes that enables instant, low-cost payments without broadcasting each transaction to the blockchain.
@@ -261,14 +261,14 @@ Decentralized Autonomous Organization (DAO): governed by rules encoded in smart 
 
 ### DCA
 Dollar-Cost Averaging (DCA): a strategy where a fixed amount of money is used to buy bitcoin at regular intervals, smoothing out volatility by ignoring short-term price movements.
-<!-- related: /docs/investment/investment-strategy -->
+<!-- related: /philosophy/investment/investment-strategy -->
 
 ### DEX
 Decentralized Exchange (DEX): a decentralized exchange that allows users to trade cryptocurrencies without relying on a centralized entity. In Bitcoin, DEXs ensure users maintain control over their private keys during trades.
 
 ### Decentralization
 The distribution of control, decision-making, and infrastructure across many independent participants rather than a single central authority.
-<!-- related: /docs/fundamentals/decentralization -->
+<!-- related: /philosophy/fundamentals/decentralization -->
 Bitcoin achieves this through open-source code that anyone can audit, distributed mining across thousands of operations worldwide, and permissionless node operation that lets anyone verify the blockchain. This architecture means no government, company, or individual can unilaterally change the rules, censor transactions, or shut down the network.
 
 ### Derivation Path
@@ -381,7 +381,7 @@ The property that individual units of a currency or asset are interchangeable, o
 
 ### Genesis Block
 The first block in the Bitcoin blockchain (block height 0), created by Satoshi Nakamoto on January 3, 2009. The coinbase transaction famously includes the text "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks," both proving the block wasn't pre-mined before that date and commenting on the financial system Bitcoin aimed to provide an alternative to. The genesis block is hardcoded into Bitcoin software as the starting point of the chain, and its 50 BTC reward is unspendable due to a quirk in the original code.
-<!-- related: /docs/history/genesis-block -->
+<!-- related: /philosophy/history/genesis-block -->
 <!-- related: /docs/bitcoin/blocks -->
 
 ### Gossip Protocol
@@ -396,7 +396,7 @@ Graphics Processing Unit (GPU): specialized hardware originally used for video r
 
 ### Halving
 An event that occurs every 210,000 blocks (approximately every four years) where the block reward paid to miners is cut in half, reducing Bitcoin's inflation rate.
-<!-- related: /docs/history/halvings -->
+<!-- related: /philosophy/history/halvings -->
 This mechanism is central to Bitcoin's monetary policy, creating a predictable and diminishing supply schedule that asymptotically approaches the 21 million cap. The most recent halving in April 2024 reduced the block reward from 6.25 to 3.125 BTC.
 
 ### Hash
@@ -407,7 +407,7 @@ The total computational power dedicated to Bitcoin mining, measured in hashes pe
 
 ### Hard Fork
 A protocol change that loosens consensus rules, making previously invalid blocks or transactions valid, which is not backward-compatible. Nodes that don't upgrade will reject new blocks as invalid, potentially creating a permanent chain split where two incompatible networks exist. Hard forks are controversial in Bitcoin because they risk splitting the network and are generally avoided in favor of soft forks, which maintain backward compatibility.
-<!-- related: /docs/history/forks -->
+<!-- related: /philosophy/history/forks -->
 
 ### HD Wallet
 Hierarchical Deterministic Wallet (HD wallet): a wallet architecture (BIP 32) that generates all keys from a single master seed, typically represented as a 12-24 word mnemonic phrase for backup.
@@ -416,11 +416,11 @@ The hierarchical structure allows deriving billions of addresses in an organized
 
 ### Hardware Wallet
 A physical device used to store private keys securely offline, providing protection from online hacks or malware. Hardware wallets are a form of cold storage and are widely used by Bitcoin holders for long-term storage, ensuring that their private keys remain safe from unauthorized access. Private keys never leave the device, and transactions are signed on the device itself, making them secure even when connected to compromised computers.
-<!-- related: /docs/investment/wallet-security -->
+<!-- related: /philosophy/investment/wallet-security -->
 
 ### Hot Wallet
 A Bitcoin wallet that is connected to the internet, such as mobile apps, desktop software, or web wallets. Hot wallets are convenient for frequent transactions and daily use but are more vulnerable to hacking, malware, and online attacks since private keys are stored on internet-connected devices. Best practice is to use hot wallets only for small amounts and keep significant holdings in cold storage wallets or hardware wallets.
-<!-- related: /docs/investment/wallet-security -->
+<!-- related: /philosophy/investment/wallet-security -->
 
 ### HODL
 A Bitcoin culture term meaning to hold bitcoin through volatility instead of selling. It originated from a 2013 Bitcointalk post titled "I AM HODLING" (a typo for "holding") during a sharp price drop. "HODL" is often used as a verb and has come to symbolize long-term conviction and resistance to panic selling.
@@ -545,12 +545,12 @@ Multi-Part Payment (MPP): a Lightning Network feature that allows splitting a la
 <!-- related: /docs/lightning/routing/mpp -->
 
 ### Magic Internet Money
-A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as self-deprecating humor) and critics (as dismissal). The phrase acknowledges Bitcoin's seemingly impossible nature (digital scarcity without a central issuer, global transfers without intermediaries) while hinting at its power. Despite the humorous framing, Bitcoin represents serious technology: cryptography, proof-of-work, and game-theoretic security. See [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) for how memes function in Bitcoin culture.
-<!-- related: /docs/fundamentals/bitcoin-meme -->
+A satirical term used to describe Bitcoin, often employed both by Bitcoiners (as self-deprecating humor) and critics (as dismissal). The phrase acknowledges Bitcoin's seemingly impossible nature (digital scarcity without a central issuer, global transfers without intermediaries) while hinting at its power. Despite the humorous framing, Bitcoin represents serious technology: cryptography, proof-of-work, and game-theoretic security. See [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) for how memes function in Bitcoin culture.
+<!-- related: /philosophy/fundamentals/bitcoin-meme -->
 
 ### Meme
 In Richard Dawkins' original definition, a meme is a unit of cultural transmission; an idea, behavior, or style that spreads from person to person within a culture. Bitcoin functions as a powerful meme: an idea that replicates itself through human minds, spreading from person to person, generation to generation, border to border. Bitcoin's memetic power comes from simple core narratives (21 million, "don't trust, verify"), clear antagonists (inflation, censorship), and visible success (network uptime, adoption growth). See Bitcoin, the Meme for how Bitcoin functions as a meme and the cultural expressions that have emerged.
-<!-- related: /docs/fundamentals/bitcoin-meme -->
+<!-- related: /philosophy/fundamentals/bitcoin-meme -->
 
 ### Miniscript
 A structured language for writing Bitcoin Scripts that is easier to analyze, compose, and reason about than raw Script. Miniscript maps to a subset of valid Bitcoin Script but provides guarantees about spending conditions, costs, and required signatures that would be difficult to determine from raw opcodes. Wallets can automatically analyze Miniscript policies to determine all possible spending paths and compute worst-case transaction sizes for fee estimation.
@@ -614,11 +614,11 @@ A well-known phrase in Bitcoin, stressing that if you don't control your private
 
 ### OP_RETURN
 An opcode that marks a transaction output as provably unspendable, allowing data to be embedded in transactions without bloating the UTXO set. Since OP_RETURN outputs can never be spent, nodes can safely discard them rather than tracking them forever. This provides a way to store small amounts of data (up to 80 bytes per output) on the blockchain for timestamping, asset protocols, or other applications.
-<!-- related: /docs/controversies/op-return -->
+<!-- related: /philosophy/controversies/op-return -->
 
 ### Orange Pill
 A reference to *The Matrix*, where taking the red pill means seeing reality as it truly is. The "orange pill" refers to the process of someone "waking up" to Bitcoin's implications: recognizing Bitcoin's unique properties, understanding its potential, and becoming convinced of its importance. The journey typically moves from skepticism to curiosity to deep investigation of Bitcoin's technical and economic foundations. The color orange references Bitcoin's logo and branding, but also represents the "awakening" process. See Bitcoin, the Meme for how the orange pill process drives adoption and education.
-<!-- related: /docs/fundamentals/bitcoin-meme -->
+<!-- related: /philosophy/fundamentals/bitcoin-meme -->
 
 ### OPCODE
 A single operation in Bitcoin's stack-based scripting language, used to define spending conditions for transaction outputs.
@@ -656,7 +656,7 @@ A reference that uniquely identifies a UTXO: the transaction ID (txid) of the tr
 
 ### Paper Wallet
 A physical document that contains a Bitcoin private key and its corresponding public address, usually in the form of a QR code. It allows users to store bitcoin offline, providing cold storage. While paper wallets offer strong protection against online hacks, they are vulnerable to physical damage or loss, and improper handling can expose the private key, compromising the funds.
-<!-- related: /docs/investment/wallet-security -->
+<!-- related: /philosophy/investment/wallet-security -->
 
 ### Payjoin
 A privacy technique where both the sender and receiver contribute inputs to a transaction, breaking the common-input-ownership heuristic that blockchain analysis relies on. Normally, analysts assume all inputs to a transaction belong to the same entity. Payjoin defeats this by mixing ownership. The transaction looks like a normal payment on-chain, but the true amounts are obscured because inputs from both parties are combined.
@@ -779,7 +779,7 @@ A fungible token standard on Bitcoin, designed to create and manage tokens direc
 ## S
 
 ### Sat
-Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter.
+Satoshi (sat): the smallest unit of bitcoin, equal to one hundred-millionth of a bitcoin (0.00000001 BTC). Named after Bitcoin's pseudonymous creator, [Satoshi Nakamoto](/philosophy/history/people#satoshi-nakamoto), sats are used to measure small amounts of bitcoin. This denomination enables Bitcoin to be used for micropayments despite any future price appreciation. The Lightning Network uses millisatoshis (1/1000 of a satoshi - not in this table) for routing fee calculations, though on-chain transactions are limited to whole satoshi precision. See Denominations for the full unit table and converter.
 
 ### Satoshi Nakamoto
 The pseudonymous creator of Bitcoin. He released the Bitcoin whitepaper in 2008 by mailing it to the Cypherpunk mailing list and mined the Genesis Block in 2009. Satoshi remained active until mid-2010, when he handed over control of Bitcoin's development to others and gradually disappeared. His identity remains unknown.
@@ -832,7 +832,7 @@ A test network (BIP 325) that adds a signature requirement to block validity, en
 
 ### Soft Fork
 A backward-compatible protocol change that tightens consensus rules, making some previously valid transactions or blocks now invalid. Non-upgraded nodes continue accepting new blocks but may not understand new features (they see transactions as "anyone can spend" but observe miners not spending them). Examples include SegWit (BIP 141) and Taproot (BIP 341). Because soft forks don't force the network to split, they're Bitcoin's preferred upgrade mechanism.
-<!-- related: /docs/history/forks -->
+<!-- related: /philosophy/history/forks -->
 
 ### Sidechain
 A separate blockchain that's interoperable with Bitcoin, allowing bitcoin to move between the two chains via two-way pegs.
@@ -922,7 +922,7 @@ An advancement of traditional double-entry bookkeeping that incorporates cryptog
 
 ### UTXO
 Unspent Transaction Output (UTXO): a transaction output that hasn't been spent yet, representing the actual "coins" in Bitcoin's accounting model.
-<!-- related: /docs/fundamentals/utxos -->
+<!-- related: /philosophy/fundamentals/utxos -->
 Unlike account-based systems (like bank accounts), Bitcoin tracks ownership through discrete UTXOs. Each is either entirely unspent or entirely consumed when used as an input. When you "have 1 BTC", you actually possess one or more UTXOs that sum to that amount. Spending requires consuming entire UTXOs and creating new ones, including change outputs when the input exceeds the payment.
 
 ### UTXO Set

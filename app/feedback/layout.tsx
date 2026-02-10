@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { generatePageMetadata } from '@/app/utils/metadata'
-import DocsLayoutWrapper from '@/app/components/DocsLayoutWrapper'
+import LayoutWrapper from '@/app/components/LayoutWrapper'
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Feedback',
@@ -15,8 +15,8 @@ export default function FeedbackLayout({
   children: ReactNode
 }) {
   return (
-    <DocsLayoutWrapper>
+    <LayoutWrapper>
       {children}
-    </DocsLayoutWrapper>
+    </LayoutWrapper>
   )
 }

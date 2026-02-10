@@ -183,7 +183,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#david-chaum",
+    "path": "/philosophy/history/people#david-chaum",
     "title": "David Chaum",
     "section": "history",
     "body": "David Chaum ecash digicash blind signatures digital cash",
@@ -195,7 +195,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#eric-hughes",
+    "path": "/philosophy/history/people#eric-hughes",
     "title": "Eric Hughes",
     "section": "history",
     "body": "Eric Hughes cypherpunk manifesto cypherpunk mailing list",
@@ -205,7 +205,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#timothy-c-may",
+    "path": "/philosophy/history/people#timothy-c-may",
     "title": "Timothy C. May",
     "section": "history",
     "body": "Timothy C. May crypto anarchist manifesto cypherpunk",
@@ -215,7 +215,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#john-gilmore",
+    "path": "/philosophy/history/people#john-gilmore",
     "title": "John Gilmore",
     "section": "history",
     "body": "John Gilmore cypherpunk eff mailing list",
@@ -226,7 +226,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#adam-back",
+    "path": "/philosophy/history/people#adam-back",
     "title": "Adam Back",
     "section": "history",
     "body": "Adam Back hashcash proof of work blockstream",
@@ -237,7 +237,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#nick-szabo",
+    "path": "/philosophy/history/people#nick-szabo",
     "title": "Nick Szabo",
     "section": "history",
     "body": "Nick Szabo bit gold smart contracts",
@@ -247,7 +247,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#wei-dai",
+    "path": "/philosophy/history/people#wei-dai",
     "title": "Wei Dai",
     "section": "history",
     "body": "Wei Dai b-money wei",
@@ -257,7 +257,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#ralph-merkle",
+    "path": "/philosophy/history/people#ralph-merkle",
     "title": "Ralph Merkle",
     "section": "history",
     "body": "Ralph Merkle merkle tree merkle root hash tree",
@@ -268,7 +268,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#stuart-haber-and-scott-stornetta",
+    "path": "/philosophy/history/people#stuart-haber-and-scott-stornetta",
     "title": "Stuart Haber and Scott Stornetta",
     "section": "history",
     "body": "Stuart Haber and Scott Stornetta timestamp digital document blockchain precursor",
@@ -279,7 +279,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#satoshi-nakamoto",
+    "path": "/philosophy/history/people#satoshi-nakamoto",
     "title": "Satoshi Nakamoto",
     "section": "history",
     "body": "Satoshi Nakamoto whitepaper genesis block creator bitcoin",
@@ -291,7 +291,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#hal-finney",
+    "path": "/philosophy/history/people#hal-finney",
     "title": "Hal Finney",
     "section": "history",
     "body": "Hal Finney rpow first transaction pgp",
@@ -302,7 +302,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#len-sassaman",
+    "path": "/philosophy/history/people#len-sassaman",
     "title": "Len Sassaman",
     "section": "history",
     "body": "Len Sassaman mixmaster remailer cypherpunk",
@@ -313,7 +313,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#martti-malmi",
+    "path": "/philosophy/history/people#martti-malmi",
     "title": "Martti Malmi",
     "section": "history",
     "body": "Martti Malmi sirius bitcoin.org early contributor",
@@ -324,7 +324,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#gavin-andresen",
+    "path": "/philosophy/history/people#gavin-andresen",
     "title": "Gavin Andresen",
     "section": "history",
     "body": "Gavin Andresen lead developer bitcoin foundation",
@@ -334,7 +334,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#laszlo-hanyecz",
+    "path": "/philosophy/history/people#laszlo-hanyecz",
     "title": "Laszlo Hanyecz",
     "section": "history",
     "body": "Laszlo Hanyecz pizza pizza day 10000 btc first commercial",
@@ -346,7 +346,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#wladimir-van-der-laan",
+    "path": "/philosophy/history/people#wladimir-van-der-laan",
     "title": "Wladimir van der Laan",
     "section": "history",
     "body": "Wladimir van der Laan bitcoin core lead maintainer blocksize",
@@ -357,7 +357,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#pieter-wuille",
+    "path": "/philosophy/history/people#pieter-wuille",
     "title": "Pieter Wuille",
     "section": "history",
     "body": "Pieter Wuille segwit taproot libsecp256k1 bip 141",
@@ -369,7 +369,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#gregory-maxwell",
+    "path": "/philosophy/history/people#gregory-maxwell",
     "title": "Gregory Maxwell",
     "section": "history",
     "body": "Gregory Maxwell blockstream coinjoin confidential transactions",
@@ -380,7 +380,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#joseph-poon-and-thaddeus-dryja",
+    "path": "/philosophy/history/people#joseph-poon-and-thaddeus-dryja",
     "title": "Joseph Poon and Thaddeus Dryja",
     "section": "history",
     "body": "Joseph Poon and Thaddeus Dryja lightning network lightning whitepaper payment channels",
@@ -391,7 +391,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#andreas-m-antonopoulos",
+    "path": "/philosophy/history/people#andreas-m-antonopoulos",
     "title": "Andreas M. Antonopoulos",
     "section": "history",
     "body": "Andreas M. Antonopoulos mastering bitcoin educator author",
@@ -402,7 +402,7 @@
     ]
   },
   {
-    "path": "/docs/history/people#roger-ver",
+    "path": "/philosophy/history/people#roger-ver",
     "title": "Roger Ver",
     "section": "history",
     "body": "Roger Ver bitcoin jesus bitcoin cash early investor",
@@ -413,7 +413,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Bitcoin Whitepaper Published",
     "section": "history",
     "body": "Bitcoin Whitepaper Published whitepaper 2008 satoshi october 31",
@@ -425,7 +425,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "First Bitcoin Transaction",
     "section": "history",
     "body": "First Bitcoin Transaction hal finney 10 btc january 12 2009",
@@ -436,7 +436,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Pizza Day",
     "section": "history",
     "body": "Pizza Day first commercial 2010 10000 btc laszlo hanyecz may 22",
@@ -449,7 +449,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "First Exchange Rate",
     "section": "history",
     "body": "First Exchange Rate 2009 exchange rate",
@@ -459,7 +459,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Satoshi's Handover",
     "section": "history",
     "body": "Satoshi's Handover gavin andresen 2010 disappearance",
@@ -470,7 +470,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Mt. Gox Launches",
     "section": "history",
     "body": "Mt. Gox Launches exchange 2010",
@@ -480,7 +480,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Value Overflow Bug",
     "section": "history",
     "body": "Value Overflow Bug 184 billion consensus bug 2010",
@@ -491,7 +491,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Dollar Parity",
     "section": "history",
     "body": "Dollar Parity 2011 1 dollar price",
@@ -502,7 +502,7 @@
     ]
   },
   {
-    "path": "/docs/history/halvings",
+    "path": "/philosophy/history/halvings",
     "title": "Halving 1",
     "section": "history",
     "body": "Halving 1 210000 25 btc 2012 november 28",
@@ -514,7 +514,7 @@
     ]
   },
   {
-    "path": "/docs/history/halvings",
+    "path": "/philosophy/history/halvings",
     "title": "Halving 2",
     "section": "history",
     "body": "Halving 2 420000 12.5 btc 2016 july 9",
@@ -526,7 +526,7 @@
     ]
   },
   {
-    "path": "/docs/history/halvings",
+    "path": "/philosophy/history/halvings",
     "title": "Halving 3",
     "section": "history",
     "body": "Halving 3 630000 6.25 btc 2020 may 11",
@@ -538,7 +538,7 @@
     ]
   },
   {
-    "path": "/docs/history/halvings",
+    "path": "/philosophy/history/halvings",
     "title": "Halving 4",
     "section": "history",
     "body": "Halving 4 840000 3.125 btc 2024 april 20",
@@ -550,7 +550,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "SegWit Activation",
     "section": "history",
     "body": "SegWit Activation segwit bip 141 2017 uasf",
@@ -562,7 +562,7 @@
     ]
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Taproot Activation",
     "section": "history",
     "body": "Taproot Activation taproot schnorr 2021 bip 340",
@@ -574,37 +574,37 @@
     ]
   },
   {
-    "path": "/docs/fundamentals",
+    "path": "/philosophy/fundamentals",
     "title": "Bitcoin Fundamentals",
     "section": "fundamentals",
     "body": "Bitcoin Fundamentals"
   },
   {
-    "path": "/docs/fundamentals/problems",
+    "path": "/philosophy/fundamentals/problems",
     "title": "Problems Bitcoin Solved",
     "section": "fundamentals",
     "body": "Problems Bitcoin Solved"
   },
   {
-    "path": "/docs/fundamentals/cypherpunk-philosophy",
+    "path": "/philosophy/fundamentals/cypherpunk-philosophy",
     "title": "Cypherpunk Philosophy",
     "section": "fundamentals",
     "body": "Cypherpunk Philosophy"
   },
   {
-    "path": "/docs/fundamentals/blockchain",
+    "path": "/philosophy/fundamentals/blockchain",
     "title": "The Blockchain",
     "section": "fundamentals",
     "body": "The Blockchain"
   },
   {
-    "path": "/docs/fundamentals/timechain",
+    "path": "/philosophy/fundamentals/timechain",
     "title": "Bitcoin as Timechain",
     "section": "fundamentals",
     "body": "Bitcoin as Timechain"
   },
   {
-    "path": "/docs/fundamentals/utxos",
+    "path": "/philosophy/fundamentals/utxos",
     "title": "UTXO Model",
     "section": "fundamentals",
     "body": "UTXO Model utxo utxos unspent transaction output unspent transaction outputs",
@@ -616,25 +616,25 @@
     ]
   },
   {
-    "path": "/docs/fundamentals/decentralization",
+    "path": "/philosophy/fundamentals/decentralization",
     "title": "Decentralization",
     "section": "fundamentals",
     "body": "Decentralization"
   },
   {
-    "path": "/docs/fundamentals/trust-model",
+    "path": "/philosophy/fundamentals/trust-model",
     "title": "Trust Model",
     "section": "fundamentals",
     "body": "Trust Model"
   },
   {
-    "path": "/docs/fundamentals/monetary-properties",
+    "path": "/philosophy/fundamentals/monetary-properties",
     "title": "Monetary Properties",
     "section": "fundamentals",
     "body": "Monetary Properties"
   },
   {
-    "path": "/docs/fundamentals/denominations",
+    "path": "/philosophy/fundamentals/denominations",
     "title": "Denominations",
     "section": "fundamentals",
     "body": "Denominations calculator denominations calculator convert sats satoshis btc units satoshi denominations",
@@ -651,37 +651,37 @@
     ]
   },
   {
-    "path": "/docs/fundamentals/incentives",
+    "path": "/philosophy/fundamentals/incentives",
     "title": "Incentive Structure",
     "section": "fundamentals",
     "body": "Incentive Structure"
   },
   {
-    "path": "/docs/fundamentals/game-theory",
+    "path": "/philosophy/fundamentals/game-theory",
     "title": "Game Theory",
     "section": "fundamentals",
     "body": "Game Theory"
   },
   {
-    "path": "/docs/fundamentals/governance",
+    "path": "/philosophy/fundamentals/governance",
     "title": "Governance & Evolution",
     "section": "fundamentals",
     "body": "Governance & Evolution"
   },
   {
-    "path": "/docs/fundamentals/bitcoin-meme",
+    "path": "/philosophy/fundamentals/bitcoin-meme",
     "title": "Bitcoin, the Meme",
     "section": "fundamentals",
     "body": "Bitcoin, the Meme"
   },
   {
-    "path": "/docs/history",
+    "path": "/philosophy/history",
     "title": "Bitcoin History",
     "section": "history",
     "body": "Bitcoin History"
   },
   {
-    "path": "/docs/history/genesis-block",
+    "path": "/philosophy/history/genesis-block",
     "title": "Genesis Block",
     "section": "history",
     "body": "Genesis Block genesis block block 0 launch 2009 january 3 coinbase times headline satoshi unspendable",
@@ -698,25 +698,25 @@
     ]
   },
   {
-    "path": "/docs/history/people",
+    "path": "/philosophy/history/people",
     "title": "People",
     "section": "history",
     "body": "People"
   },
   {
-    "path": "/docs/history/halvings",
+    "path": "/philosophy/history/halvings",
     "title": "Halvings",
     "section": "history",
     "body": "Halvings"
   },
   {
-    "path": "/docs/history/forks",
+    "path": "/philosophy/history/forks",
     "title": "Forks",
     "section": "history",
     "body": "Forks"
   },
   {
-    "path": "/docs/history/bips",
+    "path": "/philosophy/history/bips",
     "title": "BIPs",
     "section": "history",
     "body": "BIPs bip bips bitcoin improvement proposal bitcoin improvement proposals",
@@ -728,7 +728,7 @@
     ]
   },
   {
-    "path": "/docs/history/attacks-on-bitcoin",
+    "path": "/philosophy/history/attacks-on-bitcoin",
     "title": "Attacks on Bitcoin",
     "section": "history",
     "body": "Attacks on Bitcoin"
@@ -1457,19 +1457,19 @@
     ]
   },
   {
-    "path": "/docs/controversies",
+    "path": "/philosophy/controversies",
     "title": "Controversies",
     "section": "controversies",
     "body": "Controversies"
   },
   {
-    "path": "/docs/controversies/blocksize-wars",
+    "path": "/philosophy/controversies/blocksize-wars",
     "title": "Blocksize Wars",
     "section": "controversies",
     "body": "Blocksize Wars"
   },
   {
-    "path": "/docs/controversies/op-return",
+    "path": "/philosophy/controversies/op-return",
     "title": "OP_RETURN Debate",
     "section": "controversies",
     "body": "OP_RETURN Debate OP_RETURN op return data embedding",
@@ -1480,7 +1480,7 @@
     ]
   },
   {
-    "path": "/docs/controversies/ordinals",
+    "path": "/philosophy/controversies/ordinals",
     "title": "Ordinals and Inscriptions",
     "section": "controversies",
     "body": "Ordinals and Inscriptions ordinals inscriptions inscription",
@@ -1491,31 +1491,31 @@
     ]
   },
   {
-    "path": "/docs/controversies/energy-consumption",
+    "path": "/philosophy/controversies/energy-consumption",
     "title": "Energy Consumption",
     "section": "controversies",
     "body": "Energy Consumption"
   },
   {
-    "path": "/docs/controversies/criminal-use",
+    "path": "/philosophy/controversies/criminal-use",
     "title": "Bitcoin and Criminal Use",
     "section": "controversies",
     "body": "Bitcoin and Criminal Use"
   },
   {
-    "path": "/docs/controversies/etf-rejections",
+    "path": "/philosophy/controversies/etf-rejections",
     "title": "ETF Rejections",
     "section": "controversies",
     "body": "ETF Rejections"
   },
   {
-    "path": "/docs/controversies/mt-gox",
+    "path": "/philosophy/controversies/mt-gox",
     "title": "Mt. Gox Collapse",
     "section": "controversies",
     "body": "Mt. Gox Collapse"
   },
   {
-    "path": "/docs/controversies/craig-wright",
+    "path": "/philosophy/controversies/craig-wright",
     "title": "Craig Wright",
     "section": "controversies",
     "body": "Craig Wright"
@@ -1633,69 +1633,69 @@
     ]
   },
   {
-    "path": "/docs/investment",
-    "title": "Bitcoin as Investment",
-    "section": "investment",
-    "body": "Bitcoin as Investment"
-  },
-  {
-    "path": "/docs/investment/risk-management",
-    "title": "Risk Management",
-    "section": "investment",
-    "body": "Risk Management"
-  },
-  {
-    "path": "/docs/investment/investment-strategy",
-    "title": "Investment Strategy",
-    "section": "investment",
-    "body": "Investment Strategy"
-  },
-  {
-    "path": "/docs/investment/tools",
-    "title": "Interactive Tools",
-    "section": "investment",
-    "body": "Interactive Tools"
-  },
-  {
-    "path": "/docs/investment/wallet-security",
-    "title": "Wallet Security & Self-Custody",
-    "section": "investment",
-    "body": "Wallet Security & Self-Custody"
-  },
-  {
-    "path": "/docs/investment/privacy",
-    "title": "Privacy",
-    "section": "investment",
-    "body": "Privacy"
-  },
-  {
-    "path": "/docs/investment/market-cycles",
-    "title": "Understanding Market Cycles",
-    "section": "investment",
-    "body": "Understanding Market Cycles"
-  },
-  {
-    "path": "/docs/adoption",
+    "path": "/philosophy/adoption",
     "title": "Bitcoin Adoption",
     "section": "adoption",
     "body": "Bitcoin Adoption"
   },
   {
-    "path": "/docs/adoption/stranded-energy",
+    "path": "/philosophy/adoption/stranded-energy",
     "title": "Stranded Energy and Flared Gas",
     "section": "adoption",
     "body": "Stranded Energy and Flared Gas"
   },
   {
-    "path": "/docs/adoption/rural-communities",
+    "path": "/philosophy/adoption/rural-communities",
     "title": "Rural Communities and Financial Inclusion",
     "section": "adoption",
     "body": "Rural Communities and Financial Inclusion"
   },
   {
-    "path": "/docs/adoption/use-cases",
+    "path": "/philosophy/adoption/use-cases",
     "title": "Bitcoin Use Cases",
     "section": "adoption",
     "body": "Bitcoin Use Cases"
+  },
+  {
+    "path": "/philosophy/investment",
+    "title": "Bitcoin as Investment",
+    "section": "investment",
+    "body": "Bitcoin as Investment"
+  },
+  {
+    "path": "/philosophy/investment/risk-management",
+    "title": "Risk Management",
+    "section": "investment",
+    "body": "Risk Management"
+  },
+  {
+    "path": "/philosophy/investment/investment-strategy",
+    "title": "Investment Strategy",
+    "section": "investment",
+    "body": "Investment Strategy"
+  },
+  {
+    "path": "/philosophy/investment/tools",
+    "title": "Interactive Tools",
+    "section": "investment",
+    "body": "Interactive Tools"
+  },
+  {
+    "path": "/philosophy/investment/wallet-security",
+    "title": "Wallet Security & Self-Custody",
+    "section": "investment",
+    "body": "Wallet Security & Self-Custody"
+  },
+  {
+    "path": "/philosophy/investment/privacy",
+    "title": "Privacy",
+    "section": "investment",
+    "body": "Privacy"
+  },
+  {
+    "path": "/philosophy/investment/market-cycles",
+    "title": "Understanding Market Cycles",
+    "section": "investment",
+    "body": "Understanding Market Cycles"
   }
 ]

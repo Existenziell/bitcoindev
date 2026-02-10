@@ -160,7 +160,7 @@ Exchanges are platforms where you can buy, sell, and trade Bitcoin. Understandin
 
 ## Wallet Tools
 
-Wallets are essential for storing and managing your Bitcoin. For detailed information on wallet security, see [Wallet Security & Self-Custody](/docs/investment/wallet-security).
+Wallets are essential for storing and managing your Bitcoin. For detailed information on wallet security, see [Wallet Security & Self-Custody](/philosophy/investment/wallet-security).
 
 ### Wallet Types Comparison
 
@@ -456,9 +456,9 @@ Wallets are essential for storing and managing your Bitcoin. For detailed inform
 ## Related Topics
 
 - Wallet Security & Self-Custody - Securing your Bitcoin holdings
-- [Privacy](/docs/investment/privacy) - Privacy considerations and tools
-- [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
-- [Risk Management](/docs/investment/risk-management) - Understanding and managing investment risks
+- [Privacy](/philosophy/investment/privacy) - Privacy considerations and tools
+- [Investment Strategy](/philosophy/investment/investment-strategy) - DCA and long-term holding strategies
+- [Risk Management](/philosophy/investment/risk-management) - Understanding and managing investment risks
 
 ---
 

@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/interactive-tools/transaction-decoder',
     '/interactive-tools/fee-estimator',
     '/interactive-tools/denominations-calculator',
+    '/philosophy',
     '/whitepaper',
     '/about',
     '/news',

@@ -8,7 +8,7 @@ Bitcoin mining hardware has undergone a remarkable evolution, from hobbyists run
 
 **The Beginning**
 
-When [Satoshi](/docs/history/people#satoshi-nakamoto) launched Bitcoin, mining was done on ordinary computer CPUs:
+When [Satoshi](/philosophy/history/people#satoshi-nakamoto) launched Bitcoin, mining was done on ordinary computer CPUs:
 
 - **Hardware**: Intel/AMD desktop processors
 - **Hashrate**: 1-20 MH/s

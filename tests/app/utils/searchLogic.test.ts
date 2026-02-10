@@ -72,7 +72,7 @@ describe('snippet', () => {
 describe('search', () => {
   const fixture: IndexEntry[] = [
     { path: '/docs/bitcoin', title: 'Bitcoin Protocol', section: 'bitcoin', body: 'The Bitcoin protocol overview. Bitcoin.' },
-    { path: '/docs/fundamentals', title: 'Fundamentals', section: 'fundamentals', body: 'Bitcoin fundamentals. Learn about Bitcoin.' },
+    { path: '/philosophy/fundamentals', title: 'Fundamentals', section: 'fundamentals', body: 'Bitcoin fundamentals. Learn about Bitcoin.' },
     { path: '/other', title: 'Other', section: 'x', body: 'No bitcoin here.' },
   ]
 

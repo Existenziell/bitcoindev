@@ -28,7 +28,7 @@ Example:
 - Total fee: 2,500 satoshis (0.000025 BTC)
 ```
 
-For unit conversion (sats, BTC, etc.), see [Denominations](/docs/fundamentals/denominations) or the [Interactive Tools](/interactive-tools) hub. Estimate fee from transaction size with the [Fee Estimator](/interactive-tools/fee-estimator).
+For unit conversion (sats, BTC, etc.), see [Denominations](/philosophy/fundamentals/denominations) or the [Interactive Tools](/interactive-tools) hub. Estimate fee from transaction size with the [Fee Estimator](/interactive-tools/fee-estimator).
 
 ### Virtual Size (vbytes)
 

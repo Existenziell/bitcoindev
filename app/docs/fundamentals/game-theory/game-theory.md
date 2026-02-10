@@ -111,7 +111,7 @@ Bitcoin contains multiple interconnected games, each with different players, str
 
 **Equilibrium**: All miners choose to mine honestly because honest mining has positive expected value, while attacking has negative expected value.
 
-See [Incentive Structure](/docs/fundamentals/incentives#game-theory-and-nash-equilibrium) for detailed analysis of the mining game.
+See [Incentive Structure](/philosophy/fundamentals/incentives#game-theory-and-nash-equilibrium) for detailed analysis of the mining game.
 
 ### The Node Validation Game
 
@@ -218,9 +218,9 @@ Understanding game theory is essential for understanding Bitcoin because it expl
 
 ## Related Topics
 
-- [Incentive Structure](/docs/fundamentals/incentives) - Detailed analysis of economic incentives and Nash equilibrium
-- [Trust Model](/docs/fundamentals/trust-model) - How game theory minimizes trust requirements
+- [Incentive Structure](/philosophy/fundamentals/incentives) - Detailed analysis of economic incentives and Nash equilibrium
+- [Trust Model](/philosophy/fundamentals/trust-model) - How game theory minimizes trust requirements
 - [Consensus Mechanism](/docs/bitcoin/consensus) - How game theory enables decentralized consensus
 - [Mining Attacks](/docs/mining/attacks) - Game-theoretic analysis of attack scenarios
-- [Problems Bitcoin Solved](/docs/fundamentals/problems) - How game theory solves coordination problems
-- [Bitcoin, the Meme](/docs/fundamentals/bitcoin-meme) - How game theory and memetic spread interact to drive adoption
+- [Problems Bitcoin Solved](/philosophy/fundamentals/problems) - How game theory solves coordination problems
+- [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) - How game theory and memetic spread interact to drive adoption

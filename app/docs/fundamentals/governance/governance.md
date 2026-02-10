@@ -61,7 +61,7 @@ Draft → Proposed → Final → Withdrawn/Replaced
 - Or acceptance of chain split
 - Rarely used (Bitcoin Cash split)
 
-For the full history of Bitcoin upgrades (soft and hard forks), see [Forks](/docs/history/forks).
+For the full history of Bitcoin upgrades (soft and hard forks), see [Forks](/philosophy/history/forks).
 
 ---
 
@@ -137,9 +137,9 @@ Process:
 
 ## Related Topics
 
-- [BIPs](/docs/history/bips) - Bitcoin Improvement Proposals
+- [BIPs](/philosophy/history/bips) - Bitcoin Improvement Proposals
 - Forks - Protocol upgrades
-- [Controversies](/docs/controversies) - Major debates
+- [Controversies](/philosophy/controversies) - Major debates
 
 ---
 

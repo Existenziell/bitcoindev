@@ -38,7 +38,7 @@ Hash rate is distributed across multiple independent mining pools, with the larg
 
 ### Development
 
-Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the [BIP](/docs/history/bips) (Bitcoin Improvement Proposal) process and require community consensus. No single developer or team controls the protocol.
+Bitcoin has multiple implementations (Bitcoin Core, Bitcoin Knots, etc.) and an open development process. Changes go through the [BIP](/philosophy/history/bips) (Bitcoin Improvement Proposal) process and require community consensus. No single developer or team controls the protocol.
 
 ---
 

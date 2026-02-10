@@ -27,7 +27,10 @@ An open-source developer's guide to Bitcoin, from fundamentals to advanced proto
 
 ## What is BitcoinDev
 
-- **Documentation**: A Developer's Guide to Bitcoin
+- **Documentation**: A Developer's Guide to Bitcoin. The site is organized into three top-level areas:
+  - **Philosophy**: Narrative and conceptual material at `/philosophy/` — Fundamentals, History, Controversies, Investment, Adoption.
+  - **Bitcoin Docs**: Developer learning path at `/docs/` — Setup & Infrastructure, Bitcoin Protocol, Bitcoin Development, Wallets, Mining, Lightning Network, Advanced Topics, Glossary.
+  - **Interactive Tools**: Hands-on tools (CLI Terminal, Stack Lab, Block Visualizer, and more).
 - **Whitepaper**: Satoshi’s Bitcoin whitepaper.
 - **Bitcoin CLI Terminal**: Run Bitcoin Core RPC commands in the browser against a public mainnet node. No node setup. `/interactive-tools/terminal`
 - **Stack Lab**: Interactive Bitcoin Script playground. Build and run locking/unlocking scripts in the browser; same model as on-chain validation. `/interactive-tools/stack-lab`
@@ -99,7 +102,7 @@ Many examples are shown in **five languages** (Python, Rust, C++, Go, JavaScript
 - **Theming:** next-themes
 - **Testing:** Vitest (unit), React Testing Library (components), Playwright (E2E)
 
-One dynamic route (`app/docs/[...slug]/page.tsx`) backed by `app/utils/navigation.ts`. Each section: `overview.md` plus `[topic]/[topic].md`. Routing and nav are defined in `navigation.ts`.
+Doc content is served by two dynamic routes: `app/docs/[...slug]/page.tsx` for `/docs/` and `app/philosophy/[...slug]/page.tsx` for `/philosophy/`, both backed by `app/utils/navigation.ts`. Navigation defines **philosophyNavItems** (Philosophy: Fundamentals, History, Controversies, Investment, Adoption) and **bitcoinDocsNavItems** (Bitcoin Docs: Setup & Infrastructure through Glossary), plus **topLevelNavGroups** for sidebar and landing. Each section: `overview.md` plus `[topic]/[topic].md`. Routing and nav are defined in `navigation.ts`.
 
 ---
 

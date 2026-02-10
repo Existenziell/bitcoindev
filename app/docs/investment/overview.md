@@ -10,7 +10,7 @@ Bitcoin represents a unique investment opportunity that combines technological i
 
 Understanding Bitcoin as an investment requires recognizing both its potential and its risks. Bitcoin exhibits several characteristics that make it attractive as an investment:
 
-**Scarcity:** With a fixed supply cap, Bitcoin cannot be inflated or diluted. The issuance schedule is predictable and decreases over time through [halvings](/docs/history/halvings), creating a deflationary monetary policy.
+**Scarcity:** With a fixed supply cap, Bitcoin cannot be inflated or diluted. The issuance schedule is predictable and decreases over time through [halvings](/philosophy/history/halvings), creating a deflationary monetary policy.
 
 **Portability:** Bitcoin can be transferred globally, 24/7, without intermediaries. This makes it valuable for international transfers and as a hedge against currency devaluation.
 
@@ -20,7 +20,7 @@ Understanding Bitcoin as an investment requires recognizing both its potential a
 
 **Network Effects:** As adoption grows, Bitcoin's value proposition strengthens. More users, merchants, and institutions accepting Bitcoin increases its utility and potential value.
 
-For more on Bitcoin's monetary properties, see [Monetary Properties](/docs/fundamentals/monetary-properties).
+For more on Bitcoin's monetary properties, see [Monetary Properties](/philosophy/fundamentals/monetary-properties).
 
 ---
 
@@ -44,8 +44,8 @@ Bitcoin is a volatile asset. If you don't understand why Bitcoin has value, how 
 The more you learn about Bitcoin, the more you understand:
 
 - Its [technical foundations](/docs/bitcoin) and security model
-- Its [monetary properties](/docs/fundamentals/monetary-properties) and economic incentives
-- Its [history](/docs/history) and evolution
+- Its [monetary properties](/philosophy/fundamentals/monetary-properties) and economic incentives
+- Its [history](/philosophy/history) and evolution
 - The problems it solves and its potential impact
 
 This knowledge builds conviction that helps you weather volatility and make informed decisions rather than reacting to market noise.
@@ -70,7 +70,7 @@ Before investing, prioritize education:
 2. **Study the economics:** Understand monetary policy, supply dynamics, and network effects
 3. **Review the history:** Study Bitcoin's evolution, major events, and market cycles
 4. **Practice with small amounts:** Start with small investments while learning
-5. **Secure your holdings:** Learn about [wallet security](/docs/investment/wallet-security) and best practices
+5. **Secure your holdings:** Learn about [wallet security](/philosophy/investment/wallet-security) and best practices
 
 The more you learn, the better equipped you'll be to make informed investment decisions. Bitcoin rewards those who take the time to understand it deeply.
 
@@ -79,10 +79,10 @@ The more you learn, the better equipped you'll be to make informed investment de
 ## Related Topics
 
 - Monetary Properties - Economic characteristics of Bitcoin
-- [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
-- [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
-- [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology
-- [Trust Model](/docs/fundamentals/trust-model) - Understanding Bitcoin's security model
+- [Wallet Security & Self-Custody](/philosophy/investment/wallet-security) - Securing your Bitcoin holdings
+- [Investment Strategy](/philosophy/investment/investment-strategy) - DCA and long-term holding strategies
+- [Understanding Market Cycles](/philosophy/investment/market-cycles) - Navigating volatility and market psychology
+- [Trust Model](/philosophy/fundamentals/trust-model) - Understanding Bitcoin's security model
 
 ---
 

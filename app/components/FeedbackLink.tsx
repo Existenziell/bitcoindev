@@ -8,8 +8,8 @@ export default function FeedbackLink() {
   const [isVisible, setIsVisible] = useState(false)
   const pathname = usePathname()
 
-  // Don't show on top-level /docs page
-  const isTopLevelDocs = pathname === '/docs'
+  // Don't show on top-level /docs or /philosophy index pages
+  const isTopLevelIndex = pathname === '/docs' || pathname === '/philosophy'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +32,7 @@ export default function FeedbackLink() {
   return (
     <div 
       className={`fixed right-0 top-3/4 z-50 transition-all duration-300 ${
-        isVisible && !isTopLevelDocs
+        isVisible && !isTopLevelIndex
           ? 'translate-x-1/3 opacity-100 pointer-events-auto' 
           : 'translate-x-full opacity-0 pointer-events-none'
       }`}

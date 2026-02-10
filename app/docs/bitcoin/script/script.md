@@ -53,7 +53,7 @@ Bitcoin Script has evolved over time, introducing new output types (address form
 - P2WPKH: `bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4`
 - P2TR: `bc1p5d7rjq7g6rdk2yhzks9smlaqtedr4dekq08ge8ztwac72sfr9rusxg3297`
 
-**Note:** P2PK and P2MS have no address format; they use raw scripts. OP_RETURN outputs are unspendable and used for data embedding (max [~80 bytes](/docs/controversies/op-return)).
+**Note:** P2PK and P2MS have no address format; they use raw scripts. OP_RETURN outputs are unspendable and used for data embedding (max [~80 bytes](/philosophy/controversies/op-return)).
 
 ---
 

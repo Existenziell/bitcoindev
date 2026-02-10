@@ -1,6 +1,6 @@
 # Coin Selection
 
-When building a [transaction](/docs/bitcoin-development/transactions), you must choose which [UTXOs](/docs/fundamentals/utxos) to spend so that their total value covers the payment amount plus [fees](/docs/bitcoin/transaction-fees). Coin selection is the process of picking those inputs and, when necessary, creating a **change** output back to your wallet. This page covers implementation (effective value, fee budget, selection loop), common strategies (largest-first, branch-and-bound, privacy-aware), and wallet best practices. For fee rate sources, see [Fee Estimation](/docs/bitcoin-development/fee-estimation).
+When building a [transaction](/docs/bitcoin-development/transactions), you must choose which [UTXOs](/philosophy/fundamentals/utxos) to spend so that their total value covers the payment amount plus [fees](/docs/bitcoin/transaction-fees). Coin selection is the process of picking those inputs and, when necessary, creating a **change** output back to your wallet. This page covers implementation (effective value, fee budget, selection loop), common strategies (largest-first, branch-and-bound, privacy-aware), and wallet best practices. For fee rate sources, see [Fee Estimation](/docs/bitcoin-development/fee-estimation).
 
 ## The Problem
 
@@ -299,6 +299,6 @@ Use the selected UTXOs as inputs and amounts in your transaction: one output for
 - [Transaction Construction](/docs/bitcoin-development/transactions) - Building the transaction from selected UTXOs
 - Fee Estimation - Getting fee rate (sat/vB)
 - [Transaction Fees](/docs/bitcoin/transaction-fees) - Fee market and dust
-- [UTXO Model](/docs/fundamentals/utxos) - What UTXOs are and how they are spent
+- [UTXO Model](/philosophy/fundamentals/utxos) - What UTXOs are and how they are spent
 - [Wallet Development](/docs/wallets) - HD wallets, address types, transaction creation
 - Privacy Techniques - Privacy-aware coin selection and wallet design

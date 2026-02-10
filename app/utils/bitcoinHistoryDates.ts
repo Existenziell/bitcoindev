@@ -10,7 +10,7 @@ export interface BitcoinHistoryEvent {
   time?: string // Optional: time of the event (e.g., "18:15 UTC")
   eventName: string // Name of the event (e.g., "Pizza Day", "Bitcoin's Birthday")
   message: string // The rest of the message after "Exactly [time] today, ..."
-  link?: string // Optional: link to related section (e.g., '/docs/history' or '/docs/history/halvings')
+  link?: string // Optional: link to related section (e.g., '/philosophy/history' or '/philosophy/history/halvings')
 }
 
 /**
@@ -32,7 +32,7 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     day: 3,
     eventName: 'Birthday Bitcoin',
     message: 'the Bitcoin genesis block was mined, marking the birth of the Bitcoin network.',
-    link: '/docs/history',
+    link: '/philosophy/history',
   },
   {
     month: 1,
@@ -40,14 +40,14 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     year: 2009,
     eventName: 'First Bitcoin Transaction Day',
     message: 'Satoshi Nakamoto sent 10 BTC to Hal Finney in the first Bitcoin transaction.',
-    link: '/docs/history',
+    link: '/philosophy/history',
   },
   {
     month: 5,
     day: 22,
     eventName: 'Pizza Day',
     message: 'Laszlo Hanyecz paid 10,000 BTC for two pizzas, marking the first real-world Bitcoin transaction.',
-    link: '/docs/fundamentals/monetary-properties',
+    link: '/philosophy/fundamentals/monetary-properties',
   },
   {
     month: 11,
@@ -55,7 +55,7 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     year: 2012,
     eventName: 'First Bitcoin Halving',
     message: 'Bitcoin experienced its first halving, reducing the block reward from 50 BTC to 25 BTC.',
-    link: '/docs/history/halvings',
+    link: '/philosophy/history/halvings',
   },
   {
     month: 7,
@@ -63,7 +63,7 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     year: 2016,
     eventName: 'Second Bitcoin Halving',
     message: 'Bitcoin experienced its second halving, reducing the block reward from 25 BTC to 12.5 BTC.',
-    link: '/docs/history/halvings',
+    link: '/philosophy/history/halvings',
   },
   {
     month: 5,
@@ -71,7 +71,7 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     year: 2020,
     eventName: 'Third Bitcoin Halving',
     message: 'Bitcoin experienced its third halving, reducing the block reward from 12.5 BTC to 6.25 BTC.',
-    link: '/docs/history/halvings',
+    link: '/philosophy/history/halvings',
   },
   {
     month: 4,
@@ -79,7 +79,7 @@ export const BITCOIN_HISTORY_EVENTS: BitcoinHistoryEvent[] = [
     year: 2024,
     eventName: 'Fourth Bitcoin Halving',
     message: 'Bitcoin experienced its fourth halving, reducing the block reward from 6.25 BTC to 3.125 BTC.',
-    link: '/docs/history/halvings',
+    link: '/philosophy/history/halvings',
   },
 ]
 

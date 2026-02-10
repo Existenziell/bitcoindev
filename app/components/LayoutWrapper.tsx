@@ -10,21 +10,21 @@ import PageNavigation from '@/app/components/PageNavigation'
 import Footer from '@/app/components/Footer'
 import FeedbackLink from '@/app/components/FeedbackLink'
 
-interface DocsLayoutWrapperProps {
+interface LayoutWrapperProps {
   children: ReactNode
   showPageNavigation?: boolean
   isNavCollapsed?: boolean
 }
 
 /**
- * Layout wrapper for /docs, /whitepaper, /interactive-tools/*, /about.
+ * Layout wrapper for /docs, /philosophy, /whitepaper, /interactive-tools/*, /about, etc.
  * Header is in the root layout so it stays mounted across navigations (no logo flicker).
  */
-export default function DocsLayoutWrapper({
+export default function LayoutWrapper({
   children,
   showPageNavigation = false,
   isNavCollapsed = false,
-}: DocsLayoutWrapperProps) {
+}: LayoutWrapperProps) {
   const [isNavCollapsedState, setIsNavCollapsedState] = useState(isNavCollapsed)
   const pathname = usePathname()
 
@@ -33,16 +33,18 @@ export default function DocsLayoutWrapper({
     setIsNavCollapsedState(isNavCollapsed)
   }, [isNavCollapsed])
 
-  // Show feedback link only on documentation pages, excluding glossary
-  const shouldShowFeedbackLink = 
-    pathname.startsWith('/docs') && pathname !== '/docs/glossary'
+  // Show feedback link on documentation and philosophy pages, excluding glossary and top-level index pages
+  const shouldShowFeedbackLink =
+    (pathname.startsWith('/docs') && pathname !== '/docs/glossary') ||
+    pathname.startsWith('/philosophy/')
 
   // Automatically collapse sidebar on screens smaller than lg (1024px) when resizing
-  // Only run this on /docs routes to avoid conflicting with isNavCollapsed on other pages
+  // Apply on /docs and /philosophy to avoid conflicting with isNavCollapsed on other pages
   // Never expands automatically, only collapses on resize
   useEffect(() => {
-    // Only apply auto-collapse behavior on /docs routes
-    if (!pathname.startsWith('/docs')) {
+    const isDocsOrPhilosophy =
+      pathname.startsWith('/docs') || pathname.startsWith('/philosophy')
+    if (!isDocsOrPhilosophy) {
       return
     }
 
@@ -53,10 +55,8 @@ export default function DocsLayoutWrapper({
       }
     }
 
-    // Listen for resize events only
     window.addEventListener('resize', handleResize)
 
-    // Cleanup
     return () => window.removeEventListener('resize', handleResize)
   }, [pathname])
 

@@ -2,7 +2,7 @@
 
 Ordinals and inscriptions are a method for attaching arbitrary data to individual satoshis on the Bitcoin blockchain. Introduced in early 2023 by Casey Rodarmor, the Ordinals protocol assigns unique identifiers to satoshis and allows "inscribing" content (images, text, JSON, or other files) into witness data that gets stored on-chain.
 
-The **Ordinals protocol** assigns a unique, sequential number to each satoshi based on the order it was mined. This creates a way to identify and track individual sats through transactions and UTXOs. Key concepts: **Ordinal number** (a satoshi's position in the total supply, 0 to 2.1 quadrillion minus 1), **Ordinal theory** (tracks which ordinal numbers are in which UTXOs when inputs are spent, first-in-first-out by default), **Rare sats** (certain ordinals considered "rare," e.g., first sat of a [halving](/docs/history/halvings) or block subsidy). When Bitcoin is spent, inputs are consumed in the order they appear and their ordinal numbers transfer to outputs in order (default: FIFO). Ordinals do not require a soft fork or consensus change; they are an agreed-upon numbering and tracking scheme that full nodes do not need to implement, only indexers and wallets that support Ordinals do.
+The **Ordinals protocol** assigns a unique, sequential number to each satoshi based on the order it was mined. This creates a way to identify and track individual sats through transactions and UTXOs. Key concepts: **Ordinal number** (a satoshi's position in the total supply, 0 to 2.1 quadrillion minus 1), **Ordinal theory** (tracks which ordinal numbers are in which UTXOs when inputs are spent, first-in-first-out by default), **Rare sats** (certain ordinals considered "rare," e.g., first sat of a [halving](/philosophy/history/halvings) or block subsidy). When Bitcoin is spent, inputs are consumed in the order they appear and their ordinal numbers transfer to outputs in order (default: FIFO). Ordinals do not require a soft fork or consensus change; they are an agreed-upon numbering and tracking scheme that full nodes do not need to implement, only indexers and wallets that support Ordinals do.
 
 ---
 
@@ -52,7 +52,7 @@ The **Ordinals protocol** assigns a unique, sequential number to each satoshi ba
 ### Consensus and Policy
 
 - Ordinals and inscriptions use existing SegWit and [Taproot](/docs/bitcoin/taproot) rules; they are **valid** under current consensus rules
-- Limits on data size (e.g., `-datacarriersize` for [OP_RETURN](/docs/controversies/op-return)) are **relay policy**, not consensus; witness-based inscriptions are subject to node policy (e.g., non-standard or size limits) in some configurations
+- Limits on data size (e.g., `-datacarriersize` for [OP_RETURN](/philosophy/controversies/op-return)) are **relay policy**, not consensus; witness-based inscriptions are subject to node policy (e.g., non-standard or size limits) in some configurations
 
 ### Debate
 
@@ -76,7 +76,7 @@ Views in the Bitcoin community vary:
 
 ## Related Topics
 
-- [OP_RETURN Debate](/docs/controversies/op-return) – Data on Bitcoin and blockspace use
+- [OP_RETURN Debate](/philosophy/controversies/op-return) – Data on Bitcoin and blockspace use
 - SegWit – Witness discount and structure
 - [Transaction Fees](/docs/bitcoin/transaction-fees) – Fee market and fee estimation
 - [Mempool](/docs/mining/mempool) – How transactions are queued

@@ -7,7 +7,7 @@ Bitcoin exhibits key monetary properties that make it suitable as both a medium 
 | Property | Definition | Bitcoin Implementation |
 |----------|------------|----------------------|
 | **Scarcity** | Limited supply that cannot be arbitrarily increased | Fixed 21 million cap, predictable issuance via halving schedule |
-| **Divisibility** | Ability to divide into smaller units | 8 decimal places (1 BTC = 100,000,000 satoshis). See [Denominations](/docs/fundamentals/denominations) |
+| **Divisibility** | Ability to divide into smaller units | 8 decimal places (1 BTC = 100,000,000 satoshis). See [Denominations](/philosophy/fundamentals/denominations) |
 | **Portability** | Easy to transport and transfer | Digital, transferable globally via internet, 24/7 |
 | **Durability** | Resistance to wear or destruction | Digital (no degradation), distributed across thousands of nodes |
 | **Fungibility** | All units interchangeable | Technically fungible, though blockchain analysis can trace history |

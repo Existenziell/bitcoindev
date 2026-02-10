@@ -216,8 +216,8 @@ As Bitcoin infrastructure improves and adoption grows, more communities will gai
 ## Related Topics
 
 - [Lightning Network](/docs/lightning) - Fast, cheap payments
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin has value
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin enables trustless transactions
+- [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin has value
+- [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin enables trustless transactions
 - [Wallets](/docs/wallets) - How to use Bitcoin wallets
 
 ---

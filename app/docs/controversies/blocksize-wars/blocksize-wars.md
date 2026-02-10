@@ -289,6 +289,6 @@ Segregated Witness (SegWit) was the compromise solution:
 
 ## Related Topics
 
-- [OP_RETURN Debate](/docs/controversies/op-return) - Another major Bitcoin controversy
-- [History: Forks](/docs/history/forks) - Complete fork history including Bitcoin Cash
+- [OP_RETURN Debate](/philosophy/controversies/op-return) - Another major Bitcoin controversy
+- [History: Forks](/philosophy/history/forks) - Complete fork history including Bitcoin Cash
 - [Lightning Network](/docs/lightning) - The scaling solution that emerged

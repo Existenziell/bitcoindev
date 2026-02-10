@@ -16,7 +16,7 @@ export default function DownloadMarkdownButton() {
     
     // If this is a top-level section overview page, prepend section name to filename
     if (isMainSectionPage) {
-      // Extract section name from pathname (e.g., "history" from "/docs/history")
+      // Extract section name from pathname (e.g. "history" from "/docs/history" or "/philosophy/history")
       const pathSegments = pathname.split('/').filter(Boolean)
       const sectionName = pathSegments[pathSegments.length - 1] // Get last segment after "docs"
       const filename = `${sectionName}-overview.md`

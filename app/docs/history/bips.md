@@ -277,5 +277,5 @@ These BIPs define Bitcoin address formats and encoding.
 
 ## Related Topics
 
-- [Forks](/docs/history/forks) - How BIPs become protocol changes
+- [Forks](/philosophy/history/forks) - How BIPs become protocol changes
 - [Script System](/docs/bitcoin/script) - Script-related BIPs in action

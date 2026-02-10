@@ -5,8 +5,8 @@ import glossaryData from '@/public/data/glossary.json'
  * 
  * Used by:
  * - Home page (ctaLinks)
- * - DocsNavigation (docsNavLinksTop, docsNavLinksBottom, navItems)
- * - HorizontalNav (horizontalNavLinksBottom, navItems)
+ * - DocsNavigation (philosophyNavItems, bitcoinDocsNavItems, topLevelNavGroups, docsNavLinksTop/Bottom, interactiveToolsNavItem)
+ * - HorizontalNav (topLevelNavGroups, navItems, horizontalNavLinksBottom)
  * - Footer (footerLinksExternal, footerLinksExplore)
  * - Breadcrumbs (routeLabels)
  * - DownloadMarkdownButton (via downloadablePaths in useDocNavigation)
@@ -31,28 +31,28 @@ export interface NavSection {
 }
 
 export const docPages: DocPage[] = [
-  { path: '/docs/fundamentals', mdFile: 'app/docs/fundamentals/overview.md', title: 'Bitcoin Fundamentals', section: 'fundamentals', description: 'What Bitcoin is, why it matters, and the problems it solves. Core concepts for Bitcoin developers.' },
-  { path: '/docs/fundamentals/problems', mdFile: 'app/docs/fundamentals/problems/problems.md', title: 'Problems Bitcoin Solved', section: 'fundamentals' },
-  { path: '/docs/fundamentals/cypherpunk-philosophy', mdFile: 'app/docs/fundamentals/cypherpunk-philosophy/cypherpunk-philosophy.md', title: 'Cypherpunk Philosophy', section: 'fundamentals' },
-  { path: '/docs/fundamentals/blockchain', mdFile: 'app/docs/fundamentals/blockchain/blockchain.md', title: 'The Blockchain', section: 'fundamentals' },
-  { path: '/docs/fundamentals/timechain', mdFile: 'app/docs/fundamentals/timechain/timechain.md', title: 'Bitcoin as Timechain', section: 'fundamentals' },
-  { path: '/docs/fundamentals/utxos', mdFile: 'app/docs/fundamentals/utxos/utxos.md', title: 'UTXO Model', section: 'fundamentals' },
-  { path: '/docs/fundamentals/decentralization', mdFile: 'app/docs/fundamentals/decentralization/decentralization.md', title: 'Decentralization', section: 'fundamentals' },
-  { path: '/docs/fundamentals/trust-model', mdFile: 'app/docs/fundamentals/trust-model/trust-model.md', title: 'Trust Model', section: 'fundamentals' },
-  { path: '/docs/fundamentals/monetary-properties', mdFile: 'app/docs/fundamentals/monetary-properties/monetary-properties.md', title: 'Monetary Properties', section: 'fundamentals' },
-  { path: '/docs/fundamentals/denominations', mdFile: 'app/docs/fundamentals/denominations/denominations.md', title: 'Denominations', section: 'fundamentals' },
-  { path: '/docs/fundamentals/incentives', mdFile: 'app/docs/fundamentals/incentives/incentives.md', title: 'Incentive Structure', section: 'fundamentals' },
-  { path: '/docs/fundamentals/game-theory', mdFile: 'app/docs/fundamentals/game-theory/game-theory.md', title: 'Game Theory', section: 'fundamentals' },
-  { path: '/docs/fundamentals/governance', mdFile: 'app/docs/fundamentals/governance/governance.md', title: 'Governance & Evolution', section: 'fundamentals' },
-  { path: '/docs/fundamentals/bitcoin-meme', mdFile: 'app/docs/fundamentals/bitcoin-meme/bitcoin-meme.md', title: 'Bitcoin, the Meme', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals', mdFile: 'app/docs/fundamentals/overview.md', title: 'Bitcoin Fundamentals', section: 'fundamentals', description: 'What Bitcoin is, why it matters, and the problems it solves. Core concepts for Bitcoin developers.' },
+  { path: '/philosophy/fundamentals/problems', mdFile: 'app/docs/fundamentals/problems/problems.md', title: 'Problems Bitcoin Solved', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/cypherpunk-philosophy', mdFile: 'app/docs/fundamentals/cypherpunk-philosophy/cypherpunk-philosophy.md', title: 'Cypherpunk Philosophy', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/blockchain', mdFile: 'app/docs/fundamentals/blockchain/blockchain.md', title: 'The Blockchain', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/timechain', mdFile: 'app/docs/fundamentals/timechain/timechain.md', title: 'Bitcoin as Timechain', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/utxos', mdFile: 'app/docs/fundamentals/utxos/utxos.md', title: 'UTXO Model', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/decentralization', mdFile: 'app/docs/fundamentals/decentralization/decentralization.md', title: 'Decentralization', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/trust-model', mdFile: 'app/docs/fundamentals/trust-model/trust-model.md', title: 'Trust Model', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/monetary-properties', mdFile: 'app/docs/fundamentals/monetary-properties/monetary-properties.md', title: 'Monetary Properties', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/denominations', mdFile: 'app/docs/fundamentals/denominations/denominations.md', title: 'Denominations', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/incentives', mdFile: 'app/docs/fundamentals/incentives/incentives.md', title: 'Incentive Structure', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/game-theory', mdFile: 'app/docs/fundamentals/game-theory/game-theory.md', title: 'Game Theory', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/governance', mdFile: 'app/docs/fundamentals/governance/governance.md', title: 'Governance & Evolution', section: 'fundamentals' },
+  { path: '/philosophy/fundamentals/bitcoin-meme', mdFile: 'app/docs/fundamentals/bitcoin-meme/bitcoin-meme.md', title: 'Bitcoin, the Meme', section: 'fundamentals' },
 
-  { path: '/docs/history', mdFile: 'app/docs/history/overview.md', title: 'Bitcoin History', section: 'history', description: "Bitcoin's history from the Genesis Block to halvings, forks, BIPs, and key people." },
-  { path: '/docs/history/genesis-block', mdFile: 'app/docs/history/genesis-block/genesis-block.md', title: 'Genesis Block', section: 'history' },
-  { path: '/docs/history/people', mdFile: 'app/docs/history/people/people.md', title: 'People', section: 'history' },
-  { path: '/docs/history/halvings', mdFile: 'app/docs/history/halvings.md', title: 'Halvings', section: 'history' },
-  { path: '/docs/history/forks', mdFile: 'app/docs/history/forks.md', title: 'Forks', section: 'history' },
-  { path: '/docs/history/bips', mdFile: 'app/docs/history/bips.md', title: 'BIPs', section: 'history' },
-  { path: '/docs/history/attacks-on-bitcoin', mdFile: 'app/docs/history/attacks-on-bitcoin/attacks-on-bitcoin.md', title: 'Attacks on Bitcoin', section: 'history' },
+  { path: '/philosophy/history', mdFile: 'app/docs/history/overview.md', title: 'Bitcoin History', section: 'history', description: "Bitcoin's history from the Genesis Block to halvings, forks, BIPs, and key people." },
+  { path: '/philosophy/history/genesis-block', mdFile: 'app/docs/history/genesis-block/genesis-block.md', title: 'Genesis Block', section: 'history' },
+  { path: '/philosophy/history/people', mdFile: 'app/docs/history/people/people.md', title: 'People', section: 'history' },
+  { path: '/philosophy/history/halvings', mdFile: 'app/docs/history/halvings.md', title: 'Halvings', section: 'history' },
+  { path: '/philosophy/history/forks', mdFile: 'app/docs/history/forks.md', title: 'Forks', section: 'history' },
+  { path: '/philosophy/history/bips', mdFile: 'app/docs/history/bips.md', title: 'BIPs', section: 'history' },
+  { path: '/philosophy/history/attacks-on-bitcoin', mdFile: 'app/docs/history/attacks-on-bitcoin/attacks-on-bitcoin.md', title: 'Attacks on Bitcoin', section: 'history' },
 
   { path: '/docs/bitcoin', mdFile: 'app/docs/bitcoin/overview.md', title: 'The Bitcoin Protocol', section: 'bitcoin', description: 'Technical documentation of the Bitcoin protocol: cryptography, consensus, script, SegWit, Taproot, RPC.' },
   { path: '/docs/bitcoin/cryptography', mdFile: 'app/docs/bitcoin/cryptography/cryptography.md', title: 'Cryptography', section: 'bitcoin' },
@@ -132,15 +132,15 @@ export const docPages: DocPage[] = [
   { path: '/docs/bitcoin-development/miniscript', mdFile: 'app/docs/bitcoin-development/miniscript/miniscript.md', title: 'Miniscript', section: 'bitcoin-development' },
   { path: '/docs/bitcoin-development/descriptors', mdFile: 'app/docs/bitcoin-development/descriptors/descriptors.md', title: 'Output Descriptors', section: 'bitcoin-development' },
 
-  { path: '/docs/controversies', mdFile: 'app/docs/controversies/overview.md', title: 'Controversies', section: 'controversies', description: "Major debates that shaped Bitcoin: blocksize wars, ordinals, energy, regulation, and key events." },
-  { path: '/docs/controversies/blocksize-wars', mdFile: 'app/docs/controversies/blocksize-wars/blocksize-wars.md', title: 'Blocksize Wars', section: 'controversies' },
-  { path: '/docs/controversies/op-return', mdFile: 'app/docs/controversies/op-return/debate.md', title: 'OP_RETURN Debate', section: 'controversies' },
-  { path: '/docs/controversies/ordinals', mdFile: 'app/docs/controversies/ordinals/ordinals.md', title: 'Ordinals and Inscriptions', section: 'controversies' },
-  { path: '/docs/controversies/energy-consumption', mdFile: 'app/docs/controversies/energy-consumption/energy-consumption.md', title: 'Energy Consumption', section: 'controversies' },
-  { path: '/docs/controversies/criminal-use', mdFile: 'app/docs/controversies/criminal-use/criminal-use.md', title: 'Bitcoin and Criminal Use', section: 'controversies' },
-  { path: '/docs/controversies/etf-rejections', mdFile: 'app/docs/controversies/etf-rejections/etf-rejections.md', title: 'ETF Rejections', section: 'controversies' },
-  { path: '/docs/controversies/mt-gox', mdFile: 'app/docs/controversies/mt-gox/mt-gox.md', title: 'Mt. Gox Collapse', section: 'controversies' },
-  { path: '/docs/controversies/craig-wright', mdFile: 'app/docs/controversies/craig-wright/craig-wright.md', title: 'Craig Wright', section: 'controversies' },
+  { path: '/philosophy/controversies', mdFile: 'app/docs/controversies/overview.md', title: 'Controversies', section: 'controversies', description: "Major debates that shaped Bitcoin: blocksize wars, ordinals, energy, regulation, and key events." },
+  { path: '/philosophy/controversies/blocksize-wars', mdFile: 'app/docs/controversies/blocksize-wars/blocksize-wars.md', title: 'Blocksize Wars', section: 'controversies' },
+  { path: '/philosophy/controversies/op-return', mdFile: 'app/docs/controversies/op-return/debate.md', title: 'OP_RETURN Debate', section: 'controversies' },
+  { path: '/philosophy/controversies/ordinals', mdFile: 'app/docs/controversies/ordinals/ordinals.md', title: 'Ordinals and Inscriptions', section: 'controversies' },
+  { path: '/philosophy/controversies/energy-consumption', mdFile: 'app/docs/controversies/energy-consumption/energy-consumption.md', title: 'Energy Consumption', section: 'controversies' },
+  { path: '/philosophy/controversies/criminal-use', mdFile: 'app/docs/controversies/criminal-use/criminal-use.md', title: 'Bitcoin and Criminal Use', section: 'controversies' },
+  { path: '/philosophy/controversies/etf-rejections', mdFile: 'app/docs/controversies/etf-rejections/etf-rejections.md', title: 'ETF Rejections', section: 'controversies' },
+  { path: '/philosophy/controversies/mt-gox', mdFile: 'app/docs/controversies/mt-gox/mt-gox.md', title: 'Mt. Gox Collapse', section: 'controversies' },
+  { path: '/philosophy/controversies/craig-wright', mdFile: 'app/docs/controversies/craig-wright/craig-wright.md', title: 'Craig Wright', section: 'controversies' },
 
   { path: '/docs/advanced', mdFile: 'app/docs/advanced/overview.md', title: 'Advanced Topics', section: 'advanced', description: 'Advanced Bitcoin: atomic swaps, DLCs, sidechains, statechains, covenants, trampoline routing.' },
   { path: '/docs/advanced/sidechains', mdFile: 'app/docs/advanced/sidechains/sidechains.md', title: 'Sidechains & Layer 2', section: 'advanced' },
@@ -153,18 +153,18 @@ export const docPages: DocPage[] = [
   { path: '/docs/advanced/trampoline-routing', mdFile: 'app/docs/advanced/trampoline-routing/trampoline-routing.md', title: 'Trampoline Routing', section: 'advanced' },
   { path: '/docs/advanced/covenants', mdFile: 'app/docs/advanced/covenants/covenants.md', title: 'Covenants', section: 'advanced' },
 
-  { path: '/docs/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment', description: 'Investment strategies, risk management, wallet security, self-custody, and market cycles.' },
-  { path: '/docs/investment/risk-management', mdFile: 'app/docs/investment/risk-management/risk-management.md', title: 'Risk Management', section: 'investment' },
-  { path: '/docs/investment/investment-strategy', mdFile: 'app/docs/investment/investment-strategy/overview.md', title: 'Investment Strategy', section: 'investment' },
-  { path: '/docs/investment/tools', mdFile: 'app/docs/investment/tools/tools.md', title: 'Interactive Tools', section: 'investment' },
-  { path: '/docs/investment/wallet-security', mdFile: 'app/docs/investment/wallet-security/wallet-security.md', title: 'Wallet Security & Self-Custody', section: 'investment' },
-  { path: '/docs/investment/privacy', mdFile: 'app/docs/investment/privacy/privacy.md', title: 'Privacy', section: 'investment' },
-  { path: '/docs/investment/market-cycles', mdFile: 'app/docs/investment/market-cycles/market-cycles.md', title: 'Understanding Market Cycles', section: 'investment' },
+  { path: '/philosophy/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption', description: 'Real-world Bitcoin adoption: stranded energy, financial inclusion, use cases, and outlook.' },
+  { path: '/philosophy/adoption/stranded-energy', mdFile: 'app/docs/adoption/stranded-energy/stranded-energy.md', title: 'Stranded Energy and Flared Gas', section: 'adoption' },
+  { path: '/philosophy/adoption/rural-communities', mdFile: 'app/docs/adoption/rural-communities/rural-communities.md', title: 'Rural Communities and Financial Inclusion', section: 'adoption' },
+  { path: '/philosophy/adoption/use-cases', mdFile: 'app/docs/adoption/use-cases/use-cases.md', title: 'Bitcoin Use Cases', section: 'adoption' },
 
-  { path: '/docs/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption', description: 'Real-world Bitcoin adoption: stranded energy, financial inclusion, use cases, and outlook.' },
-  { path: '/docs/adoption/stranded-energy', mdFile: 'app/docs/adoption/stranded-energy/stranded-energy.md', title: 'Stranded Energy and Flared Gas', section: 'adoption' },
-  { path: '/docs/adoption/rural-communities', mdFile: 'app/docs/adoption/rural-communities/rural-communities.md', title: 'Rural Communities and Financial Inclusion', section: 'adoption' },
-  { path: '/docs/adoption/use-cases', mdFile: 'app/docs/adoption/use-cases/use-cases.md', title: 'Bitcoin Use Cases', section: 'adoption' },
+  { path: '/philosophy/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment', description: 'Investment strategies, risk management, wallet security, self-custody, and market cycles.' },
+  { path: '/philosophy/investment/risk-management', mdFile: 'app/docs/investment/risk-management/risk-management.md', title: 'Risk Management', section: 'investment' },
+  { path: '/philosophy/investment/investment-strategy', mdFile: 'app/docs/investment/investment-strategy/overview.md', title: 'Investment Strategy', section: 'investment' },
+  { path: '/philosophy/investment/tools', mdFile: 'app/docs/investment/tools/tools.md', title: 'Interactive Tools', section: 'investment' },
+  { path: '/philosophy/investment/wallet-security', mdFile: 'app/docs/investment/wallet-security/wallet-security.md', title: 'Wallet Security & Self-Custody', section: 'investment' },
+  { path: '/philosophy/investment/privacy', mdFile: 'app/docs/investment/privacy/privacy.md', title: 'Privacy', section: 'investment' },
+  { path: '/philosophy/investment/market-cycles', mdFile: 'app/docs/investment/market-cycles/market-cycles.md', title: 'Understanding Market Cycles', section: 'investment' },
 
   { path: '/docs/glossary', mdFile: 'app/docs/glossary/terms.md', title: 'Glossary', section: 'glossary' },
 ]
@@ -247,7 +247,7 @@ export const sections: Record<string, { title: string; description: string }> = 
 
 // Home page CTA links
 export const ctaLinks: { href: string; title: string }[] = [
-  { href: '/docs/fundamentals', title: 'Start Learning' },
+  { href: '/philosophy/fundamentals', title: 'Start Learning' },
   { href: '/interactive-tools', title: 'Bitcoin Dev Tools' },
 ]
 
@@ -281,49 +281,43 @@ export const docsNavLinksBottom: { href: string; title: string }[] = [
 
 // Horizontal nav - quick links at bottom
 export const horizontalNavLinksBottom: { href: string; title: string }[] = [
-  { href: '/interactive-tools/terminal', title: 'CLI Terminal' },
-  { href: '/interactive-tools/stack-lab', title: 'Stack Lab' },
-  { href: '/interactive-tools/block-visualizer', title: 'Block Visualizer' },
   { href: '/whitepaper', title: 'Whitepaper' },
-   { href: '/news', title: 'News' },
+  { href: '/news', title: 'News' },
   { href: '/about', title: 'About' },
+  { href: '/feedback', title: 'Feedback' },
 ]
 
-// Footer - External resources (left side)
-export const footerLinksExternal: { name: string; url: string }[] = [
-  { name: 'Bitcoin Devs', url: 'https://bitcoindevs.xyz' },
-  { name: 'Bitcoin.org', url: 'https://bitcoin.org' },
-  { name: 'Learn Me A Bitcoin', url: 'https://learnmeabitcoin.com' },
-  { name: 'ClarkMoody', url: 'https://bitcoin.clarkmoody.com/dashboard/' },
-  { name: 'Mempool.space', url: 'https://mempool.space' },
-  { name: 'Blockstream', url: 'https://blockstream.info' },
-  { name: 'Bitcoin Optech', url: 'https://bitcoinops.org' },
-  { name: 'Bitcoin Visuals', url: 'https://bitcoinvisuals.com' },
-]
-
-// Footer - Explore BitcoinDev section (right side)
-export const footerLinksExplore: { href: string; title: string }[] = [
-  { href: '/docs', title: 'Search Docs' },
-  { href: '/docs/history', title: 'Bitcoin History' },
-  { href: '/docs/bitcoin', title: 'Bitcoin Protocol' },
-  { href: '/docs/bitcoin-development', title: 'Bitcoin Development' },
-  { href: '/docs/mining', title: 'Bitcoin Mining' },
-  { href: '/docs/adoption', title: 'Bitcoin Adoption' },
-  { href: '/docs/controversies', title: 'Controversies' },
-  { href: '/docs/glossary', title: 'Glossary' },
-]
-
-export const navItems: NavSection[] = [
+// Philosophy: narrative and conceptual material (Fundamentals, History, Controversies, Investment, Adoption)
+export const philosophyNavItems: NavSection[] = [
   {
     title: 'Fundamentals',
-    href: '/docs/fundamentals',
-    children: docPages.filter(p => p.section === 'fundamentals' && p.path !== '/docs/fundamentals').map(p => ({ title: p.title, href: p.path })),
+    href: '/philosophy/fundamentals',
+    children: docPages.filter(p => p.section === 'fundamentals' && p.path !== '/philosophy/fundamentals').map(p => ({ title: p.title, href: p.path })),
   },
   {
     title: 'History',
-    href: '/docs/history',
-    children: docPages.filter(p => p.section === 'history' && p.path !== '/docs/history').map(p => ({ title: p.title, href: p.path })),
+    href: '/philosophy/history',
+    children: docPages.filter(p => p.section === 'history' && p.path !== '/philosophy/history').map(p => ({ title: p.title, href: p.path })),
   },
+  {
+    title: 'Controversies',
+    href: '/philosophy/controversies',
+    children: docPages.filter(p => p.section === 'controversies' && p.path !== '/philosophy/controversies').map(p => ({ title: p.title, href: p.path })),
+  },
+  {
+    title: 'Adoption',
+    href: '/philosophy/adoption',
+    children: docPages.filter(p => p.section === 'adoption' && p.path !== '/philosophy/adoption').map(p => ({ title: p.title, href: p.path })),
+  },
+  {
+    title: 'Investment',
+    href: '/philosophy/investment',
+    children: docPages.filter(p => p.section === 'investment' && p.path !== '/philosophy/investment').map(p => ({ title: p.title, href: p.path })),
+  },
+]
+
+// Bitcoin Docs: developer learning path (Setup & Infrastructure through Glossary)
+export const bitcoinDocsNavItems: NavSection[] = [
   {
     title: 'Setup & Infrastructure',
     href: '/docs/development',
@@ -360,21 +354,6 @@ export const navItems: NavSection[] = [
     children: docPages.filter(p => p.section === 'advanced' && p.path !== '/docs/advanced').map(p => ({ title: p.title, href: p.path })),
   },
   {
-    title: 'Controversies',
-    href: '/docs/controversies',
-    children: docPages.filter(p => p.section === 'controversies' && p.path !== '/docs/controversies').map(p => ({ title: p.title, href: p.path })),
-  },
-  {
-    title: 'Investment',
-    href: '/docs/investment',
-    children: docPages.filter(p => p.section === 'investment' && p.path !== '/docs/investment').map(p => ({ title: p.title, href: p.path })),
-  },
-  {
-    title: 'Adoption',
-    href: '/docs/adoption',
-    children: docPages.filter(p => p.section === 'adoption' && p.path !== '/docs/adoption').map(p => ({ title: p.title, href: p.path })),
-  },
-  {
     title: 'Glossary',
     href: '/docs/glossary',
     children: glossaryData.map((section) => ({
@@ -383,6 +362,46 @@ export const navItems: NavSection[] = [
     })),
   },
 ]
+
+/** Top-level nav groups for sidebar and horizontal nav: Context, Bitcoin Docs, Interactive Tools */
+export interface TopLevelNavGroup {
+  title: string
+  href: string
+  items: NavSection[]
+}
+
+export const topLevelNavGroups: TopLevelNavGroup[] = [
+  { title: 'Philosophy', href: '/philosophy', items: philosophyNavItems },
+  { title: 'Bitcoin Docs', href: '/docs', items: bitcoinDocsNavItems },
+  { title: 'Interactive Tools', href: '/interactive-tools', items: [interactiveToolsNavItem] },
+]
+
+// Footer - External resources (left side)
+export const footerLinksExternal: { name: string; url: string }[] = [
+  { name: 'Bitcoin Devs', url: 'https://bitcoindevs.xyz' },
+  { name: 'Bitcoin.org', url: 'https://bitcoin.org' },
+  { name: 'Learn Me A Bitcoin', url: 'https://learnmeabitcoin.com' },
+  { name: 'ClarkMoody', url: 'https://bitcoin.clarkmoody.com/dashboard/' },
+  { name: 'Mempool.space', url: 'https://mempool.space' },
+  { name: 'Blockstream', url: 'https://blockstream.info' },
+  { name: 'Bitcoin Optech', url: 'https://bitcoinops.org' },
+  { name: 'Bitcoin Visuals', url: 'https://bitcoinvisuals.com' },
+]
+
+// Footer - Explore BitcoinDev section (right side)
+export const footerLinksExplore: { href: string; title: string }[] = [
+  { href: '/docs', title: 'Search Docs' },
+  { href: '/philosophy/history', title: 'Bitcoin History' },
+  { href: '/docs/bitcoin', title: 'Bitcoin Protocol' },
+  { href: '/docs/bitcoin-development', title: 'Bitcoin Development' },
+  { href: '/docs/mining', title: 'Bitcoin Mining' },
+  { href: '/philosophy/adoption', title: 'Bitcoin Adoption' },
+  { href: '/philosophy/controversies', title: 'Controversies' },
+  { href: '/docs/glossary', title: 'Glossary' },
+]
+
+/** All doc sections in order: Philosophy first, then Bitcoin Docs (for flat iteration, e.g. useDocNavigation, footer). */
+export const navItems: NavSection[] = [...philosophyNavItems, ...bitcoinDocsNavItems]
 
 export const downloadablePaths: Set<string> = new Set(docPages.map(p => p.path))
 
@@ -409,6 +428,7 @@ export const routeLabels: Record<string, string> = {
   news: 'News',
   feedback: 'Feedback',
   docs: 'Documentation',
+  philosophy: 'Philosophy',
   ...docRouteLabels,
 }
 

@@ -15,7 +15,7 @@ Investing in Bitcoin carries significant risks that every investor should unders
 **How to manage:**
 - Only invest what you can afford to lose
 - Take a long-term perspective (volatility decreases over longer time horizons)
-- Use [Dollar Cost Averaging](/docs/investment/investment-strategy) to smooth out volatility
+- Use [Dollar Cost Averaging](/philosophy/investment/investment-strategy) to smooth out volatility
 - Avoid checking prices constantly (reduces emotional stress)
 - Understand that volatility is part of Bitcoin's nature
 
@@ -64,7 +64,7 @@ Investing in Bitcoin carries significant risks that every investor should unders
 **Why it matters:** Unlike traditional banking, there's no password recovery for Bitcoin. If you lose your private keys or seed phrase, your Bitcoin is gone forever.
 
 **How to manage:**
-- Learn about [wallet security](/docs/investment/wallet-security) and self-custody
+- Learn about [wallet security](/philosophy/investment/wallet-security) and self-custody
 - Use hardware wallets for significant amounts
 - Create secure backups of your seed phrase
 - Never store seed phrases digitally (photos, cloud, email)
@@ -171,10 +171,10 @@ Proper wallet security and self-custody practices are essential. Learn about wal
 
 ## Related Topics
 
-- [Wallet Security & Self-Custody](/docs/investment/wallet-security) - Securing your Bitcoin holdings
-- [Investment Strategy](/docs/investment/investment-strategy) - DCA and long-term holding strategies
-- [Understanding Market Cycles](/docs/investment/market-cycles) - Navigating volatility and market psychology
-- [Privacy](/docs/investment/privacy) - Privacy considerations and regulatory implications
-- [Interactive Tools](/docs/investment/tools) - Exchange selection and security considerations
+- [Wallet Security & Self-Custody](/philosophy/investment/wallet-security) - Securing your Bitcoin holdings
+- [Investment Strategy](/philosophy/investment/investment-strategy) - DCA and long-term holding strategies
+- [Understanding Market Cycles](/philosophy/investment/market-cycles) - Navigating volatility and market psychology
+- [Privacy](/philosophy/investment/privacy) - Privacy considerations and regulatory implications
+- [Interactive Tools](/philosophy/investment/tools) - Exchange selection and security considerations
 
 ---

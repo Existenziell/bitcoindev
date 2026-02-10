@@ -7,7 +7,7 @@ Bitcoin's history spans from its creation in 2009 to its future supply schedule 
 ### Bitcoin Whitepaper Published
 
 - **Date**: October 31, 2008
-- **Author**: [Satoshi Nakamoto](/docs/history/people#satoshi-nakamoto)
+- **Author**: [Satoshi Nakamoto](/philosophy/history/people#satoshi-nakamoto)
 - **Title**: "Bitcoin: A Peer-to-Peer Electronic Cash System"
 
 Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing the concept of a decentralized digital currency system. The whitepaper outlined the technical foundation for Bitcoin, including proof-of-work, the blockchain, and the peer-to-peer network architecture. Its release coincided with the 2008 financial crisis (bank bailouts, failed institutions, and loss of trust in central banks) which gave the idea of peer-to-peer electronic cash without intermediaries immediate relevance.
@@ -23,12 +23,12 @@ Satoshi Nakamoto published the [Bitcoin whitepaper](/whitepaper), introducing th
 - **Block Reward**: 50 BTC
 - **Creator**: Satoshi Nakamoto
 
-Satoshi Nakamoto mined the [Genesis Block](/docs/history/genesis-block), marking the birth of the Bitcoin network. The block’s coinbase transaction embeds the headline "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks," linking Bitcoin’s launch to the financial crisis and its purpose as an alternative to the traditional system.
+Satoshi Nakamoto mined the [Genesis Block](/philosophy/history/genesis-block), marking the birth of the Bitcoin network. The block’s coinbase transaction embeds the headline "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks," linking Bitcoin’s launch to the financial crisis and its purpose as an alternative to the traditional system.
 
 ### First Transaction
 
 - **Date**: January 12, 2009
-- **Details**: Satoshi Nakamoto sent 10 BTC to [Hal Finney](/docs/history/people#hal-finney)
+- **Details**: Satoshi Nakamoto sent 10 BTC to [Hal Finney](/philosophy/history/people#hal-finney)
 - **Block**: 170
 
 This transaction marked the first time Bitcoin was sent from one person to another, demonstrating the peer-to-peer nature of the network.
@@ -48,7 +48,7 @@ The first published exchange rate valued Bitcoin at less than $0.001 per coin.
 
 - **Date**: Mid–late 2010
 
-Satoshi Nakamoto gradually handed over Bitcoin development and [repository](https://github.com/bitcoin/bitcoin) access to [Gavin Andresen](/docs/history/people) and others, then stopped appearing in forums and email. The last known public communications are from early 2011. Satoshi’s identity remains unknown, and the [protocol](/docs/bitcoin) has since been maintained by the open-source community.
+Satoshi Nakamoto gradually handed over Bitcoin development and [repository](https://github.com/bitcoin/bitcoin) access to [Gavin Andresen](/philosophy/history/people) and others, then stopped appearing in forums and email. The last known public communications are from early 2011. Satoshi’s identity remains unknown, and the [protocol](/docs/bitcoin) has since been maintained by the open-source community.
 
 ### Pizza Day
 
@@ -142,7 +142,7 @@ U.S. law enforcement shut down Silk Road and arrested its operator. The event fu
 
 - **Date**: February 2014
 
-[Mt. Gox](/docs/controversies/mt-gox), then the world's largest Bitcoin exchange, suspended trading and declared bankruptcy after losing approximately 850,000 BTC to theft and operational failures. The collapse entrenched "not your keys, not your coins" as a core lesson: custody matters, and trusting third parties with bitcoin carries serious risk.
+[Mt. Gox](/philosophy/controversies/mt-gox), then the world's largest Bitcoin exchange, suspended trading and declared bankruptcy after losing approximately 850,000 BTC to theft and operational failures. The collapse entrenched "not your keys, not your coins" as a core lesson: custody matters, and trusting third parties with bitcoin carries serious risk.
 
 ---
 
@@ -152,7 +152,7 @@ U.S. law enforcement shut down Silk Road and arrested its operator. The event fu
 
 - **Date**: 2015
 
-The [blocksize wars](/docs/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via Layer 2 and SegWit. In the same year, Joseph Poon and Thaddeus Dryja published the Lightning Network whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
+The [blocksize wars](/philosophy/controversies/blocksize-wars) intensified as Bitcoin’s 1 MB block limit began to bite. Proposals to raise the limit (e.g. Bitcoin XT, larger blocks) clashed with efforts to scale via Layer 2 and SegWit. In the same year, Joseph Poon and Thaddeus Dryja published the Lightning Network whitepaper, outlining an off-chain payment-channel network that would later become Bitcoin’s main scaling solution.
 
 ---
 
@@ -233,4 +233,4 @@ After this date, no new Bitcoin will be created through block rewards. Miners wi
 
 ## See Also
 
-- [Attacks on Bitcoin](/docs/history/attacks-on-bitcoin) – Protocol bugs, exchange hacks, and how the network has resisted attacks.
+- [Attacks on Bitcoin](/philosophy/history/attacks-on-bitcoin) – Protocol bugs, exchange hacks, and how the network has resisted attacks.

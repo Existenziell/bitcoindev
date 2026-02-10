@@ -60,7 +60,7 @@ Bitcoin's fixed supply and predictable issuance make it attractive as a store of
 
 ### Long-Term Holding
 
-Many investors hold Bitcoin as a long-term store of value, similar to gold but with digital advantages. See [Long-Term Holding](/docs/investment/investment-strategy#hodling) for strategies.
+Many investors hold Bitcoin as a long-term store of value, similar to gold but with digital advantages. See [Long-Term Holding](/philosophy/investment/investment-strategy#hodling) for strategies.
 
 ---
 
@@ -205,7 +205,7 @@ Many people hold Bitcoin as an investment:
 - **Growth potential**: Potential for price appreciation
 - **Store of value**: Long-term value preservation
 
-See [Bitcoin as Investment](/docs/investment) for detailed investment strategies and considerations.
+See [Bitcoin as Investment](/philosophy/investment) for detailed investment strategies and considerations.
 
 ### Speculation
 
@@ -280,11 +280,11 @@ As Bitcoin infrastructure improves and adoption grows, these use cases will expa
 
 ## Related Topics
 
-- [Monetary Properties](/docs/fundamentals/monetary-properties) - Why Bitcoin has value
+- [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin has value
 - [Lightning Network](/docs/lightning) - Fast, cheap payments
 - Bitcoin as Investment - Investment strategies
-- [Trust Model](/docs/fundamentals/trust-model) - How Bitcoin enables trustless transactions
-- [Decentralization](/docs/fundamentals/decentralization) - Why Bitcoin can't be stopped
+- [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin enables trustless transactions
+- [Decentralization](/philosophy/fundamentals/decentralization) - Why Bitcoin can't be stopped
 
 ---
 

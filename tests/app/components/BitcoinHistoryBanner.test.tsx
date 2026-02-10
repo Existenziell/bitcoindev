@@ -47,7 +47,7 @@ describe('BitcoinHistoryBanner', () => {
       eventName: 'Pizza Day',
       message:
         'Laszlo Hanyecz paid 10,000 BTC for two pizzas, marking the first real-world Bitcoin transaction.',
-      link: '/docs/fundamentals/monetary-properties',
+      link: '/philosophy/fundamentals/monetary-properties',
     }
     mockGetTodayBitcoinEvent.mockReturnValue(event)
     vi.useFakeTimers()
@@ -65,7 +65,7 @@ describe('BitcoinHistoryBanner', () => {
     const learnMore = screen.getByRole('link', { name: /Learn more/i })
     expect(learnMore).toHaveAttribute(
       'href',
-      '/docs/fundamentals/monetary-properties'
+      '/philosophy/fundamentals/monetary-properties'
     )
 
     vi.useRealTimers()
@@ -78,7 +78,7 @@ describe('BitcoinHistoryBanner', () => {
       eventName: 'Birthday Bitcoin',
       time: '18:15 UTC',
       message: 'the Bitcoin genesis block was mined.',
-      link: '/docs/history',
+      link: '/philosophy/history',
     }
     mockGetTodayBitcoinEvent.mockReturnValue(event)
 

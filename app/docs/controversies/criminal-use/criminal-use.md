@@ -74,7 +74,7 @@ Those who condemn Bitcoin for criminal use while ignoring the role of the US dol
 
 - [Blockchain Monitoring](/docs/bitcoin-development/blockchain-monitoring) - How on-chain activity can be traced and analyzed
 - [Wallet Privacy](/docs/wallets/privacy) - Privacy considerations when using Bitcoin
-- [Energy Consumption](/docs/controversies/energy-consumption) - Another external criticism of Bitcoin
+- [Energy Consumption](/philosophy/controversies/energy-consumption) - Another external criticism of Bitcoin
 
 ---
 

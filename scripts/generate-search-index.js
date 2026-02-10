@@ -114,7 +114,7 @@ const pathKeywords = {
   '/docs/wallets/multisig': ['multisig', 'multisignature', '2-of-2', '2-of-3', 'm-of-n'],
   '/docs/wallets/smart-contracts': ['smart contract', 'smart contracts', 'miniscript', 'covenant', 'vault'],
   '/docs/wallets/transactions': ['transaction creation', 'rbf', 'coin selection', 'build transaction'],
-  '/docs/fundamentals/utxos': ['utxo', 'utxos', 'unspent transaction output', 'unspent transaction outputs'],
+  '/philosophy/fundamentals/utxos': ['utxo', 'utxos', 'unspent transaction output', 'unspent transaction outputs'],
   '/docs/mining/mempool': ['mempool', 'memory pool', 'transaction pool'],
   '/docs/mining/proof-of-work': ['proof of work', 'pow', 'hashing', 'difficulty'],
   '/docs/mining/hardware': ['asic', 'asics', 'mining hardware', 'gpu mining'],
@@ -125,11 +125,11 @@ const pathKeywords = {
   '/docs/bitcoin-development/coin-selection': ['coin selection', 'utxo selection', 'coin selection algorithm'],
   '/docs/bitcoin-development/signing': ['signing', 'sighash', 'sign transaction'],
   '/docs/bitcoin-development/miniscript': ['miniscript', 'policy', 'script policy', 'miniscript policy'],
-  '/docs/history/genesis-block': ['genesis block', 'block 0', 'launch', '2009', 'january 3', 'coinbase', 'times headline', 'satoshi', 'unspendable'],
-  '/docs/history/bips': ['bip', 'bips', 'bitcoin improvement proposal', 'bitcoin improvement proposals'],
+  '/philosophy/history/genesis-block': ['genesis block', 'block 0', 'launch', '2009', 'january 3', 'coinbase', 'times headline', 'satoshi', 'unspendable'],
+  '/philosophy/history/bips': ['bip', 'bips', 'bitcoin improvement proposal', 'bitcoin improvement proposals'],
   '/docs/development/testnets': ['testnet', 'test net', 'testnet3', 'regtest', 'signet'],
   '/docs/development/node-types': ['full node', 'pruned', 'archival', 'spv', 'node type'],
-  '/docs/fundamentals/denominations': ['calculator', 'denominations calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations'],
+  '/philosophy/fundamentals/denominations': ['calculator', 'denominations calculator', 'convert', 'sats', 'satoshis', 'btc', 'units', 'satoshi', 'denominations'],
   '/docs/bitcoin/sighash-types': ['sighash', 'sighash type', 'SIGHASH_ALL', 'SIGHASH_NONE', 'SIGHASH_SINGLE', 'SIGHASH_ANYONECANPAY'],
   '/docs/bitcoin/timelocks': ['timelock', 'nlocktime', 'nsequence', 'locktime', 'sequence', 'cltv', 'csv'],
   '/docs/bitcoin/merkle-trees': ['merkle root', 'merkle tree'],
@@ -144,8 +144,8 @@ const pathKeywords = {
   '/docs/advanced/bloom-filters': ['bloom filter', 'bloom filters', 'spv', 'compact block filter'],
   '/docs/advanced/covenants': ['covenant', 'covenants', 'OP_CTV', 'OP_CAT', 'SIGHASH_ANYPREVOUT', 'APO', 'checktemplateverify'],
   '/docs/advanced/ordinals-inscriptions': ['ordinals', 'inscriptions', 'inscription'],
-  '/docs/controversies/ordinals': ['ordinals', 'inscriptions', 'inscription'],
-  '/docs/controversies/op-return': ['OP_RETURN', 'op return', 'data embedding'],
+  '/philosophy/controversies/ordinals': ['ordinals', 'inscriptions', 'inscription'],
+  '/philosophy/controversies/op-return': ['OP_RETURN', 'op return', 'data embedding'],
   '/docs/development/bitcoin-core-internals': ['bitcoin core', 'core internals'],
 }
 
@@ -252,29 +252,29 @@ for (const p of staticPages) {
   index.push(addEntry(p))
 }
 
-// People: one entry per person (path = /docs/history/people#slug). Body = title + keywords.
+// People: one entry per person (path = /philosophy/history/people#slug). Body = title + keywords.
 const searchPeople = [
-  { path: '/docs/history/people#david-chaum', title: 'David Chaum', section: 'history', keywords: ['ecash', 'digicash', 'blind signatures', 'digital cash'] },
-  { path: '/docs/history/people#eric-hughes', title: 'Eric Hughes', section: 'history', keywords: ['cypherpunk manifesto', 'cypherpunk mailing list'] },
-  { path: '/docs/history/people#timothy-c-may', title: 'Timothy C. May', section: 'history', keywords: ['crypto anarchist manifesto', 'cypherpunk'] },
-  { path: '/docs/history/people#john-gilmore', title: 'John Gilmore', section: 'history', keywords: ['cypherpunk', 'eff', 'mailing list'] },
-  { path: '/docs/history/people#adam-back', title: 'Adam Back', section: 'history', keywords: ['hashcash', 'proof of work', 'blockstream'] },
-  { path: '/docs/history/people#nick-szabo', title: 'Nick Szabo', section: 'history', keywords: ['bit gold', 'smart contracts'] },
-  { path: '/docs/history/people#wei-dai', title: 'Wei Dai', section: 'history', keywords: ['b-money', 'wei'] },
-  { path: '/docs/history/people#ralph-merkle', title: 'Ralph Merkle', section: 'history', keywords: ['merkle tree', 'merkle root', 'hash tree'] },
-  { path: '/docs/history/people#stuart-haber-and-scott-stornetta', title: 'Stuart Haber and Scott Stornetta', section: 'history', keywords: ['timestamp', 'digital document', 'blockchain precursor'] },
-  { path: '/docs/history/people#satoshi-nakamoto', title: 'Satoshi Nakamoto', section: 'history', keywords: ['whitepaper', 'genesis block', 'creator', 'bitcoin'] },
-  { path: '/docs/history/people#hal-finney', title: 'Hal Finney', section: 'history', keywords: ['rpow', 'first transaction', 'pgp'] },
-  { path: '/docs/history/people#len-sassaman', title: 'Len Sassaman', section: 'history', keywords: ['mixmaster', 'remailer', 'cypherpunk'] },
-  { path: '/docs/history/people#martti-malmi', title: 'Martti Malmi', section: 'history', keywords: ['sirius', 'bitcoin.org', 'early contributor'] },
-  { path: '/docs/history/people#gavin-andresen', title: 'Gavin Andresen', section: 'history', keywords: ['lead developer', 'bitcoin foundation'] },
-  { path: '/docs/history/people#laszlo-hanyecz', title: 'Laszlo Hanyecz', section: 'history', keywords: ['pizza', 'pizza day', '10000 btc', 'first commercial'] },
-  { path: '/docs/history/people#wladimir-van-der-laan', title: 'Wladimir van der Laan', section: 'history', keywords: ['bitcoin core', 'lead maintainer', 'blocksize'] },
-  { path: '/docs/history/people#pieter-wuille', title: 'Pieter Wuille', section: 'history', keywords: ['segwit', 'taproot', 'libsecp256k1', 'bip 141'] },
-  { path: '/docs/history/people#gregory-maxwell', title: 'Gregory Maxwell', section: 'history', keywords: ['blockstream', 'coinjoin', 'confidential transactions'] },
-  { path: '/docs/history/people#joseph-poon-and-thaddeus-dryja', title: 'Joseph Poon and Thaddeus Dryja', section: 'history', keywords: ['lightning network', 'lightning whitepaper', 'payment channels'] },
-  { path: '/docs/history/people#andreas-m-antonopoulos', title: 'Andreas M. Antonopoulos', section: 'history', keywords: ['mastering bitcoin', 'educator', 'author'] },
-  { path: '/docs/history/people#roger-ver', title: 'Roger Ver', section: 'history', keywords: ['bitcoin jesus', 'bitcoin cash', 'early investor'] },
+  { path: '/philosophy/history/people#david-chaum', title: 'David Chaum', section: 'history', keywords: ['ecash', 'digicash', 'blind signatures', 'digital cash'] },
+  { path: '/philosophy/history/people#eric-hughes', title: 'Eric Hughes', section: 'history', keywords: ['cypherpunk manifesto', 'cypherpunk mailing list'] },
+  { path: '/philosophy/history/people#timothy-c-may', title: 'Timothy C. May', section: 'history', keywords: ['crypto anarchist manifesto', 'cypherpunk'] },
+  { path: '/philosophy/history/people#john-gilmore', title: 'John Gilmore', section: 'history', keywords: ['cypherpunk', 'eff', 'mailing list'] },
+  { path: '/philosophy/history/people#adam-back', title: 'Adam Back', section: 'history', keywords: ['hashcash', 'proof of work', 'blockstream'] },
+  { path: '/philosophy/history/people#nick-szabo', title: 'Nick Szabo', section: 'history', keywords: ['bit gold', 'smart contracts'] },
+  { path: '/philosophy/history/people#wei-dai', title: 'Wei Dai', section: 'history', keywords: ['b-money', 'wei'] },
+  { path: '/philosophy/history/people#ralph-merkle', title: 'Ralph Merkle', section: 'history', keywords: ['merkle tree', 'merkle root', 'hash tree'] },
+  { path: '/philosophy/history/people#stuart-haber-and-scott-stornetta', title: 'Stuart Haber and Scott Stornetta', section: 'history', keywords: ['timestamp', 'digital document', 'blockchain precursor'] },
+  { path: '/philosophy/history/people#satoshi-nakamoto', title: 'Satoshi Nakamoto', section: 'history', keywords: ['whitepaper', 'genesis block', 'creator', 'bitcoin'] },
+  { path: '/philosophy/history/people#hal-finney', title: 'Hal Finney', section: 'history', keywords: ['rpow', 'first transaction', 'pgp'] },
+  { path: '/philosophy/history/people#len-sassaman', title: 'Len Sassaman', section: 'history', keywords: ['mixmaster', 'remailer', 'cypherpunk'] },
+  { path: '/philosophy/history/people#martti-malmi', title: 'Martti Malmi', section: 'history', keywords: ['sirius', 'bitcoin.org', 'early contributor'] },
+  { path: '/philosophy/history/people#gavin-andresen', title: 'Gavin Andresen', section: 'history', keywords: ['lead developer', 'bitcoin foundation'] },
+  { path: '/philosophy/history/people#laszlo-hanyecz', title: 'Laszlo Hanyecz', section: 'history', keywords: ['pizza', 'pizza day', '10000 btc', 'first commercial'] },
+  { path: '/philosophy/history/people#wladimir-van-der-laan', title: 'Wladimir van der Laan', section: 'history', keywords: ['bitcoin core', 'lead maintainer', 'blocksize'] },
+  { path: '/philosophy/history/people#pieter-wuille', title: 'Pieter Wuille', section: 'history', keywords: ['segwit', 'taproot', 'libsecp256k1', 'bip 141'] },
+  { path: '/philosophy/history/people#gregory-maxwell', title: 'Gregory Maxwell', section: 'history', keywords: ['blockstream', 'coinjoin', 'confidential transactions'] },
+  { path: '/philosophy/history/people#joseph-poon-and-thaddeus-dryja', title: 'Joseph Poon and Thaddeus Dryja', section: 'history', keywords: ['lightning network', 'lightning whitepaper', 'payment channels'] },
+  { path: '/philosophy/history/people#andreas-m-antonopoulos', title: 'Andreas M. Antonopoulos', section: 'history', keywords: ['mastering bitcoin', 'educator', 'author'] },
+  { path: '/philosophy/history/people#roger-ver', title: 'Roger Ver', section: 'history', keywords: ['bitcoin jesus', 'bitcoin cash', 'early investor'] },
 ]
 for (const p of searchPeople) {
   const body = p.title + ' ' + (p.keywords || []).join(' ')
@@ -282,22 +282,22 @@ for (const p of searchPeople) {
 }
 
 // Events/milestones: path points to doc that describes the event. Body = title + keywords.
-// Note: Genesis Block has its own doc page (/docs/history/genesis-block), so it's indexed via docPages + pathKeywords only.
+// Note: Genesis Block has its own doc page (/philosophy/history/genesis-block), so it's indexed via docPages + pathKeywords only.
 const searchEvents = [
-  { path: '/docs/history', title: 'Bitcoin Whitepaper Published', section: 'history', keywords: ['whitepaper', '2008', 'satoshi', 'october 31'] },
-  { path: '/docs/history', title: 'First Bitcoin Transaction', section: 'history', keywords: ['hal finney', '10 btc', 'january 12 2009'] },
-  { path: '/docs/history', title: 'Pizza Day', section: 'history', keywords: ['first commercial', '2010', '10000 btc', 'laszlo hanyecz', 'may 22'] },
-  { path: '/docs/history', title: 'First Exchange Rate', section: 'history', keywords: ['2009', 'exchange rate'] },
-  { path: '/docs/history', title: 'Satoshi\'s Handover', section: 'history', keywords: ['gavin andresen', '2010', 'disappearance'] },
-  { path: '/docs/history', title: 'Mt. Gox Launches', section: 'history', keywords: ['exchange', '2010'] },
-  { path: '/docs/history', title: 'Value Overflow Bug', section: 'history', keywords: ['184 billion', 'consensus bug', '2010'] },
-  { path: '/docs/history', title: 'Dollar Parity', section: 'history', keywords: ['2011', '1 dollar', 'price'] },
-  { path: '/docs/history/halvings', title: 'Halving 1', section: 'history', keywords: ['210000', '25 btc', '2012', 'november 28'] },
-  { path: '/docs/history/halvings', title: 'Halving 2', section: 'history', keywords: ['420000', '12.5 btc', '2016', 'july 9'] },
-  { path: '/docs/history/halvings', title: 'Halving 3', section: 'history', keywords: ['630000', '6.25 btc', '2020', 'may 11'] },
-  { path: '/docs/history/halvings', title: 'Halving 4', section: 'history', keywords: ['840000', '3.125 btc', '2024', 'april 20'] },
-  { path: '/docs/history', title: 'SegWit Activation', section: 'history', keywords: ['segwit', 'bip 141', '2017', 'uasf'] },
-  { path: '/docs/history', title: 'Taproot Activation', section: 'history', keywords: ['taproot', 'schnorr', '2021', 'bip 340'] },
+  { path: '/philosophy/history', title: 'Bitcoin Whitepaper Published', section: 'history', keywords: ['whitepaper', '2008', 'satoshi', 'october 31'] },
+  { path: '/philosophy/history', title: 'First Bitcoin Transaction', section: 'history', keywords: ['hal finney', '10 btc', 'january 12 2009'] },
+  { path: '/philosophy/history', title: 'Pizza Day', section: 'history', keywords: ['first commercial', '2010', '10000 btc', 'laszlo hanyecz', 'may 22'] },
+  { path: '/philosophy/history', title: 'First Exchange Rate', section: 'history', keywords: ['2009', 'exchange rate'] },
+  { path: '/philosophy/history', title: 'Satoshi\'s Handover', section: 'history', keywords: ['gavin andresen', '2010', 'disappearance'] },
+  { path: '/philosophy/history', title: 'Mt. Gox Launches', section: 'history', keywords: ['exchange', '2010'] },
+  { path: '/philosophy/history', title: 'Value Overflow Bug', section: 'history', keywords: ['184 billion', 'consensus bug', '2010'] },
+  { path: '/philosophy/history', title: 'Dollar Parity', section: 'history', keywords: ['2011', '1 dollar', 'price'] },
+  { path: '/philosophy/history/halvings', title: 'Halving 1', section: 'history', keywords: ['210000', '25 btc', '2012', 'november 28'] },
+  { path: '/philosophy/history/halvings', title: 'Halving 2', section: 'history', keywords: ['420000', '12.5 btc', '2016', 'july 9'] },
+  { path: '/philosophy/history/halvings', title: 'Halving 3', section: 'history', keywords: ['630000', '6.25 btc', '2020', 'may 11'] },
+  { path: '/philosophy/history/halvings', title: 'Halving 4', section: 'history', keywords: ['840000', '3.125 btc', '2024', 'april 20'] },
+  { path: '/philosophy/history', title: 'SegWit Activation', section: 'history', keywords: ['segwit', 'bip 141', '2017', 'uasf'] },
+  { path: '/philosophy/history', title: 'Taproot Activation', section: 'history', keywords: ['taproot', 'schnorr', '2021', 'bip 340'] },
 ]
 for (const e of searchEvents) {
   const body = e.title + ' ' + (e.keywords || []).join(' ')
