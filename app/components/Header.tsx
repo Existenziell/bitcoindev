@@ -35,9 +35,9 @@ export default function Header() {
             </Link>
             <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
               {isHomePage ? (
-                <h1 className={siteTitleClassName} aria-label="BitcoinDev">BitcoinDev</h1>
+                <h1 className={siteTitleClassName}>BitcoinDev</h1>
               ) : (
-                <span className={siteTitleClassName} aria-label="BitcoinDev">BitcoinDev</span>
+                <span className={siteTitleClassName}>BitcoinDev</span>
               )}
             </div>
             <div className="flex-shrink-0 flex items-center gap-1">
