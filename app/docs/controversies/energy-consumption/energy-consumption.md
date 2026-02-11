@@ -61,7 +61,7 @@ Bitcoin mining has increasingly moved toward renewable energy sources:
 - **Flared Gas**: Some miners use otherwise-wasted natural gas from oil production
 - **Grid Balancing**: Mining can help balance renewable energy grids by consuming excess power
 
-According to the Bitcoin Mining Council (Q4 2021), Bitcoin mining used approximately 58.5% renewable energy.
+According to the Bitcoin Mining Council (Q4 2021), Bitcoin mining used approximately 58.5% renewable energy. For mining that uses otherwise-wasted energy (flared gas, curtailed renewables), see [Stranded Energy](/philosophy/adoption/stranded-energy).
 
 ---
 

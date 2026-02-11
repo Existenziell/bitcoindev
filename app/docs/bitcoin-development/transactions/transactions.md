@@ -16,7 +16,7 @@ Understanding the complete lifecycle of a transaction helps contextualize the co
 8. **Propagation**: New block spreads across the network
 9. **Confirmation**: Each subsequent block adds another confirmation, increasing security
 
-A transaction with 6 confirmations is generally considered irreversible.
+A transaction with 6 confirmations is generally considered irreversible. For the canonical field reference, see [Transaction Structure](/docs/bitcoin/transaction-structure).
 
 ---
 

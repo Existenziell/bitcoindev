@@ -4,10 +4,7 @@ Ordinals and inscriptions let users attach arbitrary data (images, text, JSON) t
 
 ## What Are Ordinals and Inscriptions?
 
-- **Ordinals**: A numbering scheme that assigns a unique index to each satoshi and tracks how they move when UTXOs are spent. It does not change consensus; it is an indexing convention.
-- **Inscriptions**: Data (images, text, JSON) embedded in SegWit witness scripts and stored on-chain. The content is in the blockchain but does not grow the UTXO set because it lives in prunable witness data.
-
-For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-inscriptions).
+Ordinals number satoshis; inscriptions store data in witness. For technical details, see [Ordinals & Inscriptions](/docs/advanced/ordinals-inscriptions).
 
 ---
 

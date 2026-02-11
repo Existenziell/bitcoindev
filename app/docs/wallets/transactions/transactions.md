@@ -1,6 +1,6 @@
 # Transaction Creation
 
-Creating Bitcoin transactions programmatically involves selecting inputs, creating outputs, calculating fees, signing, and broadcasting. This guide covers the complete process.
+Creating Bitcoin transactions programmatically involves selecting inputs, creating outputs, calculating fees, signing, and broadcasting. This guide covers the complete process. For full transaction lifecycle and fee/RBF handling, see [Transaction Construction](/docs/bitcoin-development/transactions). For field-level reference, see [Transaction Structure](/docs/bitcoin/transaction-structure).
 
 ## Transaction Structure
 

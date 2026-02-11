@@ -37,18 +37,7 @@ While volatility can be stressful, it's also what creates opportunities:
 
 ## The Halving Cycle
 
-A **halving** is an event where Bitcoin's block subsidy (the reward miners receive) is cut in half. This happens approximately every four years (every 210,000 blocks).
-
-Halvings are programmed into Bitcoin's code and will continue until the block subsidy reaches zero (around 2140). After that, miners will be compensated solely through transaction fees.
-
-### Historical Halvings
-
-| Year | Block Reward Before | Block Reward After | Block Height |
-|------|-------------------|-------------------|--------------|
-| 2012 | 50 BTC | 25 BTC | 210,000 |
-| 2016 | 25 BTC | 12.5 BTC | 420,000 |
-| 2020 | 12.5 BTC | 6.25 BTC | 630,000 |
-| 2024 | 6.25 BTC | 3.125 BTC | 840,000 |
+A **halving** is an event where Bitcoin's block subsidy (the reward miners receive) is cut in half. This happens approximately every four years (every 210,000 blocks). For the full halving schedule and supply formula, see [Halvings](/philosophy/history/halvings).
 
 ### The Four-Year Cycle
 
@@ -164,7 +153,6 @@ Bitcoin markets follow a predictable emotional cycle:
 
 - [Investment Strategy](/philosophy/investment/investment-strategy) - DCA and long-term holding strategies for navigating cycles
 - [Risk Management](/philosophy/investment/risk-management) - Understanding and managing investment risks
-- [Halvings](/philosophy/history/halvings) - Understanding Bitcoin's halving events and their impact
 
 ---
 

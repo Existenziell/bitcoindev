@@ -1,5 +1,7 @@
 # Privacy Techniques
 
+For an investor-focused privacy guide (KYC, mixing services, running a node), see [Privacy](/philosophy/investment/privacy).
+
 Bitcoin transactions are pseudonymous, not anonymous. Various techniques can improve privacy by breaking the linkability between transactions and making blockchain analysis more difficult.
 
 ## Privacy Challenges
