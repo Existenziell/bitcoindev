@@ -188,30 +188,6 @@ Watchtowers complement but don't replace proper backups:
 
 ---
 
-## Watchtower Selection
-
-When choosing watchtowers, consider:
-
-### Reliability
-
-- Uptime track record
-- Geographic distribution
-- Infrastructure quality
-
-### Privacy
-
-- Protocol used (encrypted blobs?)
-- Data retention policy
-- Logging practices
-
-### Trust Model
-
-```text
-[Self-hosted: most trust, most effort] --> [Friend tower: trusted party] --> [Community towers: reputation-based] --> [Commercial towers: contractual]
-```
-
----
-
 ## Protocol Variants
 
 ### BOLT Draft (Original)
@@ -237,37 +213,6 @@ Alternative approach where signing is done remotely:
 - Signer validates all transactions
 - Can refuse to sign old states
 - Eliminates need for breach monitoring
-
----
-
-## Common Issues
-
-### Tower Unreachable
-
-**Problem**: Cannot connect to watchtower.
-
-**Solutions**:
-- Check network connectivity
-- Verify tower address/port
-- Try alternative towers
-- Run your own tower
-
-### Hint Upload Failures
-
-**Problem**: Failed to send breach hints.
-
-**Solutions**:
-- Retry with backoff
-- Check tower capacity
-- Verify authentication
-
-### False Positives
-
-**Problem**: Tower broadcasts penalty for valid close.
-
-**Mitigation**:
-- Use encrypted blobs (tower can't read until breach)
-- Watchtower only acts on actual old commitment txids
 
 ---
 

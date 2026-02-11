@@ -27,10 +27,6 @@ The first mainnet Lightning implementations launched in 2018, including LND (Lig
 3. **Route Payments**: Payments can route through multiple channels using HTLCs
 4. **Close Channel**: Final state is broadcast to the Bitcoin blockchain
 
-```text
-[Open channel] --> [Update balance with HTLCs] --> [Route payments] --> [Close channel]
-```
-
 ---
 
 ## Scalability

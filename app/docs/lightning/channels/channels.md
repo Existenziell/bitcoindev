@@ -19,10 +19,6 @@ Payment channels are the fundamental building block of the Lightning Network. Th
 - Broadcast to Bitcoin network
 - Wait for confirmation (typically 3-6 blocks)
 
-```text
-[Alice and Bob agree] --> [Create funding tx 2-of-2 multisig] --> [Exchange initial commitments] --> [Broadcast funding tx] --> [Wait for confirmation] --> [Channel active]
-```
-
 ### 2. Channel Active
 
 **Off-Chain Updates:**

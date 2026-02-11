@@ -17,10 +17,6 @@ Before Bitcoin, decentralized digital currency faced seemingly insurmountable pr
 | Byzantine / agreement | Trusted coordinator | Nakamoto consensus; economic incentives |
 | Timing / ordering | Central time source | Proof-of-work; block sequence as time |
 
-```text
-[Double-spend / Byzantine] --> [Bitcoin solution] --> [Proof-of-Work] --> [Longest chain]
-```
-
 ---
 
 ## The Double-Spending Problem
@@ -98,7 +94,6 @@ These are often confused but address different problems:
 
 | Problem | Traditional Issue | Bitcoin's Solution |
 |---------|------------------|-------------------|
-| **Byzantine Generals** | Malicious nodes send conflicting information | Proof-of-work makes attacks expensive; assumes <50% malicious hash rate |
 | **Trust in Third Parties** | Must trust banks, payment processors, governments | Cryptographic proof replaces institutional trust; no intermediaries |
 | **Inflation** | Central banks can print unlimited money | Fixed 21M supply; predictable issuance; no authority can inflate |
 | **Cross-Border Payments** | Slow (days), expensive, requires intermediaries | Minutes to hours, lower fees, works 24/7, same currency globally |

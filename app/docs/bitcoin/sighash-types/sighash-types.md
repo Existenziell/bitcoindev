@@ -14,12 +14,6 @@ For each input, the signer:
 
 Verifiers recompute the sighash the same way and check the signature against it. If the transaction is modified in a part that was included in the sighash, the signature fails.
 
-```text
-[Transaction] ----\
-                   --> [Sighash bytes] --> [Sign]
-[Sighash type] ----/
-```
-
 ---
 
 ## Sighash Type Byte

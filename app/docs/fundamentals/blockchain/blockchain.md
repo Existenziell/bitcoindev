@@ -93,8 +93,8 @@ Honest Chain:     Block 100 → Block 101 → Block 102 → Block 103
                                     ↓
 Attacker's Chain: Block 100 → Block 101' (modified)
                                     ↓
-                            Must mine faster than entire network
-                            to catch up and overtake
+                        Must mine faster than entire network
+                        to catch up and overtake
 ```
 
 ---

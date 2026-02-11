@@ -38,10 +38,6 @@ When a miner finds a new block:
 | 3 | First-hop nodes | Validate block; forward to their peers |
 | 4 | Receiving node | Validate; forward to peers that have not seen it |
 
-```text
-[Miner] --> [First-hop peers] --> [Second-hop peers] --> [Your node]
-```
-
 ### 2. Gossip Protocol Mechanism
 
 **Key Rule**: Nodes never re-broadcast blocks back to the peer that sent them.

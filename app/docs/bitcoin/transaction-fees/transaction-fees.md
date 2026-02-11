@@ -331,10 +331,6 @@ Child Transaction:
 
 CPFP works only if you control an output of the parent (e.g., you received the payment). The child must be valid and, under typical package relay rules, the parent+child package must meet the node’s fee and size policies.
 
-```text
-[Parent tx stuck in mempool] --> [Child tx spends parent output] --> [High fee on child] --> [Miner includes both]
-```
-
 ### Transaction Pinning
 
 **Pinning** is a class of attacks where an attacker tries to *prevent* a victim’s transaction from being replaced or from being mined, for example:

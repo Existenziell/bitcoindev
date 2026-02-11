@@ -4,16 +4,6 @@ Sidechains are separate blockchains that are pegged to Bitcoin, allowing bitcoin
 
 **Sidechains** are independent blockchains with their own consensus rules that are pegged to Bitcoin:
 
-```text
---- Bitcoin Mainnet ---
-[Lock bitcoin] --> [Receive sidechain tokens]
-
---- Sidechain ---
-[Receive tokens] --> [Use sidechain features] --> [Unlock to return to Bitcoin]
-
-[Receive sidechain tokens] --> [Receive tokens]    [Unlock to return to Bitcoin] --> [Lock bitcoin]
-```
-
 ---
 
 ## Major Sidechains

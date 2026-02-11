@@ -33,12 +33,6 @@ Bitcoin's UTXO model differs fundamentally from traditional account-based system
 
 ## The UTXO Lifecycle
 
-The UTXO lifecycle follows this flow:
-
-```text
-[Transaction Output in block] --> [UTXO unspent] --> [Referenced by Transaction Input] --> [Consumed removed from UTXO set] --> [New Outputs Created]
-```
-
 ### Step-by-Step Lifecycle
 
 1. **Output Creation**: A transaction creates outputs with specific amounts and spending conditions (scriptPubKeys)

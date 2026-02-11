@@ -22,12 +22,6 @@ Where:
 - **If blocks were mined too slow** (more than 2 weeks): Difficulty decreases
 - **Maximum adjustment**: ±4x per period (prevents extreme swings)
 
-```text
-[Actual time for 2016 blocks] ----\
-                                    --> [Compare actual vs target] --> [Compute new difficulty] --> [Next 2016 blocks]
-[Target: 2 weeks] ----------------/
-```
-
 ---
 
 ## Why Difficulty Adjustment Exists
