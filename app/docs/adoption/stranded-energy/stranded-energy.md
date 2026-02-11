@@ -1,4 +1,4 @@
-# Stranded Energy and Flared Gas
+# Stranded Energy
 
 Bitcoin mining has a unique property: it can monetize energy that would otherwise be wasted. This creates economic value from stranded energy sources like flared natural gas, excess hydroelectric capacity, and curtailed renewable generation.
 
@@ -61,10 +61,12 @@ This approach:
 
 ### Case Studies
 
-**Crusoe Energy** has deployed Bitcoin mining operations at oil fields across the United States, converting flared gas into Bitcoin mining. Their operations:
+**[Crusoe Energy](https://www.crusoe.ai)** has deployed Bitcoin mining operations at oil fields across the United States, converting flared gas into Bitcoin mining. Their operations:
 - Reduce flaring by capturing and using gas that would be burned
 - Provide revenue to oil producers
 - Operate in remote locations without grid infrastructure
+
+See Crusoe's [newsroom article on Bitcoin mining with flared gas](https://www.crusoe.ai/resources/newsroom/bitcoin-mining-with-oil-drilled-flared-gas) for more detail.
 
 **Upstream Data** provides similar services, deploying mobile mining units at oil production sites to monetize flared gas.
 
@@ -131,7 +133,7 @@ Critics argue that Bitcoin mining incentivizes energy production. However:
 - **Bitcoin uses waste**: Mining stranded energy doesn't increase total energy production
 - **Grid priority**: Renewable energy serves the grid first; mining uses excess
 
-For more on the energy debate, see [Energy Consumption](/philosophy/controversies/energy-consumption).
+For more on the energy debate, see Energy Consumption.
 
 ---
 
@@ -202,7 +204,7 @@ As Bitcoin mining technology improves and energy infrastructure evolves, the opp
 
 ## Related Topics
 
-- Energy Consumption - The broader energy debate
+- [Energy Consumption](/philosophy/controversies/energy-consumption) - The broader energy debate
 - [Proof-of-Work](/docs/mining/proof-of-work) - How Bitcoin mining works
 - [Mining Economics](/docs/mining/economics) - The economics of Bitcoin mining
 - [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin has value

@@ -153,10 +153,13 @@ export const docPages: DocPage[] = [
   { path: '/docs/advanced/trampoline-routing', mdFile: 'app/docs/advanced/trampoline-routing/trampoline-routing.md', title: 'Trampoline Routing', section: 'advanced' },
   { path: '/docs/advanced/covenants', mdFile: 'app/docs/advanced/covenants/covenants.md', title: 'Covenants', section: 'advanced' },
 
-  { path: '/philosophy/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption', description: 'Real-world Bitcoin adoption: stranded energy, financial inclusion, use cases, and outlook.' },
-  { path: '/philosophy/adoption/stranded-energy', mdFile: 'app/docs/adoption/stranded-energy/stranded-energy.md', title: 'Stranded Energy and Flared Gas', section: 'adoption' },
-  { path: '/philosophy/adoption/rural-communities', mdFile: 'app/docs/adoption/rural-communities/rural-communities.md', title: 'Rural Communities and Financial Inclusion', section: 'adoption' },
-  { path: '/philosophy/adoption/use-cases', mdFile: 'app/docs/adoption/use-cases/use-cases.md', title: 'Bitcoin Use Cases', section: 'adoption' },
+  { path: '/philosophy/adoption', mdFile: 'app/docs/adoption/overview.md', title: 'Bitcoin Adoption', section: 'adoption', description: 'Real-world Bitcoin adoption: financial inclusion, stranded energy, payments, store of value, institutional adoption, and humanitarian aid.' },
+  { path: '/philosophy/adoption/financial-inclusion', mdFile: 'app/docs/adoption/financial-inclusion/financial-inclusion.md', title: 'Financial Inclusion', section: 'adoption' },
+  { path: '/philosophy/adoption/stranded-energy', mdFile: 'app/docs/adoption/stranded-energy/stranded-energy.md', title: 'Stranded Energy', section: 'adoption' },
+  { path: '/philosophy/adoption/payments', mdFile: 'app/docs/adoption/payments/payments.md', title: 'Payments', section: 'adoption' },
+  { path: '/philosophy/adoption/store-of-value', mdFile: 'app/docs/adoption/store-of-value/store-of-value.md', title: 'Store of Value', section: 'adoption' },
+  { path: '/philosophy/adoption/institutional-adoption', mdFile: 'app/docs/adoption/institutional-adoption/institutional-adoption.md', title: 'Institutional Adoption', section: 'adoption' },
+  { path: '/philosophy/adoption/humanitarian-aid', mdFile: 'app/docs/adoption/humanitarian-aid/humanitarian-aid.md', title: 'Humanitarian Aid', section: 'adoption' },
 
   { path: '/philosophy/investment', mdFile: 'app/docs/investment/overview.md', title: 'Bitcoin as Investment', section: 'investment', description: 'Investment strategies, risk management, wallet security, self-custody, and market cycles.' },
   { path: '/philosophy/investment/risk-management', mdFile: 'app/docs/investment/risk-management/risk-management.md', title: 'Risk Management', section: 'investment' },
@@ -217,7 +220,7 @@ export const sections: Record<string, { title: string; description: string }> = 
   },
   adoption: {
     title: 'Bitcoin Adoption',
-    description: 'Real-world examples of Bitcoin adoption, from stranded energy mining to financial inclusion in rural communities, plus an outlook on the future of Bitcoin.',
+    description: 'Real-world Bitcoin adoption: financial inclusion, stranded energy, payments, store of value, institutional adoption, and humanitarian aid.',
   },
   glossary: {
     title: 'Bitcoin Glossary',

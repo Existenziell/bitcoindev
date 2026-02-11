@@ -1,6 +1,6 @@
 # Bitcoin Adoption
 
-Bitcoin is more than code and cryptography. It's a tool being used by real people to solve real problems. From energy producers monetizing waste to rural communities accessing financial services, Bitcoin adoption is happening in diverse and innovative ways around the world.
+Bitcoin is more than code and cryptography. It's a tool being used by real people to solve real problems. From energy producers monetizing waste to communities accessing financial services without banks, Bitcoin adoption is happening in diverse and innovative ways around the world.
 
 ---
 
@@ -13,52 +13,25 @@ Understanding Bitcoin's technical foundations is essential, but seeing how Bitco
 
 - **Energy Innovation**: Bitcoin mining is turning wasted energy into economic value, from flared natural gas to excess renewable capacity
 - **Financial Inclusion**: Communities without traditional banking are using Bitcoin for remittances, savings, and daily transactions
+- **Censorship Resistance**: People in countries with capital controls or frozen accounts use Bitcoin to move and store value without permission from banks or governments
+- **Self-Sovereignty**: Users hold and move value without asking permission from any intermediary
 - **Economic Freedom**: People in high-inflation countries are preserving wealth and accessing global markets
-- **Humanitarian Aid**: Non-profits are using Bitcoin to deliver aid directly to those in need, bypassing corrupt intermediaries
+- **Humanitarian Aid**: Non-profits and donors use Bitcoin to deliver aid directly to those in need, bypassing corrupt or blocked intermediaries
 
 These use cases demonstrate Bitcoin's unique properties in action: [censorship resistance](/philosophy/fundamentals/trust-model), [portability](/philosophy/fundamentals/monetary-properties), [verifiability](/docs/bitcoin/cryptography), and [decentralization](/philosophy/fundamentals/decentralization).
 
-| Topic | Description | Link |
-|-------|--------------|------|
-| Stranded energy & flared gas | Mining with otherwise wasted energy | [Stranded Energy](/philosophy/adoption/stranded-energy) |
-| Rural communities | Financial inclusion without banks | [Rural Communities](/philosophy/adoption/rural-communities) |
-| Use cases | Remittances, savings, corporate adoption, aid | [Use Cases](/philosophy/adoption/use-cases) |
-
 ---
 
-## Adoption Stories
+## Adoption by Theme
 
-### [Stranded Energy and Flared Gas](/philosophy/adoption/stranded-energy)
-
-Bitcoin mining is uniquely suited to use energy that would otherwise be wasted. Oil fields flare natural gas because it's not economical to transport. Hydroelectric plants curtail excess generation when demand is low. Wind and solar farms produce energy that can't be stored or transmitted.
-
-Bitcoin miners can operate anywhere, turn on and off instantly, and monetize energy that has no other use. This creates economic value from waste while providing security to the Bitcoin network.
-
-**Examples:**
-- Crusoe Energy converting flared gas to Bitcoin mining
-- Hydroelectric plants using excess capacity for mining
-- Wind farms monetizing curtailed generation
-
-### [Rural Communities and Financial Inclusion](/philosophy/adoption/rural-communities)
-
-Billions of people lack access to traditional banking. Bitcoin, combined with the Lightning Network, enables financial services without banks:
-
-- **Remittances**: Send money across borders without intermediaries
-- **Savings**: Store value in a currency that can't be inflated
-- **Payments**: Make micro-payments and daily transactions
-- **Access**: All you need is a smartphone and internet connection
-
-From El Salvador's national adoption to African communities using Bitcoin for remittances, real people are using Bitcoin to solve real problems.
-
-### [Other Use Cases](/philosophy/adoption/use-cases)
-
-Bitcoin adoption spans individuals, businesses, and nations:
-
-- **Remittances**: Cross-border payments without banks
-- **Store of Value**: Preserving wealth in high-inflation economies
-- **Corporate Adoption**: Companies holding Bitcoin as treasury reserves
-- **Country-Level Adoption**: Nations recognizing Bitcoin as legal tender
-- **Humanitarian Aid**: Direct aid delivery without intermediaries
+| Topic | Description | Link |
+|-------|--------------|------|
+| Financial Inclusion | Remittances, unbanked, remote communities | [Financial Inclusion](/philosophy/adoption/financial-inclusion) |
+| Stranded Energy | Mining with otherwise wasted energy (flared gas, renewables) | [Stranded Energy](/philosophy/adoption/stranded-energy) |
+| Payments | Bitcoin as money: daily payments, merchants, Lightning | [Payments](/philosophy/adoption/payments) |
+| Store of Value | Inflation hedge, capital controls, long-term holding | [Store of Value](/philosophy/adoption/store-of-value) |
+| Institutional Adoption | Corporate treasuries, country-level (legal tender, regulation) | [Institutional Adoption](/philosophy/adoption/institutional-adoption) |
+| Humanitarian Aid | Direct aid delivery without intermediaries | [Humanitarian Aid](/philosophy/adoption/humanitarian-aid) |
 
 ---
 
@@ -77,6 +50,16 @@ We're still in the early stages of this cycle. Each new use case strengthens Bit
 
 ---
 
+## Adoption Data and Further Reading
+
+- [Bitcoin.org – Use cases](https://bitcoin.org/en/use-cases) - How Bitcoin is used by individuals, businesses, and developers
+- [Fidelity Digital Assets – The Lightning Network: Expanding Bitcoin Use Cases](https://www.fidelitydigitalassets.com/research-and-insights/lightning-network-expanding-bitcoin-use-cases) - Lightning and payments (external)
+- [River – Learn](https://river.com/learn/) - Bitcoin education and adoption research (external)
+- [Bitcoin Magazine](https://bitcoinmagazine.com/) - News and adoption stories (external)
+- [Blink – Bitcoin adoption stories](https://www.blink.sv/blog/bitcoin-adoption-stories-five-real-tales-from-all-over-the-world) - Five real-world adoption tales (external)
+
+---
+
 ## Related Topics
 
 - [Monetary Properties](/philosophy/fundamentals/monetary-properties) - Why Bitcoin has value
@@ -85,6 +68,7 @@ We're still in the early stages of this cycle. Each new use case strengthens Bit
 - [Trust Model](/philosophy/fundamentals/trust-model) - How Bitcoin enables trustless transactions
 - [Decentralization](/philosophy/fundamentals/decentralization) - Why Bitcoin can't be stopped
 - [Bitcoin, the Meme](/philosophy/fundamentals/bitcoin-meme) - How ideas and culture drive adoption
+- [Governance & Evolution](/philosophy/fundamentals/governance) - How Bitcoin evolves; [Bitcoin Core](https://github.com/bitcoin/bitcoin) - Open-source protocol development
 
 ---
 

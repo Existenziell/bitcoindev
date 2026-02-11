@@ -50,10 +50,16 @@ const nextConfig = {
   async redirects() {
     // Philosophy content moved from /docs/ to /philosophy/; keep old URLs working
     const philosophySections = ['fundamentals', 'history', 'controversies', 'investment', 'adoption']
-    return philosophySections.flatMap((section) => [
+    const philosophyRedirects = philosophySections.flatMap((section) => [
       { source: `/docs/${section}`, destination: `/philosophy/${section}`, permanent: true },
       { source: `/docs/${section}/:path*`, destination: `/philosophy/${section}/:path*`, permanent: true },
     ])
+    // Adoption subsection renames (rural-communities -> financial-inclusion; use-cases removed)
+    const adoptionRedirects = [
+      { source: '/philosophy/adoption/rural-communities', destination: '/philosophy/adoption/financial-inclusion', permanent: true },
+      { source: '/philosophy/adoption/use-cases', destination: '/philosophy/adoption', permanent: true },
+    ]
+    return [...philosophyRedirects, ...adoptionRedirects]
   },
 
   async headers() {

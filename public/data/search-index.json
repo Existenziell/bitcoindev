@@ -1639,22 +1639,40 @@
     "body": "Bitcoin Adoption"
   },
   {
+    "path": "/philosophy/adoption/financial-inclusion",
+    "title": "Financial Inclusion",
+    "section": "adoption",
+    "body": "Financial Inclusion"
+  },
+  {
     "path": "/philosophy/adoption/stranded-energy",
-    "title": "Stranded Energy and Flared Gas",
+    "title": "Stranded Energy",
     "section": "adoption",
-    "body": "Stranded Energy and Flared Gas"
+    "body": "Stranded Energy"
   },
   {
-    "path": "/philosophy/adoption/rural-communities",
-    "title": "Rural Communities and Financial Inclusion",
+    "path": "/philosophy/adoption/payments",
+    "title": "Payments",
     "section": "adoption",
-    "body": "Rural Communities and Financial Inclusion"
+    "body": "Payments"
   },
   {
-    "path": "/philosophy/adoption/use-cases",
-    "title": "Bitcoin Use Cases",
+    "path": "/philosophy/adoption/store-of-value",
+    "title": "Store of Value",
     "section": "adoption",
-    "body": "Bitcoin Use Cases"
+    "body": "Store of Value"
+  },
+  {
+    "path": "/philosophy/adoption/institutional-adoption",
+    "title": "Institutional Adoption",
+    "section": "adoption",
+    "body": "Institutional Adoption"
+  },
+  {
+    "path": "/philosophy/adoption/humanitarian-aid",
+    "title": "Humanitarian Aid",
+    "section": "adoption",
+    "body": "Humanitarian Aid"
   },
   {
     "path": "/philosophy/investment",
