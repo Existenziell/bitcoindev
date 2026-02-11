@@ -119,82 +119,6 @@ Bitcoin markets follow a predictable emotional cycle:
 
 ---
 
-## Bull Markets
-
-### Characteristics
-
-| Indicator | Description |
-|-----------|-------------|
-| **Rising prices** | Sustained upward price movement over months or years |
-| **High volume** | Increased trading volume as more participants enter |
-| **Media attention** | Positive media coverage and mainstream adoption stories |
-| **FOMO** | Fear of missing out drives new buyers into the market |
-| **Euphoria** | Extreme optimism, "this time is different" narratives |
-| **New all-time highs** | Price breaks previous records |
-
-### Warning Signs
-
-| Warning Sign | What It Means | Action |
-|--------------|---------------|--------|
-| **Extreme euphoria** | Everyone is talking about Bitcoin and predicting continued gains | Be cautious |
-| **Rapid price appreciation** | Unsustainable price growth | Often precedes corrections |
-| **Media frenzy** | Mainstream media is overwhelmingly positive | The top may be near |
-| **New investor influx** | Many new, inexperienced investors enter | Market may be overheated |
-| **Leverage and speculation** | High levels of leverage and speculation | Often precedes corrections |
-
-### How to Navigate Bull Markets
-
-**Stick to your plan:** Don't let euphoria change your strategy.
-
-**Take profits if needed:** If your allocation has grown too large, consider taking some profits.
-
-**Avoid FOMO:** Don't buy more just because prices are rising. Stick to your [Dollar Cost Averaging](/philosophy/investment/investment-strategy) plan.
-
-**Maintain perspective:** Remember that bull markets don't last forever. Corrections are normal.
-
-**Don't trade:** Trying to time the top is extremely difficult. Most people fail.
-
----
-
-## Bear Markets
-
-### Characteristics
-
-| Indicator | Description |
-|-----------|-------------|
-| **Falling prices** | Sustained downward price movement over months or years |
-| **Low volume** | Reduced trading volume as participants exit or wait |
-| **Negative media** | Negative media coverage and "Bitcoin is dead" narratives |
-| **FUD** | Fear, uncertainty, and doubt dominate market sentiment |
-| **Capitulation** | Investors give up and sell at a loss |
-| **Price consolidation** | Prices stabilize at lower levels |
-
-### Opportunities
-
-| Opportunity | Benefit |
-|------------|---------|
-| **Buying opportunities** | Bear markets create buying opportunities for those with a long-term perspective |
-| **Lower prices** | You can accumulate Bitcoin at lower prices |
-| **Weeding out weak hands** | Bear markets separate long-term holders from short-term speculators |
-| **Building conviction** | Surviving bear markets builds conviction and resilience |
-| **Network continues** | Bitcoin's network continues to operate and improve, regardless of price |
-
-### How to Navigate Bear Markets
-
-**Maintain perspective:** Remember that bear markets are temporary. Bitcoin has survived many.
-
-**Focus on fundamentals:** Bitcoin's technology and properties haven't changed. Focus on fundamentals, not price.
-
-**Continue DCA:** Dollar Cost Averaging is particularly effective during bear markets.
-
-**Avoid panic selling:** Don't make emotional decisions. Stick to your long-term plan.
-
-**Use the time to learn:** Bear markets are a good time to deepen your understanding of Bitcoin.
-
-**Build resilience:** Surviving bear markets builds psychological resilience for future cycles.
-
----
-
 ## Market Phases
 
 | Phase | Characteristics | Strategy |
@@ -203,53 +127,6 @@ Bitcoin markets follow a predictable emotional cycle:
 | **Markup** | • Prices begin to rise<br>• Increasing media attention<br>• More investors enter<br>• Optimism grows | Continue your accumulation strategy. Don't let FOMO drive decisions. |
 | **Distribution** | • Prices peak<br>• Maximum media attention<br>• Euphoria and FOMO<br>• Everyone wants Bitcoin | Be cautious. Consider taking profits if your allocation has grown too large. Avoid buying more due to FOMO. |
 | **Markdown** | • Prices decline<br>• Negative media coverage<br>• Investors exit<br>• Fear and capitulation | This is a buying opportunity for those with a long-term perspective. Avoid panic selling. |
-
----
-
-## Navigating Cycles Without Emotion
-
-### Have a Plan
-
-**Before investing:**
-- Define your time horizon
-- Set your investment strategy ([DCA](/philosophy/investment/investment-strategy), lump sum, etc.)
-- Determine your risk tolerance
-- Decide when you might sell (if ever)
-
-**Stick to your plan:** Don't let market cycles change your strategy.
-
-### Focus on Fundamentals
-
-**Bitcoin's properties haven't changed:**
-- Scarcity remains
-- Network effects continue to grow
-- Technology continues to improve
-- Adoption continues to increase
-
-**Price is noise, fundamentals are signal:** Focus on Bitcoin's properties, not daily price movements.
-
-### Avoid Constant Price Checking
-
-**Check less frequently:**
-- Daily price checking increases stress
-- Weekly or monthly checks are sufficient
-- Focus on your strategy, not price
-
-### Maintain Perspective
-
-**Remember:**
-- Volatility is normal for Bitcoin
-- Bear markets are temporary
-- Bull markets don't last forever
-- Long-term trends matter more than short-term movements
-
-### Build a Community
-
-**Connect with other Bitcoiners:**
-- Share experiences and strategies
-- Get support during difficult times
-- Learn from others' experiences
-- Maintain perspective through community
 
 ---
 
@@ -280,19 +157,6 @@ Bitcoin markets follow a predictable emotional cycle:
 | **Media attention** | Increasing mainstream attention |
 
 **Important:** While patterns repeat, each cycle is unique. Don't assume the next cycle will be exactly like previous ones.
-
----
-
-## Common Mistakes During Cycles
-
-| Mistake | Why It's Problematic | Better Approach |
-|---------|----------------------|-----------------|
-| **Buying at the top** | FOMO-driven purchases during euphoria often lead to buying at peaks | Stick to your DCA plan |
-| **Selling at the bottom** | Panic selling during bear markets locks in losses | Maintain long-term perspective |
-| **Trying to time the market** | Extremely difficult and often leads to worse results than holding | Focus on time in market, not timing |
-| **Emotional decisions** | Decisions based on fear or greed rather than your plan | Stick to your predetermined strategy |
-| **Ignoring fundamentals** | Focusing on price instead of Bitcoin's fundamental properties | Focus on Bitcoin's properties |
-| **Over-leveraging** | Using too much leverage during bull markets often leads to liquidation | Avoid excessive leverage |
 
 ---
 

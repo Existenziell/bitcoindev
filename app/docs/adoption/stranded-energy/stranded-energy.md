@@ -133,8 +133,6 @@ Critics argue that Bitcoin mining incentivizes energy production. However:
 - **Bitcoin uses waste**: Mining stranded energy doesn't increase total energy production
 - **Grid priority**: Renewable energy serves the grid first; mining uses excess
 
-For more on the energy debate, see Energy Consumption.
-
 ---
 
 ## Economic Model
