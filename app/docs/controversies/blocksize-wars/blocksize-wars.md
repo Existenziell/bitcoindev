@@ -162,9 +162,7 @@ This seemingly simple question divided the community into two camps with fundame
 ### Block Size Limits
 
 **Bitcoin (BTC):**
-- Base block size: 1 MB
-- With SegWit: ~2-4 MB effective capacity
-- Weight limit: 4,000,000 weight units
+- Block limit is weight-based (4,000,000 weight units), not a byte cap. The original 1 MB limit was superseded by SegWit; effective capacity up to ~3.4 MB.
 
 **Bitcoin Cash (BCH):**
 - Started: 8 MB
@@ -177,23 +175,22 @@ Segregated Witness (SegWit) was the compromise solution:
 
 - **Soft Fork**: Backward compatible
 - **Witness Data**: Moved outside base block
-- **Effective Capacity**: ~2 MB (up to 4 MB with witness)
+- **Effective Capacity**: typical blocks ~1.6-2.25 MB; max up to ~3.4 MB (4M weight units)
 - **Transaction Malleability**: Fixed
 - **Lightning Network**: Enabled
 
 ### Network Metrics
 
 **Bitcoin (BTC) - 2024:**
-- Average block size: ~1.5-2 MB (with SegWit)
-- Transactions per block: ~2,000-3,000
+- Average block size: ~1.6-2.25 MB (with SegWit); max block size up to ~3.4 MB
+- Outputs per block: more meaningful than transaction count (batching varies); on-chain limit up to ~32,000 outputs per block (4M weight unit limit; exact number depends on output types)
 - Average fee: Variable ($1-50+)
-- Full node count: ~15,000-20,000
+- Full node count: ~25,000 listening (reachable) nodes; ~69,000 total full nodes globally ([node map](https://newhedge.io/bitcoin/node-map)). Public crawls (e.g. Bitnodes) only count listening nodes; non-listening nodes relay blocks and transactions the same but cannot be used to bootstrap new nodes.
 
 **Bitcoin Cash (BCH) - 2024:**
 - Average block size: ~100-500 KB
 - Transactions per block: ~500-2,000
 - Average fee: Very low (<$0.01)
-- Full node count: ~1,000-2,000
 
 ---
 
@@ -202,7 +199,7 @@ Segregated Witness (SegWit) was the compromise solution:
 ### Bitcoin (BTC) Won
 
 **Results:**
-- Maintained 1 MB base block size
+- Replaced the fixed 1 MB byte limit with a weight-based limit (4M WU) via SegWit; no hard fork to a larger byte cap
 - Implemented SegWit for scaling
 - Lightning Network developed
 - Focus on decentralization preserved
@@ -218,7 +215,6 @@ Segregated Witness (SegWit) was the compromise solution:
 **Results:**
 - Created separate blockchain
 - 8 MB blocks (later increased to 32 MB)
-- Lower fees but less decentralization
 - Smaller network and ecosystem
 
 **Current Status:**
@@ -226,6 +222,7 @@ Segregated Witness (SegWit) was the compromise solution:
 - Lower market cap than Bitcoin
 - Different development path
 - Still active but smaller community
+- Markets itself on low on-chain fees; in practice, fees in Bitcoin payment channels (e.g. Lightning) are often lower for users
 
 ---
 
@@ -238,8 +235,8 @@ Segregated Witness (SegWit) was the compromise solution:
 
 ### 2. Soft Forks Preferred
 - SegWit was a soft fork (backward compatible)
-- No chain split
-- Gradual adoption
+- No chain split; no forced upgrade
+- Whether larger blocks would have led to faster adoption is unsupported—larger blocks could instead have meant more low-value or spam usage
 
 ### 3. Decentralization Matters
 - Small block supporters prioritized decentralization
@@ -264,9 +261,8 @@ Segregated Witness (SegWit) was the compromise solution:
 
 ### Negative Outcomes
 
-1. **Community Division**: Deep split that still exists
-2. **Resources Split**: Development resources divided
-3. **Confusion**: Users confused about different Bitcoin versions
+1. **Minority split**: A small group forked off; the overwhelming majority of users and developers stayed on Bitcoin.
+3. **Brand confusion**: Many coins use Bitcoin-related names (not only BCH); the fork added to existing naming confusion.
 4. **Delayed Scaling**: Took years to resolve
 
 ---
@@ -274,7 +270,7 @@ Segregated Witness (SegWit) was the compromise solution:
 ## Current Status
 
 ### Bitcoin (BTC)
-- **Block Size**: 1 MB base, ~2-4 MB with SegWit
+- **Block Size**: Weight-based limit (4M WU); typical ~1.6-2.25 MB, max ~3.4 MB
 - **Scaling**: Lightning Network + SegWit
 - **Philosophy**: Decentralization first
 - **Status**: Dominant Bitcoin implementation
@@ -282,7 +278,7 @@ Segregated Witness (SegWit) was the compromise solution:
 ### Bitcoin Cash (BCH)
 - **Block Size**: 32 MB
 - **Scaling**: On-chain only
-- **Philosophy**: Big blocks, low fees
+- **Philosophy**: Big blocks, low on-chain fees (Lightning on Bitcoin often yields lower fees)
 - **Status**: Separate cryptocurrency
 
 ---
