@@ -93,18 +93,20 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
   - Small metadata
   - Early token protocols
 
-### 2017-2024: Status Quo
+### 2017-2024: Status Quo and Parallel Relay
 
-- **80-byte limit maintained** in Bitcoin Core
-- **Alternative implementations:** Some forks/alternatives had different limits
-- **Growing tension:** Between data storage advocates and financial purists
+- **80-byte default maintained** in Bitcoin Core; larger OP_RETURN was policy-rejected by default but could still be mined if submitted to miners directly
+- **Larger-than-80-byte OP_RETURN already existed** before Core changed any policy: miners and alternate relay software accepted and relayed such transactions
+- **February 2024:** MARA launched [Slipstream](https://slipstream.mara.com/), a service that accepts and relays "non-standard" (including large OP_RETURN) transactions for inclusion in blocks
+- **By 2024:** [Libre Relay](https://github.com/sethforprivacy/docker-bitcoind-librerelay) (a Core-derived implementation with different relay policy) and mining pools such as F2Pool were also providing a **secondary P2P relay path** for transactions that Core's default filters rejected
+- **Effect:** A parallel relay network emerged; users could get large-OP_RETURN transactions mined without Core nodes relaying them, which fragmented relay behavior and undermined a single, predictable relay layer
 
-### 2024-2025: The v30 Controversy
+### 2025: Bitcoin Core v30 Reaction
 
-- **Bitcoin Core v30:** Removed default 80-byte limit
-- **New default:** ~1 MB (effectively up to block size limit)
-- **Community split:** Major controversy and debate
-- **Alternative implementations:** Bitcoin Knots maintains stricter limits
+- **Bitcoin Core did not push to raise limits first.** The change came in response to the above reality: large OP_RETURN was already being relayed and mined via alternate channels
+- **Core's stated rationale:** Refusing to relay transactions that miners would include anyway forces users into alternate communication channels and undermines relay goals (fee estimation, block propagation, mining decentralization). Core [stated](https://bitcoincore.org/en/2025/06/06/relay-statement/) it is not endorsing or condoning non-financial data usage, but accepting that as a censorship-resistant system Bitcoin can be used for use cases not everyone agrees on
+- **v30 (2025):** Default `-datacarriersize` increased to ~100 KB (effectively uncapped by default); node operators can still enforce stricter limits
+- **Community split:** Major controversy; Bitcoin Knots and others maintain stricter defaults
 
 ---
 
@@ -113,14 +115,14 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
 ### Bitcoin Core v30 Changes
 
 **What Changed:**
-- Default `-datacarriersize` increased from 80 bytes to ~1 MB
-- Effectively allows up to 4 MB of data per transaction (block size limit)
-- Can still be configured by node operators
+- Default `-datacarriersize` in Bitcoin Core v30 increased from 80 bytes to a much larger default (~100 KB in release notes; effectively uncapped in practice), so Core no longer refuses relay of large OP_RETURN by default
+- Node operators can still enforce stricter limits (e.g. `-datacarriersize=80` or `-datacarrier=0`)
 
-**Why the Change:**
-- Proponents argued 80 bytes was arbitrary and limiting
-- Modern use cases need more data (NFTs, complex protocols, etc.)
-- Users pay fees, so they should decide how to use block space
+**Why the Change (Core's Stated View):**
+- **Core did not lead the push to raise limits.** Larger-than-80-byte OP_RETURN was already being relayed and mined via MARA Slipstream (Feb 2024), Libre Relay, F2Pool, and similar services before Core changed policy
+- These actors created a **secondary, parallel relay network** for transactions that Core's default policy rejected. Core contributors argued that continuing to refuse relay of transactions that miners would include anyway would do more harm: it would entrench parallel relay networks, fragment the P2P layer, and undermine fee estimation and mining decentralization
+- Core's [relay policy statement](https://bitcoincore.org/en/2025/06/06/relay-statement/) (June 2025) states that node software should aim to reflect what will actually be mined, rather than intervening between consenting users and miners; it explicitly says this is **not** endorsing or condoning non-financial data use
+- **Most Bitcoin Core developers** view Bitcoin primarily as **peer-to-peer money** and oppose spam and block-space abuse; the default change was framed as harm reduction (align relay with reality to avoid worse outcomes), not as an endorsement of data storage
 
 ### Community Reaction
 
@@ -307,12 +309,12 @@ OP_RETURN 48656c6c6f20576f726c64  (hex for "Hello World")
 
 ### Two Competing Visions
 
-#### Vision 1: Bitcoin as "Sound Money"
+#### Vision 1: Bitcoin as "Sound Money" / P2P Money
 
 **Core Belief:**
-- Bitcoin should be focused solely on being digital gold
+- Bitcoin should be focused on being peer-to-peer electronic cash / sound money
 - Financial transactions are the priority
-- Data storage is a distraction
+- Data storage is a distraction; many Core developers oppose spam and non-financial use of block space
 - "Do one thing well"
 
 **Key Principles:**
@@ -414,7 +416,7 @@ The OP_RETURN debate represents a fundamental philosophical divide in the Bitcoi
 - **Compromise:** Some data storage is OK, but with limits
 
 **Current Status:**
-- Bitcoin Core v30: Larger default limits (~1 MB)
+- Bitcoin Core v30 (2025): Default limit effectively uncapped (configurable); change was a reaction to parallel relay (Slipstream, Libre Relay, F2Pool, etc.), not an ideological push for data storage
 - Bitcoin Knots: Maintains 80-byte default
 - Community: Deeply divided
 - Future: Unclear, likely ongoing debate
