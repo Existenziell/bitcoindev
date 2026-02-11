@@ -444,8 +444,26 @@ async function runChecks() {
     }
   }
 
-  // Internal link analysis (informational; does not set hasErrors)
+  // Internal link analysis
   const analysis = runInternalAnalysis(maxLinks)
+  const duplicateExtraCount = [...analysis.duplicateByPage.values()].reduce(
+    (sum, dups) => sum + dups.reduce((s, d) => s + (d.count - 1), 0),
+    0
+  )
+  const duplicateLinkCount = [...analysis.duplicateByPage.values()].reduce(
+    (sum, dups) => sum + dups.length,
+    0
+  )
+  const internalChecksFailed =
+    analysis.broken.length > 0 ||
+    analysis.selfLinks.length > 0 ||
+    duplicateLinkCount > 0 ||
+    analysis.tooManyLinks.length > 0 ||
+    analysis.noLinks.length > 0 ||
+    analysis.orphans.length > 0
+  if (internalChecksFailed) {
+    hasErrors = true
+  }
   if (outputJson) {
     const report = {
       maxLinksThreshold: analysis.maxLinksThreshold,
@@ -472,14 +490,6 @@ async function runChecks() {
     console.log(JSON.stringify(report, null, 2))
     process.exit(hasErrors ? 1 : 0)
   }
-  const duplicateExtraCount = [...analysis.duplicateByPage.values()].reduce(
-    (sum, dups) => sum + dups.reduce((s, d) => s + (d.count - 1), 0),
-    0
-  )
-  const duplicateLinkCount = [...analysis.duplicateByPage.values()].reduce(
-    (sum, dups) => sum + dups.length,
-    0
-  )
   const notUsefulTotal =
     analysis.broken.length + analysis.selfLinks.length + duplicateExtraCount
 
@@ -537,7 +547,16 @@ async function runChecks() {
 
   console.log('\n--- Summary ---')
   if (hasErrors) {
-    console.log(`${red}Some checks failed.${reset}\n`)
+    const failed = []
+    if (analysis.broken.length > 0) failed.push(`Broken internal links (${analysis.broken.length})`)
+    if (analysis.selfLinks.length > 0) failed.push(`Self-links (${analysis.selfLinks.length})`)
+    if (duplicateLinkCount > 0) failed.push(`Duplicate links on same page (${duplicateExtraCount} extra)`)
+    if (analysis.tooManyLinks.length > 0) failed.push(`Pages with too many links (${analysis.tooManyLinks.length})`)
+    if (analysis.noLinks.length > 0) failed.push(`Pages with no links (${analysis.noLinks.length})`)
+    if (analysis.orphans.length > 0) failed.push(`Orphan pages (${analysis.orphans.length})`)
+    if (invalidInternalLinks.length > 0) failed.push(`Invalid internal links (${invalidInternalLinks.length})`)
+    if (checkExternal && brokenExternalLinks.length > 0) failed.push(`Broken external links (${brokenExternalLinks.length})`)
+    console.log(`${red}Failed: ${failed.join(', ')}.${reset}\n`)
     process.exit(1)
   }
   console.log(`${green}All checks passed.${reset}\n`)
