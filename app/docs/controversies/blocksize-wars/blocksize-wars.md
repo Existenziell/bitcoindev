@@ -22,90 +22,33 @@ This seemingly simple question divided the community into two camps with fundame
 
 ## The Two Sides
 
-### Big Blockers
+| Aspect | Big Blockers | Small Blockers |
+|--------|---------------|----------------|
+| **Core belief** | Scale on-chain; increase block size to handle more transactions | Scale off-chain; keep blocks small to preserve decentralization |
+| **Approach** | More transactions per block, lower fees; keep all transactions on main chain | Layer 2 (e.g. Lightning), SegWit; maintain low node operation costs |
+| **Proposals** | 2 MB, 8 MB, 32 MB, or no limit; let market decide | Keep 1 MB limit; SegWit; Lightning Network; optimize transaction efficiency |
+| **Key advocates** | Bitcoin XT, Bitcoin Classic, Bitcoin Unlimited, Bitcoin Cash | Bitcoin Core developers, most node operators, decentralization-focused community |
 
-**Core Belief:**
-- Bitcoin should scale on-chain
-- Increase block size to handle more transactions
-- Keep all transactions on the main chain
-- Lower fees through increased capacity
-
-**Proposed Solutions:**
-- Increase to 2 MB, 8 MB, or even 32 MB blocks
-- Remove block size limit entirely
-- Let the market decide optimal block size
-
-**Key Advocates:**
-- Bitcoin XT (2 MB proposal)
-- Bitcoin Classic (2 MB proposal)
-- Bitcoin Unlimited (removable limit)
-- Bitcoin Cash (8 MB, later increased)
-
-### Small Blockers
-
-**Core Belief:**
-- Bitcoin should scale off-chain
-- Keep blocks small to preserve decentralization
-- Use Layer 2 solutions (Lightning Network)
-- Maintain low node operation costs
-
-**Proposed Solutions:**
-- Keep 1 MB limit
-- Implement Segregated Witness (SegWit)
-- Build Lightning Network for scaling
-- Optimize transaction efficiency
-
-**Key Advocates:**
-- Bitcoin Core developers
-- Most node operators
-- Decentralization-focused community
+**Key advocate projects (big blockers):** Bitcoin XT (2 MB), Bitcoin Classic (2 MB), Bitcoin Unlimited (removable limit), Bitcoin Cash (8 MB, later 32 MB).
 
 ---
 
 ## Timeline of Events
 
-### 2010: The 1 MB Limit
+The following table summarizes the main events. The resolution was SegWit activation only; the planned 2 MB hard fork (SegWit2x) was abandoned.
 
-- **Satoshi Nakamoto** sets 1 MB block size limit
-- Initially a spam protection measure
-- Blocks were mostly empty at the time
-- Limit was meant to be temporary
-
-### 2015: Early Proposals
-
-**Bitcoin XT (August 2015)**
-- Proposed increasing to 2 MB, then 8 MB
-- Required 75% miner support
-- Controversial hard fork proposal
-- Rejected by community
-
-**Bitcoin Classic (January 2016)**
-- Proposed 2 MB block size increase
-- Simpler proposal than XT
-- Gained some miner support
-- Eventually abandoned
-
-### 2016: Bitcoin Unlimited
-
-**Bitcoin Unlimited (March 2016)**
-- Proposed removing block size limit entirely
-- Let miners vote on block size
-- "Emergent consensus" mechanism
-- Gained significant miner support (~30-40%)
-
-### 2017: The Resolution
-
-**SegWit Activation (August 2017)**
-- Segregated Witness soft fork activated
-- Increased effective block capacity to ~2 MB
-- Fixed transaction malleability
-- Enabled Lightning Network
-
-**Bitcoin Cash Hard Fork (August 1, 2017)**
-- Big blockers created Bitcoin Cash (BCH)
-- 8 MB block size limit
-- Separate blockchain from Bitcoin
-- Permanent chain split
+| Year | Event | Summary |
+|------|-------|---------|
+| 2010 | 1 MB limit | Satoshi sets limit (spam protection; intended temporary). Blocks were mostly empty. |
+| Aug 2015 | Bitcoin XT | 2 MB → 8 MB proposal, 75% miner support; rejected by community. |
+| Dec 2015 | Hong Kong | "Scaling II" conference; miners and developers seek compromise. |
+| Jan 2016 | Bitcoin Classic | 2 MB proposal; some miner support; eventually abandoned. |
+| Mar 2016 | Bitcoin Unlimited | Removable limit, miner vote ("emergent consensus"); ~30–40% support. |
+| May 2017 | New York Agreement (NYA) | ~50+ companies: SegWit first, then 2 MB hard fork (SegWit2x). Unlocked miner signalling. |
+| Aug 1, 2017 | UASF / BIP 148 | User-activated soft fork; nodes reject non-SegWit blocks; shifted leverage to users/nodes. BIP 91 helped avoid chain split. |
+| Aug 2017 | SegWit | Soft fork activates; ~2 MB effective capacity; fixed malleability; enabled Lightning. |
+| Aug 1, 2017 | Bitcoin Cash | Hard fork; 8 MB blocks; permanent chain split. |
+| Nov 2017 | SegWit2x | Planned 2 MB hard fork abandoned; many NYA signatories withdrew. |
 
 ---
 
@@ -113,47 +56,21 @@ This seemingly simple question divided the community into two camps with fundame
 
 ### Arguments for Bigger Blocks
 
-1. **On-Chain Scaling**
-   - More transactions per block = lower fees
-   - Simpler solution (no complex Layer 2)
-   - Users want on-chain transactions
-
-2. **User Experience**
-   - Faster confirmations
-   - Lower fees
-   - Better for everyday payments
-
-3. **Technical Feasibility**
-   - Storage is cheap
-   - Bandwidth has improved
-   - Modern hardware can handle larger blocks
-
-4. **Satoshi's Vision**
-   - Satoshi mentioned increasing block size
-   - Was meant to be temporary limit
-   - Should adapt to demand
+| Argument | Key points |
+|----------|------------|
+| **On-chain scaling** | More transactions per block = lower fees; simpler than Layer 2; users want on-chain transactions. |
+| **User experience** | Faster confirmations, lower fees, better for everyday payments. |
+| **Technical feasibility** | Storage is cheap; bandwidth has improved; modern hardware can handle larger blocks. |
+| **Satoshi's vision** | Satoshi mentioned increasing block size; limit was meant to be temporary; should adapt to demand. |
 
 ### Arguments for Small Blocks
 
-1. **Decentralization**
-   - Larger blocks = higher node operation costs
-   - Fewer people can run full nodes
-   - Centralization risk
-
-2. **Network Security**
-   - Slower block propagation with larger blocks
-   - More orphan blocks
-   - Weaker network security
-
-3. **Off-Chain Scaling**
-   - Lightning Network can handle millions of transactions
-   - On-chain for settlement, off-chain for payments
-   - Better long-term solution
-
-4. **Economic Security**
-   - Higher fees = better security
-   - Miners need fees after halvings
-   - Fee market is important
+| Argument | Key points |
+|----------|------------|
+| **Decentralization** | Larger blocks = higher node costs; fewer full nodes; centralization risk. |
+| **Network security** | Slower block propagation; more orphan blocks; weaker network security. |
+| **Off-chain scaling** | Lightning can handle millions of transactions; on-chain for settlement, off-chain for payments. |
+| **Economic security** | Higher fees = better security; miners need fees after halvings; fee market matters. |
 
 ---
 
@@ -161,68 +78,33 @@ This seemingly simple question divided the community into two camps with fundame
 
 ### Block Size Limits
 
-**Bitcoin (BTC):**
-- Block limit is weight-based (4,000,000 weight units), not a byte cap. The original 1 MB limit was superseded by SegWit; effective capacity up to ~3.4 MB.
-
-**Bitcoin Cash (BCH):**
-- Started: 8 MB
-- Current: 32 MB
-- Plans for even larger blocks
+| Chain | Limit | Notes |
+|-------|-------|-------|
+| **Bitcoin (BTC)** | 4,000,000 weight units (weight-based) | Original 1 MB byte cap superseded by SegWit; effective capacity up to ~3.4 MB. |
+| **Bitcoin Cash (BCH)** | 8 MB (start), 32 MB (current) | Plans for larger blocks. |
 
 ### SegWit Solution
 
-Segregated Witness (SegWit) was the compromise solution:
+Segregated Witness (SegWit) was the compromise solution: **soft fork** (backward compatible); **witness data** moved outside base block; **effective capacity** typical ~1.6–2.25 MB, max ~3.4 MB; **transaction malleability** fixed; **Lightning Network** enabled.
 
-- **Soft Fork**: Backward compatible
-- **Witness Data**: Moved outside base block
-- **Effective Capacity**: typical blocks ~1.6-2.25 MB; max up to ~3.4 MB (4M weight units)
-- **Transaction Malleability**: Fixed
-- **Lightning Network**: Enabled
+### Network Metrics (2024)
 
-### Network Metrics
-
-**Bitcoin (BTC) - 2024:**
-- Average block size: ~1.6-2.25 MB (with SegWit); max block size up to ~3.4 MB
-- Outputs per block: more meaningful than transaction count (batching varies); on-chain limit up to ~32,000 outputs per block (4M weight unit limit; exact number depends on output types)
-- Average fee: Variable ($1-50+)
-- Full node count: ~25,000 listening (reachable) nodes; ~69,000 total full nodes globally ([node map](https://newhedge.io/bitcoin/node-map)). Public crawls (e.g. Bitnodes) only count listening nodes; non-listening nodes relay blocks and transactions the same but cannot be used to bootstrap new nodes.
-
-**Bitcoin Cash (BCH) - 2024:**
-- Average block size: ~100-500 KB
-- Transactions per block: ~500-2,000
-- Average fee: Very low (<$0.01)
+| Metric | Bitcoin (BTC) | Bitcoin Cash (BCH) |
+|--------|----------------|---------------------|
+| **Block size** | ~1.6–2.25 MB avg (SegWit); max ~3.4 MB | ~100–500 KB avg |
+| **Outputs / tx per block** | Up to ~32,000 outputs (4M WU limit; depends on output types) | ~500–2,000 tx/block |
+| **Average fee** | Variable ($1–50+) | Very low (<$0.01) |
+| **Full nodes** | ~25,000 listening; ~69,000 total ([node map](https://newhedge.io/bitcoin/node-map)). Non-listening nodes relay the same but don't bootstrap. | Smaller network |
 
 ---
 
 ## The Outcome
 
-### Bitcoin (BTC) Won
-
-**Results:**
-- Replaced the fixed 1 MB byte limit with a weight-based limit (4M WU) via SegWit; no hard fork to a larger byte cap
-- Implemented SegWit for scaling
-- Lightning Network developed
-- Focus on decentralization preserved
-
-**Current Status:**
-- ~80% of transactions use SegWit
-- Lightning Network growing
-- Fees remain variable but manageable
-- Strong decentralization
-
-### Bitcoin Cash (BCH) Split
-
-**Results:**
-- Created separate blockchain
-- 8 MB blocks (later increased to 32 MB)
-- Smaller network and ecosystem
-
-**Current Status:**
-- Separate cryptocurrency
-- Lower market cap than Bitcoin
-- Different development path
-- Still active but smaller community
-- Markets itself on low on-chain fees; in practice, fees in Bitcoin payment channels (e.g. Lightning) are often lower for users
+| Aspect | Bitcoin (BTC) | Bitcoin Cash (BCH) |
+|--------|----------------|---------------------|
+| **Scaling approach** | Weight-based limit (4M WU) via SegWit; no hard fork to larger byte cap; Lightning Network | On-chain; 8 MB → 32 MB blocks; separate chain |
+| **Results** | SegWit implemented; LN developed; decentralization preserved | Separate blockchain; smaller network and ecosystem |
+| **Current status** | ~80% SegWit; LN growing; variable but manageable fees; strong decentralization | Separate cryptocurrency; lower market cap; smaller community; markets low on-chain fees (Lightning often lower for users) |
 
 ---
 
@@ -252,34 +134,10 @@ Segregated Witness (SegWit) was the compromise solution:
 
 ## Impact on Bitcoin
 
-### Positive Outcomes
-
-1. **Clarified Vision**: Bitcoin's focus on decentralization was reinforced
-2. **SegWit Activation**: Enabled Lightning Network and other innovations
-3. **Community Cohesion**: Core developers and community aligned
-4. **Innovation**: Led to development of Layer 2 solutions
-
-### Negative Outcomes
-
-1. **Minority split**: A small group forked off; the overwhelming majority of users and developers stayed on Bitcoin.
-3. **Brand confusion**: Many coins use Bitcoin-related names (not only BCH); the fork added to existing naming confusion.
-4. **Delayed Scaling**: Took years to resolve
-
----
-
-## Current Status
-
-### Bitcoin (BTC)
-- **Block Size**: Weight-based limit (4M WU); typical ~1.6-2.25 MB, max ~3.4 MB
-- **Scaling**: Lightning Network + SegWit
-- **Philosophy**: Decentralization first
-- **Status**: Dominant Bitcoin implementation
-
-### Bitcoin Cash (BCH)
-- **Block Size**: 32 MB
-- **Scaling**: On-chain only
-- **Philosophy**: Big blocks, low on-chain fees (Lightning on Bitcoin often yields lower fees)
-- **Status**: Separate cryptocurrency
+| Type | Points |
+|------|--------|
+| **Positive** | Clarified vision: Bitcoin's focus on decentralization reinforced. SegWit activation enabled Lightning and other innovations. Core developers and community aligned. Layer 2 solutions developed. |
+| **Negative** | Minority split (small group forked; majority stayed on Bitcoin). Brand confusion (many coins use Bitcoin-related names). Delayed scaling: took years to resolve. |
 
 ---
 

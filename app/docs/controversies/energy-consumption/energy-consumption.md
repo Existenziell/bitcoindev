@@ -91,7 +91,6 @@ To understand Bitcoin's energy consumption, it's helpful to compare it with othe
 | **Bitcoin** | ~100-150 TWh | Bitcoin network (2021 estimate) |
 | **US Military** | ~30 TWh | US military energy consumption (30,000 GWh) |
 
-> Perspective on Energy Inequality
 > **350 million people in the US use more electricity for cooling than 1.1 billion people in Africa use for everything.**
 >
 > This stark comparison highlights the massive energy inequality between developed and developing nations. When evaluating Bitcoin's energy consumption, it's crucial to remember that energy use is not evenly distributed globally, and what seems like "too much" energy in one context may be trivial compared to other uses.
